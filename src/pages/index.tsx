@@ -1,6 +1,8 @@
+import { type FC } from 'react';
+
 import Base from 'layouts/Base/Base';
 
-export default function Home() {
+const Home: FC = () => {
   return (
     <Base
       title="Home"
@@ -11,4 +13,6 @@ export default function Home() {
       <div>hello</div>
     </Base>
   );
-}
+};
+
+export default Home;
