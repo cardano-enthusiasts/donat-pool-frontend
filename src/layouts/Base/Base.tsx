@@ -1,5 +1,7 @@
 import NextHead from 'next/head';
 
+import Header from 'shared/components/Header/Header';
+
 import type { Props } from './types';
 
 const Base = ({ keywords, description, title, children }: Props) => {
@@ -12,6 +14,7 @@ const Base = ({ keywords, description, title, children }: Props) => {
         <meta name="description" content={description} />
         <title>{title}</title>
       </NextHead>
+      <Header />
       <main>{children}</main>
     </>
   );
