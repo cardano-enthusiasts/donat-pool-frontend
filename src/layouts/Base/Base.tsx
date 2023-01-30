@@ -1,5 +1,6 @@
 import NextHead from 'next/head';
 
+import Footer from 'shared/components/Footer/Footer';
 import Header from 'shared/components/Header/Header';
 
 import type { Props } from './types';
@@ -41,6 +42,7 @@ const Base = ({ keywords, description, title, children }: Props) => {
       </NextHead>
       <Header />
       <main>{children}</main>
+      <Footer />
     </>
   );
 };

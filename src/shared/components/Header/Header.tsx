@@ -4,25 +4,24 @@ import LinkNext from 'next/link';
 import {
   Inner,
   Links,
-  LogoLink,
   Wrapper,
   LinksAndWallet,
   LinkWrapper,
 } from './Header.styled';
+import Logo from '../Logo/Logo';
 import { WalletButton } from '../WalletButton/WalletButton';
 
 const Header = () => {
   const links = [
     { title: 'Home', href: '/', id: 0 },
     { title: 'My profile', href: '/mock-address', id: 1 },
+    { title: 'About us', href: '/mock-address', id: 2 },
   ];
 
   return (
     <Wrapper>
       <Inner>
-        <LinkNext href="/" passHref legacyBehavior>
-          <LogoLink>Donat.Pool</LogoLink>
-        </LinkNext>
+        <Logo />
         <LinksAndWallet>
           <Links>
             {links.map(({ title, href, id }) => (

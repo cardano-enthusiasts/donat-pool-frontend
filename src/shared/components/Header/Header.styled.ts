@@ -13,13 +13,6 @@ const Inner = styled.div`
   padding: 20px 0;
 `;
 
-const LogoLink = styled.a`
-  font-size: 40px;
-  font-weight: bold;
-  color: #006c84;
-  text-decoration: none;
-`;
-
 const Links = styled.div`
   display: flex;
   gap: 30px;
@@ -34,4 +27,4 @@ const LinksAndWallet = styled.div`
 
 const LinkWrapper = styled.div``;
 
-export { Wrapper, Inner, LogoLink, Links, LinksAndWallet, LinkWrapper };
+export { Wrapper, Inner, Links, LinksAndWallet, LinkWrapper };
