@@ -1,7 +1,15 @@
 import Link from '@mui/material/Link';
 import LinkNext from 'next/link';
 
-import { Inner, Links, Logo, Wrapper } from './Header.styled';
+import {
+  Inner,
+  Links,
+  LogoLink,
+  Wrapper,
+  LinksAndWallet,
+  LinkWrapper,
+} from './Header.styled';
+import { WalletButton } from '../WalletButton/WalletButton';
 
 const Header = () => {
   const links = [
@@ -12,14 +20,21 @@ const Header = () => {
   return (
     <Wrapper>
       <Inner>
-        <Logo></Logo>
-        <Links>
-          {links.map(({ title, href, id }) => (
-            <LinkNext href={href} key={id} passHref legacyBehavior>
-              <Link underline="none">{title}</Link>
-            </LinkNext>
-          ))}
-        </Links>
+        <LinkNext href="/" passHref legacyBehavior>
+          <LogoLink>Donat.Pool</LogoLink>
+        </LinkNext>
+        <LinksAndWallet>
+          <Links>
+            {links.map(({ title, href, id }) => (
+              <LinkWrapper key={id}>
+                <LinkNext href={href} passHref legacyBehavior>
+                  <Link underline="none">{title}</Link>
+                </LinkNext>
+              </LinkWrapper>
+            ))}
+          </Links>
+          <WalletButton />
+        </LinksAndWallet>
       </Inner>
     </Wrapper>
   );

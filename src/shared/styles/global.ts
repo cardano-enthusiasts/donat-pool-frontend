@@ -16,7 +16,7 @@ const GlobalStyles = createGlobalStyle`
   }
 
   body {
-    background-color: #FFF;
+    background-color: #E2E8E4;
   }
 
   #__next {

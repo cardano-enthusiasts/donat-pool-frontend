@@ -1,18 +1,19 @@
 import { type FC } from 'react';
 
 import Base from 'layouts/Base/Base';
+import Home from 'layouts/Home/Home';
 
-const Home: FC = () => {
+const HomePage: FC = () => {
   return (
     <Base
-      title="Home"
+      title="Donat.Pool"
       description="description"
       keywords="keywords"
       activeHeaderItem="home"
     >
-      <div>hello</div>
+      <Home />
     </Base>
   );
 };
 
-export default Home;
+export default HomePage;
