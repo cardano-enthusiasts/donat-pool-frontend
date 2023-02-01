@@ -1,9 +1,10 @@
+import { type Theme } from '@mui/material';
 import styled from 'styled-components';
 
-const LogoLink = styled.a`
+const LogoLink = styled.a<{ theme: Theme }>`
   font-size: 40px;
   font-weight: bold;
-  color: #006c84;
+  color: ${({ theme }) => theme.palette.primary.main};
   text-decoration: none;
 `;
 

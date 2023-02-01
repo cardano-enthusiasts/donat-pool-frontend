@@ -2,7 +2,7 @@ import { createGlobalStyle } from 'styled-components';
 
 import fonts from 'shared/styles/fonts.module.css';
 
-const GlobalStyles = createGlobalStyle`
+const GlobalStyles = createGlobalStyle<{ neutral }>`
   html,
   body {
     padding: 0;
@@ -16,7 +16,7 @@ const GlobalStyles = createGlobalStyle`
   }
 
   body {
-    background-color: #E2E8E4;
+    background-color:${({ neutral }) => neutral};
   }
 
   #__next {
