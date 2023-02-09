@@ -1,6 +1,6 @@
 import { useTheme } from '@emotion/react';
 import { Button } from '@mui/material';
-import Image from 'next/image';
+// import Image from 'next/image';
 
 import Cards from 'shared/components/Cards/Cards';
 
@@ -17,12 +17,12 @@ import {
 } from './Home.styled';
 
 const Home = () => {
-  const theme = useTheme();
+  // const theme = useTheme();
 
   return (
     <Wrapper>
-      <MainScreen theme={theme}>
-        <Intro theme={theme}>
+      <MainScreen>
+        <Intro>
           <IntroInner>
             <Title>
               Some <span>header</span>
@@ -32,17 +32,17 @@ const Home = () => {
               elit
             </Description>
             <MainButtons>
-              <Button variant="contained" color="accent">
+              {/* <Button variant="contained" color="accent">
                 Create project
               </Button>
               <Button variant="outlined" color="accent">
                 Learn more
-              </Button>
+              </Button> */}
             </MainButtons>
           </IntroInner>
         </Intro>
         <BigImg>
-          <Image src="/img/donut.svg" width="300" height="300" alt="donut" />
+          <img src="img/donut.svg" alt="donat" ></img>
         </BigImg>
       </MainScreen>
       <CardsWrapper>

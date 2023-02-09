@@ -1,5 +1,4 @@
-import Link from '@mui/material/Link';
-import LinkNext from 'next/link';
+import { Link } from 'react-router-dom';
 
 import {
   Inner,
@@ -26,9 +25,7 @@ const Header = () => {
           <Links>
             {links.map(({ title, href, id }) => (
               <LinkWrapper key={id}>
-                <LinkNext href={href} passHref legacyBehavior>
-                  <Link underline="none">{title}</Link>
-                </LinkNext>
+                <Link to={href}>{title}</Link>
               </LinkWrapper>
             ))}
           </Links>

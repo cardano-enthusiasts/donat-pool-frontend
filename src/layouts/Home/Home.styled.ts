@@ -11,12 +11,12 @@ const MainScreen = styled.div<{ theme: Theme }>`
   display: flex;
   min-height: 60vh;
   margin-top: 150px;
-  color: ${({ theme }) => theme.palette.primary.main};
+  /* color: ${({ theme }) => theme.palette.primary.main}; */
 `;
 
 const Intro = styled.div`
   span {
-    color: ${({ theme }) => theme.palette.primary.main};
+    /* color: ${({ theme }) => theme.palette.primary.main}; */
   }
 `;
 

@@ -1,5 +1,5 @@
 import { useTheme } from '@emotion/react';
-import LinkNext from 'next/link';
+import { Link } from 'react-router-dom';
 
 import { LogoLink } from './Logo.styled';
 
@@ -7,9 +7,9 @@ const Logo = () => {
   const theme = useTheme();
 
   return (
-    <LinkNext href="/" passHref legacyBehavior>
+    <Link to="/">
       <LogoLink theme={theme}>Donat.Pool</LogoLink>
-    </LinkNext>
+    </Link>
   );
 };
 

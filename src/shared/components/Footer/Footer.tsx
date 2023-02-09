@@ -1,8 +1,8 @@
 import FacebookIcon from '@mui/icons-material/Facebook';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import TelegramIcon from '@mui/icons-material/Telegram';
-import Link from '@mui/material/Link';
-import LinkNext from 'next/link';
+import LinkUI from '@mui/material/Link';
+import { Link } from 'react-router-dom';
 
 import { Column, Links, Wrapper, LogoAndSocials, Icons } from './Footer.styled';
 import Logo from '../Logo/Logo';
@@ -56,9 +56,9 @@ const Footer = () => {
         {links.map((column, index) => (
           <Column key={index.toString()}>
             {column.map(({ title, href, id }) => (
-              <LinkNext href={href} passHref legacyBehavior key={id}>
-                <Link underline="none">{title}</Link>
-              </LinkNext>
+              <LinkUI component={Link} to={href} key={id} underline="none">
+                {title}
+              </LinkUI>
             ))}
           </Column>
         ))}
