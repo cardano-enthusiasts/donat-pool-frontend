@@ -11,6 +11,7 @@ const Inner = styled.div`
   align-items: center;
   justify-content: space-between;
   padding: 20px 0;
+  font-family: Montserrat, 'Open Sans', sans-serif;
 `;
 
 const Links = styled.div`

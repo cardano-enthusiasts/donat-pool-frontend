@@ -1,7 +1,3 @@
-import { useTheme } from '@emotion/react';
-import { Button } from '@mui/material';
-// import Image from 'next/image';
-
 import Cards from 'shared/components/Cards/Cards';
 
 import {
@@ -17,8 +13,6 @@ import {
 } from './Home.styled';
 
 const Home = () => {
-  // const theme = useTheme();
-
   return (
     <Wrapper>
       <MainScreen>

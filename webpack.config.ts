@@ -1,14 +1,14 @@
 import CopyPlugin from 'copy-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
-import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+// import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import path from 'path';
 import 'webpack-dev-server';
 
 const isProduction = process.env.NODE_ENV === 'production';
 
-const stylesHandler = isProduction
-  ? MiniCssExtractPlugin.loader
-  : 'style-loader';
+// const stylesHandler = isProduction
+//   ? MiniCssExtractPlugin.loader
+//   : 'style-loader';
 
 const config = {
   mode: isProduction ? 'production' : 'development',
@@ -25,9 +25,8 @@ const config = {
   stats: { errorDetails: true },
 
   devServer: {
-    open: true,
     hot: true,
-    port: 4009,
+    port: 4010,
     client: {
       overlay: {
         warnings: false,
@@ -86,16 +85,27 @@ const config = {
         type: 'asset/source',
       },
       {
-        test: /\.css$/i,
-        use: [stylesHandler, 'css-loader', 'postcss-loader'],
+        test: /\.s[ac]ss$/i,
+        use: [
+          // Creates `style` nodes from JS strings
+          'style-loader',
+          // Translates CSS into CommonJS
+          'css-loader',
+          // Compiles Sass to CSS
+          'sass-loader',
+        ],
       },
       {
-        test: /\.(eot|svg|ttf|woff|woff2|png|jpg|gif)$/i,
+        test: /\.(eot|svg|ttf|png|jpg|gif)$/i,
         type: 'asset',
       },
       {
-        test: /\.(woff|woff2|eot|ttf|otf)$/i,
-        type: 'asset/resource',
+        test: /\.(woff|woff2)$/i,
+        use: [
+          {
+            loader: 'file-loader',
+          },
+        ],
       },
     ],
   },

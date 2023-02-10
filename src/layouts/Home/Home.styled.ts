@@ -1,4 +1,3 @@
-import { type Theme } from '@mui/material';
 import styled from 'styled-components';
 
 import { baseContainer } from 'shared/styles/mixins';
@@ -7,7 +6,7 @@ const Wrapper = styled.div`
   ${baseContainer}
 `;
 
-const MainScreen = styled.div<{ theme: Theme }>`
+const MainScreen = styled.div`
   display: flex;
   min-height: 60vh;
   margin-top: 150px;
