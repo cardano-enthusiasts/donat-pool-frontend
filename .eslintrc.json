@@ -66,6 +66,7 @@
           "groups": [["builtin", "external"], ["internal"], ["parent", "sibling", "index"]],
           "newlines-between": "always",
           "alphabetize": { "order": "asc", "caseInsensitive": true }
-        }]
+        }],
+    "@typescript-eslint/restrict-template-expressions": "off"
   }
 }
