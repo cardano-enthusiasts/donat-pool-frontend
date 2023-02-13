@@ -18,4 +18,27 @@ const baseContainer = css`
   }
 `;
 
-export { baseContainer };
+const link = css`
+  a {
+    text-decoration: none;
+    color: ${({ theme }) => theme.colors.dark75};
+
+    &:hover {
+      color: ${({ theme }) => theme.colors.dark100};
+    }
+  }
+`;
+
+const h1 = css`
+  font-size: 32px;
+  line-height: 120%;
+  font-weight: 700;
+  color: ${({ theme }) => theme.colors.dark100};
+`;
+
+const h2 = css`
+  font-weight: 700;
+  line-height: 120%;
+`;
+
+export { baseContainer, link, h1, h2 };

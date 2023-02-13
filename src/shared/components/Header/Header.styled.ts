@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { baseContainer } from 'shared/styles/mixins';
+import { baseContainer, link } from 'shared/styles/mixins';
 
 const Wrapper = styled.header`
   ${baseContainer}
@@ -26,6 +26,8 @@ const LinksAndWallet = styled.div`
   align-items: center;
 `;
 
-const LinkWrapper = styled.div``;
+const LinkWrapper = styled.div`
+  ${link}
+`;
 
 export { Wrapper, Inner, Links, LinksAndWallet, LinkWrapper };

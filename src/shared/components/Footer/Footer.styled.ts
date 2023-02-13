@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { baseContainer } from 'shared/styles/mixins';
+import { baseContainer, link } from 'shared/styles/mixins';
 
 const Wrapper = styled.footer`
   ${baseContainer};
@@ -32,4 +32,8 @@ const Icons = styled.div`
   gap: 20px;
 `;
 
-export { Wrapper, Links, Column, LogoAndSocials, Icons };
+const LinkWrapper = styled.div`
+  ${link}
+`;
+
+export { Wrapper, Links, Column, LogoAndSocials, Icons, LinkWrapper };

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { baseContainer } from 'shared/styles/mixins';
+import { baseContainer, h1, h2 } from 'shared/styles/mixins';
 
 const Wrapper = styled.div`
   ${baseContainer}
@@ -20,14 +20,14 @@ const Intro = styled.div`
 `;
 
 const Title = styled.h1`
+  ${h1};
   max-width: 500px;
-  font-size: 70px;
   margin-bottom: 30px;
 `;
 
 const Description = styled.h2`
+  ${h2};
   max-width: 500px;
-  font-size: 30px;
   line-height: 120%;
 `;
 

@@ -1,6 +1,13 @@
 import { Link } from 'react-router-dom';
 
-import { Column, Links, Wrapper, LogoAndSocials, Icons } from './Footer.styled';
+import {
+  Column,
+  Links,
+  Wrapper,
+  LogoAndSocials,
+  Icons,
+  LinkWrapper,
+} from './Footer.styled';
 import Logo from '../Logo/Logo';
 
 const Footer = () => {
@@ -30,10 +37,9 @@ const Footer = () => {
         {links.map((column, index) => (
           <Column key={index.toString()}>
             {column.map(({ title, href, id }) => (
-              <div key={id}></div>
-              // <LinkUI component={Link} to={href} key={id} underline="none">
-              //   {title}
-              // </LinkUI>
+              <LinkWrapper key={id}>
+                <Link to={href}>{title}</Link>
+              </LinkWrapper>
             ))}
           </Column>
         ))}

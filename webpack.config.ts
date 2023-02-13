@@ -1,14 +1,9 @@
 import CopyPlugin from 'copy-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
-// import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import path from 'path';
 import 'webpack-dev-server';
 
 const isProduction = process.env.NODE_ENV === 'production';
-
-// const stylesHandler = isProduction
-//   ? MiniCssExtractPlugin.loader
-//   : 'style-loader';
 
 const config = {
   mode: isProduction ? 'production' : 'development',
@@ -86,14 +81,7 @@ const config = {
       },
       {
         test: /\.s[ac]ss$/i,
-        use: [
-          // Creates `style` nodes from JS strings
-          'style-loader',
-          // Translates CSS into CommonJS
-          'css-loader',
-          // Compiles Sass to CSS
-          'sass-loader',
-        ],
+        use: ['style-loader', 'css-loader', 'sass-loader'],
       },
       {
         test: /\.(eot|svg|ttf|png|jpg|gif)$/i,
