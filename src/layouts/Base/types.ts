@@ -2,7 +2,7 @@ interface Props {
   title: string;
   description: string;
   keywords: string;
-  activeHeaderItem: 'home';
+  activeHeaderItem: 'home' | 'management';
   children: React.ReactElement;
 }
 

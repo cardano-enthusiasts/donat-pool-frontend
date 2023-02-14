@@ -1,5 +1,7 @@
 import { createGlobalStyle } from 'styled-components';
 
+import { theme } from './theme';
+
 const GlobalStyles = createGlobalStyle`
   @font-face {
     font-family: 'Montserrat';
@@ -47,13 +49,14 @@ const GlobalStyles = createGlobalStyle`
   html {
     font-family: Montserrat, 'Open Sans', sans-serif;
     font-size: 16px;
+    color: ${theme.colors.dark75};
   }
 
   body {
     background-color: white;
   }
 
-  #__next {
+  #root {
     display: flex;
     flex-direction: column;
     height: 100%;

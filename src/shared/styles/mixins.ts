@@ -41,4 +41,12 @@ const h2 = css`
   line-height: 120%;
 `;
 
-export { baseContainer, link, h1, h2 };
+const cardWrapper = css`
+  background: #fff;
+  border: 1px solid #fff;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  padding: 40px 30px;
+`;
+
+export { baseContainer, link, h1, h2, cardWrapper };

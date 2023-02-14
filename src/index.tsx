@@ -4,6 +4,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 
 import HomePage from 'pages/HomePage';
+import ManagementPage from 'pages/ManagementPage';
 import { GlobalStyles } from 'shared/styles/global';
 
 import { theme } from './shared/styles/theme';
@@ -14,8 +15,8 @@ const router = createBrowserRouter([
     element: <HomePage />,
   },
   {
-    path: 'team',
-    element: <h1>team</h1>,
+    path: 'management',
+    element: <ManagementPage />,
   },
 ]);
 
