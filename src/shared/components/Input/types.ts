@@ -1,3 +1,7 @@
 export interface Props {
-  type: 'text';
+  value: string | number;
+  onChange: () => void;
+  dataAttr?: string;
+  type?: 'text' | 'submit';
+  title?: string | null;
 }

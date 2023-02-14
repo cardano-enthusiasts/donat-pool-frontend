@@ -44,6 +44,12 @@ const h2 = css`
   line-height: 120%;
 `;
 
+const h3 = css`
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 13px;
+`;
+
 const cardWrapper = css`
   background: #fff;
   border: 1px solid #fff;
@@ -52,4 +58,4 @@ const cardWrapper = css`
   padding: 40px 30px;
 `;
 
-export { baseContainer, baseInner, link, h1, h2, cardWrapper };
+export { baseContainer, baseInner, link, h1, h2, h3, cardWrapper };

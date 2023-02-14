@@ -4,4 +4,5 @@ export interface Props {
   theme?: 'filled' | 'bordered';
   size?: 's' | 'm';
   type?: 'submit' | 'button';
+  href?: string | null;
 }

@@ -5,6 +5,7 @@ import { ThemeProvider } from 'styled-components';
 
 import HomePage from 'pages/HomePage';
 import ManagementPage from 'pages/ManagementPage';
+import ProfilePage from 'pages/ProfilePage';
 import { GlobalStyles } from 'shared/styles/global';
 
 import { theme } from './shared/styles/theme';
@@ -17,6 +18,10 @@ const router = createBrowserRouter([
   {
     path: 'management',
     element: <ManagementPage />,
+  },
+  {
+    path: 'my-profile',
+    element: <ProfilePage />,
   },
 ]);
 

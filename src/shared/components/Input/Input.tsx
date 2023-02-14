@@ -1,13 +1,23 @@
-import { StyledInput } from './Input.styled';
+import { StyledInput, Title } from './Input.styled';
+import { type Props } from './types';
 
-const Input = ({ value, onChange, dataAttr = '', type = 'text' }) => {
+const Input = ({
+  value,
+  onChange,
+  dataAttr = '',
+  type = 'text',
+  title = null,
+}: Props) => {
   return (
-    <StyledInput
-      type={type}
-      value={value}
-      onChange={onChange}
-      {...{ 'data-type': dataAttr }}
-    />
+    <>
+      <Title>{title}</Title>
+      <StyledInput
+        type={type}
+        value={value}
+        onChange={onChange}
+        {...{ 'data-type': dataAttr }}
+      />
+    </>
   );
 };
 export default Input;

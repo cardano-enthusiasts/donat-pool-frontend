@@ -12,7 +12,6 @@ const Inner = styled.div`
   ${baseInner};
   display: flex;
   justify-content: space-between;
-  box-shadow: 0px 1px 0px rgba(31, 32, 65, 0.1);
 `;
 
 const Links = styled.div`

@@ -14,7 +14,7 @@ const Header = () => {
   const links = [
     { title: 'Home', href: '/', id: 0 },
     { title: 'Management', href: '/management', id: 1 },
-    { title: 'About us', href: '/mock-address', id: 2 },
+    { title: 'My profile', href: '/my-profile', id: 2 },
   ];
 
   return (

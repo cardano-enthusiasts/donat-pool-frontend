@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 
+import { h3 } from 'shared/styles/mixins';
+
 const StyledInput = styled.input`
   width: 100%;
   max-width: 320px;
@@ -22,4 +24,9 @@ const StyledInput = styled.input`
   }
 `;
 
-export { StyledInput };
+const Title = styled.h3`
+  ${h3};
+  margin: 0 0 5px 0;
+`;
+
+export { StyledInput, Title };

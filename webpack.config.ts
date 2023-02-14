@@ -84,6 +84,10 @@ const config = {
         use: ['style-loader', 'css-loader', 'sass-loader'],
       },
       {
+        test: /\.css$/i,
+        use: ['style-loader', 'css-loader'],
+      },
+      {
         test: /\.(eot|svg|ttf|png|jpg|gif)$/i,
         type: 'asset',
       },
