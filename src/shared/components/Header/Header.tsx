@@ -13,7 +13,7 @@ import { WalletButton } from '../WalletButton/WalletButton';
 const Header = () => {
   const links = [
     { title: 'Home', href: '/', id: 0 },
-    { title: 'My profile', href: '/mock-address', id: 1 },
+    { title: 'Management', href: '/management', id: 1 },
     { title: 'About us', href: '/mock-address', id: 2 },
   ];
 

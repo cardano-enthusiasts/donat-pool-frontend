@@ -7,6 +7,7 @@ import {
   LogoAndSocials,
   Icons,
   LinkWrapper,
+  Inner,
 } from './Footer.styled';
 import Logo from '../Logo/Logo';
 
@@ -28,22 +29,24 @@ const Footer = () => {
 
   return (
     <Wrapper>
-      <LogoAndSocials>
-        <Logo />
-        <Icons></Icons>
-      </LogoAndSocials>
+      <Inner>
+        <LogoAndSocials>
+          <Logo />
+          <Icons></Icons>
+        </LogoAndSocials>
 
-      <Links>
-        {links.map((column, index) => (
-          <Column key={index.toString()}>
-            {column.map(({ title, href, id }) => (
-              <LinkWrapper key={id}>
-                <Link to={href}>{title}</Link>
-              </LinkWrapper>
-            ))}
-          </Column>
-        ))}
-      </Links>
+        <Links>
+          {links.map((column, index) => (
+            <Column key={index.toString()}>
+              {column.map(({ title, href, id }) => (
+                <LinkWrapper key={id}>
+                  <Link to={href}>{title}</Link>
+                </LinkWrapper>
+              ))}
+            </Column>
+          ))}
+        </Links>
+      </Inner>
     </Wrapper>
   );
 };

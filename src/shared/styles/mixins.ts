@@ -2,7 +2,6 @@ import { css } from 'styled-components';
 
 const baseContainer = css`
   width: 100%;
-  max-width: 1440px;
   margin: 0 auto;
   padding-left: 70px;
   padding-right: 70px;
@@ -16,6 +15,10 @@ const baseContainer = css`
     padding-left: 30px;
     padding-right: 30px;
   }
+`;
+
+const baseInner = css`
+  max-width: 1440px;
 `;
 
 const link = css`
@@ -49,4 +52,4 @@ const cardWrapper = css`
   padding: 40px 30px;
 `;
 
-export { baseContainer, link, h1, h2, cardWrapper };
+export { baseContainer, baseInner, link, h1, h2, cardWrapper };

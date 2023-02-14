@@ -7,11 +7,11 @@ const Wrapper = styled.div`
 `;
 
 const ManagerEditorWrapper = styled.div`
-  margin: 70px 0;
+  margin: 30px 0;
 `;
 
 const ManagementParamsWrapper = styled.div`
-  margin: 70px 0;
+  margin: 30px 0;
 `;
 
 export { Wrapper, ManagerEditorWrapper, ManagementParamsWrapper };

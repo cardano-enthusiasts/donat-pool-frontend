@@ -1,17 +1,18 @@
 import styled from 'styled-components';
 
-import { baseContainer, link } from 'shared/styles/mixins';
+import { baseContainer, baseInner, link } from 'shared/styles/mixins';
 
 const Wrapper = styled.header`
-  ${baseContainer}
+  ${baseContainer};
+  box-shadow: 0px 10px 20px rgba(31, 32, 65, 0.05);
 `;
 
 const Inner = styled.div`
+  ${baseInner}
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 20px 0;
-  font-family: Montserrat, 'Open Sans', sans-serif;
 `;
 
 const Links = styled.div`
