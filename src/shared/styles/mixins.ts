@@ -2,7 +2,8 @@ import { css } from 'styled-components';
 
 const baseContainer = css`
   width: 100%;
-  margin: 0 auto;
+  display: flex;
+  justify-content: center;
   padding-left: 70px;
   padding-right: 70px;
 
@@ -18,6 +19,7 @@ const baseContainer = css`
 `;
 
 const baseInner = css`
+  width: 100%;
   max-width: 1440px;
 `;
 

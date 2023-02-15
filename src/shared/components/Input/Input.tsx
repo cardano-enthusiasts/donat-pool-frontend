@@ -1,4 +1,4 @@
-import { StyledInput, Title } from './Input.styled';
+import { StyledInput, Title, Wrapper } from './Input.styled';
 import { type Props } from './types';
 
 const Input = ({
@@ -9,7 +9,7 @@ const Input = ({
   title = null,
 }: Props) => {
   return (
-    <>
+    <Wrapper>
       <Title>{title}</Title>
       <StyledInput
         type={type}
@@ -17,7 +17,7 @@ const Input = ({
         onChange={onChange}
         {...{ 'data-type': dataAttr }}
       />
-    </>
+    </Wrapper>
   );
 };
 export default Input;

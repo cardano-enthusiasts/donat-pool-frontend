@@ -1,5 +1,17 @@
 import styled from 'styled-components';
 
-const Form = styled.form``;
+import { h2 } from 'shared/styles/mixins';
 
-export { Form };
+const Form = styled.form`
+  display: grid;
+  grid-template-columns: 1fr;
+  row-gap: 20px;
+  width: 100%;
+`;
+
+const Title = styled.h2`
+  ${h2};
+  margin: 0;
+`;
+
+export { Form, Title };

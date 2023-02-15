@@ -2,7 +2,12 @@ import Button from 'shared/components/Button/Button';
 import ProjectCreator from 'shared/components/ProjectCreator/ProjectCreator';
 import ProjectSidebar from 'shared/components/ProjectSidebar/ProjectSidebar';
 
-import { CreateButtonWrapper, Main, Wrapper } from './Profile.styled';
+import {
+  CreateButtonWrapper,
+  Main,
+  ProjectCreatorWrapper,
+  Wrapper,
+} from './Profile.styled';
 
 const Profile = () => {
   const projects = [
@@ -17,7 +22,9 @@ const Profile = () => {
       </CreateButtonWrapper>
       <Main>
         <ProjectSidebar projects={projects} />
-        <ProjectCreator />
+        <ProjectCreatorWrapper>
+          <ProjectCreator />
+        </ProjectCreatorWrapper>
       </Main>
     </Wrapper>
   );

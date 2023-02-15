@@ -8,10 +8,17 @@ const Wrapper = styled.div`
 
 const CreateButtonWrapper = styled.div`
   align-self: flex-end;
+  margin-bottom: 30px;
 `;
 
 const Main = styled.div`
   display: flex;
+  gap: 100px;
 `;
 
-export { Wrapper, CreateButtonWrapper, Main };
+const ProjectCreatorWrapper = styled.div`
+  display: flex;
+  width: 100%;
+`;
+
+export { Wrapper, CreateButtonWrapper, Main, ProjectCreatorWrapper };

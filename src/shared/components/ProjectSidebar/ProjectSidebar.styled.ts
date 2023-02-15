@@ -1,12 +1,16 @@
 import styled from 'styled-components';
 
-import { h3 } from 'shared/styles/mixins';
+import { h2, h3 } from 'shared/styles/mixins';
 
 const StyledSidebar = styled.aside`
   max-width: 250px;
-  padding: 30px 0;
+  width: 100%;
 `;
 const ProjectList = styled.ul`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 20px;
   padding: 0;
   margin: 0;
 `;
@@ -14,7 +18,12 @@ const ProjectList = styled.ul`
 const Item = styled.li`
   ${h3}
   list-style: none;
-  margin: 20px 0;
+  margin: 0;
 `;
 
-export { StyledSidebar, ProjectList, Item };
+const Title = styled.h2`
+  ${h2}
+  margin: 0 0 20px 0;
+`;
+
+export { StyledSidebar, ProjectList, Item, Title };

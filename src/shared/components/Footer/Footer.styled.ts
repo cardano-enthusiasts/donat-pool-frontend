@@ -5,7 +5,6 @@ import { baseContainer, baseInner, link } from 'shared/styles/mixins';
 const Wrapper = styled.footer`
   ${baseContainer};
   padding: 80px 0;
-  border-top: 1px solid rgba(31, 32, 65, 0.25);
 `;
 
 const Inner = styled.div`

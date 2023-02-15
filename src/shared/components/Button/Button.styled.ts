@@ -2,6 +2,14 @@ import styled, { css } from 'styled-components';
 
 import { type Props } from './types';
 
+const getHoverAndDisabled = (themeType) => {
+  return css`
+    background-image: ${({ theme }) =>
+      themeType === 'bordered' &&
+      `linear-gradient(rgba(255, 255, 255, 0),rgba(255, 255, 255, 0)), ${theme.colors.primaryGradient50}`};
+    opacity: ${themeType === 'filled' && 0.5};
+  `;
+};
 const getButtonStyles = (themeType, size) => {
   return css`
     display: flex;
@@ -32,10 +40,7 @@ const getButtonStyles = (themeType, size) => {
       : '12px 18px 13px'};
 
     &:hover {
-      background-image: ${({ theme }) =>
-        themeType === 'bordered' &&
-        `linear-gradient(rgba(255, 255, 255, 0),rgba(255, 255, 255, 0)), ${theme.colors.primaryGradient50}`};
-      opacity: ${themeType === 'filled' && 0.5};
+      ${getHoverAndDisabled(themeType)};
     }
   `;
 };
@@ -44,13 +49,24 @@ const StyledButton = styled.button<{
   size: Props['size'];
 }>`
   ${({ themeType, size }) => getButtonStyles(themeType, size)};
+  &:disabled {
+    ${({ themeType }) => getHoverAndDisabled(themeType)};
+    cursor: auto;
+  }
 `;
 
 const LinkWrapper = styled.div<{
   themeType: Props['theme'];
   size: Props['size'];
+  isDisabled: boolean;
 }>`
-  ${({ themeType, size }) => getButtonStyles(themeType, size)};
+  a {
+    ${({ themeType, size }) => getButtonStyles(themeType, size)};
+    text-decoration: none;
+    ${({ isDisabled, themeType }) =>
+      isDisabled && getHoverAndDisabled(themeType)}
+    ${({ isDisabled }) => isDisabled && `pointer-events: none;`};
+  }
 `;
 
 export { StyledButton, LinkWrapper };

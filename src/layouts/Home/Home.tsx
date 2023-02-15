@@ -36,7 +36,7 @@ const Home = () => {
           </IntroInner>
         </Intro>
         <BigImg>
-          <img src="img/donut.svg" alt="donat" ></img>
+          <img src="img/donut.svg" alt="donat"></img>
         </BigImg>
       </MainScreen>
       <CardsWrapper>
