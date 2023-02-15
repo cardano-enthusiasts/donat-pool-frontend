@@ -1,12 +1,8 @@
 import styled from 'styled-components';
 
-import { cardWrapper, h2 } from 'shared/styles/mixins';
+import { cardWrapper } from 'shared/styles/mixins';
 
 const Wrapper = styled.div``;
-
-const Title = styled.h2`
-  ${h2}
-`;
 
 const Form = styled.div`
   ${cardWrapper};
@@ -23,6 +19,9 @@ const InputWrapper = styled.div`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 20px;
+  @media (max-width: 500px) {
+    grid-template-columns: 1fr;
+  }
 `;
 const ButtonWrapper = styled.div`
   display: flex;
@@ -31,4 +30,4 @@ const ButtonWrapper = styled.div`
   width: 100%;
 `;
 
-export { Wrapper, Title, Form, Line, ButtonWrapper, InputWrapper };
+export { Wrapper, Form, Line, ButtonWrapper, InputWrapper };

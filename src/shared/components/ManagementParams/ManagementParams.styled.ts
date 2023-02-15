@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { cardWrapper, h2 } from 'shared/styles/mixins';
+import { cardWrapper } from 'shared/styles/mixins';
 
 const Inner = styled.div`
   ${cardWrapper};
@@ -9,15 +9,13 @@ const Inner = styled.div`
   gap: 10px;
 `;
 
-const Title = styled.h2`
-  ${h2}
-`;
-
 const Line = styled.div`
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(2, max-content);
   justify-content: space-between;
+  gap: 20px;
 `;
 const ItemTitle = styled.div``;
 const Amount = styled.div``;
 
-export { Inner, Title, Line, ItemTitle, Amount };
+export { Inner, Line, ItemTitle, Amount };

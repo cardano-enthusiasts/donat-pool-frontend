@@ -5,6 +5,9 @@ import { h2, h3 } from 'shared/styles/mixins';
 const StyledSidebar = styled.aside`
   max-width: 250px;
   width: 100%;
+  @media (max-width: 700px) {
+    text-align: center;
+  }
 `;
 const ProjectList = styled.ul`
   display: flex;
@@ -19,6 +22,9 @@ const Item = styled.li`
   ${h3}
   list-style: none;
   margin: 0;
+  @media (max-width: 700px) {
+    text-align: center;
+  }
 `;
 
 const Title = styled.h2`

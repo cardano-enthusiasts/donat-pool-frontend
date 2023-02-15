@@ -4,13 +4,14 @@ import { baseContainer, baseInner, link } from 'shared/styles/mixins';
 
 const Wrapper = styled.footer`
   ${baseContainer};
-  padding: 80px 0;
 `;
 
 const Inner = styled.div`
   ${baseInner};
   display: flex;
   justify-content: space-between;
+  padding-top: 30px;
+  padding-bottom: 30px;
 `;
 
 const Links = styled.div`

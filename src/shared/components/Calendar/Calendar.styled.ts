@@ -6,16 +6,28 @@ const CalendarWrapper = styled.div`
   display: flex;
   justify-content: space-between;
 
+  @media (max-width: 700px) {
+    flex-direction: column;
+    gap: 20px;
+  }
+
   .react-datepicker-wrapper {
     max-width: 250px;
+    width: 45%;
+    @media (max-width: 700px) {
+      width: 100%;
+      max-width: none;
+    }
   }
 
   .react-datepicker__input-container {
-    width: 100%;
     max-width: 250px;
     input {
       ${fieldStyles}
       width: 100%;
+    }
+    @media (max-width: 700px) {
+      max-width: none;
     }
   }
 

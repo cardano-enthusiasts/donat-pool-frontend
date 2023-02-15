@@ -1,21 +1,15 @@
 import ManagementParams from 'shared/components/ManagementParams/ManagementParams';
 import ManagerEditor from 'shared/components/ManagerEditor/ManagerEditor';
 
-import {
-  ManagementParamsWrapper,
-  ManagerEditorWrapper,
-  Wrapper,
-} from './Management.styled';
+import { Title, Wrapper } from './Management.styled';
 
 const Management = () => {
   return (
     <Wrapper>
-      <ManagerEditorWrapper>
-        <ManagerEditor />
-      </ManagerEditorWrapper>
-      <ManagementParamsWrapper>
-        <ManagementParams />
-      </ManagementParamsWrapper>
+      <Title>Management contract</Title>
+      <ManagerEditor />
+      <Title>Current protocol parameters</Title>
+      <ManagementParams />
     </Wrapper>
   );
 };

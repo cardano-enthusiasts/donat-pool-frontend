@@ -6,7 +6,6 @@ import {
   Line,
   Form,
   Wrapper,
-  Title,
   InputWrapper,
 } from './ManagerEditor.styled';
 import Button from '../Button/Button';
@@ -38,7 +37,6 @@ const ManagerEditor = () => {
 
   return (
     <Wrapper>
-      <Title>Management contract</Title>
       <Form onSubmit={handleSubmit}>
         <InputWrapper>
           {defaultParams.map(({ title, id }) => (

@@ -1,42 +1,35 @@
-import {
-  Amount,
-  ItemTitle,
-  Line,
-  Title,
-  Inner,
-} from './ManagementParams.styled';
+import { Amount, ItemTitle, Line, Inner } from './ManagementParams.styled';
 
 const ManagementParams = () => {
   const params = [
     {
-      title: 'Min amount param',
+      title: 'Min amount',
       id: 'minAmountParam',
       amount: 50000000,
     },
     {
-      title: 'Max amount param',
+      title: 'Max amount',
       id: 'maxAmountParam',
       amount: 1000000000,
     },
     {
-      title: 'Min duration param',
+      title: 'Min duration',
       id: 'minDurationParam',
       amount: 100,
     },
     {
-      title: 'Max duration param',
+      title: 'Max duration',
       id: 'maxDurationParam',
       amount: 1000,
     },
     {
-      title: 'Protocol fee param',
+      title: 'Protocol fee',
       id: 'protocolFeeParam',
       amount: 10,
     },
   ];
   return (
     <>
-      <Title>Current protocol parameters</Title>
       <Inner>
         {params.map(({ title, id, amount }) => (
           <Line key={id}>
