@@ -1,4 +1,4 @@
-import { StyledInput, Title, Wrapper } from './Input.styled';
+import { StyledInput, StyledTextArea, Title, Wrapper } from './Input.styled';
 import { type Props } from './types';
 
 const Input = ({
@@ -7,16 +7,26 @@ const Input = ({
   dataAttr = '',
   type = 'text',
   title = null,
+  multiline = false,
+  placeholder = null,
 }: Props) => {
   return (
     <Wrapper>
       <Title>{title}</Title>
-      <StyledInput
-        type={type}
-        value={value}
-        onChange={onChange}
-        {...{ 'data-type': dataAttr }}
-      />
+      {multiline ? (
+        <StyledTextArea
+          value={value}
+          onChange={onChange}
+          {...{ 'data-type': dataAttr }}
+        />
+      ) : (
+        <StyledInput
+          type={type}
+          value={value}
+          onChange={onChange}
+          {...{ 'data-type': dataAttr }}
+        />
+      )}
     </Wrapper>
   );
 };

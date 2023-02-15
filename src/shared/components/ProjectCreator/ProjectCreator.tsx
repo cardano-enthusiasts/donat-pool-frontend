@@ -1,50 +1,60 @@
-import { useState } from 'react';
-import DatePicker from 'react-datepicker';
+import { type ChangeEvent, useState } from 'react';
 
 import 'react-datepicker/dist/react-datepicker.css';
 import { Form, Title } from './ProjectCreator.styled';
 import Button from '../Button/Button';
+import Calendar from '../Calendar/Calendar';
 import Checkbox from '../Checkbox/Checkbox';
 import Input from '../Input/Input';
 
 const ProjectCreator = () => {
-  const [startDate, setStartDate] = useState(new Date('2014/02/08'));
-  const [endDate, setEndDate] = useState(new Date('2014/02/10'));
   const [isChecked, setIsChecked] = useState(false);
+  const [data, setData] = useState({
+    title: '',
+    description: '',
+    goal: '',
+  });
 
-  const handleSubmit = () => {};
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    console.log(data);
+  };
+
+  const handleChange = (
+    event: ChangeEvent,
+    type: 'title' | 'description' | 'goal'
+  ) => {
+    const { value } = event.target as HTMLInputElement;
+    setData({ ...data, [type]: value });
+  };
 
   return (
     <Form onSubmit={handleSubmit}>
       <Title>Create a new project</Title>
-      <Input title="the title of the project" value={''} onChange={() => {}} />
+      <Input
+        title="the title of the project"
+        value={data.title}
+        onChange={(event) => {
+          handleChange(event, 'title');
+        }}
+      />
       <Input
         title="Description (purpose of fundraising)"
-        value={''}
-        onChange={() => {}}
+        multiline={true}
+        value={data.description}
+        onChange={(event) => {
+          handleChange(event, 'description');
+        }}
       />
-      <Input title="funding goal" value={''} onChange={() => {}} />
-      <>
-        <DatePicker
-          selected={startDate}
-          onChange={(date) => {
-            setStartDate(date);
-          }}
-          selectsStart
-          startDate={startDate}
-          endDate={endDate}
-        />
-        <DatePicker
-          selected={endDate}
-          onChange={(date) => {
-            setEndDate(date);
-          }}
-          selectsEnd
-          startDate={startDate}
-          endDate={endDate}
-          minDate={startDate}
-        />
-      </>
+      <Input
+        title="funding goal"
+        value={data.goal}
+        onChange={(event) => {
+          handleChange(event, 'goal');
+        }}
+        multiline={true}
+      />
+      <Calendar />
       <Checkbox
         isChecked={isChecked}
         onChange={() => {

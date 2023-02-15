@@ -13,6 +13,7 @@ const theme: Theme = {
     dark5: `rgba(${dark100RGBCode}, 0.05)`,
 
     primary,
+    primary50: `rgba(188, 156, 255, 0.5)`,
     secondary: '#6fcf97',
     white: '#fff',
     primaryGradient: `linear-gradient(180deg, ${primary} 0%, #8ba4f9 100%)`,

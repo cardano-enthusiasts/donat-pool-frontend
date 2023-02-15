@@ -7,6 +7,7 @@ const Form = styled.form`
   grid-template-columns: 1fr;
   row-gap: 20px;
   width: 100%;
+  max-width: 600px;
 `;
 
 const Title = styled.h2`

@@ -41,9 +41,9 @@ const StyledInput = styled.input`
 const Title = styled.span`
   width: 100%;
   min-width: 180px;
-  max-width: 200px;
   margin-left: 10px;
   color: ${({ theme }) => theme.colors.dark50};
+  user-select: none;
 `;
 
 export { StyledLabel, StyledInput, Title };

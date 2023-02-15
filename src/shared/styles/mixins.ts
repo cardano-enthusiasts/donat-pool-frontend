@@ -60,4 +60,27 @@ const cardWrapper = css`
   padding: 40px 30px;
 `;
 
-export { baseContainer, baseInner, link, h1, h2, h3, cardWrapper };
+const fieldStyles = css`
+  width: 100%;
+  max-width: 100%;
+  min-width: 150px;
+  border: 1px solid ${({ theme }) => theme.colors.dark25};
+  border-radius: 4px;
+  width: 100%;
+  padding: 14px 14px 13px;
+  outline: none;
+  color: ${({ theme }) => theme.colors.dark75};
+  font-family: Montserrat, Arial, sans-serif;
+  &::placeholder {
+    font-family: Montserrat, Arial, sans-serif;
+    font-size: 14px;
+    color: ${({ theme }) => theme.colors.dark75};
+  }
+
+  &:hover,
+  &:focus {
+    border: 1px solid ${({ theme }) => theme.colors.dark50};
+  }
+`;
+
+export { baseContainer, baseInner, link, h1, h2, h3, cardWrapper, fieldStyles };
