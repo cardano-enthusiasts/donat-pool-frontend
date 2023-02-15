@@ -10,16 +10,25 @@ const Title = styled.h2`
 
 const Form = styled.div`
   ${cardWrapper};
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
 `;
 
 const Line = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  width: 100%;
 `;
-const ItemTitle = styled.div``;
 
-export { Wrapper, Title, Form, Line, ItemTitle };
+const InputWrapper = styled.div`
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+`;
+const ButtonWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  width: 100%;
+`;
+
+export { Wrapper, Title, Form, Line, ButtonWrapper, InputWrapper };

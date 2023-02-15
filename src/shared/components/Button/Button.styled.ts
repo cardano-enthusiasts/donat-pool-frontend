@@ -15,6 +15,7 @@ const getButtonStyles = (themeType, size) => {
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 100%;
     min-width: 100px;
     max-width: 320px;
     font-family: Montserrat, Arial, sans-serif;

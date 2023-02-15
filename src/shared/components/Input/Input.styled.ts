@@ -2,7 +2,9 @@ import styled from 'styled-components';
 
 import { fieldStyles, h3 } from 'shared/styles/mixins';
 
-const Wrapper = styled.div``;
+const Wrapper = styled.div`
+  width: 100%;
+`;
 
 const StyledInput = styled.input`
   ${fieldStyles}

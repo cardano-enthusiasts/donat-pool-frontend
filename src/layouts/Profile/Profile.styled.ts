@@ -16,9 +16,9 @@ const Main = styled.div`
   gap: 100px;
 `;
 
-const ProjectCreatorWrapper = styled.div`
+const ProjectWrapper = styled.div`
   display: flex;
   width: 100%;
 `;
 
-export { Wrapper, CreateButtonWrapper, Main, ProjectCreatorWrapper };
+export { Wrapper, CreateButtonWrapper, Main, ProjectWrapper };

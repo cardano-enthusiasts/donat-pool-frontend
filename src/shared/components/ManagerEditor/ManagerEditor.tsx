@@ -1,7 +1,14 @@
 import { useState } from 'react';
 
 import { defaultParams } from './data';
-import { ItemTitle, Line, Form, Wrapper, Title } from './ManagerEditor.styled';
+import {
+  ButtonWrapper,
+  Line,
+  Form,
+  Wrapper,
+  Title,
+  InputWrapper,
+} from './ManagerEditor.styled';
 import Button from '../Button/Button';
 import Input from '../Input/Input';
 
@@ -33,19 +40,23 @@ const ManagerEditor = () => {
     <Wrapper>
       <Title>Management contract</Title>
       <Form onSubmit={handleSubmit}>
-        {defaultParams.map(({ title, id }) => (
-          <Line key={id}>
-            <ItemTitle>{title}</ItemTitle>
-            <Input
-              onChange={(event) => {
-                handleInputChange(id, event);
-              }}
-              dataAttr={id}
-              value={params[id]}
-            />
-          </Line>
-        ))}
-        <Button type="submit">Confirm</Button>
+        <InputWrapper>
+          {defaultParams.map(({ title, id }) => (
+            <Line key={id}>
+              <Input
+                onChange={(event) => {
+                  handleInputChange(id, event);
+                }}
+                dataAttr={id}
+                value={params[id]}
+                title={title}
+              />
+            </Line>
+          ))}
+        </InputWrapper>
+        <ButtonWrapper>
+          <Button type="submit">Confirm</Button>
+        </ButtonWrapper>
       </Form>
     </Wrapper>
   );
