@@ -3,6 +3,8 @@
     "plugin:react/recommended",
     "airbnb-typescript",
     "standard-with-typescript",
+    "next/core-web-vitals",
+    "plugin:@next/next/recommended",
     "plugin:prettier/recommended"
   ],
   "parser": "@typescript-eslint/parser",
