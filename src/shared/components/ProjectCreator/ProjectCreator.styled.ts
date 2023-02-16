@@ -15,4 +15,10 @@ const Title = styled.h2`
   margin: 0;
 `;
 
-export { Form, Title };
+const ButtonWrapper = styled.div`
+  display: flex;
+  gap: 40px;
+  margin-top: 30px;
+`;
+
+export { Form, Title, ButtonWrapper };

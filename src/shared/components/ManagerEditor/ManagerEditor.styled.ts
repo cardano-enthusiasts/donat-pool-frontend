@@ -4,7 +4,7 @@ import { cardWrapper } from 'shared/styles/mixins';
 
 const Wrapper = styled.div``;
 
-const Form = styled.div`
+const Form = styled.form`
   ${cardWrapper};
 `;
 

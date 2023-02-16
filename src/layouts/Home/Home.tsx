@@ -1,7 +1,7 @@
+import Button from 'shared/components/Button/Button';
 import Cards from 'shared/components/Cards/Cards';
 
 import {
-  BigImg,
   Description,
   MainScreen,
   Intro,
@@ -26,18 +26,11 @@ const Home = () => {
               elit
             </Description>
             <MainButtons>
-              {/* <Button variant="contained" color="accent">
-                Create project
-              </Button>
-              <Button variant="outlined" color="accent">
-                Learn more
-              </Button> */}
+              <Button theme="filled">Create project</Button>
+              <Button theme="bordered">Learn more</Button>
             </MainButtons>
           </IntroInner>
         </Intro>
-        <BigImg>
-          <img src="img/donut.svg" alt="donat"></img>
-        </BigImg>
       </MainScreen>
       <CardsWrapper>
         <Cards />

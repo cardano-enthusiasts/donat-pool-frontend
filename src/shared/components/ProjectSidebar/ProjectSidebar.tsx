@@ -6,13 +6,19 @@ import {
 } from './ProjectSidebar.styled';
 import { type Props } from './types';
 
-const ProjectSidebar = ({ projects, onClick }: Props) => {
+const ProjectSidebar = ({ projects, onClick, currentId }: Props) => {
   return (
     <StyledSidebar>
       <Title>My projects</Title>
       <ProjectList>
         {projects.map(({ title, id }) => (
-          <Item key={id} onClick={() => onClick(id)}>
+          <Item
+            key={id}
+            onClick={() => {
+              onClick(id);
+            }}
+            isClicked={id === currentId}
+          >
             {title}
           </Item>
         ))}

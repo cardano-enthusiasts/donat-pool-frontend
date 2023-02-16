@@ -1,13 +1,7 @@
 import { Item, Title, Wrapper } from './ProjectInfo.styled';
+import { type Props } from './types';
 
-const ProjectInfo = () => {
-  const { title, startDate, endDate, goal, raised } = {
-    title: 'Cats',
-    startDate: '12.02.2001',
-    endDate: '12.02.2001',
-    goal: '900 ADA',
-    raised: '90 ADA',
-  };
+const ProjectInfo = ({ title, startDate, endDate, goal, raised }: Props) => {
   return (
     <Wrapper>
       <Title>{title}</Title>

@@ -1,13 +1,14 @@
 import { type ChangeEvent, useState } from 'react';
 
 import 'react-datepicker/dist/react-datepicker.css';
-import { Form, Title } from './ProjectCreator.styled';
+import { ButtonWrapper, Form, Title } from './ProjectCreator.styled';
+import { type Props } from './types';
 import Button from '../Button/Button';
 import Calendar from '../Calendar/Calendar';
 import Checkbox from '../Checkbox/Checkbox';
 import Input from '../Input/Input';
 
-const ProjectCreator = () => {
+const ProjectCreator = ({ onClose }: Props) => {
   const [isChecked, setIsChecked] = useState(false);
   const [data, setData] = useState({
     title: '',
@@ -62,9 +63,14 @@ const ProjectCreator = () => {
         }}
         title="I agree that service charges 2.00 ADA for donation pool creation"
       />
-      <Button type="submit" isDisabled={!isChecked}>
-        Publish
-      </Button>
+      <ButtonWrapper>
+        <Button type="submit" isDisabled={!isChecked}>
+          Publish
+        </Button>
+        <Button type="button" onClick={onClose} theme="bordered">
+          Cancel
+        </Button>
+      </ButtonWrapper>
     </Form>
   );
 };

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { type ChangeEvent, useState } from 'react';
 
 import { defaultParams } from './data';
 import {
@@ -13,25 +13,24 @@ import Input from '../Input/Input';
 
 const ManagerEditor = () => {
   const [params, setParams] = useState({
-    minAmountParam: '',
-    maxAmountParam: '',
-    minDurationParam: '',
-    maxDurationParam: '',
-    protocolFeeParam: '',
+    minAmountParam: 50000000,
+    maxAmountParam: 1000000000,
+    minDurationParam: 100,
+    maxDurationParam: 1000,
+    protocolFeeParam: 10,
   });
 
   const handleInputChange = (id, event) => {
     const { value } = event.target as HTMLInputElement;
     const dataType = String(event.target.getAttribute('data-type'));
-    console.log(id, value);
-
     setParams({
       ...params,
-      [dataType]: value,
+      [dataType]: Number(value),
     });
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = (event: ChangeEvent<HTMLFormElement>) => {
+    event.preventDefault();
     console.log(params);
   };
 

@@ -18,10 +18,12 @@ const ProjectList = styled.ul`
   margin: 0;
 `;
 
-const Item = styled.li`
+const Item = styled.li<{ isClicked: boolean }>`
   ${h3}
   list-style: none;
   margin: 0;
+  cursor: pointer;
+  ${({ isClicked, theme }) => isClicked && `color: ${theme.colors.primary};`}
   @media (max-width: 700px) {
     text-align: center;
   }

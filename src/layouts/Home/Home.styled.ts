@@ -20,16 +20,14 @@ const Title = styled.h1`
 
 const Description = styled.h2`
   ${h2};
+  margin: 0 0 40px 0;
   max-width: 500px;
   line-height: 120%;
 `;
 
-const BigImg = styled.div`
-  margin-left: 300px;
-`;
-
 const MainButtons = styled.div`
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(2, max-content);
   gap: 30px;
 `;
 
@@ -43,7 +41,6 @@ export {
   Title,
   Description,
   Intro,
-  BigImg,
   MainButtons,
   IntroInner,
   MainScreen,
