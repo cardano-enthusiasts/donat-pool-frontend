@@ -4,7 +4,7 @@ import Header from 'shared/components/Header/Header';
 import { Inner, Main } from './Base.styled';
 import type { Props } from './types';
 
-const Base = ({ keywords, description, title, children }: Props) => {
+const Base = ({ children }: Props) => {
   return (
     <>
       <Header />

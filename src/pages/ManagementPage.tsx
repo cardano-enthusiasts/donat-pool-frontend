@@ -5,12 +5,7 @@ import Management from 'layouts/Management/Management';
 
 const ManagementPage: FC = () => {
   return (
-    <Base
-      title="Management"
-      description="description"
-      keywords="keywords"
-      activeHeaderItem="management"
-    >
+    <Base>
       <Management />
     </Base>
   );

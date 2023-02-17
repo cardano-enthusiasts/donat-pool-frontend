@@ -6,12 +6,7 @@ import Home from '../layouts/Home/Home';
 
 const HomePage: FC = () => {
   return (
-    <Base
-      title="Donat.Pool"
-      description="description"
-      keywords="keywords"
-      activeHeaderItem="home"
-    >
+    <Base>
       <Home />
     </Base>
   );
