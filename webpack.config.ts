@@ -21,7 +21,7 @@ const config = {
 
   devServer: {
     hot: true,
-    port: 4010,
+    port: 4008,
     client: {
       overlay: {
         warnings: false,

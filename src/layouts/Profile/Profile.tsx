@@ -9,6 +9,7 @@ import {
   CreateButtonWrapper,
   Main,
   ProjectWrapper,
+  Starter,
   Wrapper,
 } from './Profile.styled';
 import { type Project } from './types';
@@ -87,6 +88,9 @@ const Profile = ({ defaultMode = null }) => {
                 setMode(null);
               }}
             />
+          )}
+          {mode === null && (
+            <Starter>Create a new project or choose one</Starter>
           )}
           {mode !== null && mode !== 'creation' && (
             <ProjectInfo

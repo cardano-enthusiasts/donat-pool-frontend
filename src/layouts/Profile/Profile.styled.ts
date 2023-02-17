@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 
+import { h2 } from 'shared/styles/mixins';
+
 const Wrapper = styled.div`
   margin-top: 30px;
   display: flex;
@@ -33,4 +35,9 @@ const ProjectWrapper = styled.div`
   flex-shrink: 1;
 `;
 
-export { Wrapper, CreateButtonWrapper, Main, ProjectWrapper };
+const Starter = styled.h2`
+  ${h2};
+  margin: 0;
+`;
+
+export { Wrapper, CreateButtonWrapper, Main, ProjectWrapper, Starter };
