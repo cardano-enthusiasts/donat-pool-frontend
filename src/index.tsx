@@ -10,6 +10,12 @@ import { GlobalStyles } from 'shared/styles/global';
 
 import { theme } from './shared/styles/theme';
 
+declare global {
+  interface Window {
+    offchain: any;
+  }
+}
+
 const router = createBrowserRouter([
   {
     path: '/',

@@ -67,6 +67,7 @@
           "newlines-between": "always",
           "alphabetize": { "order": "asc", "caseInsensitive": true }
         }],
-    "@typescript-eslint/restrict-template-expressions": "off"
+    "@typescript-eslint/restrict-template-expressions": "off",
+    "@typescript-eslint/strict-boolean-expressions": "off"
   }
 }

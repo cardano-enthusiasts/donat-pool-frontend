@@ -1,33 +1,43 @@
 import { Amount, ItemTitle, Line, Inner } from './ManagementParams.styled';
+import { type Props } from './types';
 
-const ManagementParams = () => {
+const ManagementParams = ({
+  protocol: {
+    minAmountParam,
+    maxAmountParam,
+    minDurationParam,
+    maxDurationParam,
+    protocolFeeParam,
+  },
+}: Props) => {
   const params = [
     {
       title: 'Min amount',
       id: 'minAmountParam',
-      amount: 50000000,
+      amount: minAmountParam,
     },
     {
       title: 'Max amount',
       id: 'maxAmountParam',
-      amount: 1000000000,
+      amount: maxAmountParam,
     },
     {
       title: 'Min duration',
       id: 'minDurationParam',
-      amount: 100,
+      amount: minDurationParam,
     },
     {
       title: 'Max duration',
       id: 'maxDurationParam',
-      amount: 1000,
+      amount: maxDurationParam,
     },
     {
       title: 'Protocol fee',
       id: 'protocolFeeParam',
-      amount: 10,
+      amount: protocolFeeParam,
     },
   ];
+
   return (
     <>
       <Inner>

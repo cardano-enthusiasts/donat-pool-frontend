@@ -1,5 +1,6 @@
 import CopyPlugin from 'copy-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
+import NodePolyfillWebpackPlugin from 'node-polyfill-webpack-plugin';
 import path from 'path';
 import 'webpack-dev-server';
 
@@ -53,7 +54,12 @@ const config = {
         },
       ],
     }),
+    new NodePolyfillWebpackPlugin(),
   ].filter(Boolean),
+  experiments: {
+    asyncWebAssembly: true,
+    syncWebAssembly: true,
+  },
 
   module: {
     rules: [

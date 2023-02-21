@@ -1,4 +1,7 @@
-import { type ChangeEvent, useState } from 'react';
+import { type ChangeEvent, useState, useEffect } from 'react';
+import { toast } from 'react-toastify';
+
+import { useOffchain } from 'shared/hooks/useOffchain';
 
 import { defaultParams } from './data';
 import {
@@ -8,17 +11,18 @@ import {
   Wrapper,
   InputWrapper,
 } from './ManagerEditor.styled';
+import { type Props } from './types';
+import fixedProtocol from '../../../../startProtocolParams';
 import Button from '../Button/Button';
 import Input from '../Input/Input';
 
-const ManagerEditor = () => {
-  const [params, setParams] = useState({
-    minAmountParam: 50000000,
-    maxAmountParam: 1000000000,
-    minDurationParam: 100,
-    maxDurationParam: 1000,
-    protocolFeeParam: 10,
-  });
+const ManagerEditor = ({ onUpdatedSuccess, protocol }: Props) => {
+  const [params, setParams] = useState(protocol);
+  const offchain = useOffchain();
+
+  useEffect(() => {
+    setParams(protocol);
+  }, [protocol]);
 
   const handleInputChange = (id, event) => {
     const { value } = event.target as HTMLInputElement;
@@ -29,9 +33,21 @@ const ManagerEditor = () => {
     });
   };
 
+  const onUpdateProtocolComplete = (updatedParams) => {
+    toast.success('Config was updated successfully');
+    setParams(updatedParams);
+    onUpdatedSuccess();
+  };
+
+  const onUpdateProtocolError = (error) => {
+    toast.error(error);
+  };
+
   const handleSubmit = (event: ChangeEvent<HTMLFormElement>) => {
     event.preventDefault();
-    console.log(params);
+    offchain?.updateProtocol(onUpdateProtocolComplete)(onUpdateProtocolError)(
+      fixedProtocol
+    )(params)();
   };
 
   return (
