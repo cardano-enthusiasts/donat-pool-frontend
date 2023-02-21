@@ -16,6 +16,10 @@ const Line = styled.div`
   gap: 20px;
 `;
 const ItemTitle = styled.div``;
-const Amount = styled.div``;
+const AmountAndLabel = styled.div`
+  display: grid;
+  grid-template-columns: max-content 40px;
+  gap: 10px;
+`;
 
-export { Inner, Line, ItemTitle, Amount };
+export { Inner, Line, ItemTitle, AmountAndLabel };

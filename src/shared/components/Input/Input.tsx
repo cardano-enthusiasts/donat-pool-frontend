@@ -1,4 +1,10 @@
-import { StyledInput, StyledTextArea, Title, Wrapper } from './Input.styled';
+import {
+  InputContainer,
+  StyledInput,
+  StyledTextArea,
+  Title,
+  Wrapper,
+} from './Input.styled';
 import { type Props } from './types';
 
 const Input = ({
@@ -8,7 +14,8 @@ const Input = ({
   type = 'text',
   title = null,
   multiline = false,
-  placeholder = null,
+  isDisabled = false,
+  hint = null,
 }: Props) => {
   return (
     <Wrapper>
@@ -18,14 +25,18 @@ const Input = ({
           value={value}
           onChange={onChange}
           {...{ 'data-type': dataAttr }}
+          disabled={isDisabled}
         />
       ) : (
-        <StyledInput
-          type={type}
-          value={value}
-          onChange={onChange}
-          {...{ 'data-type': dataAttr }}
-        />
+        <InputContainer hint={hint}>
+          <StyledInput
+            type={type}
+            value={value}
+            onChange={onChange}
+            {...{ 'data-type': dataAttr }}
+            disabled={isDisabled}
+          />
+        </InputContainer>
       )}
     </Wrapper>
   );

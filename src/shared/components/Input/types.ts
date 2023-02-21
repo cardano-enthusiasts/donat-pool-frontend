@@ -7,5 +7,6 @@ export interface Props {
   type?: 'text' | 'submit';
   title?: string | null;
   multiline?: boolean;
-  placeholder?: string | null;
+  isDisabled?: boolean;
+  hint?: string | null;
 }

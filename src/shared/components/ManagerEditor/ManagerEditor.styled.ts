@@ -6,6 +6,7 @@ const Wrapper = styled.div``;
 
 const Form = styled.form`
   ${cardWrapper};
+  padding-bottom: 20px;
 `;
 
 const Line = styled.div`
@@ -29,5 +30,10 @@ const ButtonWrapper = styled.div`
   margin-top: 20px;
   width: 100%;
 `;
+const Loader = styled.div<{ isLoading: boolean }>`
+  display: flex;
+  justify-content: center;
+  ${({ isLoading }) => !isLoading && 'padding-bottom: 40px'}
+`;
 
-export { Wrapper, Form, Line, ButtonWrapper, InputWrapper };
+export { Wrapper, Form, Line, ButtonWrapper, InputWrapper, Loader };

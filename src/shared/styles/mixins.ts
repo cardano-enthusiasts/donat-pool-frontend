@@ -77,6 +77,7 @@ const fieldStyles = css`
   outline: none;
   color: ${({ theme }) => theme.colors.dark75};
   font-family: Montserrat, Arial, sans-serif;
+
   &::placeholder {
     font-family: Montserrat, Arial, sans-serif;
     font-size: 14px;
@@ -86,6 +87,12 @@ const fieldStyles = css`
   &:hover,
   &:focus {
     border: 1px solid ${({ theme }) => theme.colors.dark50};
+  }
+
+  &:disabled {
+    cursor: default;
+    color: ${({ theme }) => theme.colors.dark50};
+    background-color: ${({ theme }) => theme.colors.white};
   }
 `;
 

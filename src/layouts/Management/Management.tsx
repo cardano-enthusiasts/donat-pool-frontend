@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 
 import ManagementParams from 'shared/components/ManagementParams/ManagementParams';
 import ManagerEditor from 'shared/components/ManagerEditor/ManagerEditor';
+import { useOffchain } from 'shared/hooks/useOffchain';
 
 import { Title, Wrapper } from './Management.styled';
 import fixedProtocol from '../../../startProtocolParams';
@@ -14,7 +15,7 @@ const Management = () => {
     maxDurationParam: 0,
     protocolFeeParam: 0,
   });
-  const [offchain, setOffchain] = useState<Window['offchain']>();
+  const offchain = useOffchain();
 
   const onGetInfo = (params) => {
     setProtocolParams({
@@ -30,12 +31,6 @@ const Management = () => {
   };
 
   useEffect(() => {
-    if (window.offchain) {
-      window.offchain.then(setOffchain);
-    }
-  }, []);
-
-  useEffect(() => {
     if (offchain) {
       getProtocolInfo();
     }
@@ -46,6 +41,7 @@ const Management = () => {
       <Title>Management contract</Title>
       <ManagerEditor
         onUpdatedSuccess={getProtocolInfo}
+        onUpdatedError={getProtocolInfo}
         protocol={protocolParams}
       />
       <Title>Current protocol parameters</Title>
