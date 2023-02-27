@@ -90,9 +90,9 @@ const fieldStyles = css`
   }
 
   &:disabled {
-    cursor: default;
+    cursor: not-allowed;
     color: ${({ theme }) => theme.colors.dark50};
-    background-color: ${({ theme }) => theme.colors.white};
+    background-color: ${({ theme }) => theme.colors.dark5};
   }
 `;
 
