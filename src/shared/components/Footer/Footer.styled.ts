@@ -1,13 +1,17 @@
 import styled from 'styled-components';
 
-import { baseContainer, link } from 'shared/styles/mixins';
+import { baseContainer, baseInner, link } from 'shared/styles/mixins';
 
 const Wrapper = styled.footer`
   ${baseContainer};
-  padding-top: 80px;
-  padding-bottom: 80px;
+`;
+
+const Inner = styled.div`
+  ${baseInner};
   display: flex;
   justify-content: space-between;
+  padding-top: 30px;
+  padding-bottom: 30px;
 `;
 
 const Links = styled.div`
@@ -36,4 +40,4 @@ const LinkWrapper = styled.div`
   ${link}
 `;
 
-export { Wrapper, Links, Column, LogoAndSocials, Icons, LinkWrapper };
+export { Wrapper, Inner, Links, Column, LogoAndSocials, Icons, LinkWrapper };

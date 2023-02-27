@@ -1,9 +1,9 @@
 {
   "extends": [
     "plugin:react/recommended",
-    "next/core-web-vitals",
     "airbnb-typescript",
     "standard-with-typescript",
+    "next/core-web-vitals",
     "plugin:@next/next/recommended",
     "plugin:prettier/recommended"
   ],
@@ -28,7 +28,7 @@
       "typescript": {}
     }
   },
-  "ignorePatterns": ["node_modules/", "build/", "coverage/", "next.config.js"],
+  "ignorePatterns": ["node_modules/", "build/", "coverage/"],
   "rules": {
     "prettier/prettier": ["error", { "singleQuote": true }],
     "import/extensions": [
@@ -67,6 +67,7 @@
           "newlines-between": "always",
           "alphabetize": { "order": "asc", "caseInsensitive": true }
         }],
-    "@typescript-eslint/restrict-template-expressions": "off"
+    "@typescript-eslint/restrict-template-expressions": "off",
+    "@typescript-eslint/strict-boolean-expressions": "off"
   }
 }

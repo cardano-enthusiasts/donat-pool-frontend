@@ -1,7 +1,10 @@
+import { toast } from 'react-toastify';
+
+import Button from 'shared/components/Button/Button';
 import Cards from 'shared/components/Cards/Cards';
+import { useOffchain } from 'shared/hooks/useOffchain';
 
 import {
-  BigImg,
   Description,
   MainScreen,
   Intro,
@@ -13,6 +16,28 @@ import {
 } from './Home.styled';
 
 const Home = () => {
+  const offchain = useOffchain();
+  const handleStartProtocolSuccess = (params) => {
+    toast.success('Protocol was started');
+  };
+
+  const handleStartProtocolError = () => {
+    toast.error('Start protocol error');
+  };
+
+  const startProtocolParams = {
+    minAmountParam: 50000000,
+    maxAmountParam: 1000000000,
+    minDurationParam: 100,
+    maxDurationParam: 1000,
+    protocolFeeParam: 10,
+  };
+  const handleStartProtocolClick = () => {
+    offchain.startProtocol(handleStartProtocolSuccess)(
+      handleStartProtocolError
+    )(startProtocolParams)();
+  };
+
   return (
     <Wrapper>
       <MainScreen>
@@ -26,18 +51,13 @@ const Home = () => {
               elit
             </Description>
             <MainButtons>
-              {/* <Button variant="contained" color="accent">
-                Create project
+              <Button theme="filled" onClick={handleStartProtocolClick}>
+                start protocol
               </Button>
-              <Button variant="outlined" color="accent">
-                Learn more
-              </Button> */}
+              <Button theme="bordered">Learn more</Button>
             </MainButtons>
           </IntroInner>
         </Intro>
-        <BigImg>
-          <img src="img/donut.svg" alt="donat" ></img>
-        </BigImg>
       </MainScreen>
       <CardsWrapper>
         <Cards />

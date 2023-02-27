@@ -6,7 +6,6 @@
     ],
     "strictNullChecks": true,
     "noImplicitAny": false,
-    "module": "esnext",
     "target": "es6",
     "sourceMap": true,
     "lib": [
@@ -17,7 +16,6 @@
       "es5",
       "dom",
       "scripthost",
-      "esnext"
     ],
     "jsx": "preserve",
     "experimentalDecorators": true,
@@ -40,7 +38,6 @@
   },
   "include": [
     "src/**/*",
-    "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx"
   ],

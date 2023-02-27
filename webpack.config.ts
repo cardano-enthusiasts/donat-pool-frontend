@@ -1,5 +1,6 @@
 import CopyPlugin from 'copy-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
+import NodePolyfillWebpackPlugin from 'node-polyfill-webpack-plugin';
 import path from 'path';
 import 'webpack-dev-server';
 
@@ -21,7 +22,7 @@ const config = {
 
   devServer: {
     hot: true,
-    port: 4010,
+    port: 4008,
     client: {
       overlay: {
         warnings: false,
@@ -53,7 +54,12 @@ const config = {
         },
       ],
     }),
+    new NodePolyfillWebpackPlugin(),
   ].filter(Boolean),
+  experiments: {
+    asyncWebAssembly: true,
+    syncWebAssembly: true,
+  },
 
   module: {
     rules: [
@@ -82,6 +88,10 @@ const config = {
       {
         test: /\.s[ac]ss$/i,
         use: ['style-loader', 'css-loader', 'sass-loader'],
+      },
+      {
+        test: /\.css$/i,
+        use: ['style-loader', 'css-loader'],
       },
       {
         test: /\.(eot|svg|ttf|png|jpg|gif)$/i,
