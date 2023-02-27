@@ -1,10 +1,12 @@
 import { type ChangeEvent, useState } from 'react';
 import 'react-datepicker/dist/react-datepicker.css';
+import ReactLoading from 'react-loading';
 import { toast } from 'react-toastify';
 
 import { useOffchain } from 'shared/hooks/useOffchain';
+import { theme } from 'shared/styles/theme';
 
-import { ButtonWrapper, Form, Title } from './ProjectCreator.styled';
+import { ButtonWrapper, Form, Loader, Title } from './ProjectCreator.styled';
 import { type Props } from './types';
 import fixedProtocol from '../../../../startProtocolParams';
 import Button from '../Button/Button';
@@ -14,6 +16,7 @@ import Input from '../Input/Input';
 
 const ProjectCreator = ({ onClose }: Props) => {
   const [isChecked, setIsChecked] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [data, setData] = useState({
     title: '',
     description: '',
@@ -24,9 +27,11 @@ const ProjectCreator = ({ onClose }: Props) => {
 
   const handleCreateFundraisingComplete = () => {
     toast.success('fundraising was created successfully');
+    setIsLoading(false);
   };
   const handleCreateFundraisingError = (error) => {
     toast.error(error);
+    setIsLoading(false);
   };
 
   const handleSubmit = (event) => {
@@ -36,8 +41,7 @@ const ProjectCreator = ({ onClose }: Props) => {
       amount: Number(data.goal),
       duration: Number(data.duration),
     };
-    console.log('createFundraisingParams', createFundraisingParams);
-
+    setIsLoading(true);
     offchain.createFundraising(handleCreateFundraisingComplete)(
       handleCreateFundraisingError
     )(fixedProtocol)(createFundraisingParams)();
@@ -102,6 +106,11 @@ const ProjectCreator = ({ onClose }: Props) => {
           Cancel
         </Button>
       </ButtonWrapper>
+      <Loader>
+        {isLoading && (
+          <ReactLoading color={theme.colors.secondary} height={40} />
+        )}
+      </Loader>
     </Form>
   );
 };

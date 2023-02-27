@@ -21,4 +21,9 @@ const ButtonWrapper = styled.div`
   margin-top: 30px;
 `;
 
-export { Form, Title, ButtonWrapper };
+const Loader = styled.div`
+  display: flex;
+  justify-content: center;
+`;
+
+export { Form, Title, ButtonWrapper, Loader };

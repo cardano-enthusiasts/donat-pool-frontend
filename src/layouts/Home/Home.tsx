@@ -18,8 +18,6 @@ import {
 const Home = () => {
   const offchain = useOffchain();
   const handleStartProtocolSuccess = (params) => {
-    console.log(params);
-
     toast.success('Protocol was started');
   };
 

@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { toast } from 'react-toastify';
 
 import ManagementParams from 'shared/components/ManagementParams/ManagementParams';
 import ManagerEditor from 'shared/components/ManagerEditor/ManagerEditor';
@@ -17,7 +18,7 @@ const Management = () => {
   });
   const offchain = useOffchain();
 
-  const onGetInfo = (params) => {
+  const handleGetInfoSuccess = (params) => {
     setProtocolParams({
       minAmountParam: Number(params.minAmountParam.value),
       maxAmountParam: Number(params.maxAmountParam.value),
@@ -26,8 +27,15 @@ const Management = () => {
       protocolFeeParam: Number(params.protocolFeeParam.value),
     });
   };
+
+  const handleGetInfoError = (error) => {
+    toast.error(error);
+  };
+
   const getProtocolInfo = () => {
-    offchain?.getProtocolInfo(onGetInfo)(console.log)(fixedProtocol)();
+    offchain?.getProtocolInfo(handleGetInfoSuccess)(handleGetInfoError)(
+      fixedProtocol
+    )();
   };
 
   useEffect(() => {
