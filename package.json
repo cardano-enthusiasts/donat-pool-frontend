@@ -16,7 +16,7 @@
     "babel-preset-next": "^1.4.0",
     "css-loader": "^6.7.3",
     "eslint-config-next": "^13.1.6",
-    "offchain": "git+ssh://git@github.com:fullstack-development/donat-pool-offchain.git#334c3eb7c17adc02cd586193fe4b4e32b533651a",
+    "offchain": "git+ssh://git@github.com:fullstack-development/donat-pool-offchain.git#dfb644d127ae9ce5e3cdc367d8c478e856566001",
     "path": "^0.12.7",
     "postcss-loader": "^7.0.2",
     "postcss-scss": "^4.0.6",
