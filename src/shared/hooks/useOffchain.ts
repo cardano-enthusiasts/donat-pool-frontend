@@ -7,6 +7,7 @@ const useOffchain = () => {
       window.offchain.then(setOffchain);
     }
   }, []);
+  console.log(offchain);
 
   return offchain;
 };
