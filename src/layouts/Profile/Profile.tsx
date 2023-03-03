@@ -1,9 +1,10 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import Button from 'shared/components/Button/Button';
 import ProjectCreator from 'shared/components/ProjectCreator/ProjectCreator';
 import ProjectInfo from 'shared/components/ProjectInfo/ProjectInfo';
 import ProjectSidebar from 'shared/components/ProjectSidebar/ProjectSidebar';
+import { useOffchain } from 'shared/hooks/useOffchain';
 
 import {
   CreateButtonWrapper,
@@ -13,9 +14,17 @@ import {
   Wrapper,
 } from './Profile.styled';
 import { type Project } from './types';
+import fixedProtocol from '../../../startProtocolParams';
 
 const Profile = ({ defaultMode = null }) => {
   const [mode, setMode] = useState<Project | 'creation' | null>(defaultMode);
+  const offchain = useOffchain();
+
+  useEffect(() => {
+    if (offchain) {
+      offchain.getAllFundraisings(console.log)(console.log)(fixedProtocol)();
+    }
+  }, [offchain]);
 
   const projectInfo = [
     {
