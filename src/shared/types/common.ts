@@ -6,4 +6,16 @@ interface Config {
   protocolFeeParam: number;
 }
 
-export type { Config };
+interface Project {
+  creator: any;
+  deadline: number;
+  description: string;
+  goal: number;
+  raisedAmount: number;
+  threadTokenCurrency: any[];
+  threadTokenName: any[];
+}
+
+type UserProjects = Project[];
+
+export type { Config, UserProjects, Project };

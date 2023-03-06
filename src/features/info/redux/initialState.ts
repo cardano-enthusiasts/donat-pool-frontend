@@ -5,6 +5,7 @@ import { type ReduxState } from '../types';
 const initialState: ReduxState = {
   communication: {
     setConfig: initialCommunicationField,
+    setUserProjects: initialCommunicationField,
   },
   data: {
     config: {
@@ -14,6 +15,7 @@ const initialState: ReduxState = {
       maxDurationParam: 0,
       protocolFeeParam: 0,
     },
+    userProjects: null,
   },
 };
 

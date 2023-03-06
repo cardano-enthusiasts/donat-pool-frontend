@@ -11,17 +11,21 @@ const ProjectSidebar = ({ projects, onClick, currentId }: Props) => {
     <StyledSidebar>
       <Title>My projects</Title>
       <ProjectList>
-        {projects.map(({ title, id }) => (
-          <Item
-            key={id}
-            onClick={() => {
-              onClick(id);
-            }}
-            isClicked={id === currentId}
-          >
-            {title}
-          </Item>
-        ))}
+        {projects !== null ? (
+          projects.map(({ title, id }) => (
+            <Item
+              key={id}
+              onClick={() => {
+                onClick(id);
+              }}
+              isClicked={id === currentId}
+            >
+              {title}
+            </Item>
+          ))
+        ) : (
+          <></>
+        )}
       </ProjectList>
     </StyledSidebar>
   );

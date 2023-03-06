@@ -25,7 +25,8 @@ const ProjectCreator = ({ onClose }: Props) => {
   });
   const offchain = useOffchain();
 
-  const handleCreateFundraisingComplete = () => {
+  const handleCreateFundraisingComplete = (fundraisingData) => {
+    console.log(fundraisingData);
     toast.success('fundraising was created successfully');
     setIsLoading(false);
   };

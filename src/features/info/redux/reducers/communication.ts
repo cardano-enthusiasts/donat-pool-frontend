@@ -17,6 +17,16 @@ const communication = combineReducers<ReduxState['communication']>({
     'INFO:SET_CONFIG_FAIL',
     initialState.communication.setConfig
   ),
+  setUserProjects: makeCommunicationReducer<
+    A.SetUserProjects,
+    A.SetUserProjectsSuccess,
+    A.SetUserProjectsFail
+  >(
+    'INFO:SET_USER_PROJECTS',
+    'INFO:SET_USER_PROJECTS_SUCCESS',
+    'INFO:SET_USER_PROJECTS_FAIL',
+    initialState.communication.setUserProjects
+  ),
 });
 
 export { communication };

@@ -12,7 +12,12 @@ const Title = styled.h2`
 const Item = styled.div`
   ${h3};
   font-size: 16px;
-  margin-bottom: 10px;
 `;
 
-export { Wrapper, Title, Item };
+const Items = styled.div`
+  display: grid;
+  grid-template-columns: repeat(2, max-content);
+  gap: 30px;
+`;
+
+export { Wrapper, Title, Item, Items };

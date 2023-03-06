@@ -1,10 +1,17 @@
 import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { toast } from 'react-toastify';
 
+import {
+  setUserProjects,
+  setUserProjectsSuccess,
+} from 'features/info/redux/actionCreators';
 import Button from 'shared/components/Button/Button';
 import ProjectCreator from 'shared/components/ProjectCreator/ProjectCreator';
 import ProjectInfo from 'shared/components/ProjectInfo/ProjectInfo';
 import ProjectSidebar from 'shared/components/ProjectSidebar/ProjectSidebar';
 import { useOffchain } from 'shared/hooks/useOffchain';
+import { type Project, type AppReduxState } from 'shared/types';
 
 import {
   CreateButtonWrapper,
@@ -13,48 +20,57 @@ import {
   Starter,
   Wrapper,
 } from './Profile.styled';
-import { type Project } from './types';
 import fixedProtocol from '../../../startProtocolParams';
 
 const Profile = ({ defaultMode = null }) => {
   const [mode, setMode] = useState<Project | 'creation' | null>(defaultMode);
   const offchain = useOffchain();
+  const dispatch = useDispatch();
+  const userProjects = useSelector(
+    (state: AppReduxState) => state.info.data.userProjects
+  );
+
+  const handleGetFundraisingSuccess = (projects) => {
+    const filteredProjects = projects.map(
+      ({
+        creator,
+        deadline,
+        description,
+        goal,
+        raisedAmt,
+        threadTokenCurrency,
+        threadTokenName,
+      }) => {
+        return {
+          creator,
+          deadline: Number(deadline.value),
+          description,
+          goal: Number(goal.value),
+          raisedAmount: Number(raisedAmt.value),
+          threadTokenCurrency,
+          threadTokenName,
+        };
+      }
+    );
+    dispatch(setUserProjectsSuccess(filteredProjects));
+  };
+  const handleGetFundraisingError = (error) => {
+    toast.error(error);
+  };
 
   useEffect(() => {
     if (offchain) {
-      offchain.getAllFundraisings(console.log)(console.log)(fixedProtocol)();
+      offchain.getUserRelatedFundraisings(handleGetFundraisingSuccess)(
+        handleGetFundraisingError
+      )(fixedProtocol)();
+      dispatch(setUserProjects());
     }
   }, [offchain]);
 
-  const projectInfo = [
-    {
-      title: 'Cats',
-      startDate: '12.02.2001',
-      endDate: '12.02.2001',
-      goal: '900 ADA',
-      raised: '90 ADA',
-      id: 0,
-    },
-    {
-      title: 'Help somebody',
-      startDate: '12.02.2021',
-      endDate: '12.02.2091',
-      goal: '100 ADA',
-      raised: '80 ADA',
-      id: 1,
-    },
-    {
-      title: 'donation for our little community',
-      startDate: '12.02.2101',
-      endDate: '12.06.2091',
-      goal: '100000 ADA',
-      raised: '0 ADA',
-      id: 2,
-    },
-  ];
-
   const handleSidebarClick = (id) => {
-    const clickedProject = projectInfo.find((item) => item.id === id);
+    const clickedProject = userProjects?.find(
+      (item) => item.description === id
+    );
     if (clickedProject != null) {
       setMode(clickedProject);
     }
@@ -64,7 +80,7 @@ const Profile = ({ defaultMode = null }) => {
     if (mode === null || mode === 'creation') {
       return null;
     }
-    return mode.id;
+    return mode.description;
   };
 
   return (
@@ -81,15 +97,20 @@ const Profile = ({ defaultMode = null }) => {
       </CreateButtonWrapper>
       <Main>
         <ProjectSidebar
-          projects={projectInfo.map(({ title, id }) => {
-            return {
-              title,
-              id,
-            };
-          })}
+          projects={
+            userProjects
+              ? userProjects.map(({ description }) => {
+                  return {
+                    title: description,
+                    id: description,
+                  };
+                })
+              : null
+          }
           onClick={handleSidebarClick}
           currentId={getCurrentId()}
         />
+
         <ProjectWrapper>
           {mode === 'creation' && (
             <ProjectCreator
@@ -103,11 +124,11 @@ const Profile = ({ defaultMode = null }) => {
           )}
           {mode !== null && mode !== 'creation' && (
             <ProjectInfo
-              title={mode.title}
-              startDate={mode.startDate}
-              endDate={mode.endDate}
+              creator={mode.creator}
+              deadline={mode.deadline}
+              description={mode.description}
               goal={mode.goal}
-              raised={mode.raised}
+              raisedAmount={mode.raisedAmount}
             />
           )}
         </ProjectWrapper>

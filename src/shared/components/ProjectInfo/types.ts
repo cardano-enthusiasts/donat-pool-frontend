@@ -1,7 +1,7 @@
 export interface Props {
-  title: string;
-  startDate: string;
-  endDate: string;
-  goal: string;
-  raised: string;
+  creator: any;
+  deadline: number;
+  description: string;
+  goal: number;
+  raisedAmount: number;
 }
