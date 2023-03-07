@@ -67,10 +67,12 @@ const Profile = ({ defaultMode = null }) => {
     }
   }, [offchain]);
 
+  const getId = (project: Project) => {
+    return project.threadTokenCurrency.toString();
+  };
+
   const handleSidebarClick = (id) => {
-    const clickedProject = userProjects?.find(
-      (item) => item.description === id
-    );
+    const clickedProject = userProjects?.find((item) => getId(item) === id);
     if (clickedProject != null) {
       setMode(clickedProject);
     }
@@ -80,7 +82,7 @@ const Profile = ({ defaultMode = null }) => {
     if (mode === null || mode === 'creation') {
       return null;
     }
-    return mode.description;
+    return getId(mode);
   };
 
   return (
@@ -99,10 +101,10 @@ const Profile = ({ defaultMode = null }) => {
         <ProjectSidebar
           projects={
             userProjects
-              ? userProjects.map(({ description }) => {
+              ? userProjects.map((project) => {
                   return {
-                    title: description,
-                    id: description,
+                    title: project.description,
+                    id: getId(project),
                   };
                 })
               : null
