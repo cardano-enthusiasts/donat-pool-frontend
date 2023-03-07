@@ -10,7 +10,7 @@ import ProjectCard from 'shared/components/ProjectCard/ProjectCard';
 import { useOffchain } from 'shared/hooks/useOffchain';
 import { type AppReduxState } from 'shared/types';
 
-import { CardsWrapper, Title, Wrapper } from './AllProjetcs.styled';
+import { CardsWrapper, Title, Wrapper } from './AllProjects.styled';
 import fixedProtocol from '../../../startProtocolParams';
 
 const AllProjects = () => {

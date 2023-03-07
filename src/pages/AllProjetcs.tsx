@@ -1,7 +1,6 @@
 import { useEffect, type FC } from 'react';
 
-import AllProjects from 'layouts/AllProjetcs/AllProjetcs';
-import Base from 'layouts/Base/Base';
+import { AllProjects, Base } from 'layouts';
 
 const AllProjectsPage: FC = () => {
   useEffect(() => {
