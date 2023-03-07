@@ -16,6 +16,6 @@ interface Project {
   threadTokenName: any[];
 }
 
-type UserProjects = Project[];
+type Projects = Project[];
 
-export type { Config, UserProjects, Project };
+export type { Config, Projects, Project };

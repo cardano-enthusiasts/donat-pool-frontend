@@ -1,6 +1,7 @@
 export interface Props {
   deadline: number;
-  description: string;
+  title: string;
   goal: number;
   raisedAmount: number;
+  id: string;
 }

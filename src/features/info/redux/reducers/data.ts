@@ -17,6 +17,11 @@ function data(
         ...state,
         userProjects: action.payload,
       };
+    case 'INFO:SET_ALL_PROJECTS_SUCCESS':
+      return {
+        ...state,
+        allProjects: action.payload,
+      };
   }
   return state;
 }

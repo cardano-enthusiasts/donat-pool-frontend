@@ -19,6 +19,7 @@ const Header = () => {
     { title: 'Home', href: '/', id: 0 },
     { title: 'Management', href: '/management', id: 1 },
     { title: 'My profile', href: '/my-profile', id: 2 },
+    { title: 'Projects', href: '/all-projects', id: 3 },
   ];
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 

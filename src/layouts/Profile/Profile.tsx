@@ -126,7 +126,6 @@ const Profile = ({ defaultMode = null }) => {
           )}
           {mode !== null && mode !== 'creation' && (
             <ProjectInfo
-              creator={mode.creator}
               deadline={mode.deadline}
               description={mode.description}
               goal={mode.goal}

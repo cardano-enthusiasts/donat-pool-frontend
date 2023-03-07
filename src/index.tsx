@@ -5,6 +5,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 
 import { store } from 'core/store';
+import AllProjectsPage from 'pages/AllProjetcs';
 import HomePage from 'pages/HomePage';
 import ManagementPage from 'pages/ManagementPage';
 import ProfilePage from 'pages/ProfilePage';
@@ -30,6 +31,10 @@ const router = createBrowserRouter([
   {
     path: 'my-profile',
     element: <ProfilePage />,
+  },
+  {
+    path: 'all-projects',
+    element: <AllProjectsPage />,
   },
 ]);
 

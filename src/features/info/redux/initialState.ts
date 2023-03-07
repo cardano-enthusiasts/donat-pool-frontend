@@ -6,6 +6,7 @@ const initialState: ReduxState = {
   communication: {
     setConfig: initialCommunicationField,
     setUserProjects: initialCommunicationField,
+    setAllProjects: initialCommunicationField,
   },
   data: {
     config: {
@@ -16,6 +17,7 @@ const initialState: ReduxState = {
       protocolFeeParam: 0,
     },
     userProjects: null,
+    allProjects: null,
   },
 };
 

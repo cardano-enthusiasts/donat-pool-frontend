@@ -26,6 +26,20 @@ const {
   'INFO:SET_USER_PROJECTS_FAIL'
 );
 
+const {
+  execute: setAllProjects,
+  success: setAllProjectsSuccess,
+  fail: setAllProjectsFail,
+} = makeCommunicationActionCreators<
+  A.SetAllProjects,
+  A.SetAllProjectsSuccess,
+  A.SetAllProjectsFail
+>(
+  'INFO:SET_ALL_PROJECTS',
+  'INFO:SET_ALL_PROJECTS_SUCCESS',
+  'INFO:SET_ALL_PROJECTS_FAIL'
+);
+
 export {
   setConfig,
   setConfigSuccess,
@@ -33,4 +47,7 @@ export {
   setUserProjects,
   setUserProjectsSuccess,
   setUserProjectsFail,
+  setAllProjects,
+  setAllProjectsSuccess,
+  setAllProjectsFail,
 };
