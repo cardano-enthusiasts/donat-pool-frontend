@@ -41,4 +41,4 @@ const Input = ({
     </Wrapper>
   );
 };
-export default Input;
+export { Input };

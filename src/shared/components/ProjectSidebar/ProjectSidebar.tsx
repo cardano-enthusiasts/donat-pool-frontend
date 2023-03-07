@@ -31,4 +31,4 @@ const ProjectSidebar = ({ projects, onClick, currentId }: Props) => {
   );
 };
 
-export default ProjectSidebar;
+export { ProjectSidebar };

@@ -49,20 +49,18 @@ const ManagementParams = ({
   ];
 
   return (
-    <>
-      <Inner>
-        {params.map(({ title, id, amount, label }) => (
-          <Line key={id}>
-            <ItemTitle>{title}</ItemTitle>
-            <AmountAndLabel>
-              <div>{amount}</div>
-              <div>{label}</div>
-            </AmountAndLabel>
-          </Line>
-        ))}
-      </Inner>
-    </>
+    <Inner>
+      {params.map(({ title, id, amount, label }) => (
+        <Line key={id}>
+          <ItemTitle>{title}</ItemTitle>
+          <AmountAndLabel>
+            <div>{amount}</div>
+            <div>{label}</div>
+          </AmountAndLabel>
+        </Line>
+      ))}
+    </Inner>
   );
 };
 
-export default ManagementParams;
+export { ManagementParams };

@@ -34,4 +34,4 @@ const Calendar = ({ isDisabled }: Props) => {
   );
 };
 
-export default Calendar;
+export { Calendar };

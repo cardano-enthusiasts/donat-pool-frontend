@@ -19,4 +19,4 @@ const ProjectInfo = ({ deadline, description, goal, raisedAmount }: Props) => {
     </Wrapper>
   );
 };
-export default ProjectInfo;
+export { ProjectInfo };

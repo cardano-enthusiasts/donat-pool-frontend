@@ -105,4 +105,4 @@ const ManagerEditor = ({ onUpdatedSuccess, onUpdatedError, config }: Props) => {
   );
 };
 
-export default ManagerEditor;
+export { ManagerEditor };

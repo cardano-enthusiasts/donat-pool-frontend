@@ -20,4 +20,4 @@ const ProjectCard = ({ deadline, title, goal, raisedAmount }: Props) => {
   );
 };
 
-export default ProjectCard;
+export { ProjectCard };

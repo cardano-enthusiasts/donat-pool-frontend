@@ -14,4 +14,4 @@ const AllProjectsPage: FC = () => {
   );
 };
 
-export default AllProjectsPage;
+export { AllProjectsPage };

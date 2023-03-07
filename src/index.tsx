@@ -5,10 +5,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 
 import { store } from 'core/store';
-import AllProjectsPage from 'pages/AllProjetcs';
-import HomePage from 'pages/HomePage';
-import ManagementPage from 'pages/ManagementPage';
-import ProfilePage from 'pages/ProfilePage';
+import { AllProjectsPage, HomePage, ManagementPage, ProfilePage } from 'pages';
 import { GlobalStyles } from 'shared/styles/global';
 
 import { theme } from './shared/styles/theme';

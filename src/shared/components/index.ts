@@ -1,35 +1,14 @@
-import Button from './Button/Button';
-import Calendar from './Calendar/Calendar';
-import Card from './Card/Card';
-import Cards from './Cards/Cards';
-import Checkbox from './Checkbox/Checkbox';
-import Footer from './Footer/Footer';
-import Header from './Header/Header';
-import Input from './Input/Input';
-import Logo from './Logo/Logo';
-import ManagementParams from './ManagementParams/ManagementParams';
-import ManagerEditor from './ManagerEditor/ManagerEditor';
-import ProjectCard from './ProjectCard/ProjectCard';
-import ProjectCreator from './ProjectCreator/ProjectCreator';
-import ProjectInfo from './ProjectInfo/ProjectInfo';
-import ProjectSidebar from './ProjectSidebar/ProjectSidebar';
-import WalletButton from './WalletButton/WalletButton';
-
-export {
-  Button,
-  Calendar,
-  Card,
-  Cards,
-  Checkbox,
-  Footer,
-  Header,
-  Input,
-  Logo,
-  ManagementParams,
-  ManagerEditor,
-  ProjectCard,
-  ProjectCreator,
-  ProjectInfo,
-  ProjectSidebar,
-  WalletButton,
-};
+export { Calendar } from './Calendar/Calendar';
+export { Checkbox } from './Checkbox/Checkbox';
+export { Footer } from './Footer/Footer';
+export { Header } from './Header/Header';
+export { Input } from './Input/Input';
+export { Logo } from './Logo/Logo';
+export { ManagementParams } from './ManagementParams/ManagementParams';
+export { ManagerEditor } from './ManagerEditor/ManagerEditor';
+export { ProjectCard } from './ProjectCard/ProjectCard';
+export { ProjectCreator } from './ProjectCreator/ProjectCreator';
+export { ProjectInfo } from './ProjectInfo/ProjectInfo';
+export { ProjectSidebar } from './ProjectSidebar/ProjectSidebar';
+export { WalletButton } from './WalletButton/WalletButton';
+export { Button } from './Button/Button';

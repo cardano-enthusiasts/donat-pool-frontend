@@ -32,9 +32,6 @@ const MainButtons = styled.div`
 `;
 
 const IntroInner = styled.div``;
-const CardsWrapper = styled.div`
-  margin: 40px 0;
-`;
 
 export {
   Wrapper,
@@ -44,5 +41,4 @@ export {
   MainButtons,
   IntroInner,
   MainScreen,
-  CardsWrapper,
 };

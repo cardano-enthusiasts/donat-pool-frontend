@@ -1,6 +1,6 @@
 import { toast } from 'react-toastify';
 
-import { Button, Cards } from 'shared/components';
+import { Button } from 'shared/components';
 import { useOffchain } from 'shared/helpers/hooks';
 
 import {
@@ -11,7 +11,6 @@ import {
   Title,
   Wrapper,
   IntroInner,
-  CardsWrapper,
 } from './Home.styled';
 
 const Home = () => {
@@ -58,9 +57,6 @@ const Home = () => {
           </IntroInner>
         </Intro>
       </MainScreen>
-      <CardsWrapper>
-        <Cards />
-      </CardsWrapper>
     </Wrapper>
   );
 };

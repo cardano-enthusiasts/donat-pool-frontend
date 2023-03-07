@@ -14,4 +14,4 @@ const ManagementPage: FC = () => {
   );
 };
 
-export default ManagementPage;
+export { ManagementPage };

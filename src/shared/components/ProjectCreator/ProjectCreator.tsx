@@ -113,4 +113,4 @@ const ProjectCreator = ({ onClose }: Props) => {
   );
 };
 
-export default ProjectCreator;
+export { ProjectCreator };
