@@ -6,12 +6,12 @@ import {
   setAllProjects,
   setAllProjectsSuccess,
 } from 'features/info/redux/actionCreators';
-import ProjectCard from 'shared/components/ProjectCard/ProjectCard';
-import { useOffchain } from 'shared/hooks/useOffchain';
+import { ProjectCard } from 'shared/components';
+import { protocol } from 'shared/constants';
+import { useOffchain } from 'shared/helpers/hooks';
 import { type AppReduxState } from 'shared/types';
 
 import { CardsWrapper, Title, Wrapper } from './AllProjects.styled';
-import fixedProtocol from '../../../startProtocolParams';
 
 const AllProjects = () => {
   const offchain = useOffchain();
@@ -53,7 +53,7 @@ const AllProjects = () => {
     if (offchain) {
       offchain.getAllFundraisings(handleGetAllFundraisingsSuccess)(
         handleGetFundraisingError
-      )(fixedProtocol)();
+      )(protocol)();
       dispatch(setAllProjects());
     }
   }, [offchain]);

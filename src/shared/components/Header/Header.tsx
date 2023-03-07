@@ -11,8 +11,7 @@ import {
   MenuLine,
   CloseButton,
 } from './Header.styled';
-import Logo from '../Logo/Logo';
-import { WalletButton } from '../WalletButton/WalletButton';
+import { Logo, WalletButton } from '..';
 
 const Header = () => {
   const links = [

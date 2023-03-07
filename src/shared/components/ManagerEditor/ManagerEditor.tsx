@@ -2,7 +2,8 @@ import { type ChangeEvent, useState, useEffect } from 'react';
 import ReactLoading from 'react-loading';
 import { toast } from 'react-toastify';
 
-import { useOffchain } from 'shared/hooks/useOffchain';
+import { protocol } from 'shared/constants';
+import { useOffchain } from 'shared/helpers/hooks';
 import { theme } from 'shared/styles/theme';
 
 import { defaultParams } from './data';
@@ -15,24 +16,18 @@ import {
   Loader,
 } from './ManagerEditor.styled';
 import { type Props } from './types';
-import fixedProtocol from '../../../../startProtocolParams';
-import Button from '../Button/Button';
-import Input from '../Input/Input';
+import { Button, Input } from '..';
 
-const ManagerEditor = ({
-  onUpdatedSuccess,
-  onUpdatedError,
-  protocol,
-}: Props) => {
-  const [params, setParams] = useState(protocol);
+const ManagerEditor = ({ onUpdatedSuccess, onUpdatedError, config }: Props) => {
+  const [params, setParams] = useState(config);
   const offchain = useOffchain();
   const [isLoading, setIsLoading] = useState(false);
   const [isSubmitDisabled, setIsSubmitDisabled] = useState(true);
   const [isInputsDisabled, setIsInputsDisabled] = useState(false);
 
   useEffect(() => {
-    setParams(protocol);
-  }, [protocol]);
+    setParams(config);
+  }, [config]);
 
   useEffect(() => {
     if (isLoading) {
@@ -71,7 +66,7 @@ const ManagerEditor = ({
   const handleSubmit = (event: ChangeEvent<HTMLFormElement>) => {
     event.preventDefault();
     offchain?.updateProtocol(onUpdateProtocolComplete)(onUpdateProtocolError)(
-      fixedProtocol
+      protocol
     )(params)();
     setIsLoading(true);
   };

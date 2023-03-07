@@ -1,8 +1,7 @@
 import { toast } from 'react-toastify';
 
-import Button from 'shared/components/Button/Button';
-import Cards from 'shared/components/Cards/Cards';
-import { useOffchain } from 'shared/hooks/useOffchain';
+import { Button, Cards } from 'shared/components';
+import { useOffchain } from 'shared/helpers/hooks';
 
 import {
   Description,

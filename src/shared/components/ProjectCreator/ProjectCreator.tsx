@@ -3,16 +3,13 @@ import 'react-datepicker/dist/react-datepicker.css';
 import ReactLoading from 'react-loading';
 import { toast } from 'react-toastify';
 
-import { useOffchain } from 'shared/hooks/useOffchain';
+import { protocol } from 'shared/constants';
+import { useOffchain } from 'shared/helpers/hooks';
 import { theme } from 'shared/styles/theme';
 
 import { ButtonWrapper, Form, Loader, Title } from './ProjectCreator.styled';
 import { type Props } from './types';
-import fixedProtocol from '../../../../startProtocolParams';
-import Button from '../Button/Button';
-import Calendar from '../Calendar/Calendar';
-import Checkbox from '../Checkbox/Checkbox';
-import Input from '../Input/Input';
+import { Button, Calendar, Checkbox, Input } from '..';
 
 const ProjectCreator = ({ onClose }: Props) => {
   const [isChecked, setIsChecked] = useState(false);
@@ -45,7 +42,7 @@ const ProjectCreator = ({ onClose }: Props) => {
     setIsLoading(true);
     offchain.createFundraising(handleCreateFundraisingComplete)(
       handleCreateFundraisingError
-    )(fixedProtocol)(createFundraisingParams)();
+    )(protocol)(createFundraisingParams)();
   };
 
   const handleChange = (

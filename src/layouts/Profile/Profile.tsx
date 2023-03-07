@@ -6,11 +6,14 @@ import {
   setUserProjects,
   setUserProjectsSuccess,
 } from 'features/info/redux/actionCreators';
-import Button from 'shared/components/Button/Button';
-import ProjectCreator from 'shared/components/ProjectCreator/ProjectCreator';
-import ProjectInfo from 'shared/components/ProjectInfo/ProjectInfo';
-import ProjectSidebar from 'shared/components/ProjectSidebar/ProjectSidebar';
-import { useOffchain } from 'shared/hooks/useOffchain';
+import {
+  Button,
+  ProjectCreator,
+  ProjectInfo,
+  ProjectSidebar,
+} from 'shared/components';
+import { protocol } from 'shared/constants';
+import { useOffchain } from 'shared/helpers/hooks';
 import { type Project, type AppReduxState } from 'shared/types';
 
 import {
@@ -20,7 +23,6 @@ import {
   Starter,
   Wrapper,
 } from './Profile.styled';
-import fixedProtocol from '../../../startProtocolParams';
 
 const Profile = ({ defaultMode = null }) => {
   const [mode, setMode] = useState<Project | 'creation' | null>(defaultMode);
@@ -62,7 +64,7 @@ const Profile = ({ defaultMode = null }) => {
     if (offchain) {
       offchain.getUserRelatedFundraisings(handleGetFundraisingSuccess)(
         handleGetFundraisingError
-      )(fixedProtocol)();
+      )(protocol)();
       dispatch(setUserProjects());
     }
   }, [offchain]);

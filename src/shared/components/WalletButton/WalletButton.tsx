@@ -1,6 +1,6 @@
-import { useOffchain } from 'shared/hooks/useOffchain';
+import { useOffchain } from 'shared/helpers/hooks';
 
-import Button from '../Button/Button';
+import { Button } from '..';
 
 const WalletButton = () => {
   const offchain = useOffchain();
@@ -19,4 +19,4 @@ const WalletButton = () => {
   );
 };
 
-export { WalletButton };
+export default WalletButton;

@@ -7,13 +7,12 @@ import {
   setConfigFail,
   setConfigSuccess,
 } from 'features/info/redux/actionCreators';
-import ManagementParams from 'shared/components/ManagementParams/ManagementParams';
-import ManagerEditor from 'shared/components/ManagerEditor/ManagerEditor';
-import { useOffchain } from 'shared/hooks/useOffchain';
+import { ManagementParams, ManagerEditor } from 'shared/components';
+import { protocol } from 'shared/constants';
+import { useOffchain } from 'shared/helpers/hooks';
 import { type AppReduxState } from 'shared/types';
 
 import { Title, Wrapper } from './Management.styled';
-import fixedProtocol from '../../../startProtocolParams';
 
 const Management = () => {
   const offchain = useOffchain();
@@ -40,7 +39,7 @@ const Management = () => {
   const getProtocolInfo = () => {
     setConfig();
     offchain?.getProtocolInfo(handleGetInfoSuccess)(handleGetInfoError)(
-      fixedProtocol
+      protocol
     )();
   };
 
@@ -56,10 +55,10 @@ const Management = () => {
       <ManagerEditor
         onUpdatedSuccess={getProtocolInfo}
         onUpdatedError={getProtocolInfo}
-        protocol={config}
+        config={config}
       />
       <Title>Current protocol parameters</Title>
-      <ManagementParams protocol={config} />
+      <ManagementParams config={config} />
     </Wrapper>
   );
 };

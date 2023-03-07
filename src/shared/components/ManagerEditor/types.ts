@@ -1,7 +1,7 @@
 export interface Props {
   onUpdatedSuccess: () => void;
   onUpdatedError: () => void;
-  protocol: {
+  config: {
     minAmountParam: number;
     maxAmountParam: number;
     minDurationParam: number;

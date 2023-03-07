@@ -7,7 +7,7 @@ import {
 import { type Props } from './types';
 
 const ManagementParams = ({
-  protocol: {
+  config: {
     minAmountParam,
     maxAmountParam,
     minDurationParam,

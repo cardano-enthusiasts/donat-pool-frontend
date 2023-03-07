@@ -1,5 +1,5 @@
 import { Wrapper } from './Cards.styled';
-import Card from '../Card/Card';
+import { Card } from '..';
 
 const Cards = () => {
   const info = [

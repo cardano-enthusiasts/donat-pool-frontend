@@ -1,7 +1,6 @@
 import { ToastContainer } from 'react-toastify';
 
-import Footer from 'shared/components/Footer/Footer';
-import Header from 'shared/components/Header/Header';
+import { Footer, Header } from 'shared/components';
 import 'react-toastify/dist/ReactToastify.css';
 
 import { Inner, Main } from './Base.styled';
