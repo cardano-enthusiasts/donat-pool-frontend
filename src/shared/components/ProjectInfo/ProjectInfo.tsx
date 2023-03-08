@@ -1,10 +1,56 @@
-import { Item, Items, Title, Wrapper } from './ProjectInfo.styled';
-import { type Props } from './types';
+import { toast } from 'react-toastify';
 
-const ProjectInfo = ({ deadline, description, goal, raisedAmount }: Props) => {
+import { protocol } from 'shared/constants';
+import { useOffchain } from 'shared/helpers/hooks';
+
+import {
+  ButtonWrapper,
+  Item,
+  Items,
+  Title,
+  Wrapper,
+} from './ProjectInfo.styled';
+import { type Props } from './types';
+import { Button } from '..';
+
+const ProjectInfo = ({
+  data: {
+    deadline,
+    description,
+    goal,
+    raisedAmount,
+    threadTokenCurrency,
+    threadTokenName,
+  },
+}: Props) => {
+  const offchain = useOffchain();
   const getDate = () => {
     return new Date(deadline).toString();
   };
+
+  const handleReceiveFundsSuccess = () => {
+    console.log('success');
+  };
+
+  const handleReceiveFundsError = (error) => {
+    toast.error(error);
+  };
+
+  const handleReceiveFunds = () => {
+    const fundraisingData = {
+      frThreadTokenCurrency: threadTokenCurrency,
+      frThreadTokenName: threadTokenName,
+      protocol,
+    };
+    if (offchain) {
+      offchain.receiveFunds(handleReceiveFundsSuccess)(handleReceiveFundsError)(
+        fundraisingData
+      )();
+    } else {
+      toast.error('offchain is not defined');
+    }
+  };
+
   return (
     <Wrapper>
       <Title>{description}</Title>
@@ -16,6 +62,11 @@ const ProjectInfo = ({ deadline, description, goal, raisedAmount }: Props) => {
         <Item>raised: </Item>
         <Item>{raisedAmount}</Item>
       </Items>
+      <ButtonWrapper>
+        <Button onClick={handleReceiveFunds} size="s">
+          receive funds
+        </Button>
+      </ButtonWrapper>
     </Wrapper>
   );
 };

@@ -1,6 +1,5 @@
+import { type Project } from 'shared/types';
+
 export interface Props {
-  deadline: number;
-  description: string;
-  goal: number;
-  raisedAmount: number;
+  data: Omit<Project, 'creator'>;
 }

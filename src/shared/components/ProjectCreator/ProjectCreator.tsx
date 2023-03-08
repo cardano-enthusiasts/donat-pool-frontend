@@ -40,9 +40,13 @@ const ProjectCreator = ({ onClose }: Props) => {
       duration: Number(data.duration),
     };
     setIsLoading(true);
-    offchain.createFundraising(handleCreateFundraisingComplete)(
-      handleCreateFundraisingError
-    )(protocol)(createFundraisingParams)();
+    if (offchain) {
+      offchain.createFundraising(handleCreateFundraisingComplete)(
+        handleCreateFundraisingError
+      )(protocol)(createFundraisingParams)();
+    } else {
+      toast.error('offchain is not defined');
+    }
   };
 
   const handleChange = (

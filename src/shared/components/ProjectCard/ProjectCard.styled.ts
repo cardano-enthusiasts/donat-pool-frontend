@@ -10,6 +10,7 @@ const Items = styled.div`
   display: grid;
   grid-template-columns: repeat(2, max-content);
   gap: 10px;
+  margin-bottom: 30px;
 `;
 const Item = styled.div``;
 const Title = styled.h3`

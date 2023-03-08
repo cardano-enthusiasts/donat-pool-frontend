@@ -18,6 +18,11 @@ const Items = styled.div`
   display: grid;
   grid-template-columns: repeat(2, max-content);
   gap: 30px;
+  margin-bottom: 30px;
 `;
 
-export { Wrapper, Title, Item, Items };
+const ButtonWrapper = styled.div`
+  max-width: 200px;
+`;
+
+export { Wrapper, Title, Item, Items, ButtonWrapper };

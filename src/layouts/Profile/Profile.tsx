@@ -128,10 +128,14 @@ const Profile = ({ defaultMode = null }) => {
           )}
           {mode !== null && mode !== 'creation' && (
             <ProjectInfo
-              deadline={mode.deadline}
-              description={mode.description}
-              goal={mode.goal}
-              raisedAmount={mode.raisedAmount}
+              data={{
+                deadline: mode.deadline,
+                description: mode.description,
+                goal: mode.goal,
+                raisedAmount: mode.raisedAmount,
+                threadTokenCurrency: mode.threadTokenCurrency,
+                threadTokenName: mode.threadTokenName,
+              }}
             />
           )}
         </ProjectWrapper>

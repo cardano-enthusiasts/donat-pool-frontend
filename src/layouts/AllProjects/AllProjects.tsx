@@ -4,6 +4,7 @@ import { toast } from 'react-toastify';
 
 import {
   setAllProjects,
+  setAllProjectsFail,
   setAllProjectsSuccess,
 } from 'features/info/redux/actionCreators';
 import { ProjectCard } from 'shared/components';
@@ -21,6 +22,8 @@ const AllProjects = () => {
   );
 
   const handleGetAllFundraisingsSuccess = (projects) => {
+    console.log('projects', projects);
+
     const filteredProjects = projects.map(
       ({
         creator,
@@ -47,6 +50,7 @@ const AllProjects = () => {
 
   const handleGetFundraisingError = (error) => {
     toast.error(error);
+    dispatch(setAllProjectsFail(error));
   };
 
   useEffect(() => {
@@ -70,14 +74,18 @@ const AllProjects = () => {
               goal,
               raisedAmount,
               threadTokenCurrency,
+              threadTokenName,
             }) => {
               return (
                 <ProjectCard
-                  deadline={deadline}
-                  title={description}
-                  goal={goal}
-                  raisedAmount={raisedAmount}
-                  id={threadTokenCurrency.toString()}
+                  data={{
+                    deadline,
+                    description,
+                    goal,
+                    raisedAmount,
+                    threadTokenCurrency,
+                    threadTokenName,
+                  }}
                   key={threadTokenCurrency.toString()}
                 />
               );

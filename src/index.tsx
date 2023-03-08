@@ -12,7 +12,18 @@ import { theme } from './shared/styles/theme';
 
 declare global {
   interface Window {
-    offchain: any;
+    offchain: {
+      closeProtocol: any;
+      connectWallet: any;
+      createFundraising: any;
+      donate: any;
+      getAllFundraisings: any;
+      getProtocolInfo: any;
+      getUserRelatedFundraisings: any;
+      startProtocol: any;
+      updateProtocol: any;
+      receiveFunds: any;
+    };
   }
 }
 
