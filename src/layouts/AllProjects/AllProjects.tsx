@@ -9,6 +9,7 @@ import {
 } from 'features/info/redux/actionCreators';
 import { ProjectCard } from 'shared/components';
 import { protocol } from 'shared/constants';
+import { transformProjects } from 'shared/helpers';
 import { useOffchain } from 'shared/helpers/hooks';
 import { type AppReduxState } from 'shared/types';
 
@@ -23,28 +24,7 @@ const AllProjects = () => {
 
   const handleGetAllFundraisingsSuccess = (projects) => {
     console.log('projects', projects);
-
-    const filteredProjects = projects.map(
-      ({
-        creator,
-        deadline,
-        description,
-        goal,
-        raisedAmt,
-        threadTokenCurrency,
-        threadTokenName,
-      }) => {
-        return {
-          creator,
-          deadline: Number(deadline.value),
-          description,
-          goal: Number(goal.value),
-          raisedAmount: Number(raisedAmt.value),
-          threadTokenCurrency,
-          threadTokenName,
-        };
-      }
-    );
+    const filteredProjects = transformProjects(projects);
     dispatch(setAllProjectsSuccess(filteredProjects));
   };
 
@@ -67,30 +47,14 @@ const AllProjects = () => {
       <Title>Active projects</Title>
       <CardsWrapper>
         {allProjects ? (
-          allProjects.map(
-            ({
-              description,
-              deadline,
-              goal,
-              raisedAmount,
-              threadTokenCurrency,
-              threadTokenName,
-            }) => {
-              return (
-                <ProjectCard
-                  data={{
-                    deadline,
-                    description,
-                    goal,
-                    raisedAmount,
-                    threadTokenCurrency,
-                    threadTokenName,
-                  }}
-                  key={threadTokenCurrency.toString()}
-                />
-              );
-            }
-          )
+          allProjects.map((project) => {
+            return (
+              <ProjectCard
+                data={project}
+                key={project.threadTokenCurrency.toString()}
+              />
+            );
+          })
         ) : (
           <></>
         )}

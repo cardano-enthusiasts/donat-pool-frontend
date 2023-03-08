@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "webpack serve --config webpack.config.ts",
-    "build": "webpack"
+    "build": "webpack",
+    "eslint": "npx eslint ."
   },
   "dependencies": {
     "@babel/plugin-transform-runtime": "^7.19.6",

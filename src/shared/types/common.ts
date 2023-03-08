@@ -7,13 +7,13 @@ interface Config {
 }
 
 interface Project {
-  creator: any;
+  creator: object;
   deadline: number;
   description: string;
   goal: number;
   raisedAmount: number;
-  threadTokenCurrency: any[];
-  threadTokenName: any[];
+  threadTokenCurrency: Uint8Array;
+  threadTokenName: Uint8Array;
 }
 
 type Projects = Project[];

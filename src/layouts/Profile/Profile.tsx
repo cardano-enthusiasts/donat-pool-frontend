@@ -13,6 +13,7 @@ import {
   ProjectSidebar,
 } from 'shared/components';
 import { protocol } from 'shared/constants';
+import { transformProjects } from 'shared/helpers';
 import { useOffchain } from 'shared/helpers/hooks';
 import { type Project, type AppReduxState } from 'shared/types';
 
@@ -33,27 +34,7 @@ const Profile = ({ defaultMode = null }) => {
   );
 
   const handleGetFundraisingSuccess = (projects) => {
-    const filteredProjects = projects.map(
-      ({
-        creator,
-        deadline,
-        description,
-        goal,
-        raisedAmt,
-        threadTokenCurrency,
-        threadTokenName,
-      }) => {
-        return {
-          creator,
-          deadline: Number(deadline.value),
-          description,
-          goal: Number(goal.value),
-          raisedAmount: Number(raisedAmt.value),
-          threadTokenCurrency,
-          threadTokenName,
-        };
-      }
-    );
+    const filteredProjects = transformProjects(projects);
     dispatch(setUserProjectsSuccess(filteredProjects));
   };
   const handleGetFundraisingError = (error) => {
