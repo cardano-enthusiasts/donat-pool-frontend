@@ -5,6 +5,7 @@ import { toast } from 'react-toastify';
 import { protocol } from 'shared/constants';
 import { useOffchain } from 'shared/helpers/hooks';
 import { theme } from 'shared/styles/theme';
+import { type Config } from 'shared/types';
 
 import { defaultParams } from './data';
 import {
@@ -46,7 +47,7 @@ const ManagerEditor = ({ onUpdatedSuccess, onUpdatedError, config }: Props) => {
     });
   };
 
-  const onUpdateProtocolComplete = (updatedParams) => {
+  const onUpdateProtocolComplete = (updatedParams: Config) => {
     toast.success('Config was updated successfully');
     setParams(updatedParams);
     onUpdatedSuccess();

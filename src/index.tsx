@@ -10,23 +10,6 @@ import { GlobalStyles } from 'shared/styles/global';
 
 import { theme } from './shared/styles/theme';
 
-declare global {
-  interface Window {
-    offchain: {
-      closeProtocol: any;
-      connectWallet: any;
-      createFundraising: any;
-      donate: any;
-      getAllFundraisings: any;
-      getProtocolInfo: any;
-      getUserRelatedFundraisings: any;
-      startProtocol: any;
-      updateProtocol: any;
-      receiveFunds: any;
-    };
-  }
-}
-
 const router = createBrowserRouter([
   {
     path: '/',

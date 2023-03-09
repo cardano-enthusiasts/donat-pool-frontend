@@ -1,3 +1,4 @@
+import { type protocol } from 'shared/constants';
 interface Config {
   minAmountParam: number;
   maxAmountParam: number;
@@ -18,4 +19,22 @@ interface Project {
 
 type Projects = Project[];
 
-export type { Config, Projects, Project };
+interface FundraisingData {
+  frThreadTokenCurrency: Uint8Array;
+  frThreadTokenName: Uint8Array;
+  protocol: typeof protocol;
+}
+
+interface CreateFundraisingParams {
+  description: string;
+  amount: number;
+  duration: number;
+}
+
+export type {
+  Config,
+  Projects,
+  Project,
+  FundraisingData,
+  CreateFundraisingParams,
+};

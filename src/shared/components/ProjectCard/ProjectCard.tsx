@@ -28,8 +28,8 @@ const ProjectCard = ({
     return new Date(deadline).toString();
   };
 
-  const handleDonateSuccess = (smt) => {
-    toast.success('Donated successfully', smt);
+  const handleDonateSuccess = (something) => {
+    toast.success('Donated successfully');
   };
   const handleDonateError = (error) => {
     console.log(error);
@@ -37,8 +37,10 @@ const ProjectCard = ({
 
   const handleClickDonate = () => {
     if (offchain) {
+      console.log(fundraisingData);
+
       offchain.donate(handleDonateSuccess)(handleDonateError)(fundraisingData)(
-        100000000
+        100_000_000
       )();
     } else {
       toast.error('offchain is not defined');

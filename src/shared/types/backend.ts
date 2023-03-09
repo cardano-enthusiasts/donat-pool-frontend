@@ -10,4 +10,15 @@ interface BackendProject {
 
 type BackendProjects = BackendProject[];
 
-export type { BackendProjects, BackendProject };
+interface ConfigParam {
+  value: number;
+}
+interface BackendParams {
+  minAmountParam: ConfigParam;
+  maxAmountParam: ConfigParam;
+  minDurationParam: ConfigParam;
+  maxDurationParam: ConfigParam;
+  protocolFeeParam: ConfigParam;
+}
+
+export type { BackendProjects, BackendProject, BackendParams };

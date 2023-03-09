@@ -33,6 +33,7 @@ const ProjectInfo = ({
   };
 
   const handleReceiveFundsError = (error) => {
+    console.log(error);
     toast.error(error);
   };
 

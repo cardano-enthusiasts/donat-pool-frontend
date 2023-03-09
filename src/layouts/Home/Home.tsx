@@ -31,9 +31,13 @@ const Home = () => {
     protocolFeeParam: 10,
   };
   const handleStartProtocolClick = () => {
-    offchain.startProtocol(handleStartProtocolSuccess)(
-      handleStartProtocolError
-    )(startProtocolParams)();
+    if (offchain) {
+      offchain.startProtocol(handleStartProtocolSuccess)(
+        handleStartProtocolError
+      )(startProtocolParams)();
+    } else {
+      toast.error('The protocol was started');
+    }
   };
 
   return (

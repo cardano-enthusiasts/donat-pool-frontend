@@ -10,7 +10,7 @@ import {
 import { ManagementParams, ManagerEditor } from 'shared/components';
 import { protocol } from 'shared/constants';
 import { useOffchain } from 'shared/helpers/hooks';
-import { type AppReduxState } from 'shared/types';
+import { type BackendParams, type AppReduxState } from 'shared/types';
 
 import { Title, Wrapper } from './Management.styled';
 
@@ -19,7 +19,7 @@ const Management = () => {
   const { config } = useSelector((state: AppReduxState) => state.info.data);
   const dispatch = useDispatch();
 
-  const handleGetInfoSuccess = (params) => {
+  const handleGetInfoSuccess = (params: BackendParams) => {
     dispatch(
       setConfigSuccess({
         minAmountParam: Number(params.minAmountParam.value),
