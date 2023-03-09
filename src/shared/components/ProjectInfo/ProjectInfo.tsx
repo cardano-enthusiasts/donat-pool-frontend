@@ -25,7 +25,12 @@ const ProjectInfo = ({
 }: Props) => {
   const offchain = useOffchain();
   const getDate = () => {
-    return new Date(deadline).toString();
+    return new Date(deadline).toLocaleString('ru');
+  };
+  const fundraisingData = {
+    frThreadTokenCurrency: threadTokenCurrency,
+    frThreadTokenName: threadTokenName,
+    protocol,
   };
 
   const handleReceiveFundsSuccess = () => {
@@ -38,12 +43,8 @@ const ProjectInfo = ({
   };
 
   const handleReceiveFunds = () => {
-    const fundraisingData = {
-      frThreadTokenCurrency: threadTokenCurrency,
-      frThreadTokenName: threadTokenName,
-      protocol,
-    };
     if (offchain) {
+      console.log(fundraisingData);
       offchain.receiveFunds(handleReceiveFundsSuccess)(handleReceiveFundsError)(
         fundraisingData
       )();
@@ -59,9 +60,9 @@ const ProjectInfo = ({
         <Item>deadline: </Item>
         <Item>{getDate()}</Item>
         <Item>goal: </Item>
-        <Item>{goal}</Item>
+        <Item>{goal / 1000000} ADA</Item>
         <Item>raised: </Item>
-        <Item>{raisedAmount}</Item>
+        <Item>{raisedAmount / 1000000} ADA</Item>
       </Items>
       <ButtonWrapper>
         <Button onClick={handleReceiveFunds} size="s">

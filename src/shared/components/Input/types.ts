@@ -9,4 +9,5 @@ export interface Props {
   multiline?: boolean;
   isDisabled?: boolean;
   hint?: string | null;
+  placeholder?: string;
 }

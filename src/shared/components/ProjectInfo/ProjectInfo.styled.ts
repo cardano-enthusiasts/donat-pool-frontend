@@ -7,6 +7,7 @@ const Wrapper = styled.div``;
 const Title = styled.h2`
   ${h2};
   margin: 0 0 20px 0;
+  text-transform: uppercase;
 `;
 
 const Item = styled.div`
@@ -16,9 +17,12 @@ const Item = styled.div`
 
 const Items = styled.div`
   display: grid;
-  grid-template-columns: repeat(2, max-content);
+  grid-template-columns: 1fr 2fr;
   gap: 30px;
   margin-bottom: 30px;
+  @media (max-width: 900px) {
+    gap: 15px;
+  }
 `;
 
 const ButtonWrapper = styled.div`

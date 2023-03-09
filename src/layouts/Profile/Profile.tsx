@@ -4,6 +4,7 @@ import { toast } from 'react-toastify';
 
 import {
   setUserProjects,
+  setUserProjectsFail,
   setUserProjectsSuccess,
 } from 'features/info/redux/actionCreators';
 import {
@@ -21,6 +22,7 @@ import {
   CreateButtonWrapper,
   Main,
   ProjectWrapper,
+  SidebarWrapper,
   Starter,
   Wrapper,
 } from './Profile.styled';
@@ -33,12 +35,20 @@ const Profile = ({ defaultMode = null }) => {
     (state: AppReduxState) => state.info.data.userProjects
   );
 
+  useEffect(() => {
+    if (userProjects) {
+      setMode(userProjects[0]);
+    }
+  }, [userProjects]);
+
   const handleGetFundraisingSuccess = (projects) => {
     const filteredProjects = transformProjects(projects);
     dispatch(setUserProjectsSuccess(filteredProjects));
   };
+
   const handleGetFundraisingError = (error) => {
     toast.error(error);
+    dispatch(setUserProjectsFail(error));
   };
 
   useEffect(() => {
@@ -81,20 +91,22 @@ const Profile = ({ defaultMode = null }) => {
         </Button>
       </CreateButtonWrapper>
       <Main>
-        <ProjectSidebar
-          projects={
-            userProjects
-              ? userProjects.map((project) => {
-                  return {
-                    title: project.description,
-                    id: getId(project),
-                  };
-                })
-              : null
-          }
-          onClick={handleSidebarClick}
-          currentId={getCurrentId()}
-        />
+        <SidebarWrapper>
+          <ProjectSidebar
+            projects={
+              userProjects
+                ? userProjects.map((project) => {
+                    return {
+                      title: project.description,
+                      id: getId(project),
+                    };
+                  })
+                : null
+            }
+            onClick={handleSidebarClick}
+            currentId={getCurrentId()}
+          />
+        </SidebarWrapper>
 
         <ProjectWrapper>
           {mode === 'creation' && (

@@ -16,6 +16,7 @@ const Input = ({
   multiline = false,
   isDisabled = false,
   hint = null,
+  placeholder = '',
 }: Props) => {
   return (
     <Wrapper>
@@ -26,6 +27,7 @@ const Input = ({
           onChange={onChange}
           {...{ 'data-type': dataAttr }}
           disabled={isDisabled}
+          placeholder={placeholder}
         />
       ) : (
         <InputContainer hint={hint}>
@@ -35,6 +37,7 @@ const Input = ({
             onChange={onChange}
             {...{ 'data-type': dataAttr }}
             disabled={isDisabled}
+            placeholder={placeholder}
           />
         </InputContainer>
       )}

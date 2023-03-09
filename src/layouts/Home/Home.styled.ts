@@ -29,6 +29,10 @@ const MainButtons = styled.div`
   display: grid;
   grid-template-columns: repeat(2, max-content);
   gap: 30px;
+  @media (max-width: 500px) {
+    grid-template-columns: max-content;
+    gap: 15px;
+  }
 `;
 
 const IntroInner = styled.div``;
