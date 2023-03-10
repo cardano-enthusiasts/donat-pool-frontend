@@ -1,6 +1,6 @@
 import { type ICommunication } from 'redux-make-communication';
 
-import { type Projects, type Config } from 'shared/types';
+import { type Fundraisings, type Config } from 'shared/types';
 
 interface ReduxState {
   communication: {
@@ -14,8 +14,8 @@ interface ReduxState {
   };
   data: {
     config: Config;
-    userFundraisings: Projects | null;
-    allFundraisings: Projects | null;
+    userFundraisings: Fundraisings | null;
+    allFundraisings: Fundraisings | null;
   };
 }
 

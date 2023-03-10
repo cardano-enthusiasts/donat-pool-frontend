@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 
 import { protocol } from 'shared/constants';
-import { useDonate, useGetAllFundraisings } from 'shared/helpers/hooks';
+import { useDonate } from 'shared/helpers/hooks';
 
 import {
   Item,
@@ -23,14 +23,12 @@ const ProjectCard = ({
     threadTokenCurrency,
   },
 }: Props) => {
-  const getAllFundraisings = useGetAllFundraisings();
   const fundraisingData = {
     frThreadTokenCurrency: threadTokenCurrency,
     frThreadTokenName: threadTokenName,
     protocol,
   };
   const handleDonateSuccess = () => {
-    getAllFundraisings();
     setValue('');
   };
   const donate = useDonate(fundraisingData, handleDonateSuccess);

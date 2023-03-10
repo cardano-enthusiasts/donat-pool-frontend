@@ -1,5 +1,5 @@
-import { type Project } from 'shared/types';
+import { type Fundraising } from 'shared/types';
 
 export interface Props {
-  data: Omit<Project, 'creator'>;
+  data: Omit<Fundraising, 'creator'>;
 }

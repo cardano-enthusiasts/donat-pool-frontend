@@ -7,7 +7,7 @@ interface Config {
   protocolFeeParam: number;
 }
 
-interface Project {
+interface Fundraising {
   creator: object;
   deadline: number;
   description: string;
@@ -17,7 +17,7 @@ interface Project {
   threadTokenName: Uint8Array;
 }
 
-type Projects = Project[];
+type Fundraisings = Fundraising[];
 
 interface FundraisingData {
   frThreadTokenCurrency: Uint8Array;
@@ -33,8 +33,8 @@ interface CreateFundraisingParams {
 
 export type {
   Config,
-  Projects,
-  Project,
+  Fundraisings,
+  Fundraising,
   FundraisingData,
   CreateFundraisingParams,
 };

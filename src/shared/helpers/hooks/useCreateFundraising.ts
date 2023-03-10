@@ -7,23 +7,25 @@ import {
   createFundraisingSuccess,
 } from 'features/info/redux/actionCreators';
 import { protocol } from 'shared/constants';
-import { useOffchain } from 'shared/helpers/hooks';
+import { useOffchain, useGetUserFundraisings } from 'shared/helpers/hooks';
 
-import { getOffchainError } from '../getOffchainError';
+import { getOffchainError } from '..';
 
 const useCreateFundraising = () => {
   const offchain = useOffchain();
   const dispatch = useDispatch();
+  const getUserFundraisings = useGetUserFundraisings();
 
   const handleSuccess = (fundraisingData) => {
     console.log(fundraisingData);
     toast.success('The fundraising was created successfully');
-    createFundraisingSuccess();
+    dispatch(createFundraisingSuccess());
+    getUserFundraisings();
   };
 
   const handleError = (error) => {
     toast.error(error);
-    createFundraisingFail(error);
+    dispatch(createFundraisingFail(error));
   };
 
   if (offchain) {

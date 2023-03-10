@@ -51,6 +51,7 @@ const ProjectCreator = ({ onClose }: Props) => {
         onChange={(event) => {
           handleChange(event, 'title');
         }}
+        isDisabled={isRequesting}
       />
       <Input
         title="Description (purpose of fundraising)"
@@ -68,6 +69,7 @@ const ProjectCreator = ({ onClose }: Props) => {
           handleChange(event, 'goal');
         }}
         type="number"
+        isDisabled={isRequesting}
       />
       <Input
         title="duration"
@@ -76,6 +78,7 @@ const ProjectCreator = ({ onClose }: Props) => {
           handleChange(event, 'duration');
         }}
         type="number"
+        isDisabled={isRequesting}
       />
       <Calendar isDisabled={true} />
       <Checkbox
@@ -86,10 +89,15 @@ const ProjectCreator = ({ onClose }: Props) => {
         title="I agree that service charges 2.00 ADA for donation pool creation"
       />
       <ButtonWrapper>
-        <Button type="submit" isDisabled={!isChecked}>
+        <Button type="submit" isDisabled={!isChecked || isRequesting}>
           Publish
         </Button>
-        <Button type="button" onClick={onClose} theme="bordered">
+        <Button
+          type="button"
+          onClick={onClose}
+          theme="bordered"
+          isDisabled={isRequesting}
+        >
           Cancel
         </Button>
       </ButtonWrapper>

@@ -9,7 +9,7 @@ import {
 import { type FundraisingData } from 'shared/types';
 
 import { useOffchain } from '.';
-import { getOffchainError } from '../getOffchainError';
+import { getOffchainError } from '..';
 
 const useReceiveFunds = () => {
   const offchain = useOffchain();

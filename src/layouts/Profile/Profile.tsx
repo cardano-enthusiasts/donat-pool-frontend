@@ -8,7 +8,7 @@ import {
   ProjectSidebar,
 } from 'shared/components';
 import { useGetUserFundraisings, useOffchain } from 'shared/helpers/hooks';
-import { type Project, type AppReduxState } from 'shared/types';
+import { type Fundraising, type AppReduxState } from 'shared/types';
 
 import {
   CreateButtonWrapper,
@@ -20,7 +20,9 @@ import {
 } from './Profile.styled';
 
 const Profile = ({ defaultMode = null }) => {
-  const [mode, setMode] = useState<Project | 'creation' | null>(defaultMode);
+  const [mode, setMode] = useState<Fundraising | 'creation' | null>(
+    defaultMode
+  );
   const offchain = useOffchain();
   const getUserFundraisings = useGetUserFundraisings();
   const { userFundraisings } = useSelector(
@@ -39,7 +41,7 @@ const Profile = ({ defaultMode = null }) => {
     }
   }, [offchain]);
 
-  const getId = (project: Project) => {
+  const getId = (project: Fundraising) => {
     return project.threadTokenCurrency.toString();
   };
 

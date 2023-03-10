@@ -1,6 +1,6 @@
-import { type BackendProjects, type Projects } from 'shared/types';
+import { type BackendProjects, type Fundraisings } from 'shared/types';
 
-const transformProjects = (projects: BackendProjects): Projects => {
+const transformProjects = (projects: BackendProjects): Fundraisings => {
   return projects.map(
     ({
       creator,

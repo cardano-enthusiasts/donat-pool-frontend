@@ -10,7 +10,7 @@ import { protocol } from 'shared/constants';
 import { useGetProtocolInfo, useOffchain } from 'shared/helpers/hooks';
 import { type Config } from 'shared/types';
 
-import { getOffchainError } from '../getOffchainError';
+import { getOffchainError } from '..';
 
 const useUpdateProtocol = () => {
   const offchain = useOffchain();

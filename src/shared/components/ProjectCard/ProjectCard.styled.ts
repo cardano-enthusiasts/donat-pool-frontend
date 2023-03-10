@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { cardWrapper, h3 } from 'shared/styles/mixins';
+import { cardWrapper, h3, h2 } from 'shared/styles/mixins';
 
 const Wrapper = styled.div`
   ${cardWrapper};
@@ -14,9 +14,13 @@ const Items = styled.div`
   column-gap: 30px;
   margin-bottom: 30px;
 `;
-const Item = styled.div``;
-const Title = styled.h3`
+const Item = styled.div`
   ${h3};
+  margin: 0;
+`;
+const Title = styled.h3`
+  ${h2};
+  text-transform: uppercase;
   margin: 0 0 20px 0;
   text-align: center;
 `;

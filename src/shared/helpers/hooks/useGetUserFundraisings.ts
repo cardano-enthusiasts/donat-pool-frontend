@@ -9,6 +9,7 @@ import {
 import { protocol } from 'shared/constants';
 
 import { useOffchain } from '.';
+import { getOffchainError } from '..';
 import { transformProjects } from '../transformProjects';
 
 const useGetUserFundraisings = () => {
@@ -23,10 +24,6 @@ const useGetUserFundraisings = () => {
   const handleError = (error) => {
     toast.error(error);
     dispatch(getUserFundraisingsFail(error));
-  };
-
-  const getOffchainError = () => {
-    toast.error('offchain is not defined');
   };
 
   if (offchain) {

@@ -4,12 +4,12 @@ import {
   type IAction,
 } from 'redux-make-communication';
 
-import { type Projects, type Config } from 'shared/types';
+import { type Fundraisings, type Config } from 'shared/types';
 
 type GetUserFundraisings = IPlainAction<'INFO:GET_USER_FUNDRAISINGS'>;
 type GetUserFundraisingsSuccess = IAction<
   'INFO:GET_USER_FUNDRAISINGS_SUCCESS',
-  Projects
+  Fundraisings
 >;
 type GetUserFundraisingsFail =
   IPlainFailAction<'INFO:GET_USER_FUNDRAISINGS_FAIL'>;
@@ -17,7 +17,7 @@ type GetUserFundraisingsFail =
 type GetAllFundraisings = IPlainAction<'INFO:GET_ALL_FUNDRAISINGS'>;
 type GetAllFundraisingsSuccess = IAction<
   'INFO:GET_ALL_FUNDRAISINGS_SUCCESS',
-  Projects
+  Fundraisings
 >;
 type GetAllFundraisingsFail =
   IPlainFailAction<'INFO:GET_ALL_FUNDRAISINGS_FAIL'>;

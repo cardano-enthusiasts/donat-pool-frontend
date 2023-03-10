@@ -6,19 +6,21 @@ import {
   donateFail,
   donateSuccess,
 } from 'features/info/redux/actionCreators';
-import { useOffchain } from 'shared/helpers/hooks';
+import { useGetAllFundraisings, useOffchain } from 'shared/helpers/hooks';
 import { type FundraisingData } from 'shared/types';
 
-import { getOffchainError } from '../getOffchainError';
+import { getOffchainError } from '..';
 
 const useDonate = (fundraisingData: FundraisingData, onSuccess) => {
   const offchain = useOffchain();
   const dispatch = useDispatch();
+  const getAllFundraisings = useGetAllFundraisings();
 
   const handleSuccess = () => {
     toast.success('Donated successfully');
     onSuccess();
     dispatch(donateSuccess());
+    getAllFundraisings();
   };
 
   const handleError = (error) => {
