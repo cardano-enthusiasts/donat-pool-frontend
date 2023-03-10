@@ -7,17 +7,17 @@ function data(
   action: TS.Action
 ): TS.ReduxState['data'] {
   switch (action.type) {
-    case 'INFO:SET_CONFIG_SUCCESS':
+    case 'INFO:GET_CONFIG_SUCCESS':
       return {
         ...state,
         config: action.payload,
       };
-    case 'INFO:SET_USER_PROJECTS_SUCCESS':
+    case 'INFO:GET_USER_PROJECTS_SUCCESS':
       return {
         ...state,
         userProjects: action.payload,
       };
-    case 'INFO:SET_ALL_PROJECTS_SUCCESS':
+    case 'INFO:GET_ALL_PROJECTS_SUCCESS':
       return {
         ...state,
         allProjects: action.payload,

@@ -7,35 +7,35 @@ import type * as A from '../../types/actions';
 import { initialState } from '../initialState';
 
 const communication = combineReducers<ReduxState['communication']>({
-  setConfig: makeCommunicationReducer<
-    A.SetConfig,
-    A.SetConfigSuccess,
-    A.SetConfigFail
+  getConfig: makeCommunicationReducer<
+    A.GetConfig,
+    A.GetConfigSuccess,
+    A.GetConfigFail
   >(
-    'INFO:SET_CONFIG',
-    'INFO:SET_CONFIG_SUCCESS',
-    'INFO:SET_CONFIG_FAIL',
-    initialState.communication.setConfig
+    'INFO:GET_CONFIG',
+    'INFO:GET_CONFIG_SUCCESS',
+    'INFO:GET_CONFIG_FAIL',
+    initialState.communication.getConfig
   ),
-  setUserProjects: makeCommunicationReducer<
-    A.SetUserProjects,
-    A.SetUserProjectsSuccess,
-    A.SetUserProjectsFail
+  getUserProjects: makeCommunicationReducer<
+    A.GetUserProjects,
+    A.GetUserProjectsSuccess,
+    A.GetUserProjectsFail
   >(
-    'INFO:SET_USER_PROJECTS',
-    'INFO:SET_USER_PROJECTS_SUCCESS',
-    'INFO:SET_USER_PROJECTS_FAIL',
-    initialState.communication.setUserProjects
+    'INFO:GET_USER_PROJECTS',
+    'INFO:GET_USER_PROJECTS_SUCCESS',
+    'INFO:GET_USER_PROJECTS_FAIL',
+    initialState.communication.getUserProjects
   ),
-  setAllProjects: makeCommunicationReducer<
-    A.SetAllProjects,
-    A.SetAllProjectsSuccess,
-    A.SetAllProjectsFail
+  getAllProjects: makeCommunicationReducer<
+    A.GetAllProjects,
+    A.GetAllProjectsSuccess,
+    A.GetAllProjectsFail
   >(
-    'INFO:SET_ALL_PROJECTS',
-    'INFO:SET_ALL_PROJECTS_SUCCESS',
-    'INFO:SET_ALL_PROJECTS_FAIL',
-    initialState.communication.setAllProjects
+    'INFO:GET_ALL_PROJECTS',
+    'INFO:GET_ALL_PROJECTS_SUCCESS',
+    'INFO:GET_ALL_PROJECTS_FAIL',
+    initialState.communication.getAllProjects
   ),
 });
 

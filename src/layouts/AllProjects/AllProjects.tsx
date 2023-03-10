@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { setAllProjects } from 'features/info/redux/actionCreators';
+import { getAllProjects } from 'features/info/redux/actionCreators';
 import { ProjectCard } from 'shared/components';
 import { useGetAllFundraisings, useOffchain } from 'shared/helpers/hooks';
 import { type AppReduxState } from 'shared/types';
@@ -19,7 +19,7 @@ const AllProjects = () => {
   useEffect(() => {
     if (offchain) {
       getFundraising();
-      dispatch(setAllProjects());
+      dispatch(getAllProjects());
     }
   }, [offchain]);
 

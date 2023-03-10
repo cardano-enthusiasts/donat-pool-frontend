@@ -3,51 +3,51 @@ import { makeCommunicationActionCreators } from 'redux-make-communication';
 import type * as A from '../../types/actions';
 
 const {
-  execute: setConfig,
-  success: setConfigSuccess,
-  fail: setConfigFail,
+  execute: getConfig,
+  success: getConfigSuccess,
+  fail: getConfigFail,
 } = makeCommunicationActionCreators<
-  A.SetConfig,
-  A.SetConfigSuccess,
-  A.SetConfigFail
->('INFO:SET_CONFIG', 'INFO:SET_CONFIG_SUCCESS', 'INFO:SET_CONFIG_FAIL');
+  A.GetConfig,
+  A.GetConfigSuccess,
+  A.GetConfigFail
+>('INFO:GET_CONFIG', 'INFO:GET_CONFIG_SUCCESS', 'INFO:GET_CONFIG_FAIL');
 
 const {
-  execute: setUserProjects,
-  success: setUserProjectsSuccess,
-  fail: setUserProjectsFail,
+  execute: getUserProjects,
+  success: getUserProjectsSuccess,
+  fail: getUserProjectsFail,
 } = makeCommunicationActionCreators<
-  A.SetUserProjects,
-  A.SetUserProjectsSuccess,
-  A.SetUserProjectsFail
+  A.GetUserProjects,
+  A.GetUserProjectsSuccess,
+  A.GetUserProjectsFail
 >(
-  'INFO:SET_USER_PROJECTS',
-  'INFO:SET_USER_PROJECTS_SUCCESS',
-  'INFO:SET_USER_PROJECTS_FAIL'
+  'INFO:GET_USER_PROJECTS',
+  'INFO:GET_USER_PROJECTS_SUCCESS',
+  'INFO:GET_USER_PROJECTS_FAIL'
 );
 
 const {
-  execute: setAllProjects,
-  success: setAllProjectsSuccess,
-  fail: setAllProjectsFail,
+  execute: getAllProjects,
+  success: getAllProjectsSuccess,
+  fail: getAllProjectsFail,
 } = makeCommunicationActionCreators<
-  A.SetAllProjects,
-  A.SetAllProjectsSuccess,
-  A.SetAllProjectsFail
+  A.GetAllProjects,
+  A.GetAllProjectsSuccess,
+  A.GetAllProjectsFail
 >(
-  'INFO:SET_ALL_PROJECTS',
-  'INFO:SET_ALL_PROJECTS_SUCCESS',
-  'INFO:SET_ALL_PROJECTS_FAIL'
+  'INFO:GET_ALL_PROJECTS',
+  'INFO:GET_ALL_PROJECTS_SUCCESS',
+  'INFO:GET_ALL_PROJECTS_FAIL'
 );
 
 export {
-  setConfig,
-  setConfigSuccess,
-  setConfigFail,
-  setUserProjects,
-  setUserProjectsSuccess,
-  setUserProjectsFail,
-  setAllProjects,
-  setAllProjectsSuccess,
-  setAllProjectsFail,
+  getConfig,
+  getConfigSuccess,
+  getConfigFail,
+  getUserProjects,
+  getUserProjectsSuccess,
+  getUserProjectsFail,
+  getAllProjects,
+  getAllProjectsSuccess,
+  getAllProjectsFail,
 };

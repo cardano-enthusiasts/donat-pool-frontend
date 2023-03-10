@@ -4,9 +4,9 @@ import { type ReduxState } from '../types';
 
 const initialState: ReduxState = {
   communication: {
-    setConfig: initialCommunicationField,
-    setUserProjects: initialCommunicationField,
-    setAllProjects: initialCommunicationField,
+    getConfig: initialCommunicationField,
+    getUserProjects: initialCommunicationField,
+    getAllProjects: initialCommunicationField,
   },
   data: {
     config: {

@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 
-import { setAllProjects } from 'features/info/redux/actionCreators';
+import { getAllProjects } from 'features/info/redux/actionCreators';
 import { protocol } from 'shared/constants';
 import { useDonate, useGetAllFundraisings } from 'shared/helpers/hooks';
 
@@ -34,7 +34,7 @@ const ProjectCard = ({
   };
   const handleDonateSuccess = () => {
     getAllFundraisings();
-    dispatch(setAllProjects());
+    dispatch(getAllProjects());
     setValue('');
   };
   const donate = useDonate(fundraisingData, handleDonateSuccess);

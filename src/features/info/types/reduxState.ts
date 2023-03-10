@@ -4,9 +4,9 @@ import { type Projects, type Config } from 'shared/types';
 
 interface ReduxState {
   communication: {
-    setConfig: ICommunication;
-    setUserProjects: ICommunication;
-    setAllProjects: ICommunication;
+    getConfig: ICommunication;
+    getUserProjects: ICommunication;
+    getAllProjects: ICommunication;
   };
   data: {
     config: Config;

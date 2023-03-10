@@ -2,8 +2,8 @@ import { useDispatch } from 'react-redux';
 import { toast } from 'react-toastify';
 
 import {
-  setUserProjectsFail,
-  setUserProjectsSuccess,
+  getUserProjectsFail,
+  getUserProjectsSuccess,
 } from 'features/info/redux/actionCreators';
 import { protocol } from 'shared/constants';
 
@@ -16,12 +16,12 @@ const useGetUserFundraisings = () => {
 
   const handleSuccess = (projects) => {
     const transformedProjects = transformProjects(projects);
-    dispatch(setUserProjectsSuccess(transformedProjects));
+    dispatch(getUserProjectsSuccess(transformedProjects));
   };
 
   const handleError = (error) => {
     toast.error(error);
-    dispatch(setUserProjectsFail(error));
+    dispatch(getUserProjectsFail(error));
   };
 
   const getOffchainError = () => {

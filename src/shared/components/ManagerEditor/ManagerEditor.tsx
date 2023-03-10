@@ -18,6 +18,9 @@ import { Button, Input } from '..';
 
 const ManagerEditor = ({ onUpdatedSuccess, onUpdatedError, config }: Props) => {
   const [params, setParams] = useState(config);
+  const [isLoading, setIsLoading] = useState(false);
+  const [isSubmitDisabled, setIsSubmitDisabled] = useState(true);
+  const [isInputsDisabled, setIsInputsDisabled] = useState(false);
   const handleUpdateProtocolSuccess = () => {
     onUpdatedSuccess();
     setIsLoading(false);
@@ -34,9 +37,6 @@ const ManagerEditor = ({ onUpdatedSuccess, onUpdatedError, config }: Props) => {
     handleUpdateProtocolSuccess,
     handleUpdateProtocolError
   );
-  const [isLoading, setIsLoading] = useState(false);
-  const [isSubmitDisabled, setIsSubmitDisabled] = useState(true);
-  const [isInputsDisabled, setIsInputsDisabled] = useState(false);
 
   useEffect(() => {
     setParams(config);

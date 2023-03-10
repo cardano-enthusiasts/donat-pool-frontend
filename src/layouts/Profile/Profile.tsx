@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { setUserProjects } from 'features/info/redux/actionCreators';
+import { getUserProjects } from 'features/info/redux/actionCreators';
 import {
   Button,
   ProjectCreator,
@@ -38,7 +38,7 @@ const Profile = ({ defaultMode = null }) => {
   useEffect(() => {
     if (offchain) {
       getUserFundraisings();
-      dispatch(setUserProjects());
+      dispatch(getUserProjects());
     }
   }, [offchain]);
 
