@@ -12,15 +12,15 @@ function data(
         ...state,
         config: action.payload,
       };
-    case 'INFO:GET_USER_PROJECTS_SUCCESS':
+    case 'INFO:GET_USER_FUNDRAISINGS_SUCCESS':
       return {
         ...state,
-        userProjects: action.payload,
+        userFundraisings: action.payload,
       };
-    case 'INFO:GET_ALL_PROJECTS_SUCCESS':
+    case 'INFO:GET_ALL_FUNDRAISINGS_SUCCESS':
       return {
         ...state,
-        allProjects: action.payload,
+        allFundraisings: action.payload,
       };
   }
   return state;

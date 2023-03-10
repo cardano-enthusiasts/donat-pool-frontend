@@ -6,16 +6,21 @@ import {
 
 import { type Projects, type Config } from 'shared/types';
 
-type GetUserProjects = IPlainAction<'INFO:GET_USER_PROJECTS'>;
-type GetUserProjectsSuccess = IAction<
-  'INFO:GET_USER_PROJECTS_SUCCESS',
+type GetUserFundraisings = IPlainAction<'INFO:GET_USER_FUNDRAISINGS'>;
+type GetUserFundraisingsSuccess = IAction<
+  'INFO:GET_USER_FUNDRAISINGS_SUCCESS',
   Projects
 >;
-type GetUserProjectsFail = IPlainFailAction<'INFO:GET_USER_PROJECTS_FAIL'>;
+type GetUserFundraisingsFail =
+  IPlainFailAction<'INFO:GET_USER_FUNDRAISINGS_FAIL'>;
 
-type GetAllProjects = IPlainAction<'INFO:GET_ALL_PROJECTS'>;
-type GetAllProjectsSuccess = IAction<'INFO:GET_ALL_PROJECTS_SUCCESS', Projects>;
-type GetAllProjectsFail = IPlainFailAction<'INFO:GET_ALL_PROJECTS_FAIL'>;
+type GetAllFundraisings = IPlainAction<'INFO:GET_ALL_FUNDRAISINGS'>;
+type GetAllFundraisingsSuccess = IAction<
+  'INFO:GET_ALL_FUNDRAISINGS_SUCCESS',
+  Projects
+>;
+type GetAllFundraisingsFail =
+  IPlainFailAction<'INFO:GET_ALL_FUNDRAISINGS_FAIL'>;
 
 type CreateFundraising = IPlainAction<'INFO:CREATE_FUNDRAISING'>;
 type CreateFundraisingSuccess = IPlainAction<'INFO:CREATE_FUNDRAISING_SUCCESS'>;
@@ -38,12 +43,12 @@ type GetProtocolInfoSuccess = IAction<'INFO:GET_PROTOCOL_INFO_SUCCESS', Config>;
 type GetProtocolInfoFail = IPlainFailAction<'INFO:GET_PROTOCOL_INFO_FAIL'>;
 
 type Action =
-  | GetUserProjects
-  | GetUserProjectsSuccess
-  | GetUserProjectsFail
-  | GetAllProjects
-  | GetAllProjectsSuccess
-  | GetAllProjectsFail
+  | GetUserFundraisings
+  | GetUserFundraisingsSuccess
+  | GetUserFundraisingsFail
+  | GetAllFundraisings
+  | GetAllFundraisingsSuccess
+  | GetAllFundraisingsFail
   | CreateFundraising
   | CreateFundraisingSuccess
   | CreateFundraisingFail
@@ -62,12 +67,12 @@ type Action =
 
 export type {
   Action,
-  GetUserProjects,
-  GetUserProjectsSuccess,
-  GetUserProjectsFail,
-  GetAllProjects,
-  GetAllProjectsSuccess,
-  GetAllProjectsFail,
+  GetUserFundraisings,
+  GetUserFundraisingsSuccess,
+  GetUserFundraisingsFail,
+  GetAllFundraisings,
+  GetAllFundraisingsSuccess,
+  GetAllFundraisingsFail,
   CreateFundraising,
   CreateFundraisingSuccess,
   CreateFundraisingFail,

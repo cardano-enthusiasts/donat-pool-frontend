@@ -2,9 +2,9 @@ import { useDispatch } from 'react-redux';
 import { toast } from 'react-toastify';
 
 import {
-  getAllProjects,
-  getAllProjectsFail,
-  getAllProjectsSuccess,
+  getAllFundraisings,
+  getAllFundraisingsFail,
+  getAllFundraisingsSuccess,
 } from 'features/info/redux/actionCreators';
 import { protocol } from 'shared/constants';
 
@@ -36,12 +36,12 @@ const useGetAllFundraisings = () => {
         };
       }
     );
-    dispatch(getAllProjectsSuccess(filteredProjects));
+    dispatch(getAllFundraisingsSuccess(filteredProjects));
   };
 
   const handleError = (error) => {
     toast.error(error);
-    dispatch(getAllProjectsFail(error));
+    dispatch(getAllFundraisingsFail(error));
   };
 
   const getOffchainError = () => {
@@ -51,7 +51,7 @@ const useGetAllFundraisings = () => {
   if (offchain) {
     return () => {
       offchain.getAllFundraisings(handleSuccess)(handleError)(protocol)();
-      dispatch(getAllProjects());
+      dispatch(getAllFundraisings());
     };
   }
   return getOffchainError;

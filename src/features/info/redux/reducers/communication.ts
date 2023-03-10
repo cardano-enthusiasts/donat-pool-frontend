@@ -7,25 +7,25 @@ import type * as A from '../../types/actions';
 import { initialState } from '../initialState';
 
 const communication = combineReducers<ReduxState['communication']>({
-  getUserProjects: makeCommunicationReducer<
-    A.GetUserProjects,
-    A.GetUserProjectsSuccess,
-    A.GetUserProjectsFail
+  getUserFundraisings: makeCommunicationReducer<
+    A.GetUserFundraisings,
+    A.GetUserFundraisingsSuccess,
+    A.GetUserFundraisingsFail
   >(
-    'INFO:GET_USER_PROJECTS',
-    'INFO:GET_USER_PROJECTS_SUCCESS',
-    'INFO:GET_USER_PROJECTS_FAIL',
-    initialState.communication.getUserProjects
+    'INFO:GET_USER_FUNDRAISINGS',
+    'INFO:GET_USER_FUNDRAISINGS_SUCCESS',
+    'INFO:GET_USER_FUNDRAISINGS_FAIL',
+    initialState.communication.getUserFundraisings
   ),
-  getAllProjects: makeCommunicationReducer<
-    A.GetAllProjects,
-    A.GetAllProjectsSuccess,
-    A.GetAllProjectsFail
+  getAllFundraisings: makeCommunicationReducer<
+    A.GetAllFundraisings,
+    A.GetAllFundraisingsSuccess,
+    A.GetAllFundraisingsFail
   >(
-    'INFO:GET_ALL_PROJECTS',
-    'INFO:GET_ALL_PROJECTS_SUCCESS',
-    'INFO:GET_ALL_PROJECTS_FAIL',
-    initialState.communication.getAllProjects
+    'INFO:GET_ALL_FUNDRAISINGS',
+    'INFO:GET_ALL_FUNDRAISINGS_SUCCESS',
+    'INFO:GET_ALL_FUNDRAISINGS_FAIL',
+    initialState.communication.getAllFundraisings
   ),
   createFundraising: makeCommunicationReducer<
     A.CreateFundraising,

@@ -4,8 +4,8 @@ import { type Projects, type Config } from 'shared/types';
 
 interface ReduxState {
   communication: {
-    getUserProjects: ICommunication;
-    getAllProjects: ICommunication;
+    getUserFundraisings: ICommunication;
+    getAllFundraisings: ICommunication;
     createFundraising: ICommunication;
     donate: ICommunication;
     receiveFunds: ICommunication;
@@ -14,8 +14,8 @@ interface ReduxState {
   };
   data: {
     config: Config;
-    userProjects: Projects | null;
-    allProjects: Projects | null;
+    userFundraisings: Projects | null;
+    allFundraisings: Projects | null;
   };
 }
 

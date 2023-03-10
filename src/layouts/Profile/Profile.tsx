@@ -23,15 +23,15 @@ const Profile = ({ defaultMode = null }) => {
   const [mode, setMode] = useState<Project | 'creation' | null>(defaultMode);
   const offchain = useOffchain();
   const getUserFundraisings = useGetUserFundraisings();
-  const userProjects = useSelector(
-    (state: AppReduxState) => state.info.data.userProjects
+  const { userFundraisings } = useSelector(
+    (state: AppReduxState) => state.info.data
   );
 
   useEffect(() => {
-    if (userProjects) {
-      setMode(userProjects[0]);
+    if (userFundraisings) {
+      setMode(userFundraisings[0]);
     }
-  }, [userProjects]);
+  }, [userFundraisings]);
 
   useEffect(() => {
     if (offchain) {
@@ -44,7 +44,7 @@ const Profile = ({ defaultMode = null }) => {
   };
 
   const handleSidebarClick = (id) => {
-    const clickedProject = userProjects?.find((item) => getId(item) === id);
+    const clickedProject = userFundraisings?.find((item) => getId(item) === id);
     if (clickedProject != null) {
       setMode(clickedProject);
     }
@@ -73,8 +73,8 @@ const Profile = ({ defaultMode = null }) => {
         <SidebarWrapper>
           <ProjectSidebar
             projects={
-              userProjects
-                ? userProjects.map((project) => {
+              userFundraisings
+                ? userFundraisings.map((project) => {
                     return {
                       title: project.description,
                       id: getId(project),

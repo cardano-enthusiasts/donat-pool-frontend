@@ -3,31 +3,31 @@ import { makeCommunicationActionCreators } from 'redux-make-communication';
 import type * as A from '../../types/actions';
 
 const {
-  execute: getUserProjects,
-  success: getUserProjectsSuccess,
-  fail: getUserProjectsFail,
+  execute: getUserFundraisings,
+  success: getUserFundraisingsSuccess,
+  fail: getUserFundraisingsFail,
 } = makeCommunicationActionCreators<
-  A.GetUserProjects,
-  A.GetUserProjectsSuccess,
-  A.GetUserProjectsFail
+  A.GetUserFundraisings,
+  A.GetUserFundraisingsSuccess,
+  A.GetUserFundraisingsFail
 >(
-  'INFO:GET_USER_PROJECTS',
-  'INFO:GET_USER_PROJECTS_SUCCESS',
-  'INFO:GET_USER_PROJECTS_FAIL'
+  'INFO:GET_USER_FUNDRAISINGS',
+  'INFO:GET_USER_FUNDRAISINGS_SUCCESS',
+  'INFO:GET_USER_FUNDRAISINGS_FAIL'
 );
 
 const {
-  execute: getAllProjects,
-  success: getAllProjectsSuccess,
-  fail: getAllProjectsFail,
+  execute: getAllFundraisings,
+  success: getAllFundraisingsSuccess,
+  fail: getAllFundraisingsFail,
 } = makeCommunicationActionCreators<
-  A.GetAllProjects,
-  A.GetAllProjectsSuccess,
-  A.GetAllProjectsFail
+  A.GetAllFundraisings,
+  A.GetAllFundraisingsSuccess,
+  A.GetAllFundraisingsFail
 >(
-  'INFO:GET_ALL_PROJECTS',
-  'INFO:GET_ALL_PROJECTS_SUCCESS',
-  'INFO:GET_ALL_PROJECTS_FAIL'
+  'INFO:GET_ALL_FUNDRAISINGS',
+  'INFO:GET_ALL_FUNDRAISINGS_SUCCESS',
+  'INFO:GET_ALL_FUNDRAISINGS_FAIL'
 );
 
 const {
@@ -97,12 +97,12 @@ const {
 );
 
 export {
-  getUserProjects,
-  getUserProjectsSuccess,
-  getUserProjectsFail,
-  getAllProjects,
-  getAllProjectsSuccess,
-  getAllProjectsFail,
+  getUserFundraisings,
+  getUserFundraisingsSuccess,
+  getUserFundraisingsFail,
+  getAllFundraisings,
+  getAllFundraisingsSuccess,
+  getAllFundraisingsFail,
   createFundraising,
   createFundraisingSuccess,
   createFundraisingFail,

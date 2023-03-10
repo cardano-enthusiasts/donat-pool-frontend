@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { getAllProjects } from 'features/info/redux/actionCreators';
+import { getAllFundraisings } from 'features/info/redux/actionCreators';
 import { ProjectCard } from 'shared/components';
 import { useGetAllFundraisings, useOffchain } from 'shared/helpers/hooks';
 import { type AppReduxState } from 'shared/types';
@@ -12,14 +12,14 @@ const AllProjects = () => {
   const offchain = useOffchain();
   const dispatch = useDispatch();
   const getFundraising = useGetAllFundraisings();
-  const allProjects = useSelector(
-    (state: AppReduxState) => state.info.data.allProjects
+  const allFundraisings = useSelector(
+    (state: AppReduxState) => state.info.data.allFundraisings
   );
 
   useEffect(() => {
     if (offchain) {
       getFundraising();
-      dispatch(getAllProjects());
+      dispatch(getAllFundraisings());
     }
   }, [offchain]);
 
@@ -27,8 +27,8 @@ const AllProjects = () => {
     <Wrapper>
       <Title>Active projects</Title>
       <CardsWrapper>
-        {allProjects ? (
-          allProjects.map((project) => {
+        {allFundraisings ? (
+          allFundraisings.map((project) => {
             return (
               <ProjectCard
                 data={project}

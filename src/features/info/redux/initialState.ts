@@ -4,8 +4,8 @@ import { type ReduxState } from '../types';
 
 const initialState: ReduxState = {
   communication: {
-    getUserProjects: initialCommunicationField,
-    getAllProjects: initialCommunicationField,
+    getUserFundraisings: initialCommunicationField,
+    getAllFundraisings: initialCommunicationField,
     createFundraising: initialCommunicationField,
     donate: initialCommunicationField,
     receiveFunds: initialCommunicationField,
@@ -20,8 +20,8 @@ const initialState: ReduxState = {
       maxDurationParam: 0,
       protocolFeeParam: 0,
     },
-    userProjects: null,
-    allProjects: null,
+    userFundraisings: null,
+    allFundraisings: null,
   },
 };
 
