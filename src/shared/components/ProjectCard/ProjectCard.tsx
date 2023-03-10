@@ -1,11 +1,9 @@
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { toast } from 'react-toastify';
 
-import { setAllProjectsSuccess } from 'features/info/redux/actionCreators';
+import { setAllProjects } from 'features/info/redux/actionCreators';
 import { protocol } from 'shared/constants';
-import { transformProjects } from 'shared/helpers';
-import { useOffchain } from 'shared/helpers/hooks';
+import { useDonate, useGetAllFundraisings } from 'shared/helpers/hooks';
 
 import {
   Item,
@@ -27,34 +25,24 @@ const ProjectCard = ({
     threadTokenCurrency,
   },
 }: Props) => {
-  const offchain = useOffchain();
   const dispatch = useDispatch();
-  const [value, setValue] = useState<'' | number>('');
-  const [isButtonDisabled, setIsButtonDisabled] = useState(true);
-
+  const getAllFundraisings = useGetAllFundraisings();
   const fundraisingData = {
     frThreadTokenCurrency: threadTokenCurrency,
     frThreadTokenName: threadTokenName,
     protocol,
   };
-  const getDate = () => {
-    return new Date(deadline).toLocaleString('ru');
-  };
-
-  const handleGetAllFundraisingsSuccess = (projects) => {
-    const filteredProjects = transformProjects(projects);
-    dispatch(setAllProjectsSuccess(filteredProjects));
-  };
-
   const handleDonateSuccess = () => {
-    toast.success('Donated successfully');
-    offchain?.getAllFundraisings(handleGetAllFundraisingsSuccess)(console.log)(
-      protocol
-    )();
+    getAllFundraisings();
+    dispatch(setAllProjects());
     setValue('');
   };
-  const handleDonateError = (error) => {
-    console.log(error);
+  const donate = useDonate(fundraisingData, handleDonateSuccess);
+  const [value, setValue] = useState<'' | number>('');
+  const [isButtonDisabled, setIsButtonDisabled] = useState(true);
+
+  const getDate = () => {
+    return new Date(deadline).toLocaleString('ru');
   };
 
   useEffect(() => {
@@ -66,14 +54,8 @@ const ProjectCard = ({
   }, [value]);
 
   const handleClickDonate = () => {
-    if (offchain) {
-      if (value !== '') {
-        offchain.donate(handleDonateSuccess)(handleDonateError)(
-          fundraisingData
-        )(value * 1000000)();
-      }
-    } else {
-      toast.error('offchain is not defined');
+    if (value !== '') {
+      donate(value * 1000000)();
     }
   };
 

@@ -1,21 +1,14 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { toast } from 'react-toastify';
 
-import {
-  setUserProjects,
-  setUserProjectsFail,
-  setUserProjectsSuccess,
-} from 'features/info/redux/actionCreators';
+import { setUserProjects } from 'features/info/redux/actionCreators';
 import {
   Button,
   ProjectCreator,
   ProjectInfo,
   ProjectSidebar,
 } from 'shared/components';
-import { protocol } from 'shared/constants';
-import { transformProjects } from 'shared/helpers';
-import { useOffchain } from 'shared/helpers/hooks';
+import { useGetUserFundraisings, useOffchain } from 'shared/helpers/hooks';
 import { type Project, type AppReduxState } from 'shared/types';
 
 import {
@@ -30,6 +23,7 @@ import {
 const Profile = ({ defaultMode = null }) => {
   const [mode, setMode] = useState<Project | 'creation' | null>(defaultMode);
   const offchain = useOffchain();
+  const getUserFundraisings = useGetUserFundraisings();
   const dispatch = useDispatch();
   const userProjects = useSelector(
     (state: AppReduxState) => state.info.data.userProjects
@@ -41,21 +35,9 @@ const Profile = ({ defaultMode = null }) => {
     }
   }, [userProjects]);
 
-  const handleGetFundraisingSuccess = (projects) => {
-    const filteredProjects = transformProjects(projects);
-    dispatch(setUserProjectsSuccess(filteredProjects));
-  };
-
-  const handleGetFundraisingError = (error) => {
-    toast.error(error);
-    dispatch(setUserProjectsFail(error));
-  };
-
   useEffect(() => {
     if (offchain) {
-      offchain.getUserRelatedFundraisings(handleGetFundraisingSuccess)(
-        handleGetFundraisingError
-      )(protocol)();
+      getUserFundraisings();
       dispatch(setUserProjects());
     }
   }, [offchain]);

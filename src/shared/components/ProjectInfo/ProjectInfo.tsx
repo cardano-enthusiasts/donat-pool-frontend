@@ -1,7 +1,5 @@
-import { toast } from 'react-toastify';
-
 import { protocol } from 'shared/constants';
-import { useOffchain } from 'shared/helpers/hooks';
+import { useReceiveFunds } from 'shared/helpers/hooks/useReceiveFunds';
 
 import {
   ButtonWrapper,
@@ -23,7 +21,7 @@ const ProjectInfo = ({
     threadTokenName,
   },
 }: Props) => {
-  const offchain = useOffchain();
+  const receiveFunds = useReceiveFunds();
   const getDate = () => {
     return new Date(deadline).toLocaleString('ru');
   };
@@ -33,24 +31,9 @@ const ProjectInfo = ({
     protocol,
   };
 
-  const handleReceiveFundsSuccess = () => {
-    console.log('success');
-  };
-
-  const handleReceiveFundsError = (error) => {
-    console.log(error);
-    toast.error(error);
-  };
-
   const handleReceiveFunds = () => {
-    if (offchain) {
-      console.log(fundraisingData);
-      offchain.receiveFunds(handleReceiveFundsSuccess)(handleReceiveFundsError)(
-        fundraisingData
-      )();
-    } else {
-      toast.error('offchain is not defined');
-    }
+    console.log(fundraisingData);
+    receiveFunds(fundraisingData)();
   };
 
   return (

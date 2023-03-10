@@ -27,7 +27,7 @@ type CreateFundraising = (
 ) => (createFundraisingParams: CreateFundraisingParams) => () => void;
 
 type Donate = (
-  onSuccess: (something) => void
+  onSuccess: () => void
 ) => (
   onError: OnError
 ) => (fundraisingData: FundraisingData) => (amount: number) => () => void;

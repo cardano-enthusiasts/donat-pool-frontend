@@ -1,11 +1,8 @@
 import { type ChangeEvent, useState, useEffect } from 'react';
 import ReactLoading from 'react-loading';
-import { toast } from 'react-toastify';
 
-import { protocol } from 'shared/constants';
-import { useOffchain } from 'shared/helpers/hooks';
+import { useUpdateProtocol } from 'shared/helpers/hooks';
 import { theme } from 'shared/styles/theme';
-import { type Config } from 'shared/types';
 
 import { defaultParams } from './data';
 import {
@@ -21,7 +18,22 @@ import { Button, Input } from '..';
 
 const ManagerEditor = ({ onUpdatedSuccess, onUpdatedError, config }: Props) => {
   const [params, setParams] = useState(config);
-  const offchain = useOffchain();
+  const handleUpdateProtocolSuccess = () => {
+    onUpdatedSuccess();
+    setIsLoading(false);
+    setIsSubmitDisabled(false);
+    setIsInputsDisabled(false);
+  };
+  const handleUpdateProtocolError = () => {
+    setIsLoading(false);
+    onUpdatedError();
+    setIsSubmitDisabled(false);
+    setIsInputsDisabled(false);
+  };
+  const updateProtocol = useUpdateProtocol(
+    handleUpdateProtocolSuccess,
+    handleUpdateProtocolError
+  );
   const [isLoading, setIsLoading] = useState(false);
   const [isSubmitDisabled, setIsSubmitDisabled] = useState(true);
   const [isInputsDisabled, setIsInputsDisabled] = useState(false);
@@ -47,28 +59,9 @@ const ManagerEditor = ({ onUpdatedSuccess, onUpdatedError, config }: Props) => {
     });
   };
 
-  const onUpdateProtocolComplete = (updatedParams: Config) => {
-    toast.success('Config was updated successfully');
-    setParams(updatedParams);
-    onUpdatedSuccess();
-    setIsLoading(false);
-    setIsSubmitDisabled(false);
-    setIsInputsDisabled(false);
-  };
-
-  const onUpdateProtocolError = (error) => {
-    toast.error(error);
-    setIsLoading(false);
-    onUpdatedError();
-    setIsSubmitDisabled(false);
-    setIsInputsDisabled(false);
-  };
-
   const handleSubmit = (event: ChangeEvent<HTMLFormElement>) => {
     event.preventDefault();
-    offchain?.updateProtocol(onUpdateProtocolComplete)(onUpdateProtocolError)(
-      protocol
-    )(params)();
+    updateProtocol(params)();
     setIsLoading(true);
   };
 

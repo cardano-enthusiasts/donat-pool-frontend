@@ -1,10 +1,9 @@
 import { type ChangeEvent, useState } from 'react';
 import 'react-datepicker/dist/react-datepicker.css';
 import ReactLoading from 'react-loading';
-import { toast } from 'react-toastify';
 
 import { protocol } from 'shared/constants';
-import { useOffchain } from 'shared/helpers/hooks';
+import { useCreateFundraising } from 'shared/helpers/hooks';
 import { theme } from 'shared/styles/theme';
 
 import { ButtonWrapper, Form, Loader, Title } from './ProjectCreator.styled';
@@ -12,6 +11,7 @@ import { type Props } from './types';
 import { Button, Calendar, Checkbox, Input } from '..';
 
 const ProjectCreator = ({ onClose }: Props) => {
+  const createFundraising = useCreateFundraising(protocol);
   const [isChecked, setIsChecked] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [data, setData] = useState({
@@ -20,17 +20,6 @@ const ProjectCreator = ({ onClose }: Props) => {
     goal: '',
     duration: '',
   });
-  const offchain = useOffchain();
-
-  const handleCreateFundraisingComplete = (fundraisingData) => {
-    console.log(fundraisingData);
-    toast.success('fundraising was created successfully');
-    setIsLoading(false);
-  };
-  const handleCreateFundraisingError = (error) => {
-    toast.error(error);
-    setIsLoading(false);
-  };
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -39,14 +28,8 @@ const ProjectCreator = ({ onClose }: Props) => {
       amount: Number(data.goal),
       duration: Number(data.duration),
     };
+    createFundraising(createFundraisingParams)();
     setIsLoading(true);
-    if (offchain) {
-      offchain.createFundraising(handleCreateFundraisingComplete)(
-        handleCreateFundraisingError
-      )(protocol)(createFundraisingParams)();
-    } else {
-      toast.error('offchain is not defined');
-    }
   };
 
   const handleChange = (
