@@ -1,8 +1,10 @@
 import { type ChangeEvent, useState, useEffect } from 'react';
 import ReactLoading from 'react-loading';
+import { useSelector } from 'react-redux';
 
 import { useUpdateProtocol } from 'shared/helpers/hooks';
 import { theme } from 'shared/styles/theme';
+import { type AppReduxState } from 'shared/types';
 
 import { defaultParams } from './data';
 import {
@@ -18,36 +20,27 @@ import { Button, Input } from '..';
 
 const ManagerEditor = ({ onUpdatedSuccess, onUpdatedError, config }: Props) => {
   const [params, setParams] = useState(config);
-  const [isLoading, setIsLoading] = useState(false);
   const [isSubmitDisabled, setIsSubmitDisabled] = useState(true);
   const [isInputsDisabled, setIsInputsDisabled] = useState(false);
-  const handleUpdateProtocolSuccess = () => {
-    onUpdatedSuccess();
-    setIsLoading(false);
-    setIsSubmitDisabled(false);
-    setIsInputsDisabled(false);
-  };
-  const handleUpdateProtocolError = () => {
-    setIsLoading(false);
-    onUpdatedError();
-    setIsSubmitDisabled(false);
-    setIsInputsDisabled(false);
-  };
-  const updateProtocol = useUpdateProtocol(
-    handleUpdateProtocolSuccess,
-    handleUpdateProtocolError
+  const { isRequesting } = useSelector(
+    (state: AppReduxState) => state.info.communication.updateProtocol
   );
+
+  useEffect(() => {
+    if (isRequesting) {
+      setIsSubmitDisabled(true);
+      setIsInputsDisabled(true);
+    } else {
+      setIsSubmitDisabled(false);
+      setIsInputsDisabled(false);
+    }
+  }, [isRequesting]);
+
+  const updateProtocol = useUpdateProtocol();
 
   useEffect(() => {
     setParams(config);
   }, [config]);
-
-  useEffect(() => {
-    if (isLoading) {
-      setIsSubmitDisabled(true);
-      setIsInputsDisabled(true);
-    }
-  }, [isLoading]);
 
   const handleInputChange = (id, event) => {
     const { value } = event.target as HTMLInputElement;
@@ -61,8 +54,7 @@ const ManagerEditor = ({ onUpdatedSuccess, onUpdatedError, config }: Props) => {
 
   const handleSubmit = (event: ChangeEvent<HTMLFormElement>) => {
     event.preventDefault();
-    updateProtocol(params)();
-    setIsLoading(true);
+    updateProtocol(params);
   };
 
   return (
@@ -89,8 +81,8 @@ const ManagerEditor = ({ onUpdatedSuccess, onUpdatedError, config }: Props) => {
             Confirm
           </Button>
         </ButtonWrapper>
-        <Loader isLoading={isLoading}>
-          {isLoading && (
+        <Loader isLoading={isRequesting}>
+          {isRequesting && (
             <ReactLoading color={theme.colors.secondary} height={40} />
           )}
         </Loader>

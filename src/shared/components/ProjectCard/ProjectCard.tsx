@@ -1,7 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
 
-import { getAllProjects } from 'features/info/redux/actionCreators';
 import { protocol } from 'shared/constants';
 import { useDonate, useGetAllFundraisings } from 'shared/helpers/hooks';
 
@@ -25,7 +23,6 @@ const ProjectCard = ({
     threadTokenCurrency,
   },
 }: Props) => {
-  const dispatch = useDispatch();
   const getAllFundraisings = useGetAllFundraisings();
   const fundraisingData = {
     frThreadTokenCurrency: threadTokenCurrency,
@@ -34,7 +31,6 @@ const ProjectCard = ({
   };
   const handleDonateSuccess = () => {
     getAllFundraisings();
-    dispatch(getAllProjects());
     setValue('');
   };
   const donate = useDonate(fundraisingData, handleDonateSuccess);
@@ -55,7 +51,7 @@ const ProjectCard = ({
 
   const handleClickDonate = () => {
     if (value !== '') {
-      donate(value * 1000000)();
+      donate(value * 1000000);
     }
   };
 

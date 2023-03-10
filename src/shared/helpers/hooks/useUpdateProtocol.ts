@@ -1,25 +1,38 @@
+import { useDispatch } from 'react-redux';
 import { toast } from 'react-toastify';
 
+import {
+  updateProtocol,
+  updateProtocolFail,
+  updateProtocolSuccess,
+} from 'features/info/redux/actionCreators';
 import { protocol } from 'shared/constants';
+import { useGetProtocolInfo, useOffchain } from 'shared/helpers/hooks';
+import { type Config } from 'shared/types';
 
-import { useOffchain } from '.';
 import { getOffchainError } from '../getOffchainError';
 
-const useUpdateProtocol = (onSuccess, onError) => {
+const useUpdateProtocol = () => {
   const offchain = useOffchain();
+  const dispatch = useDispatch();
+  const getProtocolInfo = useGetProtocolInfo();
 
   const handleSuccess = () => {
     toast.success('Config was updated successfully');
-    onSuccess();
+    dispatch(updateProtocolSuccess());
+    getProtocolInfo();
   };
 
   const handleError = (error) => {
     toast.error(error);
-    onError();
+    dispatch(updateProtocolFail(error));
   };
 
   if (offchain) {
-    return offchain?.updateProtocol(handleSuccess)(handleError)(protocol);
+    return (config: Config) => {
+      offchain.updateProtocol(handleSuccess)(handleError)(protocol)(config)();
+      dispatch(updateProtocol());
+    };
   }
   return () => getOffchainError;
 };

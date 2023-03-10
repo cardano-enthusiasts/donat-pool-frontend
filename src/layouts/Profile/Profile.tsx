@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 
-import { getUserProjects } from 'features/info/redux/actionCreators';
 import {
   Button,
   ProjectCreator,
@@ -24,7 +23,6 @@ const Profile = ({ defaultMode = null }) => {
   const [mode, setMode] = useState<Project | 'creation' | null>(defaultMode);
   const offchain = useOffchain();
   const getUserFundraisings = useGetUserFundraisings();
-  const dispatch = useDispatch();
   const userProjects = useSelector(
     (state: AppReduxState) => state.info.data.userProjects
   );
@@ -38,7 +36,6 @@ const Profile = ({ defaultMode = null }) => {
   useEffect(() => {
     if (offchain) {
       getUserFundraisings();
-      dispatch(getUserProjects());
     }
   }, [offchain]);
 

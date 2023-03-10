@@ -2,6 +2,7 @@ import { useDispatch } from 'react-redux';
 import { toast } from 'react-toastify';
 
 import {
+  getAllProjects,
   getAllProjectsFail,
   getAllProjectsSuccess,
 } from 'features/info/redux/actionCreators';
@@ -48,7 +49,10 @@ const useGetAllFundraisings = () => {
   };
 
   if (offchain) {
-    return offchain.getAllFundraisings(handleSuccess)(handleError)(protocol);
+    return () => {
+      offchain.getAllFundraisings(handleSuccess)(handleError)(protocol)();
+      dispatch(getAllProjects());
+    };
   }
   return getOffchainError;
 };

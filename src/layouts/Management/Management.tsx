@@ -1,7 +1,6 @@
 import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 
-import { getConfig } from 'features/info/redux/actionCreators';
 import { ManagementParams, ManagerEditor } from 'shared/components';
 import { useGetProtocolInfo, useOffchain } from 'shared/helpers/hooks';
 import { type AppReduxState } from 'shared/types';
@@ -16,7 +15,6 @@ const Management = () => {
   useEffect(() => {
     if (offchain) {
       getProtocolInfo();
-      getConfig();
     }
   }, [offchain]);
 

@@ -2,6 +2,7 @@ import { useDispatch } from 'react-redux';
 import { toast } from 'react-toastify';
 
 import {
+  getUserProjects,
   getUserProjectsFail,
   getUserProjectsSuccess,
 } from 'features/info/redux/actionCreators';
@@ -29,9 +30,12 @@ const useGetUserFundraisings = () => {
   };
 
   if (offchain) {
-    return offchain.getUserRelatedFundraisings(handleSuccess)(handleError)(
-      protocol
-    );
+    return () => {
+      offchain.getUserRelatedFundraisings(handleSuccess)(handleError)(
+        protocol
+      )();
+      dispatch(getUserProjects());
+    };
   }
   return getOffchainError;
 };

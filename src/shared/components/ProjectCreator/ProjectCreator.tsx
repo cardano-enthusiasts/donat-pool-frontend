@@ -1,25 +1,28 @@
 import { type ChangeEvent, useState } from 'react';
 import 'react-datepicker/dist/react-datepicker.css';
 import ReactLoading from 'react-loading';
+import { useSelector } from 'react-redux';
 
-import { protocol } from 'shared/constants';
 import { useCreateFundraising } from 'shared/helpers/hooks';
 import { theme } from 'shared/styles/theme';
+import { type AppReduxState } from 'shared/types';
 
 import { ButtonWrapper, Form, Loader, Title } from './ProjectCreator.styled';
 import { type Props } from './types';
 import { Button, Calendar, Checkbox, Input } from '..';
 
 const ProjectCreator = ({ onClose }: Props) => {
-  const createFundraising = useCreateFundraising(protocol);
+  const createFundraising = useCreateFundraising();
   const [isChecked, setIsChecked] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
   const [data, setData] = useState({
     title: '',
     description: '',
     goal: '',
     duration: '',
   });
+  const { isRequesting } = useSelector(
+    (state: AppReduxState) => state.info.communication.createFundraising
+  );
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -28,8 +31,7 @@ const ProjectCreator = ({ onClose }: Props) => {
       amount: Number(data.goal),
       duration: Number(data.duration),
     };
-    createFundraising(createFundraisingParams)();
-    setIsLoading(true);
+    createFundraising(createFundraisingParams);
   };
 
   const handleChange = (
@@ -92,7 +94,7 @@ const ProjectCreator = ({ onClose }: Props) => {
         </Button>
       </ButtonWrapper>
       <Loader>
-        {isLoading && (
+        {isRequesting && (
           <ReactLoading color={theme.colors.secondary} height={40} />
         )}
       </Loader>

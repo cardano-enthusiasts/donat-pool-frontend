@@ -1,11 +1,10 @@
-import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { toast } from 'react-toastify';
 
 import {
-  getConfig,
-  getConfigFail,
-  getConfigSuccess,
+  getProtocolInfo,
+  getProtocolInfoFail,
+  getProtocolInfoSuccess,
 } from 'features/info/redux/actionCreators';
 import { protocol } from 'shared/constants';
 import { useOffchain } from 'shared/helpers/hooks';
@@ -17,29 +16,34 @@ const useGetProtocolInfo = () => {
   const offchain = useOffchain();
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    dispatch(getConfig());
-  }, [offchain?.getProtocolInfo]);
-
-  const handleSuccess = (params: BackendParams) => {
+  const handleSuccess = ({
+    minAmountParam,
+    maxAmountParam,
+    minDurationParam,
+    maxDurationParam,
+    protocolFeeParam,
+  }: BackendParams) => {
     dispatch(
-      getConfigSuccess({
-        minAmountParam: Number(params.minAmountParam.value),
-        maxAmountParam: Number(params.maxAmountParam.value),
-        minDurationParam: Number(params.minDurationParam.value),
-        maxDurationParam: Number(params.maxDurationParam.value),
-        protocolFeeParam: Number(params.protocolFeeParam.value),
+      getProtocolInfoSuccess({
+        minAmountParam: Number(minAmountParam.value),
+        maxAmountParam: Number(maxAmountParam.value),
+        minDurationParam: Number(minDurationParam.value),
+        maxDurationParam: Number(maxDurationParam.value),
+        protocolFeeParam: Number(protocolFeeParam.value),
       })
     );
   };
 
   const handleError = (error) => {
     toast.error(error);
-    dispatch(getConfigFail(error));
+    dispatch(getProtocolInfoFail(error));
   };
 
   if (offchain) {
-    return offchain?.getProtocolInfo(handleSuccess)(handleError)(protocol);
+    return () => {
+      offchain?.getProtocolInfo(handleSuccess)(handleError)(protocol)();
+      dispatch(getProtocolInfo());
+    };
   }
   return getOffchainError;
 };

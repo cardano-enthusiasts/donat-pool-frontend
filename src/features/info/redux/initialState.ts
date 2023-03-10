@@ -4,9 +4,13 @@ import { type ReduxState } from '../types';
 
 const initialState: ReduxState = {
   communication: {
-    getConfig: initialCommunicationField,
     getUserProjects: initialCommunicationField,
     getAllProjects: initialCommunicationField,
+    createFundraising: initialCommunicationField,
+    donate: initialCommunicationField,
+    receiveFunds: initialCommunicationField,
+    updateProtocol: initialCommunicationField,
+    getProtocolInfo: initialCommunicationField,
   },
   data: {
     config: {
