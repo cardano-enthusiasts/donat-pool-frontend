@@ -1,51 +1,52 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
 
-import Button from 'shared/components/Button/Button';
-import ProjectCreator from 'shared/components/ProjectCreator/ProjectCreator';
-import ProjectInfo from 'shared/components/ProjectInfo/ProjectInfo';
-import ProjectSidebar from 'shared/components/ProjectSidebar/ProjectSidebar';
+import {
+  Button,
+  ProjectCreator,
+  ProjectInfo,
+  ProjectSidebar,
+} from 'shared/components';
+import { useGetUserFundraisings, useOffchain } from 'shared/helpers/hooks';
+import { type Fundraising, type AppReduxState } from 'shared/types';
 
 import {
   CreateButtonWrapper,
   Main,
   ProjectWrapper,
+  SidebarWrapper,
   Starter,
   Wrapper,
 } from './Profile.styled';
-import { type Project } from './types';
 
 const Profile = ({ defaultMode = null }) => {
-  const [mode, setMode] = useState<Project | 'creation' | null>(defaultMode);
+  const [mode, setMode] = useState<Fundraising | 'creation' | null>(
+    defaultMode
+  );
+  const offchain = useOffchain();
+  const getUserFundraisings = useGetUserFundraisings();
+  const { userFundraisings } = useSelector(
+    (state: AppReduxState) => state.info.data
+  );
 
-  const projectInfo = [
-    {
-      title: 'Cats',
-      startDate: '12.02.2001',
-      endDate: '12.02.2001',
-      goal: '900 ADA',
-      raised: '90 ADA',
-      id: 0,
-    },
-    {
-      title: 'Help somebody',
-      startDate: '12.02.2021',
-      endDate: '12.02.2091',
-      goal: '100 ADA',
-      raised: '80 ADA',
-      id: 1,
-    },
-    {
-      title: 'donation for our little community',
-      startDate: '12.02.2101',
-      endDate: '12.06.2091',
-      goal: '100000 ADA',
-      raised: '0 ADA',
-      id: 2,
-    },
-  ];
+  useEffect(() => {
+    if (userFundraisings) {
+      setMode(userFundraisings[0]);
+    }
+  }, [userFundraisings]);
+
+  useEffect(() => {
+    if (offchain) {
+      getUserFundraisings();
+    }
+  }, [offchain]);
+
+  const getId = (project: Fundraising) => {
+    return project.threadTokenCurrency.toString();
+  };
 
   const handleSidebarClick = (id) => {
-    const clickedProject = projectInfo.find((item) => item.id === id);
+    const clickedProject = userFundraisings?.find((item) => getId(item) === id);
     if (clickedProject != null) {
       setMode(clickedProject);
     }
@@ -55,7 +56,7 @@ const Profile = ({ defaultMode = null }) => {
     if (mode === null || mode === 'creation') {
       return null;
     }
-    return mode.id;
+    return getId(mode);
   };
 
   return (
@@ -71,16 +72,23 @@ const Profile = ({ defaultMode = null }) => {
         </Button>
       </CreateButtonWrapper>
       <Main>
-        <ProjectSidebar
-          projects={projectInfo.map(({ title, id }) => {
-            return {
-              title,
-              id,
-            };
-          })}
-          onClick={handleSidebarClick}
-          currentId={getCurrentId()}
-        />
+        <SidebarWrapper>
+          <ProjectSidebar
+            projects={
+              userFundraisings
+                ? userFundraisings.map((project) => {
+                    return {
+                      title: project.description,
+                      id: getId(project),
+                    };
+                  })
+                : null
+            }
+            onClick={handleSidebarClick}
+            currentId={getCurrentId()}
+          />
+        </SidebarWrapper>
+
         <ProjectWrapper>
           {mode === 'creation' && (
             <ProjectCreator
@@ -94,11 +102,14 @@ const Profile = ({ defaultMode = null }) => {
           )}
           {mode !== null && mode !== 'creation' && (
             <ProjectInfo
-              title={mode.title}
-              startDate={mode.startDate}
-              endDate={mode.endDate}
-              goal={mode.goal}
-              raised={mode.raised}
+              data={{
+                deadline: mode.deadline,
+                description: mode.description,
+                goal: mode.goal,
+                raisedAmount: mode.raisedAmount,
+                threadTokenCurrency: mode.threadTokenCurrency,
+                threadTokenName: mode.threadTokenName,
+              }}
             />
           )}
         </ProjectWrapper>

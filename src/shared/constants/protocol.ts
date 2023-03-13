@@ -1,5 +1,5 @@
 import * as Lib from '@emurgo/cardano-serialization-lib-browser';
-const fixedProtocol = {
+const protocol = {
   managerPkh: Lib.Ed25519KeyHash.from_bytes(
     Buffer.from(
       new Uint8Array([
@@ -18,4 +18,4 @@ const fixedProtocol = {
   ]),
 };
 
-export default fixedProtocol;
+export { protocol };

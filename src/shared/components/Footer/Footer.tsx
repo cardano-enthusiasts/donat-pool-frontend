@@ -9,7 +9,7 @@ import {
   LinkWrapper,
   Inner,
 } from './Footer.styled';
-import Logo from '../Logo/Logo';
+import { Logo } from '..';
 
 const Footer = () => {
   const links = [
@@ -51,4 +51,4 @@ const Footer = () => {
   );
 };
 
-export default Footer;
+export { Footer };

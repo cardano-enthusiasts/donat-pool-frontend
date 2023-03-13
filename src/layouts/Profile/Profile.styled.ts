@@ -20,6 +20,7 @@ const CreateButtonWrapper = styled.div`
 const Main = styled.div`
   display: flex;
   gap: 100px;
+  grid-template-columns: 1fr 3fr;
   @media (max-width: 1100px) {
     gap: 30px;
   }
@@ -31,8 +32,8 @@ const Main = styled.div`
 
 const ProjectWrapper = styled.div`
   display: flex;
-  width: 100%;
-  flex-shrink: 1;
+  width: 75%;
+  max-width: 100%;
 `;
 
 const Starter = styled.h2`
@@ -40,4 +41,15 @@ const Starter = styled.h2`
   margin: 0;
 `;
 
-export { Wrapper, CreateButtonWrapper, Main, ProjectWrapper, Starter };
+const SidebarWrapper = styled.div`
+  flex-shrink: 0;
+`;
+
+export {
+  Wrapper,
+  CreateButtonWrapper,
+  Main,
+  ProjectWrapper,
+  Starter,
+  SidebarWrapper,
+};

@@ -1,42 +1,16 @@
-import { useEffect, useState } from 'react';
-import { toast } from 'react-toastify';
+import { useEffect } from 'react';
+import { useSelector } from 'react-redux';
 
-import ManagementParams from 'shared/components/ManagementParams/ManagementParams';
-import ManagerEditor from 'shared/components/ManagerEditor/ManagerEditor';
-import { useOffchain } from 'shared/hooks/useOffchain';
+import { ManagementParams, ManagerEditor } from 'shared/components';
+import { useGetProtocolInfo, useOffchain } from 'shared/helpers/hooks';
+import { type AppReduxState } from 'shared/types';
 
 import { Title, Wrapper } from './Management.styled';
-import fixedProtocol from '../../../startProtocolParams';
 
 const Management = () => {
-  const [protocolParams, setProtocolParams] = useState({
-    minAmountParam: 0,
-    maxAmountParam: 0,
-    minDurationParam: 0,
-    maxDurationParam: 0,
-    protocolFeeParam: 0,
-  });
   const offchain = useOffchain();
-
-  const handleGetInfoSuccess = (params) => {
-    setProtocolParams({
-      minAmountParam: Number(params.minAmountParam.value),
-      maxAmountParam: Number(params.maxAmountParam.value),
-      minDurationParam: Number(params.minDurationParam.value),
-      maxDurationParam: Number(params.maxDurationParam.value),
-      protocolFeeParam: Number(params.protocolFeeParam.value),
-    });
-  };
-
-  const handleGetInfoError = (error) => {
-    toast.error(error);
-  };
-
-  const getProtocolInfo = () => {
-    offchain?.getProtocolInfo(handleGetInfoSuccess)(handleGetInfoError)(
-      fixedProtocol
-    )();
-  };
+  const getProtocolInfo = useGetProtocolInfo();
+  const { config } = useSelector((state: AppReduxState) => state.info.data);
 
   useEffect(() => {
     if (offchain) {
@@ -50,10 +24,10 @@ const Management = () => {
       <ManagerEditor
         onUpdatedSuccess={getProtocolInfo}
         onUpdatedError={getProtocolInfo}
-        protocol={protocolParams}
+        config={config}
       />
       <Title>Current protocol parameters</Title>
-      <ManagementParams protocol={protocolParams} />
+      <ManagementParams config={config} />
     </Wrapper>
   );
 };

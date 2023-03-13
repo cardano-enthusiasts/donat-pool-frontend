@@ -11,14 +11,14 @@ import {
   MenuLine,
   CloseButton,
 } from './Header.styled';
-import Logo from '../Logo/Logo';
-import { WalletButton } from '../WalletButton/WalletButton';
+import { Logo, WalletButton } from '..';
 
 const Header = () => {
   const links = [
     { title: 'Home', href: '/', id: 0 },
     { title: 'Management', href: '/management', id: 1 },
     { title: 'My profile', href: '/my-profile', id: 2 },
+    { title: 'Projects', href: '/all-projects', id: 3 },
   ];
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -62,4 +62,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export { Header };

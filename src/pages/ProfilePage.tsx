@@ -1,7 +1,6 @@
 import { useEffect, type FC } from 'react';
 
-import Base from 'layouts/Base/Base';
-import Profile from 'layouts/Profile/Profile';
+import { Base, Profile } from 'layouts';
 
 const ProfilePage: FC = () => {
   useEffect(() => {
@@ -15,4 +14,4 @@ const ProfilePage: FC = () => {
   );
 };
 
-export default ProfilePage;
+export { ProfilePage };

@@ -1,5 +1,5 @@
 export interface Props {
-  protocol: {
+  config: {
     minAmountParam: number;
     maxAmountParam: number;
     minDurationParam: number;

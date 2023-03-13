@@ -1,8 +1,6 @@
 import { useEffect, type FC } from 'react';
 
-import Base from 'layouts/Base/Base';
-
-import Home from '../layouts/Home/Home';
+import { Base, Home } from 'layouts';
 
 const HomePage: FC = () => {
   useEffect(() => {
@@ -16,4 +14,4 @@ const HomePage: FC = () => {
   );
 };
 
-export default HomePage;
+export { HomePage };

@@ -1,7 +1,6 @@
 import { useEffect, type FC } from 'react';
 
-import Base from 'layouts/Base/Base';
-import Management from 'layouts/Management/Management';
+import { Base, Management } from 'layouts';
 
 const ManagementPage: FC = () => {
   useEffect(() => {
@@ -15,4 +14,4 @@ const ManagementPage: FC = () => {
   );
 };
 
-export default ManagementPage;
+export { ManagementPage };

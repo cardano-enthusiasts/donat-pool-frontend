@@ -1,38 +1,28 @@
 import { type ChangeEvent, useState } from 'react';
 import 'react-datepicker/dist/react-datepicker.css';
 import ReactLoading from 'react-loading';
-import { toast } from 'react-toastify';
+import { useSelector } from 'react-redux';
 
-import { useOffchain } from 'shared/hooks/useOffchain';
+import { useCreateFundraising } from 'shared/helpers/hooks';
 import { theme } from 'shared/styles/theme';
+import { type AppReduxState } from 'shared/types';
 
 import { ButtonWrapper, Form, Loader, Title } from './ProjectCreator.styled';
 import { type Props } from './types';
-import fixedProtocol from '../../../../startProtocolParams';
-import Button from '../Button/Button';
-import Calendar from '../Calendar/Calendar';
-import Checkbox from '../Checkbox/Checkbox';
-import Input from '../Input/Input';
+import { Button, Calendar, Checkbox, Input } from '..';
 
 const ProjectCreator = ({ onClose }: Props) => {
+  const createFundraising = useCreateFundraising();
   const [isChecked, setIsChecked] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
   const [data, setData] = useState({
     title: '',
     description: '',
     goal: '',
     duration: '',
   });
-  const offchain = useOffchain();
-
-  const handleCreateFundraisingComplete = () => {
-    toast.success('fundraising was created successfully');
-    setIsLoading(false);
-  };
-  const handleCreateFundraisingError = (error) => {
-    toast.error(error);
-    setIsLoading(false);
-  };
+  const { isRequesting } = useSelector(
+    (state: AppReduxState) => state.info.communication.createFundraising
+  );
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -41,10 +31,7 @@ const ProjectCreator = ({ onClose }: Props) => {
       amount: Number(data.goal),
       duration: Number(data.duration),
     };
-    setIsLoading(true);
-    offchain.createFundraising(handleCreateFundraisingComplete)(
-      handleCreateFundraisingError
-    )(fixedProtocol)(createFundraisingParams)();
+    createFundraising(createFundraisingParams);
   };
 
   const handleChange = (
@@ -64,6 +51,7 @@ const ProjectCreator = ({ onClose }: Props) => {
         onChange={(event) => {
           handleChange(event, 'title');
         }}
+        isDisabled={isRequesting}
       />
       <Input
         title="Description (purpose of fundraising)"
@@ -81,6 +69,7 @@ const ProjectCreator = ({ onClose }: Props) => {
           handleChange(event, 'goal');
         }}
         type="number"
+        isDisabled={isRequesting}
       />
       <Input
         title="duration"
@@ -89,6 +78,7 @@ const ProjectCreator = ({ onClose }: Props) => {
           handleChange(event, 'duration');
         }}
         type="number"
+        isDisabled={isRequesting}
       />
       <Calendar isDisabled={true} />
       <Checkbox
@@ -99,15 +89,20 @@ const ProjectCreator = ({ onClose }: Props) => {
         title="I agree that service charges 2.00 ADA for donation pool creation"
       />
       <ButtonWrapper>
-        <Button type="submit" isDisabled={!isChecked}>
+        <Button type="submit" isDisabled={!isChecked || isRequesting}>
           Publish
         </Button>
-        <Button type="button" onClick={onClose} theme="bordered">
+        <Button
+          type="button"
+          onClick={onClose}
+          theme="bordered"
+          isDisabled={isRequesting}
+        >
           Cancel
         </Button>
       </ButtonWrapper>
       <Loader>
-        {isLoading && (
+        {isRequesting && (
           <ReactLoading color={theme.colors.secondary} height={40} />
         )}
       </Loader>
@@ -115,4 +110,4 @@ const ProjectCreator = ({ onClose }: Props) => {
   );
 };
 
-export default ProjectCreator;
+export { ProjectCreator };

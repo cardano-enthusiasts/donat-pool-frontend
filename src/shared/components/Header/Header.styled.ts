@@ -42,8 +42,8 @@ const Links = styled.div`
   margin: 0 40px;
   @media (max-width: 700px) {
     flex-direction: column;
-    justify-content: center;
-    margin-bottom: 20px;
+    align-items: center;
+    margin: 0 0 20px 0;
   }
 `;
 
@@ -56,7 +56,8 @@ const LinksAndWallet = styled.div`
 `;
 
 const LinkWrapper = styled.div`
-  ${link}
+  ${link};
+  flex-shrink: 0;
 `;
 
 const Menu = styled.div<{ isMenuOpen: boolean }>`

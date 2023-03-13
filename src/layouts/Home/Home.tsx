@@ -1,8 +1,7 @@
 import { toast } from 'react-toastify';
 
-import Button from 'shared/components/Button/Button';
-import Cards from 'shared/components/Cards/Cards';
-import { useOffchain } from 'shared/hooks/useOffchain';
+import { Button } from 'shared/components';
+import { useOffchain } from 'shared/helpers/hooks';
 
 import {
   Description,
@@ -12,12 +11,12 @@ import {
   Title,
   Wrapper,
   IntroInner,
-  CardsWrapper,
 } from './Home.styled';
 
 const Home = () => {
   const offchain = useOffchain();
-  const handleStartProtocolSuccess = (params) => {
+  const handleStartProtocolSuccess = (protocol) => {
+    console.log(protocol);
     toast.success('Protocol was started');
   };
 
@@ -33,9 +32,13 @@ const Home = () => {
     protocolFeeParam: 10,
   };
   const handleStartProtocolClick = () => {
-    offchain.startProtocol(handleStartProtocolSuccess)(
-      handleStartProtocolError
-    )(startProtocolParams)();
+    if (offchain) {
+      offchain.startProtocol(handleStartProtocolSuccess)(
+        handleStartProtocolError
+      )(startProtocolParams)();
+    } else {
+      toast.error('The protocol was started');
+    }
   };
 
   return (
@@ -59,9 +62,6 @@ const Home = () => {
           </IntroInner>
         </Intro>
       </MainScreen>
-      <CardsWrapper>
-        <Cards />
-      </CardsWrapper>
     </Wrapper>
   );
 };

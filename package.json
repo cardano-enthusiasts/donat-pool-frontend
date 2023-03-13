@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "webpack serve --config webpack.config.ts",
-    "build": "webpack"
+    "build": "webpack",
+    "eslint": "npx eslint ."
   },
   "dependencies": {
     "@babel/plugin-transform-runtime": "^7.19.6",
@@ -16,7 +17,7 @@
     "babel-preset-next": "^1.4.0",
     "css-loader": "^6.7.3",
     "eslint-config-next": "^13.1.6",
-    "offchain": "git+ssh://git@github.com:fullstack-development/donat-pool-offchain.git#dfb644d127ae9ce5e3cdc367d8c478e856566001",
+    "offchain": "git+ssh://git@github.com:fullstack-development/donat-pool-offchain.git#c9822cf496e6863b1d93f005cfd0d60c3f2b4248",
     "path": "^0.12.7",
     "postcss-loader": "^7.0.2",
     "postcss-scss": "^4.0.6",
@@ -55,7 +56,12 @@
     "mini-css-extract-plugin": "^2.7.2",
     "node-polyfill-webpack-plugin": "^2.0.1",
     "prettier": "2.8.3",
+    "react-redux": "^8.0.5",
     "react-router-dom": "^6.8.1",
+    "redux": "^4.2.1",
+    "redux-devtools-extension": "^2.13.9",
+    "redux-make-communication": "^2.0.0",
+    "redux-saga": "^1.2.2",
     "sass": "^1.58.0",
     "sass-loader": "^13.2.0",
     "ts-loader": "^9.4.2",
