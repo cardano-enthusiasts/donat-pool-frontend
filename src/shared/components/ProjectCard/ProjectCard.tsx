@@ -38,10 +38,12 @@ const ProjectCard = ({
     setValue('');
     setIsClicked(false);
     setIsButtonDisabled(false);
+    setIsInputDisabled(false);
   };
   const donate = useDonate(handleDonateResult);
   const [value, setValue] = useState<'' | number>('');
   const [isButtonDisabled, setIsButtonDisabled] = useState(true);
+  const [isInputDisabled, setIsInputDisabled] = useState(false);
   const { isRequesting } = useSelector(
     (state: AppReduxState) => state.info.communication.donate
   );
@@ -57,8 +59,16 @@ const ProjectCard = ({
   useEffect(() => {
     if (isRequesting) {
       setIsButtonDisabled(true);
+      setIsInputDisabled(true);
+    } else {
+      setIsInputDisabled(false);
+      if (value === '') {
+        setIsButtonDisabled(true);
+      } else {
+        setIsButtonDisabled(false);
+      }
     }
-  }, [isRequesting]);
+  }, [isRequesting, value]);
 
   const handleClickDonate = () => {
     if (value !== '') {
@@ -89,6 +99,7 @@ const ProjectCard = ({
         onChange={handleInputChange}
         placeholder="Enter donation amount"
         hint="ADA"
+        isDisabled={isInputDisabled}
       />
       <ButtonWrapper>
         <Button

@@ -8,7 +8,7 @@ const AllProjectsPage: FC = () => {
   }, []);
 
   return (
-    <Base>
+    <Base activeHeaderItem="all-projects">
       <AllProjects />
     </Base>
   );

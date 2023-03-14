@@ -2,12 +2,21 @@ import styled from 'styled-components';
 
 import { h2, h3 } from 'shared/styles/mixins';
 
-const Wrapper = styled.div``;
+const Wrapper = styled.div`
+  width: 100%;
+`;
 
-const Title = styled.h2`
+const Title = styled.div`
   ${h2};
+  font-size: 24px;
   margin: 0 0 20px 0;
   text-transform: uppercase;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  @media (max-width: 700px) {
+    text-align: center;
+  }
 `;
 
 const Item = styled.div`
@@ -27,6 +36,9 @@ const Items = styled.div`
 
 const ButtonWrapper = styled.div`
   max-width: 200px;
+  @media (max-width: 700px) {
+    margin: 0 auto;
+  }
 `;
 
 export { Wrapper, Title, Item, Items, ButtonWrapper };

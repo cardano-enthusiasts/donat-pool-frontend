@@ -8,7 +8,7 @@ const ProfilePage: FC = () => {
   }, []);
 
   return (
-    <Base>
+    <Base activeHeaderItem="profile">
       <Profile />
     </Base>
   );

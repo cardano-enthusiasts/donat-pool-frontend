@@ -8,7 +8,7 @@ const ManagementPage: FC = () => {
   }, []);
 
   return (
-    <Base>
+    <Base activeHeaderItem="management">
       <Management />
     </Base>
   );

@@ -86,6 +86,7 @@ const Profile = ({ defaultMode = null }) => {
                     return {
                       title: project.description,
                       id: getId(project),
+                      deadline: project.deadline,
                     };
                   })
                 : null
