@@ -36,6 +36,12 @@ const Profile = ({ defaultMode = null }) => {
   }, [userFundraisings]);
 
   useEffect(() => {
+    if (userFundraisings && userFundraisings.length === 0) {
+      setMode(null);
+    }
+  }, [userFundraisings]);
+
+  useEffect(() => {
     if (offchain) {
       getUserFundraisings();
     }

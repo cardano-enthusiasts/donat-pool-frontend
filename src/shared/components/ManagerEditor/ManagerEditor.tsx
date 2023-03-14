@@ -18,7 +18,7 @@ import {
 import { type Props } from './types';
 import { Button, Input } from '..';
 
-const ManagerEditor = ({ onUpdatedSuccess, onUpdatedError, config }: Props) => {
+const ManagerEditor = ({ config }: Props) => {
   const [params, setParams] = useState(config);
   const [isSubmitDisabled, setIsSubmitDisabled] = useState(true);
   const [isInputsDisabled, setIsInputsDisabled] = useState(false);

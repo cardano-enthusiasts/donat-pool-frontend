@@ -17,6 +17,7 @@ const Input = ({
   isDisabled = false,
   hint = null,
   placeholder = '',
+  maxLength = undefined,
 }: Props) => {
   return (
     <Wrapper>
@@ -28,6 +29,7 @@ const Input = ({
           {...{ 'data-type': dataAttr }}
           disabled={isDisabled}
           placeholder={placeholder}
+          maxLength={maxLength}
         />
       ) : (
         <InputContainer hint={hint}>
@@ -38,6 +40,7 @@ const Input = ({
             {...{ 'data-type': dataAttr }}
             disabled={isDisabled}
             placeholder={placeholder}
+            maxLength={maxLength}
           />
         </InputContainer>
       )}

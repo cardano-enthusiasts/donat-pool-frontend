@@ -21,8 +21,8 @@ const AllProjects = () => {
   }, [offchain]);
 
   const sortFundraising = (fundraisings: Fundraisings) => {
-    const sorted = fundraisings.sort(function (a, b) {
-      return b.deadline - a.deadline;
+    const sorted = fundraisings.sort(function (fundraising1, fundraising2) {
+      return fundraising1.deadline - fundraising2.deadline;
     });
     return sorted;
   };

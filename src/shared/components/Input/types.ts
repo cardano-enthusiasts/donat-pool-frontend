@@ -10,4 +10,5 @@ export interface Props {
   isDisabled?: boolean;
   hint?: string | null;
   placeholder?: string;
+  maxLength?: number | undefined;
 }

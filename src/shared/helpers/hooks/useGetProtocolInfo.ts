@@ -25,8 +25,8 @@ const useGetProtocolInfo = () => {
   }: BackendParams) => {
     dispatch(
       getProtocolInfoSuccess({
-        minAmountParam: Number(minAmountParam.value),
-        maxAmountParam: Number(maxAmountParam.value),
+        minAmountParam: Number(minAmountParam.value) / 1000000,
+        maxAmountParam: Number(maxAmountParam.value) / 1000000,
         minDurationParam: Number(minDurationParam.value),
         maxDurationParam: Number(maxDurationParam.value),
         protocolFeeParam: Number(protocolFeeParam.value),

@@ -11,26 +11,29 @@ import { type FundraisingData } from 'shared/types';
 
 import { getOffchainError } from '..';
 
-const useDonate = (fundraisingData: FundraisingData, onSuccess) => {
+const useDonate = (onAnyResult) => {
   const offchain = useOffchain();
   const dispatch = useDispatch();
   const getAllFundraisings = useGetAllFundraisings();
 
   const handleSuccess = () => {
     toast.success('Donated successfully');
-    onSuccess();
+    onAnyResult();
     dispatch(donateSuccess());
     getAllFundraisings();
   };
 
   const handleError = (error) => {
     toast.error(error);
+    onAnyResult();
     dispatch(donateFail(error));
   };
 
   if (offchain) {
-    return (amount: number) => {
-      offchain.donate(handleSuccess)(handleError)(fundraisingData)(amount)();
+    return (fundraisingData: FundraisingData, amount: number) => {
+      offchain.donate(handleSuccess)(handleError)(fundraisingData)(
+        amount * 1000000
+      )();
       dispatch(donate());
     };
   }

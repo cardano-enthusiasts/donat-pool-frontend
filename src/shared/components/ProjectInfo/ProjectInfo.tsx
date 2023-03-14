@@ -32,7 +32,6 @@ const ProjectInfo = ({
   };
 
   const handleReceiveFunds = () => {
-    console.log(fundraisingData);
     receiveFunds(fundraisingData);
   };
 

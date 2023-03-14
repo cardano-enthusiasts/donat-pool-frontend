@@ -21,11 +21,7 @@ const Management = () => {
   return (
     <Wrapper>
       <Title>Management contract</Title>
-      <ManagerEditor
-        onUpdatedSuccess={getProtocolInfo}
-        onUpdatedError={getProtocolInfo}
-        config={config}
-      />
+      <ManagerEditor config={config} />
       <Title>Current protocol parameters</Title>
       <ManagementParams config={config} />
     </Wrapper>

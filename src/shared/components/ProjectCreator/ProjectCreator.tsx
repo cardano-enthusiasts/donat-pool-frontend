@@ -52,6 +52,7 @@ const ProjectCreator = ({ onClose }: Props) => {
           handleChange(event, 'title');
         }}
         isDisabled={isRequesting}
+        maxLength={29}
       />
       <Input
         title="Description (purpose of fundraising)"

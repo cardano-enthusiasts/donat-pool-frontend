@@ -23,6 +23,9 @@ const Title = styled.h3`
   text-transform: uppercase;
   margin: 0 0 20px 0;
   text-align: center;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
 `;
 
 const ButtonWrapper = styled.div`
@@ -31,4 +34,10 @@ const ButtonWrapper = styled.div`
   margin-top: 20px;
 `;
 
-export { Wrapper, Item, Items, Title, ButtonWrapper };
+const Loader = styled.div<{ isLoading: boolean }>`
+  display: flex;
+  justify-content: center;
+  ${({ isLoading }) => !isLoading && 'padding-bottom: 20px'}
+`;
+
+export { Wrapper, Item, Items, Title, ButtonWrapper, Loader };

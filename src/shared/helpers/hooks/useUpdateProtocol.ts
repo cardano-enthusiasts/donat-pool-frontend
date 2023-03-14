@@ -28,9 +28,19 @@ const useUpdateProtocol = () => {
     dispatch(updateProtocolFail(error));
   };
 
+  const editConfig = (config) => {
+    return {
+      ...config,
+      minAmountParam: config.minAmountParam * 1000000,
+      maxAmountParam: config.maxAmountParam * 1000000,
+    };
+  };
+
   if (offchain) {
     return (config: Config) => {
-      offchain.updateProtocol(handleSuccess)(handleError)(protocol)(config)();
+      offchain.updateProtocol(handleSuccess)(handleError)(protocol)(
+        editConfig(config)
+      )();
       dispatch(updateProtocol());
     };
   }

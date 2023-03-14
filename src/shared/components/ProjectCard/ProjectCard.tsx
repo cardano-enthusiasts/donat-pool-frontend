@@ -1,7 +1,11 @@
 import { useEffect, useState } from 'react';
+import ReactLoading from 'react-loading';
+import { useSelector } from 'react-redux';
 
 import { protocol } from 'shared/constants';
 import { useDonate } from 'shared/helpers/hooks';
+import { theme } from 'shared/styles/theme';
+import { type AppReduxState } from 'shared/types';
 
 import {
   Item,
@@ -9,6 +13,7 @@ import {
   Title,
   Items,
   ButtonWrapper,
+  Loader,
 } from './ProjectCard.styled';
 import { type Props } from './types';
 import { Button, Input } from '..';
@@ -28,28 +33,37 @@ const ProjectCard = ({
     frThreadTokenName: threadTokenName,
     protocol,
   };
-  const handleDonateSuccess = () => {
+  const [isClicked, setIsClicked] = useState(false);
+  const handleDonateResult = () => {
     setValue('');
+    setIsClicked(false);
+    setIsButtonDisabled(false);
   };
-  const donate = useDonate(fundraisingData, handleDonateSuccess);
+  const donate = useDonate(handleDonateResult);
   const [value, setValue] = useState<'' | number>('');
   const [isButtonDisabled, setIsButtonDisabled] = useState(true);
+  const { isRequesting } = useSelector(
+    (state: AppReduxState) => state.info.communication.donate
+  );
 
   const getDate = () => {
     return new Date(deadline).toLocaleString('ru');
   };
 
   useEffect(() => {
-    if (value === '') {
-      setIsButtonDisabled(true);
-    } else {
-      setIsButtonDisabled(false);
-    }
+    setIsButtonDisabled(value === '');
   }, [value]);
+
+  useEffect(() => {
+    if (isRequesting) {
+      setIsButtonDisabled(true);
+    }
+  }, [isRequesting]);
 
   const handleClickDonate = () => {
     if (value !== '') {
-      donate(value * 1000000);
+      donate(fundraisingData, value);
+      setIsClicked(true);
     }
   };
 
@@ -85,6 +99,11 @@ const ProjectCard = ({
           Donate
         </Button>
       </ButtonWrapper>
+      <Loader isLoading={isRequesting}>
+        {isRequesting && isClicked && (
+          <ReactLoading color={theme.colors.secondary} height={20} />
+        )}
+      </Loader>
     </Wrapper>
   );
 };
