@@ -21,9 +21,10 @@ const ButtonWrapper = styled.div`
   margin-top: 30px;
 `;
 
-const Loader = styled.div`
+const Loader = styled.div<{ isLoading: boolean }>`
   display: flex;
   justify-content: center;
+  ${({ isLoading }) => !isLoading && 'padding-bottom: 24px'}
 `;
 
 export { Form, Title, ButtonWrapper, Loader };

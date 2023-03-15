@@ -49,7 +49,8 @@ const ButtonWrapper = styled.div`
 const Loader = styled.div<{ isLoading: boolean }>`
   display: flex;
   justify-content: center;
-  ${({ isLoading }) => !isLoading && 'padding-bottom: 20px'}
+  ${({ isLoading }) => isLoading && 'padding-top: 10px'}
+  ${({ isLoading }) => !isLoading && 'padding-bottom: 27px'}
 `;
 
 export { Wrapper, Item, Items, Title, ButtonWrapper, Loader };

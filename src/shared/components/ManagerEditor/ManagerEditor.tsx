@@ -1,6 +1,6 @@
 import { type ChangeEvent, useState, useEffect } from 'react';
-import ReactLoading from 'react-loading';
 import { useSelector } from 'react-redux';
+import { BeatLoader } from 'react-spinners';
 
 import { useUpdateProtocol } from 'shared/helpers/hooks';
 import { theme } from 'shared/styles/theme';
@@ -82,9 +82,13 @@ const ManagerEditor = ({ config }: Props) => {
           </Button>
         </ButtonWrapper>
         <Loader isLoading={isRequesting}>
-          {isRequesting && (
-            <ReactLoading color={theme.colors.secondary} height={40} />
-          )}
+          <BeatLoader
+            color={theme.colors.secondary}
+            loading={isRequesting}
+            size={20}
+            aria-label="Loading beat"
+            data-testid="loader"
+          />
         </Loader>
       </Form>
     </Wrapper>

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
-import ReactLoading from 'react-loading';
 import { useSelector } from 'react-redux';
+import { BeatLoader } from 'react-spinners';
 
 import { protocol } from 'shared/constants';
 import { useDonate } from 'shared/helpers/hooks';
@@ -110,10 +110,14 @@ const ProjectCard = ({
           Donate
         </Button>
       </ButtonWrapper>
-      <Loader isLoading={isRequesting}>
-        {isRequesting && isClicked && (
-          <ReactLoading color={theme.colors.secondary} height={20} />
-        )}
+      <Loader isLoading={isRequesting && isClicked}>
+        <BeatLoader
+          color={theme.colors.secondary}
+          loading={isRequesting && isClicked}
+          size={13}
+          aria-label="Loading beat"
+          data-testid="loader"
+        />
       </Loader>
     </Wrapper>
   );

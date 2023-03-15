@@ -26,6 +26,7 @@ const Item = styled.div`
 
 const Items = styled.div`
   display: grid;
+  align-items: center;
   grid-template-columns: 1fr 2fr;
   gap: 30px;
   margin-bottom: 30px;
