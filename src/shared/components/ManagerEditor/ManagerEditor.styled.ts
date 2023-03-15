@@ -33,7 +33,8 @@ const ButtonWrapper = styled.div`
 const Loader = styled.div<{ isLoading: boolean }>`
   display: flex;
   justify-content: center;
-  ${({ isLoading }) => !isLoading && 'padding-bottom: 40px'}
+  ${({ isLoading }) => isLoading && 'padding-top: 10px'}
+  ${({ isLoading }) => !isLoading && 'padding-bottom: 34px'}
 `;
 
 export { Wrapper, Form, Line, ButtonWrapper, InputWrapper, Loader };

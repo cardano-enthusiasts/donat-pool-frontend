@@ -1,7 +1,7 @@
 import { type ChangeEvent, useState } from 'react';
 import 'react-datepicker/dist/react-datepicker.css';
-import ReactLoading from 'react-loading';
 import { useSelector } from 'react-redux';
+import { BeatLoader } from 'react-spinners';
 
 import { useCreateFundraising } from 'shared/helpers/hooks';
 import { theme } from 'shared/styles/theme';
@@ -52,6 +52,7 @@ const ProjectCreator = ({ onClose }: Props) => {
           handleChange(event, 'title');
         }}
         isDisabled={isRequesting}
+        maxLength={29}
       />
       <Input
         title="Description (purpose of fundraising)"
@@ -101,10 +102,14 @@ const ProjectCreator = ({ onClose }: Props) => {
           Cancel
         </Button>
       </ButtonWrapper>
-      <Loader>
-        {isRequesting && (
-          <ReactLoading color={theme.colors.secondary} height={40} />
-        )}
+      <Loader isLoading={isRequesting}>
+        <BeatLoader
+          color={theme.colors.secondary}
+          loading={isRequesting}
+          size={20}
+          aria-label="Loading beat"
+          data-testid="loader"
+        />
       </Loader>
     </Form>
   );

@@ -32,8 +32,11 @@ const Main = styled.div`
 
 const ProjectWrapper = styled.div`
   display: flex;
-  width: 75%;
-  max-width: 100%;
+  width: 100%;
+  max-width: 60%;
+  @media (max-width: 700px) {
+    max-width: 90vw;
+  }
 `;
 
 const Starter = styled.h2`
@@ -43,6 +46,11 @@ const Starter = styled.h2`
 
 const SidebarWrapper = styled.div`
   flex-shrink: 0;
+  width: 30%;
+  max-width: 250px;
+  @media (max-width: 700px) {
+    width: 100%;
+  }
 `;
 
 export {

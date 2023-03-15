@@ -57,7 +57,7 @@ const cardWrapper = css`
   border: 1px solid #fff;
   box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
   border-radius: 4px;
-  padding: 40px 30px;
+  padding: 40px 30px 20px 30px;
   @media (max-width: 900px) {
     padding: 20px;
   }

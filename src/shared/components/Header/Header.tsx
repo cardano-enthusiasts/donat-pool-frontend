@@ -11,14 +11,15 @@ import {
   MenuLine,
   CloseButton,
 } from './Header.styled';
+import { type Props } from './types';
 import { Logo, WalletButton } from '..';
 
-const Header = () => {
+const Header = ({ activeItem }: Props) => {
   const links = [
-    { title: 'Home', href: '/', id: 0 },
-    { title: 'Management', href: '/management', id: 1 },
-    { title: 'My profile', href: '/my-profile', id: 2 },
-    { title: 'Projects', href: '/all-projects', id: 3 },
+    { title: 'Home', href: '/', id: 'home' },
+    { title: 'Management', href: '/management', id: 'management' },
+    { title: 'My profile', href: '/my-profile', id: 'profile' },
+    { title: 'Projects', href: '/all-projects', id: 'all-projects' },
   ];
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -30,7 +31,7 @@ const Header = () => {
           <LinksAndWallet>
             <Links>
               {links.map(({ title, href, id }) => (
-                <LinkWrapper key={id}>
+                <LinkWrapper key={id} isActive={id === activeItem}>
                   <Link to={href}>{title}</Link>
                 </LinkWrapper>
               ))}

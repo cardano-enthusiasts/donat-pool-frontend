@@ -17,7 +17,6 @@ const useCreateFundraising = () => {
   const getUserFundraisings = useGetUserFundraisings();
 
   const handleSuccess = (fundraisingData) => {
-    console.log(fundraisingData);
     toast.success('The fundraising was created successfully');
     dispatch(createFundraisingSuccess());
     getUserFundraisings();

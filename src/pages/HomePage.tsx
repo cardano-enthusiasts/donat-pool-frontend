@@ -8,7 +8,7 @@ const HomePage: FC = () => {
   }, []);
 
   return (
-    <Base>
+    <Base activeHeaderItem="home">
       <Home />
     </Base>
   );

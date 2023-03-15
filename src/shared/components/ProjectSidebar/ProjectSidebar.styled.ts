@@ -16,6 +16,9 @@ const ProjectList = styled.ul`
   gap: 20px;
   padding: 0;
   margin: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 `;
 
 const Item = styled.li<{ isClicked: boolean }>`

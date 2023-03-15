@@ -31,10 +31,13 @@ interface CreateFundraisingParams {
   duration: number;
 }
 
+type ActiveHeaderItem = 'all-projects' | 'home' | 'management' | 'profile';
+
 export type {
   Config,
   Fundraisings,
   Fundraising,
   FundraisingData,
   CreateFundraisingParams,
+  ActiveHeaderItem,
 };

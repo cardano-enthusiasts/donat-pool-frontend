@@ -1,7 +1,11 @@
 import { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
+import { BeatLoader } from 'react-spinners';
 
 import { protocol } from 'shared/constants';
 import { useDonate } from 'shared/helpers/hooks';
+import { theme } from 'shared/styles/theme';
+import { type AppReduxState } from 'shared/types';
 
 import {
   Item,
@@ -9,6 +13,7 @@ import {
   Title,
   Items,
   ButtonWrapper,
+  Loader,
 } from './ProjectCard.styled';
 import { type Props } from './types';
 import { Button, Input } from '..';
@@ -28,28 +33,47 @@ const ProjectCard = ({
     frThreadTokenName: threadTokenName,
     protocol,
   };
-  const handleDonateSuccess = () => {
+  const [isClicked, setIsClicked] = useState(false);
+  const handleDonateResult = () => {
     setValue('');
+    setIsClicked(false);
+    setIsButtonDisabled(false);
+    setIsInputDisabled(false);
   };
-  const donate = useDonate(fundraisingData, handleDonateSuccess);
+  const donate = useDonate(handleDonateResult);
   const [value, setValue] = useState<'' | number>('');
   const [isButtonDisabled, setIsButtonDisabled] = useState(true);
+  const [isInputDisabled, setIsInputDisabled] = useState(false);
+  const { isRequesting } = useSelector(
+    (state: AppReduxState) => state.info.communication.donate
+  );
 
   const getDate = () => {
     return new Date(deadline).toLocaleString('ru');
   };
 
   useEffect(() => {
-    if (value === '') {
-      setIsButtonDisabled(true);
-    } else {
-      setIsButtonDisabled(false);
-    }
+    setIsButtonDisabled(value === '');
   }, [value]);
+
+  useEffect(() => {
+    if (isRequesting) {
+      setIsButtonDisabled(true);
+      setIsInputDisabled(true);
+    } else {
+      setIsInputDisabled(false);
+      if (value === '') {
+        setIsButtonDisabled(true);
+      } else {
+        setIsButtonDisabled(false);
+      }
+    }
+  }, [isRequesting, value]);
 
   const handleClickDonate = () => {
     if (value !== '') {
-      donate(value * 1000000);
+      donate(fundraisingData, value);
+      setIsClicked(true);
     }
   };
 
@@ -75,6 +99,7 @@ const ProjectCard = ({
         onChange={handleInputChange}
         placeholder="Enter donation amount"
         hint="ADA"
+        isDisabled={isInputDisabled}
       />
       <ButtonWrapper>
         <Button
@@ -85,6 +110,15 @@ const ProjectCard = ({
           Donate
         </Button>
       </ButtonWrapper>
+      <Loader isLoading={isRequesting && isClicked}>
+        <BeatLoader
+          color={theme.colors.secondary}
+          loading={isRequesting && isClicked}
+          size={13}
+          aria-label="Loading beat"
+          data-testid="loader"
+        />
+      </Loader>
     </Wrapper>
   );
 };

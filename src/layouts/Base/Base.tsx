@@ -6,10 +6,10 @@ import 'react-toastify/dist/ReactToastify.css';
 import { Inner, Main } from './Base.styled';
 import type { Props } from './types';
 
-const Base = ({ children }: Props) => {
+const Base = ({ children, activeHeaderItem }: Props) => {
   return (
     <>
-      <Header />
+      <Header activeItem={activeHeaderItem} />
       <Main>
         <Inner>{children}</Inner>
       </Main>
