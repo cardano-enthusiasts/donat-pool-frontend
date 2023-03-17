@@ -4,13 +4,11 @@ import { type ReduxState } from '../types';
 
 const initialState: ReduxState = {
   communication: {
-    getUserFundraisings: initialCommunicationField,
-    getAllFundraisings: initialCommunicationField,
+    create: initialCommunicationField,
+    donate: initialCommunicationField,
+    receiveFunds: initialCommunicationField,
   },
-  data: {
-    userFundraisings: null,
-    allFundraisings: null,
-  },
+  data: null,
 };
 
 export { initialState };

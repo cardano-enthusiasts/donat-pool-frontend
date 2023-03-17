@@ -5,7 +5,7 @@ import {
   receiveFunds,
   receiveFundsFail,
   receiveFundsSuccess,
-} from 'features/info/redux/actionCreators';
+} from 'features/fundraising/redux/actionCreators';
 import { useGetUserFundraisings, useOffchain } from 'shared/helpers/hooks';
 import { type FundraisingData } from 'shared/types';
 

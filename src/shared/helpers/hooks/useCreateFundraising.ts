@@ -2,10 +2,10 @@ import { useDispatch } from 'react-redux';
 import { toast } from 'react-toastify';
 
 import {
-  createFundraising,
-  createFundraisingFail,
-  createFundraisingSuccess,
-} from 'features/info/redux/actionCreators';
+  create,
+  createFail,
+  createSuccess,
+} from 'features/fundraising/redux/actionCreators';
 import { protocol } from 'shared/constants';
 import { useOffchain, useGetUserFundraisings } from 'shared/helpers/hooks';
 
@@ -18,13 +18,13 @@ const useCreateFundraising = () => {
 
   const handleSuccess = (fundraisingData) => {
     toast.success('The fundraising was created successfully');
-    dispatch(createFundraisingSuccess());
+    dispatch(createSuccess());
     getUserFundraisings();
   };
 
   const handleError = (error) => {
     toast.error(error);
-    dispatch(createFundraisingFail(error));
+    dispatch(createFail(error));
   };
 
   if (offchain) {
@@ -32,7 +32,7 @@ const useCreateFundraising = () => {
       offchain.createFundraising(handleSuccess)(handleError)(protocol)(
         createFundraisingParams
       )();
-      dispatch(createFundraising());
+      dispatch(create());
     };
   }
   return () => getOffchainError;

@@ -31,7 +31,7 @@ const ProjectInfo = ({
     return new Date(deadline).toLocaleString('ru');
   };
   const { isRequesting } = useSelector(
-    (state: AppReduxState) => state.info.communication.receiveFunds
+    (state: AppReduxState) => state.fundraising.communication.receiveFunds
   );
   const fundraisingData = {
     frThreadTokenCurrency: threadTokenCurrency,

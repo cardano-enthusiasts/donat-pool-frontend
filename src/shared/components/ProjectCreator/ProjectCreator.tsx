@@ -21,7 +21,7 @@ const ProjectCreator = ({ onClose }: Props) => {
     duration: '',
   });
   const { isRequesting } = useSelector(
-    (state: AppReduxState) => state.info.communication.createFundraising
+    (state: AppReduxState) => state.fundraising.communication.create
   );
 
   const handleSubmit = (event) => {

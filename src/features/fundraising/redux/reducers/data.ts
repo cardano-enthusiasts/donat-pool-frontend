@@ -6,18 +6,6 @@ function data(
   state: TS.ReduxState['data'] = initialState.data,
   action: TS.Action
 ): TS.ReduxState['data'] {
-  switch (action.type) {
-    case 'INFO:GET_USER_FUNDRAISINGS_SUCCESS':
-      return {
-        ...state,
-        userFundraisings: action.payload,
-      };
-    case 'INFO:GET_ALL_FUNDRAISINGS_SUCCESS':
-      return {
-        ...state,
-        allFundraisings: action.payload,
-      };
-  }
   return state;
 }
 
