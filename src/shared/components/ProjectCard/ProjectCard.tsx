@@ -53,20 +53,11 @@ const ProjectCard = ({
   };
 
   useEffect(() => {
-    setIsButtonDisabled(value === '');
-  }, [value]);
-
-  useEffect(() => {
+    setIsInputDisabled(isRequesting);
     if (isRequesting) {
       setIsButtonDisabled(true);
-      setIsInputDisabled(true);
     } else {
-      setIsInputDisabled(false);
-      if (value === '') {
-        setIsButtonDisabled(true);
-      } else {
-        setIsButtonDisabled(false);
-      }
+      setIsButtonDisabled(value === '');
     }
   }, [isRequesting, value]);
 

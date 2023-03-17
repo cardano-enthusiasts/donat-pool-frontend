@@ -25,18 +25,12 @@ const ManagerEditor = ({ config }: Props) => {
   const { isRequesting } = useSelector(
     (state: AppReduxState) => state.info.communication.updateProtocol
   );
+  const updateProtocol = useUpdateProtocol();
 
   useEffect(() => {
-    if (isRequesting) {
-      setIsSubmitDisabled(true);
-      setIsInputsDisabled(true);
-    } else {
-      setIsSubmitDisabled(false);
-      setIsInputsDisabled(false);
-    }
+    setIsSubmitDisabled(isRequesting);
+    setIsInputsDisabled(isRequesting);
   }, [isRequesting]);
-
-  const updateProtocol = useUpdateProtocol();
 
   useEffect(() => {
     setParams(config);

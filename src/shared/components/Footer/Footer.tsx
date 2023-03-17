@@ -15,7 +15,7 @@ const Footer = () => {
   const links = [
     [
       { title: 'Home', href: '/', id: 0 },
-      { title: 'My profile', href: '/mock-address', id: 1 },
+      { title: 'My profile', href: '/my-profile', id: 1 },
       { title: 'Contact us', href: '/mock-address', id: 2 },
       { title: 'About us', href: '/mock-address', id: 3 },
     ],
@@ -32,7 +32,7 @@ const Footer = () => {
       <Inner>
         <LogoAndSocials>
           <Logo />
-          <Icons></Icons>
+          <Icons />
         </LogoAndSocials>
 
         <Links>
