@@ -15,6 +15,7 @@ function configureApp(): {
   const featureSagas = [
     features.info.entry.saga,
     features.protocol.entry.saga,
+    features.fundraising.entry.saga,
   ].filter((saga) => saga !== undefined) as FeatureSaga[];
 
   featureSagas.forEach((saga) => runSaga(saga, dependencies));

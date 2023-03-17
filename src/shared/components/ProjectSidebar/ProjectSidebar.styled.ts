@@ -26,6 +26,9 @@ const Item = styled.li<{ isClicked: boolean }>`
   list-style: none;
   margin: 0;
   cursor: pointer;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
   ${({ isClicked, theme }) => isClicked && `color: ${theme.colors.primary};`}
   @media (max-width: 700px) {
     text-align: center;
