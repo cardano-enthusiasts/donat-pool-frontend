@@ -31,13 +31,11 @@ const Profile = ({ defaultMode = null }) => {
 
   useEffect(() => {
     if (userFundraisings) {
-      setMode(userFundraisings[0]);
-    }
-  }, [userFundraisings]);
-
-  useEffect(() => {
-    if (userFundraisings && userFundraisings.length === 0) {
-      setMode(null);
+      if (userFundraisings.length === 0) {
+        setMode(null);
+      } else {
+        setMode(userFundraisings[0]);
+      }
     }
   }, [userFundraisings]);
 

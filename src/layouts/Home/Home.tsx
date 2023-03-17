@@ -1,7 +1,5 @@
-import { toast } from 'react-toastify';
-
 import { Button } from 'shared/components';
-import { useOffchain } from 'shared/helpers/hooks';
+import { useStartProtocol } from 'shared/helpers/hooks';
 
 import {
   Description,
@@ -14,31 +12,10 @@ import {
 } from './Home.styled';
 
 const Home = () => {
-  const offchain = useOffchain();
-  const handleStartProtocolSuccess = (protocol) => {
-    console.log(protocol);
-    toast.success('Protocol was started');
-  };
+  const startProtocol = useStartProtocol();
 
-  const handleStartProtocolError = () => {
-    toast.error('Start protocol error');
-  };
-
-  const startProtocolParams = {
-    minAmountParam: 50000000,
-    maxAmountParam: 1000000000,
-    minDurationParam: 100,
-    maxDurationParam: 1000,
-    protocolFeeParam: 10,
-  };
   const handleStartProtocolClick = () => {
-    if (offchain) {
-      offchain.startProtocol(handleStartProtocolSuccess)(
-        handleStartProtocolError
-      )(startProtocolParams)();
-    } else {
-      toast.error('The protocol was started');
-    }
+    startProtocol();
   };
 
   return (

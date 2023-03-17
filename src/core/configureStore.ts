@@ -27,6 +27,8 @@ function configureStore(): IStoreData {
 
   const reducersMap: Record<keyof AppReduxState, Reducer | undefined> = {
     info: features.info.entry.reducer,
+    protocol: features.protocol.entry.reducer,
+    fundraising: features.fundraising.entry.reducer,
   };
 
   const store: Store<AppReduxState> = createStore(

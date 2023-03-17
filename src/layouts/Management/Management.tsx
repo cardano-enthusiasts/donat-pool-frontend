@@ -10,7 +10,7 @@ import { Title, Wrapper } from './Management.styled';
 const Management = () => {
   const offchain = useOffchain();
   const getProtocolInfo = useGetProtocolInfo();
-  const { config } = useSelector((state: AppReduxState) => state.info.data);
+  const { config } = useSelector((state: AppReduxState) => state.protocol.data);
 
   useEffect(() => {
     if (offchain) {

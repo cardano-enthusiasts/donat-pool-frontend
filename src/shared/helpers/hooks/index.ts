@@ -6,3 +6,5 @@ export { useDonate } from './useDonate';
 export { useGetProtocolInfo } from './useGetProtocolInfo';
 export { useUpdateProtocol } from './useUpdateProtocol';
 export { useReceiveFunds } from './useReceiveFunds';
+export { useStartProtocol } from './useStartProtocol';
+export { useConnectWallet } from './useConnectWallet';

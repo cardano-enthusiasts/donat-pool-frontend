@@ -1,15 +1,15 @@
-import { useOffchain } from 'shared/helpers/hooks';
+import { useConnectWallet } from 'shared/helpers/hooks';
 
 import { Button } from '..';
 
 const WalletButton = () => {
-  const offchain = useOffchain();
+  const connectWallet = useConnectWallet();
 
   return (
     <div>
       <Button
         onClick={() => {
-          offchain?.connectWallet();
+          connectWallet();
         }}
         size="s"
       >

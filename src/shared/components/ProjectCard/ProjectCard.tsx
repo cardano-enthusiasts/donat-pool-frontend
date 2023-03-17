@@ -45,7 +45,7 @@ const ProjectCard = ({
   const [isButtonDisabled, setIsButtonDisabled] = useState(true);
   const [isInputDisabled, setIsInputDisabled] = useState(false);
   const { isRequesting } = useSelector(
-    (state: AppReduxState) => state.info.communication.donate
+    (state: AppReduxState) => state.fundraising.communication.donate
   );
 
   const getDate = () => {
@@ -53,20 +53,11 @@ const ProjectCard = ({
   };
 
   useEffect(() => {
-    setIsButtonDisabled(value === '');
-  }, [value]);
-
-  useEffect(() => {
+    setIsInputDisabled(isRequesting);
     if (isRequesting) {
       setIsButtonDisabled(true);
-      setIsInputDisabled(true);
     } else {
-      setIsInputDisabled(false);
-      if (value === '') {
-        setIsButtonDisabled(true);
-      } else {
-        setIsButtonDisabled(false);
-      }
+      setIsButtonDisabled(value === '');
     }
   }, [isRequesting, value]);
 

@@ -2,10 +2,10 @@ import { useDispatch } from 'react-redux';
 import { toast } from 'react-toastify';
 
 import {
-  updateProtocol,
-  updateProtocolFail,
-  updateProtocolSuccess,
-} from 'features/info/redux/actionCreators';
+  update,
+  updateFail,
+  updateSuccess,
+} from 'features/protocol/redux/actionCreators';
 import { protocol } from 'shared/constants';
 import { useGetProtocolInfo, useOffchain } from 'shared/helpers/hooks';
 import { type Config } from 'shared/types';
@@ -19,13 +19,13 @@ const useUpdateProtocol = () => {
 
   const handleSuccess = () => {
     toast.success('Config was updated successfully');
-    dispatch(updateProtocolSuccess());
+    dispatch(updateSuccess());
     getProtocolInfo();
   };
 
   const handleError = (error) => {
     toast.error(error);
-    dispatch(updateProtocolFail(error));
+    dispatch(updateFail(error));
   };
 
   const editConfig = (config) => {
@@ -41,7 +41,7 @@ const useUpdateProtocol = () => {
       offchain.updateProtocol(handleSuccess)(handleError)(protocol)(
         editConfig(config)
       )();
-      dispatch(updateProtocol());
+      dispatch(update());
     };
   }
   return () => getOffchainError;

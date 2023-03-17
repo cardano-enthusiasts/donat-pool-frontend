@@ -86,6 +86,8 @@ interface FeatureEntry {
 
 interface AppReduxState {
   info: features.info.types.ReduxState;
+  protocol: features.protocol.types.ReduxState;
+  fundraising: features.fundraising.types.ReduxState;
 }
 
 type RootSaga = (deps: Dependencies) => () => SagaIterator;

@@ -2,10 +2,10 @@ import { useDispatch } from 'react-redux';
 import { toast } from 'react-toastify';
 
 import {
-  getProtocolInfo,
-  getProtocolInfoFail,
-  getProtocolInfoSuccess,
-} from 'features/info/redux/actionCreators';
+  getInfo,
+  getInfoFail,
+  getInfoSuccess,
+} from 'features/protocol/redux/actionCreators';
 import { protocol } from 'shared/constants';
 import { useOffchain } from 'shared/helpers/hooks';
 import { type BackendParams } from 'shared/types';
@@ -24,7 +24,7 @@ const useGetProtocolInfo = () => {
     protocolFeeParam,
   }: BackendParams) => {
     dispatch(
-      getProtocolInfoSuccess({
+      getInfoSuccess({
         minAmountParam: Number(minAmountParam.value) / 1000000,
         maxAmountParam: Number(maxAmountParam.value) / 1000000,
         minDurationParam: Number(minDurationParam.value),
@@ -36,13 +36,13 @@ const useGetProtocolInfo = () => {
 
   const handleError = (error) => {
     toast.error(error);
-    dispatch(getProtocolInfoFail(error));
+    dispatch(getInfoFail(error));
   };
 
   if (offchain) {
     return () => {
       offchain?.getProtocolInfo(handleSuccess)(handleError)(protocol)();
-      dispatch(getProtocolInfo());
+      dispatch(getInfo());
     };
   }
   return getOffchainError;

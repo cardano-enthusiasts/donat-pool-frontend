@@ -12,9 +12,11 @@ function configureApp(): {
   const { runSaga, store } = configureStore();
   const dependencies = configureDeps(store);
 
-  const featureSagas = [features.info.entry.saga].filter(
-    (saga) => saga !== undefined
-  ) as FeatureSaga[];
+  const featureSagas = [
+    features.info.entry.saga,
+    features.protocol.entry.saga,
+    features.fundraising.entry.saga,
+  ].filter((saga) => saga !== undefined) as FeatureSaga[];
 
   featureSagas.forEach((saga) => runSaga(saga, dependencies));
 
