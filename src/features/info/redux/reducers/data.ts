@@ -17,6 +17,11 @@ function data(
         ...state,
         allFundraisings: action.payload,
       };
+    case 'INFO:SET_WALLET_STATUS_SUCCESS':
+      return {
+        ...state,
+        walletStatus: action.payload,
+      };
   }
   return state;
 }

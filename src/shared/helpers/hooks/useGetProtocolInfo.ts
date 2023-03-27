@@ -1,20 +1,22 @@
 import { useDispatch } from 'react-redux';
-import { toast } from 'react-toastify';
 
+import { setWalletStatusSuccess } from 'features/info/redux/actionCreators';
 import {
   getInfo,
   getInfoFail,
   getInfoSuccess,
 } from 'features/protocol/redux/actionCreators';
 import { protocol } from 'shared/constants';
-import { useOffchain } from 'shared/helpers/hooks';
 import { type BackendParams } from 'shared/types';
 
+import { useCheckWalletStatus, useHandleError, useOffchain } from './';
 import { getOffchainError } from '..';
 
 const useGetProtocolInfo = () => {
   const offchain = useOffchain();
   const dispatch = useDispatch();
+  const handleCommonError = useHandleError();
+  const checkWalletStatus = useCheckWalletStatus();
 
   const handleSuccess = ({
     minAmountParam,
@@ -23,6 +25,7 @@ const useGetProtocolInfo = () => {
     maxDurationParam,
     protocolFeeParam,
   }: BackendParams) => {
+    dispatch(setWalletStatusSuccess('connected'));
     dispatch(
       getInfoSuccess({
         minAmountParam: Number(minAmountParam.value) / 1000000,
@@ -35,13 +38,14 @@ const useGetProtocolInfo = () => {
   };
 
   const handleError = (error) => {
-    toast.error(error);
+    handleCommonError(error);
     dispatch(getInfoFail(error));
   };
 
   if (offchain) {
     return () => {
       offchain?.getProtocolInfo(handleSuccess)(handleError)(protocol)();
+      checkWalletStatus();
       dispatch(getInfo());
     };
   }

@@ -6,24 +6,33 @@ import {
   createFail,
   createSuccess,
 } from 'features/fundraising/redux/actionCreators';
+import { setWalletStatusSuccess } from 'features/info/redux/actionCreators';
 import { protocol } from 'shared/constants';
-import { useOffchain, useGetUserFundraisings } from 'shared/helpers/hooks';
 
+import {
+  useOffchain,
+  useGetUserFundraisings,
+  useHandleError,
+  useCheckWalletStatus,
+} from './';
 import { getOffchainError } from '..';
 
 const useCreateFundraising = () => {
   const offchain = useOffchain();
   const dispatch = useDispatch();
   const getUserFundraisings = useGetUserFundraisings();
+  const handleCommonError = useHandleError();
+  const checkWalletStatus = useCheckWalletStatus();
 
   const handleSuccess = (fundraisingData) => {
+    dispatch(setWalletStatusSuccess('connected'));
     toast.success('The fundraising was created successfully');
     dispatch(createSuccess());
     getUserFundraisings();
   };
 
   const handleError = (error) => {
-    toast.error(error);
+    handleCommonError(error);
     dispatch(createFail(error));
   };
 
@@ -32,6 +41,7 @@ const useCreateFundraising = () => {
       offchain.createFundraising(handleSuccess)(handleError)(protocol)(
         createFundraisingParams
       )();
+      checkWalletStatus();
       dispatch(create());
     };
   }

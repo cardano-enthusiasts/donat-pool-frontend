@@ -8,3 +8,5 @@ export { useUpdateProtocol } from './useUpdateProtocol';
 export { useReceiveFunds } from './useReceiveFunds';
 export { useStartProtocol } from './useStartProtocol';
 export { useConnectWallet } from './useConnectWallet';
+export { useCheckWalletStatus } from './useCheckWalletStatus';
+export { useHandleError } from './useHandleError';
