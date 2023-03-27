@@ -11,6 +11,9 @@ const Management = () => {
   const offchain = useOffchain();
   const getProtocolInfo = useGetProtocolInfo();
   const { config } = useSelector((state: AppReduxState) => state.protocol.data);
+  const { isRequesting } = useSelector(
+    (state: AppReduxState) => state.info.communication.setWalletStatus
+  );
 
   useEffect(() => {
     if (offchain) {
@@ -18,13 +21,15 @@ const Management = () => {
     }
   }, [offchain]);
 
-  return (
+  return !isRequesting ? (
     <Wrapper>
       <Title>Management contract</Title>
       <ManagerEditor config={config} />
       <Title>Current protocol parameters</Title>
       <ManagementParams config={config} />
     </Wrapper>
+  ) : (
+    <></>
   );
 };
 export default Management;

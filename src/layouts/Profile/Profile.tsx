@@ -25,9 +25,12 @@ const Profile = ({ defaultMode = null }) => {
   );
   const offchain = useOffchain();
   const getUserFundraisings = useGetUserFundraisings();
-  const { userFundraisings } = useSelector(
-    (state: AppReduxState) => state.info.data
-  );
+  const {
+    data: { userFundraisings },
+    communication: {
+      setWalletStatus: { isRequesting },
+    },
+  } = useSelector((state: AppReduxState) => state.info);
 
   useEffect(() => {
     if (userFundraisings) {
@@ -63,7 +66,7 @@ const Profile = ({ defaultMode = null }) => {
     return getId(mode);
   };
 
-  return (
+  return !isRequesting ? (
     <Wrapper>
       <CreateButtonWrapper>
         <Button
@@ -120,6 +123,8 @@ const Profile = ({ defaultMode = null }) => {
         </ProjectWrapper>
       </Main>
     </Wrapper>
+  ) : (
+    <></>
   );
 };
 

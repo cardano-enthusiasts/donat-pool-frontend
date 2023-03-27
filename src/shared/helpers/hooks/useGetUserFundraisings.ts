@@ -1,28 +1,35 @@
 import { useDispatch } from 'react-redux';
-import { toast } from 'react-toastify';
 
 import {
   getUserFundraisings,
   getUserFundraisingsFail,
   getUserFundraisingsSuccess,
+  setWalletStatusSuccess,
 } from 'features/info/redux/actionCreators';
 import { protocol } from 'shared/constants';
+import {
+  useCheckWalletStatus,
+  useOffchain,
+  useHandleError,
+} from 'shared/helpers/hooks';
 
-import { useOffchain } from '.';
 import { getOffchainError } from '..';
 import { transformProjects } from '../transformProjects';
 
 const useGetUserFundraisings = () => {
   const offchain = useOffchain();
   const dispatch = useDispatch();
+  const handleCommonError = useHandleError();
+  const checkWalletStatus = useCheckWalletStatus();
 
   const handleSuccess = (projects) => {
+    dispatch(setWalletStatusSuccess('connected'));
     const transformedProjects = transformProjects(projects);
     dispatch(getUserFundraisingsSuccess(transformedProjects));
   };
 
   const handleError = (error) => {
-    toast.error(error);
+    handleCommonError(error);
     dispatch(getUserFundraisingsFail(error));
   };
 
@@ -31,6 +38,7 @@ const useGetUserFundraisings = () => {
       offchain.getUserRelatedFundraisings(handleSuccess)(handleError)(
         protocol
       )();
+      checkWalletStatus();
       dispatch(getUserFundraisings());
     };
   }

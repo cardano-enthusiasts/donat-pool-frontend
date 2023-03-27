@@ -33,6 +33,8 @@ interface CreateFundraisingParams {
 
 type ActiveHeaderItem = 'all-projects' | 'home' | 'management' | 'profile';
 
+type WalletStatus = 'default' | 'connected' | 'declined';
+
 export type {
   Config,
   Fundraisings,
@@ -40,4 +42,5 @@ export type {
   FundraisingData,
   CreateFundraisingParams,
   ActiveHeaderItem,
+  WalletStatus,
 };

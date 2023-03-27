@@ -6,10 +6,12 @@ const initialState: ReduxState = {
   communication: {
     getUserFundraisings: initialCommunicationField,
     getAllFundraisings: initialCommunicationField,
+    setWalletStatus: initialCommunicationField,
   },
   data: {
     userFundraisings: null,
     allFundraisings: null,
+    walletStatus: 'default',
   },
 };
 

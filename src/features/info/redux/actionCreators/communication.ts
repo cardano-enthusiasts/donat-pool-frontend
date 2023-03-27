@@ -30,6 +30,20 @@ const {
   'INFO:GET_ALL_FUNDRAISINGS_FAIL'
 );
 
+const {
+  execute: setWalletStatus,
+  success: setWalletStatusSuccess,
+  fail: setWalletStatusFail,
+} = makeCommunicationActionCreators<
+  A.SetWalletStatus,
+  A.SetWalletStatusSuccess,
+  A.SetWalletStatusFail
+>(
+  'INFO:SET_WALLET_STATUS',
+  'INFO:SET_WALLET_STATUS_SUCCESS',
+  'INFO:SET_WALLET_STATUS_FAIL'
+);
+
 export {
   getUserFundraisings,
   getUserFundraisingsSuccess,
@@ -37,4 +51,7 @@ export {
   getAllFundraisings,
   getAllFundraisingsSuccess,
   getAllFundraisingsFail,
+  setWalletStatus,
+  setWalletStatusSuccess,
+  setWalletStatusFail,
 };

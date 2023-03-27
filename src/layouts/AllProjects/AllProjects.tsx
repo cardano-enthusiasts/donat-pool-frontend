@@ -10,9 +10,12 @@ import { CardsWrapper, Title, Wrapper } from './AllProjects.styled';
 const AllProjects = () => {
   const offchain = useOffchain();
   const getAllFundraisings = useGetAllFundraisings();
-  const { allFundraisings } = useSelector(
-    (state: AppReduxState) => state.info.data
-  );
+  const {
+    data: { allFundraisings },
+    communication: {
+      setWalletStatus: { isRequesting },
+    },
+  } = useSelector((state: AppReduxState) => state.info);
 
   useEffect(() => {
     if (offchain) {
@@ -21,13 +24,13 @@ const AllProjects = () => {
   }, [offchain]);
 
   const sortFundraising = (fundraisings: Fundraisings) => {
-    const sorted = fundraisings.sort(function (fundraising1, fundraising2) {
-      return fundraising1.deadline - fundraising2.deadline;
-    });
-    return sorted;
+    return fundraisings.sort(
+      (fundraising1, fundraising2) =>
+        fundraising1.deadline - fundraising2.deadline
+    );
   };
 
-  return (
+  return !isRequesting ? (
     <Wrapper>
       <Title>Active projects</Title>
       <CardsWrapper>
@@ -43,6 +46,8 @@ const AllProjects = () => {
         )}
       </CardsWrapper>
     </Wrapper>
+  ) : (
+    <></>
   );
 };
 

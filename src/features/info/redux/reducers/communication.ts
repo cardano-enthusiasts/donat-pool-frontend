@@ -27,6 +27,16 @@ const communication = combineReducers<ReduxState['communication']>({
     'INFO:GET_ALL_FUNDRAISINGS_FAIL',
     initialState.communication.getAllFundraisings
   ),
+  setWalletStatus: makeCommunicationReducer<
+    A.SetWalletStatus,
+    A.SetWalletStatusSuccess,
+    A.SetWalletStatusFail
+  >(
+    'INFO:SET_WALLET_STATUS',
+    'INFO:SET_WALLET_STATUS_SUCCESS',
+    'INFO:SET_WALLET_STATUS_FAIL',
+    initialState.communication.setWalletStatus
+  ),
 });
 
 export { communication };
