@@ -2,19 +2,20 @@ import { useDispatch } from 'react-redux';
 import { toast } from 'react-toastify';
 
 import { setWalletStatusSuccess } from 'features/info/redux/actionCreators';
-import { errors } from 'shared/constants/errors';
+import { errors, walletDisconnect } from 'shared/constants/errors';
 
 const useHandleError = () => {
   const dispatch = useDispatch();
 
-  return (error: string) => {
-    if (error === errors.walletDisconnect.backend) {
+  return (backendError: string) => {
+    if (backendError === walletDisconnect) {
       dispatch(setWalletStatusSuccess('declined'));
       setTimeout(() => {
-        toast.error(errors.walletDisconnect.pretty);
+        toast.error(errors[walletDisconnect]);
       }, 500);
     } else {
-      toast.error(error);
+      console.log(errors[backendError]);
+      toast.error(errors[backendError]);
     }
   };
 };

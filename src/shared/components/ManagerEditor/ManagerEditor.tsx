@@ -27,6 +27,15 @@ const ManagerEditor = ({ config }: Props) => {
   );
   const updateProtocol = useUpdateProtocol();
 
+  const filterInputValue = (value: string): '' | number => {
+    if (Number(value) < 0) {
+      return Number(-value);
+    } else if (Number(value) >= 0) {
+      return Number(value);
+    }
+    return '';
+  };
+
   useEffect(() => {
     setIsSubmitDisabled(isRequesting);
     setIsInputsDisabled(isRequesting);
@@ -42,7 +51,7 @@ const ManagerEditor = ({ config }: Props) => {
     setIsSubmitDisabled(false);
     setParams({
       ...params,
-      [dataType]: Number(value),
+      [dataType]: filterInputValue(value),
     });
   };
 

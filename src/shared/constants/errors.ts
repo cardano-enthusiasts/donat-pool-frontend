@@ -1,10 +1,22 @@
-const errors = {
-  walletDisconnect: {
-    backend:
-      'enableWallet failed: The request was refused due to lack of access - e.g. wallet disconnects.',
-    pretty:
-      'The request was refused due to lack of access - e.g. wallet disconnects.',
-  },
+const walletDisconnect =
+  'enableWallet failed: The request was refused due to lack of access - e.g. wallet disconnects.';
+const userDecline =
+  '{"code":2,"info":"User declined to sign the transaction."}';
+
+let errors = {
+  [walletDisconnect]:
+    'The request was refused due to lack of access - e.g. wallet disconnects.',
+  [userDecline]: 'You declined to sign the transaction.',
 };
 
-export { errors };
+errors = new Proxy(errors, {
+  get(target, backendError) {
+    if (backendError in target) {
+      return target[backendError];
+    } else {
+      return backendError;
+    }
+  },
+});
+
+export { errors, walletDisconnect };
