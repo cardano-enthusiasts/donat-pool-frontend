@@ -8,6 +8,7 @@ import {
 } from 'features/fundraising/redux/actionCreators';
 import { setWalletStatusSuccess } from 'features/info/redux/actionCreators';
 import { protocol } from 'shared/constants';
+import { type CreateFundraisingParams } from 'shared/types';
 
 import {
   useOffchain,
@@ -37,7 +38,8 @@ const useCreateFundraising = () => {
   };
 
   if (offchain) {
-    return (createFundraisingParams) => {
+    return (createFundraisingParams: CreateFundraisingParams) => {
+      console.log(createFundraisingParams);
       offchain.createFundraising(handleSuccess)(handleError)(protocol)(
         createFundraisingParams
       )();

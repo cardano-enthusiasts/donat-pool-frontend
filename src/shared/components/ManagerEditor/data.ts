@@ -15,13 +15,13 @@ const defaultParams = [
     title: 'Min duration',
     id: 'minDurationParam',
     amount: 100,
-    hint: 'days',
+    hint: 'min',
   },
   {
     title: 'Max duration',
     id: 'maxDurationParam',
     amount: 1000,
-    hint: 'days',
+    hint: 'min',
   },
   {
     title: 'Protocol fee',

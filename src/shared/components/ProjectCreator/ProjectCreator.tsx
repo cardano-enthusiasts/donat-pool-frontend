@@ -7,7 +7,15 @@ import { useCreateFundraising } from 'shared/helpers/hooks';
 import { theme } from 'shared/styles/theme';
 import { type AppReduxState } from 'shared/types';
 
-import { ButtonWrapper, Form, Loader, Title } from './ProjectCreator.styled';
+import {
+  ButtonWrapper,
+  DurationContainer,
+  DurationInputContainer,
+  DurationTitle,
+  Form,
+  Loader,
+  Title,
+} from './ProjectCreator.styled';
 import { type Props } from './types';
 import { Button, Calendar, Checkbox, Input } from '..';
 
@@ -18,7 +26,9 @@ const ProjectCreator = ({ onClose }: Props) => {
     title: '',
     description: '',
     goal: '',
-    duration: '',
+    durationDays: '',
+    durationHours: '',
+    durationMinutes: '',
   });
   const { isRequesting } = useSelector(
     (state: AppReduxState) => state.fundraising.communication.create
@@ -26,19 +36,31 @@ const ProjectCreator = ({ onClose }: Props) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+
     const createFundraisingParams = {
       description: data.title,
       amount: Number(data.goal),
-      duration: Number(data.duration),
+      duration: {
+        days: Number(data.durationDays),
+        hours: Number(data.durationHours),
+        minutes: Number(data.durationMinutes),
+      },
     };
     createFundraising(createFundraisingParams);
   };
 
   const handleChange = (
     event: ChangeEvent,
-    type: 'title' | 'description' | 'goal' | 'duration'
+    type:
+      | 'title'
+      | 'description'
+      | 'goal'
+      | 'durationDays'
+      | 'durationHours'
+      | 'durationMinutes'
   ) => {
     const { value } = event.target as HTMLInputElement;
+    console.log(value);
     setData({ ...data, [type]: value });
   };
 
@@ -72,15 +94,40 @@ const ProjectCreator = ({ onClose }: Props) => {
         type="number"
         isDisabled={isRequesting}
       />
-      <Input
-        title="duration"
-        value={data.duration}
-        onChange={(event) => {
-          handleChange(event, 'duration');
-        }}
-        type="number"
-        isDisabled={isRequesting}
-      />
+
+      <DurationContainer>
+        <DurationTitle>Duration</DurationTitle>
+        <DurationInputContainer>
+          <Input
+            title="days"
+            value={data.durationDays}
+            onChange={(event) => {
+              handleChange(event, 'durationDays');
+            }}
+            type="number"
+            isDisabled={isRequesting}
+          />
+          <Input
+            title="hours"
+            value={data.durationHours}
+            onChange={(event) => {
+              handleChange(event, 'durationHours');
+            }}
+            type="number"
+            isDisabled={isRequesting}
+          />
+          <Input
+            title="minutes"
+            value={data.durationMinutes}
+            onChange={(event) => {
+              handleChange(event, 'durationMinutes');
+            }}
+            type="number"
+            isDisabled={isRequesting}
+          />
+        </DurationInputContainer>
+      </DurationContainer>
+
       <Calendar isDisabled={true} />
       <Checkbox
         isChecked={isChecked}
