@@ -28,7 +28,11 @@ interface FundraisingData {
 interface CreateFundraisingParams {
   description: string;
   amount: number;
-  duration: number;
+  duration: {
+    days: number;
+    hours: number;
+    minutes: number;
+  };
 }
 
 type ActiveHeaderItem = 'all-projects' | 'home' | 'management' | 'profile';

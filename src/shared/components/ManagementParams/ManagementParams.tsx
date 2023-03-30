@@ -32,13 +32,13 @@ const ManagementParams = ({
       title: 'Min duration',
       id: 'minDurationParam',
       amount: minDurationParam,
-      label: 'days',
+      label: 'min',
     },
     {
       title: 'Max duration',
       id: 'maxDurationParam',
       amount: maxDurationParam,
-      label: 'days',
+      label: 'min',
     },
     {
       title: 'Protocol fee',
