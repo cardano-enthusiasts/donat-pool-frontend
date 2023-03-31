@@ -37,7 +37,7 @@ interface CreateFundraisingParams {
 
 type ActiveHeaderItem = 'all-projects' | 'home' | 'management' | 'profile';
 
-type WalletStatus = 'default' | 'connected' | 'declined';
+type WalletStatus = 'default' | 'connected' | 'declined' | 'notAvailable';
 
 export type {
   Config,

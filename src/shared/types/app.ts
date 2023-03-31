@@ -67,6 +67,9 @@ declare global {
       updateProtocol: UpdateProtocol;
       receiveFunds: ReceiveFunds;
     };
+    cardano: {
+      nami: any;
+    };
   }
 }
 
