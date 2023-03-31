@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 
 import { setWalletStatusSuccess } from 'features/info/redux/actionCreators';
-import { Footer, Header } from 'shared/components';
+import { Footer, Header, NotAvailableError } from 'shared/components';
 import 'react-toastify/dist/ReactToastify.css';
 import { type AppReduxState } from 'shared/types';
 
@@ -17,15 +17,22 @@ const Base = ({ children, activeHeaderItem }: Props) => {
   );
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const walletIsNotAvailable =
+    walletStatus === 'notAvailable' || !window.cardano || !window.cardano.nami;
 
   useEffect(() => {
     if (walletStatus === 'declined') {
       navigate('/');
       dispatch(setWalletStatusSuccess('default'));
     }
-  }, [walletStatus]);
+    if (walletIsNotAvailable) {
+      navigate('/');
+    }
+  }, [walletStatus, window]);
 
-  return (
+  return walletIsNotAvailable ? (
+    <NotAvailableError />
+  ) : (
     <>
       <Header activeItem={activeHeaderItem} />
       <Main>

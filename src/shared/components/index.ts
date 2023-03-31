@@ -12,3 +12,4 @@ export { ProjectInfo } from './ProjectInfo/ProjectInfo';
 export { ProjectSidebar } from './ProjectSidebar/ProjectSidebar';
 export { WalletButton } from './WalletButton/WalletButton';
 export { Button } from './Button/Button';
+export { NotAvailableError } from './NotAvailableError/NotAvailableError';
