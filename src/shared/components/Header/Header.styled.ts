@@ -55,9 +55,12 @@ const LinksAndWallet = styled.div`
   }
 `;
 
-const LinkWrapper = styled.div`
+const LinkWrapper = styled.div<{ isActive: boolean }>`
   ${link};
   flex-shrink: 0;
+  a {
+    text-decoration: ${({ isActive }) => (isActive ? 'underline' : 'none')};
+  }
 `;
 
 const Menu = styled.div<{ isMenuOpen: boolean }>`

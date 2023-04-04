@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Route, Routes, useNavigate } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
@@ -22,6 +22,7 @@ const Base = () => {
   const dispatch = useDispatch();
   const walletIsNotAvailable =
     walletStatus === 'notAvailable' || !window.cardano || !window.cardano.nami;
+  const [currentPage, setCurrentPage] = useState('');
 
   useEffect(() => {
     if (walletStatus === 'declined') {
@@ -33,11 +34,15 @@ const Base = () => {
     }
   }, [walletStatus, window]);
 
+  useEffect(() => {
+    setCurrentPage(location.pathname);
+  }, [location.pathname]);
+
   return walletIsNotAvailable ? (
     <NotAvailableError />
   ) : (
     <>
-      <Header />
+      <Header currentPage={currentPage} />
       <Main>
         <Inner>
           <Routes>
