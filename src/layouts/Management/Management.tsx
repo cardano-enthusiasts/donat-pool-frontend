@@ -21,6 +21,10 @@ const Management = () => {
     }
   }, [offchain]);
 
+  useEffect(() => {
+    document.title = 'Management';
+  }, []);
+
   return !isRequesting ? (
     <Wrapper>
       <Title>Management contract</Title>

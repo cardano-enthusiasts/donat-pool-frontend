@@ -57,8 +57,10 @@ const LinksAndWallet = styled.div`
 
 const LinkWrapper = styled.div<{ isActive: boolean }>`
   ${link};
-  font-weight: ${({ isActive }) => (isActive ? 'bold' : 'normal')};
   flex-shrink: 0;
+  a {
+    text-decoration: ${({ isActive }) => (isActive ? 'underline' : 'none')};
+  }
 `;
 
 const Menu = styled.div<{ isMenuOpen: boolean }>`

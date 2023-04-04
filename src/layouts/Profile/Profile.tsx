@@ -33,6 +33,10 @@ const Profile = ({ defaultMode = null }) => {
   } = useSelector((state: AppReduxState) => state.info);
 
   useEffect(() => {
+    document.title = 'Profile';
+  }, []);
+
+  useEffect(() => {
     if (userFundraisings) {
       if (userFundraisings.length === 0) {
         setMode(null);

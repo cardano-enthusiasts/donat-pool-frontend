@@ -95,7 +95,7 @@ const config = {
       },
       {
         test: /\.(eot|svg|ttf|png|jpg|gif)$/i,
-        type: 'asset',
+        type: 'asset/resource',
       },
       {
         test: /\.(woff|woff2)$/i,

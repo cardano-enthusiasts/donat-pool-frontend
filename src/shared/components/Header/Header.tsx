@@ -14,12 +14,12 @@ import {
 import { type Props } from './types';
 import { Logo, WalletButton } from '..';
 
-const Header = ({ activeItem }: Props) => {
+const Header = ({ currentPage }: Props) => {
   const links = [
     { title: 'Home', href: '/', id: 'home' },
     { title: 'Management', href: '/management', id: 'management' },
     { title: 'My profile', href: '/my-profile', id: 'profile' },
-    { title: 'Projects', href: '/all-projects', id: 'all-projects' },
+    { title: 'Projects', href: '/all-projects', id: 'projects' },
   ];
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -31,7 +31,7 @@ const Header = ({ activeItem }: Props) => {
           <LinksAndWallet>
             <Links>
               {links.map(({ title, href, id }) => (
-                <LinkWrapper key={id} isActive={id === activeItem}>
+                <LinkWrapper key={id} isActive={href === currentPage}>
                   <Link to={href}>{title}</Link>
                 </LinkWrapper>
               ))}

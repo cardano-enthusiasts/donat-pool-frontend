@@ -35,8 +35,6 @@ interface CreateFundraisingParams {
   };
 }
 
-type ActiveHeaderItem = 'all-projects' | 'home' | 'management' | 'profile';
-
 type WalletStatus = 'default' | 'connected' | 'declined' | 'notAvailable';
 
 export type {
@@ -45,6 +43,5 @@ export type {
   Fundraising,
   FundraisingData,
   CreateFundraisingParams,
-  ActiveHeaderItem,
   WalletStatus,
 };

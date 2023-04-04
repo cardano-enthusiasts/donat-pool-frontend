@@ -23,6 +23,10 @@ const AllProjects = () => {
     }
   }, [offchain]);
 
+  useEffect(() => {
+    document.title = 'Projects';
+  }, []);
+
   const sortFundraising = (fundraisings: Fundraisings) => {
     return fundraisings.sort(
       (fundraising1, fundraising2) =>
