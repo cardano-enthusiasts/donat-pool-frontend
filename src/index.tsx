@@ -9,6 +9,7 @@ import { Base } from 'layouts';
 import { GlobalStyles } from 'shared/styles/global';
 
 import { theme } from './shared/styles/theme';
+import 'shared/styles/fonts.scss';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -16,8 +17,8 @@ const root = ReactDOM.createRoot(
 
 root.render(
   <ThemeProvider theme={theme}>
+    <GlobalStyles />
     <Provider store={store}>
-      <GlobalStyles />
       <BrowserRouter>
         <Base />
       </BrowserRouter>

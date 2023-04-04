@@ -3,42 +3,6 @@ import { createGlobalStyle } from 'styled-components';
 import { theme } from './theme';
 
 const GlobalStyles = createGlobalStyle`
-  @font-face {
-    font-family: 'Montserrat';
-    src: url('fonts/montserrat-bold.woff2') format('woff2'),
-      url('fonts/montserrat-bold.woff') format('woff');
-    font-weight: 700;
-    font-style: normal;
-    font-display: swap;
-  }
-
-  @font-face {
-    font-family: 'Montserrat';
-    src: url('fonts/montserrat-regular.woff2') format('woff2'),
-      url('fonts/montserrat-regular.woff') format('woff');
-    font-weight: 400;
-    font-style: normal;
-    font-display: swap;
-  }
-
-  @font-face {
-    font-family: 'Open Sans';
-    src: url('fonts/open-sans-bold.woff2') format('woff2'),
-      url('fonts/open-sans-bold.woff') format('woff');
-    font-weight: 700;
-    font-style: normal;
-    font-display: swap;
-  }
-
-  @font-face {
-    font-family: 'Open Sans';
-    src: url('fonts/open-sans-regular.woff2') format('woff2'),
-      url('fonts/open-sans-regular.woff') format('woff');
-    font-weight: 400;
-    font-style: normal;
-    font-display: swap;
-  }
-
   html,
   body {
     padding: 0;
@@ -47,7 +11,7 @@ const GlobalStyles = createGlobalStyle`
   }
 
   html {
-    font-family: Montserrat, 'Open Sans', sans-serif;
+    font-family: Montserrat, Arial, sans-serif;
     font-size: 16px;
     color: ${theme.colors.dark75};
   }
