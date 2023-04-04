@@ -55,9 +55,8 @@ const LinksAndWallet = styled.div`
   }
 `;
 
-const LinkWrapper = styled.div<{ isActive: boolean }>`
+const LinkWrapper = styled.div`
   ${link};
-  font-weight: ${({ isActive }) => (isActive ? 'bold' : 'normal')};
   flex-shrink: 0;
 `;
 

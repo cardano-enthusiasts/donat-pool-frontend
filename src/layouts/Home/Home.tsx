@@ -1,3 +1,5 @@
+import { useEffect } from 'react';
+
 import { Button } from 'shared/components';
 import { useStartProtocol } from 'shared/helpers/hooks';
 
@@ -13,6 +15,9 @@ import {
 
 const Home = () => {
   const startProtocol = useStartProtocol();
+  useEffect(() => {
+    document.title = 'Home';
+  }, []);
 
   const handleStartProtocolClick = () => {
     startProtocol();

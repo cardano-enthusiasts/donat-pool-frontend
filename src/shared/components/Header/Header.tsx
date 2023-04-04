@@ -11,10 +11,9 @@ import {
   MenuLine,
   CloseButton,
 } from './Header.styled';
-import { type Props } from './types';
 import { Logo, WalletButton } from '..';
 
-const Header = ({ activeItem }: Props) => {
+const Header = () => {
   const links = [
     { title: 'Home', href: '/', id: 'home' },
     { title: 'Management', href: '/management', id: 'management' },
@@ -31,7 +30,7 @@ const Header = ({ activeItem }: Props) => {
           <LinksAndWallet>
             <Links>
               {links.map(({ title, href, id }) => (
-                <LinkWrapper key={id} isActive={id === activeItem}>
+                <LinkWrapper key={id}>
                   <Link to={href}>{title}</Link>
                 </LinkWrapper>
               ))}
