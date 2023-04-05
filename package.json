@@ -17,7 +17,6 @@
     "@types/react-dom": "18.0.10",
     "babel-preset-next": "^1.4.0",
     "css-loader": "^6.7.3",
-    "dotenv": "^16.0.3",
     "eslint-config-next": "^13.1.6",
     "offchain": "git+ssh://git@github.com:fullstack-development/donat-pool-offchain.git#3bae2c6368ffa1bc65535b6fb3de2ecb0e15e604",
     "path": "^0.12.7",
