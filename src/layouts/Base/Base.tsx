@@ -20,9 +20,18 @@ const Base = () => {
   );
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const walletIsNotAvailable =
-    walletStatus === 'notAvailable' || !window.cardano || !window.cardano.nami;
+  const [walletIsNotAvailable, setWalletIsNotAvailable] = useState(false);
   const [currentPage, setCurrentPage] = useState('');
+
+  useEffect(() => {
+    setTimeout(() => {
+      setWalletIsNotAvailable(
+        walletStatus === 'notAvailable' ||
+          !window.cardano ||
+          !window.cardano.nami
+      );
+    }, 1000);
+  }, [walletStatus]);
 
   useEffect(() => {
     if (walletStatus === 'declined') {
