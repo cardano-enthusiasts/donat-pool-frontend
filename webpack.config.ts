@@ -23,6 +23,13 @@ module.exports = (env) => {
     devServer: {
       hot: true,
       port: 4008,
+      headers: {
+        'Access-Control-Allow-Origin': env.ALLOW_ORIGIN,
+        'Access-Control-Allow-Methods':
+          'GET, POST, PUT, DELETE, PATCH, OPTIONS',
+        'Access-Control-Allow-Headers':
+          'X-Requested-With, content-type, Authorization',
+      },
       client: {
         overlay: {
           warnings: false,

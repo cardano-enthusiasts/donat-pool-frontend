@@ -3,8 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "webpack serve --config webpack.config.ts",
+    "dev": "webpack serve --config webpack.config.ts --env ALLOW_ORIGIN=*",
     "dev-local": "webpack serve --env KUPO_HOST=http://localhost:1442",
+    "prod": "webpack --env ALLOW_ORIGIN=http://194.67.64.41", 
     "build": "webpack",
     "lint": "npx eslint ."
   },
@@ -18,7 +19,7 @@
     "babel-preset-next": "^1.4.0",
     "css-loader": "^6.7.3",
     "eslint-config-next": "^13.1.6",
-    "offchain": "git+ssh://git@github.com:fullstack-development/donat-pool-offchain.git#3bae2c6368ffa1bc65535b6fb3de2ecb0e15e604",
+    "offchain": "git+ssh://git@github.com:fullstack-development/donat-pool-offchain.git#62dbe41cd2f48db5ad94b87f442695529bbc3324",
     "path": "^0.12.7",
     "postcss-loader": "^7.0.2",
     "postcss-scss": "^4.0.6",
