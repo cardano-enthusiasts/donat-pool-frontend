@@ -3,9 +3,9 @@ import HtmlWebpackPlugin from 'html-webpack-plugin';
 import NodePolyfillWebpackPlugin from 'node-polyfill-webpack-plugin';
 import path from 'path';
 import 'webpack-dev-server';
-const isProduction = process.env.NODE_ENV === 'production';
 
 module.exports = (env) => {
+  const isProduction = env.NODE_ENV === 'production';
   return {
     mode: isProduction ? 'production' : 'development',
     entry: {
