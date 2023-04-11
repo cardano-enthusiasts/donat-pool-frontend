@@ -39,6 +39,12 @@ const DurationInputContainer = styled.div`
   gap: 10px;
 `;
 
+const FundingGoal = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+`;
+
 export {
   Form,
   Title,
@@ -47,4 +53,5 @@ export {
   DurationContainer,
   DurationTitle,
   DurationInputContainer,
+  FundingGoal,
 };
