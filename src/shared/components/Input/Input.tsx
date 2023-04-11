@@ -41,6 +41,9 @@ const Input = ({
             disabled={isDisabled}
             placeholder={placeholder}
             maxLength={maxLength}
+            onWheel={(event) => {
+              event.currentTarget.blur();
+            }}
           />
         </InputContainer>
       )}

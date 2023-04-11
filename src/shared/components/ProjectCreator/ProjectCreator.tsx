@@ -13,11 +13,12 @@ import {
   DurationInputContainer,
   DurationTitle,
   Form,
+  FundingGoal,
   Loader,
   Title,
 } from './ProjectCreator.styled';
 import { type Props } from './types';
-import { Button, Calendar, Checkbox, Input } from '..';
+import { Button, Calendar, Checkbox, Input, PrecalculationFee } from '..';
 
 const ProjectCreator = ({ onClose }: Props) => {
   const createFundraising = useCreateFundraising();
@@ -59,6 +60,7 @@ const ProjectCreator = ({ onClose }: Props) => {
       | 'durationHours'
       | 'durationMinutes'
   ) => {
+    event.preventDefault();
     const { value } = event.target as HTMLInputElement;
     setData({ ...data, [type]: value });
   };
@@ -84,15 +86,18 @@ const ProjectCreator = ({ onClose }: Props) => {
         }}
         isDisabled={true}
       />
-      <Input
-        title="funding goal"
-        value={data.goal}
-        onChange={(event) => {
-          handleChange(event, 'goal');
-        }}
-        type="number"
-        isDisabled={isRequesting}
-      />
+      <FundingGoal>
+        <Input
+          title="funding goal"
+          value={data.goal}
+          onChange={(event) => {
+            handleChange(event, 'goal');
+          }}
+          type="number"
+          isDisabled={isRequesting}
+        />
+        <PrecalculationFee goal={data.goal} />
+      </FundingGoal>
 
       <DurationContainer>
         <DurationTitle>Duration</DurationTitle>
