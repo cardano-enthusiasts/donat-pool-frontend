@@ -40,9 +40,7 @@ const useDonate = (onAnyResult) => {
 
   if (offchain) {
     return (fundraisingData: FundraisingData, amount: number) => {
-      offchain.donate(handleSuccess)(handleError)(fundraisingData)(
-        amount * 1000000
-      )();
+      offchain.donate(handleSuccess)(handleError)(fundraisingData)(amount)();
       checkWalletStatus();
       dispatch(donate());
     };

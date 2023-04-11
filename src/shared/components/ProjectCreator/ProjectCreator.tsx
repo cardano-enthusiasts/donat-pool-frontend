@@ -60,7 +60,6 @@ const ProjectCreator = ({ onClose }: Props) => {
       | 'durationMinutes'
   ) => {
     const { value } = event.target as HTMLInputElement;
-    console.log(value);
     setData({ ...data, [type]: value });
   };
 
