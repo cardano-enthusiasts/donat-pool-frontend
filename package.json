@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "webpack serve --config webpack.config.ts --env ALLOW_ORIGIN=*",
     "dev-local": "webpack serve --env KUPO_HOST=http://localhost:1442",
-    "prod": "webpack serve --env ALLOW_ORIGIN=http://194.67.64.41 --env KUPO_HOST=http://0.0.0.0:1442 --env NODE_ENV=production", 
+    "prod": "webpack serve --env ALLOW_ORIGIN=http://testnet.donat-pool.io --env KUPO_HOST=http://0.0.0.0:1442 --env NODE_ENV=production", 
     "build": "webpack",
     "lint": "npx eslint ."
   },
