@@ -46,6 +46,7 @@ module.exports = (env) => {
         },
       },
       historyApiFallback: true,
+      allowedHosts: isProduction ? ['.donat-pool.io'] : 'auto',
     },
 
     plugins: [

@@ -39,7 +39,6 @@ const useCreateFundraising = () => {
 
   if (offchain) {
     return (createFundraisingParams: CreateFundraisingParams) => {
-      console.log(createFundraisingParams);
       offchain.createFundraising(handleSuccess)(handleError)(protocol)(
         createFundraisingParams
       )();
