@@ -21,4 +21,4 @@ RUN rm /root/.ssh/id_rsa
 COPY . /code
 RUN npm run build
 EXPOSE 4008
-CMD ["npm", "run", "dev"]
+CMD ["npm", "run", "prod"]
