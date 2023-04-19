@@ -20,5 +20,5 @@ volumes:
     driver_opts:
        o: bind
        type: none
-       device: ${VOLUME_SOURCE}
+       device: ${KUPO_VOLUME_SOURCE}
 
