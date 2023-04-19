@@ -1,0 +1,24 @@
+version: '3.8'
+services:
+  kupo:
+    container_name: kupo
+    command: --ogmios-host 0.0.0.0 --ogmios-port 1337 --since origin --match "*" --workdir /mnt
+    image: cardanosolutions/kupo:v2.4.0
+    volumes:
+      - kupo_db:/mnt
+    network_mode: "host"
+
+  frontend:
+    container_name: donat-pool
+    build: .
+    network_mode: "host"
+    depends_on:
+      - "kupo"
+volumes:
+  kupo_db:
+    driver: local
+    driver_opts:
+       o: bind
+       type: none
+       device: ${VOLUME_SOURCE}
+
