@@ -31,10 +31,8 @@ module.exports = (env) => {
           'X-Requested-With, content-type, Authorization',
       },
       client: {
-        overlay: {
-          warnings: false,
-          errors: true,
-        },
+        overlay: false,
+        webSocketURL: env.WEB_SOCKET_URL ?? 'ws://localhost:4008/ws',
       },
       proxy: {
         '/kupo': {
