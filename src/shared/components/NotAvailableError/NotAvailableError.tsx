@@ -1,4 +1,4 @@
-import { errors, walletIsNotAvailable } from 'shared/constants/errors';
+import { errors, walletIsNotAvailable } from 'shared/constants';
 
 import { Container } from './NotAvailableError.styled';
 
