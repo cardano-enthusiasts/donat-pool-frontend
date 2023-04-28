@@ -27,11 +27,9 @@ const ProjectCard = ({
     threadTokenCurrency,
   },
 }: Props) => {
-  const protocol = JSON.parse(process.env.PROTOCOL);
   const fundraisingData = {
     frThreadTokenCurrency: threadTokenCurrency,
     frThreadTokenName: threadTokenName,
-    protocol,
   };
   const [isClicked, setIsClicked] = useState(false);
   const handleDonateResult = () => {

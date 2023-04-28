@@ -6,4 +6,5 @@ export interface Props {
   type?: 'submit' | 'button';
   href?: string | null;
   isDisabled?: boolean;
+  width?: string;
 }

@@ -21,7 +21,6 @@ type Fundraisings = Fundraising[];
 interface FundraisingData {
   frThreadTokenCurrency: Uint8Array;
   frThreadTokenName: Uint8Array;
-  protocol: string;
 }
 
 interface CreateFundraisingParams {

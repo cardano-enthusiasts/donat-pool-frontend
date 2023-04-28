@@ -18,6 +18,11 @@ import {
 } from './';
 
 type OnError = (error: string) => void;
+
+type ConnectWallet = (
+  onSuccess: () => void
+) => (onError: OnError) => () => void;
+
 type CreateFundraising = (
   onSuccess: (fundraisingData: FundraisingData) => void
 ) => (
@@ -30,6 +35,8 @@ type Donate = (
   onSuccess: () => void
 ) => (
   onError: OnError
+) => (
+  fixedProtocol: string
 ) => (fundraisingData: FundraisingData) => (amount: number) => () => void;
 
 type GetFundraisings = (
@@ -52,12 +59,14 @@ type UpdateProtocol = (
 
 type ReceiveFunds = (
   onSuccess: (something) => void
-) => (onError: OnError) => (fundraisingData: FundraisingData) => () => void;
+) => (
+  onError: OnError
+) => (protocol: string) => (fundraisingData: FundraisingData) => () => void;
 declare global {
   interface Window {
     offchain: {
       closeProtocol: any;
-      connectWallet: () => void;
+      connectWallet: ConnectWallet;
       createFundraising: CreateFundraising;
       donate: Donate;
       getAllFundraisings: GetFundraisings;
