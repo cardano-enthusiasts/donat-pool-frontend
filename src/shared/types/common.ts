@@ -1,4 +1,3 @@
-import { type protocol } from 'shared/constants';
 interface Config {
   minAmountParam: number;
   maxAmountParam: number;
@@ -22,7 +21,7 @@ type Fundraisings = Fundraising[];
 interface FundraisingData {
   frThreadTokenCurrency: Uint8Array;
   frThreadTokenName: Uint8Array;
-  protocol: typeof protocol;
+  protocol: string;
 }
 
 interface CreateFundraisingParams {

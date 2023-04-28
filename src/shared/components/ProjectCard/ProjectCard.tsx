@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { BeatLoader } from 'react-spinners';
 
-import { protocol } from 'shared/constants';
 import { useDonate } from 'shared/helpers/hooks';
 import { theme } from 'shared/styles/theme';
 import { type AppReduxState } from 'shared/types';
@@ -28,6 +27,7 @@ const ProjectCard = ({
     threadTokenCurrency,
   },
 }: Props) => {
+  const protocol = JSON.parse(process.env.PROTOCOL);
   const fundraisingData = {
     frThreadTokenCurrency: threadTokenCurrency,
     frThreadTokenName: threadTokenName,

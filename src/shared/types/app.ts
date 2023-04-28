@@ -7,7 +7,6 @@ import {
 } from 'redux';
 
 import type * as features from 'features';
-import { type protocol } from 'shared/constants';
 
 import {
   type BackendProjects,
@@ -24,7 +23,7 @@ type CreateFundraising = (
 ) => (
   onError: OnError
 ) => (
-  fixedProtocol: typeof protocol
+  fixedProtocol: string
 ) => (createFundraisingParams: CreateFundraisingParams) => () => void;
 
 type Donate = (
@@ -35,11 +34,11 @@ type Donate = (
 
 type GetFundraisings = (
   onSuccess: (projects: BackendProjects) => void
-) => (onError: OnError) => (fixedProtocol: typeof protocol) => () => void;
+) => (onError: OnError) => (fixedProtocol: string) => () => void;
 
 type GetAppInfo = (
   onSuccess: (params: UserAndProtocolParams) => void
-) => (onError: OnError) => (fixedProtocol: typeof protocol) => () => void;
+) => (onError: OnError) => (fixedProtocol: string) => () => void;
 
 type StartProtocol = (
   onSuccess: (params: BackendParams) => void
@@ -49,7 +48,7 @@ type UpdateProtocol = (
   onSuccess: (config: Config) => void
 ) => (
   onError: OnError
-) => (fixedProtocol: typeof protocol) => (config: Config) => () => void;
+) => (fixedProtocol: string) => (config: Config) => () => void;
 
 type ReceiveFunds = (
   onSuccess: (something) => void

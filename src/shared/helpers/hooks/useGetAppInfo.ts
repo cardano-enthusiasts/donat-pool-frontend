@@ -11,7 +11,6 @@ import {
   getInfoFail,
   getInfoSuccess,
 } from 'features/protocol/redux/actionCreators';
-import { protocol } from 'shared/constants';
 import { type UserAndProtocolParams } from 'shared/types';
 
 import { useCheckWalletStatus, useHandleError, useOffchain } from '.';
@@ -22,6 +21,7 @@ const useGetAppInfo = () => {
   const dispatch = useDispatch();
   const handleCommonError = useHandleError();
   const checkWalletStatus = useCheckWalletStatus();
+  const protocol = JSON.parse(process.env.PROTOCOL);
 
   const handleSuccess = ({
     protocolConfig,

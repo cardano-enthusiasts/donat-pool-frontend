@@ -7,7 +7,6 @@ import {
   createSuccess,
 } from 'features/fundraising/redux/actionCreators';
 import { setWalletStatusSuccess } from 'features/info/redux/actionCreators';
-import { protocol } from 'shared/constants';
 import { type CreateFundraisingParams } from 'shared/types';
 
 import {
@@ -24,6 +23,7 @@ const useCreateFundraising = () => {
   const getUserFundraisings = useGetUserFundraisings();
   const handleCommonError = useHandleError();
   const checkWalletStatus = useCheckWalletStatus();
+  const protocol = JSON.parse(process.env.PROTOCOL);
 
   const handleSuccess = (fundraisingData) => {
     dispatch(setWalletStatusSuccess('connected'));

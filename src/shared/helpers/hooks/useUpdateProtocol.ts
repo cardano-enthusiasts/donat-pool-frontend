@@ -7,7 +7,6 @@ import {
   updateFail,
   updateSuccess,
 } from 'features/protocol/redux/actionCreators';
-import { protocol } from 'shared/constants';
 import { type Config } from 'shared/types';
 
 import {
@@ -24,6 +23,7 @@ const useUpdateProtocol = () => {
   const getAppInfo = useGetAppInfo();
   const handleCommonError = useHandleError();
   const checkWalletStatus = useCheckWalletStatus();
+  const protocol = JSON.parse(process.env.PROTOCOL);
 
   const handleSuccess = () => {
     toast.success('Config was updated successfully');

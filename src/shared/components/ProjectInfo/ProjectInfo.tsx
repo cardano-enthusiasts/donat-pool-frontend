@@ -1,7 +1,6 @@
 import { useSelector } from 'react-redux';
 import { BeatLoader } from 'react-spinners';
 
-import { protocol } from 'shared/constants';
 import { useReceiveFunds } from 'shared/helpers/hooks';
 import { theme } from 'shared/styles/theme';
 import { type AppReduxState } from 'shared/types';
@@ -33,6 +32,7 @@ const ProjectInfo = ({
   const { isRequesting } = useSelector(
     (state: AppReduxState) => state.fundraising.communication.receiveFunds
   );
+  const protocol = JSON.parse(process.env.PROTOCOL);
   const fundraisingData = {
     frThreadTokenCurrency: threadTokenCurrency,
     frThreadTokenName: threadTokenName,
