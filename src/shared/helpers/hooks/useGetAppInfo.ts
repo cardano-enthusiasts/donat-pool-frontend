@@ -1,31 +1,40 @@
 import { useDispatch } from 'react-redux';
 
-import { setWalletStatusSuccess } from 'features/info/redux/actionCreators';
+import {
+  getUserInfo,
+  getUserInfoFail,
+  getUserInfoSuccess,
+  setWalletStatusSuccess,
+} from 'features/info/redux/actionCreators';
 import {
   getInfo,
   getInfoFail,
   getInfoSuccess,
 } from 'features/protocol/redux/actionCreators';
 import { protocol } from 'shared/constants';
-import { type BackendParams } from 'shared/types';
+import { type UserAndProtocolParams } from 'shared/types';
 
-import { useCheckWalletStatus, useHandleError, useOffchain } from './';
+import { useCheckWalletStatus, useHandleError, useOffchain } from '.';
 import { getOffchainError } from '..';
 
-const useGetProtocolInfo = () => {
+const useGetAppInfo = () => {
   const offchain = useOffchain();
   const dispatch = useDispatch();
   const handleCommonError = useHandleError();
   const checkWalletStatus = useCheckWalletStatus();
 
   const handleSuccess = ({
-    minAmountParam,
-    maxAmountParam,
-    minDurationParam,
-    maxDurationParam,
-    protocolFeeParam,
-  }: BackendParams) => {
+    protocolConfig,
+    userInfo,
+  }: UserAndProtocolParams) => {
     dispatch(setWalletStatusSuccess('connected'));
+    const {
+      minAmountParam,
+      maxAmountParam,
+      minDurationParam,
+      maxDurationParam,
+      protocolFeeParam,
+    } = protocolConfig;
     dispatch(
       getInfoSuccess({
         minAmountParam: Number(minAmountParam.value) / 1000000,
@@ -35,21 +44,24 @@ const useGetProtocolInfo = () => {
         protocolFeeParam: Number(protocolFeeParam.value),
       })
     );
+    dispatch(getUserInfoSuccess(userInfo));
   };
 
   const handleError = (error) => {
     handleCommonError(error);
     dispatch(getInfoFail(error));
+    dispatch(getUserInfoFail(error));
   };
 
   if (offchain) {
     return () => {
-      offchain?.getProtocolInfo(handleSuccess)(handleError)(protocol)();
+      offchain?.getAppInfo(handleSuccess)(handleError)(protocol)();
       checkWalletStatus();
       dispatch(getInfo());
+      dispatch(getUserInfo());
     };
   }
   return getOffchainError;
 };
 
-export { useGetProtocolInfo };
+export { useGetAppInfo };

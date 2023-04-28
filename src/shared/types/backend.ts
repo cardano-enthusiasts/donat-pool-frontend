@@ -1,3 +1,5 @@
+import { type UserInfo } from './common';
+
 interface BackendProject {
   creator: object;
   deadline: { value: bigint };
@@ -21,4 +23,14 @@ interface BackendParams {
   protocolFeeParam: ConfigParam;
 }
 
-export type { BackendProjects, BackendProject, BackendParams };
+interface UserAndProtocolParams {
+  protocolConfig: BackendParams;
+  userInfo: UserInfo;
+}
+
+export type {
+  BackendProjects,
+  BackendProject,
+  BackendParams,
+  UserAndProtocolParams,
+};

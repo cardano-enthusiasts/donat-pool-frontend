@@ -31,6 +31,20 @@ const {
 );
 
 const {
+  execute: getUserInfo,
+  success: getUserInfoSuccess,
+  fail: getUserInfoFail,
+} = makeCommunicationActionCreators<
+  A.GetUserInfo,
+  A.GetUserInfoSuccess,
+  A.GetUserInfoFail
+>(
+  'INFO:GET_USER_INFO',
+  'INFO:GET_USER_INFO_SUCCESS',
+  'INFO:GET_USER_INFO_FAIL'
+);
+
+const {
   execute: setWalletStatus,
   success: setWalletStatusSuccess,
   fail: setWalletStatusFail,
@@ -54,4 +68,7 @@ export {
   setWalletStatus,
   setWalletStatusSuccess,
   setWalletStatusFail,
+  getUserInfo,
+  getUserInfoSuccess,
+  getUserInfoFail,
 };

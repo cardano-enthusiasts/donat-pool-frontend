@@ -10,8 +10,21 @@ function data(
     case 'INFO:GET_USER_FUNDRAISINGS_SUCCESS':
       return {
         ...state,
-        userFundraisings: action.payload,
+        user: {
+          ...state.user,
+          fundraisings: action.payload,
+        },
       };
+    case 'INFO:GET_USER_INFO_SUCCESS':
+      return {
+        ...state,
+        user: {
+          ...state.user,
+          address: action.payload.address,
+          isManager: action.payload.isManager,
+        },
+      };
+
     case 'INFO:GET_ALL_FUNDRAISINGS_SUCCESS':
       return {
         ...state,

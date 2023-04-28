@@ -11,7 +11,7 @@ import { protocol } from 'shared/constants';
 import { type Config } from 'shared/types';
 
 import {
-  useGetProtocolInfo,
+  useGetAppInfo,
   useOffchain,
   useCheckWalletStatus,
   useHandleError,
@@ -21,7 +21,7 @@ import { getOffchainError } from '..';
 const useUpdateProtocol = () => {
   const offchain = useOffchain();
   const dispatch = useDispatch();
-  const getProtocolInfo = useGetProtocolInfo();
+  const getAppInfo = useGetAppInfo();
   const handleCommonError = useHandleError();
   const checkWalletStatus = useCheckWalletStatus();
 
@@ -29,7 +29,7 @@ const useUpdateProtocol = () => {
     toast.success('Config was updated successfully');
     dispatch(updateSuccess());
     dispatch(setWalletStatusSuccess('connected'));
-    getProtocolInfo();
+    getAppInfo();
   };
 
   const handleError = (error) => {

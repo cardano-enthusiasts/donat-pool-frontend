@@ -37,6 +37,11 @@ interface CreateFundraisingParams {
 
 type WalletStatus = 'default' | 'connected' | 'declined' | 'notAvailable';
 
+interface UserInfo {
+  isManager: boolean;
+  address: string;
+}
+
 export type {
   Config,
   Fundraisings,
@@ -44,4 +49,5 @@ export type {
   FundraisingData,
   CreateFundraisingParams,
   WalletStatus,
+  UserInfo,
 };

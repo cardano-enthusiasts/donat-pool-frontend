@@ -15,6 +15,7 @@ import {
   type CreateFundraisingParams,
   type FundraisingData,
   type Config,
+  type UserAndProtocolParams,
 } from './';
 
 type OnError = (error: string) => void;
@@ -36,8 +37,8 @@ type GetFundraisings = (
   onSuccess: (projects: BackendProjects) => void
 ) => (onError: OnError) => (fixedProtocol: typeof protocol) => () => void;
 
-type GetProtocolInfo = (
-  onSuccess: (params: BackendParams) => void
+type GetAppInfo = (
+  onSuccess: (params: UserAndProtocolParams) => void
 ) => (onError: OnError) => (fixedProtocol: typeof protocol) => () => void;
 
 type StartProtocol = (
@@ -61,7 +62,7 @@ declare global {
       createFundraising: CreateFundraising;
       donate: Donate;
       getAllFundraisings: GetFundraisings;
-      getProtocolInfo: GetProtocolInfo;
+      getAppInfo: GetAppInfo;
       getUserRelatedFundraisings: GetFundraisings;
       startProtocol: StartProtocol;
       updateProtocol: UpdateProtocol;

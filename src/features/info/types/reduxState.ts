@@ -7,9 +7,14 @@ interface ReduxState {
     getUserFundraisings: ICommunication;
     getAllFundraisings: ICommunication;
     setWalletStatus: ICommunication;
+    getUserInfo: ICommunication;
   };
   data: {
-    userFundraisings: Fundraisings | null;
+    user: {
+      fundraisings: Fundraisings | null;
+      isManager: boolean;
+      address: string | null;
+    };
     allFundraisings: Fundraisings | null;
     walletStatus: WalletStatus;
   };

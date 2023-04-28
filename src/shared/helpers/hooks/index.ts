@@ -3,7 +3,7 @@ export { useGetAllFundraisings } from './useGetAllFundraisings';
 export { useGetUserFundraisings } from './useGetUserFundraisings';
 export { useCreateFundraising } from './useCreateFundraising';
 export { useDonate } from './useDonate';
-export { useGetProtocolInfo } from './useGetProtocolInfo';
+export { useGetAppInfo } from './useGetAppInfo';
 export { useUpdateProtocol } from './useUpdateProtocol';
 export { useReceiveFunds } from './useReceiveFunds';
 export { useStartProtocol } from './useStartProtocol';
