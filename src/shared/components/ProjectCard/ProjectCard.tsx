@@ -92,7 +92,7 @@ const ProjectCard = ({
         isDisabled={isInputDisabled}
       />
       <ButtonWrapper>
-        <Button theme="bordered" isDisabled={isButtonDisabled}>
+        <Button type="submit" theme="bordered" isDisabled={isButtonDisabled}>
           Donate
         </Button>
       </ButtonWrapper>
