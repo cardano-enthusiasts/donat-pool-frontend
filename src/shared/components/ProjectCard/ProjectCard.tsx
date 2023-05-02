@@ -8,7 +8,7 @@ import { type AppReduxState } from 'shared/types';
 
 import {
   Item,
-  Wrapper,
+  Form,
   Title,
   Items,
   ButtonWrapper,
@@ -59,7 +59,8 @@ const ProjectCard = ({
     }
   }, [isRequesting, value]);
 
-  const handleClickDonate = () => {
+  const handleSubmit = (event) => {
+    event.preventDefault();
     if (value !== '') {
       donate(fundraisingData, value);
       setIsClicked(true);
@@ -73,7 +74,7 @@ const ProjectCard = ({
   };
 
   return (
-    <Wrapper>
+    <Form onSubmit={handleSubmit}>
       <Title>{description}</Title>
       <Items>
         <Item>deadline: </Item>
@@ -91,11 +92,7 @@ const ProjectCard = ({
         isDisabled={isInputDisabled}
       />
       <ButtonWrapper>
-        <Button
-          onClick={handleClickDonate}
-          theme="bordered"
-          isDisabled={isButtonDisabled}
-        >
+        <Button theme="bordered" isDisabled={isButtonDisabled}>
           Donate
         </Button>
       </ButtonWrapper>
@@ -108,7 +105,7 @@ const ProjectCard = ({
           data-testid="loader"
         />
       </Loader>
-    </Wrapper>
+    </Form>
   );
 };
 
