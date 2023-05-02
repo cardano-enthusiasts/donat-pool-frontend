@@ -1,13 +1,14 @@
 import { useEffect } from 'react';
+import { useSelector } from 'react-redux';
 
 import { Button } from 'shared/components';
 import { useStartProtocol } from 'shared/helpers/hooks';
+import { type AppReduxState } from 'shared/types';
 
 import {
   Description,
   MainScreen,
   Intro,
-  MainButtons,
   Title,
   Wrapper,
   IntroInner,
@@ -15,6 +16,9 @@ import {
 
 const Home = () => {
   const startProtocol = useStartProtocol();
+  const { isManager } = useSelector(
+    (state: AppReduxState) => state.info.data.user
+  );
   useEffect(() => {
     document.title = 'Home';
   }, []);
@@ -35,12 +39,11 @@ const Home = () => {
               Lorem ipsum dolor sit amet, <span>consectetur adipiscing</span>
               elit
             </Description>
-            <MainButtons>
+            {isManager && (
               <Button theme="filled" onClick={handleStartProtocolClick}>
                 start protocol
               </Button>
-              <Button theme="bordered">Learn more</Button>
-            </MainButtons>
+            )}
           </IntroInner>
         </Intro>
       </MainScreen>
