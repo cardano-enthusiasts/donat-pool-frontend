@@ -7,10 +7,15 @@ const initialState: ReduxState = {
     getUserFundraisings: initialCommunicationField,
     getAllFundraisings: initialCommunicationField,
     setWalletStatus: initialCommunicationField,
+    getUserInfo: initialCommunicationField,
   },
   data: {
-    userFundraisings: null,
     allFundraisings: null,
+    user: {
+      fundraisings: null,
+      isManager: false,
+      address: null,
+    },
     walletStatus: 'default',
   },
 };

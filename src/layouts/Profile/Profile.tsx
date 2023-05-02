@@ -7,11 +7,7 @@ import {
   ProjectInfo,
   ProjectSidebar,
 } from 'shared/components';
-import {
-  useGetProtocolInfo,
-  useGetUserFundraisings,
-  useOffchain,
-} from 'shared/helpers/hooks';
+import { useGetUserFundraisings, useOffchain } from 'shared/helpers/hooks';
 import { type Fundraising, type AppReduxState } from 'shared/types';
 
 import {
@@ -24,24 +20,19 @@ import {
 } from './Profile.styled';
 
 const Profile = ({ defaultMode = null }) => {
-  const getProtocolInfo = useGetProtocolInfo();
   const [mode, setMode] = useState<Fundraising | 'creation' | null>(
     defaultMode
   );
   const offchain = useOffchain();
   const getUserFundraisings = useGetUserFundraisings();
   const {
-    data: { userFundraisings },
+    data: {
+      user: { fundraisings: userFundraisings },
+    },
     communication: {
       setWalletStatus: { isRequesting },
     },
   } = useSelector((state: AppReduxState) => state.info);
-
-  useEffect(() => {
-    if (offchain) {
-      getProtocolInfo();
-    }
-  }, [offchain]);
 
   useEffect(() => {
     document.title = 'Profile';

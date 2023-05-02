@@ -10,6 +10,7 @@ import Management from 'layouts/Management/Management';
 import Profile from 'layouts/Profile/Profile';
 import { Footer, Header, NotAvailableError } from 'shared/components';
 import 'react-toastify/dist/ReactToastify.css';
+import { useGetAppInfo, useOffchain } from 'shared/helpers/hooks';
 import { type AppReduxState } from 'shared/types';
 
 import { Inner, Main } from './Base.styled';
@@ -22,6 +23,14 @@ const Base = () => {
   const dispatch = useDispatch();
   const [walletIsNotAvailable, setWalletIsNotAvailable] = useState(false);
   const [currentPage, setCurrentPage] = useState('');
+  const getAppInfo = useGetAppInfo();
+  const offchain = useOffchain();
+
+  useEffect(() => {
+    if (offchain) {
+      getAppInfo();
+    }
+  }, [offchain]);
 
   useEffect(() => {
     setTimeout(() => {

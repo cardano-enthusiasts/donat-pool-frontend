@@ -1,7 +1,9 @@
 # donat-pool-frontend
 ## Getting Started
 
-First, run the development server:
+Create .env.local and add config parameters from .env.example
+
+Run the development server:
 
 ```bash
 npm run dev

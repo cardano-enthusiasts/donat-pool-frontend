@@ -1,11 +1,12 @@
 import { toast } from 'react-toastify';
 
-import { useOffchain } from 'shared/helpers/hooks';
+import { useHandleError, useOffchain } from 'shared/helpers/hooks';
 
 import { getOffchainError } from '..';
 
 const useStartProtocol = () => {
   const offchain = useOffchain();
+  const handleCommonError = useHandleError();
 
   const startProtocolParams = {
     minAmountParam: 50000000,
@@ -21,7 +22,7 @@ const useStartProtocol = () => {
   };
 
   const handleError = (error) => {
-    toast.error(error);
+    handleCommonError(error);
   };
 
   if (offchain) {

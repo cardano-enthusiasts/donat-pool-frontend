@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 import { cardWrapper, h3, h2 } from 'shared/styles/mixins';
 
-const Wrapper = styled.div`
+const Form = styled.form`
   ${cardWrapper};
   display: flex;
   flex-direction: column;
@@ -53,4 +53,4 @@ const Loader = styled.div<{ isLoading: boolean }>`
   ${({ isLoading }) => !isLoading && 'padding-bottom: 27px'}
 `;
 
-export { Wrapper, Item, Items, Title, ButtonWrapper, Loader };
+export { Form, Item, Items, Title, ButtonWrapper, Loader };

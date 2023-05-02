@@ -6,7 +6,6 @@ import {
   getAllFundraisingsSuccess,
   setWalletStatusSuccess,
 } from 'features/info/redux/actionCreators';
-import { protocol } from 'shared/constants';
 
 import { useOffchain, useCheckWalletStatus, useHandleError } from '.';
 import { getOffchainError } from '..';
@@ -16,6 +15,7 @@ const useGetAllFundraisings = () => {
   const dispatch = useDispatch();
   const handleCommonError = useHandleError();
   const checkWalletStatus = useCheckWalletStatus();
+  const protocol = JSON.parse(process.env.PROTOCOL);
 
   const handleSuccess = (projects) => {
     const filteredProjects = projects.map(

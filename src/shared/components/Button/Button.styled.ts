@@ -10,12 +10,12 @@ const getHoverAndDisabled = (themeType) => {
     opacity: ${themeType === 'filled' && 0.5};
   `;
 };
-const getButtonStyles = (themeType, size) => {
+const getButtonStyles = (themeType, size, width) => {
   return css`
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100%;
+    width: ${width};
     min-width: 100px;
     max-width: 320px;
     font-family: Montserrat, Arial, sans-serif;
@@ -48,8 +48,9 @@ const getButtonStyles = (themeType, size) => {
 const StyledButton = styled.button<{
   themeType: Props['theme'];
   size: Props['size'];
+  width: Props['width'];
 }>`
-  ${({ themeType, size }) => getButtonStyles(themeType, size)};
+  ${({ themeType, size, width }) => getButtonStyles(themeType, size, width)};
   &:disabled {
     ${({ themeType }) => getHoverAndDisabled(themeType)};
     cursor: auto;
@@ -60,9 +61,10 @@ const LinkWrapper = styled.div<{
   themeType: Props['theme'];
   size: Props['size'];
   isDisabled: boolean;
+  width: Props['width'];
 }>`
   a {
-    ${({ themeType, size }) => getButtonStyles(themeType, size)};
+    ${({ themeType, size, width }) => getButtonStyles(themeType, size, width)};
     text-decoration: none;
     ${({ isDisabled, themeType }) =>
       isDisabled && getHoverAndDisabled(themeType)}

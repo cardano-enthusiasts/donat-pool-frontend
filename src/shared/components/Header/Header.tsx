@@ -1,5 +1,8 @@
 import { useState } from 'react';
+import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+
+import { type AppReduxState } from 'shared/types';
 
 import {
   Inner,
@@ -15,9 +18,16 @@ import { type Props } from './types';
 import { Logo, WalletButton } from '..';
 
 const Header = ({ currentPage }: Props) => {
+  const { isManager } = useSelector(
+    (state: AppReduxState) => state.info.data.user
+  );
+  const managerLink = {
+    title: 'Management',
+    href: '/management',
+    id: 'management',
+  };
   const links = [
     { title: 'Home', href: '/', id: 'home' },
-    { title: 'Management', href: '/management', id: 'management' },
     { title: 'My profile', href: '/my-profile', id: 'profile' },
     { title: 'Projects', href: '/all-projects', id: 'projects' },
   ];
@@ -30,6 +40,14 @@ const Header = ({ currentPage }: Props) => {
           <Logo />
           <LinksAndWallet>
             <Links>
+              {isManager && (
+                <LinkWrapper
+                  key={managerLink.id}
+                  isActive={managerLink.href === currentPage}
+                >
+                  <Link to={managerLink.href}>{managerLink.title}</Link>
+                </LinkWrapper>
+              )}
               {links.map(({ title, href, id }) => (
                 <LinkWrapper key={id} isActive={href === currentPage}>
                   <Link to={href}>{title}</Link>

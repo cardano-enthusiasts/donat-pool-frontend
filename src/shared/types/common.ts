@@ -1,4 +1,3 @@
-import { type protocol } from 'shared/constants';
 interface Config {
   minAmountParam: number;
   maxAmountParam: number;
@@ -22,7 +21,6 @@ type Fundraisings = Fundraising[];
 interface FundraisingData {
   frThreadTokenCurrency: Uint8Array;
   frThreadTokenName: Uint8Array;
-  protocol: typeof protocol;
 }
 
 interface CreateFundraisingParams {
@@ -37,6 +35,11 @@ interface CreateFundraisingParams {
 
 type WalletStatus = 'default' | 'connected' | 'declined' | 'notAvailable';
 
+interface UserInfo {
+  isManager: boolean;
+  address: string;
+}
+
 export type {
   Config,
   Fundraisings,
@@ -44,4 +47,5 @@ export type {
   FundraisingData,
   CreateFundraisingParams,
   WalletStatus,
+  UserInfo,
 };

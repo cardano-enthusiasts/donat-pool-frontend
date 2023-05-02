@@ -80,7 +80,7 @@ const ManagerEditor = ({ config }: Props) => {
           ))}
         </InputWrapper>
         <ButtonWrapper>
-          <Button type="submit" isDisabled={isSubmitDisabled}>
+          <Button type="submit" isDisabled={isSubmitDisabled} width="100%">
             Confirm
           </Button>
         </ButtonWrapper>

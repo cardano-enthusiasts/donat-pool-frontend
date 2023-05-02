@@ -4,7 +4,11 @@ import {
   type IAction,
 } from 'redux-make-communication';
 
-import { type WalletStatus, type Fundraisings } from 'shared/types';
+import {
+  type WalletStatus,
+  type Fundraisings,
+  type UserInfo,
+} from 'shared/types';
 
 type GetUserFundraisings = IPlainAction<'INFO:GET_USER_FUNDRAISINGS'>;
 type GetUserFundraisingsSuccess = IAction<
@@ -29,6 +33,10 @@ type SetWalletStatusSuccess = IAction<
 >;
 type SetWalletStatusFail = IPlainFailAction<'INFO:SET_WALLET_STATUS_FAIL'>;
 
+type GetUserInfo = IPlainAction<'INFO:GET_USER_INFO'>;
+type GetUserInfoSuccess = IAction<'INFO:GET_USER_INFO_SUCCESS', UserInfo>;
+type GetUserInfoFail = IPlainFailAction<'INFO:GET_USER_INFO_FAIL'>;
+
 type Action =
   | GetUserFundraisings
   | GetUserFundraisingsSuccess
@@ -38,7 +46,10 @@ type Action =
   | GetAllFundraisingsFail
   | SetWalletStatus
   | SetWalletStatusSuccess
-  | SetWalletStatusFail;
+  | SetWalletStatusFail
+  | GetUserInfo
+  | GetUserInfoSuccess
+  | GetUserInfoFail;
 
 export type {
   Action,
@@ -51,4 +62,7 @@ export type {
   SetWalletStatus,
   SetWalletStatusSuccess,
   SetWalletStatusFail,
+  GetUserInfo,
+  GetUserInfoSuccess,
+  GetUserInfoFail,
 };

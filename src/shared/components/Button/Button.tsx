@@ -11,9 +11,15 @@ const Button = ({
   type = 'button',
   href = null,
   isDisabled = false,
+  width = 'auto',
 }: Props) => {
   return href !== null ? (
-    <LinkWrapper themeType={theme} size={size} isDisabled={isDisabled}>
+    <LinkWrapper
+      themeType={theme}
+      size={size}
+      isDisabled={isDisabled}
+      width={width}
+    >
       <Link to={href}>{children}</Link>
     </LinkWrapper>
   ) : (
@@ -23,6 +29,7 @@ const Button = ({
       size={size}
       type={type}
       disabled={isDisabled}
+      width={width}
     >
       {children}
     </StyledButton>

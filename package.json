@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "webpack serve --config webpack.config.ts --env ALLOW_ORIGIN=*",
-    "prod": "webpack serve --env ALLOW_ORIGIN=https://testnet.donat-pool.io --env KUPO_HOST=http://0.0.0.0:1442 --env WEB_SOCKET_URL=wss://ogmios.donat-pool.io/ --env NODE_ENV=production", 
+    "prod": "webpack serve --env ALLOW_ORIGIN=https://testnet.donat-pool.io --env KUPO_HOST=http://0.0.0.0:1442 --env WEB_SOCKET_URL=wss://ogmios.donat-pool.io/ --env NODE_ENV=production",
     "build": "webpack",
     "lint": "npx eslint ."
   },
@@ -18,7 +18,7 @@
     "babel-preset-next": "^1.4.0",
     "css-loader": "^6.7.3",
     "eslint-config-next": "^13.1.6",
-    "offchain": "git+ssh://git@github.com:fullstack-development/donat-pool-offchain.git#19becade2cc0a9fe344f5e41ed42f546a780d32b",
+    "offchain": "git+ssh://git@github.com:fullstack-development/donat-pool-offchain.git#7873d00f243a340604b6aa86d0024981f3709104",
     "path": "^0.12.7",
     "postcss-loader": "^7.0.2",
     "postcss-scss": "^4.0.6",
@@ -42,6 +42,7 @@
     "babel-loader": "^9.1.2",
     "babel-plugin-styled-components": "^2.0.7",
     "copy-webpack-plugin": "^11.0.0",
+    "dotenv-webpack": "^8.0.1",
     "eslint": "^8.32.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-config-airbnb-typescript": "^17.0.0",

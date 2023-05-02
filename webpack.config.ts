@@ -1,4 +1,5 @@
 import CopyPlugin from 'copy-webpack-plugin';
+import Dotenv from 'dotenv-webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import NodePolyfillWebpackPlugin from 'node-polyfill-webpack-plugin';
 import path from 'path';
@@ -61,6 +62,9 @@ module.exports = (env) => {
         ],
       }),
       new NodePolyfillWebpackPlugin(),
+      new Dotenv({
+        path: `./.env.local`,
+      }),
     ].filter(Boolean),
     experiments: {
       asyncWebAssembly: true,

@@ -2,14 +2,13 @@ import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { BeatLoader } from 'react-spinners';
 
-import { protocol } from 'shared/constants';
 import { useDonate } from 'shared/helpers/hooks';
 import { theme } from 'shared/styles/theme';
 import { type AppReduxState } from 'shared/types';
 
 import {
   Item,
-  Wrapper,
+  Form,
   Title,
   Items,
   ButtonWrapper,
@@ -31,7 +30,6 @@ const ProjectCard = ({
   const fundraisingData = {
     frThreadTokenCurrency: threadTokenCurrency,
     frThreadTokenName: threadTokenName,
-    protocol,
   };
   const [isClicked, setIsClicked] = useState(false);
   const handleDonateResult = () => {
@@ -61,7 +59,8 @@ const ProjectCard = ({
     }
   }, [isRequesting, value]);
 
-  const handleClickDonate = () => {
+  const handleSubmit = (event) => {
+    event.preventDefault();
     if (value !== '') {
       donate(fundraisingData, value);
       setIsClicked(true);
@@ -75,7 +74,7 @@ const ProjectCard = ({
   };
 
   return (
-    <Wrapper>
+    <Form onSubmit={handleSubmit}>
       <Title>{description}</Title>
       <Items>
         <Item>deadline: </Item>
@@ -93,11 +92,7 @@ const ProjectCard = ({
         isDisabled={isInputDisabled}
       />
       <ButtonWrapper>
-        <Button
-          onClick={handleClickDonate}
-          theme="bordered"
-          isDisabled={isButtonDisabled}
-        >
+        <Button type="submit" theme="bordered" isDisabled={isButtonDisabled}>
           Donate
         </Button>
       </ButtonWrapper>
@@ -110,7 +105,7 @@ const ProjectCard = ({
           data-testid="loader"
         />
       </Loader>
-    </Wrapper>
+    </Form>
   );
 };
 

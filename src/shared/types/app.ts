@@ -7,7 +7,6 @@ import {
 } from 'redux';
 
 import type * as features from 'features';
-import { type protocol } from 'shared/constants';
 
 import {
   type BackendProjects,
@@ -15,30 +14,38 @@ import {
   type CreateFundraisingParams,
   type FundraisingData,
   type Config,
+  type UserAndProtocolParams,
 } from './';
 
 type OnError = (error: string) => void;
+
+type ConnectWallet = (
+  onSuccess: () => void
+) => (onError: OnError) => () => void;
+
 type CreateFundraising = (
   onSuccess: (fundraisingData: FundraisingData) => void
 ) => (
   onError: OnError
 ) => (
-  fixedProtocol: typeof protocol
+  fixedProtocol: string
 ) => (createFundraisingParams: CreateFundraisingParams) => () => void;
 
 type Donate = (
   onSuccess: () => void
 ) => (
   onError: OnError
+) => (
+  fixedProtocol: string
 ) => (fundraisingData: FundraisingData) => (amount: number) => () => void;
 
 type GetFundraisings = (
   onSuccess: (projects: BackendProjects) => void
-) => (onError: OnError) => (fixedProtocol: typeof protocol) => () => void;
+) => (onError: OnError) => (fixedProtocol: string) => () => void;
 
-type GetProtocolInfo = (
-  onSuccess: (params: BackendParams) => void
-) => (onError: OnError) => (fixedProtocol: typeof protocol) => () => void;
+type GetAppInfo = (
+  onSuccess: (params: UserAndProtocolParams) => void
+) => (onError: OnError) => (fixedProtocol: string) => () => void;
 
 type StartProtocol = (
   onSuccess: (params: BackendParams) => void
@@ -48,20 +55,22 @@ type UpdateProtocol = (
   onSuccess: (config: Config) => void
 ) => (
   onError: OnError
-) => (fixedProtocol: typeof protocol) => (config: Config) => () => void;
+) => (fixedProtocol: string) => (config: Config) => () => void;
 
 type ReceiveFunds = (
   onSuccess: (something) => void
-) => (onError: OnError) => (fundraisingData: FundraisingData) => () => void;
+) => (
+  onError: OnError
+) => (protocol: string) => (fundraisingData: FundraisingData) => () => void;
 declare global {
   interface Window {
     offchain: {
       closeProtocol: any;
-      connectWallet: () => void;
+      connectWallet: ConnectWallet;
       createFundraising: CreateFundraising;
       donate: Donate;
       getAllFundraisings: GetFundraisings;
-      getProtocolInfo: GetProtocolInfo;
+      getAppInfo: GetAppInfo;
       getUserRelatedFundraisings: GetFundraisings;
       startProtocol: StartProtocol;
       updateProtocol: UpdateProtocol;
