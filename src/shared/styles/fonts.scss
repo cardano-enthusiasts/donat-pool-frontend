@@ -8,8 +8,6 @@
   }
 }
 
-@include addFont('Montserrat', 'montserrat-regular', normal, normal);
-@include addFont('Montserrat', 'montserrat-bold', bold, normal);
 @include addFont('Rammetto One', 'rammetto-one-regular', normal, normal);
 @include addFont('Microsoft YaHei', 'microsoft-ya-hei-regular', normal, normal);
 @include addFont('Microsoft YaHei', 'microsoft-ya-hei-bold', bold, normal);
