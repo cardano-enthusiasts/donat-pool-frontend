@@ -1,13 +1,15 @@
-@font-face {
-  font-family: 'Montserrat';
-  src: url('../../../public/fonts/montserrat-bold.ttf') format('truetype'), url('../../../public/fonts/montserrat-bold.woff') format('woff'), url('../../../public/fonts/montserrat-bold.woff2') format('woff2');
-  font-weight: 700;
-  font-style: normal;
+@mixin addFont($font-family, $file-name, $font-weight, $font-style) {
+  @font-face {
+    font-family: $font-family;
+    font-style: $font-style;
+    font-weight: $font-weight;
+    src: url('../../../public/fonts/#{$file-name}.ttf') format('truetype'), url('../../../public/fonts/#{$file-name}.woff2') format('woff2'),
+      url('../../../public/fonts/#{$file-name}.woff') format('woff');
+  }
 }
 
-@font-face {
-  font-family: 'Montserrat';
-  src: url('../../../public/fonts/montserrat-regular.ttf') format('truetype'), url('../../../public/fonts/montserrat-regular.woff') format('woff'), url('../../../public/fonts/montserrat-regular.woff2') format('woff2');
-  font-weight: 400;
-  font-style: normal;
-}
+@include addFont('Montserrat', 'montserrat-regular', normal, normal);
+@include addFont('Montserrat', 'montserrat-bold', bold, normal);
+@include addFont('Rammetto One', 'rammetto-one-regular', normal, normal);
+@include addFont('Microsoft YaHei', 'microsoft-ya-hei-regular', normal, normal);
+@include addFont('Microsoft YaHei', 'microsoft-ya-hei-bold', bold, normal);

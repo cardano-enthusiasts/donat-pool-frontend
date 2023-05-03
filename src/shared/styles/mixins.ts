@@ -76,10 +76,10 @@ const fieldStyles = css`
   padding: 14px 14px 13px;
   outline: none;
   color: ${({ theme }) => theme.colors.dark75};
-  font-family: Montserrat, Arial, sans-serif;
+  font-family: 'Microsoft YaHei', Arial, sans-serif;
 
   &::placeholder {
-    font-family: Montserrat, Arial, sans-serif;
+    font-family: 'Microsoft YaHei', Arial, sans-serif;
     font-size: 14px;
     color: ${({ theme }) => theme.colors.dark75};
   }

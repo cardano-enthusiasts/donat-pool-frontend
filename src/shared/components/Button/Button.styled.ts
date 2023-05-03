@@ -18,7 +18,7 @@ const getButtonStyles = (themeType, size, width) => {
     width: ${width};
     min-width: 100px;
     max-width: 320px;
-    font-family: Montserrat, Arial, sans-serif;
+    font-family: 'Microsoft YaHei', Arial, sans-serif;
     font-weight: bold;
     text-transform: uppercase;
     font-size: 12px;
