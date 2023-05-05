@@ -14,3 +14,5 @@ export { WalletButton } from './WalletButton/WalletButton';
 export { Button } from './Button/Button';
 export { NotAvailableError } from './NotAvailableError/NotAvailableError';
 export { PrecalculationFee } from './PrecalculationFee/PrecalculationFee';
+export { InitialLoading } from './InitialLoading/InitialLoading';
+export { ActionDonuts } from './ActionDonuts/ActionDonuts';

@@ -60,19 +60,12 @@ const Base = () => {
     <NotAvailableError />
   ) : (
     <>
-      <Header currentPage={currentPage} />
-      <Main>
-        <Inner>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/management" element={<Management />} />
-            <Route path="/my-profile" element={<Profile />} />
-            <Route path="/all-projects" element={<AllProjects />} />
-          </Routes>
-        </Inner>
-      </Main>
-      <Footer />
-      <ToastContainer position="bottom-right" theme="light" />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/management" element={<Management />} />
+        <Route path="/my-profile" element={<Profile />} />
+        <Route path="/all-projects" element={<AllProjects />} />
+      </Routes>
     </>
   );
 };

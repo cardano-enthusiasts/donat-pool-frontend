@@ -23,7 +23,7 @@ const GlobalStyles = createGlobalStyle`
   #root {
     display: flex;
     flex-direction: column;
-    height: 100%;
+    height: 300vh;
 
     main {
       flex: 1 0 auto;
