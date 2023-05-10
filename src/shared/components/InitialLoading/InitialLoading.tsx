@@ -5,8 +5,10 @@ import {
   InnerCircle,
   OuterCircle,
   Wrapper,
+  NavWrapper,
 } from './InitialLoading.styled';
 import { ActionDonuts } from '../ActionDonuts/ActionDonuts';
+import { LandingNav } from '../LandingNav/LandingNav';
 
 const InitialLoading = () => {
   const [windowScroll, setWindowScroll] = useState(0);
@@ -29,6 +31,9 @@ const InitialLoading = () => {
       <OuterCircle windowScroll={windowScroll / 10} />
       <ActionDonuts />
       <CatImage />
+      <NavWrapper>
+        <LandingNav />
+      </NavWrapper>
     </Wrapper>
   );
 };

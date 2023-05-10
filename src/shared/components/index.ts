@@ -16,3 +16,5 @@ export { NotAvailableError } from './NotAvailableError/NotAvailableError';
 export { PrecalculationFee } from './PrecalculationFee/PrecalculationFee';
 export { InitialLoading } from './InitialLoading/InitialLoading';
 export { ActionDonuts } from './ActionDonuts/ActionDonuts';
+export { LandingNav } from './LandingNav/LandingNav';
+export { Waves } from './Waves/Waves';

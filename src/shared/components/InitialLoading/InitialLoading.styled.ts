@@ -3,7 +3,7 @@ import styled from 'styled-components';
 const Wrapper = styled.div`
   position: relative;
   width: 100%;
-  height: 200vh;
+  height: 1500px;
   background: ${({ theme }) => theme.colors.red};
   display: flex;
   justify-content: center;
@@ -44,4 +44,11 @@ const CatImage = styled.div`
   background-repeat: no-repeat;
 `;
 
-export { Wrapper, InnerCircle, OuterCircle, CatImage };
+const NavWrapper = styled.nav`
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  top: 500px;
+`;
+
+export { Wrapper, InnerCircle, OuterCircle, CatImage, NavWrapper };
