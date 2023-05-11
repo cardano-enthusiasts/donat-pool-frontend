@@ -6,6 +6,7 @@ const Wrapper = styled.div`
   text-align: center;
   background: transparent;
   margin-top: -100px;
+  z-index: 1;
 `;
 
 const SVG = styled.svg`

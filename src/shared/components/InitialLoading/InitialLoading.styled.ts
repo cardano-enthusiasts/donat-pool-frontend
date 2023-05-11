@@ -9,7 +9,6 @@ const Wrapper = styled.div`
   justify-content: center;
   align-items: start;
   overflow: hidden;
-  z-index: -1;
 `;
 
 const InnerCircle = styled.div<{ windowScroll }>`
@@ -44,11 +43,13 @@ const CatImage = styled.div`
   background-repeat: no-repeat;
 `;
 
-const NavWrapper = styled.nav`
+const NavWrapper = styled.nav<{ windowScroll }>`
   position: absolute;
-  z-index: 1;
+  z-index: 2;
   left: 0;
   top: 500px;
+  ${({ windowScroll }) =>
+    windowScroll > 10 ? 'display: block' : 'display: none'}
 `;
 
 export { Wrapper, InnerCircle, OuterCircle, CatImage, NavWrapper };

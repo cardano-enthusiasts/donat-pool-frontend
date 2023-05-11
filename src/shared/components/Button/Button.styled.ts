@@ -2,15 +2,17 @@ import styled, { css } from 'styled-components';
 
 import { type Props } from './types';
 
-const getHoverAndDisabled = (themeType) => {
-  return css`
-    background-image: ${({ theme }) =>
-      themeType === 'bordered' &&
-      `linear-gradient(rgba(255, 255, 255, 0),rgba(255, 255, 255, 0)), ${theme.colors.primaryGradient50}`};
-    opacity: ${themeType === 'filled' && 0.5};
-  `;
+const getHoverAndDisabled = (primaryColor, secondaryColor) => {
+  return css``;
 };
-const getButtonStyles = (themeType, size, width) => {
+
+const getButtonStyles = (
+  primaryColor,
+  secondaryColor,
+  fontColor,
+  size,
+  width
+) => {
   return css`
     display: flex;
     justify-content: center;
@@ -18,58 +20,113 @@ const getButtonStyles = (themeType, size, width) => {
     width: ${width};
     min-width: 100px;
     max-width: 320px;
-    font-family: 'Microsoft YaHei', Arial, sans-serif;
-    font-weight: bold;
-    text-transform: uppercase;
-    font-size: 12px;
+    font-family: 'Rammetto One', Arial, sans-serif;
+    font-size: ${size === 'm' ? '32px' : '16px'};
+    line-height: 94%;
     cursor: pointer;
-    border-radius: 22px;
     color: ${({ theme }) =>
-      themeType === 'filled' ? theme.colors.white : theme.colors.primary};
-    border: ${themeType === 'filled' ? 0 : 'solid 2px transparent'};
-    background-image: ${({ theme }) =>
-      themeType === 'filled'
-        ? theme.colors.primaryGradient
-        : `linear-gradient(rgba(255, 255, 255, 0),rgba(255, 255, 255, 0)), ${theme.colors.primaryGradient}`};
-    background-origin: ${themeType === 'bordered' && 'border-box'};
-    background-clip: ${themeType === 'bordered' && 'content-box, border-box'};
-    box-shadow: ${themeType === 'bordered' && '2px 1000px 1px #fff inset'};
-    padding: ${size === 's'
-      ? '9px 20px'
-      : themeType === 'filled'
-      ? '14px 20px 15px'
-      : '12px 18px 13px'};
+      theme.colors[fontColor] ? theme.colors[fontColor] : theme.colors.red};
+    background-color: ${({ theme }) =>
+      theme.colors[primaryColor]
+        ? theme.colors[primaryColor]
+        : theme.colors.yellow};
+    padding: ${size === 's' ? '10px 16px' : '34px 90px'};
+    border: none;
+    position: absolute;
+    transition: all 0.5s;
+
+    &::before {
+      position: absolute;
+      content: '';
+      transition: all 0.5s;
+      bottom: -21.8px;
+      height: 22px;
+      width: 100%;
+      left: -11.3px;
+      transform: skewX(-45deg);
+      background-color: ${({ theme }) =>
+        theme.colors[primaryColor]
+          ? theme.colors[secondaryColor]
+          : theme.colors.red};
+    }
+
+    &::after {
+      position: absolute;
+      content: '';
+      transition: all 0.5s;
+      left: -22px;
+      height: 100%;
+      width: 22px;
+      bottom: -11.3px;
+      transform: skewY(-45deg);
+      background-color: ${({ theme }) =>
+        theme.colors[primaryColor]
+          ? theme.colors[secondaryColor]
+          : theme.colors.red};
+    }
+
+    &:active {
+      margin-left: -15px;
+      margin-top: 15px;
+      &::before {
+        bottom: -7px;
+        height: 7px;
+        left: -4px;
+      }
+
+      &::after {
+        left: -7px;
+        width: 7px;
+        bottom: -4px;
+      }
+    }
 
     &:hover {
-      ${getHoverAndDisabled(themeType)};
+      ${getHoverAndDisabled(primaryColor, secondaryColor)};
     }
   `;
 };
 const StyledButton = styled.button<{
-  themeType: Props['theme'];
+  primaryColor: NonNullable<Props['primaryColor']>;
+  secondaryColor: NonNullable<Props['secondaryColor']>;
+  fontColor: NonNullable<Props['fontColor']>;
   size: Props['size'];
   width: Props['width'];
 }>`
-  ${({ themeType, size, width }) => getButtonStyles(themeType, size, width)};
+  ${({ primaryColor, secondaryColor, fontColor, size, width }) =>
+    getButtonStyles(primaryColor, secondaryColor, fontColor, size, width)};
   &:disabled {
-    ${({ themeType }) => getHoverAndDisabled(themeType)};
+    ${({ primaryColor, secondaryColor }) =>
+      getHoverAndDisabled(primaryColor, secondaryColor)};
     cursor: auto;
   }
 `;
 
 const LinkWrapper = styled.div<{
-  themeType: Props['theme'];
+  primaryColor: NonNullable<Props['primaryColor']>;
+  secondaryColor: NonNullable<Props['secondaryColor']>;
+  fontColor: NonNullable<Props['fontColor']>;
   size: Props['size'];
   isDisabled: boolean;
   width: Props['width'];
 }>`
   a {
-    ${({ themeType, size, width }) => getButtonStyles(themeType, size, width)};
+    ${({ primaryColor, secondaryColor, fontColor, size, width }) =>
+      getButtonStyles(primaryColor, secondaryColor, fontColor, size, width)};
     text-decoration: none;
-    ${({ isDisabled, themeType }) =>
-      isDisabled && getHoverAndDisabled(themeType)}
+    ${({ isDisabled, primaryColor, secondaryColor }) =>
+      isDisabled && getHoverAndDisabled(primaryColor, secondaryColor)}
     ${({ isDisabled }) => isDisabled && `pointer-events: none;`};
   }
 `;
 
-export { StyledButton, LinkWrapper };
+const Wrapper = styled.div<{
+  size: NonNullable<Props['size']>;
+}>`
+  padding-left: 22px;
+  padding-bottom: 22px;
+  width: ${({ size }) => (size === 'm' ? '345px' : '')};
+  height: ${({ size }) => (size === 'm' ? '150px' : '')};
+`;
+
+export { StyledButton, LinkWrapper, Wrapper };

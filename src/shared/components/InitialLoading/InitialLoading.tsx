@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react';
 
+import { type CurrentLandingSection } from 'shared/types';
+
 import {
   CatImage,
   InnerCircle,
@@ -12,6 +14,8 @@ import { LandingNav } from '../LandingNav/LandingNav';
 
 const InitialLoading = () => {
   const [windowScroll, setWindowScroll] = useState(0);
+  const [currentSection, setCurrentSection] =
+    useState<CurrentLandingSection>('home');
 
   useEffect(() => {
     const handleScroll = () => {
@@ -31,8 +35,8 @@ const InitialLoading = () => {
       <OuterCircle windowScroll={windowScroll / 10} />
       <ActionDonuts />
       <CatImage />
-      <NavWrapper>
-        <LandingNav />
+      <NavWrapper windowScroll={windowScroll / 10}>
+        <LandingNav currentSection={currentSection} />
       </NavWrapper>
     </Wrapper>
   );

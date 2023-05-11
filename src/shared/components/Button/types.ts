@@ -1,7 +1,9 @@
 export interface Props {
   onClick?: () => void;
   children: string;
-  theme?: 'filled' | 'bordered';
+  primaryColor?: 'yellow' | 'blue' | 'red';
+  secondaryColor?: 'red' | 'blue' | 'green';
+  fontColor?: Props['secondaryColor'] | 'white';
   size?: 's' | 'm';
   type?: 'submit' | 'button';
   href?: string | null;

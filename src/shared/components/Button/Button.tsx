@@ -1,12 +1,14 @@
 import { Link } from 'react-router-dom';
 
-import { LinkWrapper, StyledButton } from './Button.styled';
+import { LinkWrapper, StyledButton, Wrapper } from './Button.styled';
 import { type Props } from './types';
 
 const Button = ({
   onClick,
   children,
-  theme = 'filled',
+  primaryColor = 'yellow',
+  secondaryColor = 'red',
+  fontColor = secondaryColor,
   size = 'm',
   type = 'button',
   href = null,
@@ -14,25 +16,33 @@ const Button = ({
   width = 'auto',
 }: Props) => {
   return href !== null ? (
-    <LinkWrapper
-      themeType={theme}
-      size={size}
-      isDisabled={isDisabled}
-      width={width}
-    >
-      <Link to={href}>{children}</Link>
-    </LinkWrapper>
+    <Wrapper size={size}>
+      <LinkWrapper
+        primaryColor={primaryColor}
+        secondaryColor={secondaryColor}
+        fontColor={fontColor}
+        size={size}
+        isDisabled={isDisabled}
+        width={width}
+      >
+        <Link to={href}>{children}</Link>
+      </LinkWrapper>
+    </Wrapper>
   ) : (
-    <StyledButton
-      onClick={onClick}
-      themeType={theme}
-      size={size}
-      type={type}
-      disabled={isDisabled}
-      width={width}
-    >
-      {children}
-    </StyledButton>
+    <Wrapper size={size}>
+      <StyledButton
+        onClick={onClick}
+        primaryColor={primaryColor}
+        secondaryColor={secondaryColor}
+        fontColor={fontColor}
+        size={size}
+        type={type}
+        disabled={isDisabled}
+        width={width}
+      >
+        {children}
+      </StyledButton>
+    </Wrapper>
   );
 };
 

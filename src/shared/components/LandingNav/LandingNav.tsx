@@ -1,6 +1,7 @@
 import { Link, Wrapper } from './LandingNav.styled';
+import { type Props } from './types';
 
-const LandingNav = () => {
+const LandingNav = ({ currentSection }: Props) => {
   const sections = [
     { title: 'Home', isActive: true },
     { title: 'How it works', isActive: false },
@@ -9,9 +10,9 @@ const LandingNav = () => {
     { title: 'Roadmap', isActive: false },
   ];
   return (
-    <Wrapper>
+    <Wrapper currentSection={currentSection}>
       {sections.map(({ title, isActive }) => (
-        <Link key={title} isActive={isActive}>
+        <Link key={title} isActive={isActive} currentSection={currentSection}>
           {title}
         </Link>
       ))}

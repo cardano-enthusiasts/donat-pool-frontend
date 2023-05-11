@@ -40,6 +40,13 @@ interface UserInfo {
   address: string;
 }
 
+type CurrentLandingSection =
+  | 'home'
+  | 'how it works'
+  | 'why choose us'
+  | 'about us'
+  | 'roadmap';
+
 export type {
   Config,
   Fundraisings,
@@ -48,4 +55,5 @@ export type {
   CreateFundraisingParams,
   WalletStatus,
   UserInfo,
+  CurrentLandingSection,
 };
