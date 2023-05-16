@@ -1,6 +1,12 @@
 import { useEffect, useState } from 'react';
 
-import { Button, InitialLoading, LandingNav, Waves } from 'shared/components';
+import {
+  Button,
+  InitialLoading,
+  LandingNav,
+  Waves,
+  WhyChooseUs,
+} from 'shared/components';
 import { HowItWorksItems } from 'shared/components/HowItWorksItems/HowItWorksItems';
 import { type CurrentLandingSection } from 'shared/types';
 
@@ -68,7 +74,7 @@ const Home = () => {
             <DescriptionPart2>help a lot</DescriptionPart2>
           </Description>
           <ButtonWrapper>
-            <Button>Start using</Button>
+            <Button themeType="secondary">Start using</Button>
           </ButtonWrapper>
         </TitleAndDescription>
         <Waves color="green" backgroundColor="blue" />
@@ -78,6 +84,8 @@ const Home = () => {
           </MainWrapper>
         </HowItWorks>
         <Waves color="red" backgroundColor="green" />
+
+        <WhyChooseUs />
       </Wrapper>
       <NavWrapper windowScroll={windowScroll / 10}>
         <LandingNav currentSection={currentSection} />

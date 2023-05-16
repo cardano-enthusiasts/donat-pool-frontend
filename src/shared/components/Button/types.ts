@@ -4,7 +4,7 @@ export interface Props {
   primaryColor?: 'yellow' | 'blue' | 'red';
   secondaryColor?: 'red' | 'blue' | 'green';
   fontColor?: Props['secondaryColor'] | 'white';
-  size?: 's' | 'm';
+  themeType?: 'primary' | 'secondary';
   type?: 'submit' | 'button';
   href?: string | null;
   isDisabled?: boolean;

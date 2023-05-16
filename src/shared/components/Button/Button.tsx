@@ -9,19 +9,19 @@ const Button = ({
   primaryColor = 'yellow',
   secondaryColor = 'red',
   fontColor = secondaryColor,
-  size = 'm',
+  themeType = 'primary',
   type = 'button',
   href = null,
   isDisabled = false,
   width = 'auto',
 }: Props) => {
   return href !== null ? (
-    <Wrapper size={size}>
+    <Wrapper themeType={themeType}>
       <LinkWrapper
         primaryColor={primaryColor}
         secondaryColor={secondaryColor}
         fontColor={fontColor}
-        size={size}
+        themeType={themeType}
         isDisabled={isDisabled}
         width={width}
       >
@@ -29,15 +29,15 @@ const Button = ({
       </LinkWrapper>
     </Wrapper>
   ) : (
-    <Wrapper size={size}>
+    <Wrapper themeType={themeType}>
       <StyledButton
         onClick={onClick}
         primaryColor={primaryColor}
         secondaryColor={secondaryColor}
         fontColor={fontColor}
-        size={size}
+        themeType={themeType}
         type={type}
-        disabled={isDisabled}
+        isDisabled={isDisabled}
         width={width}
       >
         {children}
