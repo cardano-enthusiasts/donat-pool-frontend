@@ -2,12 +2,13 @@ import { useTheme } from 'styled-components';
 
 import { type Theme } from 'shared/styles/types';
 
+import { type Props } from './types';
 import { G, SVG, Wrapper } from './Waves.styled';
 
-const Waves = () => {
+const Waves = ({ color = 'blue', backgroundColor = 'transparent' }: Props) => {
   const theme = useTheme() as Theme;
   return (
-    <Wrapper>
+    <Wrapper backgroundColor={backgroundColor}>
       <SVG
         viewBox="200 0 1000 100"
         fill="none"
@@ -23,7 +24,12 @@ const Waves = () => {
         </defs>
 
         <G>
-          <use xlinkHref="#gentle-wave" x="48" y="0" fill={theme.colors.blue} />
+          <use
+            xlinkHref="#gentle-wave"
+            x="48"
+            y="0"
+            fill={theme.colors[color] ? theme.colors[color] : color}
+          />
         </G>
       </SVG>
     </Wrapper>

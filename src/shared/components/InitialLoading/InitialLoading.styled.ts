@@ -43,13 +43,4 @@ const CatImage = styled.div`
   background-repeat: no-repeat;
 `;
 
-const NavWrapper = styled.nav<{ windowScroll }>`
-  position: absolute;
-  z-index: 2;
-  left: 0;
-  top: 500px;
-  ${({ windowScroll }) =>
-    windowScroll > 10 ? 'display: block' : 'display: none'}
-`;
-
-export { Wrapper, InnerCircle, OuterCircle, CatImage, NavWrapper };
+export { Wrapper, InnerCircle, OuterCircle, CatImage };

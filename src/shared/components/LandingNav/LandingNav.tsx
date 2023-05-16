@@ -3,11 +3,11 @@ import { type Props } from './types';
 
 const LandingNav = ({ currentSection }: Props) => {
   const sections = [
-    { title: 'Home', isActive: true },
-    { title: 'How it works', isActive: false },
-    { title: 'Why choose us', isActive: false },
-    { title: 'About us', isActive: false },
-    { title: 'Roadmap', isActive: false },
+    { title: 'Home', isActive: currentSection === 'home' },
+    { title: 'How it works', isActive: currentSection === 'how it works' },
+    { title: 'Why choose us', isActive: currentSection === 'why choose us' },
+    { title: 'About us', isActive: currentSection === 'about us' },
+    { title: 'Roadmap', isActive: currentSection === 'roadmap' },
   ];
   return (
     <Wrapper currentSection={currentSection}>

@@ -2,6 +2,10 @@ import styled from 'styled-components';
 
 const Wrapper = styled.div``;
 
+const DonutsWrapper = styled.div`
+  position: relative;
+`;
+
 const TitleAndDescription = styled.div`
   font-family: 'Rammetto One', Arial, sans-serif;
   background-color: ${({ theme }) => theme.colors.blue};
@@ -39,12 +43,41 @@ const ButtonWrapper = styled.div`
   margin-bottom: 90px;
 `;
 
+const WavesWrapper = styled.div`
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+`;
+
+const MainWrapper = styled.div`
+  padding-left: 400px;
+`;
+
+const HowItWorks = styled.div`
+  background: ${({ theme }) => theme.colors.green};
+  padding-bottom: 80px;
+`;
+
+const NavWrapper = styled.nav<{ windowScroll }>`
+  position: absolute;
+  z-index: 2;
+  left: 0;
+  top: 500px;
+  ${({ windowScroll }) =>
+    windowScroll > 10 ? 'display: block' : 'display: none'}
+`;
+
 export {
   Wrapper,
+  DonutsWrapper,
   TitleAndDescription,
   Title,
   Description,
   DescriptionPart1,
   DescriptionPart2,
   ButtonWrapper,
+  WavesWrapper,
+  HowItWorks,
+  MainWrapper,
+  NavWrapper,
 };

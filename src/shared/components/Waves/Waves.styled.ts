@@ -1,12 +1,24 @@
 import styled from 'styled-components';
 
-const Wrapper = styled.div`
+import { type Props } from './types';
+
+const Wrapper = styled.div<{
+  backgroundColor: NonNullable<Props['backgroundColor']>;
+}>`
   position: relative;
 
   text-align: center;
-  background: transparent;
-  margin-top: -100px;
+  background-color: ${({ theme, backgroundColor }) => {
+    if (backgroundColor === 'transparent') {
+      return 'transparent';
+    }
+    if (theme.colors[backgroundColor]) {
+      return theme.colors[backgroundColor];
+    }
+    return 'transparent';
+  }};
   z-index: 1;
+  height: 100px;
 `;
 
 const SVG = styled.svg`

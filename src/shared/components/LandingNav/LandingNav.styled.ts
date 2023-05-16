@@ -14,6 +14,7 @@ const Wrapper = styled.div<{
   top: 90px;
 
   color: ${({ theme }) => theme.colors.white};
+  max-width: 290px;
 `;
 
 const Link = styled.a<{
@@ -22,6 +23,7 @@ const Link = styled.a<{
 }>`
   font-family: 'Rammetto One', Arial, Helvetica, sans-serif, sans-serif;
   font-size: ${({ isActive }) => (isActive ? '54px' : '15px')};
+  line-height: 104%;
   color: ${({ theme, currentSection, isActive }) => {
     if (isActive) {
       switch (currentSection) {
