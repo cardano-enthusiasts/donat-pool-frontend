@@ -32,13 +32,8 @@ const Home = () => {
       <MainScreen>
         <Intro>
           <IntroInner>
-            <Title>
-              Some <span>header</span>
-            </Title>
-            <Description>
-              Lorem ipsum dolor sit amet, <span>consectetur adipiscing</span>
-              elit
-            </Description>
+            <Title>Donat.Pool</Title>
+            <Description>Give a little, help a lot</Description>
             {isManager && (
               <Button theme="filled" onClick={handleStartProtocolClick}>
                 start protocol
