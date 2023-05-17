@@ -23,11 +23,17 @@ const ButtonAndInfo = styled.div`
   display: flex;
   align-items: center;
   gap: 24px;
+  margin-bottom: 40px;
 `;
 
 const MinorDescription = styled.div`
   font-size: 16px;
   line-height: 130%;
+`;
+
+const MinorInfoSection = styled.div`
+  display: flex;
+  gap: 40px;
 `;
 
 export {
@@ -37,4 +43,5 @@ export {
   InfoSection,
   ButtonAndInfo,
   MinorDescription,
+  MinorInfoSection,
 };

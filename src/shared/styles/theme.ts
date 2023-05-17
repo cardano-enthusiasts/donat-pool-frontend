@@ -30,7 +30,8 @@ const theme: Theme = {
     yellow: '#FED900',
     white: '#FFFFFF',
     black: ' #141414',
-    gray: '#828587',
+    gray1: '#333333',
+    gray2: '#828587',
   },
 };
 

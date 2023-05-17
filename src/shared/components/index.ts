@@ -19,3 +19,4 @@ export { ActionDonuts } from './ActionDonuts/ActionDonuts';
 export { LandingNav } from './LandingNav/LandingNav';
 export { Waves } from './Waves/Waves';
 export { WhyChooseUs } from './WhyChooseUs/WhyChooseUs';
+export { AboutUs } from './AboutUs/AboutUs';

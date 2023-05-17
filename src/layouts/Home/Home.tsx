@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 
 import {
+  AboutUs,
   Button,
   InitialLoading,
   LandingNav,
@@ -19,10 +20,11 @@ import {
   DescriptionPart2,
   ButtonWrapper,
   WavesWrapper,
-  HowItWorks,
   Wrapper,
   MainWrapper,
   NavWrapper,
+  WhyChooseUsWrapper,
+  AboutUsWrapper,
 } from './Home.styled';
 
 const Home = () => {
@@ -46,11 +48,18 @@ const Home = () => {
   }, []);
 
   useEffect(() => {
+    console.log('windowScroll', windowScroll);
+
     if (windowScroll < 2233) {
       setCurrentSection('home');
-    } else if (windowScroll > 2233) {
+    } else if (windowScroll > 2233 && windowScroll < 2880) {
       setCurrentSection('how it works');
+    } else if (windowScroll > 2880 && windowScroll < 3420) {
+      setCurrentSection('why choose us');
+    } else if (windowScroll > 3420) {
+      setCurrentSection('about us');
     }
+    console.log('current section', currentSection);
   }, [windowScroll]);
 
   return (
@@ -78,14 +87,20 @@ const Home = () => {
           </ButtonWrapper>
         </TitleAndDescription>
         <Waves color="green" backgroundColor="blue" />
-        <HowItWorks>
-          <MainWrapper>
-            <HowItWorksItems />
-          </MainWrapper>
-        </HowItWorks>
+
+        <MainWrapper backgroundColor="green">
+          <HowItWorksItems />
+        </MainWrapper>
+
         <Waves color="red" backgroundColor="green" />
 
-        <WhyChooseUs />
+        <WhyChooseUsWrapper>
+          <WhyChooseUs />
+        </WhyChooseUsWrapper>
+
+        <AboutUsWrapper>
+          <AboutUs />
+        </AboutUsWrapper>
       </Wrapper>
       <NavWrapper windowScroll={windowScroll / 10}>
         <LandingNav currentSection={currentSection} />

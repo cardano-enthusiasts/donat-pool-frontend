@@ -49,13 +49,26 @@ const WavesWrapper = styled.div`
   width: 100%;
 `;
 
-const MainWrapper = styled.div`
-  padding-left: 400px;
+const MainWrapper = styled.div<{ backgroundColor: 'green' | 'red' }>`
+  padding: 0 80px 80px 400px;
+  background: ${({ theme, backgroundColor }) =>
+    theme.colors[backgroundColor]
+      ? theme.colors[backgroundColor]
+      : theme.colors.green};
 `;
 
-const HowItWorks = styled.div`
-  background: ${({ theme }) => theme.colors.green};
-  padding-bottom: 80px;
+const WhyChooseUsWrapper = styled.div`
+  padding: 0 80px 160px 400px;
+  background-image: url('img/section-cat.svg');
+  background-position: 0 100%;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-color: ${({ theme }) => theme.colors.red};
+`;
+
+const AboutUsWrapper = styled.div`
+  padding: 0 80px 160px 400px;
+  background-color: ${({ theme }) => theme.colors.yellow};
 `;
 
 const NavWrapper = styled.nav<{ windowScroll }>`
@@ -77,7 +90,8 @@ export {
   DescriptionPart2,
   ButtonWrapper,
   WavesWrapper,
-  HowItWorks,
   MainWrapper,
   NavWrapper,
+  WhyChooseUsWrapper,
+  AboutUsWrapper,
 };

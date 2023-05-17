@@ -33,6 +33,8 @@ const Link = styled.a<{
           return theme.colors.red;
         case 'why choose us':
           return theme.colors.yellow;
+        case 'about us':
+          return theme.colors.green;
         case 'roadmap':
           return theme.colors.blue;
         default:

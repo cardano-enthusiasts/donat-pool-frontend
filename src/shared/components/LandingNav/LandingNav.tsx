@@ -1,5 +1,6 @@
 import { Link, Wrapper } from './LandingNav.styled';
 import { type Props } from './types';
+import { Button } from '../Button/Button';
 
 const LandingNav = ({ currentSection }: Props) => {
   const sections = [
@@ -16,6 +17,11 @@ const LandingNav = ({ currentSection }: Props) => {
           {title}
         </Link>
       ))}
+      {currentSection !== 'home' && (
+        <Button themeType="primary" primaryColor="red" secondaryColor="blue">
+          Create an account
+        </Button>
+      )}
     </Wrapper>
   );
 };
