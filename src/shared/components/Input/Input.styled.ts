@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { fieldStyles, h3 } from 'shared/styles/mixins';
+import { fieldStyles } from 'shared/styles/mixins';
 
 const Wrapper = styled.div`
   width: 100%;
@@ -15,7 +15,7 @@ const InputContainer = styled.div<{ hint: string | null }>`
         transform: translateY(-50%);
         right: 10px;
         content: "${hint}";
-        color: ${theme.colors.dark50};
+        color: ${theme.colors.black};
       }`}
 `;
 
@@ -23,9 +23,8 @@ const StyledInput = styled.input`
   ${fieldStyles};
 `;
 
-const Title = styled.h3`
-  ${h3};
-  margin: 0 0 5px 0;
+const Title = styled.div`
+  margin: 0 0 8px 0;
 `;
 
 const StyledTextArea = styled.textarea`

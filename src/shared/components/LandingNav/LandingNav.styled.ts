@@ -5,7 +5,8 @@ import { type CurrentLandingSection } from 'shared/types';
 const Wrapper = styled.div<{
   currentSection: CurrentLandingSection;
 }>`
-  display: flex;
+  display: ${({ currentSection }) =>
+    currentSection === 'contact us' ? 'none' : 'flex'};
   flex-direction: column;
   gap: 24px;
 

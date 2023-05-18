@@ -18,6 +18,7 @@ const Input = ({
   hint = null,
   placeholder = '',
   maxLength = undefined,
+  rows = undefined,
 }: Props) => {
   return (
     <Wrapper>
@@ -30,6 +31,7 @@ const Input = ({
           disabled={isDisabled}
           placeholder={placeholder}
           maxLength={maxLength}
+          rows={rows}
         />
       ) : (
         <InputContainer hint={hint}>

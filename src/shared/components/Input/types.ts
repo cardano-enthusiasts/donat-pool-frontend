@@ -11,4 +11,5 @@ export interface Props {
   hint?: string | null;
   placeholder?: string;
   maxLength?: number | undefined;
+  rows?: number | undefined;
 }

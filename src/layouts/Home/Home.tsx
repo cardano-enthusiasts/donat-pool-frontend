@@ -3,13 +3,14 @@ import { useEffect, useState } from 'react';
 import {
   AboutUs,
   Button,
+  ContactUsSection,
+  HowItWorksItems,
   InitialLoading,
   LandingNav,
   Roadmap,
   Waves,
   WhyChooseUs,
 } from 'shared/components';
-import { HowItWorksItems } from 'shared/components/HowItWorksItems/HowItWorksItems';
 import { type CurrentLandingSection } from 'shared/types';
 
 import {
@@ -60,8 +61,10 @@ const Home = () => {
       setCurrentSection('why choose us');
     } else if (windowScroll > 3420 && windowScroll < 5650) {
       setCurrentSection('about us');
-    } else if (windowScroll > 5650) {
+    } else if (windowScroll > 5650 && windowScroll < 6420) {
       setCurrentSection('roadmap');
+    } else if (windowScroll > 6420) {
+      setCurrentSection('contact us');
     }
     console.log('current section', currentSection);
   }, [windowScroll]);
@@ -111,6 +114,8 @@ const Home = () => {
         <RoadmapWrapper>
           <Roadmap />
         </RoadmapWrapper>
+
+        <ContactUsSection />
       </Wrapper>
       <NavWrapper windowScroll={windowScroll / 10}>
         <LandingNav currentSection={currentSection} />

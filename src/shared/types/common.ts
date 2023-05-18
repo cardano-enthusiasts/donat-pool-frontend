@@ -45,7 +45,8 @@ type CurrentLandingSection =
   | 'how it works'
   | 'why choose us'
   | 'about us'
-  | 'roadmap';
+  | 'roadmap'
+  | 'contact us';
 
 export type {
   Config,

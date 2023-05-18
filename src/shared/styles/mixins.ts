@@ -68,25 +68,21 @@ const cardWrapper = css`
 
 const fieldStyles = css`
   width: 100%;
-  max-width: 100%;
   min-width: 150px;
-  border: 1px solid ${({ theme }) => theme.colors.dark25};
-  border-radius: 4px;
+  border: 2px solid ${({ theme }) => theme.colors.black};
+  border-radius: 6px;
   width: 100%;
-  padding: 14px 14px 13px;
+  padding: 13px 16px;
   outline: none;
-  color: ${({ theme }) => theme.colors.dark75};
+  color: ${({ theme }) => theme.colors.black};
   font-family: 'Microsoft YaHei', Arial, sans-serif;
+  background-color: transparent;
+  font-size: 20px;
 
   &::placeholder {
     font-family: 'Microsoft YaHei', Arial, sans-serif;
-    font-size: 14px;
-    color: ${({ theme }) => theme.colors.dark75};
-  }
-
-  &:hover,
-  &:focus {
-    border: 1px solid ${({ theme }) => theme.colors.dark50};
+    font-size: 20px;
+    color: ${({ theme }) => theme.colors.green};
   }
 
   &:disabled {
