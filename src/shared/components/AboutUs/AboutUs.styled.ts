@@ -5,6 +5,10 @@ const getPersonStyle = () => css`
   max-width: 213px;
 `;
 
+const Wrapper = styled.div`
+  margin-bottom: 140px;
+`;
+
 const TeamImageWrapper = styled.div`
   position: relative;
   margin-bottom: 140px;
@@ -60,6 +64,7 @@ const Mariay = styled.div`
 const ButtonWrapper = styled.div`
   margin-bottom: 140px;
 `;
+
 const StackTitle = styled.div`
   font-family: 'Microsoft YaHei', Arial, Helvetica, sans-serif;
   font-weight: bold;
@@ -67,16 +72,20 @@ const StackTitle = styled.div`
   color: ${({ theme }) => theme.colors.gray1};
   margin-bottom: 40px;
 `;
+
 const Stack = styled.div`
   font-family: 'Rammetto One', Arial, Helvetica, sans-serif;
   font-size: 96px;
-  line-height: 94%;
+  line-height: 50%;
+  margin-bottom: 40px;
 `;
+
 const StackItems = styled.div<{ color: 'red' | 'green' | 'blue' }>`
   color: ${({ theme, color }) => theme.colors[color]};
 `;
 
 export {
+  Wrapper,
   TeamImageWrapper,
   TeamImage,
   Name,

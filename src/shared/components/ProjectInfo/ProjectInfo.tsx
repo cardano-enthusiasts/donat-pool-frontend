@@ -54,9 +54,7 @@ const ProjectInfo = ({
         <Item>raised: </Item>
         <Item>{raisedAmount / 1000000} ADA</Item>
         <ButtonWrapper>
-          <Button onClick={handleReceiveFunds} size="s">
-            receive funds
-          </Button>
+          <Button onClick={handleReceiveFunds}>receive funds</Button>
         </ButtonWrapper>
         <div>
           <BeatLoader

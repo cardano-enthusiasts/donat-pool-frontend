@@ -5,6 +5,7 @@ import {
   Button,
   InitialLoading,
   LandingNav,
+  Roadmap,
   Waves,
   WhyChooseUs,
 } from 'shared/components';
@@ -25,6 +26,7 @@ import {
   NavWrapper,
   WhyChooseUsWrapper,
   AboutUsWrapper,
+  RoadmapWrapper,
 } from './Home.styled';
 
 const Home = () => {
@@ -56,8 +58,10 @@ const Home = () => {
       setCurrentSection('how it works');
     } else if (windowScroll > 2880 && windowScroll < 3420) {
       setCurrentSection('why choose us');
-    } else if (windowScroll > 3420) {
+    } else if (windowScroll > 3420 && windowScroll < 5650) {
       setCurrentSection('about us');
+    } else if (windowScroll > 5650) {
+      setCurrentSection('roadmap');
     }
     console.log('current section', currentSection);
   }, [windowScroll]);
@@ -101,6 +105,12 @@ const Home = () => {
         <AboutUsWrapper>
           <AboutUs />
         </AboutUsWrapper>
+
+        <Waves color="black" backgroundColor="yellow" />
+
+        <RoadmapWrapper>
+          <Roadmap />
+        </RoadmapWrapper>
       </Wrapper>
       <NavWrapper windowScroll={windowScroll / 10}>
         <LandingNav currentSection={currentSection} />

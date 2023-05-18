@@ -1,4 +1,5 @@
 import {
+  Wrapper,
   TeamImage,
   TeamImageWrapper,
   Name,
@@ -22,7 +23,7 @@ const AboutUs = () => {
     { title: 'React', color: 'green' },
   ];
   return (
-    <>
+    <Wrapper>
       <TeamImageWrapper>
         <TeamImage src="img/team.png" />
         <Kate>
@@ -61,7 +62,10 @@ const AboutUs = () => {
           );
         })}
       </Stack>
-    </>
+      <Button themeType="primary" primaryColor="red" secondaryColor="blue">
+        Read more
+      </Button>
+    </Wrapper>
   );
 };
 

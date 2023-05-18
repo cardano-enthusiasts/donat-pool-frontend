@@ -80,6 +80,11 @@ const NavWrapper = styled.nav<{ windowScroll }>`
     windowScroll > 10 ? 'display: block' : 'display: none'}
 `;
 
+const RoadmapWrapper = styled.div`
+  padding: 40px 80px 160px 400px;
+  background-color: ${({ theme }) => theme.colors.black};
+`;
+
 export {
   Wrapper,
   DonutsWrapper,
@@ -94,4 +99,5 @@ export {
   NavWrapper,
   WhyChooseUsWrapper,
   AboutUsWrapper,
+  RoadmapWrapper,
 };
