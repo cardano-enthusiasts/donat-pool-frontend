@@ -24,19 +24,21 @@ import {
   WavesWrapper,
   Wrapper,
   MainWrapper,
+  MainInner,
   NavWrapper,
   WhyChooseUsWrapper,
   AboutUsWrapper,
   RoadmapWrapper,
+  Inner,
+  InitialLoadingWrapper,
+  HowItWorksItemsWrapper,
 } from './Home.styled';
 
 const Home = () => {
   const [windowScroll, setWindowScroll] = useState(0);
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const [currentSection, setCurrentSection] =
     useState<CurrentLandingSection>('home');
-  useEffect(() => {
-    document.title = 'Home';
-  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -47,6 +49,18 @@ const Home = () => {
 
     return () => {
       window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setWindowWidth(Math.round(window.innerWidth));
+    };
+
+    window.addEventListener('resize', handleScroll);
+
+    return () => {
+      window.removeEventListener('resize', handleScroll);
     };
   }, []);
 
@@ -70,10 +84,13 @@ const Home = () => {
   }, [windowScroll]);
 
   return (
-    <>
-      <Wrapper>
+    <Wrapper>
+      <Inner>
         <DonutsWrapper>
-          <InitialLoading windowScroll={windowScroll} />
+          <InitialLoadingWrapper>
+            <InitialLoading windowScroll={windowScroll} />
+          </InitialLoadingWrapper>
+
           <WavesWrapper>
             <Waves />
           </WavesWrapper>
@@ -93,34 +110,56 @@ const Home = () => {
             <Button themeType="secondary">Start using</Button>
           </ButtonWrapper>
         </TitleAndDescription>
+
         <Waves color="green" backgroundColor="blue" />
 
         <MainWrapper backgroundColor="green">
-          <HowItWorksItems />
+          <MainInner>
+            <HowItWorksItemsWrapper>
+              <HowItWorksItems />
+            </HowItWorksItemsWrapper>
+          </MainInner>
         </MainWrapper>
 
         <Waves color="red" backgroundColor="green" />
 
-        <WhyChooseUsWrapper>
-          <WhyChooseUs />
-        </WhyChooseUsWrapper>
+        <MainWrapper backgroundColor="red">
+          <MainInner>
+            <WhyChooseUsWrapper>
+              <WhyChooseUs />
+            </WhyChooseUsWrapper>
+          </MainInner>
+        </MainWrapper>
 
-        <AboutUsWrapper>
-          <AboutUs />
-        </AboutUsWrapper>
+        <MainWrapper backgroundColor="yellow">
+          <MainInner>
+            <AboutUsWrapper>
+              <AboutUs />
+            </AboutUsWrapper>
+          </MainInner>
+        </MainWrapper>
 
         <Waves color="black" backgroundColor="yellow" />
 
-        <RoadmapWrapper>
-          <Roadmap />
-        </RoadmapWrapper>
+        <MainWrapper backgroundColor="black">
+          <MainInner>
+            <RoadmapWrapper>
+              <Roadmap />
+            </RoadmapWrapper>
+          </MainInner>
+        </MainWrapper>
 
-        <ContactUsSection />
-      </Wrapper>
-      <NavWrapper windowScroll={windowScroll / 10}>
-        <LandingNav currentSection={currentSection} />
-      </NavWrapper>
-    </>
+        <MainWrapper backgroundColor="blue">
+          <MainInner>
+            <ContactUsSection />
+          </MainInner>
+        </MainWrapper>
+
+        <NavWrapper windowScroll={windowScroll / 10} windowWidth={windowWidth}>
+          <LandingNav currentSection={currentSection} />
+        </NavWrapper>
+      </Inner>
+    </Wrapper>
   );
 };
 

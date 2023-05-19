@@ -10,10 +10,6 @@ const Wrapper = styled.div<{
   flex-direction: column;
   gap: 24px;
 
-  position: fixed;
-  left: 90px;
-  top: 90px;
-
   color: ${({ theme }) => theme.colors.white};
   max-width: 290px;
 `;

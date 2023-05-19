@@ -7,7 +7,10 @@ const Wrapper = styled.div`
   background-color: ${({ theme }) => theme.colors.blue};
 `;
 
-const Nav = styled.div``;
+const Nav = styled.div`
+  width: 100%;
+  max-width: 290px;
+`;
 
 const GitHubImg = styled.img``;
 

@@ -13,7 +13,10 @@ const TeamImageWrapper = styled.div`
   position: relative;
   margin-bottom: 140px;
 `;
-const TeamImage = styled.img``;
+const TeamImage = styled.img`
+  width: 100%;
+  max-width: 1070px;
+`;
 
 const Name = styled.div`
   font-family: 'Rammetto One', Arial, sans-serif;

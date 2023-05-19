@@ -1,16 +1,5 @@
 import styled from 'styled-components';
 
-const Wrapper = styled.div`
-  position: relative;
-  width: 100%;
-  height: 1500px;
-  background: ${({ theme }) => theme.colors.red};
-  display: flex;
-  justify-content: center;
-  align-items: start;
-  overflow: hidden;
-`;
-
 const InnerCircle = styled.div<{ windowScroll }>`
   position: absolute;
   width: 230px;
@@ -43,4 +32,4 @@ const CatImage = styled.div`
   background-repeat: no-repeat;
 `;
 
-export { Wrapper, InnerCircle, OuterCircle, CatImage };
+export { InnerCircle, OuterCircle, CatImage };
