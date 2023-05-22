@@ -88,6 +88,12 @@ const getSecondaryStyles = (primaryColor, secondaryColor) => css`
   &:hover {
     ${getHoverAndDisabled(primaryColor, secondaryColor)};
   }
+
+  @media (max-width: 1100px) {
+    padding: 24px 56px;
+    font-size: 24px;
+    max-width: 250px;
+  }
 `;
 
 const getStyles = ({
@@ -184,6 +190,11 @@ const Wrapper = styled.div<{
     themeType === 'secondary' && 'padding-left: 22px; padding-bottom: 22px;'}
   width: ${({ themeType }) => themeType === 'secondary' && '345px'};
   height: ${({ themeType }) => themeType === 'secondary' && '150px'};
+
+  @media (max-width: 1100px) {
+    width: ${({ themeType }) => themeType === 'secondary' && '270px'};
+    height: ${({ themeType }) => themeType === 'secondary' && '120px'};
+  }
 `;
 
 export { StyledButton, LinkWrapper, Wrapper };

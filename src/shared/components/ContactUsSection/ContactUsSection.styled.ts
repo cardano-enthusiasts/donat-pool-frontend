@@ -1,10 +1,24 @@
 import styled from 'styled-components';
 
+import {
+  getMediumLayoutPadding,
+  getSmallLayoutPadding,
+} from 'shared/styles/mixins';
+
 const Wrapper = styled.div`
   display: flex;
   gap: 40px;
   padding: 60px 80px 110px;
   background-color: ${({ theme }) => theme.colors.blue};
+  @media (max-width: 1100px) {
+    ${() => getMediumLayoutPadding()}
+  }
+  @media (max-width: 850px) {
+    flex-direction: column;
+  }
+  @media (max-width: 500px) {
+    ${() => getSmallLayoutPadding()}
+  }
 `;
 
 const Nav = styled.div`

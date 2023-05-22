@@ -2,11 +2,9 @@ import styled from 'styled-components';
 
 const Wrapper = styled.div`
   position: relative;
-  width: 90%;
-  height: 700px;
+  width: 100%;
+  height: 350px;
   bottom: 0;
-  left: 50%;
-  margin-left: -9em;
   font-size: 350%;
   text-align: justify;
   overflow: hidden;
@@ -21,16 +19,21 @@ const Wrapper = styled.div`
   -ms-transform: perspective(300px) rotateX(25deg);
   -o-transform: perspective(300px) rotateX(25deg);
   transform: perspective(300px) rotateX(25deg);
+
+  @media (max-width: 1100px) {
+    left: 0;
+    margin-left: 0;
+  }
 `;
 
 const Inner = styled.div`
   position: absolute;
   top: 100%;
-  -webkit-animation: scroll 100s linear 1s infinite;
-  -moz-animation: scroll 100s linear 1s infinite;
-  -ms-animation: scroll 100s linear 1s infinite;
-  -o-animation: scroll 100s linear 1s infinite;
-  animation: scroll 100s linear 1s infinite;
+  -webkit-animation: scroll 50s linear -10s infinite;
+  -moz-animation: scroll 50s linear -10s infinite;
+  -ms-animation: scroll 50s linear -10s infinite;
+  -o-animation: scroll 50s linear -10s infinite;
+  animation: scroll 50s linear -10s infinite;
 
   color: ${({ theme }) => theme.colors.yellow};
 
@@ -80,4 +83,19 @@ const Inner = styled.div`
   }
 `;
 
-export { Wrapper, Inner };
+const Title = styled.div`
+  color: ${({ theme }) => theme.colors.red};
+  font-weight: bold;
+`;
+
+const Subtitle = styled.li``;
+
+const Ul = styled.ul`
+  padding-left: 50px;
+`;
+
+const Li = styled.li``;
+
+const SubLi = styled.li``;
+
+export { Wrapper, Inner, Title, Subtitle, Ul, Li, SubLi };

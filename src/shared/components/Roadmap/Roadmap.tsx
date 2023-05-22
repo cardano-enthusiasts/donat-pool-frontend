@@ -1,20 +1,39 @@
-import { Inner, Wrapper } from './Roadmap.styled';
+import { Fragment } from 'react';
+
+import { texts } from './data';
+import {
+  Inner,
+  Li,
+  Subtitle,
+  Title,
+  Ul,
+  Wrapper,
+  SubLi,
+} from './Roadmap.styled';
 
 const Roadmap = () => {
-  const text = (
-    <>
-      1 Protocol: on-chain and off-chain logic for starting, updating and
-      closing protocol with Nami light-wallet DonationPool: on-chain and
-      off-chain logic for creating project and receiving raised funds with Nami
-      light-wallet Donate action: on-chain and off-chain logic for donating to
-      an arbitrary project with Nami light-wallet Unit tests and endpoint tests
-      Frontend for the implemented services Deploying to Cardano pre-production
-      testnet Beta-testing in Cardano pre-production testnet
-    </>
-  );
+  const getSubLis = (item) =>
+    item.map((subItem) => <SubLi key={subItem.id}>{subItem}</SubLi>);
+
   return (
     <Wrapper>
-      <Inner>{text}</Inner>
+      <Inner>
+        <Title>{texts.title}</Title>
+        {texts.phases.map(({ title, items }) => (
+          <Fragment key={title}>
+            <Subtitle>{title}</Subtitle>
+            <Ul>
+              {items.map((item) => {
+                return (
+                  <Li key={item.id}>
+                    {Array.isArray(item) ? getSubLis(item) : item.title}
+                  </Li>
+                );
+              })}
+            </Ul>
+          </Fragment>
+        ))}
+      </Inner>
     </Wrapper>
   );
 };

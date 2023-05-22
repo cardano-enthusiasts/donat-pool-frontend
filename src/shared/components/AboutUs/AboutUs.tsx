@@ -2,13 +2,6 @@ import {
   Wrapper,
   TeamImage,
   TeamImageWrapper,
-  Name,
-  JobTitle,
-  Kate,
-  Oksana,
-  Svetlana,
-  Olga,
-  Mariay,
   ButtonWrapper,
   StackItems,
   StackTitle,
@@ -25,27 +18,7 @@ const AboutUs = () => {
   return (
     <Wrapper>
       <TeamImageWrapper>
-        <TeamImage src="img/team.png" />
-        <Kate>
-          <Name>Kate Bushueva</Name>
-          <JobTitle>Haskell developer Cardano blockchain engineer</JobTitle>
-        </Kate>
-        <Oksana>
-          <Name>Oksana Potsulan</Name>
-          <JobTitle>Project manager</JobTitle>
-        </Oksana>
-        <Svetlana>
-          <Name>Svetlana Dunicheva</Name>
-          <JobTitle>Developer</JobTitle>
-        </Svetlana>
-        <Olga>
-          <Name>Olga Klimenko</Name>
-          <JobTitle>Developer</JobTitle>
-        </Olga>
-        <Mariay>
-          <Name>Mariya Bulanova</Name>
-          <JobTitle>Designer</JobTitle>
-        </Mariay>
+        <TeamImage src="img/team.svg" />
       </TeamImageWrapper>
       <ButtonWrapper>
         <Button themeType="secondary" primaryColor="blue" secondaryColor="red">
@@ -56,7 +29,7 @@ const AboutUs = () => {
       <Stack>
         {stack.map(({ title, color }) => {
           return (
-            <StackItems key={title} color={color}>
+            <StackItems key={title} color={color} data-title={title}>
               {title}
             </StackItems>
           );

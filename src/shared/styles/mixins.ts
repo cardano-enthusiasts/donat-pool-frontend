@@ -92,4 +92,29 @@ const fieldStyles = css`
   }
 `;
 
-export { baseContainer, baseInner, link, h1, h2, h3, cardWrapper, fieldStyles };
+const getLargeLayoutPadding = () => css`
+  padding-right: 80px;
+`;
+
+const getMediumLayoutPadding = () => css`
+  padding-left: 50px;
+  padding-right: 50px;
+`;
+const getSmallLayoutPadding = () => css`
+  padding-left: 20px;
+  padding-right: 20px;
+`;
+
+export {
+  baseContainer,
+  baseInner,
+  link,
+  h1,
+  h2,
+  h3,
+  cardWrapper,
+  fieldStyles,
+  getLargeLayoutPadding,
+  getMediumLayoutPadding,
+  getSmallLayoutPadding,
+};

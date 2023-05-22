@@ -75,9 +75,9 @@ const Home = () => {
       setCurrentSection('why choose us');
     } else if (windowScroll > 3420 && windowScroll < 5650) {
       setCurrentSection('about us');
-    } else if (windowScroll > 5650 && windowScroll < 6420) {
+    } else if (windowScroll > 5650 && windowScroll < 5900) {
       setCurrentSection('roadmap');
-    } else if (windowScroll > 6420) {
+    } else if (windowScroll > 5900) {
       setCurrentSection('contact us');
     }
     console.log('current section', currentSection);

@@ -9,6 +9,11 @@ const Title = styled.h3`
   font-size: 48px;
   line-height: 154%;
   margin: 0 0 24px;
+
+  @media (max-width: 1100px) {
+    font-size: 32px;
+    line-height: 110%;
+  }
 `;
 
 const Description = styled.div`
@@ -24,6 +29,10 @@ const ButtonAndInfo = styled.div`
   align-items: center;
   gap: 24px;
   margin-bottom: 40px;
+  @media (max-width: 1100px) {
+    flex-direction: column;
+    align-items: start;
+  }
 `;
 
 const MinorDescription = styled.div`
@@ -34,6 +43,9 @@ const MinorDescription = styled.div`
 const MinorInfoSection = styled.div`
   display: flex;
   gap: 40px;
+  @media (max-width: 650px) {
+    flex-direction: column;
+  }
 `;
 
 export {
