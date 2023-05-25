@@ -25,7 +25,6 @@ import {
   Wrapper,
   MainWrapper,
   MainInner,
-  NavWrapper,
   WhyChooseUsWrapper,
   AboutUsWrapper,
   RoadmapWrapper,
@@ -39,14 +38,13 @@ const Home = () => {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const [currentSection, setCurrentSection] =
     useState<CurrentLandingSection>('home');
+  const [isMobileHeaderOpen, setIsMobileHeaderOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
       setWindowScroll(Math.round(window.scrollY));
     };
-
     window.addEventListener('scroll', handleScroll);
-
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
@@ -56,9 +54,7 @@ const Home = () => {
     const handleScroll = () => {
       setWindowWidth(Math.round(window.innerWidth));
     };
-
     window.addEventListener('resize', handleScroll);
-
     return () => {
       window.removeEventListener('resize', handleScroll);
     };
@@ -73,15 +69,19 @@ const Home = () => {
       setCurrentSection('how it works');
     } else if (windowScroll > 2880 && windowScroll < 3420) {
       setCurrentSection('why choose us');
-    } else if (windowScroll > 3420 && windowScroll < 5650) {
+    } else if (windowScroll > 3420 && windowScroll < 5440) {
       setCurrentSection('about us');
-    } else if (windowScroll > 5650 && windowScroll < 5900) {
+    } else if (windowScroll > 5440 && windowScroll < 5840) {
       setCurrentSection('roadmap');
-    } else if (windowScroll > 5900) {
+    } else if (windowScroll > 5840) {
       setCurrentSection('contact us');
     }
     console.log('current section', currentSection);
   }, [windowScroll]);
+
+  const handleMobileHeaderClick = () => {
+    setIsMobileHeaderOpen(!isMobileHeaderOpen);
+  };
 
   return (
     <Wrapper>
@@ -155,9 +155,13 @@ const Home = () => {
           </MainInner>
         </MainWrapper>
 
-        <NavWrapper windowScroll={windowScroll / 10} windowWidth={windowWidth}>
-          <LandingNav currentSection={currentSection} />
-        </NavWrapper>
+        <LandingNav
+          currentSection={currentSection}
+          windowScroll={windowScroll}
+          windowWidth={windowWidth}
+          handleIconClick={handleMobileHeaderClick}
+          isOpen={isMobileHeaderOpen}
+        />
       </Inner>
     </Wrapper>
   );

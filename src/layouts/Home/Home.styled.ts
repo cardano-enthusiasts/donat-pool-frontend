@@ -169,31 +169,6 @@ const AboutUsWrapper = styled.div`
   }
 `;
 
-const NavWrapper = styled.nav<{ windowScroll; windowWidth }>`
-  position: fixed;
-  left: ${({ windowWidth }) => (windowWidth - 1920) / 2 + 90}px;
-  top: 90px;
-  z-index: 2;
-
-  ${({ windowScroll }) =>
-    windowScroll > 10 ? 'display: block' : 'display: none'};
-
-  @media (max-width: 1920px) {
-    left: 90px;
-  }
-  @media (max-width: 1100px) {
-    position: absolute;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background-color: ${({ theme }) => theme.colors.red};
-  }
-`;
-
 const RoadmapWrapper = styled.div`
   ${() => getLargeLayoutPadding()}
   padding-left: 400px;
@@ -221,7 +196,6 @@ export {
   WavesWrapper,
   MainWrapper,
   MainInner,
-  NavWrapper,
   WhyChooseUsWrapper,
   AboutUsWrapper,
   RoadmapWrapper,
