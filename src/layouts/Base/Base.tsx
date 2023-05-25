@@ -1,16 +1,13 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Route, Routes, useNavigate } from 'react-router-dom';
-import { ToastContainer } from 'react-toastify';
 
 import { setWalletStatusSuccess } from 'features/info/redux/actionCreators';
 import { AllProjects, Landing, Management, Profile } from 'pages';
-import { Footer, Header, NotAvailableError } from 'shared/components';
+import { NotAvailableError } from 'shared/components';
 import 'react-toastify/dist/ReactToastify.css';
 import { useGetAppInfo, useOffchain } from 'shared/helpers/hooks';
 import { type AppReduxState } from 'shared/types';
-
-import { Inner, Main } from './Base.styled';
 
 const Base = () => {
   const { walletStatus } = useSelector(
@@ -19,7 +16,7 @@ const Base = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [walletIsNotAvailable, setWalletIsNotAvailable] = useState(false);
-  const [currentPage, setCurrentPage] = useState('');
+
   const getAppInfo = useGetAppInfo();
   const offchain = useOffchain();
 
@@ -48,10 +45,6 @@ const Base = () => {
       navigate('/');
     }
   }, [walletStatus, window]);
-
-  useEffect(() => {
-    setCurrentPage(location.pathname);
-  }, [location.pathname]);
 
   return walletIsNotAvailable ? (
     <NotAvailableError />

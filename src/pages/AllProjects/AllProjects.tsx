@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 
+import { Common } from 'layouts';
 import { ProjectCard } from 'shared/components';
 import { useGetAllFundraisings, useOffchain } from 'shared/helpers/hooks';
 import { type Fundraisings, type AppReduxState } from 'shared/types';
@@ -35,21 +36,23 @@ const AllProjects = () => {
   };
 
   return !isRequesting ? (
-    <Wrapper>
-      <Title>Active projects</Title>
-      <CardsWrapper>
-        {allFundraisings ? (
-          sortFundraising(allFundraisings).map((project) => (
-            <ProjectCard
-              data={project}
-              key={project.threadTokenCurrency.toString()}
-            />
-          ))
-        ) : (
-          <></>
-        )}
-      </CardsWrapper>
-    </Wrapper>
+    <Common>
+      <Wrapper>
+        <Title>Active projects</Title>
+        <CardsWrapper>
+          {allFundraisings ? (
+            sortFundraising(allFundraisings).map((project) => (
+              <ProjectCard
+                data={project}
+                key={project.threadTokenCurrency.toString()}
+              />
+            ))
+          ) : (
+            <></>
+          )}
+        </CardsWrapper>
+      </Wrapper>
+    </Common>
   ) : (
     <></>
   );

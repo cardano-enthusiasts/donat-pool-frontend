@@ -1,14 +1,12 @@
 import { Link } from 'react-router-dom';
 
+import { Button, GitHub, ContactUsForm } from './..';
 import {
-  GitHubImg,
-  GitHubLink,
+  GitHubWrapper,
   Nav,
   NavItems,
   Wrapper,
 } from './ContactUsSection.styled';
-import { Button } from '../Button/Button';
-import { ContactUsForm } from '../ContactUsForm/ContactUsForm';
 
 const ContactUsSection = () => {
   const navLinks = [
@@ -20,13 +18,10 @@ const ContactUsSection = () => {
   return (
     <Wrapper>
       <Nav>
-        <GitHubLink
-          target="_blank"
-          rel="noreferrer"
-          href="https://github.com/fullstack-development"
-        >
-          <GitHubImg src="icons/github.svg" />
-        </GitHubLink>
+        <GitHubWrapper>
+          <GitHub />
+        </GitHubWrapper>
+
         <NavItems>
           {navLinks.map(({ title, href }) => (
             <li key={title}>

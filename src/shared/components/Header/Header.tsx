@@ -8,14 +8,12 @@ import {
   Inner,
   Links,
   Wrapper,
-  LinksAndWallet,
   LinkWrapper,
-  Menu,
-  MenuLine,
-  CloseButton,
+  Icon,
+  LogoWrapper,
 } from './Header.styled';
 import { type Props } from './types';
-import { Logo, WalletButton } from '..';
+import { Logo } from '..';
 
 const Header = ({ currentPage }: Props) => {
   const { isManager } = useSelector(
@@ -37,46 +35,37 @@ const Header = ({ currentPage }: Props) => {
     <>
       <Wrapper isMenuOpen={isMenuOpen}>
         <Inner>
-          <Logo />
-          <LinksAndWallet>
-            <Links>
-              {isManager && (
-                <LinkWrapper
-                  key={managerLink.id}
-                  isActive={managerLink.href === currentPage}
-                >
-                  <Link to={managerLink.href}>{managerLink.title}</Link>
-                </LinkWrapper>
-              )}
-              {links.map(({ title, href, id }) => (
-                <LinkWrapper key={id} isActive={href === currentPage}>
-                  <Link to={href}>{title}</Link>
-                </LinkWrapper>
-              ))}
-            </Links>
-            <WalletButton />
-          </LinksAndWallet>
+          {!isMenuOpen && (
+            <LogoWrapper>
+              <Logo />
+            </LogoWrapper>
+          )}
+          <Links isMenuOpen={isMenuOpen}>
+            {isManager && (
+              <LinkWrapper
+                key={managerLink.id}
+                isActive={managerLink.href === currentPage}
+              >
+                <Link to={managerLink.href}>{managerLink.title}</Link>
+              </LinkWrapper>
+            )}
+            {links.map(({ title, href, id }) => (
+              <LinkWrapper key={id} isActive={href === currentPage}>
+                <Link to={href}>{title}</Link>
+              </LinkWrapper>
+            ))}
+          </Links>
         </Inner>
 
-        <CloseButton
+        <Icon
           onClick={() => {
-            setIsMenuOpen(false);
+            setIsMenuOpen(!isMenuOpen);
           }}
           isMenuOpen={isMenuOpen}
-        >
-          <img src="icons/close.svg" alt="close icon"></img>
-        </CloseButton>
+          src={`icons/${isMenuOpen ? 'close' : 'menu'}.svg`}
+          alt="close icon"
+        />
       </Wrapper>
-      <Menu
-        onClick={() => {
-          setIsMenuOpen(true);
-        }}
-        isMenuOpen={isMenuOpen}
-      >
-        <MenuLine />
-        <MenuLine />
-        <MenuLine />
-      </Menu>
     </>
   );
 };

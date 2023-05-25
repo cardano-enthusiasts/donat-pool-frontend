@@ -26,13 +26,6 @@ const Nav = styled.div`
   max-width: 290px;
 `;
 
-const GitHubImg = styled.img``;
-
-const GitHubLink = styled.a`
-  display: inline-block;
-  margin-bottom: 40px;
-`;
-
 const NavItems = styled.ul`
   display: flex;
   flex-direction: column;
@@ -47,4 +40,8 @@ const NavItems = styled.ul`
   list-style-type: none;
 `;
 
-export { Wrapper, Nav, GitHubImg, GitHubLink, NavItems };
+const GitHubWrapper = styled.div`
+  margin-bottom: 40px;
+`;
+
+export { Wrapper, Nav, NavItems, GitHubWrapper };

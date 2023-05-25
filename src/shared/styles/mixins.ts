@@ -4,8 +4,8 @@ const baseContainer = css`
   width: 100%;
   display: flex;
   justify-content: center;
-  padding-left: 70px;
-  padding-right: 70px;
+  padding-left: 80px;
+  padding-right: 80px;
 
   @media (max-width: 1250px) {
     padding-left: 45px;
@@ -26,11 +26,6 @@ const baseInner = css`
 const link = css`
   a {
     text-decoration: none;
-    color: ${({ theme }) => theme.colors.dark75};
-
-    &:hover {
-      color: ${({ theme }) => theme.colors.dark100};
-    }
   }
 `;
 

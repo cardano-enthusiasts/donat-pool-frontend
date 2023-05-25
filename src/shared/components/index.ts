@@ -24,3 +24,4 @@ export { Roadmap } from './Roadmap/Roadmap';
 export { ContactUsSection } from './ContactUsSection/ContactUsSection';
 export { ContactUsForm } from './ContactUsForm/ContactUsForm';
 export { HowItWorksItems } from './HowItWorksItems/HowItWorksItems';
+export { GitHub } from './GitHub/Github';
