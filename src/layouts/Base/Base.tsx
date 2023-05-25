@@ -4,10 +4,7 @@ import { Route, Routes, useNavigate } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 
 import { setWalletStatusSuccess } from 'features/info/redux/actionCreators';
-import AllProjects from 'layouts/AllProjects/AllProjects';
-import Home from 'layouts/Home/Home';
-import Management from 'layouts/Management/Management';
-import Profile from 'layouts/Profile/Profile';
+import { AllProjects, Landing, Management, Profile } from 'pages';
 import { Footer, Header, NotAvailableError } from 'shared/components';
 import 'react-toastify/dist/ReactToastify.css';
 import { useGetAppInfo, useOffchain } from 'shared/helpers/hooks';
@@ -61,7 +58,7 @@ const Base = () => {
   ) : (
     <>
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Landing />} />
         <Route path="/management" element={<Management />} />
         <Route path="/my-profile" element={<Profile />} />
         <Route path="/all-projects" element={<AllProjects />} />

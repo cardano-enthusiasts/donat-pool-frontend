@@ -31,9 +31,9 @@ import {
   Inner,
   InitialLoadingWrapper,
   HowItWorksItemsWrapper,
-} from './Home.styled';
+} from './Landing.styled';
 
-const Home = () => {
+const Landing = () => {
   const [windowScroll, setWindowScroll] = useState(0);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const [currentSection, setCurrentSection] =
@@ -167,4 +167,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default Landing;
