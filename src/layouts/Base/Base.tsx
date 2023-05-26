@@ -3,7 +3,13 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Route, Routes, useNavigate } from 'react-router-dom';
 
 import { setWalletStatusSuccess } from 'features/info/redux/actionCreators';
-import { AllProjects, Landing, Management, Profile } from 'pages';
+import {
+  AllProjects,
+  Landing,
+  Management,
+  Profile,
+  ProjectForAll,
+} from 'pages';
 import { NotAvailableError } from 'shared/components';
 import 'react-toastify/dist/ReactToastify.css';
 import { useGetAppInfo, useOffchain } from 'shared/helpers/hooks';
@@ -55,6 +61,7 @@ const Base = () => {
         <Route path="/management" element={<Management />} />
         <Route path="/my-profile" element={<Profile />} />
         <Route path="/all-projects" element={<AllProjects />} />
+        <Route path="/:id" element={<ProjectForAll />} />
       </Routes>
     </>
   );

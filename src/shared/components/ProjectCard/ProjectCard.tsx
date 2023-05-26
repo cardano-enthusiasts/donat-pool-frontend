@@ -1,3 +1,7 @@
+import { Link } from 'react-router-dom';
+
+import getDate from 'shared/helpers/getDate';
+
 import {
   DateItem,
   Title,
@@ -12,23 +16,22 @@ const ProjectCard = ({
     deadline,
     description,
     goal,
+    path,
     raisedAmount,
     threadTokenName,
     threadTokenCurrency,
   },
 }: Props) => {
-  const getDate = () => {
-    return new Date(deadline).toLocaleString('ru');
-  };
-
   return (
-    <Wrapper>
-      <Title>{description}</Title>
-      <DateAndAmount>
-        <DateItem>{getDate()}</DateItem>
-        <Amount>{goal / 1000000}</Amount>
-      </DateAndAmount>
-    </Wrapper>
+    <Link to={`/${path}`}>
+      <Wrapper>
+        <Title>{description}</Title>
+        <DateAndAmount>
+          <DateItem>{getDate(deadline)}</DateItem>
+          <Amount>{goal / 1000000}</Amount>
+        </DateAndAmount>
+      </Wrapper>
+    </Link>
   );
 };
 

@@ -27,6 +27,7 @@ const useGetAllFundraisings = () => {
         raisedAmt,
         threadTokenCurrency,
         threadTokenName,
+        path,
       }) => {
         return {
           creator,
@@ -36,6 +37,7 @@ const useGetAllFundraisings = () => {
           raisedAmount: Number(raisedAmt.value),
           threadTokenCurrency,
           threadTokenName,
+          path,
         };
       }
     );

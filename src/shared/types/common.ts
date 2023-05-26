@@ -14,6 +14,7 @@ interface Fundraising {
   raisedAmount: number;
   threadTokenCurrency: Uint8Array;
   threadTokenName: Uint8Array;
+  path: string;
 }
 
 type Fundraisings = Fundraising[];
