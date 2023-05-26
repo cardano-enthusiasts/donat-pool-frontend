@@ -48,11 +48,13 @@ const h3 = css`
 `;
 
 const cardWrapper = css`
-  background: #fff;
-  border: 1px solid #fff;
-  box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
-  border-radius: 4px;
-  padding: 40px 30px 20px 30px;
+  background: ${({ theme }) => theme.colors.white};
+  padding: 28px 16px 24px;
+
+  border: 2px solid ${({ theme }) => theme.colors.blue};
+  box-shadow: -4px 4px 0px ${({ theme }) => theme.colors.blue};
+  border-radius: 6px;
+
   @media (max-width: 900px) {
     padding: 20px;
   }

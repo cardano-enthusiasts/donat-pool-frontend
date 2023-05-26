@@ -3,7 +3,7 @@ export interface Props {
   children: string;
   primaryColor?: 'yellow' | 'blue' | 'red';
   secondaryColor?: 'red' | 'blue' | 'green';
-  fontColor?: Props['secondaryColor'] | 'white';
+  fontColor?: Props['secondaryColor'] | 'white' | 'black';
   themeType?: 'primary' | 'secondary';
   type?: 'submit' | 'button';
   href?: string | null;

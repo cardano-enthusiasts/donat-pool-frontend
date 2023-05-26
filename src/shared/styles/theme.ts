@@ -29,7 +29,7 @@ const theme: Theme = {
     green: '#29DEA8',
     yellow: '#FED900',
     white: '#FFFFFF',
-    black: ' #141414',
+    black: '#141414',
     gray1: '#333333',
     gray2: '#828587',
   },

@@ -2,11 +2,16 @@ import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 
 import { Common } from 'layouts';
-import { ProjectCard } from 'shared/components';
+import { Button, ProjectCard } from 'shared/components';
 import { useGetAllFundraisings, useOffchain } from 'shared/helpers/hooks';
 import { type Fundraisings, type AppReduxState } from 'shared/types';
 
-import { CardsWrapper, Title, Wrapper } from './AllProjects.styled';
+import {
+  CardsWrapper,
+  Title,
+  TitleAndButton,
+  Wrapper,
+} from './AllProjects.styled';
 
 const AllProjects = () => {
   const offchain = useOffchain();
@@ -38,7 +43,13 @@ const AllProjects = () => {
   return !isRequesting ? (
     <Common>
       <Wrapper>
-        <Title>Active projects</Title>
+        <TitleAndButton>
+          <Title>All Donation pools</Title>
+          <Button primaryColor="red" secondaryColor="blue" fontColor="black">
+            Create a new project
+          </Button>
+        </TitleAndButton>
+
         <CardsWrapper>
           {allFundraisings ? (
             sortFundraising(allFundraisings).map((project) => (
