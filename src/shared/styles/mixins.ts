@@ -71,7 +71,7 @@ const fieldStyles = css`
   width: 100%;
   padding: 13px 16px;
   outline: none;
-  color: ${({ theme }) => theme.colors.black};
+  color: ${({ theme }) => theme.colors.green};
   font-family: 'Microsoft YaHei', Arial, sans-serif;
   background-color: transparent;
   font-size: 20px;

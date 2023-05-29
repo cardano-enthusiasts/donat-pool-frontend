@@ -25,3 +25,5 @@ export { ContactUsSection } from './ContactUsSection/ContactUsSection';
 export { ContactUsForm } from './ContactUsForm/ContactUsForm';
 export { HowItWorksItems } from './HowItWorksItems/HowItWorksItems';
 export { GitHub } from './GitHub/Github';
+export { Modal } from './Modal/Modal';
+export { ModalDonate } from './ModalDonate/ModalDonate';

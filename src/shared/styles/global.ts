@@ -3,6 +3,10 @@ import { createGlobalStyle } from 'styled-components';
 import { theme } from './theme';
 
 const GlobalStyles = createGlobalStyle`
+  * {
+    box-sizing: border-box;
+  }
+
   html,
   body {
     padding: 0;

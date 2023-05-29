@@ -96,6 +96,53 @@ const getSecondaryStyles = (primaryColor, secondaryColor) => css`
   }
 `;
 
+const getTertiaryStyles = (primaryColor, secondaryColor) => css`
+  position: relative;
+  font-size: 16px;
+  padding: 10px 16px;
+  font-family: 'Microsoft YaHei', Arial, sans-serif;
+  font-weight: bold;
+  line-height: 133%;
+  height: 41.27px;
+
+  background-color: ${({ theme }) => theme.colors.white};
+  color: ${({ theme }) =>
+    theme.colors[primaryColor]
+      ? theme.colors[primaryColor]
+      : theme.colors.blue};
+  border: 2px solid
+    ${({ theme }) =>
+      theme.colors[primaryColor]
+        ? theme.colors[primaryColor]
+        : theme.colors.blue};
+  border-radius: 6px;
+  box-sizing: border-box;
+
+  &:before {
+    content: '';
+    position: absolute;
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    left: -6px;
+    bottom: -6px;
+    border: 2px solid
+      ${({ theme }) =>
+        theme.colors[primaryColor]
+          ? theme.colors[primaryColor]
+          : theme.colors.blue};
+    border-radius: 6px;
+    z-index: -1;
+    transition: all 0.5s;
+    user-select: none;
+  }
+  &:active {
+    /* transform: translate(-4px, 4px); */
+    &:before {
+      /* transform: translate(4px, -4px); */
+    }
+  }
+`;
+
 const getStyles = ({
   primaryColor,
   secondaryColor,
@@ -110,7 +157,7 @@ const getStyles = ({
     align-items: center;
     width: ${width};
     min-width: 100px;
-    max-width: 320px;
+    max-width: 520px;
     line-height: 94%;
     cursor: pointer;
     color: ${({ theme }) =>
@@ -127,6 +174,8 @@ const getStyles = ({
     getPrimaryStyles(primaryColor, secondaryColor)};
     ${themeType === 'secondary' &&
     getSecondaryStyles(primaryColor, secondaryColor)};
+    ${themeType === 'tertiary' &&
+    getTertiaryStyles(primaryColor, secondaryColor)};
   `;
 
 const StyledButton = styled.button<{
@@ -185,10 +234,12 @@ const LinkWrapper = styled.div<{
 
 const Wrapper = styled.div<{
   themeType: NonNullable<Props['themeType']>;
+  width: Props['width'];
 }>`
   ${({ themeType }) =>
     themeType === 'secondary' && 'padding-left: 22px; padding-bottom: 22px;'}
-  width: ${({ themeType }) => themeType === 'secondary' && '345px'};
+  width: ${({ themeType, width }) =>
+    themeType === 'secondary' ? '345px' : width};
   height: ${({ themeType }) => themeType === 'secondary' && '150px'};
 
   @media (max-width: 1100px) {

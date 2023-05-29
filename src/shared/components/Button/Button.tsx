@@ -16,7 +16,7 @@ const Button = ({
   width = 'auto',
 }: Props) => {
   return href !== null ? (
-    <Wrapper themeType={themeType}>
+    <Wrapper themeType={themeType} width={width}>
       <LinkWrapper
         primaryColor={primaryColor}
         secondaryColor={secondaryColor}
@@ -29,7 +29,7 @@ const Button = ({
       </LinkWrapper>
     </Wrapper>
   ) : (
-    <Wrapper themeType={themeType}>
+    <Wrapper themeType={themeType} width={width}>
       <StyledButton
         onClick={onClick}
         primaryColor={primaryColor}
