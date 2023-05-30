@@ -9,6 +9,7 @@ const Wrapper = styled.div`
 const TitleAndButton = styled.div`
   display: flex;
   justify-content: space-between;
+  margin-bottom: 60px;
 `;
 
 const Title = styled.h2`
@@ -18,7 +19,7 @@ const Title = styled.h2`
   font-size: 54px;
   line-height: 104%;
   color: ${({ theme }) => theme.colors.red};
-  margin: 0 0 30px 0;
+  margin: 0;
 
   @media (max-width: 900px) {
     margin-bottom: 15px;
