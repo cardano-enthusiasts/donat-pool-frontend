@@ -3,26 +3,32 @@ import styled from 'styled-components';
 import { h2 } from 'shared/styles/mixins';
 
 const Wrapper = styled.div`
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-  grid-template-rows: repeat(2, auto);
-  grid-auto-flow: column;
-  grid-column-gap: 70px;
-  align-items: flex-start;
-  margin: 70px 0;
+  display: flex;
+  gap: 40px;
+  justify-content: space-between;
+  margin-bottom: 160px;
   @media (max-width: 900px) {
-    grid-template-columns: 1fr;
-    grid-template-rows: repeat(4, auto);
-    grid-row-gap: 30px;
-    margin-top: 100px;
+    flex-direction: column;
+    margin-bottom: 50px;
   }
 `;
 
 const Title = styled.h2`
   ${h2}
-  margin: 0 0 30px 0;
+  font-family: 'Rammetto One', Arial, Helvetica, sans-serif;
+  font-weight: normal;
+  font-size: 54px;
+  line-height: 104%;
+  color: ${({ theme }) => theme.colors.red};
+  margin: 80px 0 60px 0;
+
   @media (max-width: 900px) {
-    margin: 0;
+    margin-bottom: 15px;
+    font-size: 36px;
+  }
+  @media (max-width: 400px) {
+    margin-bottom: 15px;
+    font-size: 30px;
   }
 `;
 

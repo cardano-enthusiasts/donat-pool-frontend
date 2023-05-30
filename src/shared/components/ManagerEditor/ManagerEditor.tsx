@@ -1,9 +1,7 @@
 import { type ChangeEvent, useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import { BeatLoader } from 'react-spinners';
 
 import { useUpdateProtocol } from 'shared/helpers/hooks';
-import { theme } from 'shared/styles/theme';
 import { type AppReduxState } from 'shared/types';
 
 import { defaultParams } from './data';
@@ -11,9 +9,7 @@ import {
   ButtonWrapper,
   Line,
   Form,
-  Wrapper,
   InputWrapper,
-  Loader,
 } from './ManagerEditor.styled';
 import { type Props } from './types';
 import { Button, Input } from '..';
@@ -61,40 +57,34 @@ const ManagerEditor = ({ config }: Props) => {
   };
 
   return (
-    <Wrapper>
-      <Form onSubmit={handleSubmit}>
-        <InputWrapper>
-          {defaultParams.map(({ title, id, hint }) => (
-            <Line key={id}>
-              <Input
-                onChange={(event) => {
-                  handleInputChange(id, event);
-                }}
-                dataAttr={id}
-                value={params[id]}
-                title={title}
-                isDisabled={isInputsDisabled}
-                hint={hint}
-              />
-            </Line>
-          ))}
-        </InputWrapper>
-        <ButtonWrapper>
-          <Button type="submit" isDisabled={isSubmitDisabled} width="100%">
-            Confirm
-          </Button>
-        </ButtonWrapper>
-        <Loader isLoading={isRequesting}>
-          <BeatLoader
-            color={theme.colors.secondary}
-            loading={isRequesting}
-            size={20}
-            aria-label="Loading beat"
-            data-testid="loader"
-          />
-        </Loader>
-      </Form>
-    </Wrapper>
+    <Form onSubmit={handleSubmit}>
+      <InputWrapper>
+        {defaultParams.map(({ title, id, hint }) => (
+          <Line key={id}>
+            <Input
+              onChange={(event) => {
+                handleInputChange(id, event);
+              }}
+              dataAttr={id}
+              value={params[id]}
+              title={`${title} / ${hint}`}
+              isDisabled={isInputsDisabled}
+            />
+          </Line>
+        ))}
+      </InputWrapper>
+      <ButtonWrapper>
+        <Button
+          type="submit"
+          isDisabled={isSubmitDisabled}
+          width="100%"
+          primaryColor="red"
+          secondaryColor="blue"
+        >
+          Save
+        </Button>
+      </ButtonWrapper>
+    </Form>
   );
 };
 

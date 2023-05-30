@@ -157,7 +157,6 @@ const getStyles = ({
     align-items: center;
     width: ${width};
     min-width: 100px;
-    max-width: 520px;
     line-height: 94%;
     cursor: pointer;
     color: ${({ theme }) =>

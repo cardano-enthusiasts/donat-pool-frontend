@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { h2 } from 'shared/styles/mixins';
 
 const Wrapper = styled.div`
-  margin: 70px 0;
+  margin: 80px 0;
 `;
 
 const TitleAndButton = styled.div`

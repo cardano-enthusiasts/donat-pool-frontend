@@ -1,12 +1,8 @@
 import styled from 'styled-components';
 
-import { cardWrapper } from 'shared/styles/mixins';
-
-const Wrapper = styled.div``;
-
 const Form = styled.form`
-  ${cardWrapper};
-  padding-bottom: 20px;
+  width: 100%;
+  max-width: 840px;
 `;
 
 const Line = styled.div`
@@ -30,11 +26,9 @@ const ButtonWrapper = styled.div`
   margin-top: 20px;
   width: 100%;
 `;
-const Loader = styled.div<{ isLoading: boolean }>`
-  display: flex;
-  justify-content: center;
-  ${({ isLoading }) => isLoading && 'padding-top: 10px'}
-  ${({ isLoading }) => !isLoading && 'padding-bottom: 34px'}
+
+const Hint = styled.span`
+  color: ${({ theme }) => theme.colors.gray};
 `;
 
-export { Wrapper, Form, Line, ButtonWrapper, InputWrapper, Loader };
+export { Form, Line, ButtonWrapper, InputWrapper, Hint };

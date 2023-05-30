@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
+import { Common } from 'layouts';
 import { ManagementParams, ManagerEditor } from 'shared/components';
 import { type AppReduxState } from 'shared/types';
 
@@ -34,12 +35,13 @@ const Management = () => {
   }, [isManager]);
 
   return !isRequesting ? (
-    <Wrapper>
+    <Common>
       <Title>Management contract</Title>
-      <ManagerEditor config={config} />
-      <Title>Current protocol parameters</Title>
-      <ManagementParams config={config} />
-    </Wrapper>
+      <Wrapper>
+        <ManagerEditor config={config} />
+        <ManagementParams config={config} />
+      </Wrapper>
+    </Common>
   ) : (
     <></>
   );
