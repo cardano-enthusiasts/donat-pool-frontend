@@ -5,5 +5,6 @@ export interface Props {
   windowScroll: number;
   windowWidth: number;
   handleIconClick: () => void;
+  handleSectionClick: (id: string) => void;
   isOpen: boolean;
 }

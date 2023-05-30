@@ -60,27 +60,34 @@ const Home = () => {
     };
   }, []);
 
+  const section: Array<{
+    title: CurrentLandingSection;
+    top: number;
+    bottom: number;
+  }> = [
+    { title: 'home', top: 0, bottom: 2233 },
+    { title: 'how it works', top: 2233, bottom: 2880 },
+    { title: 'why choose us', top: 2880, bottom: 3420 },
+    { title: 'about us', top: 3420, bottom: 5440 },
+    { title: 'roadmap', top: 5440, bottom: 6100 },
+    { title: 'contact us', top: 6100, bottom: 6635 },
+  ];
+
   useEffect(() => {
     console.log('windowScroll', windowScroll);
-
-    if (windowScroll < 2233) {
-      setCurrentSection('home');
-    } else if (windowScroll > 2233 && windowScroll < 2880) {
-      setCurrentSection('how it works');
-    } else if (windowScroll > 2880 && windowScroll < 3420) {
-      setCurrentSection('why choose us');
-    } else if (windowScroll > 3420 && windowScroll < 5440) {
-      setCurrentSection('about us');
-    } else if (windowScroll > 5440 && windowScroll < 5840) {
-      setCurrentSection('roadmap');
-    } else if (windowScroll > 5840) {
-      setCurrentSection('contact us');
-    }
-    console.log('current section', currentSection);
+    section.forEach(({ title, top, bottom }) => {
+      if (windowScroll > top && windowScroll < bottom) {
+        setCurrentSection(title);
+      }
+    });
   }, [windowScroll]);
 
   const handleMobileHeaderClick = () => {
     setIsMobileHeaderOpen(!isMobileHeaderOpen);
+  };
+
+  const handleSectionClick = (clickedSection: CurrentLandingSection) => {
+    // setCurrentSection(clickedSection);
   };
 
   return (
@@ -143,7 +150,7 @@ const Home = () => {
 
         <MainWrapper backgroundColor="black">
           <MainInner>
-            <RoadmapWrapper>
+            <RoadmapWrapper id="roadmap">
               <Roadmap />
             </RoadmapWrapper>
           </MainInner>
@@ -160,6 +167,7 @@ const Home = () => {
           windowScroll={windowScroll}
           windowWidth={windowWidth}
           handleIconClick={handleMobileHeaderClick}
+          handleSectionClick={handleSectionClick}
           isOpen={isMobileHeaderOpen}
         />
       </Inner>
