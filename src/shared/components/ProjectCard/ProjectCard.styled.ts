@@ -6,7 +6,6 @@ const Wrapper = styled.div`
   ${cardWrapper};
   display: flex;
   flex-direction: column;
-  align-items: center;
   cursor: pointer;
 `;
 
@@ -35,7 +34,6 @@ const Title = styled.h3`
   color: ${({ theme }) => theme.colors.blue};
 
   margin: 0 0 43px 0;
-  text-align: center;
   text-overflow: ellipsis;
   overflow: hidden;
   @media (max-width: 400px) {
