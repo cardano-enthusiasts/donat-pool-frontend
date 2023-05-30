@@ -57,6 +57,7 @@ const Link = styled.a<{
   font-family: 'Rammetto One', Arial, Helvetica, sans-serif, sans-serif;
   font-size: ${({ isActive }) => (isActive ? '54px' : '15px')};
   line-height: 104%;
+  cursor: pointer;
   color: ${({ theme, currentSection, isActive }) => {
     if (isActive) {
       switch (currentSection) {

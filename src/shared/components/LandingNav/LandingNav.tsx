@@ -7,14 +7,27 @@ const LandingNav = ({
   windowScroll,
   windowWidth,
   handleIconClick,
+  handleSectionClick,
   isOpen,
 }: Props) => {
   const sections = [
-    { title: 'Home', isActive: currentSection === 'home' },
-    { title: 'How it works', isActive: currentSection === 'how it works' },
-    { title: 'Why choose us', isActive: currentSection === 'why choose us' },
-    { title: 'About us', isActive: currentSection === 'about us' },
-    { title: 'Roadmap', isActive: currentSection === 'roadmap' },
+    { title: 'Home', isActive: currentSection === 'home', id: 'home' },
+    {
+      title: 'How it works',
+      isActive: currentSection === 'how it works',
+      id: 'how it works',
+    },
+    {
+      title: 'Why choose us',
+      isActive: currentSection === 'why choose us',
+      id: 'why choose us',
+    },
+    {
+      title: 'About us',
+      isActive: currentSection === 'about us',
+      id: 'about us',
+    },
+    { title: 'Roadmap', isActive: currentSection === 'roadmap', id: 'roadmap' },
   ];
   const mobileResolution = 1100;
   const isContentShown = windowWidth > mobileResolution ? true : isOpen;
@@ -35,11 +48,12 @@ const LandingNav = ({
       )}
       {isContentShown && (
         <Inner currentSection={currentSection}>
-          {sections.map(({ title, isActive }) => (
+          {sections.map(({ title, isActive, id }) => (
             <Link
               key={title}
               isActive={isActive}
               currentSection={currentSection}
+              href={`#${id}`}
             >
               {title}
             </Link>
