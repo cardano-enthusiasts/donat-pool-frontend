@@ -243,7 +243,7 @@ const Wrapper = styled.div<{
   height: ${({ themeType }) => themeType === 'secondary' && '150px'};
 
   @media (max-width: 1100px) {
-    width: ${({ themeType }) => themeType === 'secondary' && '270px'};
+    width: ${({ themeType }) => themeType === 'secondary' && '245px'};
     height: ${({ themeType }) => themeType === 'secondary' && '120px'};
   }
 `;
