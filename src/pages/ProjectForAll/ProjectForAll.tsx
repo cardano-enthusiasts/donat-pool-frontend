@@ -12,6 +12,7 @@ import {
   ButtonWrapper,
   Duration,
   Goal,
+  Img,
   Line,
   Raised,
   Sum,
@@ -55,7 +56,7 @@ const ProjectForAll = () => {
           <Title>{currentProject.description}</Title>
           <Duration>{getDate(currentProject.deadline)} </Duration>
           <Sum>
-            <img src="/img/progress-bar.svg" />
+            <Img src="/img/progress-bar.svg" alt="progress bar" />
             <Raised>{currentProject.raisedAmount / 1000000}</Raised>
             <Line />
             <Goal>{currentProject.goal / 1000000}</Goal>

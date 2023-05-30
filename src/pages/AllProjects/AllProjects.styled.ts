@@ -9,7 +9,14 @@ const Wrapper = styled.div`
 const TitleAndButton = styled.div`
   display: flex;
   justify-content: space-between;
+  gap: 60px;
   margin-bottom: 60px;
+  text-align: center;
+  @media (max-width: 800px) {
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+  }
 `;
 
 const Title = styled.h2`
@@ -23,6 +30,7 @@ const Title = styled.h2`
 
   @media (max-width: 900px) {
     margin-bottom: 15px;
+    font-size: 36px;
   }
 `;
 

@@ -14,6 +14,9 @@ const Title = styled.h1`
 
   color: ${({ theme }) => theme.colors.red};
   margin-bottom: 24px;
+  @media (max-width: 800px) {
+    font-size: 36px;
+  }
 `;
 
 const Duration = styled.div`
@@ -35,7 +38,21 @@ const Sum = styled.div`
   font-size: 54px;
   line-height: 104%;
   padding: 24px 0 40px;
+  @media (max-width: 500px) {
+    font-size: 36px;
+  }
 `;
+
+const Img = styled.img`
+  @media (max-width: 800px) {
+    width: 60px;
+    height: 60px;
+  }
+  @media (max-width: 500px) {
+    display: none;
+  }
+`;
+
 const Raised = styled.div`
   color: ${({ theme }) => theme.colors.red};
 `;
@@ -54,4 +71,14 @@ const ButtonWrapper = styled.div`
   justify-content: center;
 `;
 
-export { Wrapper, Title, Duration, Sum, Raised, Line, Goal, ButtonWrapper };
+export {
+  Wrapper,
+  Title,
+  Duration,
+  Sum,
+  Img,
+  Raised,
+  Line,
+  Goal,
+  ButtonWrapper,
+};
