@@ -51,8 +51,6 @@ const cardWrapper = css`
   background: ${({ theme }) => theme.colors.white};
   padding: 28px 16px 24px;
 
-  border: 2px solid ${({ theme }) => theme.colors.blue};
-  box-shadow: -4px 4px 0px ${({ theme }) => theme.colors.blue};
   border-radius: 6px;
 
   @media (max-width: 900px) {

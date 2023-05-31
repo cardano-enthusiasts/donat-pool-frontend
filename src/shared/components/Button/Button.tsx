@@ -14,6 +14,7 @@ const Button = ({
   href = null,
   isDisabled = false,
   width = 'auto',
+  isClickedTheme = false,
 }: Props) => {
   return href !== null ? (
     <Wrapper themeType={themeType} width={width}>
@@ -24,6 +25,7 @@ const Button = ({
         themeType={themeType}
         isDisabled={isDisabled}
         width={width}
+        isClickedTheme={isClickedTheme}
       >
         <Link to={href}>{children}</Link>
       </LinkWrapper>
@@ -39,6 +41,7 @@ const Button = ({
         type={type}
         isDisabled={isDisabled}
         width={width}
+        isClickedTheme={isClickedTheme}
       >
         {children}
       </StyledButton>

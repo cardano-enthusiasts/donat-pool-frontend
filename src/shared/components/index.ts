@@ -8,8 +8,6 @@ export { ManagementParams } from './ManagementParams/ManagementParams';
 export { ManagerEditor } from './ManagerEditor/ManagerEditor';
 export { ProjectCard } from './ProjectCard/ProjectCard';
 export { ProjectCreator } from './ProjectCreator/ProjectCreator';
-export { ProjectInfo } from './ProjectInfo/ProjectInfo';
-export { ProjectSidebar } from './ProjectSidebar/ProjectSidebar';
 export { WalletButton } from './WalletButton/WalletButton';
 export { Button } from './Button/Button';
 export { NotAvailableError } from './NotAvailableError/NotAvailableError';

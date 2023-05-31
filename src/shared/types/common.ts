@@ -15,6 +15,7 @@ interface Fundraising {
   threadTokenCurrency: Uint8Array;
   threadTokenName: Uint8Array;
   path: string;
+  status?: 'active' | 'completed';
 }
 
 type Fundraisings = Fundraising[];

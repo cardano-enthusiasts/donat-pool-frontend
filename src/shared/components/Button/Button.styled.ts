@@ -143,6 +143,25 @@ const getTertiaryStyles = (primaryColor, secondaryColor) => css`
   }
 `;
 
+const getQuaternaryStyles = (primaryColor, isClickedTheme) => css`
+  font-size: 14px;
+  padding: 8px 12px;
+  font-family: 'Microsoft YaHei', Arial, sans-serif;
+  font-weight: bold;
+  line-height: 133%;
+
+  background-color: ${({ theme }) =>
+    isClickedTheme ? theme.colors[primaryColor] : theme.colors.white};
+  color: ${({ theme }) =>
+    isClickedTheme ? theme.colors.white : theme.colors[primaryColor]};
+  border: 2px solid
+    ${({ theme }) =>
+      theme.colors[primaryColor]
+        ? theme.colors[primaryColor]
+        : theme.colors.blue};
+  border-radius: 6px;
+`;
+
 const getStyles = ({
   primaryColor,
   secondaryColor,
@@ -150,13 +169,13 @@ const getStyles = ({
   width,
   isDisabled,
   themeType,
+  isClickedTheme,
 }) =>
   css`
     display: flex;
     justify-content: center;
     align-items: center;
     width: ${width};
-    min-width: 100px;
     line-height: 94%;
     cursor: pointer;
     color: ${({ theme }) =>
@@ -175,6 +194,8 @@ const getStyles = ({
     getSecondaryStyles(primaryColor, secondaryColor)};
     ${themeType === 'tertiary' &&
     getTertiaryStyles(primaryColor, secondaryColor)};
+    ${themeType === 'quaternary' &&
+    getQuaternaryStyles(primaryColor, isClickedTheme)};
   `;
 
 const StyledButton = styled.button<{
@@ -184,6 +205,7 @@ const StyledButton = styled.button<{
   themeType: Props['themeType'];
   width: Props['width'];
   isDisabled: boolean;
+  isClickedTheme: boolean;
 }>`
   ${({
     primaryColor,
@@ -192,6 +214,7 @@ const StyledButton = styled.button<{
     width,
     isDisabled,
     themeType,
+    isClickedTheme,
   }) =>
     getStyles({
       primaryColor,
@@ -200,6 +223,7 @@ const StyledButton = styled.button<{
       width,
       isDisabled,
       themeType,
+      isClickedTheme,
     })};
 `;
 
@@ -210,6 +234,7 @@ const LinkWrapper = styled.div<{
   themeType: Props['themeType'];
   isDisabled: boolean;
   width: Props['width'];
+  isClickedTheme: boolean;
 }>`
   a {
     ${({
@@ -219,6 +244,7 @@ const LinkWrapper = styled.div<{
       width,
       isDisabled,
       themeType,
+      isClickedTheme,
     }) =>
       getStyles({
         primaryColor,
@@ -227,6 +253,7 @@ const LinkWrapper = styled.div<{
         width,
         isDisabled,
         themeType,
+        isClickedTheme,
       })};
   }
 `;
@@ -239,11 +266,11 @@ const Wrapper = styled.div<{
     themeType === 'secondary' && 'padding-left: 22px; padding-bottom: 22px;'}
   width: ${({ themeType, width }) =>
     themeType === 'secondary' ? '345px' : width};
-  height: ${({ themeType }) => themeType === 'secondary' && '150px'};
+  ${({ themeType }) => themeType === 'secondary' && 'height: 150px'};
 
   @media (max-width: 1100px) {
     width: ${({ themeType }) => themeType === 'secondary' && '245px'};
-    height: ${({ themeType }) => themeType === 'secondary' && '120px'};
+    ${({ themeType }) => themeType === 'secondary' && 'height: 120px'};
   }
 `;
 

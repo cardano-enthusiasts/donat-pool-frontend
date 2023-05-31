@@ -8,6 +8,7 @@ import {
   DateAndAmount,
   Amount,
   Wrapper,
+  Status,
 } from './ProjectCard.styled';
 import { type Props } from './types';
 
@@ -21,10 +22,19 @@ const ProjectCard = ({
     threadTokenName,
     threadTokenCurrency,
   },
+  status = 'default',
 }: Props) => {
+  const statusTitles = {
+    active: 'Active',
+    completed: 'Completed',
+  };
+
   return (
     <Link to={`/${path}`}>
-      <Wrapper>
+      <Wrapper status={status}>
+        {status !== 'default' && (
+          <Status status={status}>{statusTitles[status]}</Status>
+        )}
         <Title>{description}</Title>
         <DateAndAmount>
           <DateItem>{getDate(deadline)}</DateItem>

@@ -1,28 +1,22 @@
 import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 
-import {
-  Button,
-  ProjectCreator,
-  ProjectInfo,
-  ProjectSidebar,
-} from 'shared/components';
+import { Common } from 'layouts';
+import { Button, ProjectCard, ProjectCreator } from 'shared/components';
 import { useGetUserFundraisings, useOffchain } from 'shared/helpers/hooks';
 import { type Fundraising, type AppReduxState } from 'shared/types';
 
 import {
-  CreateButtonWrapper,
-  Main,
+  CardsWrapper,
+  FilterButtons,
+  PageHeader,
   ProjectWrapper,
-  SidebarWrapper,
-  Starter,
-  Wrapper,
+  Title,
+  TitleAndButtons,
 } from './Profile.styled';
 
 const Profile = ({ defaultMode = null }) => {
-  const [mode, setMode] = useState<Fundraising | 'creation' | null>(
-    defaultMode
-  );
+  const [isCreationMode, setIsCreationMode] = useState(false);
   const offchain = useOffchain();
   const getUserFundraisings = useGetUserFundraisings();
   const {
@@ -34,17 +28,29 @@ const Profile = ({ defaultMode = null }) => {
     },
   } = useSelector((state: AppReduxState) => state.info);
 
+  const [allProjectsWithStatus, setAllProjectsWithStatus] = useState<
+    Fundraising[] | null
+  >(null);
+  const [filteredProjects, setFilteredProjects] = useState<
+    Fundraising[] | null
+  >(null);
+  const [filter, setFilter] = useState<'active' | 'completed' | null>(null);
+
   useEffect(() => {
     document.title = 'Profile';
   }, []);
 
   useEffect(() => {
     if (userFundraisings) {
-      if (userFundraisings.length === 0) {
-        setMode(null);
-      } else {
-        setMode(userFundraisings[0]);
-      }
+      const projects = userFundraisings.map((item) => {
+        item.status =
+          item.deadline - new Date().getTime() > 0 ? 'active' : 'completed';
+        return item;
+      });
+      setAllProjectsWithStatus(projects);
+      setFilteredProjects(projects);
+    } else {
+      setAllProjectsWithStatus(null);
     }
   }, [userFundraisings]);
 
@@ -54,81 +60,92 @@ const Profile = ({ defaultMode = null }) => {
     }
   }, [offchain]);
 
-  const getId = (project: Fundraising) => {
-    return project.threadTokenCurrency.toString();
-  };
-
-  const handleSidebarClick = (id) => {
-    const clickedProject = userFundraisings?.find((item) => getId(item) === id);
-    if (clickedProject != null) {
-      setMode(clickedProject);
+  const handleFilterClick = (status: 'active' | 'completed', projects) => {
+    if (filter === status) {
+      setFilteredProjects(projects);
+      setFilter(null);
+    } else {
+      setFilteredProjects(projects.filter((item) => item.status === 'active'));
+      setFilter(status);
     }
   };
 
-  const getCurrentId = () => {
-    if (mode === null || mode === 'creation') {
-      return null;
-    }
-    return getId(mode);
+  const handleActiveClick = (projects) => {
+    handleFilterClick('active', projects);
+  };
+
+  const handleCompletedClick = (projects) => {
+    handleFilterClick('completed', projects);
   };
 
   return !isRequesting ? (
-    <Wrapper>
-      <CreateButtonWrapper>
+    <Common>
+      <PageHeader>
+        <TitleAndButtons>
+          <Title>My projects</Title>
+          {allProjectsWithStatus !== null && (
+            <FilterButtons>
+              <Button
+                themeType="quaternary"
+                primaryColor="red"
+                onClick={() => {
+                  handleActiveClick(allProjectsWithStatus);
+                }}
+                isClickedTheme={filter === 'active'}
+              >
+                Active
+              </Button>
+              <Button
+                themeType="quaternary"
+                primaryColor="green"
+                onClick={() => {
+                  handleCompletedClick(allProjectsWithStatus);
+                }}
+                isClickedTheme={filter === 'completed'}
+              >
+                Completed
+              </Button>
+            </FilterButtons>
+          )}
+        </TitleAndButtons>
+
         <Button
-          theme="bordered"
+          primaryColor="red"
+          secondaryColor="blue"
           onClick={() => {
-            setMode('creation');
+            setIsCreationMode(true);
           }}
         >
-          create project
+          Create a new project
         </Button>
-      </CreateButtonWrapper>
-      <Main>
-        <SidebarWrapper>
-          <ProjectSidebar
-            projects={
-              userFundraisings
-                ? userFundraisings.map((project) => {
-                    return {
-                      title: project.description,
-                      id: getId(project),
-                      deadline: project.deadline,
-                    };
-                  })
-                : null
-            }
-            onClick={handleSidebarClick}
-            currentId={getCurrentId()}
-          />
-        </SidebarWrapper>
+      </PageHeader>
 
-        <ProjectWrapper>
-          {mode === 'creation' && (
-            <ProjectCreator
-              onClose={() => {
-                setMode(null);
-              }}
-            />
-          )}
-          {mode === null && (
-            <Starter>Create a new project or choose one</Starter>
-          )}
-          {mode !== null && mode !== 'creation' && (
-            <ProjectInfo
-              data={{
-                deadline: mode.deadline,
-                description: mode.description,
-                goal: mode.goal,
-                raisedAmount: mode.raisedAmount,
-                threadTokenCurrency: mode.threadTokenCurrency,
-                threadTokenName: mode.threadTokenName,
-              }}
-            />
-          )}
-        </ProjectWrapper>
-      </Main>
-    </Wrapper>
+      <ProjectWrapper>
+        {isCreationMode ? (
+          <ProjectCreator
+            onClose={() => {
+              setIsCreationMode(false);
+            }}
+          />
+        ) : (
+          <CardsWrapper>
+            {filteredProjects?.map((item) => {
+              return (
+                <ProjectCard
+                  data={item}
+                  status={
+                    item.deadline - new Date().getTime() > 0
+                      ? 'active'
+                      : 'completed'
+                  }
+                  key={item.path}
+                />
+              );
+            })}
+          </CardsWrapper>
+        )}
+      </ProjectWrapper>
+    </Common>
   ) : (
     <></>
   );

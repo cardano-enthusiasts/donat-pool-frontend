@@ -2,11 +2,26 @@ import styled from 'styled-components';
 
 import { cardWrapper } from 'shared/styles/mixins';
 
-const Wrapper = styled.div`
+import { type Props } from './types';
+
+const getColor = (status) => {
+  const statusColors = {
+    default: 'blue',
+    active: 'red',
+    completed: 'green',
+  };
+  return ({ theme }) => theme.colors[statusColors[status]];
+};
+
+const Wrapper = styled.div<{ status: Props['status'] }>`
   ${cardWrapper};
+
+  border: 2px solid ${({ status }) => getColor(status)};
+  box-shadow: -4px 4px 0px ${({ status }) => getColor(status)};
   display: flex;
   flex-direction: column;
   cursor: pointer;
+  width: 100%;
 `;
 
 const DateAndAmount = styled.div`
@@ -41,4 +56,12 @@ const Title = styled.h3`
   }
 `;
 
-export { Wrapper, DateItem, Amount, DateAndAmount, Title };
+const Status = styled.div<{ status: Props['status'] }>`
+  color: ${({ status }) => getColor(status)};
+  font-weight: bold;
+  padding-bottom: 12px;
+  border-bottom: 2px solid #000000;
+  margin-bottom: 18px;
+`;
+
+export { Wrapper, DateItem, Amount, DateAndAmount, Title, Status };
