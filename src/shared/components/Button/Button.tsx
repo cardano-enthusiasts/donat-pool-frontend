@@ -39,7 +39,7 @@ const Button = ({
         fontColor={fontColor}
         themeType={themeType}
         type={type}
-        isDisabled={isDisabled}
+        disabled={isDisabled}
         width={width}
         isClickedTheme={isClickedTheme}
       >
