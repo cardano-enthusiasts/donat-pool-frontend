@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { h2, h3 } from 'shared/styles/mixins';
+import { h3 } from 'shared/styles/mixins';
 
 const Form = styled.form`
   display: grid;
@@ -10,21 +10,10 @@ const Form = styled.form`
   max-width: 600px;
 `;
 
-const Title = styled.h2`
-  ${h2};
-  margin: 0;
-`;
-
 const ButtonWrapper = styled.div`
   display: flex;
-  gap: 40px;
+  gap: 24px;
   margin-top: 30px;
-`;
-
-const Loader = styled.div<{ isLoading: boolean }>`
-  display: flex;
-  justify-content: center;
-  ${({ isLoading }) => !isLoading && 'padding-bottom: 24px'}
 `;
 
 const DurationContainer = styled.div``;
@@ -47,9 +36,7 @@ const FundingGoal = styled.div`
 
 export {
   Form,
-  Title,
   ButtonWrapper,
-  Loader,
   DurationContainer,
   DurationTitle,
   DurationInputContainer,

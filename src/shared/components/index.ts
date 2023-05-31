@@ -1,4 +1,3 @@
-export { Calendar } from './Calendar/Calendar';
 export { Checkbox } from './Checkbox/Checkbox';
 export { Footer } from './Footer/Footer';
 export { Header } from './Header/Header';

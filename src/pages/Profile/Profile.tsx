@@ -8,15 +8,19 @@ import { type Fundraising, type AppReduxState } from 'shared/types';
 
 import {
   CardsWrapper,
+  CreatorInner,
+  CreatorWrapper,
   FilterButtons,
   PageHeader,
+  PreviousPageLink,
   ProjectWrapper,
   Title,
   TitleAndButtons,
 } from './Profile.styled';
+import { type Props } from './types';
 
-const Profile = ({ defaultMode = null }) => {
-  const [isCreationMode, setIsCreationMode] = useState(false);
+const Profile = ({ isCreationModeInitial = false }: Props) => {
+  const [isCreationMode, setIsCreationMode] = useState(true);
   const offchain = useOffchain();
   const getUserFundraisings = useGetUserFundraisings();
   const {
@@ -65,7 +69,7 @@ const Profile = ({ defaultMode = null }) => {
       setFilteredProjects(projects);
       setFilter(null);
     } else {
-      setFilteredProjects(projects.filter((item) => item.status === 'active'));
+      setFilteredProjects(projects.filter((item) => item.status === status));
       setFilter(status);
     }
   };
@@ -80,71 +84,88 @@ const Profile = ({ defaultMode = null }) => {
 
   return !isRequesting ? (
     <Common>
-      <PageHeader>
-        <TitleAndButtons>
-          <Title>My projects</Title>
-          {allProjectsWithStatus !== null && (
-            <FilterButtons>
-              <Button
-                themeType="quaternary"
-                primaryColor="red"
-                onClick={() => {
-                  handleActiveClick(allProjectsWithStatus);
-                }}
-                isClickedTheme={filter === 'active'}
-              >
-                Active
-              </Button>
-              <Button
-                themeType="quaternary"
-                primaryColor="green"
-                onClick={() => {
-                  handleCompletedClick(allProjectsWithStatus);
-                }}
-                isClickedTheme={filter === 'completed'}
-              >
-                Completed
-              </Button>
-            </FilterButtons>
-          )}
-        </TitleAndButtons>
-
-        <Button
-          primaryColor="red"
-          secondaryColor="blue"
-          onClick={() => {
-            setIsCreationMode(true);
-          }}
-        >
-          Create a new project
-        </Button>
-      </PageHeader>
-
-      <ProjectWrapper>
-        {isCreationMode ? (
-          <ProjectCreator
-            onClose={() => {
+      {isCreationMode ? (
+        <CreatorWrapper>
+          <PreviousPageLink
+            onClick={() => {
               setIsCreationMode(false);
             }}
-          />
-        ) : (
-          <CardsWrapper>
-            {filteredProjects?.map((item) => {
-              return (
-                <ProjectCard
-                  data={item}
-                  status={
-                    item.deadline - new Date().getTime() > 0
-                      ? 'active'
-                      : 'completed'
-                  }
-                  key={item.path}
-                />
-              );
-            })}
-          </CardsWrapper>
-        )}
-      </ProjectWrapper>
+          >
+            My projects
+          </PreviousPageLink>
+
+          <CreatorInner>
+            <PageHeader>
+              <Title>New projects</Title>
+            </PageHeader>
+            <ProjectCreator
+              onClose={() => {
+                setIsCreationMode(false);
+              }}
+            />
+          </CreatorInner>
+        </CreatorWrapper>
+      ) : (
+        <>
+          <PageHeader>
+            <TitleAndButtons>
+              <Title>My projects</Title>
+              {allProjectsWithStatus !== null && (
+                <FilterButtons>
+                  <Button
+                    themeType="quaternary"
+                    primaryColor="red"
+                    onClick={() => {
+                      handleActiveClick(allProjectsWithStatus);
+                    }}
+                    isClickedTheme={filter === 'active'}
+                  >
+                    Active
+                  </Button>
+                  <Button
+                    themeType="quaternary"
+                    primaryColor="green"
+                    onClick={() => {
+                      handleCompletedClick(allProjectsWithStatus);
+                    }}
+                    isClickedTheme={filter === 'completed'}
+                  >
+                    Completed
+                  </Button>
+                </FilterButtons>
+              )}
+            </TitleAndButtons>
+
+            <Button
+              primaryColor="red"
+              secondaryColor="blue"
+              onClick={() => {
+                setIsCreationMode(true);
+              }}
+            >
+              Create a new project
+            </Button>
+          </PageHeader>
+
+          <ProjectWrapper>
+            <CardsWrapper>
+              {filteredProjects?.map((item) => {
+                return (
+                  <ProjectCard
+                    data={item}
+                    status={
+                      item.deadline - new Date().getTime() > 0
+                        ? 'active'
+                        : 'completed'
+                    }
+                    key={item.path}
+                  />
+                );
+              })}
+            </CardsWrapper>
+          </ProjectWrapper>
+        </>
+      )}
     </Common>
   ) : (
     <></>

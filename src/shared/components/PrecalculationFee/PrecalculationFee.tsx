@@ -2,13 +2,23 @@ import { useSelector } from 'react-redux';
 
 import { type AppReduxState } from 'shared/types';
 
+import { Wrapper } from './PrecalculationFee.styled';
+
 const PrecalculationFee = ({ goal }) => {
   const { protocolFeeParam } = useSelector(
     (state: AppReduxState) => state.protocol.data.config
   );
-  const chargedFee = Math.ceil(goal / ((100 - protocolFeeParam) / 100));
+  const extraFee = Math.ceil(goal * (protocolFeeParam / 100));
+  console.log(protocolFeeParam);
 
-  return chargedFee !== 0 && <>{chargedFee} ADA will be charged</>;
+  return (
+    <Wrapper>
+      Сommission —{' '}
+      {extraFee !== 0
+        ? `${extraFee} ADA (${protocolFeeParam}%)`
+        : `${protocolFeeParam}%`}
+    </Wrapper>
+  );
 };
 
 export { PrecalculationFee };

@@ -55,6 +55,35 @@ const CardsWrapper = styled.div`
   }
 `;
 
+const CreatorInner = styled.div`
+  max-width: 620px;
+`;
+
+const CreatorWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  position: relative;
+  margin-bottom: 160px;
+`;
+
+const PreviousPageLink = styled.div`
+  position: absolute;
+  left: 0;
+  top: 80px;
+  display: flex;
+  align-items: center;
+  font-family: 'Microsoft YaHei', Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 130%;
+  color: ${({ theme }) => theme.colors.blue};
+  cursor: pointer;
+  &:before {
+    content: url('/icons/arrow.svg');
+    margin-right: 23px;
+  }
+`;
+
 export {
   ProjectWrapper,
   Title,
@@ -62,4 +91,7 @@ export {
   PageHeader,
   TitleAndButtons,
   CardsWrapper,
+  CreatorWrapper,
+  CreatorInner,
+  PreviousPageLink,
 };
