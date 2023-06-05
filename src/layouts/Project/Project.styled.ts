@@ -1,0 +1,38 @@
+import styled from 'styled-components';
+
+const Wrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  position: relative;
+  margin-bottom: 160px;
+`;
+
+const Inner = styled.div`
+  max-width: 620px;
+`;
+
+const PreviousPage = styled.div`
+  position: absolute;
+  left: 0;
+  top: 80px;
+  display: flex;
+  align-items: center;
+  font-family: 'Microsoft YaHei', Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 130%;
+  color: ${({ theme }) => theme.colors.blue};
+  cursor: pointer;
+  &:before {
+    content: url('/icons/arrow.svg');
+    margin-right: 23px;
+  }
+`;
+
+const PageHeader = styled.div`
+  display: flex;
+  justify-content: space-between;
+  margin: 80px 0 60px 0;
+`;
+
+export { Wrapper, Inner, PreviousPage, PageHeader };

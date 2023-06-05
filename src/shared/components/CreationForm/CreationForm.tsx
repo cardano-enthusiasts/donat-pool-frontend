@@ -12,11 +12,11 @@ import {
   DurationTitle,
   Form,
   FundingGoal,
-} from './ProjectCreator.styled';
+} from './CreationForm.styled';
 import { type Props } from './types';
 import { Button, Checkbox, Input, PrecalculationFee } from '..';
 
-const ProjectCreator = ({ onClose }: Props) => {
+const CreationForm = ({ onClose }: Props) => {
   const createFundraising = useCreateFundraising();
   const [isChecked, setIsChecked] = useState(false);
   const [data, setData] = useState({
@@ -151,4 +151,4 @@ const ProjectCreator = ({ onClose }: Props) => {
   );
 };
 
-export { ProjectCreator };
+export { CreationForm };

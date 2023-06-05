@@ -30,10 +30,19 @@ const link = css`
 `;
 
 const h1 = css`
-  font-size: 32px;
-  line-height: 120%;
-  font-weight: 700;
-  color: ${({ theme }) => theme.colors.dark100};
+  font-family: 'Rammetto One', Arial, Helvetica, sans-serif;
+  font-weight: normal;
+  font-size: 54px;
+  line-height: 104%;
+  color: ${({ theme }) => theme.colors.red};
+  margin: 0;
+
+  @media (max-width: 900px) {
+    font-size: 36px;
+  }
+  @media (max-width: 400px) {
+    font-size: 30px;
+  }
 `;
 
 const h2 = css`
