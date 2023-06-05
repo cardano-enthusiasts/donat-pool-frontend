@@ -1,13 +1,19 @@
 import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 
-import { type AppReduxState, type Fundraising } from 'shared/types';
+import {
+  type ProjectStatus,
+  type AppReduxState,
+  type Fundraising,
+} from 'shared/types';
 
 import {
   CardsWrapper,
   FilterButtons,
+  NoProject,
   PageHeader,
   ProjectWrapper,
+  SadCat,
   Title,
   TitleAndButtons,
 } from './MyProjects.styled';
@@ -21,16 +27,18 @@ const MyProjects = ({ onCreateAProjectClick }: Props) => {
   const [filteredProjects, setFilteredProjects] = useState<
     Fundraising[] | null
   >(null);
-  const [filter, setFilter] = useState<'active' | 'completed' | null>(null);
+  const [filter, setFilter] = useState<ProjectStatus | null>(null);
   const { fundraisings } = useSelector(
     (state: AppReduxState) => state.info.data.user
   );
 
+  const getStatus = (deadline) =>
+    deadline - new Date().getTime() > 0 ? 'active' : 'completed';
+
   useEffect(() => {
     if (fundraisings) {
       const projects = fundraisings.map((item) => {
-        item.status =
-          item.deadline - new Date().getTime() > 0 ? 'active' : 'completed';
+        item.status = getStatus(item.deadline);
         return item;
       });
       setAllProjectsWithStatus(projects);
@@ -40,7 +48,7 @@ const MyProjects = ({ onCreateAProjectClick }: Props) => {
     }
   }, [fundraisings]);
 
-  const handleFilterClick = (status: 'active' | 'completed', projects) => {
+  const handleFilterClick = (status: ProjectStatus, projects) => {
     if (filter === status) {
       setFilteredProjects(projects);
       setFilter(null);
@@ -48,14 +56,6 @@ const MyProjects = ({ onCreateAProjectClick }: Props) => {
       setFilteredProjects(projects.filter((item) => item.status === status));
       setFilter(status);
     }
-  };
-
-  const handleActiveClick = (projects) => {
-    handleFilterClick('active', projects);
-  };
-
-  const handleCompletedClick = (projects) => {
-    handleFilterClick('completed', projects);
   };
 
   return (
@@ -69,7 +69,7 @@ const MyProjects = ({ onCreateAProjectClick }: Props) => {
                 themeType="quaternary"
                 primaryColor="red"
                 onClick={() => {
-                  handleActiveClick(allProjectsWithStatus);
+                  handleFilterClick('active', allProjectsWithStatus);
                 }}
                 isClickedTheme={filter === 'active'}
               >
@@ -79,7 +79,7 @@ const MyProjects = ({ onCreateAProjectClick }: Props) => {
                 themeType="quaternary"
                 primaryColor="green"
                 onClick={() => {
-                  handleCompletedClick(allProjectsWithStatus);
+                  handleFilterClick('completed', allProjectsWithStatus);
                 }}
                 isClickedTheme={filter === 'completed'}
               >
@@ -99,21 +99,23 @@ const MyProjects = ({ onCreateAProjectClick }: Props) => {
       </PageHeader>
 
       <ProjectWrapper>
-        <CardsWrapper>
-          {filteredProjects?.map((item) => {
-            return (
+        {filteredProjects ? (
+          <CardsWrapper>
+            {filteredProjects.map((item) => (
               <ProjectCard
                 data={item}
-                status={
-                  item.deadline - new Date().getTime() > 0
-                    ? 'active'
-                    : 'completed'
-                }
+                status={getStatus(item.deadline)}
                 key={item.path}
               />
-            );
-          })}
-        </CardsWrapper>
+            ))}
+          </CardsWrapper>
+        ) : (
+          <NoProject>
+            You don&apos;t have any projects yet. Create a project to start
+            receiving donations.
+            <SadCat src="/img/sad-cat.svg" alt="sad cat image" />
+          </NoProject>
+        )}
       </ProjectWrapper>
     </>
   );

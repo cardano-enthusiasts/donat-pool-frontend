@@ -15,7 +15,7 @@ interface Fundraising {
   threadTokenCurrency: Uint8Array;
   threadTokenName: Uint8Array;
   path: string;
-  status?: 'active' | 'completed';
+  status?: ProjectStatus;
 }
 
 type Fundraisings = Fundraising[];
@@ -50,6 +50,8 @@ type CurrentLandingSection =
   | 'roadmap'
   | 'contact us';
 
+type ProjectStatus = 'active' | 'completed';
+
 export type {
   Config,
   Fundraisings,
@@ -59,4 +61,5 @@ export type {
   WalletStatus,
   UserInfo,
   CurrentLandingSection,
+  ProjectStatus,
 };

@@ -37,44 +37,4 @@ const Content = styled.section`
   }
 `;
 
-const CloseButton = styled.button`
-  width: 20px;
-  height: 20px;
-  background: none;
-  cursor: pointer;
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  border: none;
-
-  @media (max-width: 360px) {
-    top: 4px;
-    right: 4px;
-  }
-
-  &::before {
-    content: '';
-    position: absolute;
-    width: 25px;
-    height: 2px;
-    background: ${({ theme }) => theme.colors.blue};
-    right: -40px;
-    top: -40px;
-    margin: 0 auto;
-    transform: rotate(45deg);
-  }
-
-  &::after {
-    content: '';
-    position: absolute;
-    width: 25px;
-    height: 2px;
-    background: ${({ theme }) => theme.colors.blue};
-    top: -40px;
-    right: -40px;
-    margin: 0 auto;
-    transform: rotate(-45deg);
-  }
-`;
-
-export { Wrapper, Background, Content, CloseButton };
+export { Wrapper, Background, Content };

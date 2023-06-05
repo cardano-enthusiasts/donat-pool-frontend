@@ -37,6 +37,7 @@ const TitleAndButtons = styled.div`
 const ProjectWrapper = styled.div`
   width: 100%;
   padding-bottom: 160px;
+  margin: 0 auto;
   @media (max-width: 700px) {
     max-width: 90vw;
   }
@@ -51,6 +52,17 @@ const CardsWrapper = styled.div`
   }
 `;
 
+const NoProject = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+`;
+
+const SadCat = styled.img`
+  max-width: 140px;
+`;
+
 export {
   Title,
   FilterButtons,
@@ -58,4 +70,6 @@ export {
   TitleAndButtons,
   ProjectWrapper,
   CardsWrapper,
+  NoProject,
+  SadCat,
 };

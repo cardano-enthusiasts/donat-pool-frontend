@@ -5,6 +5,9 @@ const Wrapper = styled.div`
   justify-content: center;
   position: relative;
   margin-bottom: 160px;
+  @media (max-width: 600px) {
+    margin-bottom: 60px;
+  }
 `;
 
 const Inner = styled.div`
@@ -27,12 +30,19 @@ const PreviousPage = styled.div`
     content: url('/icons/arrow.svg');
     margin-right: 23px;
   }
+
+  @media (max-width: 1200px) {
+    top: 20px;
+  }
 `;
 
 const PageHeader = styled.div`
   display: flex;
   justify-content: space-between;
   margin: 80px 0 60px 0;
+  @media (max-width: 900px) {
+    margin: 80px 0 30px 0;
+  }
 `;
 
 export { Wrapper, Inner, PreviousPage, PageHeader };

@@ -26,6 +26,9 @@ const DurationTitle = styled.div`
 const DurationInputContainer = styled.div`
   display: flex;
   gap: 10px;
+  @media (max-width: 600px) {
+    flex-direction: column;
+  }
 `;
 
 const FundingGoal = styled.div`

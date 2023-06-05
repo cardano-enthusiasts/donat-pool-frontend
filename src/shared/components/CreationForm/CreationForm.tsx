@@ -15,10 +15,12 @@ import {
 } from './CreationForm.styled';
 import { type Props } from './types';
 import { Button, Checkbox, Input, PrecalculationFee } from '..';
+import { ModalProjectCreated } from '../ModalProjectCreated/ModalProjectCreated';
 
 const CreationForm = ({ onClose }: Props) => {
   const createFundraising = useCreateFundraising();
   const [isChecked, setIsChecked] = useState(false);
+  const [isSuccessModalOpen, setIsSuccessModalOpen] = useState(true);
   const [data, setData] = useState({
     title: '',
     description: '',
@@ -62,92 +64,100 @@ const CreationForm = ({ onClose }: Props) => {
   };
 
   return (
-    <Form onSubmit={handleSubmit}>
-      <Input
-        title="the title of the project"
-        value={data.title}
-        onChange={(event) => {
-          handleChange(event, 'title');
-        }}
-        isDisabled={isRequesting}
-        maxLength={29}
-        placeholder="My project"
-      />
-      <DurationContainer>
-        <DurationTitle>Duration</DurationTitle>
-        <DurationInputContainer>
-          <Input
-            value={data.durationDays}
-            onChange={(event) => {
-              handleChange(event, 'durationDays');
-            }}
-            type="number"
-            isDisabled={isRequesting}
-            placeholder="dd"
-          />
-          <Input
-            value={data.durationHours}
-            onChange={(event) => {
-              handleChange(event, 'durationHours');
-            }}
-            type="number"
-            isDisabled={isRequesting}
-            placeholder="hh"
-          />
-          <Input
-            value={data.durationMinutes}
-            onChange={(event) => {
-              handleChange(event, 'durationMinutes');
-            }}
-            type="number"
-            isDisabled={isRequesting}
-            placeholder="mm"
-          />
-        </DurationInputContainer>
-      </DurationContainer>
-      <FundingGoal>
+    <>
+      <Form onSubmit={handleSubmit}>
         <Input
-          title="Amount"
-          value={data.goal}
+          title="the title of the project"
+          value={data.title}
           onChange={(event) => {
-            handleChange(event, 'goal');
+            handleChange(event, 'title');
           }}
-          type="number"
           isDisabled={isRequesting}
-          placeholder="10"
+          maxLength={29}
+          placeholder="My project"
         />
-        <PrecalculationFee goal={data.goal} />
-      </FundingGoal>
+        <DurationContainer>
+          <DurationTitle>Duration</DurationTitle>
+          <DurationInputContainer>
+            <Input
+              value={data.durationDays}
+              onChange={(event) => {
+                handleChange(event, 'durationDays');
+              }}
+              type="number"
+              isDisabled={isRequesting}
+              placeholder="dd"
+            />
+            <Input
+              value={data.durationHours}
+              onChange={(event) => {
+                handleChange(event, 'durationHours');
+              }}
+              type="number"
+              isDisabled={isRequesting}
+              placeholder="hh"
+            />
+            <Input
+              value={data.durationMinutes}
+              onChange={(event) => {
+                handleChange(event, 'durationMinutes');
+              }}
+              type="number"
+              isDisabled={isRequesting}
+              placeholder="mm"
+            />
+          </DurationInputContainer>
+        </DurationContainer>
+        <FundingGoal>
+          <Input
+            title="Amount"
+            value={data.goal}
+            onChange={(event) => {
+              handleChange(event, 'goal');
+            }}
+            type="number"
+            isDisabled={isRequesting}
+            placeholder="10"
+          />
+          <PrecalculationFee goal={data.goal} />
+        </FundingGoal>
 
-      <Checkbox
-        isChecked={isChecked}
-        onChange={() => {
-          setIsChecked(!isChecked);
-        }}
-        title="I agree to pay a commission in favor of the service.
+        <Checkbox
+          isChecked={isChecked}
+          onChange={() => {
+            setIsChecked(!isChecked);
+          }}
+          title="I agree to pay a commission in favor of the service.
         The commission will be debited after the end of the donating pull."
+        />
+        <ButtonWrapper>
+          <Button
+            type="button"
+            onClick={onClose}
+            themeType="tertiary"
+            isDisabled={isRequesting}
+            primaryColor="blue"
+          >
+            Cancel
+          </Button>
+          <Button
+            type="submit"
+            isDisabled={!isChecked || isRequesting}
+            primaryColor="red"
+            secondaryColor="blue"
+            width="100%"
+          >
+            Confirm
+          </Button>
+        </ButtonWrapper>
+      </Form>
+      <ModalProjectCreated
+        isOpen={isSuccessModalOpen}
+        onClose={() => {
+          setIsSuccessModalOpen(false);
+        }}
       />
-      <ButtonWrapper>
-        <Button
-          type="button"
-          onClick={onClose}
-          themeType="tertiary"
-          isDisabled={isRequesting}
-          primaryColor="blue"
-        >
-          Cancel
-        </Button>
-        <Button
-          type="submit"
-          isDisabled={!isChecked || isRequesting}
-          primaryColor="red"
-          secondaryColor="blue"
-          width="100%"
-        >
-          Confirm
-        </Button>
-      </ButtonWrapper>
-    </Form>
+    </>
   );
 };
 
