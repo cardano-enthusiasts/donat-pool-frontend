@@ -9,7 +9,6 @@ const PrecalculationFee = ({ goal }) => {
     (state: AppReduxState) => state.protocol.data.config
   );
   const extraFee = Math.ceil(goal * (protocolFeeParam / 100));
-  console.log(protocolFeeParam);
 
   return (
     <Wrapper>

@@ -10,4 +10,5 @@ export interface Props {
   isDisabled?: boolean;
   width?: string;
   isClickedTheme?: boolean;
+  size?: 's' | 'm';
 }

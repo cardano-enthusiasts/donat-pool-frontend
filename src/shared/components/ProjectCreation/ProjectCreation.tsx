@@ -9,7 +9,7 @@ const ProjectCreation = ({ onClose }: Props) => {
     <Project
       onPreviousPageClick={onClose}
       previousPageTitle="My projects"
-      pageHeader={<Title>New projects</Title>}
+      pageHeader={<Title>New project</Title>}
     >
       <CreationForm onClose={onClose} />
     </Project>

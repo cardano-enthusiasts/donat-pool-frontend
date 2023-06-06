@@ -1,11 +1,11 @@
-import { type ChangeEvent } from 'react';
+import { type ReactNode, type ChangeEvent } from 'react';
 
 export interface Props {
   value: string | number;
   onChange: (event: ChangeEvent) => void;
   dataAttr?: string;
   type?: 'text' | 'submit' | 'number';
-  title?: string | null;
+  children?: ReactNode | null;
   multiline?: boolean;
   isDisabled?: boolean;
   hint?: string | null;

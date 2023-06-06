@@ -20,7 +20,7 @@ const Inner = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 20px 0;
+  padding: 32px 0;
   @media (max-width: 900px) {
     flex-direction: column;
   }

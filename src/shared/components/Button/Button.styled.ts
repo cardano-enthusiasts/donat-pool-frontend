@@ -10,9 +10,9 @@ const getHoverAndDisabled = (primaryColor, secondaryColor) => {
   `;
 };
 
-const getPrimaryStyles = (primaryColor, secondaryColor) => css`
-  font-size: 16px;
-  padding: 10px 16px;
+const getPrimaryStyles = (primaryColor, secondaryColor, size) => css`
+  font-size: ${size === 's' ? '16px' : '20px'};
+  padding: ${size === 's' ? '10px' : '12px'} 16px;
   font-family: 'Microsoft YaHei', Arial, sans-serif;
   font-weight: bold;
   line-height: 133%;
@@ -100,14 +100,14 @@ const getSecondaryStyles = (primaryColor, secondaryColor) => css`
   }
 `;
 
-const getTertiaryStyles = (primaryColor, secondaryColor) => css`
+const getTertiaryStyles = (primaryColor, secondaryColor, size) => css`
   position: relative;
-  font-size: 16px;
-  padding: 10px 16px;
+  font-size: ${size === 's' ? '16px' : '20px'};
+  padding: ${size === 's' ? '10px 16px' : '12px 20px'};
   font-family: 'Microsoft YaHei', Arial, sans-serif;
   font-weight: bold;
   line-height: 133%;
-  height: 41.27px;
+  height: 50px;
 
   background-color: ${({ theme }) => theme.colors.white};
   color: ${({ theme }) =>
@@ -155,9 +155,9 @@ const getTertiaryStyles = (primaryColor, secondaryColor) => css`
   }
 `;
 
-const getQuaternaryStyles = (primaryColor, isClickedTheme) => css`
-  font-size: 14px;
-  padding: 8px 12px;
+const getQuaternaryStyles = (primaryColor, isClickedTheme, size) => css`
+  font-size: ${size === 's' ? '14px' : '16px'};
+  padding: ${size === 's' ? '8px' : '10px'} 16px;
   font-family: 'Microsoft YaHei', Arial, sans-serif;
   font-weight: bold;
   line-height: 133%;
@@ -181,6 +181,7 @@ const getStyles = ({
   width,
   themeType,
   isClickedTheme,
+  size,
 }) =>
   css`
     display: flex;
@@ -199,12 +200,12 @@ const getStyles = ({
     transition: all 0.5s;
     text-decoration: none;
     ${themeType === 'primary'
-      ? getPrimaryStyles(primaryColor, secondaryColor)
+      ? getPrimaryStyles(primaryColor, secondaryColor, size)
       : themeType === 'secondary'
       ? getSecondaryStyles(primaryColor, secondaryColor)
       : themeType === 'tertiary'
-      ? getTertiaryStyles(primaryColor, secondaryColor)
-      : getQuaternaryStyles(primaryColor, isClickedTheme)}
+      ? getTertiaryStyles(primaryColor, secondaryColor, size)
+      : getQuaternaryStyles(primaryColor, isClickedTheme, size)}
   `;
 
 const StyledButton = styled.button<{
@@ -214,6 +215,7 @@ const StyledButton = styled.button<{
   themeType: Props['themeType'];
   width: Props['width'];
   isClickedTheme: boolean;
+  size: NonNullable<Props['size']>;
 }>`
   ${({
     primaryColor,
@@ -222,6 +224,7 @@ const StyledButton = styled.button<{
     width,
     themeType,
     isClickedTheme,
+    size,
   }) =>
     getStyles({
       primaryColor,
@@ -230,6 +233,7 @@ const StyledButton = styled.button<{
       width,
       themeType,
       isClickedTheme,
+      size,
     })};
 `;
 
@@ -241,6 +245,7 @@ const LinkWrapper = styled.div<{
   isDisabled: boolean;
   width: Props['width'];
   isClickedTheme: boolean;
+  size: NonNullable<Props['size']>;
 }>`
   a {
     ${({
@@ -250,6 +255,7 @@ const LinkWrapper = styled.div<{
       width,
       themeType,
       isClickedTheme,
+      size,
     }) =>
       getStyles({
         primaryColor,
@@ -258,6 +264,7 @@ const LinkWrapper = styled.div<{
         width,
         themeType,
         isClickedTheme,
+        size,
       })};
   }
 `;

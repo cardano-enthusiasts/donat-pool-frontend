@@ -1,6 +1,7 @@
 import { type ReactNode } from 'react';
 
 export interface Props {
-  isOpen: boolean;
+  isChecked: boolean;
+  onChange: () => void;
   children: ReactNode;
 }

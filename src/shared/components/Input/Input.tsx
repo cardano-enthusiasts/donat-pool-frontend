@@ -12,7 +12,7 @@ const Input = ({
   onChange,
   dataAttr = '',
   type = 'text',
-  title = null,
+  children = null,
   multiline = false,
   isDisabled = false,
   hint = null,
@@ -22,7 +22,7 @@ const Input = ({
 }: Props) => {
   return (
     <Wrapper>
-      <Title>{title}</Title>
+      <Title>{children}</Title>
       {multiline ? (
         <StyledTextArea
           value={value}
