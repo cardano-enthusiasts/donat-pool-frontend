@@ -28,9 +28,9 @@ import {
   Sum,
   Title,
   Wrapper,
-} from './ProjectForAll.styled';
+} from './PublicProject.styled';
 
-const ProjectForAll = () => {
+const PublicProject = () => {
   const params = useParams();
   const offchain = useOffchain();
   const getAllFundraisings = useGetAllFundraisings();
@@ -146,4 +146,4 @@ const ProjectForAll = () => {
   );
 };
 
-export default ProjectForAll;
+export default PublicProject;

@@ -8,7 +8,7 @@ import {
   Landing,
   Management,
   Profile,
-  ProjectForAll,
+  PublicProject,
 } from 'pages';
 import { NotAvailableError } from 'shared/components';
 import 'react-toastify/dist/ReactToastify.css';
@@ -61,7 +61,7 @@ const Base = () => {
         <Route path="/management" element={<Management />} />
         <Route path="/my-profile" element={<Profile />} />
         <Route path="/all-projects" element={<AllProjects />} />
-        <Route path="/:id" element={<ProjectForAll />} />
+        <Route path="/:id" element={<PublicProject />} />
       </Routes>
     </>
   );
