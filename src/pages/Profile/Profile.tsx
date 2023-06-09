@@ -9,7 +9,7 @@ import { type AppReduxState } from 'shared/types';
 import { type Props } from './types';
 
 const Profile = ({ isCreationModeInitial = false }: Props) => {
-  const [isCreationMode, setIsCreationMode] = useState(true);
+  const [isCreationMode, setIsCreationMode] = useState(false);
   const offchain = useOffchain();
   const getUserFundraisings = useGetUserFundraisings();
   const { isRequesting } = useSelector(

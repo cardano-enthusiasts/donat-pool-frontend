@@ -30,7 +30,7 @@ const ProjectCard = ({
   };
 
   return (
-    <Link to={`/${path}`}>
+    <Link to={`/all-projects/${path}`}>
       <Wrapper status={status}>
         {status !== 'default' && (
           <Status status={status}>{statusTitles[status]}</Status>

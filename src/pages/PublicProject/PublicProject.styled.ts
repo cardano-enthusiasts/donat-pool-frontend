@@ -11,6 +11,10 @@ const Title = styled.h1`
   font-size: 54px;
   line-height: 104%;
   text-align: center;
+  max-width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 
   color: ${({ theme }) => theme.colors.red};
   margin-bottom: 24px;
