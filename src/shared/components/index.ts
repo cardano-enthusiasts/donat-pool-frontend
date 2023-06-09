@@ -27,3 +27,5 @@ export { ModalDonate } from './ModalDonate/ModalDonate';
 export { ProjectCreation } from './ProjectCreation/ProjectCreation';
 export { MyProjects } from './MyProjects/MyProjects';
 export { ModalLoading } from './ModalLoading/ModalLoading';
+export { ModalError } from './ModalError/ModalError';
+export { ModalSuccess } from './ModalSuccess/ModalSuccess';

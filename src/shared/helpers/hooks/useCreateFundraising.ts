@@ -1,5 +1,4 @@
 import { useDispatch } from 'react-redux';
-import { toast } from 'react-toastify';
 
 import {
   create,
@@ -17,7 +16,7 @@ import {
 } from './';
 import { getOffchainError } from '..';
 
-const useCreateFundraising = () => {
+const useCreateFundraising = (onSuccess) => {
   const offchain = useOffchain();
   const dispatch = useDispatch();
   const getUserFundraisings = useGetUserFundraisings();
@@ -27,7 +26,7 @@ const useCreateFundraising = () => {
 
   const handleSuccess = (fundraisingData) => {
     dispatch(setWalletStatusSuccess('connected'));
-    toast.success('The fundraising was created successfully');
+    onSuccess();
     dispatch(createSuccess());
     getUserFundraisings();
   };

@@ -15,14 +15,25 @@ import {
   LabelHint,
 } from './CreationForm.styled';
 import { type FormError, type Props } from './types';
-import { Button, Checkbox, Input, ModalLoading, PrecalculationFee } from '..';
+import {
+  Button,
+  Checkbox,
+  Input,
+  ModalError,
+  ModalLoading,
+  PrecalculationFee,
+} from '..';
 import { ModalProjectCreated } from '../ModalProjectCreated/ModalProjectCreated';
 
 const CreationForm = ({ onClose }: Props) => {
-  const createFundraising = useCreateFundraising();
+  const handleSuccess = () => {
+    setIsSuccessModalOpen(true);
+  };
+  const createFundraising = useCreateFundraising(handleSuccess);
   const [isChecked, setIsChecked] = useState(false);
   const [isSuccessModalOpen, setIsSuccessModalOpen] = useState(false);
-  const [isLoadingModalOpen, setIsLoadingModalOpen] = useState(true);
+  const [isLoadingModalOpen, setIsLoadingModalOpen] = useState(false);
+  const [isErrorModalOpen, setIsErrorModalOpen] = useState(false);
   const [data, setData] = useState({
     title: '',
     description: '',
@@ -31,7 +42,7 @@ const CreationForm = ({ onClose }: Props) => {
     durationHours: '',
     durationMinutes: '',
   });
-  const { isRequesting } = useSelector(
+  const { isRequesting, error: createError } = useSelector(
     (state: AppReduxState) => state.fundraising.communication.create
   );
   const { maxAmountParam, minAmountParam, maxDurationParam, minDurationParam } =
@@ -82,6 +93,12 @@ const CreationForm = ({ onClose }: Props) => {
   useEffect(() => {
     setIsLoadingModalOpen(isRequesting);
   }, [isRequesting]);
+
+  useEffect(() => {
+    if (createError) {
+      setIsErrorModalOpen(true);
+    }
+  }, [createError]);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -225,6 +242,14 @@ const CreationForm = ({ onClose }: Props) => {
         }}
       />
       <ModalLoading isOpen={isLoadingModalOpen} />
+      <ModalError
+        isOpen={isErrorModalOpen}
+        title="New project"
+        errorText={createError}
+        onClose={() => {
+          setIsErrorModalOpen(false);
+        }}
+      />
     </>
   );
 };

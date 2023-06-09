@@ -16,48 +16,4 @@ const Buttons = styled.div`
   gap: 24px;
 `;
 
-const Loading = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  gap: 40px;
-`;
-
-const LoadingDonut = styled.img`
-  animation: spin 4s linear infinite;
-  @-moz-keyframes spin {
-    100% {
-      -moz-transform: rotate(360deg);
-    }
-  }
-  @-webkit-keyframes spin {
-    100% {
-      -webkit-transform: rotate(360deg);
-    }
-  }
-  @keyframes spin {
-    100% {
-      -webkit-transform: rotate(360deg);
-      transform: rotate(360deg);
-    }
-  }
-`;
-
-const Success = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  gap: 40px;
-`;
-
-const Error = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  gap: 40px;
-`;
-
-export { Title, InputWrapper, Buttons, Loading, LoadingDonut, Success, Error };
+export { Title, InputWrapper, Buttons };

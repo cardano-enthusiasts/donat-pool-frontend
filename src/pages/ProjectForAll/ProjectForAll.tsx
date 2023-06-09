@@ -3,9 +3,19 @@ import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 
 import { Common } from 'layouts';
-import { Button, ModalDonate } from 'shared/components';
+import {
+  Button,
+  ModalDonate,
+  ModalError,
+  ModalLoading,
+  ModalSuccess,
+} from 'shared/components';
 import getDate from 'shared/helpers/getDate';
-import { useGetAllFundraisings, useOffchain } from 'shared/helpers/hooks';
+import {
+  useDonate,
+  useGetAllFundraisings,
+  useOffchain,
+} from 'shared/helpers/hooks';
 import { type AppReduxState, type Fundraising } from 'shared/types';
 
 import {
@@ -28,9 +38,36 @@ const ProjectForAll = () => {
     null
   );
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isModalErrorOpen, setIsModalErrorOpen] = useState(false);
+  const [isModalLoadingOpen, setIsModalLoadingOpen] = useState(false);
+  const [isModalSuccessOpen, setIsModalSuccessOpen] = useState(false);
+  const handleDonateSuccess = () => {
+    setIsModalSuccessOpen(true);
+    setIsModalOpen(false);
+  };
+  const handleDonateError = () => {
+    setIsModalOpen(false);
+    setIsModalErrorOpen(true);
+  };
+  const donate = useDonate({
+    onSuccess: handleDonateSuccess,
+    onError: handleDonateError,
+  });
   const { allFundraisings } = useSelector(
     (state: AppReduxState) => state.info.data
   );
+  const { isRequesting, error } = useSelector(
+    (state: AppReduxState) => state.fundraising.communication.donate
+  );
+
+  useEffect(() => {
+    if (isRequesting) {
+      setIsModalLoadingOpen(true);
+      setIsModalOpen(false);
+    } else {
+      setIsModalLoadingOpen(false);
+    }
+  }, [isRequesting]);
 
   useEffect(() => {
     if (offchain) {
@@ -81,6 +118,26 @@ const ProjectForAll = () => {
         data={{
           threadTokenCurrency: currentProject.threadTokenCurrency,
           threadTokenName: currentProject.threadTokenName,
+        }}
+        donate={donate}
+      />
+      <ModalError
+        isOpen={isModalErrorOpen}
+        title="How many ADA would you like to donate?"
+        errorText={error}
+        onClose={() => {
+          setIsModalErrorOpen(false);
+        }}
+      />
+      <ModalLoading
+        isOpen={isModalLoadingOpen}
+        title="How many ADA would you like to donate?"
+      />
+      <ModalSuccess
+        isOpen={isModalSuccessOpen}
+        description="Congratulations! Your donut is ready!"
+        onClose={() => {
+          setIsModalSuccessOpen(false);
         }}
       />
     </>

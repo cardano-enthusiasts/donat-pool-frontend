@@ -34,8 +34,8 @@ const useDonate = ({ onSuccess, onError }) => {
 
   const handleError = (error) => {
     handleCommonError(error);
-    dispatch(donateFail(error));
     onError();
+    dispatch(donateFail(error));
   };
 
   if (offchain) {
