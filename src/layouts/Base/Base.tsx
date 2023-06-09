@@ -7,6 +7,7 @@ import {
   AllProjects,
   Landing,
   Management,
+  PrivateProject,
   Profile,
   PublicProject,
 } from 'pages';
@@ -62,6 +63,7 @@ const Base = () => {
         <Route path="/my-profile" element={<Profile />} />
         <Route path="/all-projects" element={<AllProjects />} />
         <Route path="/all-projects/:id" element={<PublicProject />} />
+        <Route path="/my-profile/:id" element={<PrivateProject />} />
       </Routes>
     </>
   );

@@ -7,7 +7,7 @@ const GitHub = () => {
       rel="noreferrer"
       href="https://github.com/fullstack-development"
     >
-      <Img src="icons/github.svg" />
+      <Img src="/icons/github.svg" />
     </Link>
   );
 };

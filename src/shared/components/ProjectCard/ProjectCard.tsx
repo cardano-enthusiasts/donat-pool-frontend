@@ -22,6 +22,7 @@ const ProjectCard = ({
     threadTokenName,
     threadTokenCurrency,
   },
+  linkSection,
   status = 'default',
 }: Props) => {
   const statusTitles = {
@@ -30,7 +31,7 @@ const ProjectCard = ({
   };
 
   return (
-    <Link to={`/all-projects/${path}`}>
+    <Link to={`/${linkSection}/${path}`}>
       <Wrapper status={status}>
         {status !== 'default' && (
           <Status status={status}>{statusTitles[status]}</Status>

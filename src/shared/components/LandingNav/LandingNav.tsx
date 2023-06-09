@@ -41,7 +41,7 @@ const LandingNav = ({
     >
       {windowWidth < mobileResolution && (
         <Icon
-          src={`icons/${isOpen ? 'close' : 'menu'}.svg`}
+          src={`/icons/${isOpen ? 'close' : 'menu'}.svg`}
           alt="icon"
           onClick={handleIconClick}
         />

@@ -7,7 +7,7 @@ const ModalError = ({ isOpen, title, errorText, onClose }: Props) => {
     <Modal isOpen={isOpen}>
       <Title>{title}</Title>
       <Inner>
-        <Img src="img/bitten-donut.svg" alt="bitten donut" />
+        <Img src="/img/bitten-donut.svg" alt="bitten donut" />
         <ErrorText>{errorText}</ErrorText>
         <Button
           themeType="tertiary"

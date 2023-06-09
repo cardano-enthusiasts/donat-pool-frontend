@@ -62,7 +62,7 @@ const Header = ({ currentPage }: Props) => {
             setIsMenuOpen(!isMenuOpen);
           }}
           isMenuOpen={isMenuOpen}
-          src={`icons/${isMenuOpen ? 'close' : 'menu'}.svg`}
+          src={`/icons/${isMenuOpen ? 'close' : 'menu'}.svg`}
           alt="close icon"
         />
       </Wrapper>

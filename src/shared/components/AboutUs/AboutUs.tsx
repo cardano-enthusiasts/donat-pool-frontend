@@ -18,7 +18,7 @@ const AboutUs = () => {
   return (
     <Wrapper>
       <TeamImageWrapper>
-        <TeamImage src="img/team.svg" />
+        <TeamImage src="/img/team.svg" />
       </TeamImageWrapper>
       <ButtonWrapper>
         <Button themeType="secondary" primaryColor="blue" secondaryColor="red">

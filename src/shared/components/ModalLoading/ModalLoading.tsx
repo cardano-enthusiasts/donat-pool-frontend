@@ -25,7 +25,7 @@ const ModalLoading = ({ isOpen, title = 'Please wait...' }) => {
     <Modal isOpen={isOpen}>
       <Inner>
         <Title>{title}</Title>
-        <Img src={`img/donut-${index}.svg`} />
+        <Img src={`/img/donut-${index}.svg`} />
         <Description>
           Please wait a bit. We are preparing your donut
         </Description>

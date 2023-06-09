@@ -39,7 +39,7 @@ const PreviousPage = styled.div`
 const PageHeader = styled.div`
   display: flex;
   justify-content: space-between;
-  margin: 80px 0 60px 0;
+  margin-top: 80px;
   @media (max-width: 900px) {
     margin: 80px 0 30px 0;
   }

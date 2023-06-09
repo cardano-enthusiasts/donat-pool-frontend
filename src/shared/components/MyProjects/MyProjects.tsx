@@ -32,17 +32,10 @@ const MyProjects = ({ onCreateAProjectClick }: Props) => {
     (state: AppReduxState) => state.info.data.user
   );
 
-  const getStatus = (deadline) =>
-    deadline - new Date().getTime() > 0 ? 'active' : 'completed';
-
   useEffect(() => {
     if (fundraisings) {
-      const projects = fundraisings.map((item) => {
-        item.status = getStatus(item.deadline);
-        return item;
-      });
-      setAllProjectsWithStatus(projects);
-      setFilteredProjects(projects);
+      setAllProjectsWithStatus(fundraisings);
+      setFilteredProjects(fundraisings);
     } else {
       setAllProjectsWithStatus(null);
     }
@@ -104,8 +97,9 @@ const MyProjects = ({ onCreateAProjectClick }: Props) => {
             {filteredProjects.map((item) => (
               <ProjectCard
                 data={item}
-                status={getStatus(item.deadline)}
+                linkSection="my-profile"
                 key={item.path}
+                status={item.status}
               />
             ))}
           </CardsWrapper>

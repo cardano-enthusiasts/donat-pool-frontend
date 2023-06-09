@@ -56,6 +56,7 @@ const AllProjects = () => {
               <ProjectCard
                 data={project}
                 key={project.threadTokenCurrency.toString()}
+                linkSection="all-projects"
               />
             ))
           ) : (

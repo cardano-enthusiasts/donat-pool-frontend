@@ -8,7 +8,7 @@ const ModalSuccess = ({ description, isOpen, onClose }: Props) => {
       <Wrapper>
         <Title>Well done!</Title>
         <Inner>
-          <Img src="img/happy-cat.svg" alt="happy cat" />
+          <Img src="/img/happy-cat.svg" alt="happy cat" />
           <Description>{description}</Description>
           <Button
             themeType="tertiary"
