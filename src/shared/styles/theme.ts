@@ -32,6 +32,7 @@ const theme: Theme = {
     black: '#141414',
     gray1: '#333333',
     gray2: '#828587',
+    error: '#C820F2',
   },
 };
 

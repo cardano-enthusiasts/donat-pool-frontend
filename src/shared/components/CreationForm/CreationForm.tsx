@@ -14,7 +14,7 @@ import {
   FundingGoal,
   LabelHint,
 } from './CreationForm.styled';
-import { type Props } from './types';
+import { type FormError, type Props } from './types';
 import { Button, Checkbox, Input, ModalLoading, PrecalculationFee } from '..';
 import { ModalProjectCreated } from '../ModalProjectCreated/ModalProjectCreated';
 
@@ -34,6 +34,50 @@ const CreationForm = ({ onClose }: Props) => {
   const { isRequesting } = useSelector(
     (state: AppReduxState) => state.fundraising.communication.create
   );
+  const { maxAmountParam, minAmountParam, maxDurationParam, minDurationParam } =
+    useSelector((state: AppReduxState) => state.protocol.data.config);
+  const initialErrors = {
+    title: null,
+    duration: null,
+    goal: null,
+  };
+  const [error, setError] = useState<FormError>(initialErrors);
+
+  const isTitleEmpty = data.title === '';
+  const isGoalLessThanMin = Number(data.goal) < minAmountParam;
+  const isGoalMoreThanMax = Number(data.goal) > maxAmountParam;
+  const durationMinutes =
+    Number(data.durationDays) * 1440 +
+    Number(data.durationHours) * 60 +
+    Number(data.durationMinutes);
+  const isDurationLessThanMin = durationMinutes < minDurationParam;
+  const isDurationMoreThanMax = durationMinutes > maxDurationParam;
+  const isAnyError =
+    isTitleEmpty ||
+    isGoalLessThanMin ||
+    isGoalMoreThanMax ||
+    isDurationLessThanMin ||
+    isDurationMoreThanMax;
+
+  const setErrorsToForm = () => {
+    const title = isTitleEmpty ? 'Please fill in the title field' : null;
+    const goal = isGoalLessThanMin
+      ? 'The amount is less than the minimum value'
+      : isGoalMoreThanMax
+      ? 'The amount is more than the maximum value'
+      : null;
+    const duration = isDurationLessThanMin
+      ? 'The duration is less than the minimum value'
+      : isDurationMoreThanMax
+      ? 'The duration is more than the maximum value'
+      : null;
+
+    setError({
+      title,
+      goal,
+      duration,
+    });
+  };
 
   useEffect(() => {
     setIsLoadingModalOpen(isRequesting);
@@ -41,32 +85,37 @@ const CreationForm = ({ onClose }: Props) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    if (isAnyError) {
+      setErrorsToForm();
+    } else {
+      const createFundraisingParams = {
+        description: data.title,
+        amount: Number(data.goal),
+        duration: {
+          days: Number(data.durationDays),
+          hours: Number(data.durationHours),
+          minutes: Number(data.durationMinutes),
+        },
+      };
 
-    const createFundraisingParams = {
-      description: data.title,
-      amount: Number(data.goal),
-      duration: {
-        days: Number(data.durationDays),
-        hours: Number(data.durationHours),
-        minutes: Number(data.durationMinutes),
-      },
-    };
-    createFundraising(createFundraisingParams);
+      createFundraising(createFundraisingParams);
+    }
   };
 
   const handleChange = (
     event: ChangeEvent,
     type:
       | 'title'
-      | 'description'
       | 'goal'
       | 'durationDays'
       | 'durationHours'
       | 'durationMinutes'
   ) => {
     event.preventDefault();
+    setError(initialErrors);
     const { value } = event.target as HTMLInputElement;
     setData({ ...data, [type]: value });
+    setError(initialErrors);
   };
 
   return (
@@ -80,12 +129,16 @@ const CreationForm = ({ onClose }: Props) => {
           isDisabled={isRequesting}
           maxLength={29}
           placeholder="My project"
+          error={error.title}
         >
           The title of the project
         </Input>
         <DurationContainer>
           <DurationTitle>
-            Project duration <LabelHint>/ Max: 90 days</LabelHint>
+            Project duration
+            <LabelHint>
+              / Max: {Math.floor(maxDurationParam / 1440)} days
+            </LabelHint>
           </DurationTitle>
           <DurationInputContainer>
             <Input
@@ -95,6 +148,7 @@ const CreationForm = ({ onClose }: Props) => {
               }}
               type="number"
               placeholder="dd"
+              error={error.duration ? '' : null}
             />
             <Input
               value={data.durationHours}
@@ -103,6 +157,7 @@ const CreationForm = ({ onClose }: Props) => {
               }}
               type="number"
               placeholder="hh"
+              error={error.duration ? '' : null}
             />
             <Input
               value={data.durationMinutes}
@@ -111,6 +166,7 @@ const CreationForm = ({ onClose }: Props) => {
               }}
               type="number"
               placeholder="mm"
+              error={error.duration}
             />
           </DurationInputContainer>
         </DurationContainer>
@@ -122,10 +178,13 @@ const CreationForm = ({ onClose }: Props) => {
             }}
             type="number"
             placeholder="10"
+            hint={`MAX: ${maxAmountParam}`}
+            error={error.goal}
           >
-            Amount <LabelHint> / ADA</LabelHint>
+            Amount
+            <LabelHint>/ ADA</LabelHint>
           </Input>
-          <PrecalculationFee goal={data.goal} />
+          <PrecalculationFee goal={Number(data.goal)} />
         </FundingGoal>
 
         <Checkbox

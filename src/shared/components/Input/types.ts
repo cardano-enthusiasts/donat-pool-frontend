@@ -12,4 +12,5 @@ export interface Props {
   placeholder?: string;
   maxLength?: number | undefined;
   rows?: number | undefined;
+  error?: string | null;
 }

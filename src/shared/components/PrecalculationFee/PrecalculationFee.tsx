@@ -3,8 +3,9 @@ import { useSelector } from 'react-redux';
 import { type AppReduxState } from 'shared/types';
 
 import { Wrapper } from './PrecalculationFee.styled';
+import { type Props } from './types';
 
-const PrecalculationFee = ({ goal }) => {
+const PrecalculationFee = ({ goal }: Props) => {
   const { protocolFeeParam } = useSelector(
     (state: AppReduxState) => state.protocol.data.config
   );

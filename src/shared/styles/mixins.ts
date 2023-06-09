@@ -70,31 +70,38 @@ const cardWrapper = css`
   }
 `;
 
-const fieldStyles = css`
-  width: 100%;
-  min-width: 150px;
-  border: 2px solid ${({ theme }) => theme.colors.black};
-  border-radius: 6px;
-  width: 100%;
-  padding: 13px 16px;
-  outline: none;
-  color: ${({ theme }) => theme.colors.black};
-  font-family: 'Microsoft YaHei', Arial, sans-serif;
-  background-color: transparent;
-  font-size: 20px;
+const getFieldStyles = ({ errorInfo }) =>
+  css`
+    width: 100%;
+    min-width: 150px;
+    border: 2px solid
+      ${({ theme }) =>
+        errorInfo || errorInfo === ''
+          ? theme.colors.error
+          : theme.colors.black};
 
-  &::placeholder {
+    color: ${({ theme }) =>
+      errorInfo || errorInfo === '' ? theme.colors.error : theme.colors.black};
+    border-radius: 6px;
+    width: 100%;
+    padding: 13px 16px;
+    outline: none;
     font-family: 'Microsoft YaHei', Arial, sans-serif;
+    background-color: transparent;
     font-size: 20px;
-    color: ${({ theme }) => theme.colors.green};
-  }
 
-  &:disabled {
-    cursor: not-allowed;
-    color: ${({ theme }) => theme.colors.dark50};
-    background-color: ${({ theme }) => theme.colors.dark5};
-  }
-`;
+    &::placeholder {
+      font-family: 'Microsoft YaHei', Arial, sans-serif;
+      font-size: 20px;
+      color: ${({ theme }) => theme.colors.green};
+    }
+
+    &:disabled {
+      cursor: not-allowed;
+      color: ${({ theme }) => theme.colors.dark50};
+      background-color: ${({ theme }) => theme.colors.dark5};
+    }
+  `;
 
 const getLargeLayoutPadding = () => css`
   padding-right: 80px;
@@ -117,7 +124,7 @@ export {
   h2,
   h3,
   cardWrapper,
-  fieldStyles,
+  getFieldStyles,
   getLargeLayoutPadding,
   getMediumLayoutPadding,
   getSmallLayoutPadding,
