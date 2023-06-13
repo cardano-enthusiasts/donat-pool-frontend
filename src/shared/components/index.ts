@@ -31,3 +31,4 @@ export { ModalError } from './ModalError/ModalError';
 export { ModalSuccess } from './ModalSuccess/ModalSuccess';
 export { RaisedCounter } from './RaisedCounter/RaisedCounter';
 export { PrivateProjectsActions } from './PrivateProjectsActions/PrivateProjectsActions';
+export { ModalProjectCreated } from './ModalProjectCreated/ModalProjectCreated';

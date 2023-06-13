@@ -1,15 +1,17 @@
+import AllProjects from './AllProjects/AllProjects';
 import Landing from './Landing/Landing';
-import AllProjects from '../pages/AllProjects/AllProjects';
-import Management from '../pages/Management/Management';
-import PrivateProject from '../pages/PrivateProject/PrivateProject';
-import Profile from '../pages/Profile/Profile';
-import PublicProject from '../pages/PublicProject/PublicProject';
+import Management from './Management/Management';
+import NewProject from './NewProject/NewProject';
+import PrivateProject from './PrivateProject/PrivateProject';
+import PrivateProjects from './PrivateProjects/PrivateProjects';
+import PublicProject from './PublicProject/PublicProject';
 
 export {
-  Profile,
+  PrivateProjects,
   AllProjects,
   Landing,
   Management,
   PublicProject,
   PrivateProject,
+  NewProject,
 };

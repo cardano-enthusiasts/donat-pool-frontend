@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
 import { Common } from 'layouts';
 import { Button, ProjectCard } from 'shared/components';
@@ -15,6 +16,7 @@ import {
 
 const AllProjects = () => {
   const offchain = useOffchain();
+  const navigate = useNavigate();
   const getAllFundraisings = useGetAllFundraisings();
   const {
     data: { allFundraisings },
@@ -30,7 +32,7 @@ const AllProjects = () => {
   }, [offchain]);
 
   useEffect(() => {
-    document.title = 'Projects';
+    document.title = 'All projects';
   }, []);
 
   const sortFundraising = (fundraisings: Fundraisings) => {
@@ -45,7 +47,14 @@ const AllProjects = () => {
       <Wrapper>
         <TitleAndButton>
           <Title>All Donation pools</Title>
-          <Button primaryColor="red" secondaryColor="blue" fontColor="black">
+          <Button
+            primaryColor="red"
+            secondaryColor="blue"
+            fontColor="black"
+            onClick={() => {
+              navigate('/new-project');
+            }}
+          >
             Create a new project
           </Button>
         </TitleAndButton>

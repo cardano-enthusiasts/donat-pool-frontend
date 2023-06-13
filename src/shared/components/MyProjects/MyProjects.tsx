@@ -97,7 +97,7 @@ const MyProjects = ({ onCreateAProjectClick }: Props) => {
             {filteredProjects.map((item) => (
               <ProjectCard
                 data={item}
-                linkSection="my-profile"
+                linkSection="my-projects"
                 key={item.path}
                 status={item.status}
               />

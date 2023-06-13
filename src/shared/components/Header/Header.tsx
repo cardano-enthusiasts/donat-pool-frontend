@@ -26,7 +26,7 @@ const Header = ({ currentPage }: Props) => {
   };
   const links = [
     { title: 'Home', href: '/', id: 'home' },
-    { title: 'My profile', href: '/my-profile', id: 'profile' },
+    { title: 'My projects', href: '/my-projects', id: 'profile' },
     { title: 'Projects', href: '/all-projects', id: 'projects' },
   ];
   const [isMenuOpen, setIsMenuOpen] = useState(false);

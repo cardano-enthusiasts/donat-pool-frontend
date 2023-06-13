@@ -1,15 +1,14 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
 import { Common } from 'layouts';
-import { MyProjects, ProjectCreation } from 'shared/components';
+import { MyProjects } from 'shared/components';
 import { useGetUserFundraisings, useOffchain } from 'shared/helpers/hooks';
 import { type AppReduxState } from 'shared/types';
 
-import { type Props } from './types';
-
-const Profile = ({ isCreationModeInitial = false }: Props) => {
-  const [isCreationMode, setIsCreationMode] = useState(false);
+const PrivateProjects = () => {
+  const navigate = useNavigate();
   const offchain = useOffchain();
   const getUserFundraisings = useGetUserFundraisings();
   const { isRequesting } = useSelector(
@@ -28,23 +27,15 @@ const Profile = ({ isCreationModeInitial = false }: Props) => {
 
   return !isRequesting ? (
     <Common>
-      {isCreationMode ? (
-        <ProjectCreation
-          onClose={() => {
-            setIsCreationMode(false);
-          }}
-        />
-      ) : (
-        <MyProjects
-          onCreateAProjectClick={() => {
-            setIsCreationMode(true);
-          }}
-        />
-      )}
+      <MyProjects
+        onCreateAProjectClick={() => {
+          navigate('/new-project');
+        }}
+      />
     </Common>
   ) : (
     <></>
   );
 };
 
-export default Profile;
+export default PrivateProjects;

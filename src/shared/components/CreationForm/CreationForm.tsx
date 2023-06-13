@@ -22,8 +22,8 @@ import {
   ModalError,
   ModalLoading,
   PrecalculationFee,
+  ModalProjectCreated,
 } from '..';
-import { ModalProjectCreated } from '../ModalProjectCreated/ModalProjectCreated';
 
 const CreationForm = ({ onClose }: Props) => {
   const handleSuccess = () => {

@@ -50,9 +50,9 @@ const PrivateProject = () => {
     <>
       <Common>
         <Project
-          previousPageTitle="My profile"
+          previousPageTitle="My projects"
           onPreviousPageClick={() => {
-            navigate('/my-profile');
+            navigate('/my-projects');
           }}
           pageHeader={<Title>{currentProject.description}</Title>}
         >

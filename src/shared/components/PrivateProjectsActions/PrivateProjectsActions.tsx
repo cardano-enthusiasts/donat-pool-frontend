@@ -19,7 +19,7 @@ const PrivateProjectsActions = ({ project }: Props) => {
   const [isModalErrorOpen, setIsModalErrorOpen] = useState(false);
   const navigate = useNavigate();
   const onSuccess = () => {
-    navigate('/my-profile');
+    navigate('/my-projects');
   };
   const onError = () => {
     setIsModalErrorOpen(true);
