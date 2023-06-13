@@ -29,3 +29,5 @@ export { MyProjects } from './MyProjects/MyProjects';
 export { ModalLoading } from './ModalLoading/ModalLoading';
 export { ModalError } from './ModalError/ModalError';
 export { ModalSuccess } from './ModalSuccess/ModalSuccess';
+export { RaisedCounter } from './RaisedCounter/RaisedCounter';
+export { PrivateProjectsActions } from './PrivateProjectsActions/PrivateProjectsActions';

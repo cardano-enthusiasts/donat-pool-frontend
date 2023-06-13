@@ -43,4 +43,10 @@ const Inner = styled.div`
   width: 600px;
 `;
 
-export { Title, DeadlineAndStatus, Status, Deadline, Inner };
+const CounterWrapper = styled.div`
+  display: flex;
+  padding: 24px 0;
+  border-bottom: 2px solid #000000;
+`;
+
+export { Title, DeadlineAndStatus, Status, Deadline, Inner, CounterWrapper };

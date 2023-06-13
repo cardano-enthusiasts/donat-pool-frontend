@@ -8,9 +8,10 @@ const addStatus = (fundraisings: Omit<Fundraisings, 'status'>): Fundraisings =>
     return {
       ...fundraising,
       status:
-        fundraising.deadline - new Date().getTime() > 0
-          ? 'active'
-          : 'completed',
+        fundraising.deadline < new Date().getTime() ||
+        fundraising.goal === fundraising.raisedAmount
+          ? 'completed'
+          : 'active',
     };
   });
 

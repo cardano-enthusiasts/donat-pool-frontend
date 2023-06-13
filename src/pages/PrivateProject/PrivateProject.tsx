@@ -3,11 +3,13 @@ import { useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
 
 import { Common, Project } from 'layouts';
+import { PrivateProjectsActions, RaisedCounter } from 'shared/components';
 import getDate from 'shared/helpers/getDate';
 import { useGetUserFundraisings, useOffchain } from 'shared/helpers/hooks';
 import { type AppReduxState, type Fundraising } from 'shared/types';
 
 import {
+  CounterWrapper,
   Deadline,
   DeadlineAndStatus,
   Inner,
@@ -45,24 +47,33 @@ const PrivateProject = () => {
   }, [fundraisings, params.id]);
 
   return currentProject ? (
-    <Common>
-      <Project
-        previousPageTitle="My profile"
-        onPreviousPageClick={() => {
-          navigate('/my-profile');
-        }}
-        pageHeader={<Title>{currentProject.description}</Title>}
-      >
-        <Inner>
-          <DeadlineAndStatus>
-            <Status isActive={currentProject.status === 'active'}>
-              {currentProject.status === 'active' ? 'Active' : 'Completed'}
-            </Status>
-            <Deadline>{getDate(currentProject.deadline)}</Deadline>
-          </DeadlineAndStatus>
-        </Inner>
-      </Project>
-    </Common>
+    <>
+      <Common>
+        <Project
+          previousPageTitle="My profile"
+          onPreviousPageClick={() => {
+            navigate('/my-profile');
+          }}
+          pageHeader={<Title>{currentProject.description}</Title>}
+        >
+          <Inner>
+            <DeadlineAndStatus>
+              <Status isActive={currentProject.status === 'active'}>
+                {currentProject.status === 'active' ? 'Active' : 'Completed'}
+              </Status>
+              <Deadline>{getDate(currentProject.deadline)}</Deadline>
+            </DeadlineAndStatus>
+            <CounterWrapper>
+              <RaisedCounter
+                raised={currentProject.raisedAmount / 1000000}
+                goal={currentProject.goal / 1000000}
+              />
+            </CounterWrapper>
+            <PrivateProjectsActions project={currentProject} />
+          </Inner>
+        </Project>
+      </Common>
+    </>
   ) : (
     <></>
   );

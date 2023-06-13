@@ -107,7 +107,6 @@ const getTertiaryStyles = (primaryColor, secondaryColor, size) => css`
   font-family: 'Microsoft YaHei', Arial, sans-serif;
   font-weight: bold;
   line-height: 133%;
-  height: 50px;
 
   background-color: ${({ theme }) => theme.colors.white};
   color: ${({ theme }) =>

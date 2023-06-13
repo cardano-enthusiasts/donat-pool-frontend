@@ -9,6 +9,7 @@ import {
   ModalError,
   ModalLoading,
   ModalSuccess,
+  RaisedCounter,
 } from 'shared/components';
 import getDate from 'shared/helpers/getDate';
 import {
@@ -20,12 +21,8 @@ import { type AppReduxState, type Fundraising } from 'shared/types';
 
 import {
   ButtonWrapper,
+  CounterWrapper,
   Duration,
-  Goal,
-  Img,
-  Line,
-  Raised,
-  Sum,
   Title,
   Wrapper,
 } from './PublicProject.styled';
@@ -61,11 +58,9 @@ const PublicProject = () => {
   );
 
   useEffect(() => {
+    setIsModalLoadingOpen(isRequesting);
     if (isRequesting) {
-      setIsModalLoadingOpen(true);
       setIsModalOpen(false);
-    } else {
-      setIsModalLoadingOpen(false);
     }
   }, [isRequesting]);
 
@@ -92,12 +87,13 @@ const PublicProject = () => {
         <Wrapper>
           <Title>{currentProject.description}</Title>
           <Duration>{getDate(currentProject.deadline)} </Duration>
-          <Sum>
-            <Img src="/img/progress-bar.svg" alt="progress bar" />
-            <Raised>{currentProject.raisedAmount / 1000000}</Raised>
-            <Line />
-            <Goal>{currentProject.goal / 1000000}</Goal>
-          </Sum>
+          <CounterWrapper>
+            <RaisedCounter
+              raised={currentProject.raisedAmount / 1000000}
+              goal={currentProject.goal / 1000000}
+            />
+          </CounterWrapper>
+
           <ButtonWrapper>
             <Button
               themeType="secondary"
