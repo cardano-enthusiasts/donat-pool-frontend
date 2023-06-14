@@ -16,7 +16,6 @@ import { type CurrentLandingSection } from 'shared/types';
 import {
   TitleAndDescription,
   DonutsWrapper,
-  Title,
   Description,
   DescriptionPart1,
   DescriptionPart2,
@@ -31,6 +30,7 @@ import {
   Inner,
   InitialLoadingWrapper,
   HowItWorksItemsWrapper,
+  MainLogo,
 } from './Landing.styled';
 
 const Landing = () => {
@@ -104,17 +104,17 @@ const Landing = () => {
         </DonutsWrapper>
 
         <TitleAndDescription>
-          <Title>
-            Donat.
-            <br />
-            Pool —
-          </Title>
+          <MainLogo src="/img/big-logo.svg" alt="Donat pool logo" />
           <Description>
             <DescriptionPart1>Give a little,</DescriptionPart1>
             <DescriptionPart2>help a lot</DescriptionPart2>
           </Description>
           <ButtonWrapper>
-            <Button themeType="secondary">Start using</Button>
+            <Button themeType="secondary">
+              Start
+              <br />
+              using
+            </Button>
           </ButtonWrapper>
         </TitleAndDescription>
 

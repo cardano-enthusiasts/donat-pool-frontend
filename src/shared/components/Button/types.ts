@@ -1,6 +1,8 @@
+import { type ReactNode } from 'react';
+
 export interface Props {
   onClick?: () => void;
-  children: string;
+  children: string | ReactNode;
   primaryColor?: 'yellow' | 'blue' | 'red' | 'green';
   secondaryColor?: 'red' | 'blue' | 'green';
   fontColor?: Props['secondaryColor'] | 'white' | 'black';

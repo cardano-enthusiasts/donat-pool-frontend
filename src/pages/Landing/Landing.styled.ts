@@ -34,25 +34,9 @@ const TitleAndDescription = styled.div`
   }
 `;
 
-const Title = styled.h1`
-  font-size: 180px;
-  line-height: 111%;
-  color: ${({ theme }) => theme.colors.red};
-  margin-bottom: 10px;
-
-  -webkit-text-stroke: 10px ${({ theme }) => theme.colors.yellow};
-  @media (max-width: 1280px) {
-    font-size: 120px;
-    -webkit-text-stroke: 7px ${({ theme }) => theme.colors.yellow};
-  }
-  @media (max-width: 1100px) {
-    font-size: 96px;
-    -webkit-text-stroke: 5px ${({ theme }) => theme.colors.yellow};
-  }
-  @media (max-width: 500px) {
-    font-size: 56px;
-    -webkit-text-stroke: 3px ${({ theme }) => theme.colors.yellow};
-  }
+const MainLogo = styled.img`
+  max-width: 770px;
+  margin-bottom: 30px;
 `;
 
 const Description = styled.div`
@@ -188,7 +172,7 @@ export {
   DonutsWrapper,
   Inner,
   TitleAndDescription,
-  Title,
+  MainLogo,
   Description,
   DescriptionPart1,
   DescriptionPart2,

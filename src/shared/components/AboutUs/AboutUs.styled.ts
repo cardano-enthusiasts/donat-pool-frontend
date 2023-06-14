@@ -35,40 +35,12 @@ const StackTitle = styled.div`
 `;
 
 const Stack = styled.div`
-  font-family: 'Rammetto One', Arial, Helvetica, sans-serif;
-  font-size: 96px;
-  line-height: 50%;
   margin-bottom: 40px;
-  @media (max-width: 800px) {
-    font-size: 48px;
-    line-height: 90%;
-  }
-  @media (max-width: 470px) {
-    font-size: 32px;
-  }
 `;
 
-const StackItems = styled.div<{
-  color: 'red' | 'green' | 'blue';
-  'data-title';
-}>`
-  color: ${({ theme, color }) => theme.colors[color]};
-  /* text-shadow: -6px -4px #ffffff80; */
-  position: relative;
-
-  &:before,
-  &:after {
-    content: attr(data-title);
-    color: rgba(255, 255, 255, 0.1);
-    position: absolute;
-  }
-  &:before {
-    top: 1px;
-    left: 1px;
-  }
-  &:after {
-    top: 2px;
-    left: 2px;
+const StackImg = styled.img`
+  &:not(:first-child) {
+    margin-top: -30px;
   }
 `;
 
@@ -79,5 +51,5 @@ export {
   ButtonWrapper,
   StackTitle,
   Stack,
-  StackItems,
+  StackImg,
 };

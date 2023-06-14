@@ -3,17 +3,17 @@ import {
   TeamImage,
   TeamImageWrapper,
   ButtonWrapper,
-  StackItems,
+  StackImg,
   StackTitle,
   Stack,
 } from './AboutUs.styled';
 import { Button } from '../Button/Button';
 
 const AboutUs = () => {
-  const stack: Array<{ title: string; color: 'blue' | 'red' | 'green' }> = [
-    { title: 'Plutarch', color: 'blue' },
-    { title: 'Cardano-transaction-lib', color: 'red' },
-    { title: 'React', color: 'green' },
+  const stack: Array<{ id: string; src: string }> = [
+    { id: 'plutarch', src: '/img/plutarch.svg' },
+    { id: 'cardano-transaction-lib', src: '/img/cardano-transaction-lib.svg' },
+    { id: 'react', src: '/img/react.svg' },
   ];
   return (
     <Wrapper>
@@ -22,18 +22,15 @@ const AboutUs = () => {
       </TeamImageWrapper>
       <ButtonWrapper>
         <Button themeType="secondary" primaryColor="blue" secondaryColor="red">
-          Donate To Us
+          Donate
+          <br /> To Us
         </Button>
       </ButtonWrapper>
       <StackTitle>Our stack</StackTitle>
       <Stack>
-        {stack.map(({ title, color }) => {
-          return (
-            <StackItems key={title} color={color} data-title={title}>
-              {title}
-            </StackItems>
-          );
-        })}
+        {stack.map(({ id, src }) => (
+          <StackImg key={id} src={src} alt={id} />
+        ))}
       </Stack>
       <Button themeType="primary" primaryColor="red" secondaryColor="blue">
         Read more
