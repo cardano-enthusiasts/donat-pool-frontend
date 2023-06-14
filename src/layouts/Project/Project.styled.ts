@@ -27,7 +27,9 @@ const PreviousPage = styled.div`
   color: ${({ theme }) => theme.colors.blue};
   cursor: pointer;
   &:before {
+    display: block;
     content: url('/icons/arrow.svg');
+    height: 32px;
     margin-right: 23px;
   }
 

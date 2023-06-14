@@ -40,7 +40,8 @@ const getPrimaryStyles = (primaryColor, secondaryColor, size) => css`
 const getSecondaryStyles = (primaryColor, secondaryColor) => css`
   position: absolute;
   font-size: 32px;
-  padding: 34px 90px;
+  width: 290px;
+  height: 127px;
   font-family: 'Rammetto One', Arial, sans-serif;
 
   &::before {
@@ -137,12 +138,6 @@ const getTertiaryStyles = (primaryColor, secondaryColor, size) => css`
     z-index: -1;
     transition: all 0.5s;
     user-select: none;
-  }
-  &:active {
-    /* transform: translate(-4px, 4px); */
-    &:before {
-      /* transform: translate(4px, -4px); */
-    }
   }
   &:disabled {
     color: ${({ theme }) => theme.colors.gray2};
@@ -275,7 +270,7 @@ const Wrapper = styled.div<{
   ${({ themeType }) =>
     themeType === 'secondary' && 'padding-left: 22px; padding-bottom: 22px;'}
   width: ${({ themeType, width }) =>
-    themeType === 'secondary' ? '345px' : width};
+    themeType === 'secondary' ? '290px' : width};
   ${({ themeType }) => themeType === 'secondary' && 'height: 150px'};
 
   @media (max-width: 1100px) {

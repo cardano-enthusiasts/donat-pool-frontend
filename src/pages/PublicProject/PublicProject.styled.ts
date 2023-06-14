@@ -17,7 +17,7 @@ const Title = styled.h1`
   text-overflow: ellipsis;
 
   color: ${({ theme }) => theme.colors.red};
-  margin-bottom: 24px;
+  margin: 0 0 24px;
   @media (max-width: 800px) {
     font-size: 36px;
   }

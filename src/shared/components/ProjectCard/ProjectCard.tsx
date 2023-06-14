@@ -9,6 +9,8 @@ import {
   Amount,
   Wrapper,
   Status,
+  RaisedAmount,
+  Line,
 } from './ProjectCard.styled';
 import { type Props } from './types';
 
@@ -24,6 +26,7 @@ const ProjectCard = ({
   },
   linkSection,
   status = 'default',
+  paddingSize = 'm',
 }: Props) => {
   const statusTitles = {
     active: 'Active',
@@ -32,14 +35,24 @@ const ProjectCard = ({
 
   return (
     <Link to={`/${linkSection}/${path}`}>
-      <Wrapper status={status}>
+      <Wrapper status={status} paddingSize={paddingSize}>
         {status !== 'default' && (
           <Status status={status}>{statusTitles[status]}</Status>
         )}
         <Title>{description}</Title>
         <DateAndAmount>
           <DateItem>{getDate(deadline)}</DateItem>
-          <Amount>{goal / 1000000}</Amount>
+          <Amount>
+            <RaisedAmount>
+              {status === 'active' && (
+                <>
+                  {raisedAmount / 1000000}
+                  <Line />
+                </>
+              )}
+            </RaisedAmount>
+            {goal / 1000000}
+          </Amount>
         </DateAndAmount>
       </Wrapper>
     </Link>

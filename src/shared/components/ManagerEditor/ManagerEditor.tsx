@@ -10,18 +10,26 @@ import {
   Line,
   Form,
   InputWrapper,
+  Hint,
 } from './ManagerEditor.styled';
 import { type Props } from './types';
-import { Button, Input } from '..';
+import { Button, Input, ModalError, ModalLoading, ModalSuccess } from '..';
 
 const ManagerEditor = ({ config }: Props) => {
   const [params, setParams] = useState(config);
-  const [isSubmitDisabled, setIsSubmitDisabled] = useState(true);
-  const [isInputsDisabled, setIsInputsDisabled] = useState(false);
-  const { isRequesting } = useSelector(
+  const [isModalSuccessOpen, setIsModalSuccessOpen] = useState(false);
+  const [isModalErrorOpen, setIsModalErrorOpen] = useState(false);
+  const [isModalLoadingOpen, setIsModalLoadingOpen] = useState(false);
+  const { isRequesting, error } = useSelector(
     (state: AppReduxState) => state.protocol.communication.update
   );
-  const updateProtocol = useUpdateProtocol();
+  const onSuccess = () => {
+    setIsModalSuccessOpen(true);
+  };
+  const onError = () => {
+    setIsModalErrorOpen(true);
+  };
+  const updateProtocol = useUpdateProtocol({ onSuccess, onError });
 
   const filterInputValue = (value: string): '' | number => {
     if (Number(value) < 0) {
@@ -33,8 +41,7 @@ const ManagerEditor = ({ config }: Props) => {
   };
 
   useEffect(() => {
-    setIsSubmitDisabled(isRequesting);
-    setIsInputsDisabled(isRequesting);
+    setIsModalLoadingOpen(isRequesting);
   }, [isRequesting]);
 
   useEffect(() => {
@@ -44,7 +51,7 @@ const ManagerEditor = ({ config }: Props) => {
   const handleInputChange = (id, event) => {
     const { value } = event.target as HTMLInputElement;
     const dataType = String(event.target.getAttribute('data-type'));
-    setIsSubmitDisabled(false);
+
     setParams({
       ...params,
       [dataType]: filterInputValue(value),
@@ -57,34 +64,55 @@ const ManagerEditor = ({ config }: Props) => {
   };
 
   return (
-    <Form onSubmit={handleSubmit}>
-      <InputWrapper>
-        {defaultParams.map(({ title, id, hint }) => (
-          <Line key={id}>
-            <Input
-              onChange={(event) => {
-                handleInputChange(id, event);
-              }}
-              dataAttr={id}
-              value={params[id]}
-              title={`${title} / ${hint}`}
-              isDisabled={isInputsDisabled}
-            />
-          </Line>
-        ))}
-      </InputWrapper>
-      <ButtonWrapper>
-        <Button
-          type="submit"
-          isDisabled={isSubmitDisabled}
-          width="100%"
-          primaryColor="red"
-          secondaryColor="blue"
-        >
-          Save
-        </Button>
-      </ButtonWrapper>
-    </Form>
+    <>
+      <Form onSubmit={handleSubmit}>
+        <InputWrapper>
+          {defaultParams.map(({ title, id, hint }) => (
+            <Line key={id}>
+              <Input
+                onChange={(event) => {
+                  handleInputChange(id, event);
+                }}
+                dataAttr={id}
+                value={params[id]}
+              >
+                {title} / <Hint>{hint}</Hint>
+              </Input>
+            </Line>
+          ))}
+        </InputWrapper>
+        <ButtonWrapper>
+          <Button
+            type="submit"
+            width="100%"
+            primaryColor="red"
+            secondaryColor="blue"
+          >
+            Save
+          </Button>
+        </ButtonWrapper>
+      </Form>
+      <ModalLoading
+        isOpen={isModalLoadingOpen}
+        title="Data saving"
+        description="Please wait a bit"
+      />
+      <ModalError
+        isOpen={isModalErrorOpen}
+        title="Management contract"
+        errorText={error}
+        onClose={() => {
+          setIsModalErrorOpen(false);
+        }}
+      />
+      <ModalSuccess
+        isOpen={isModalSuccessOpen}
+        description="All data saved"
+        onClose={() => {
+          setIsModalSuccessOpen(false);
+        }}
+      />
+    </>
   );
 };
 

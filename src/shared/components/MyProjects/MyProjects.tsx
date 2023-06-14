@@ -65,6 +65,7 @@ const MyProjects = ({ onCreateAProjectClick }: Props) => {
                   handleFilterClick('active', allProjectsWithStatus);
                 }}
                 isClickedTheme={filter === 'active'}
+                size="s"
               >
                 Active
               </Button>
@@ -75,6 +76,7 @@ const MyProjects = ({ onCreateAProjectClick }: Props) => {
                   handleFilterClick('completed', allProjectsWithStatus);
                 }}
                 isClickedTheme={filter === 'completed'}
+                size="s"
               >
                 Completed
               </Button>
@@ -100,6 +102,7 @@ const MyProjects = ({ onCreateAProjectClick }: Props) => {
                 linkSection="my-projects"
                 key={item.path}
                 status={item.status}
+                paddingSize="s"
               />
             ))}
           </CardsWrapper>

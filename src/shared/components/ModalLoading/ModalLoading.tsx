@@ -3,7 +3,11 @@ import { useEffect, useState } from 'react';
 import { Description, Img, Inner, Title } from './ModalLoading.styled';
 import { Modal } from '../.';
 
-const ModalLoading = ({ isOpen, title = 'Please wait...' }) => {
+const ModalLoading = ({
+  isOpen,
+  title = 'Please wait...',
+  description = 'Please wait a bit. We are preparing your donut',
+}) => {
   const [index, setIndex] = useState(0);
   const maxDonutIndex = 4;
 
@@ -26,9 +30,7 @@ const ModalLoading = ({ isOpen, title = 'Please wait...' }) => {
       <Inner>
         <Title>{title}</Title>
         <Img src={`/img/donut-${index}.svg`} />
-        <Description>
-          Please wait a bit. We are preparing your donut
-        </Description>
+        <Description>{description}</Description>
       </Inner>
     </Modal>
   );

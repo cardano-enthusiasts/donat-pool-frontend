@@ -17,7 +17,7 @@ import {
 } from './';
 import { getOffchainError } from '..';
 
-const useUpdateProtocol = () => {
+const useUpdateProtocol = ({ onSuccess, onError }) => {
   const offchain = useOffchain();
   const dispatch = useDispatch();
   const getAppInfo = useGetAppInfo();
@@ -30,11 +30,13 @@ const useUpdateProtocol = () => {
     dispatch(updateSuccess());
     dispatch(setWalletStatusSuccess('connected'));
     getAppInfo();
+    onSuccess();
   };
 
   const handleError = (error) => {
     handleCommonError(error);
     dispatch(updateFail(error));
+    onError();
   };
 
   const editConfig = (config) => {

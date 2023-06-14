@@ -56,20 +56,6 @@ const h3 = css`
   font-size: 13px;
 `;
 
-const cardWrapper = css`
-  background: ${({ theme }) => theme.colors.white};
-  padding: 28px 16px 24px;
-
-  border-radius: 6px;
-
-  @media (max-width: 900px) {
-    padding: 20px;
-  }
-  @media (max-width: 500px) {
-    padding: 12px;
-  }
-`;
-
 const getFieldStyles = ({ errorInfo }) =>
   css`
     width: 100%;
@@ -123,7 +109,6 @@ export {
   h1,
   h2,
   h3,
-  cardWrapper,
   getFieldStyles,
   getLargeLayoutPadding,
   getMediumLayoutPadding,
