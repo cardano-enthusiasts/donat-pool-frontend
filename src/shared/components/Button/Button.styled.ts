@@ -32,6 +32,10 @@ const getPrimaryStyles = (primaryColor, secondaryColor, size) => css`
     box-shadow: none;
   }
   &:disabled {
+    &:active {
+      transform: none;
+    }
+    cursor: default;
     background-color: ${({ theme }) => theme.colors.purple};
     box-shadow: -4px 4px 0px ${({ theme }) => theme.colors.black};
   }
@@ -104,7 +108,7 @@ const getSecondaryStyles = (primaryColor, secondaryColor) => css`
 const getTertiaryStyles = (primaryColor, secondaryColor, size) => css`
   position: relative;
   font-size: ${size === 's' ? '16px' : '20px'};
-  padding: ${size === 's' ? '10px 16px' : '12px 20px'};
+  padding: ${size === 's' ? '10px 16px' : '10px 20px'};
   font-family: 'Microsoft YaHei', Arial, sans-serif;
   font-weight: bold;
   line-height: 133%;
@@ -120,7 +124,6 @@ const getTertiaryStyles = (primaryColor, secondaryColor, size) => css`
         ? theme.colors[primaryColor]
         : theme.colors.blue};
   border-radius: 6px;
-  box-sizing: border-box;
 
   &:before {
     content: '';
@@ -138,6 +141,13 @@ const getTertiaryStyles = (primaryColor, secondaryColor, size) => css`
     z-index: -1;
     transition: all 0.5s;
     user-select: none;
+  }
+  &:active {
+    &:before {
+      left: 0;
+      bottom: 0;
+      opacity: 0;
+    }
   }
   &:disabled {
     color: ${({ theme }) => theme.colors.gray2};
@@ -272,6 +282,10 @@ const Wrapper = styled.div<{
   width: ${({ themeType, width }) =>
     themeType === 'secondary' ? '290px' : width};
   ${({ themeType }) => themeType === 'secondary' && 'height: 150px'};
+
+  transition: all 0.5s;
+  ${({ themeType }) =>
+    themeType === 'tertiary' && '&:active {transform: translate(-4px, 4px);}'};
 
   @media (max-width: 1100px) {
     width: ${({ themeType }) => themeType === 'secondary' && '245px'};

@@ -11,9 +11,11 @@ import {
   LinkWrapper,
   Icon,
   LogoWrapper,
+  LinksAndButton,
+  Line,
 } from './Header.styled';
 import { type Props } from './types';
-import { Logo } from '..';
+import { Logo, WalletButton } from '..';
 
 const Header = ({ currentPage }: Props) => {
   const { isManager } = useSelector(
@@ -25,9 +27,8 @@ const Header = ({ currentPage }: Props) => {
     id: 'management',
   };
   const links = [
-    { title: 'Home', href: '/', id: 'home' },
-    { title: 'My projects', href: '/my-projects', id: 'profile' },
-    { title: 'Projects', href: '/all-projects', id: 'projects' },
+    { title: 'My projects', href: '/my-projects', id: 'my-projects' },
+    { title: 'All Donation pools', href: '/all-projects', id: 'projects' },
   ];
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -40,21 +41,25 @@ const Header = ({ currentPage }: Props) => {
               <Logo />
             </LogoWrapper>
           )}
-          <Links isMenuOpen={isMenuOpen}>
-            {isManager && (
-              <LinkWrapper
-                key={managerLink.id}
-                isActive={managerLink.href === currentPage}
-              >
-                <Link to={managerLink.href}>{managerLink.title}</Link>
-              </LinkWrapper>
-            )}
-            {links.map(({ title, href, id }) => (
-              <LinkWrapper key={id} isActive={href === currentPage}>
-                <Link to={href}>{title}</Link>
-              </LinkWrapper>
-            ))}
-          </Links>
+          <LinksAndButton>
+            <Links isMenuOpen={isMenuOpen}>
+              {isManager && (
+                <LinkWrapper
+                  key={managerLink.id}
+                  isActive={managerLink.href === currentPage}
+                >
+                  <Link to={managerLink.href}>{managerLink.title}</Link>
+                </LinkWrapper>
+              )}
+              {links.map(({ title, href, id }) => (
+                <LinkWrapper key={id} isActive={href === currentPage}>
+                  <Link to={href}>{title}</Link>
+                </LinkWrapper>
+              ))}
+            </Links>
+            <Line />
+            <WalletButton />
+          </LinksAndButton>
         </Inner>
 
         <Icon

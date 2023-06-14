@@ -72,4 +72,23 @@ const LogoWrapper = styled.div`
   }
 `;
 
-export { Wrapper, Inner, Links, LinkWrapper, Icon, LogoWrapper };
+const LinksAndButton = styled.div`
+  display: flex;
+`;
+
+const Line = styled.div`
+  background-color: ${({ theme }) => theme.colors.purple};
+  width: 2px;
+  margin-right: 40px;
+`;
+
+export {
+  Wrapper,
+  Inner,
+  Links,
+  LinkWrapper,
+  Icon,
+  LogoWrapper,
+  LinksAndButton,
+  Line,
+};

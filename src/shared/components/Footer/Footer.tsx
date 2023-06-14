@@ -30,7 +30,7 @@ const Footer = () => {
             ))}
           </Links>
         </IconAndLinks>
-        <Button primaryColor="red" secondaryColor="green">
+        <Button primaryColor="red" secondaryColor="green" size="s">
           Contact us
         </Button>
       </Inner>
