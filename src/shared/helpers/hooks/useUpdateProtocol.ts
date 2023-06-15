@@ -1,5 +1,4 @@
 import { useDispatch } from 'react-redux';
-import { toast } from 'react-toastify';
 
 import { setWalletStatusSuccess } from 'features/info/redux/actionCreators';
 import {
@@ -26,7 +25,6 @@ const useUpdateProtocol = ({ onSuccess, onError }) => {
   const protocol = JSON.parse(process.env.PROTOCOL);
 
   const handleSuccess = () => {
-    toast.success('Config was updated successfully');
     dispatch(updateSuccess());
     dispatch(setWalletStatusSuccess('connected'));
     getAppInfo();

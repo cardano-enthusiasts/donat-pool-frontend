@@ -1,5 +1,3 @@
-import { toast } from 'react-toastify';
-
 import { useHandleError, useOffchain } from 'shared/helpers/hooks';
 
 import { getOffchainError } from '..';
@@ -18,7 +16,6 @@ const useStartProtocol = () => {
 
   const handleSuccess = (protocol) => {
     console.log(protocol);
-    toast.success('Protocol was started');
   };
 
   const handleError = (error) => {

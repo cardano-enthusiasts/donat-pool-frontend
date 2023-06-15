@@ -13,7 +13,6 @@ import {
   PrivateProjects,
 } from 'pages';
 import { NotAvailableError } from 'shared/components';
-import 'react-toastify/dist/ReactToastify.css';
 import { useGetAppInfo, useOffchain } from 'shared/helpers/hooks';
 import { type AppReduxState } from 'shared/types';
 

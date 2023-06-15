@@ -1,5 +1,4 @@
 import { useDispatch } from 'react-redux';
-import { toast } from 'react-toastify';
 
 import { setWalletStatusSuccess } from 'features/info/redux/actionCreators';
 import {
@@ -16,7 +15,7 @@ const useHandleError = () => {
       case walletDisconnect:
         dispatch(setWalletStatusSuccess('declined'));
         setTimeout(() => {
-          toast.error(errors[walletDisconnect]);
+          console.error(errors[walletDisconnect]);
         }, 500);
         break;
       case walletIsNotAvailable:
@@ -24,7 +23,6 @@ const useHandleError = () => {
         break;
       default:
         console.log(errors[backendError]);
-        toast.error(errors[backendError]);
     }
   };
 };
