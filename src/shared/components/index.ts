@@ -32,3 +32,4 @@ export { ModalSuccess } from './ModalSuccess/ModalSuccess';
 export { RaisedCounter } from './RaisedCounter/RaisedCounter';
 export { PrivateProjectsActions } from './PrivateProjectsActions/PrivateProjectsActions';
 export { ModalProjectCreated } from './ModalProjectCreated/ModalProjectCreated';
+export { ModalContactUs } from './ModalContactUs/ModalContactUs';
