@@ -32,7 +32,6 @@ const Inner = styled.div`
 const Links = styled.div<{ isMenuOpen: boolean }>`
   display: flex;
   gap: 30px;
-  font-family: 'Microsoft YaHei', Arial, Helvetica, sans-serif;
   font-weight: bold;
   font-size: 18px;
   line-height: 133%;

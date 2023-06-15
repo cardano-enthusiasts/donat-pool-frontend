@@ -2,7 +2,6 @@ import styled from 'styled-components';
 
 const Form = styled.form`
   max-width: 450px;
-  font-family: 'Microsoft YaHei', Arial, Helvetica, sans-serif;
   display: flex;
   flex-direction: column;
   gap: 24px;

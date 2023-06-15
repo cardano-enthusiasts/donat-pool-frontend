@@ -23,7 +23,6 @@ const getFieldStyles = ({ errorInfo, fontColor }) =>
     width: 100%;
     padding: 13px 16px;
     outline: none;
-    font-family: 'Microsoft YaHei', Arial, sans-serif;
     background-color: transparent;
     font-size: 20px;
 

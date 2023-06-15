@@ -27,7 +27,6 @@ const ButtonWrapper = styled.div`
 `;
 
 const StackTitle = styled.div`
-  font-family: 'Microsoft YaHei', Arial, Helvetica, sans-serif;
   font-weight: bold;
   font-size: 24px;
   color: ${({ theme }) => theme.colors.darkGray};

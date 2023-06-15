@@ -15,7 +15,7 @@ const GlobalStyles = createGlobalStyle`
   }
 
   html {
-    font-family: 'Microsoft YaHei', Arial, sans-serif;
+    font-family: 'Microsoft YaHei', Arial, Helvetica, sans-serif;
     font-size: 16px;
     color: ${theme.colors.black};
   }

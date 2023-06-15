@@ -13,7 +13,6 @@ const getHoverAndDisabled = (primaryColor, secondaryColor) => {
 const getPrimaryStyles = (primaryColor, secondaryColor, size) => css`
   font-size: ${size === 's' ? '16px' : '20px'};
   padding: ${size === 's' ? '10px' : '12px'} 16px;
-  font-family: 'Microsoft YaHei', Arial, sans-serif;
   font-weight: bold;
   line-height: 133%;
 
@@ -109,7 +108,6 @@ const getTertiaryStyles = (primaryColor, secondaryColor, size) => css`
   position: relative;
   font-size: ${size === 's' ? '16px' : '20px'};
   padding: ${size === 's' ? '10px 16px' : '10px 20px'};
-  font-family: 'Microsoft YaHei', Arial, sans-serif;
   font-weight: bold;
   line-height: 133%;
 
@@ -162,7 +160,6 @@ const getTertiaryStyles = (primaryColor, secondaryColor, size) => css`
 const getQuaternaryStyles = (primaryColor, isClickedTheme, size) => css`
   font-size: ${size === 's' ? '14px' : '16px'};
   padding: ${size === 's' ? '8px' : '10px'} 16px;
-  font-family: 'Microsoft YaHei', Arial, sans-serif;
   font-weight: bold;
   line-height: 133%;
 

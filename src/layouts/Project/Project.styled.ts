@@ -20,7 +20,6 @@ const PreviousPage = styled.div`
   top: 80px;
   display: flex;
   align-items: center;
-  font-family: 'Microsoft YaHei', Arial, Helvetica, sans-serif;
   font-weight: bold;
   font-size: 20px;
   line-height: 130%;

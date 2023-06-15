@@ -58,7 +58,6 @@ const Amount = styled.div`
   }
 `;
 const Title = styled.h3`
-  font-family: 'Microsoft YaHei', Arial, Helvetica, sans-serif;
   font-weight: 700;
   font-size: 20px;
   line-height: 130%;

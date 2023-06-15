@@ -35,7 +35,8 @@ const TitleAndDescription = styled.div`
 `;
 
 const MainLogo = styled.img`
-  max-width: 100%;
+  max-width: 770px;
+  width: 100%;
   margin-bottom: 30px;
 `;
 
