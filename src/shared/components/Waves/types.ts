@@ -7,4 +7,6 @@ export interface Props {
     | 'red'
     | 'black'
     | 'yellow';
+  isUpsideDown?: boolean;
+  isMoving?: boolean;
 }

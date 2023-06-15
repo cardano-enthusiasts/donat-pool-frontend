@@ -1,20 +1,37 @@
 import { useTheme } from 'styled-components';
 
+import { useWindowSize } from 'shared/helpers/hooks';
 import { type Theme } from 'shared/styles/types';
 
 import { type Props } from './types';
 import { G, SVG, Wrapper } from './Waves.styled';
 
-const Waves = ({ color = 'blue', backgroundColor = 'transparent' }: Props) => {
+const Waves = ({
+  color = 'blue',
+  backgroundColor = 'transparent',
+  isUpsideDown = false,
+  isMoving = true,
+}: Props) => {
   const theme = useTheme() as Theme;
+  const size = useWindowSize();
+
+  const getWidthForViewBox = () => {
+    if (size.width < 1100) {
+      return 600;
+    }
+    return 1000;
+  };
+
   return (
     <Wrapper backgroundColor={backgroundColor}>
       <SVG
-        viewBox="200 0 1000 100"
+        viewBox={`200 0 ${getWidthForViewBox()} 100`}
+        width="100%"
         fill="none"
         xmlnsXlink="http://www.w3.org/2000/xlink"
         preserveAspectRatio="none"
         shape-rendering="auto"
+        isUpsideDown={isUpsideDown}
       >
         <defs>
           <path
@@ -23,7 +40,7 @@ const Waves = ({ color = 'blue', backgroundColor = 'transparent' }: Props) => {
           />
         </defs>
 
-        <G>
+        <G isMoving={isMoving}>
           <use
             xlinkHref="#gentle-wave"
             x="48"

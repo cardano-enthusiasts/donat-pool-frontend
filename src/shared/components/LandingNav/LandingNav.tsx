@@ -1,6 +1,6 @@
-import { Icon, Inner, Link, Wrapper } from './LandingNav.styled';
+import { Icon, Inner, Link, WavesWrapper, Wrapper } from './LandingNav.styled';
 import { type Props } from './types';
-import { Button } from '../Button/Button';
+import { Button, Waves } from '../.';
 
 const LandingNav = ({
   currentSection,
@@ -40,11 +40,16 @@ const LandingNav = ({
       mobileResolution={mobileResolution}
     >
       {windowWidth < mobileResolution && (
-        <Icon
-          src={`/icons/${isOpen ? 'close' : 'menu'}.svg`}
-          alt="icon"
-          onClick={handleIconClick}
-        />
+        <>
+          <Icon
+            src={`/icons/${isOpen ? 'close' : 'menu'}.svg`}
+            alt="icon"
+            onClick={handleIconClick}
+          />
+          <WavesWrapper>
+            <Waves isUpsideDown={true} color="red" isMoving={false} />
+          </WavesWrapper>
+        </>
       )}
       {isContentShown && (
         <Inner currentSection={currentSection}>

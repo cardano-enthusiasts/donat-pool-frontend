@@ -27,13 +27,15 @@ const Wrapper = styled.nav<{
     top: 0;
     left: 0;
     width: 100vw;
-    height: ${({ isOpen }) => (isOpen ? '100vh' : '90px')};
-    background-color: ${({ theme }) => theme.colors.red};
+    ${({ isOpen }) => isOpen && 'height: 100vh'};
+    background-color: ${({ theme }) => theme.colors.blue};
   }
 `;
 
 const Icon = styled.img`
   position: absolute;
+  width: 40px;
+  height: 40px;
   top: 20px;
   right: 20px;
 `;
@@ -79,4 +81,12 @@ const Link = styled.a<{
   }};
 `;
 
-export { Wrapper, Icon, Inner, Link };
+const WavesWrapper = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: -1;
+`;
+
+export { Wrapper, Icon, Inner, Link, WavesWrapper };
