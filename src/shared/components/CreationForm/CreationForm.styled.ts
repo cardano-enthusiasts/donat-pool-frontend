@@ -34,7 +34,7 @@ const FundingGoal = styled.div`
 `;
 
 const LabelHint = styled.span`
-  color: ${({ theme }) => theme.colors.gray2};
+  color: ${({ theme }) => theme.colors.gray};
 `;
 
 export {

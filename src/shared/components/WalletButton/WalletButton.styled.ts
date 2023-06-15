@@ -29,7 +29,7 @@ const Address = styled.div`
   background: ${({ theme }) => theme.colors.white};
   border-radius: 6px;
   padding: 12px;
-  color: ${({ theme }) => theme.colors.gray2};
+  color: ${({ theme }) => theme.colors.gray};
   filter: drop-shadow(0px 2px 15px rgba(71, 87, 230, 0.4));
 
   &:before {

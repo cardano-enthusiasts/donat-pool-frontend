@@ -28,7 +28,7 @@ const ButtonWrapper = styled.div`
 `;
 
 const Hint = styled.span`
-  color: ${({ theme }) => theme.colors.gray2};
+  color: ${({ theme }) => theme.colors.gray};
 `;
 
 export { Form, Line, ButtonWrapper, InputWrapper, Hint };

@@ -150,11 +150,11 @@ const getTertiaryStyles = (primaryColor, secondaryColor, size) => css`
     }
   }
   &:disabled {
-    color: ${({ theme }) => theme.colors.gray2};
-    border: 2px solid ${({ theme }) => theme.colors.gray2};
+    color: ${({ theme }) => theme.colors.gray};
+    border: 2px solid ${({ theme }) => theme.colors.gray};
     pointer-events: none;
     &:before {
-      border: 2px solid ${({ theme }) => theme.colors.gray2};
+      border: 2px solid ${({ theme }) => theme.colors.gray};
     }
   }
 `;
