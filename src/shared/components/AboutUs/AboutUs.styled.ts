@@ -39,6 +39,7 @@ const Stack = styled.div`
 `;
 
 const StackImg = styled.img`
+  max-width: 100%;
   &:not(:first-child) {
     margin-top: -30px;
   }

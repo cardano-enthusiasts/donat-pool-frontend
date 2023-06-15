@@ -17,7 +17,7 @@ const Footer = () => {
     { title: 'Terms of use', href: '/mock-address' },
     { title: 'FAQ', href: '/mock-address' },
   ];
-  const [isModalContactUsOpen, setIsModalContactUsOpen] = useState(true);
+  const [isModalContactUsOpen, setIsModalContactUsOpen] = useState(false);
 
   return (
     <>
