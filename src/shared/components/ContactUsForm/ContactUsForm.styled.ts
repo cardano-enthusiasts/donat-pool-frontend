@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const Wrapper = styled.form`
+const Form = styled.form`
   max-width: 450px;
   font-family: 'Microsoft YaHei', Arial, Helvetica, sans-serif;
   display: flex;
@@ -20,4 +20,4 @@ const Description = styled.div`
   font-size: 24px;
 `;
 
-export { Wrapper, Title, Description };
+export { Form, Title, Description };

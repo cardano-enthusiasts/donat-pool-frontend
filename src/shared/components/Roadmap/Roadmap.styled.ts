@@ -1,13 +1,20 @@
 import styled from 'styled-components';
 
-const Wrapper = styled.div`
+const WrapperAndButton = styled.div`
   position: relative;
+  height: 700px;
+  overflow: hidden;
+`;
+
+const Wrapper = styled.div`
+  /* position: relative; */
   width: 100%;
   height: 700px;
   top: 0;
   font-size: 56px;
+  font-weight: bold;
   text-align: justify;
-  overflow: hidden;
+  /* z-index: 1; */
 
   -webkit-transform-origin: 50% 100%;
   -moz-transform-origin: 50% 100%;
@@ -29,11 +36,11 @@ const Wrapper = styled.div`
 const Inner = styled.div`
   position: absolute;
   top: 100%;
-  -webkit-animation: scroll 150s linear -10s infinite;
-  -moz-animation: scroll 150s linear -10s infinite;
-  -ms-animation: scroll 150s linear -10s infinite;
-  -o-animation: scroll 150s linear -10s infinite;
-  animation: scroll 150s linear -10s infinite;
+  -webkit-animation: scroll 60s linear infinite;
+  -moz-animation: scroll 60s linear infinite;
+  -ms-animation: scroll 60s linear infinite;
+  -o-animation: scroll 60s linear infinite;
+  animation: scroll 60s linear infinite;
 
   color: ${({ theme }) => theme.colors.yellow};
 
@@ -42,7 +49,7 @@ const Inner = styled.div`
       top: 100%;
     }
     100% {
-      top: -170%;
+      top: -630%;
     }
   }
 
@@ -51,7 +58,7 @@ const Inner = styled.div`
       top: 100%;
     }
     100% {
-      top: -170%;
+      top: -630%;
     }
   }
 
@@ -60,7 +67,7 @@ const Inner = styled.div`
       top: 100%;
     }
     100% {
-      top: -170%;
+      top: -630%;
     }
   }
 
@@ -69,7 +76,7 @@ const Inner = styled.div`
       top: 100%;
     }
     100% {
-      top: -170%;
+      top: -630%;
     }
   }
 
@@ -78,7 +85,7 @@ const Inner = styled.div`
       top: 100%;
     }
     100% {
-      top: -170%;
+      top: -630%;
     }
   }
 `;
@@ -88,17 +95,31 @@ const Title = styled.div`
   font-weight: bold;
 `;
 
-const Subtitle = styled.li`
-  list-style: none;
-  font-weight: bold;
-`;
-
 const Ul = styled.ul`
   padding-left: 50px;
 `;
 
 const Li = styled.li``;
 
-const SubLi = styled.li``;
+const SubLi = styled.li`
+  margin-left: 100px;
+  list-style: none;
+`;
 
-export { Wrapper, Inner, Title, Subtitle, Ul, Li, SubLi };
+const ButtonWrapper = styled.div`
+  position: absolute;
+  bottom: 100px;
+  right: 80px;
+  z-index: 9999;
+`;
+
+export {
+  WrapperAndButton,
+  Wrapper,
+  Inner,
+  Title,
+  Ul,
+  Li,
+  SubLi,
+  ButtonWrapper,
+};

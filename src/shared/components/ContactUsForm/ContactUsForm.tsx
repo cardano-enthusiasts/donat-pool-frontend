@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import { Description, Title, Wrapper } from './ContactUsForm.styled';
+import { Description, Title, Form } from './ContactUsForm.styled';
 import { Button } from '../Button/Button';
 import { Input } from '../Input/Input';
 
@@ -17,14 +17,13 @@ const ContactUsForm = () => {
       [fieldName]: value,
     });
   };
-
   const handleSubmit = (event) => {
     event.preventDefault();
     console.log(data);
   };
 
   return (
-    <Wrapper onSubmit={handleSubmit}>
+    <Form onSubmit={handleSubmit}>
       <Title>Contact us</Title>
       <Description>
         You can report about error or write to us how we can help you.
@@ -35,30 +34,36 @@ const ContactUsForm = () => {
           handleInputChange(event, 'contact');
         }}
         placeholder="+0 / mail@mail.com / @nickname"
-        title="Phone / E-mail / Telegram nickname"
-      />
+        fontColor="yellow"
+      >
+        Phone / E-mail / Telegram nickname
+      </Input>
       <Input
         value={data.name}
         onChange={(event) => {
           handleInputChange(event, 'name');
         }}
         placeholder="Elon Mask"
-        title="Your Name"
-      />
+        fontColor="yellow"
+      >
+        Your Name
+      </Input>
       <Input
         value={data.message}
         onChange={(event) => {
           handleInputChange(event, 'message');
         }}
         placeholder="Hello!"
-        title="Your Message"
         multiline={true}
         rows={6}
-      />
-      <Button themeType="secondary" type="submit">
+        fontColor="yellow"
+      >
+        Your Message
+      </Input>
+      <Button themeType="secondary" type="submit" size="s">
         Send
       </Button>
-    </Wrapper>
+    </Form>
   );
 };
 

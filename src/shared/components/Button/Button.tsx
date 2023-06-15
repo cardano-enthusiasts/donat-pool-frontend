@@ -18,7 +18,7 @@ const Button = ({
   size = 'm',
 }: Props) => {
   return href !== null ? (
-    <Wrapper themeType={themeType} width={width}>
+    <Wrapper themeType={themeType} width={width} size={size}>
       <LinkWrapper
         primaryColor={primaryColor}
         secondaryColor={secondaryColor}
@@ -33,7 +33,7 @@ const Button = ({
       </LinkWrapper>
     </Wrapper>
   ) : (
-    <Wrapper themeType={themeType} width={width}>
+    <Wrapper themeType={themeType} width={width} size={size}>
       <StyledButton
         onClick={onClick}
         primaryColor={primaryColor}

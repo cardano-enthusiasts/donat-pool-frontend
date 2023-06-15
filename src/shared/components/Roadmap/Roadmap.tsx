@@ -4,37 +4,53 @@ import { texts } from './data';
 import {
   Inner,
   Li,
-  Subtitle,
   Title,
   Ul,
   Wrapper,
   SubLi,
+  WrapperAndButton,
+  ButtonWrapper,
 } from './Roadmap.styled';
+import { Button } from '../.';
 
 const Roadmap = () => {
-  const getSubLis = (item) =>
-    item.map((subItem) => <SubLi key={subItem.id}>{subItem}</SubLi>);
+  const getSubLis = (item) => {
+    return item.subItems.map(({ id, title }) => (
+      <SubLi key={id}>{title}</SubLi>
+    ));
+  };
 
   return (
-    <Wrapper>
-      <Inner>
-        <Title>{texts.title}</Title>
-        {texts.phases.map(({ title, items }) => (
-          <Fragment key={title}>
-            <Subtitle>{title}</Subtitle>
-            <Ul>
-              {items.map((item) => {
-                return (
-                  <Li key={item.id}>
-                    {Array.isArray(item) ? getSubLis(item) : item.title}
-                  </Li>
-                );
-              })}
-            </Ul>
-          </Fragment>
-        ))}
-      </Inner>
-    </Wrapper>
+    <WrapperAndButton>
+      <Wrapper>
+        <Inner>
+          {texts.phases.map(({ title, items }) => (
+            <Fragment key={title}>
+              <Title>{title}</Title>
+              <Ul>
+                {items.map((item) => {
+                  return item.title ? (
+                    <Li key={item.id}>{item.title}</Li>
+                  ) : (
+                    getSubLis(item)
+                  );
+                })}
+              </Ul>
+            </Fragment>
+          ))}
+        </Inner>
+      </Wrapper>
+      {/* <ButtonWrapper>
+        <Button
+          themeType="secondary"
+          primaryColor="blue"
+          secondaryColor="green"
+          size="s"
+        >
+          All phases
+        </Button>
+      </ButtonWrapper> */}
+    </WrapperAndButton>
   );
 };
 

@@ -41,11 +41,11 @@ const getPrimaryStyles = (primaryColor, secondaryColor, size) => css`
   }
 `;
 
-const getSecondaryStyles = (primaryColor, secondaryColor) => css`
+const getSecondaryStyles = (primaryColor, secondaryColor, size) => css`
   position: absolute;
   font-size: 32px;
   width: 290px;
-  height: 127px;
+  height: ${size === 's' ? '97px' : '127px'};
   font-family: 'Rammetto One', Arial, sans-serif;
 
   &::before {
@@ -206,7 +206,7 @@ const getStyles = ({
     ${themeType === 'primary'
       ? getPrimaryStyles(primaryColor, secondaryColor, size)
       : themeType === 'secondary'
-      ? getSecondaryStyles(primaryColor, secondaryColor)
+      ? getSecondaryStyles(primaryColor, secondaryColor, size)
       : themeType === 'tertiary'
       ? getTertiaryStyles(primaryColor, secondaryColor, size)
       : getQuaternaryStyles(primaryColor, isClickedTheme, size)}
@@ -273,23 +273,32 @@ const LinkWrapper = styled.div<{
   }
 `;
 
+const getSecondaryWrapperStyles = (size) =>
+  css`
+    padding-left: 22px;
+    padding-bottom: 22px;
+    height: ${size === 's' ? '97px' : '150px'};
+    @media (max-width: 1100px) {
+      height: 120px;
+    }
+  `;
+
 const Wrapper = styled.div<{
   themeType: NonNullable<Props['themeType']>;
   width: Props['width'];
+  size: Props['size'];
 }>`
-  ${({ themeType }) =>
-    themeType === 'secondary' && 'padding-left: 22px; padding-bottom: 22px;'}
   width: ${({ themeType, width }) =>
     themeType === 'secondary' ? '290px' : width};
-  ${({ themeType }) => themeType === 'secondary' && 'height: 150px'};
 
   transition: all 0.5s;
   ${({ themeType }) =>
     themeType === 'tertiary' && '&:active {transform: translate(-4px, 4px);}'};
+  ${({ themeType, size }) =>
+    themeType === 'secondary' && getSecondaryWrapperStyles(size)};
 
   @media (max-width: 1100px) {
     width: ${({ themeType }) => themeType === 'secondary' && '245px'};
-    ${({ themeType }) => themeType === 'secondary' && 'height: 120px'};
   }
 `;
 

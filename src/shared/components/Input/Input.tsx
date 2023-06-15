@@ -21,6 +21,7 @@ const Input = ({
   maxLength = undefined,
   rows = undefined,
   error = null,
+  fontColor = 'green',
 }: Props) => {
   return (
     <Wrapper>
@@ -36,6 +37,7 @@ const Input = ({
             maxLength={maxLength}
             rows={rows}
             error={error}
+            fontColor={fontColor}
           />
         ) : (
           <StyledInput
@@ -50,6 +52,7 @@ const Input = ({
             onWheel={(event) => {
               event.currentTarget.blur();
             }}
+            fontColor={fontColor}
           />
         )}
         {error !== '' && error !== null && <Message>{error}</Message>}

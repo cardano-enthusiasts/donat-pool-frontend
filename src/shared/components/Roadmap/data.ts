@@ -1,5 +1,4 @@
 const texts = {
-  title: 'DonationPool roadmap',
   phases: [
     {
       title: 'Phase 1',

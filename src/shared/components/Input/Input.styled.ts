@@ -1,8 +1,44 @@
-import styled from 'styled-components';
-
-import { getFieldStyles } from 'shared/styles/mixins';
+import styled, { css } from 'styled-components';
 
 import { type Props } from './types';
+
+const getColor = (errorInfo, fontColor) => {
+  if (errorInfo || errorInfo === '') {
+    return ({ theme }) => theme.colors.error;
+  }
+  return ({ theme }) => theme.colors[fontColor];
+};
+
+const getFieldStyles = ({ errorInfo, fontColor }) =>
+  css`
+    width: 100%;
+    min-width: 150px;
+    border: 2px solid
+      ${({ theme }) =>
+        errorInfo || errorInfo === ''
+          ? theme.colors.error
+          : theme.colors.black};
+    color: ${getColor(errorInfo, fontColor)};
+    border-radius: 6px;
+    width: 100%;
+    padding: 13px 16px;
+    outline: none;
+    font-family: 'Microsoft YaHei', Arial, sans-serif;
+    background-color: transparent;
+    font-size: 20px;
+
+    &::placeholder {
+      font-family: 'Microsoft YaHei', Arial, sans-serif;
+      font-size: 20px;
+      color: ${({ theme }) => theme.colors.green};
+    }
+
+    &:disabled {
+      cursor: not-allowed;
+      color: ${({ theme }) => theme.colors.dark50};
+      background-color: ${({ theme }) => theme.colors.dark5};
+    }
+  `;
 
 const Wrapper = styled.div`
   width: 100%;
@@ -22,16 +58,22 @@ const InputContainer = styled.div<{ hint: string | null }>`
       }`}
 `;
 
-const StyledInput = styled.input<{ error: Props['error'] }>`
-  ${({ error }) => getFieldStyles({ errorInfo: error })};
+const StyledInput = styled.input<{
+  error: Props['error'];
+  fontColor: Props['fontColor'];
+}>`
+  ${({ error, fontColor }) => getFieldStyles({ errorInfo: error, fontColor })};
 `;
 
 const Title = styled.div`
   margin: 0 0 8px 0;
 `;
 
-const StyledTextArea = styled.textarea<{ error: Props['error'] }>`
-  ${({ error }) => getFieldStyles({ errorInfo: error })};
+const StyledTextArea = styled.textarea<{
+  error: Props['error'];
+  fontColor: Props['fontColor'];
+}>`
+  ${({ error, fontColor }) => getFieldStyles({ errorInfo: error, fontColor })};
   max-width: 600px;
 `;
 
