@@ -13,7 +13,7 @@ const initialState: ReduxState = {
     allFundraisings: null,
     user: {
       fundraisings: null,
-      isManager: false,
+      isManager: null,
       address: null,
     },
     walletStatus: 'default',

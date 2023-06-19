@@ -1,6 +1,7 @@
 import { type ChangeEvent, useState, useEffect } from 'react';
 import 'react-datepicker/dist/react-datepicker.css';
 import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
 import { useCreateFundraising } from 'shared/helpers/hooks';
 import { type AppReduxState } from 'shared/types';
@@ -26,10 +27,14 @@ import {
 } from '..';
 
 const CreationForm = ({ onClose }: Props) => {
+  const navigate = useNavigate();
   const handleSuccess = () => {
     setIsSuccessModalOpen(true);
   };
-  const createFundraising = useCreateFundraising(handleSuccess);
+  const handleError = () => {
+    setIsErrorModalOpen(true);
+  };
+  const createFundraising = useCreateFundraising(handleSuccess, handleError);
   const [isChecked, setIsChecked] = useState(false);
   const [isSuccessModalOpen, setIsSuccessModalOpen] = useState(false);
   const [isLoadingModalOpen, setIsLoadingModalOpen] = useState(false);
@@ -93,12 +98,6 @@ const CreationForm = ({ onClose }: Props) => {
   useEffect(() => {
     setIsLoadingModalOpen(isRequesting);
   }, [isRequesting]);
-
-  useEffect(() => {
-    if (createError) {
-      setIsErrorModalOpen(true);
-    }
-  }, [createError]);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -239,6 +238,7 @@ const CreationForm = ({ onClose }: Props) => {
         isOpen={isSuccessModalOpen}
         onClose={() => {
           setIsSuccessModalOpen(false);
+          navigate('/my-projects');
         }}
       />
       <ModalLoading isOpen={isLoadingModalOpen} />

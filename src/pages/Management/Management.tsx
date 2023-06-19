@@ -29,8 +29,8 @@ const Management = () => {
   }, []);
 
   useEffect(() => {
-    if (!isManager) {
-      navigate('/');
+    if (isManager === false) {
+      navigate('/all-projects');
     }
   }, [isManager]);
 

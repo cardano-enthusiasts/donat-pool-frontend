@@ -16,7 +16,7 @@ import {
 } from './';
 import { getOffchainError } from '..';
 
-const useCreateFundraising = (onSuccess) => {
+const useCreateFundraising = (onSuccess, onError) => {
   const offchain = useOffchain();
   const dispatch = useDispatch();
   const getUserFundraisings = useGetUserFundraisings();
@@ -25,6 +25,8 @@ const useCreateFundraising = (onSuccess) => {
   const protocol = JSON.parse(process.env.PROTOCOL);
 
   const handleSuccess = (fundraisingData) => {
+    console.log(fundraisingData);
+
     dispatch(setWalletStatusSuccess('connected'));
     onSuccess();
     dispatch(createSuccess());
@@ -33,6 +35,7 @@ const useCreateFundraising = (onSuccess) => {
 
   const handleError = (error) => {
     handleCommonError(error);
+    onError();
     dispatch(createFail(error));
   };
 

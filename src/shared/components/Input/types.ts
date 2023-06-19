@@ -13,5 +13,5 @@ export interface Props {
   maxLength?: number | undefined;
   rows?: number | undefined;
   error?: string | null;
-  fontColor?: 'green' | 'yellow';
+  fontColor?: 'green' | 'yellow' | 'black';
 }

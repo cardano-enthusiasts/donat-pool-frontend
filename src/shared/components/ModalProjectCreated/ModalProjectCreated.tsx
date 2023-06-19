@@ -10,7 +10,7 @@ import {
 import { Button, Modal } from '../.';
 
 const ModalProjectCreated = ({ isOpen, onClose }) => {
-  const link = 'https://donationpool/opium/pool/PEER_2_POOL_OPTION_CALL_ETH_V3';
+  const link = 'some_link_is_not_ready';
   const [isSuccessfullyCopied, setIsSuccessfullyCopied] = useState(false);
 
   const copyContent = async () => {

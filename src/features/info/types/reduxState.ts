@@ -12,7 +12,7 @@ interface ReduxState {
   data: {
     user: {
       fundraisings: Fundraisings | null;
-      isManager: boolean;
+      isManager: boolean | null;
       address: string | null;
     };
     allFundraisings: Fundraisings | null;

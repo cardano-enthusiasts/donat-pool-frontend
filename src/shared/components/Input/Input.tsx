@@ -21,7 +21,7 @@ const Input = ({
   maxLength = undefined,
   rows = undefined,
   error = null,
-  fontColor = 'green',
+  fontColor = 'black',
 }: Props) => {
   return (
     <Wrapper>
