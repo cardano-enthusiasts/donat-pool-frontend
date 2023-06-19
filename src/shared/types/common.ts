@@ -42,7 +42,7 @@ interface UserInfo {
   address: string;
 }
 
-type CurrentLandingSection =
+type LandingSection =
   | 'home'
   | 'how it works'
   | 'why choose us'
@@ -60,6 +60,6 @@ export type {
   CreateFundraisingParams,
   WalletStatus,
   UserInfo,
-  CurrentLandingSection,
+  LandingSection,
   ProjectStatus,
 };

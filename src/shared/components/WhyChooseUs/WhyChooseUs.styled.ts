@@ -35,6 +35,10 @@ const ButtonAndInfo = styled.div`
   }
 `;
 
+const ButtonWrapper = styled.div`
+  flex-shrink: 0;
+`;
+
 const MinorDescription = styled.div`
   font-size: 16px;
   line-height: 130%;
@@ -56,4 +60,5 @@ export {
   ButtonAndInfo,
   MinorDescription,
   MinorInfoSection,
+  ButtonWrapper,
 };

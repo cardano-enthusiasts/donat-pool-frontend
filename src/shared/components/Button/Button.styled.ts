@@ -98,9 +98,10 @@ const getSecondaryStyles = (primaryColor, secondaryColor, size) => css`
   }
 
   @media (max-width: 1100px) {
-    padding: 24px 56px;
-    font-size: 24px;
-    max-width: 250px;
+    padding: 20px 50px;
+    font-size: 22px;
+    max-width: 200px;
+    height: ${size === 's' ? '70px' : '86px'};
   }
 `;
 
@@ -295,7 +296,7 @@ const Wrapper = styled.div<{
     themeType === 'secondary' && getSecondaryWrapperStyles(size)};
 
   @media (max-width: 1100px) {
-    width: ${({ themeType }) => themeType === 'secondary' && '245px'};
+    width: ${({ themeType }) => themeType === 'secondary' && '200px'};
   }
 `;
 

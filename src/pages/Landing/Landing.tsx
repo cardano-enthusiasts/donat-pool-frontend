@@ -11,7 +11,7 @@ import {
   Waves,
   WhyChooseUs,
 } from 'shared/components';
-import { type CurrentLandingSection } from 'shared/types';
+import { type LandingSection } from 'shared/types';
 
 import {
   TitleAndDescription,
@@ -36,8 +36,7 @@ import {
 const Landing = () => {
   const [windowScroll, setWindowScroll] = useState(0);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-  const [currentSection, setCurrentSection] =
-    useState<CurrentLandingSection>('home');
+  const [currentSection, setCurrentSection] = useState<LandingSection>('home');
   const [isMobileHeaderOpen, setIsMobileHeaderOpen] = useState(false);
 
   useEffect(() => {
@@ -61,7 +60,7 @@ const Landing = () => {
   }, []);
 
   const section: Array<{
-    title: CurrentLandingSection;
+    title: LandingSection;
     top: number;
     bottom: number;
   }> = [
@@ -86,8 +85,8 @@ const Landing = () => {
     setIsMobileHeaderOpen(!isMobileHeaderOpen);
   };
 
-  const handleSectionClick = (clickedSection: CurrentLandingSection) => {
-    // setCurrentSection(clickedSection);
+  const handleSectionClick = (clickedSection: LandingSection) => {
+    setCurrentSection(clickedSection);
   };
 
   return (
@@ -103,7 +102,7 @@ const Landing = () => {
           </WavesWrapper>
         </DonutsWrapper>
 
-        <TitleAndDescription>
+        <TitleAndDescription id="home">
           <MainLogo src="/img/big-logo.svg" alt="Donat pool logo" />
           <Description>
             <DescriptionPart1>Give a little,</DescriptionPart1>
@@ -122,7 +121,7 @@ const Landing = () => {
 
         <MainWrapper backgroundColor="green">
           <MainInner>
-            <HowItWorksItemsWrapper>
+            <HowItWorksItemsWrapper id="how it works">
               <HowItWorksItems />
             </HowItWorksItemsWrapper>
           </MainInner>
@@ -132,7 +131,7 @@ const Landing = () => {
 
         <MainWrapper backgroundColor="red">
           <MainInner>
-            <WhyChooseUsWrapper>
+            <WhyChooseUsWrapper id="why choose us">
               <WhyChooseUs />
             </WhyChooseUsWrapper>
           </MainInner>
@@ -140,7 +139,7 @@ const Landing = () => {
 
         <MainWrapper backgroundColor="yellow">
           <MainInner>
-            <AboutUsWrapper>
+            <AboutUsWrapper id="about us">
               <AboutUs />
             </AboutUsWrapper>
           </MainInner>

@@ -1,3 +1,5 @@
+import { type LandingSection } from 'shared/types';
+
 import { Icon, Inner, Link, WavesWrapper, Wrapper } from './LandingNav.styled';
 import { type Props } from './types';
 import { Button, Waves } from '../.';
@@ -10,7 +12,11 @@ const LandingNav = ({
   handleSectionClick,
   isOpen,
 }: Props) => {
-  const sections = [
+  const sections: Array<{
+    title: string;
+    isActive: boolean;
+    id: LandingSection;
+  }> = [
     { title: 'Home', isActive: currentSection === 'home', id: 'home' },
     {
       title: 'How it works',
@@ -59,6 +65,9 @@ const LandingNav = ({
               isActive={isActive}
               currentSection={currentSection}
               href={`#${id}`}
+              onClick={() => {
+                handleSectionClick(id);
+              }}
             >
               {title}
             </Link>

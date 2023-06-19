@@ -1,10 +1,10 @@
-import { type CurrentLandingSection } from 'shared/types';
+import { type LandingSection } from 'shared/types';
 
 export interface Props {
-  currentSection: CurrentLandingSection;
+  currentSection: LandingSection;
   windowScroll: number;
   windowWidth: number;
   handleIconClick: () => void;
-  handleSectionClick: (id: string) => void;
+  handleSectionClick: (currentSection: LandingSection) => void;
   isOpen: boolean;
 }

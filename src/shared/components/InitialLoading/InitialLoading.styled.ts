@@ -82,7 +82,7 @@ const CatImage = styled.div`
   @media (max-width: 1100px) {
     max-height: 100vh;
     max-width: 100vw;
-    top: 30px;
+    top: 0;
     background-position: center;
   }
 `;

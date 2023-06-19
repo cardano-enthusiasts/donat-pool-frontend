@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { type CurrentLandingSection } from 'shared/types';
+import { type LandingSection } from 'shared/types';
 
 const Wrapper = styled.nav<{
   windowScroll;
@@ -41,7 +41,7 @@ const Icon = styled.img`
 `;
 
 const Inner = styled.div<{
-  currentSection: CurrentLandingSection;
+  currentSection: LandingSection;
 }>`
   display: ${({ currentSection }) =>
     currentSection === 'contact us' ? 'none' : 'flex'};
@@ -54,7 +54,7 @@ const Inner = styled.div<{
 
 const Link = styled.a<{
   isActive: boolean;
-  currentSection: CurrentLandingSection;
+  currentSection: LandingSection;
 }>`
   font-family: 'Rammetto One', Arial, Helvetica, sans-serif, sans-serif;
   font-size: ${({ isActive }) => (isActive ? '54px' : '15px')};

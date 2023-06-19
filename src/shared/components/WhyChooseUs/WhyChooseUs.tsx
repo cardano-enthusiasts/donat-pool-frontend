@@ -7,6 +7,7 @@ import {
   ButtonAndInfo,
   MinorDescription,
   MinorInfoSection,
+  ButtonWrapper,
 } from './WhyChooseUs.styled';
 import { Button } from '../Button/Button';
 
@@ -20,9 +21,16 @@ const WhyChooseUs = () => {
         </InfoSection>
       ))}
       <ButtonAndInfo>
-        <Button themeType="primary" primaryColor="blue" secondaryColor="green">
-          See code
-        </Button>
+        <ButtonWrapper>
+          <Button
+            themeType="primary"
+            primaryColor="blue"
+            secondaryColor="green"
+          >
+            See code
+          </Button>
+        </ButtonWrapper>
+
         <MinorDescription>
           Мы открыли для вас код контрактов, чтобы вы могли удостовериться, что
           система безопасна.
