@@ -1,11 +1,18 @@
+import { useWindowSize } from 'shared/helpers/hooks';
+
 import {
   Wrapper,
-  TeamImage,
   TeamImageWrapper,
   ButtonWrapper,
   StackImg,
   StackTitle,
   Stack,
+  KatePhoto,
+  OksanaPhoto,
+  OlgaPhoto,
+  SvetlanaPhoto,
+  MariayPhoto,
+  SvetlanaAndMariya,
 } from './AboutUs.styled';
 import { Button } from '../Button/Button';
 
@@ -15,10 +22,24 @@ const AboutUs = () => {
     { id: 'cardano-transaction-lib', src: '/img/cardano-transaction-lib.svg' },
     { id: 'react', src: '/img/react.svg' },
   ];
+  const { width } = useWindowSize();
+  const svetaAndMariyaPhotos = (
+    <>
+      <SvetlanaPhoto src="/img/svetlana.png" />
+      <MariayPhoto src="/img/mariya.png" />
+    </>
+  );
   return (
     <Wrapper>
       <TeamImageWrapper>
-        <TeamImage src="/img/team.svg" />
+        <KatePhoto src="/img/kate.png" />
+        <OksanaPhoto src="/img/oksana.png" />
+        <OlgaPhoto src="/img/olga.png" />
+        {width > 1430 ? (
+          svetaAndMariyaPhotos
+        ) : (
+          <SvetlanaAndMariya>{svetaAndMariyaPhotos}</SvetlanaAndMariya>
+        )}
       </TeamImageWrapper>
       <ButtonWrapper>
         <Button themeType="secondary" primaryColor="blue" secondaryColor="red">
