@@ -102,20 +102,24 @@ const Landing = () => {
           </WavesWrapper>
         </DonutsWrapper>
 
-        <TitleAndDescription id="home">
-          <MainLogo src="/img/big-logo.svg" alt="Donat pool logo" />
-          <Description>
-            <DescriptionPart1>Give a little,</DescriptionPart1>
-            <DescriptionPart2>help a lot</DescriptionPart2>
-          </Description>
-          <ButtonWrapper>
-            <Button themeType="secondary" href="/my-projects">
-              Start
-              <br />
-              using
-            </Button>
-          </ButtonWrapper>
-        </TitleAndDescription>
+        <MainWrapper backgroundColor="blue">
+          <MainInner>
+            <TitleAndDescription id="home">
+              <MainLogo src="/img/big-logo.svg" alt="Donat pool logo" />
+              <Description>
+                <DescriptionPart1>Give a little,</DescriptionPart1>
+                <DescriptionPart2>help a lot</DescriptionPart2>
+              </Description>
+              <ButtonWrapper>
+                <Button themeType="secondary" href="/my-projects">
+                  Start
+                  <br />
+                  using
+                </Button>
+              </ButtonWrapper>
+            </TitleAndDescription>
+          </MainInner>
+        </MainWrapper>
 
         <Waves color="green" backgroundColor="blue" />
 

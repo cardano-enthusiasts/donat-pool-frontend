@@ -2,7 +2,8 @@ import { useWindowSize } from 'shared/helpers/hooks';
 
 import {
   Wrapper,
-  TeamImageWrapper,
+  TeamWrapper,
+  TeamInner,
   ButtonWrapper,
   StackImg,
   StackTitle,
@@ -31,31 +32,38 @@ const AboutUs = () => {
   );
   return (
     <Wrapper>
-      <TeamImageWrapper>
-        <KatePhoto src="/img/kate.png" />
-        <OksanaPhoto src="/img/oksana.png" />
-        <OlgaPhoto src="/img/olga.png" />
-        {width > 1430 ? (
-          svetaAndMariyaPhotos
-        ) : (
-          <SvetlanaAndMariya>{svetaAndMariyaPhotos}</SvetlanaAndMariya>
-        )}
-      </TeamImageWrapper>
+      <TeamWrapper>
+        <TeamInner>
+          <KatePhoto src="/img/kate.png" />
+          <OksanaPhoto src="/img/oksana.png" />
+          <OlgaPhoto src="/img/olga.png" />
+          {width > 1430 ? (
+            svetaAndMariyaPhotos
+          ) : (
+            <SvetlanaAndMariya>{svetaAndMariyaPhotos}</SvetlanaAndMariya>
+          )}
+        </TeamInner>
+      </TeamWrapper>
+
       <ButtonWrapper>
         <Button themeType="secondary" primaryColor="blue" secondaryColor="red">
           Donate
           <br /> To Us
         </Button>
       </ButtonWrapper>
-      <StackTitle>Our stack</StackTitle>
+
       <Stack>
-        {stack.map(({ id, src }) => (
-          <StackImg key={id} src={src} alt={id} />
-        ))}
+        <StackTitle>Our stack</StackTitle>
+        <div>
+          {stack.map(({ id, src }) => (
+            <StackImg key={id} src={src} alt={id} />
+          ))}
+        </div>
+
+        <Button themeType="primary" primaryColor="red" secondaryColor="blue">
+          Read more
+        </Button>
       </Stack>
-      <Button themeType="primary" primaryColor="red" secondaryColor="blue">
-        Read more
-      </Button>
     </Wrapper>
   );
 };

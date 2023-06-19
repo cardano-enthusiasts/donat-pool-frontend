@@ -1,18 +1,21 @@
 import styled, { css } from 'styled-components';
 
 const Wrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   margin-bottom: 140px;
   @media (max-width: 1100px) {
     margin-bottom: 80px;
   }
 `;
+const TeamWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
 
-const TeamImageWrapper = styled.div`
+const TeamInner = styled.div`
   display: flex;
   position: relative;
+  margin-top: 60px;
   margin-bottom: 140px;
   height: 600px;
   width: 100%;
@@ -26,6 +29,7 @@ const TeamImageWrapper = styled.div`
     height: 1000px;
   }
   @media (max-width: 1100px) {
+    margin-top: 30px;
     margin-bottom: 50px;
   }
   @media (max-width: 700px) {
@@ -148,6 +152,7 @@ const MariayPhoto = styled.img`
 
 const ButtonWrapper = styled.div`
   margin-bottom: 140px;
+  align-self: start;
   @media (max-width: 1100px) {
     margin-bottom: 50px;
   }
@@ -157,11 +162,14 @@ const StackTitle = styled.div`
   font-weight: bold;
   font-size: 24px;
   color: ${({ theme }) => theme.colors.darkGray};
-  margin-bottom: 50px;
 `;
 
 const Stack = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
   margin-bottom: 40px;
+  max-width: 800px;
 `;
 
 const StackImg = styled.img`
@@ -173,7 +181,8 @@ const StackImg = styled.img`
 
 export {
   Wrapper,
-  TeamImageWrapper,
+  TeamWrapper,
+  TeamInner,
   ButtonWrapper,
   StackTitle,
   Stack,
