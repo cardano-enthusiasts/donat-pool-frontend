@@ -1,5 +1,4 @@
 import { useDispatch } from 'react-redux';
-import { toast } from 'react-toastify';
 
 import {
   receiveFunds,
@@ -17,7 +16,7 @@ import {
 } from './';
 import { getOffchainError } from '..';
 
-const useReceiveFunds = () => {
+const useReceiveFunds = ({ onSuccess, onError }) => {
   const offchain = useOffchain();
   const dispatch = useDispatch();
   const getUserFundraisings = useGetUserFundraisings();
@@ -26,13 +25,14 @@ const useReceiveFunds = () => {
   const protocol = JSON.parse(process.env.PROTOCOL);
 
   const handleSuccess = () => {
-    toast.success('Received successfully');
     dispatch(receiveFundsSuccess());
     dispatch(setWalletStatusSuccess('connected'));
     getUserFundraisings();
+    onSuccess();
   };
 
   const handleError = (error) => {
+    onError();
     handleCommonError(error);
     dispatch(receiveFundsFail(error));
   };

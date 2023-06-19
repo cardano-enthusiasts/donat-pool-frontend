@@ -4,8 +4,8 @@ const baseContainer = css`
   width: 100%;
   display: flex;
   justify-content: center;
-  padding-left: 70px;
-  padding-right: 70px;
+  padding-left: 80px;
+  padding-right: 80px;
 
   @media (max-width: 1250px) {
     padding-left: 45px;
@@ -26,19 +26,23 @@ const baseInner = css`
 const link = css`
   a {
     text-decoration: none;
-    color: ${({ theme }) => theme.colors.dark75};
-
-    &:hover {
-      color: ${({ theme }) => theme.colors.dark100};
-    }
   }
 `;
 
 const h1 = css`
-  font-size: 32px;
-  line-height: 120%;
-  font-weight: 700;
-  color: ${({ theme }) => theme.colors.dark100};
+  font-family: 'Rammetto One', Arial, Helvetica, sans-serif;
+  font-weight: normal;
+  font-size: 54px;
+  line-height: 104%;
+  color: ${({ theme }) => theme.colors.red};
+  margin: 0;
+
+  @media (max-width: 900px) {
+    font-size: 36px;
+  }
+  @media (max-width: 400px) {
+    font-size: 30px;
+  }
 `;
 
 const h2 = css`
@@ -52,48 +56,27 @@ const h3 = css`
   font-size: 13px;
 `;
 
-const cardWrapper = css`
-  background: #fff;
-  border: 1px solid #fff;
-  box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
-  border-radius: 4px;
-  padding: 40px 30px 20px 30px;
-  @media (max-width: 900px) {
-    padding: 20px;
-  }
-  @media (max-width: 500px) {
-    padding: 12px;
-  }
+const getLargeLayoutPadding = () => css`
+  padding-right: 80px;
 `;
 
-const fieldStyles = css`
-  width: 100%;
-  max-width: 100%;
-  min-width: 150px;
-  border: 1px solid ${({ theme }) => theme.colors.dark25};
-  border-radius: 4px;
-  width: 100%;
-  padding: 14px 14px 13px;
-  outline: none;
-  color: ${({ theme }) => theme.colors.dark75};
-  font-family: Montserrat, Arial, sans-serif;
-
-  &::placeholder {
-    font-family: Montserrat, Arial, sans-serif;
-    font-size: 14px;
-    color: ${({ theme }) => theme.colors.dark75};
-  }
-
-  &:hover,
-  &:focus {
-    border: 1px solid ${({ theme }) => theme.colors.dark50};
-  }
-
-  &:disabled {
-    cursor: not-allowed;
-    color: ${({ theme }) => theme.colors.dark50};
-    background-color: ${({ theme }) => theme.colors.dark5};
-  }
+const getMediumLayoutPadding = () => css`
+  padding-left: 50px;
+  padding-right: 50px;
+`;
+const getSmallLayoutPadding = () => css`
+  padding-left: 20px;
+  padding-right: 20px;
 `;
 
-export { baseContainer, baseInner, link, h1, h2, h3, cardWrapper, fieldStyles };
+export {
+  baseContainer,
+  baseInner,
+  link,
+  h1,
+  h2,
+  h3,
+  getLargeLayoutPadding,
+  getMediumLayoutPadding,
+  getSmallLayoutPadding,
+};

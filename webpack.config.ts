@@ -52,6 +52,7 @@ module.exports = (env) => {
       new HtmlWebpackPlugin({
         template: './index.html',
         inject: 'body',
+        publicPath: '/',
       }),
       new CopyPlugin({
         patterns: [

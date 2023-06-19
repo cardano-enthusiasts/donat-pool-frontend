@@ -1,5 +1,6 @@
 import {
   InputContainer,
+  Message,
   StyledInput,
   StyledTextArea,
   Title,
@@ -12,27 +13,33 @@ const Input = ({
   onChange,
   dataAttr = '',
   type = 'text',
-  title = null,
+  children = null,
   multiline = false,
   isDisabled = false,
   hint = null,
   placeholder = '',
   maxLength = undefined,
+  rows = undefined,
+  error = null,
+  fontColor = 'black',
 }: Props) => {
   return (
     <Wrapper>
-      <Title>{title}</Title>
-      {multiline ? (
-        <StyledTextArea
-          value={value}
-          onChange={onChange}
-          {...{ 'data-type': dataAttr }}
-          disabled={isDisabled}
-          placeholder={placeholder}
-          maxLength={maxLength}
-        />
-      ) : (
-        <InputContainer hint={hint}>
+      <Title>{children}</Title>
+      <InputContainer hint={hint}>
+        {multiline ? (
+          <StyledTextArea
+            value={value}
+            onChange={onChange}
+            {...{ 'data-type': dataAttr }}
+            disabled={isDisabled}
+            placeholder={placeholder}
+            maxLength={maxLength}
+            rows={rows}
+            error={error}
+            fontColor={fontColor}
+          />
+        ) : (
           <StyledInput
             type={type}
             value={value}
@@ -41,12 +48,15 @@ const Input = ({
             disabled={isDisabled}
             placeholder={placeholder}
             maxLength={maxLength}
+            error={error}
             onWheel={(event) => {
               event.currentTarget.blur();
             }}
+            fontColor={fontColor}
           />
-        </InputContainer>
-      )}
+        )}
+        {error !== '' && error !== null && <Message>{error}</Message>}
+      </InputContainer>
     </Wrapper>
   );
 };

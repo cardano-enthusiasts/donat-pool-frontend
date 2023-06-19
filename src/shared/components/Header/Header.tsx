@@ -8,11 +8,11 @@ import {
   Inner,
   Links,
   Wrapper,
-  LinksAndWallet,
   LinkWrapper,
-  Menu,
-  MenuLine,
-  CloseButton,
+  Icon,
+  LogoWrapper,
+  LinksAndButton,
+  Line,
 } from './Header.styled';
 import { type Props } from './types';
 import { Logo, WalletButton } from '..';
@@ -27,9 +27,8 @@ const Header = ({ currentPage }: Props) => {
     id: 'management',
   };
   const links = [
-    { title: 'Home', href: '/', id: 'home' },
-    { title: 'My profile', href: '/my-profile', id: 'profile' },
-    { title: 'Projects', href: '/all-projects', id: 'projects' },
+    { title: 'My projects', href: '/my-projects', id: 'my-projects' },
+    { title: 'All Donation pools', href: '/all-projects', id: 'projects' },
   ];
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -37,9 +36,13 @@ const Header = ({ currentPage }: Props) => {
     <>
       <Wrapper isMenuOpen={isMenuOpen}>
         <Inner>
-          <Logo />
-          <LinksAndWallet>
-            <Links>
+          {!isMenuOpen && (
+            <LogoWrapper>
+              <Logo />
+            </LogoWrapper>
+          )}
+          <LinksAndButton>
+            <Links isMenuOpen={isMenuOpen}>
               {isManager && (
                 <LinkWrapper
                   key={managerLink.id}
@@ -54,29 +57,20 @@ const Header = ({ currentPage }: Props) => {
                 </LinkWrapper>
               ))}
             </Links>
+            <Line />
             <WalletButton />
-          </LinksAndWallet>
+          </LinksAndButton>
         </Inner>
 
-        <CloseButton
+        <Icon
           onClick={() => {
-            setIsMenuOpen(false);
+            setIsMenuOpen(!isMenuOpen);
           }}
           isMenuOpen={isMenuOpen}
-        >
-          <img src="icons/close.svg" alt="close icon"></img>
-        </CloseButton>
+          src={`/icons/${isMenuOpen ? 'close' : 'menu'}.svg`}
+          alt="close icon"
+        />
       </Wrapper>
-      <Menu
-        onClick={() => {
-          setIsMenuOpen(true);
-        }}
-        isMenuOpen={isMenuOpen}
-      >
-        <MenuLine />
-        <MenuLine />
-        <MenuLine />
-      </Menu>
     </>
   );
 };

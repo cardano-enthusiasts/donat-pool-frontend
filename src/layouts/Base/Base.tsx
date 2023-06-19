@@ -1,19 +1,20 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Route, Routes, useNavigate } from 'react-router-dom';
-import { ToastContainer } from 'react-toastify';
 
 import { setWalletStatusSuccess } from 'features/info/redux/actionCreators';
-import AllProjects from 'layouts/AllProjects/AllProjects';
-import Home from 'layouts/Home/Home';
-import Management from 'layouts/Management/Management';
-import Profile from 'layouts/Profile/Profile';
-import { Footer, Header, NotAvailableError } from 'shared/components';
-import 'react-toastify/dist/ReactToastify.css';
+import {
+  AllProjects,
+  Landing,
+  Management,
+  PrivateProject,
+  PublicProject,
+  NewProject,
+  PrivateProjects,
+} from 'pages';
+import { NotAvailableError } from 'shared/components';
 import { useGetAppInfo, useOffchain } from 'shared/helpers/hooks';
 import { type AppReduxState } from 'shared/types';
-
-import { Inner, Main } from './Base.styled';
 
 const Base = () => {
   const { walletStatus } = useSelector(
@@ -22,7 +23,7 @@ const Base = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [walletIsNotAvailable, setWalletIsNotAvailable] = useState(false);
-  const [currentPage, setCurrentPage] = useState('');
+
   const getAppInfo = useGetAppInfo();
   const offchain = useOffchain();
 
@@ -52,27 +53,19 @@ const Base = () => {
     }
   }, [walletStatus, window]);
 
-  useEffect(() => {
-    setCurrentPage(location.pathname);
-  }, [location.pathname]);
-
   return walletIsNotAvailable ? (
     <NotAvailableError />
   ) : (
     <>
-      <Header currentPage={currentPage} />
-      <Main>
-        <Inner>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/management" element={<Management />} />
-            <Route path="/my-profile" element={<Profile />} />
-            <Route path="/all-projects" element={<AllProjects />} />
-          </Routes>
-        </Inner>
-      </Main>
-      <Footer />
-      <ToastContainer position="bottom-right" theme="light" />
+      <Routes>
+        <Route path="/" element={<Landing />} />
+        <Route path="/management" element={<Management />} />
+        <Route path="/my-projects" element={<PrivateProjects />} />
+        <Route path="/new-project" element={<NewProject />} />
+        <Route path="/all-projects" element={<AllProjects />} />
+        <Route path="/all-projects/:id" element={<PublicProject />} />
+        <Route path="/my-projects/:id" element={<PrivateProject />} />
+      </Routes>
     </>
   );
 };

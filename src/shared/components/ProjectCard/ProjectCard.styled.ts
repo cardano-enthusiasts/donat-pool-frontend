@@ -1,56 +1,105 @@
 import styled from 'styled-components';
 
-import { cardWrapper, h3, h2 } from 'shared/styles/mixins';
+import { type Props } from './types';
 
-const Form = styled.form`
-  ${cardWrapper};
+const getColor = (status) => {
+  const statusColors = {
+    default: 'blue',
+    active: 'red',
+    completed: 'green',
+  };
+  return ({ theme }) => theme.colors[statusColors[status]];
+};
+
+const Wrapper = styled.div<{
+  status: Props['status'];
+  paddingSize: NonNullable<Props['paddingSize']>;
+}>`
+  background: ${({ theme }) => theme.colors.white};
+  padding: ${({ paddingSize }) =>
+    paddingSize === 's' ? '10px 16px 24px' : '28px 16px 24px'};
+
+  border-radius: 6px;
+
+  @media (max-width: 900px) {
+    padding: 20px;
+  }
+  @media (max-width: 500px) {
+    padding: 12px;
+  }
+
+  border: 2px solid ${({ status }) => getColor(status)};
+  box-shadow: -4px 4px 0px ${({ status }) => getColor(status)};
   display: flex;
   flex-direction: column;
-  align-items: center;
+  cursor: pointer;
+  width: 100%;
 `;
 
-const Items = styled.div`
+const DateAndAmount = styled.div`
+  display: flex;
+  justify-content: space-between;
+  padding-top: 16px;
+  border-top: 2px solid ${({ theme }) => theme.colors.black};
   width: 100%;
-  display: grid;
-  grid-template-columns: max-content 2fr;
-  justify-items: center;
-  row-gap: 10px;
-  column-gap: 30px;
-  margin-bottom: 30px;
-  @media (max-width: 700px) {
-    max-width: 100%;
-    grid-template-columns: min-content 2fr;
+`;
+const DateItem = styled.div`
+  line-height: 100%;
+`;
+const Amount = styled.div`
+  display: flex;
+  font-weight: bold;
+  line-height: 100%;
+  &:after {
+    content: url('icons/ADA.svg');
+    margin-left: 4px;
+    width: 14px;
+    height: 14px;
   }
 `;
-const Item = styled.div`
-  ${h3};
-  margin: 0;
-`;
 const Title = styled.h3`
-  ${h2};
-  max-width: 300px;
-  text-transform: uppercase;
-  margin: 0 0 20px 0;
-  text-align: center;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 130%;
+
+  color: ${({ theme }) => theme.colors.blue};
+
+  margin: 0 0 43px 0;
   text-overflow: ellipsis;
   overflow: hidden;
-  white-space: nowrap;
   @media (max-width: 400px) {
     max-width: 200px;
   }
 `;
 
-const ButtonWrapper = styled.div`
-  display: flex;
-  justify-content: center;
-  margin-top: 20px;
+const Status = styled.div<{ status: Props['status'] }>`
+  color: ${({ status }) => getColor(status)};
+  font-weight: bold;
+  padding-bottom: 12px;
+  border-bottom: 2px solid #000000;
+  margin-bottom: 18px;
+  font-size: 14px;
 `;
 
-const Loader = styled.div<{ isLoading: boolean }>`
+const RaisedAmount = styled.div`
   display: flex;
-  justify-content: center;
-  ${({ isLoading }) => isLoading && 'padding-top: 10px'}
-  ${({ isLoading }) => !isLoading && 'padding-bottom: 27px'}
+  color: ${({ theme }) => theme.colors.red};
 `;
 
-export { Form, Item, Items, Title, ButtonWrapper, Loader };
+const Line = styled.div`
+  width: 2px;
+  border-radius: 5px;
+  margin: 0 8px;
+  background-color: ${({ theme }) => theme.colors.red};
+`;
+
+export {
+  Wrapper,
+  DateItem,
+  Amount,
+  DateAndAmount,
+  Title,
+  Status,
+  RaisedAmount,
+  Line,
+};

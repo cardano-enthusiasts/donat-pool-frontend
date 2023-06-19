@@ -8,6 +8,7 @@ interface BackendProject {
   raisedAmt: { value: bigint };
   threadTokenCurrency: Uint8Array;
   threadTokenName: Uint8Array;
+  path: string;
 }
 
 type BackendProjects = BackendProject[];

@@ -10,6 +10,7 @@ const transformProjects = (projects: BackendProjects): Fundraisings => {
       raisedAmt,
       threadTokenCurrency,
       threadTokenName,
+      path,
     }) => {
       return {
         creator,
@@ -19,6 +20,7 @@ const transformProjects = (projects: BackendProjects): Fundraisings => {
         raisedAmount: Number(raisedAmt.value),
         threadTokenCurrency,
         threadTokenName,
+        path,
       };
     }
   );

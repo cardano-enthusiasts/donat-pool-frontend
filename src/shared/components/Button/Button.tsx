@@ -1,38 +1,54 @@
 import { Link } from 'react-router-dom';
 
-import { LinkWrapper, StyledButton } from './Button.styled';
+import { LinkWrapper, StyledButton, Wrapper } from './Button.styled';
 import { type Props } from './types';
 
 const Button = ({
   onClick,
   children,
-  theme = 'filled',
-  size = 'm',
+  primaryColor = 'yellow',
+  secondaryColor = 'red',
+  fontColor = secondaryColor,
+  themeType = 'primary',
   type = 'button',
   href = null,
   isDisabled = false,
   width = 'auto',
+  isClickedTheme = false,
+  size = 'm',
 }: Props) => {
   return href !== null ? (
-    <LinkWrapper
-      themeType={theme}
-      size={size}
-      isDisabled={isDisabled}
-      width={width}
-    >
-      <Link to={href}>{children}</Link>
-    </LinkWrapper>
+    <Wrapper themeType={themeType} width={width} size={size}>
+      <LinkWrapper
+        primaryColor={primaryColor}
+        secondaryColor={secondaryColor}
+        fontColor={fontColor}
+        themeType={themeType}
+        isDisabled={isDisabled}
+        width={width}
+        isClickedTheme={isClickedTheme}
+        size={size}
+      >
+        <Link to={href}>{children}</Link>
+      </LinkWrapper>
+    </Wrapper>
   ) : (
-    <StyledButton
-      onClick={onClick}
-      themeType={theme}
-      size={size}
-      type={type}
-      disabled={isDisabled}
-      width={width}
-    >
-      {children}
-    </StyledButton>
+    <Wrapper themeType={themeType} width={width} size={size}>
+      <StyledButton
+        onClick={onClick}
+        primaryColor={primaryColor}
+        secondaryColor={secondaryColor}
+        fontColor={fontColor}
+        themeType={themeType}
+        type={type}
+        disabled={isDisabled}
+        width={width}
+        isClickedTheme={isClickedTheme}
+        size={size}
+      >
+        {children}
+      </StyledButton>
+    </Wrapper>
   );
 };
 

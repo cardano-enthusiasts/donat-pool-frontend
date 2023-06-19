@@ -10,3 +10,4 @@ export { useStartProtocol } from './useStartProtocol';
 export { useConnectWallet } from './useConnectWallet';
 export { useCheckWalletStatus } from './useCheckWalletStatus';
 export { useHandleError } from './useHandleError';
+export { useWindowSize } from './useWindowSize';

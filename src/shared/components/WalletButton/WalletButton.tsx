@@ -1,32 +1,40 @@
+import { useState } from 'react';
 import { useSelector } from 'react-redux';
 
 import { useConnectWallet } from 'shared/helpers/hooks';
 import { type AppReduxState } from 'shared/types';
 
-import { Button } from '..';
+import { Address, ConnectButton, Wrapper } from './WalletButton.styled';
 
 const WalletButton = () => {
+  const [isAddressShown, setIsAddressShown] = useState(false);
   const connectWallet = useConnectWallet();
   const { address } = useSelector(
     (state: AppReduxState) => state.info.data.user
   );
 
   return (
-    <div>
-      <Button
+    <Wrapper
+      onMouseEnter={() => {
+        setIsAddressShown(true);
+      }}
+      onMouseLeave={() => {
+        setIsAddressShown(false);
+      }}
+    >
+      <ConnectButton
         onClick={() => {
           connectWallet();
         }}
-        size="s"
-        width="160px"
       >
-        {address
-          ? `${address.substring(0, 4)} ... ${address.substring(
-              address.length - 4
-            )}`
-          : 'Connect wallet'}
-      </Button>
-    </div>
+        {address ? 'Wallet connected' : 'Connect wallet'}
+      </ConnectButton>
+      {address && isAddressShown && (
+        <Address>{`${address.substring(0, 6)} ... ${address.substring(
+          address.length - 4
+        )}`}</Address>
+      )}
+    </Wrapper>
   );
 };
 

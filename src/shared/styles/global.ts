@@ -3,6 +3,10 @@ import { createGlobalStyle } from 'styled-components';
 import { theme } from './theme';
 
 const GlobalStyles = createGlobalStyle`
+  * {
+    box-sizing: border-box;
+  }
+
   html,
   body {
     padding: 0;
@@ -11,9 +15,9 @@ const GlobalStyles = createGlobalStyle`
   }
 
   html {
-    font-family: Montserrat, Arial, sans-serif;
+    font-family: 'Microsoft YaHei', Arial, Helvetica, sans-serif;
     font-size: 16px;
-    color: ${theme.colors.dark75};
+    color: ${theme.colors.black};
   }
 
   body {
@@ -23,7 +27,7 @@ const GlobalStyles = createGlobalStyle`
   #root {
     display: flex;
     flex-direction: column;
-    height: 100%;
+    min-height: 100vh;
 
     main {
       flex: 1 0 auto;
@@ -36,6 +40,7 @@ const GlobalStyles = createGlobalStyle`
 
   a {
     color: inherit;
+    text-decoration: none;
   }
 
   button {
@@ -46,6 +51,16 @@ const GlobalStyles = createGlobalStyle`
   *::after,
   *::before {
     box-sizing: border-box;
+  }
+
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  input[type=number] {
+    -moz-appearance: textfield;
   }
 `;
 

@@ -1,53 +1,57 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
+import { Button, GitHub, ModalContactUs } from './..';
 import {
-  Column,
   Links,
   Wrapper,
-  LogoAndSocials,
-  Icons,
   LinkWrapper,
   Inner,
+  IconAndLinks,
 } from './Footer.styled';
-import { Logo } from '..';
 
 const Footer = () => {
   const links = [
-    [
-      { title: 'Home', href: '/', id: 0 },
-      { title: 'My profile', href: '/my-profile', id: 1 },
-      { title: 'Contact us', href: '/mock-address', id: 2 },
-      { title: 'About us', href: '/mock-address', id: 3 },
-    ],
-    [
-      { title: 'Privacy Policy', href: '/mock-address', id: 4 },
-      { title: 'How to use', href: '/mock-address', id: 5 },
-      { title: 'Our advantages', href: '/mock-address', id: 6 },
-      { title: 'Our partners', href: '/mock-address', id: 7 },
-    ],
+    { title: 'Home', href: '/' },
+    { title: 'About us on MetaLamp', href: '/mock-address' },
+    { title: 'Terms of use', href: '/mock-address' },
+    { title: 'FAQ', href: '/mock-address' },
   ];
+  const [isModalContactUsOpen, setIsModalContactUsOpen] = useState(false);
 
   return (
-    <Wrapper>
-      <Inner>
-        <LogoAndSocials>
-          <Logo />
-          <Icons />
-        </LogoAndSocials>
-
-        <Links>
-          {links.map((column, index) => (
-            <Column key={index.toString()}>
-              {column.map(({ title, href, id }) => (
-                <LinkWrapper key={id}>
+    <>
+      <Wrapper>
+        <Inner>
+          <IconAndLinks>
+            <GitHub />
+            <Links>
+              {links.map(({ title, href }) => (
+                <LinkWrapper key={title}>
                   <Link to={href}>{title}</Link>
                 </LinkWrapper>
               ))}
-            </Column>
-          ))}
-        </Links>
-      </Inner>
-    </Wrapper>
+            </Links>
+          </IconAndLinks>
+          <Button
+            primaryColor="red"
+            secondaryColor="green"
+            size="s"
+            onClick={() => {
+              setIsModalContactUsOpen(true);
+            }}
+          >
+            Contact us
+          </Button>
+        </Inner>
+      </Wrapper>
+      <ModalContactUs
+        isOpen={isModalContactUsOpen}
+        onClose={() => {
+          setIsModalContactUsOpen(false);
+        }}
+      />
+    </>
   );
 };
 

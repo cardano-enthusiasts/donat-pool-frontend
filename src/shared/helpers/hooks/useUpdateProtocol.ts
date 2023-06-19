@@ -1,5 +1,4 @@
 import { useDispatch } from 'react-redux';
-import { toast } from 'react-toastify';
 
 import { setWalletStatusSuccess } from 'features/info/redux/actionCreators';
 import {
@@ -17,7 +16,7 @@ import {
 } from './';
 import { getOffchainError } from '..';
 
-const useUpdateProtocol = () => {
+const useUpdateProtocol = ({ onSuccess, onError }) => {
   const offchain = useOffchain();
   const dispatch = useDispatch();
   const getAppInfo = useGetAppInfo();
@@ -26,15 +25,16 @@ const useUpdateProtocol = () => {
   const protocol = JSON.parse(process.env.PROTOCOL);
 
   const handleSuccess = () => {
-    toast.success('Config was updated successfully');
     dispatch(updateSuccess());
     dispatch(setWalletStatusSuccess('connected'));
     getAppInfo();
+    onSuccess();
   };
 
   const handleError = (error) => {
     handleCommonError(error);
     dispatch(updateFail(error));
+    onError();
   };
 
   const editConfig = (config) => {

@@ -1,8 +1,12 @@
 import {
-  AmountAndLabel,
+  Amount,
   ItemTitle,
   Line,
-  Inner,
+  Wrapper,
+  Title,
+  Item,
+  Label,
+  Img,
 } from './ManagementParams.styled';
 import { type Props } from './types';
 
@@ -49,17 +53,25 @@ const ManagementParams = ({
   ];
 
   return (
-    <Inner>
+    <Wrapper>
+      <Title>Current protocol parameters</Title>
+      <Line />
       {params.map(({ title, id, amount, label }) => (
-        <Line key={id}>
-          <ItemTitle>{title}</ItemTitle>
-          <AmountAndLabel>
-            <div>{amount}</div>
-            <div>{label}</div>
-          </AmountAndLabel>
-        </Line>
+        <Item key={id}>
+          <ItemTitle>
+            {title}
+            <Label>
+              {label === 'ADA' ? (
+                <Img src="/icons/ADA-gray.svg" alt="ada symbol" />
+              ) : (
+                label
+              )}
+            </Label>
+          </ItemTitle>
+          <Amount>{amount}</Amount>
+        </Item>
       ))}
-    </Inner>
+    </Wrapper>
   );
 };
 
