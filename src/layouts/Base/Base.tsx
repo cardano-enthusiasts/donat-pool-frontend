@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Route, Routes, useNavigate } from 'react-router-dom';
+import { Route, Routes, useLocation, useNavigate } from 'react-router-dom';
 
 import { setWalletStatusSuccess } from 'features/info/redux/actionCreators';
 import {
@@ -17,6 +17,7 @@ import { useGetAppInfo, useOffchain } from 'shared/helpers/hooks';
 import { type AppReduxState } from 'shared/types';
 
 const Base = () => {
+  const location = useLocation();
   const { walletStatus } = useSelector(
     (state: AppReduxState) => state.info.data
   );
@@ -34,12 +35,15 @@ const Base = () => {
   }, [offchain]);
 
   useEffect(() => {
+    console.log(location.pathname);
+
     setTimeout(() => {
-      setWalletIsNotAvailable(
+      const isAvailable =
         walletStatus === 'notAvailable' ||
-          !window.cardano ||
-          !window.cardano.nami
-      );
+        !window.cardano ||
+        !window.cardano.nami;
+      const isLanding = location.pathname === '/';
+      setWalletIsNotAvailable(isAvailable && !isLanding);
     }, 1000);
   }, [walletStatus]);
 

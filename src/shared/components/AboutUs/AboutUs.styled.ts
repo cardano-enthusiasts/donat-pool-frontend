@@ -7,6 +7,7 @@ const Wrapper = styled.div`
   }
 `;
 const TeamWrapper = styled.div`
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -162,6 +163,16 @@ const StackWrapper = styled.div`
   margin-bottom: 40px;
 `;
 
+const WhiteDots = styled.div`
+  position: absolute;
+  right: -50px;
+  bottom: -25%;
+  background-image: url('/img/white-dots.svg');
+  background-repeat: no-repeat;
+  height: 500px;
+  width: 1330px;
+`;
+
 export {
   Wrapper,
   TeamWrapper,
@@ -173,5 +184,6 @@ export {
   SvetlanaPhoto,
   SvetlanaAndMariya,
   MariayPhoto,
+  WhiteDots,
   StackWrapper,
 };
