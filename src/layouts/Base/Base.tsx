@@ -35,8 +35,6 @@ const Base = () => {
   }, [offchain]);
 
   useEffect(() => {
-    console.log(location.pathname);
-
     setTimeout(() => {
       const isAvailable =
         walletStatus === 'notAvailable' ||
@@ -45,7 +43,7 @@ const Base = () => {
       const isLanding = location.pathname === '/';
       setWalletIsNotAvailable(isAvailable && !isLanding);
     }, 1000);
-  }, [walletStatus]);
+  }, [walletStatus, location.pathname]);
 
   useEffect(() => {
     if (walletStatus === 'declined') {
