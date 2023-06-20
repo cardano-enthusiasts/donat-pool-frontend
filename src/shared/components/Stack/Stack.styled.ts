@@ -13,10 +13,20 @@ const Title = styled.div`
   color: ${({ theme }) => theme.colors.darkGray};
 `;
 
-const Img = styled.img`
+const Img = styled.img<{ isActive: boolean }>`
   max-width: 100%;
+  transform: translateY(100%);
+  transition: transform 1s ease 0s;
+  transform: ${({ isActive }) =>
+    isActive ? 'translateY(0%)' : 'translateY(100%)'};
   &:not(:first-child) {
     margin-top: -30px;
+  }
+  &:nth-child(2) {
+    transition-delay: 250ms;
+  }
+  &:nth-child(3) {
+    transition-delay: 500ms;
   }
 `;
 
