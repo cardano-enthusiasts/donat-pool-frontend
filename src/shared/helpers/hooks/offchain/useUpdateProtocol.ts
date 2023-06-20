@@ -13,8 +13,8 @@ import {
   useOffchain,
   useCheckWalletStatus,
   useHandleError,
-} from './';
-import { getOffchainError } from '..';
+} from '..';
+import { getOffchainError } from '../..';
 
 const useUpdateProtocol = ({ onSuccess, onError }) => {
   const offchain = useOffchain();

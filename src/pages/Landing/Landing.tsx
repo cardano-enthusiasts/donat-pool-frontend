@@ -11,6 +11,8 @@ import {
   Waves,
   WhyChooseUs,
 } from 'shared/components';
+import { useWindowSize } from 'shared/helpers/hooks';
+import { useWindowScroll } from 'shared/helpers/hooks/useWindowScroll';
 import { type LandingSection } from 'shared/types';
 
 import {
@@ -34,30 +36,10 @@ import {
 } from './Landing.styled';
 
 const Landing = () => {
-  const [windowScroll, setWindowScroll] = useState(0);
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const windowScroll = useWindowScroll();
+  const { width: windowWidth } = useWindowSize();
   const [currentSection, setCurrentSection] = useState<LandingSection>('home');
   const [isMobileHeaderOpen, setIsMobileHeaderOpen] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setWindowScroll(Math.round(window.scrollY));
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setWindowWidth(Math.round(window.innerWidth));
-    };
-    window.addEventListener('resize', handleScroll);
-    return () => {
-      window.removeEventListener('resize', handleScroll);
-    };
-  }, []);
 
   const section: Array<{
     title: LandingSection;

@@ -158,25 +158,8 @@ const ButtonWrapper = styled.div`
   }
 `;
 
-const StackTitle = styled.div`
-  font-weight: bold;
-  font-size: 24px;
-  color: ${({ theme }) => theme.colors.darkGray};
-`;
-
-const Stack = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 40px;
+const StackWrapper = styled.div`
   margin-bottom: 40px;
-  max-width: 800px;
-`;
-
-const StackImg = styled.img`
-  max-width: 100%;
-  &:not(:first-child) {
-    margin-top: -30px;
-  }
 `;
 
 export {
@@ -184,13 +167,11 @@ export {
   TeamWrapper,
   TeamInner,
   ButtonWrapper,
-  StackTitle,
-  Stack,
-  StackImg,
   KatePhoto,
   OksanaPhoto,
   OlgaPhoto,
   SvetlanaPhoto,
   SvetlanaAndMariya,
   MariayPhoto,
+  StackWrapper,
 };

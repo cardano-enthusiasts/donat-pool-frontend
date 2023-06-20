@@ -13,8 +13,8 @@ import {
 } from 'features/protocol/redux/actionCreators';
 import { type UserAndProtocolParams } from 'shared/types';
 
-import { useCheckWalletStatus, useHandleError, useOffchain } from '.';
-import { getOffchainError } from '..';
+import { useCheckWalletStatus, useHandleError, useOffchain } from '..';
+import { getOffchainError } from '../..';
 
 const useGetAppInfo = () => {
   const offchain = useOffchain();

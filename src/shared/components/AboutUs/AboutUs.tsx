@@ -5,24 +5,17 @@ import {
   TeamWrapper,
   TeamInner,
   ButtonWrapper,
-  StackImg,
-  StackTitle,
-  Stack,
   KatePhoto,
   OksanaPhoto,
   OlgaPhoto,
   SvetlanaPhoto,
   MariayPhoto,
   SvetlanaAndMariya,
+  StackWrapper,
 } from './AboutUs.styled';
-import { Button } from '../Button/Button';
+import { Button, Stack } from '../.';
 
 const AboutUs = () => {
-  const stack: Array<{ id: string; src: string }> = [
-    { id: 'plutarch', src: '/img/plutarch.svg' },
-    { id: 'cardano-transaction-lib', src: '/img/cardano-transaction-lib.svg' },
-    { id: 'react', src: '/img/react.svg' },
-  ];
   const { width } = useWindowSize();
   const svetaAndMariyaPhotos = (
     <>
@@ -51,19 +44,9 @@ const AboutUs = () => {
           <br /> To Us
         </Button>
       </ButtonWrapper>
-
-      <Stack>
-        <StackTitle>Our stack</StackTitle>
-        <div>
-          {stack.map(({ id, src }) => (
-            <StackImg key={id} src={src} alt={id} />
-          ))}
-        </div>
-
-        <Button themeType="primary" primaryColor="red" secondaryColor="blue">
-          Read more
-        </Button>
-      </Stack>
+      <StackWrapper>
+        <Stack />
+      </StackWrapper>
     </Wrapper>
   );
 };

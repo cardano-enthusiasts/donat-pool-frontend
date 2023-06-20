@@ -7,8 +7,8 @@ import {
   setWalletStatusSuccess,
 } from 'features/info/redux/actionCreators';
 
-import { useOffchain, useCheckWalletStatus, useHandleError } from '.';
-import { getOffchainError } from '..';
+import { useOffchain, useCheckWalletStatus, useHandleError } from '..';
+import { getOffchainError } from '../..';
 
 const useGetAllFundraisings = () => {
   const offchain = useOffchain();
