@@ -1,22 +1,22 @@
 import { useDispatch } from 'react-redux';
 
 import {
-  receiveFunds,
-  receiveFundsFail,
-  receiveFundsSuccess,
+  create,
+  createFail,
+  createSuccess,
 } from 'features/fundraising/redux/actionCreators';
 import { setWalletStatusSuccess } from 'features/info/redux/actionCreators';
-import { type FundraisingData } from 'shared/types';
+import { type CreateFundraisingParams } from 'shared/types';
 
 import {
-  useCheckWalletStatus,
+  useOffchain,
   useGetUserFundraisings,
   useHandleError,
-  useOffchain,
-} from './';
-import { getOffchainError } from '..';
+  useCheckWalletStatus,
+} from '..';
+import { getOffchainError } from '../..';
 
-const useReceiveFunds = ({ onSuccess, onError }) => {
+const useCreateFundraising = (onSuccess, onError) => {
   const offchain = useOffchain();
   const dispatch = useDispatch();
   const getUserFundraisings = useGetUserFundraisings();
@@ -24,29 +24,31 @@ const useReceiveFunds = ({ onSuccess, onError }) => {
   const checkWalletStatus = useCheckWalletStatus();
   const protocol = JSON.parse(process.env.PROTOCOL);
 
-  const handleSuccess = () => {
-    dispatch(receiveFundsSuccess());
+  const handleSuccess = (fundraisingData) => {
+    console.log(fundraisingData);
+
     dispatch(setWalletStatusSuccess('connected'));
-    getUserFundraisings();
     onSuccess();
+    dispatch(createSuccess());
+    getUserFundraisings();
   };
 
   const handleError = (error) => {
-    onError();
     handleCommonError(error);
-    dispatch(receiveFundsFail(error));
+    onError();
+    dispatch(createFail(error));
   };
 
   if (offchain) {
-    return (fundraisingData: FundraisingData) => {
-      offchain.receiveFunds(handleSuccess)(handleError)(protocol)(
-        fundraisingData
+    return (createFundraisingParams: CreateFundraisingParams) => {
+      offchain.createFundraising(handleSuccess)(handleError)(protocol)(
+        createFundraisingParams
       )();
       checkWalletStatus();
-      dispatch(receiveFunds());
+      dispatch(create());
     };
   }
   return () => getOffchainError;
 };
 
-export { useReceiveFunds };
+export { useCreateFundraising };
