@@ -35,11 +35,13 @@ const AllProjects = () => {
     document.title = 'All projects';
   }, []);
 
-  const sortFundraising = (fundraisings: Fundraisings) => {
-    return fundraisings.sort(
-      (fundraising1, fundraising2) =>
-        fundraising1.deadline - fundraising2.deadline
-    );
+  const sortAndFilterFundraising = (fundraisings: Fundraisings) => {
+    return fundraisings
+      .sort(
+        (fundraising1, fundraising2) =>
+          fundraising1.deadline - fundraising2.deadline
+      )
+      .filter((fundraising) => fundraising.status === 'active');
   };
 
   return !isRequesting ? (
@@ -61,13 +63,15 @@ const AllProjects = () => {
 
         <CardsWrapper>
           {allFundraisings ? (
-            sortFundraising(allFundraisings).map((project) => (
-              <ProjectCard
-                data={project}
-                key={project.threadTokenCurrency.toString()}
-                linkSection="all-projects"
-              />
-            ))
+            sortAndFilterFundraising(allFundraisings).map((project) => {
+              return (
+                <ProjectCard
+                  data={project}
+                  key={project.threadTokenCurrency.toString()}
+                  linkSection="all-projects"
+                />
+              );
+            })
           ) : (
             <></>
           )}
