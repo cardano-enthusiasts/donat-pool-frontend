@@ -108,7 +108,7 @@ const SubLi = styled.li`
 
 const ButtonWrapper = styled.div`
   position: absolute;
-  bottom: 100px;
+  top: 0;
   right: 80px;
   z-index: 9999;
 `;

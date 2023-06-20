@@ -40,7 +40,7 @@ const Roadmap = () => {
           ))}
         </Inner>
       </Wrapper>
-      {/* <ButtonWrapper>
+      <ButtonWrapper>
         <Button
           themeType="secondary"
           primaryColor="blue"
@@ -49,7 +49,7 @@ const Roadmap = () => {
         >
           All phases
         </Button>
-      </ButtonWrapper> */}
+      </ButtonWrapper>
     </WrapperAndButton>
   );
 };

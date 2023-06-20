@@ -12,6 +12,7 @@ import {
   MariayPhoto,
   SvetlanaAndMariya,
   StackWrapper,
+  WhiteDots,
 } from './AboutUs.styled';
 import { Button, Stack } from '../.';
 
@@ -36,6 +37,7 @@ const AboutUs = () => {
             <SvetlanaAndMariya>{svetaAndMariyaPhotos}</SvetlanaAndMariya>
           )}
         </TeamInner>
+        <WhiteDots />
       </TeamWrapper>
 
       <ButtonWrapper>
