@@ -1,7 +1,6 @@
 import { type ForwardedRef, forwardRef } from 'react';
 
-import { type LandingSection } from 'shared/types';
-
+import { getSections } from './data';
 import { Icon, Inner, Link, WavesWrapper, Wrapper } from './LandingNav.styled';
 import { type Props } from './types';
 import { Button, Waves } from '../.';
@@ -17,35 +16,12 @@ const LandingNav = forwardRef(function LandingNav(
   }: Props,
   ref: ForwardedRef<HTMLElement>
 ) {
-  const sections: Array<{
-    title: string;
-    isActive: boolean;
-    id: LandingSection;
-  }> = [
-    { title: 'Home', isActive: currentSection === 'home', id: 'home' },
-    {
-      title: 'How it works',
-      isActive: currentSection === 'how-it-works',
-      id: 'how-it-works',
-    },
-    {
-      title: 'Why choose us',
-      isActive: currentSection === 'why-choose-us',
-      id: 'why-choose-us',
-    },
-    {
-      title: 'About us',
-      isActive: currentSection === 'about-us',
-      id: 'about-us',
-    },
-    {
-      title: 'Roadmap',
-      isActive: currentSection === 'roadmap',
-      id: 'roadmap',
-    },
-  ];
   const mobileResolution = 1100;
   const isContentShown = windowWidth > mobileResolution ? true : isOpen;
+  const section =
+    windowWidth > mobileResolution || currentSection !== 'contact-us'
+      ? currentSection
+      : 'roadmap';
 
   return (
     <Wrapper
@@ -54,6 +30,7 @@ const LandingNav = forwardRef(function LandingNav(
       isOpen={isOpen}
       mobileResolution={mobileResolution}
       ref={ref}
+      currentSection={section}
     >
       {windowWidth < mobileResolution && (
         <>
@@ -68,21 +45,22 @@ const LandingNav = forwardRef(function LandingNav(
         </>
       )}
       {isContentShown && (
-        <Inner currentSection={currentSection}>
-          {sections.map(({ title, isActive, id }) => (
+        <Inner mobileResolution={mobileResolution}>
+          {getSections(currentSection).map(({ title, isActive, id }) => (
             <Link
               key={title}
               isActive={isActive}
-              currentSection={currentSection}
+              currentSection={section}
               href={`#${id}`}
               onClick={() => {
                 handleSectionClick(id);
               }}
+              mobileResolution={mobileResolution}
             >
               {title}
             </Link>
           ))}
-          {currentSection !== 'home' && (
+          {section !== 'home' && (
             <Button
               themeType="primary"
               primaryColor="red"

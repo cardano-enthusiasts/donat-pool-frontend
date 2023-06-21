@@ -7,7 +7,7 @@ const WrapperAndButton = styled.div`
 `;
 
 const Wrapper = styled.div`
-  /* position: relative; */
+  position: relative;
   width: 100%;
   height: 700px;
   top: 0;
@@ -27,9 +27,18 @@ const Wrapper = styled.div`
   -o-transform: perspective(500px) rotateX(30deg);
   transform: perspective(500px) rotateX(30deg);
 
+  @media (max-width: 1200px) {
+    font-size: 36px;
+  }
   @media (max-width: 1100px) {
     left: 0;
     margin-left: 0;
+  }
+  @media (max-width: 600px) {
+    font-size: 24px;
+  }
+  @media (max-width: 500px) {
+    font-size: 20px;
   }
 `;
 
@@ -104,13 +113,18 @@ const Li = styled.li``;
 const SubLi = styled.li`
   margin-left: 100px;
   list-style: none;
+  @media (max-width: 1200px) {
+    margin-left: 50px;
+  }
+  @media (max-width: 600px) {
+    margin-left: 25px;
+  }
 `;
 
 const ButtonWrapper = styled.div`
   position: absolute;
   top: 0;
   right: 80px;
-  z-index: 9999;
 `;
 
 export {

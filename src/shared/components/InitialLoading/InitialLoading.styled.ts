@@ -1,13 +1,16 @@
 import styled, { css } from 'styled-components';
 
-const InnerCircle = styled.div<{ windowScroll }>`
+const InnerCircle = styled.div.attrs((props) => ({
+  style: {
+    transform: `scale(${props['data-windowScroll']})`,
+  },
+}))`
   position: absolute;
   width: 230px;
   height: 230px;
   border: 90px solid ${({ theme }) => theme.colors.yellow};
   margin-top: 45vh;
   z-index: 3;
-  transform: scale(${({ windowScroll }) => windowScroll});
   border-radius: 100%;
   @media (max-width: 1100px) {
     display: none;

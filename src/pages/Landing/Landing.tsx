@@ -84,7 +84,7 @@ const Landing = () => {
       const contactUsTop = Math.round(
         contactUsRef.current.getBoundingClientRect().top
       );
-      if (contactUsTop - 200 > navBottom) {
+      if (contactUsTop - 100 > navBottom) {
         return 'roadmap';
       }
       return 'contact-us';

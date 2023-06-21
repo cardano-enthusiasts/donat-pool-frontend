@@ -7,12 +7,15 @@ const Wrapper = styled.nav<{
   windowWidth;
   isOpen;
   mobileResolution;
+  currentSection;
 }>`
   position: fixed;
   left: ${({ windowWidth }) => (windowWidth - 1920) / 2 + 90}px;
   top: 90px;
-  z-index: 2;
   overflow-wrap: break-word;
+
+  z-index: ${({ currentSection }) =>
+    currentSection === 'contact-us' ? '-1' : '2'};
 
   ${({ windowScroll }) =>
     windowScroll > 10 ? 'display: block' : 'display: none'};
@@ -21,7 +24,8 @@ const Wrapper = styled.nav<{
     left: 90px;
   }
   @media (max-width: ${({ mobileResolution }) => mobileResolution}px) {
-    position: absolute;
+    position: fixed;
+    z-index: 100;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -29,7 +33,23 @@ const Wrapper = styled.nav<{
     left: 0;
     width: 100vw;
     ${({ isOpen }) => isOpen && 'height: 100vh'};
-    background-color: ${({ theme }) => theme.colors.blue};
+    ${({ isOpen }) => isOpen && 'overflow: none'};
+    background-color: ${({ theme, currentSection }) => {
+      switch (currentSection) {
+        case 'home':
+          return theme.colors.blue;
+        case 'how-it-works':
+          return theme.colors.green;
+        case 'why-choose-us':
+          return theme.colors.red;
+        case 'about-us':
+          return theme.colors.yellow;
+        case 'roadmap':
+          return theme.colors.black;
+        default:
+          return theme.colors.white;
+      }
+    }};
   }
 `;
 
@@ -42,21 +62,24 @@ const Icon = styled.img`
 `;
 
 const Inner = styled.div<{
-  currentSection: LandingSection;
+  mobileResolution: number;
 }>`
   display: flex;
-  opacity: ${({ currentSection }) =>
-    currentSection === 'contact-us' ? '0' : '1'};
   flex-direction: column;
   gap: 24px;
-
   color: ${({ theme }) => theme.colors.white};
   max-width: 245px;
+
+  @media (max-width: ${({ mobileResolution }) => mobileResolution}px) {
+    align-items: center;
+    max-width: 296px;
+  }
 `;
 
 const Link = styled.a<{
   isActive: boolean;
   currentSection: LandingSection;
+  mobileResolution: number;
 }>`
   font-family: 'Rammetto One', Arial, Helvetica, sans-serif, sans-serif;
   font-size: ${({ isActive }) => (isActive ? '54px' : '15px')};
@@ -81,6 +104,33 @@ const Link = styled.a<{
     }
     return theme.colors.white;
   }};
+
+  @media (max-width: ${({ mobileResolution }) => mobileResolution}px) {
+    font-size: ${({ isActive }) => (isActive ? '54px' : '20px')};
+    text-align: center;
+    color: ${({ theme, currentSection, isActive }) => {
+      if (isActive) {
+        switch (currentSection) {
+          case 'home':
+            return theme.colors.white;
+          case 'how-it-works':
+            return theme.colors.yellow;
+          case 'why-choose-us':
+            return theme.colors.blue;
+          case 'about-us':
+            return theme.colors.red;
+          case 'roadmap':
+            return theme.colors.green;
+          default:
+            return theme.colors.white;
+        }
+      }
+      return theme.colors.white;
+    }};
+  }
+  @media (max-width: 400px) {
+    font-size: ${({ isActive }) => (isActive ? '36px' : '15px')};
+  }
 `;
 
 const WavesWrapper = styled.div`
