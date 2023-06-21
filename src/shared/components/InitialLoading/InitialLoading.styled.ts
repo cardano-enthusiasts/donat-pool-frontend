@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components';
 
 const InnerCircle = styled.div.attrs((props) => ({
   style: {
-    transform: `scale(${props['data-windowScroll']})`,
+    transform: `scale(${props['data-window-scroll']})`,
   },
 }))`
   position: absolute;

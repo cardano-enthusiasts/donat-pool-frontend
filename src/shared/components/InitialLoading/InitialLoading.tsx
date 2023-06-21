@@ -11,7 +11,7 @@ import { ActionDonuts } from '../ActionDonuts/ActionDonuts';
 const InitialLoading = ({ windowScroll }) => {
   return (
     <>
-      <InnerCircle data-windowScroll={windowScroll / 10} />
+      <InnerCircle data-window-scroll={windowScroll / 10} />
       <OuterCircle windowScroll={windowScroll / 10}>
         <ScrollHelper1 />
         <ScrollHelper2 />
