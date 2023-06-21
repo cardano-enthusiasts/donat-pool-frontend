@@ -152,9 +152,11 @@ const MariayPhoto = styled.img`
 `;
 
 const ButtonWrapper = styled.div`
+  display: flex;
   margin-bottom: 140px;
   align-self: start;
   @media (max-width: 1100px) {
+    justify-content: center;
     margin-bottom: 50px;
   }
 `;
@@ -171,6 +173,9 @@ const WhiteDots = styled.div`
   background-repeat: no-repeat;
   height: 500px;
   width: 1330px;
+  @media (max-width: 1430px) {
+    display: none;
+  }
 `;
 
 export {

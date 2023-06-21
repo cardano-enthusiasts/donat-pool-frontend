@@ -76,7 +76,7 @@ const texts = {
             },
             {
               title: 'NuFi',
-              id: '2.1.6',
+              id: '2.1.7',
             },
           ],
           id: '2.1',

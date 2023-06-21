@@ -12,6 +12,7 @@ const Wrapper = styled.nav<{
   left: ${({ windowWidth }) => (windowWidth - 1920) / 2 + 90}px;
   top: 90px;
   z-index: 2;
+  overflow-wrap: break-word;
 
   ${({ windowScroll }) =>
     windowScroll > 10 ? 'display: block' : 'display: none'};
@@ -43,13 +44,14 @@ const Icon = styled.img`
 const Inner = styled.div<{
   currentSection: LandingSection;
 }>`
-  display: ${({ currentSection }) =>
-    currentSection === 'contact us' ? 'none' : 'flex'};
+  display: flex;
+  opacity: ${({ currentSection }) =>
+    currentSection === 'contact-us' ? '0' : '1'};
   flex-direction: column;
   gap: 24px;
 
   color: ${({ theme }) => theme.colors.white};
-  max-width: 290px;
+  max-width: 245px;
 `;
 
 const Link = styled.a<{
@@ -65,11 +67,11 @@ const Link = styled.a<{
       switch (currentSection) {
         case 'home':
           return theme.colors.green;
-        case 'how it works':
+        case 'how-it-works':
           return theme.colors.red;
-        case 'why choose us':
+        case 'why-choose-us':
           return theme.colors.yellow;
-        case 'about us':
+        case 'about-us':
           return theme.colors.green;
         case 'roadmap':
           return theme.colors.blue;

@@ -56,10 +56,12 @@ const Description = styled.div`
   @media (max-width: 1100px) {
     font-size: 48px;
     width: 70%;
+    max-width: 510px;
   }
-  @media (max-width: 500px) {
+  @media (max-width: 610px) {
     font-size: 32px;
-    width: 70%;
+    width: 100%;
+    max-width: 320px;
   }
 `;
 
@@ -167,6 +169,8 @@ const RoadmapWrapper = styled.div`
   }
 `;
 
+const ContactUsWrapper = styled.div``;
+
 export {
   InitialLoadingWrapper,
   Wrapper,
@@ -185,4 +189,5 @@ export {
   AboutUsWrapper,
   RoadmapWrapper,
   HowItWorksItemsWrapper,
+  ContactUsWrapper,
 };
