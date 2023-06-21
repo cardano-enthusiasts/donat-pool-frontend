@@ -42,7 +42,7 @@ const TeamInner = styled.div`
 const photoStyles = css`
   position: absolute;
   flex-shrink: 0;
-  height: fit-content;
+  height: auto;
 `;
 
 const KatePhoto = styled.img`
