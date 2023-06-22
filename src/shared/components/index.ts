@@ -34,3 +34,4 @@ export { PrivateProjectsActions } from './PrivateProjectsActions/PrivateProjects
 export { ModalProjectCreated } from './ModalProjectCreated/ModalProjectCreated';
 export { ModalContactUs } from './ModalContactUs/ModalContactUs';
 export { Stack } from './Stack/Stack';
+export { ScrollHelper } from './ScrollHelper/ScrollHelper';

@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
 const InnerCircle = styled.div.attrs((props) => ({
   style: {
@@ -30,49 +30,6 @@ const OuterCircle = styled.div<{ windowScroll }>`
   }
 `;
 
-const scrollHelper = css`
-  position: absolute;
-  top: 90vh;
-  left: 0;
-  right: 0;
-  margin: 0 auto;
-  width: 10px;
-  height: 10px;
-  background-color: ${({ theme }) => theme.colors.yellow};
-  border-radius: 100%;
-`;
-
-const ScrollHelper1 = styled.div`
-  ${scrollHelper};
-`;
-const ScrollHelper2 = styled.div`
-  ${scrollHelper};
-  animation: circle2 1.5s forwards linear infinite;
-  @keyframes circle2 {
-    0% {
-      top: 90vh;
-    }
-    50% {
-      top: 92vh;
-    }
-    100% {
-      top: 92vh;
-    }
-  }
-`;
-const ScrollHelper3 = styled.div`
-  ${scrollHelper};
-  animation: circle3 1.5s forwards linear infinite;
-  @keyframes circle3 {
-    0% {
-      top: 90vh;
-    }
-    100% {
-      top: 94vh;
-    }
-  }
-`;
-
 const CatImage = styled.img`
   position: absolute;
   top: 660px;
@@ -85,11 +42,4 @@ const CatImage = styled.img`
   }
 `;
 
-export {
-  InnerCircle,
-  OuterCircle,
-  CatImage,
-  ScrollHelper1,
-  ScrollHelper2,
-  ScrollHelper3,
-};
+export { InnerCircle, OuterCircle, CatImage };
