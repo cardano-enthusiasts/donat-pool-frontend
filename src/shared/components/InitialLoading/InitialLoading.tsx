@@ -4,7 +4,10 @@ import { ActionDonuts, ScrollHelper } from '../.';
 const InitialLoading = ({ windowScroll }) => {
   return (
     <>
-      <InnerCircle data-window-scroll={windowScroll / 10} />
+      <InnerCircle
+        data-window-scroll={windowScroll / 10}
+        windowScroll={windowScroll / 10}
+      />
       <OuterCircle windowScroll={windowScroll / 10}>
         <ScrollHelper />
       </OuterCircle>
