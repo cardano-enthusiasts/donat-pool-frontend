@@ -19,7 +19,6 @@ const Inner = styled.div`
 
 const TitleAndDescription = styled.div`
   font-family: 'Rammetto One', Arial, sans-serif;
-  background-color: ${({ theme }) => theme.colors.blue};
   display: flex;
   flex-direction: column;
   padding-left: 400px;
@@ -56,10 +55,12 @@ const Description = styled.div`
   @media (max-width: 1100px) {
     font-size: 48px;
     width: 70%;
+    max-width: 510px;
   }
-  @media (max-width: 500px) {
+  @media (max-width: 610px) {
     font-size: 32px;
-    width: 70%;
+    width: 100%;
+    max-width: 320px;
   }
 `;
 
@@ -88,7 +89,7 @@ const InitialLoadingWrapper = styled.div`
   align-items: start;
   overflow: hidden;
   @media (max-width: 1100px) {
-    height: 100vh;
+    height: auto;
   }
 `;
 
@@ -130,7 +131,6 @@ const WhyChooseUsWrapper = styled.div`
   background-position: 0 100%;
   background-size: 100%;
   background-repeat: no-repeat;
-  background-color: ${({ theme }) => theme.colors.red};
   @media (max-width: 1100px) {
     ${() => getMediumLayoutPadding()}
   }
@@ -143,7 +143,6 @@ const AboutUsWrapper = styled.div`
   ${() => getLargeLayoutPadding()}
   padding-left: 400px;
   padding-top: 0;
-  background-color: ${({ theme }) => theme.colors.yellow};
   @media (max-width: 1100px) {
     ${() => getMediumLayoutPadding()}
     padding-top: 50px;
@@ -159,6 +158,9 @@ const RoadmapWrapper = styled.div`
   padding-left: 400px;
   padding-bottom: 0;
   background-color: ${({ theme }) => theme.colors.black};
+  user-select: none;
+
+  overflow: hidden;
   @media (max-width: 1100px) {
     ${() => getMediumLayoutPadding()}
   }
@@ -166,6 +168,8 @@ const RoadmapWrapper = styled.div`
     ${() => getSmallLayoutPadding()}
   }
 `;
+
+const ContactUsWrapper = styled.div``;
 
 export {
   InitialLoadingWrapper,
@@ -185,4 +189,5 @@ export {
   AboutUsWrapper,
   RoadmapWrapper,
   HowItWorksItemsWrapper,
+  ContactUsWrapper,
 };

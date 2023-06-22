@@ -44,11 +44,11 @@ interface UserInfo {
 
 type LandingSection =
   | 'home'
-  | 'how it works'
-  | 'why choose us'
-  | 'about us'
+  | 'how-it-works'
+  | 'why-choose-us'
+  | 'about-us'
   | 'roadmap'
-  | 'contact us';
+  | 'contact-us';
 
 type ProjectStatus = 'active' | 'completed';
 

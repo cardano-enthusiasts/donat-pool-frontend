@@ -21,12 +21,26 @@ const Img = styled.img<{ isActive: boolean }>`
     isActive ? 'translateY(0%)' : 'translateY(100%)'};
   &:not(:first-child) {
     margin-top: -30px;
+    @media (max-width: 850px) {
+      margin-top: -20px;
+    }
+    @media (max-width: 850px) {
+      margin-top: -10px;
+    }
+  }
+  &:first-child {
+    @media (max-width: 850px) {
+      max-width: 65%;
+    }
   }
   &:nth-child(2) {
     transition-delay: 250ms;
   }
   &:nth-child(3) {
     transition-delay: 500ms;
+    @media (max-width: 850px) {
+      max-width: 50%;
+    }
   }
 `;
 

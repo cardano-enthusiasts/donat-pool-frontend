@@ -20,8 +20,10 @@ const Wrapper = styled.div`
   background-size: 115px;
   z-index: 1;
 
-  /* position: absolute; */
   display: flex;
+  @media (max-width: 1100px) {
+    position: absolute;
+  }
 `;
 
 const Column1 = styled.div`

@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 import {
   AboutUs,
@@ -33,6 +33,7 @@ import {
   InitialLoadingWrapper,
   HowItWorksItemsWrapper,
   MainLogo,
+  ContactUsWrapper,
 } from './Landing.styled';
 
 const Landing = () => {
@@ -40,27 +41,59 @@ const Landing = () => {
   const { width: windowWidth } = useWindowSize();
   const [currentSection, setCurrentSection] = useState<LandingSection>('home');
   const [isMobileHeaderOpen, setIsMobileHeaderOpen] = useState(false);
+  const navRef = useRef<HTMLDivElement>(null);
+  const homeRef = useRef<HTMLDivElement>(null);
+  const howItWorksRef = useRef<HTMLDivElement>(null);
+  const whyChooseUsRef = useRef<HTMLDivElement>(null);
+  const aboutUsRef = useRef<HTMLDivElement>(null);
+  const contactUsRef = useRef<HTMLDivElement>(null);
 
-  const section: Array<{
-    title: LandingSection;
-    top: number;
-    bottom: number;
-  }> = [
-    { title: 'home', top: 0, bottom: 2233 },
-    { title: 'how it works', top: 2233, bottom: 2880 },
-    { title: 'why choose us', top: 2880, bottom: 3420 },
-    { title: 'about us', top: 3420, bottom: 5440 },
-    { title: 'roadmap', top: 5440, bottom: 6100 },
-    { title: 'contact us', top: 6100, bottom: 6635 },
-  ];
+  const getRefSection = (): LandingSection => {
+    const areRefsDefined =
+      navRef.current &&
+      homeRef.current &&
+      howItWorksRef.current &&
+      whyChooseUsRef.current &&
+      aboutUsRef.current &&
+      contactUsRef.current;
+
+    if (areRefsDefined) {
+      const navTop = Math.round(navRef.current.getBoundingClientRect().top);
+      const navBottom = Math.round(
+        navRef.current.getBoundingClientRect().bottom
+      );
+      const navMiddle = (navBottom - navTop) / 2 + navTop;
+
+      const refsWithoutContactUs = {
+        home: homeRef,
+        'how-it-works': howItWorksRef,
+        'why-choose-us': whyChooseUsRef,
+        'about-us': aboutUsRef,
+      };
+
+      let prop: LandingSection;
+      for (prop in refsWithoutContactUs) {
+        if (
+          refsWithoutContactUs[prop].current.getBoundingClientRect().bottom >
+          navMiddle
+        ) {
+          return prop;
+        }
+      }
+
+      const contactUsTop = Math.round(
+        contactUsRef.current.getBoundingClientRect().top
+      );
+      if (contactUsTop - 100 > navBottom) {
+        return 'roadmap';
+      }
+      return 'contact-us';
+    }
+    return 'home';
+  };
 
   useEffect(() => {
-    console.log('windowScroll', windowScroll);
-    section.forEach(({ title, top, bottom }) => {
-      if (windowScroll > top && windowScroll < bottom) {
-        setCurrentSection(title);
-      }
-    });
+    setCurrentSection(getRefSection());
   }, [windowScroll]);
 
   const handleMobileHeaderClick = () => {
@@ -86,7 +119,7 @@ const Landing = () => {
 
         <MainWrapper backgroundColor="blue">
           <MainInner>
-            <TitleAndDescription id="home">
+            <TitleAndDescription id="home" ref={homeRef}>
               <MainLogo src="/img/big-logo.svg" alt="Donat pool logo" />
               <Description>
                 <DescriptionPart1>Give a little,</DescriptionPart1>
@@ -107,7 +140,7 @@ const Landing = () => {
 
         <MainWrapper backgroundColor="green">
           <MainInner>
-            <HowItWorksItemsWrapper id="how it works">
+            <HowItWorksItemsWrapper id="how-it-works" ref={howItWorksRef}>
               <HowItWorksItems />
             </HowItWorksItemsWrapper>
           </MainInner>
@@ -117,7 +150,7 @@ const Landing = () => {
 
         <MainWrapper backgroundColor="red">
           <MainInner>
-            <WhyChooseUsWrapper id="why choose us">
+            <WhyChooseUsWrapper id="why-choose-us" ref={whyChooseUsRef}>
               <WhyChooseUs />
             </WhyChooseUsWrapper>
           </MainInner>
@@ -125,7 +158,7 @@ const Landing = () => {
 
         <MainWrapper backgroundColor="yellow">
           <MainInner>
-            <AboutUsWrapper id="about us">
+            <AboutUsWrapper id="about-us" ref={aboutUsRef}>
               <AboutUs />
             </AboutUsWrapper>
           </MainInner>
@@ -143,10 +176,11 @@ const Landing = () => {
 
         <MainWrapper backgroundColor="blue">
           <MainInner>
-            <ContactUsSection />
+            <ContactUsWrapper id="contact-us" ref={contactUsRef}>
+              <ContactUsSection />
+            </ContactUsWrapper>
           </MainInner>
         </MainWrapper>
-
         <LandingNav
           currentSection={currentSection}
           windowScroll={windowScroll}
@@ -154,6 +188,7 @@ const Landing = () => {
           handleIconClick={handleMobileHeaderClick}
           handleSectionClick={handleSectionClick}
           isOpen={isMobileHeaderOpen}
+          ref={navRef}
         />
       </Inner>
     </Wrapper>
