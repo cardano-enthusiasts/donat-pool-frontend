@@ -51,7 +51,7 @@ const Amount = styled.div`
   font-weight: bold;
   line-height: 100%;
   &:after {
-    content: url('icons/ADA.svg');
+    content: url('/icons/ADA.svg');
     margin-left: 4px;
     width: 14px;
     height: 14px;
