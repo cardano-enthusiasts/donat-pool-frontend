@@ -125,6 +125,13 @@ const ButtonWrapper = styled.div`
   position: absolute;
   top: 0;
   right: 80px;
+  @media (max-width: 900px) {
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    width: 222px;
+  }
 `;
 
 export {
