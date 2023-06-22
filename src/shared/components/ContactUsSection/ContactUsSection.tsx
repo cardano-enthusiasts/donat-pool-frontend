@@ -29,8 +29,8 @@ const ContactUsSection = () => {
             </li>
           ))}
         </NavItems>
-        <Button primaryColor="red" secondaryColor="green">
-          Create an account
+        <Button primaryColor="red" secondaryColor="green" href="/new-project">
+          Create a fundraising
         </Button>
       </Nav>
       <ContactUsForm />

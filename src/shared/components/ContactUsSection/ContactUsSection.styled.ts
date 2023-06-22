@@ -24,6 +24,9 @@ const Wrapper = styled.div`
 const Nav = styled.div`
   width: 100%;
   max-width: 290px;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
 `;
 
 const NavItems = styled.ul`
