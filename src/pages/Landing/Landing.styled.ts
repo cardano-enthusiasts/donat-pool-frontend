@@ -89,7 +89,7 @@ const InitialLoadingWrapper = styled.div`
   align-items: start;
   overflow: hidden;
   @media (max-width: 1100px) {
-    height: 100vh;
+    height: auto;
   }
 `;
 

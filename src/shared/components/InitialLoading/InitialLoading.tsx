@@ -6,7 +6,7 @@ import {
   ScrollHelper2,
   ScrollHelper3,
 } from './InitialLoading.styled';
-import { ActionDonuts } from '../ActionDonuts/ActionDonuts';
+import { ActionDonuts } from '../.';
 
 const InitialLoading = ({ windowScroll }) => {
   return (
@@ -18,7 +18,7 @@ const InitialLoading = ({ windowScroll }) => {
         <ScrollHelper3 />
       </OuterCircle>
       <ActionDonuts />
-      <CatImage />
+      <CatImage src="/img/cat.svg" />
     </>
   );
 };
