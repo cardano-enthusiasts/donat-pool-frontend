@@ -20,7 +20,7 @@ const baseContainer = css`
 
 const baseInner = css`
   width: 100%;
-  max-width: 1440px;
+  max-width: 1920px;
 `;
 
 const link = css`

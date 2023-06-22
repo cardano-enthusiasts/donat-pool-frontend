@@ -9,8 +9,9 @@ import {
   Inner,
   IconAndLinks,
 } from './Footer.styled';
+import { type Props } from './types';
 
-const Footer = () => {
+const Footer = ({ backgroundColor = 'blue' }: Props) => {
   const links = [
     { title: 'Home', href: '/' },
     { title: 'About us on MetaLamp', href: '/mock-address' },
@@ -21,7 +22,7 @@ const Footer = () => {
 
   return (
     <>
-      <Wrapper>
+      <Wrapper backgroundColor={backgroundColor}>
         <Inner>
           <IconAndLinks>
             <GitHub />

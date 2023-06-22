@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from 'react';
 import {
   AboutUs,
   Button,
-  ContactUsSection,
+  Footer,
   HowItWorksItems,
   InitialLoading,
   LandingNav,
@@ -174,10 +174,10 @@ const Landing = () => {
           </MainInner>
         </MainWrapper>
 
-        <MainWrapper backgroundColor="blue">
+        <MainWrapper backgroundColor="black">
           <MainInner>
             <ContactUsWrapper id="contact-us" ref={contactUsRef}>
-              <ContactUsSection />
+              <Footer backgroundColor="black" />
             </ContactUsWrapper>
           </MainInner>
         </MainWrapper>
