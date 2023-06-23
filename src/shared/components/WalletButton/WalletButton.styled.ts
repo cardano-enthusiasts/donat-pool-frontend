@@ -2,6 +2,10 @@ import styled from 'styled-components';
 
 const Wrapper = styled.div`
   position: relative;
+  @media (max-width: 860px) {
+    display: flex;
+    justify-content: center;
+  }
 `;
 
 const ConnectButton = styled.button`
@@ -40,6 +44,14 @@ const Address = styled.div`
     right: 0;
     margin: 0 auto;
     width: 12px;
+  }
+
+  @media (max-width: 860px) {
+    top: 30px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    text-align: center;
   }
 `;
 

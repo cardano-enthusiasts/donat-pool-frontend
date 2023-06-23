@@ -72,7 +72,6 @@ const StyledTextArea = styled.textarea<{
   fontColor: Props['fontColor'];
 }>`
   ${({ error, fontColor }) => getFieldStyles({ errorInfo: error, fontColor })};
-  max-width: 600px;
 `;
 
 const Message = styled.div`

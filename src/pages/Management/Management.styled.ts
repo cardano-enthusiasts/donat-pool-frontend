@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { h2 } from 'shared/styles/mixins';
+import { h1 } from 'shared/styles/mixins';
 
 const Wrapper = styled.div`
   display: flex;
@@ -8,27 +8,20 @@ const Wrapper = styled.div`
   justify-content: space-between;
   margin-bottom: 160px;
   @media (max-width: 900px) {
+    margin-bottom: 56px;
     flex-direction: column;
-    margin-bottom: 50px;
   }
 `;
 
-const Title = styled.h2`
-  ${h2}
-  font-family: 'Rammetto One', Arial, Helvetica, sans-serif;
-  font-weight: normal;
-  font-size: 54px;
-  line-height: 104%;
-  color: ${({ theme }) => theme.colors.red};
+const Title = styled.h1`
+  ${h1}
   margin: 80px 0 60px 0;
 
   @media (max-width: 900px) {
-    margin-bottom: 15px;
-    font-size: 36px;
+    margin: 56px 0 32px 0;
   }
   @media (max-width: 400px) {
     margin-bottom: 15px;
-    font-size: 30px;
   }
 `;
 

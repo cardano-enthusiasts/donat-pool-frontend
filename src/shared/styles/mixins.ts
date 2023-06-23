@@ -39,6 +39,7 @@ const h1 = css`
 
   @media (max-width: 900px) {
     font-size: 36px;
+    line-height: 133%;
   }
   @media (max-width: 400px) {
     font-size: 30px;

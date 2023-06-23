@@ -19,8 +19,8 @@ const PageHeader = styled.div`
     flex-direction: column;
     gap: 20px;
   }
-  @media (max-width: 600px) {
-    align-items: center;
+  @media (max-width: 900px) {
+    margin: 56px 0 32px 0;
   }
 `;
 
@@ -28,9 +28,20 @@ const TitleAndButtons = styled.div`
   display: flex;
   align-items: center;
   gap: 40px;
+  @media (max-width: 760px) {
+    align-items: start;
+  }
   @media (max-width: 600px) {
     flex-direction: column;
     gap: 20px;
+  }
+`;
+
+const CreateButton = styled.div`
+  @media (max-width: 760px) {
+    position: fixed;
+    bottom: 60px;
+    right: 30px;
   }
 `;
 
@@ -38,6 +49,9 @@ const ProjectWrapper = styled.div`
   width: 100%;
   padding-bottom: 160px;
   margin: 0 auto;
+  @media (max-width: 900px) {
+    padding-bottom: 56px;
+  }
   @media (max-width: 700px) {
     max-width: 90vw;
   }
@@ -72,4 +86,5 @@ export {
   CardsWrapper,
   NoProject,
   SadCat,
+  CreateButton,
 };

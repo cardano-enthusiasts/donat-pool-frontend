@@ -14,7 +14,6 @@ import {
   DeadlineAndStatus,
   Inner,
   Status,
-  Title,
 } from './PrivateProject.styled';
 
 const PrivateProject = () => {
@@ -54,7 +53,7 @@ const PrivateProject = () => {
           onPreviousPageClick={() => {
             navigate('/my-projects');
           }}
-          pageHeader={<Title>{currentProject.description}</Title>}
+          title={currentProject.description}
         >
           <Inner>
             <DeadlineAndStatus>
