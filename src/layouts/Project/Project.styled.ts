@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 
+import { h1 } from 'shared/styles/mixins';
+
 const Wrapper = styled.div`
   display: flex;
   justify-content: center;
@@ -22,28 +24,39 @@ const PreviousPage = styled.div`
   align-items: center;
   font-weight: bold;
   font-size: 20px;
-  line-height: 130%;
+  line-height: 280%;
   color: ${({ theme }) => theme.colors.blue};
   cursor: pointer;
   &:before {
     display: block;
     content: url('/icons/arrow.svg');
-    height: 32px;
+    text-align: center;
+    width: 40px;
+    height: 40px;
     margin-right: 23px;
   }
 
   @media (max-width: 1200px) {
-    top: 20px;
+    position: static;
   }
 `;
 
 const PageHeader = styled.div`
   display: flex;
   justify-content: space-between;
-  margin-top: 80px;
+  margin: 80px 0 60px 0;
+  @media (max-width: 1200px) {
+    justify-content: start;
+  }
   @media (max-width: 900px) {
-    margin: 80px 0 30px 0;
+    margin: 80px 0 32px 0;
   }
 `;
 
-export { Wrapper, Inner, PreviousPage, PageHeader };
+const Title = styled.h1`
+  ${h1};
+  overflow: hidden;
+  text-overflow: ellipsis;
+`;
+
+export { Wrapper, Inner, PreviousPage, PageHeader, Title };

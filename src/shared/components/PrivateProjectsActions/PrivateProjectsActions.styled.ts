@@ -9,6 +9,9 @@ const LinkWrapper = styled.div`
   color: ${({ theme }) => theme.colors.blue};
   overflow-wrap: anywhere;
   margin-top: 24px;
+  @media (max-width: 1200px) {
+    flex-direction: column;
+  }
 `;
 
 const ButtonWrapper = styled.div`

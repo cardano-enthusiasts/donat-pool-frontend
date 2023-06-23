@@ -3,6 +3,6 @@ import { type ReactNode } from 'react';
 export interface Props {
   previousPageTitle: string;
   onPreviousPageClick: () => void;
-  pageHeader: ReactNode;
+  title: string;
   children: ReactNode;
 }

@@ -1,14 +1,5 @@
 import styled from 'styled-components';
 
-import { h1 } from 'shared/styles/mixins';
-
-const Title = styled.h1`
-  ${h1};
-  margin-bottom: 40px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-`;
-
 const DeadlineAndStatus = styled.div`
   display: flex;
   justify-content: space-between;
@@ -40,7 +31,6 @@ const Deadline = styled.div`
 
 const Inner = styled.div`
   max-width: 600px;
-  width: 600px;
 `;
 
 const CounterWrapper = styled.div`
@@ -49,4 +39,4 @@ const CounterWrapper = styled.div`
   border-bottom: 2px solid #000000;
 `;
 
-export { Title, DeadlineAndStatus, Status, Deadline, Inner, CounterWrapper };
+export { DeadlineAndStatus, Status, Deadline, Inner, CounterWrapper };
