@@ -17,6 +17,9 @@ const Button = ({
   isClickedTheme = false,
   size = 'm',
 }: Props) => {
+  const isLinkExternal = Boolean(
+    href && (href.indexOf('http://') !== 0 || href.indexOf('https://') !== 0)
+  );
   return href !== null ? (
     <Wrapper themeType={themeType} width={width} size={size}>
       <LinkWrapper
@@ -29,7 +32,14 @@ const Button = ({
         isClickedTheme={isClickedTheme}
         size={size}
       >
-        <Link to={href}>{children}</Link>
+        <Link
+          to={href}
+          reloadDocument={isLinkExternal}
+          target={isLinkExternal ? '_blank' : '_self'}
+          rel={isLinkExternal ? 'noopener noreferrer' : undefined}
+        >
+          {children}
+        </Link>
       </LinkWrapper>
     </Wrapper>
   ) : (

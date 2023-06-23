@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 
+import { h1 } from 'shared/styles/mixins';
+
 const Inner = styled.form`
   display: flex;
   flex-direction: column;
@@ -8,12 +10,7 @@ const Inner = styled.form`
 `;
 
 const Title = styled.h1`
-  font-family: 'Rammetto One', Arial, Helvetica, sans-serif;
-  font-weight: bold;
-  color: ${({ theme }) => theme.colors.red};
-  margin: 0;
-  font-size: 54px;
-  line-height: 104%;
+  ${h1}
 `;
 
 const Description = styled.div`

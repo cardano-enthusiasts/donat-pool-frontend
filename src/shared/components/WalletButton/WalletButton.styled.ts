@@ -45,6 +45,14 @@ const Address = styled.div`
     margin: 0 auto;
     width: 12px;
   }
+
+  @media (max-width: 860px) {
+    top: 30px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    text-align: center;
+  }
 `;
 
 export { Wrapper, ConnectButton, Address };
