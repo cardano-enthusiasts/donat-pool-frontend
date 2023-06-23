@@ -9,8 +9,8 @@ import {
 } from './ModalProjectCreated.styled';
 import { Button, Modal } from '../.';
 
-const ModalProjectCreated = ({ isOpen, onClose }) => {
-  const link = 'some_link_is_not_ready';
+const ModalProjectCreated = ({ isOpen, onClose, path }) => {
+  const link = `${location.origin}/my-projects/${path}`;
   const [isSuccessfullyCopied, setIsSuccessfullyCopied] = useState(false);
 
   const copyContent = async () => {

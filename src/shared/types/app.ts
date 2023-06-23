@@ -15,6 +15,7 @@ import {
   type FundraisingData,
   type Config,
   type UserAndProtocolParams,
+  type Fundraising,
 } from './';
 
 type OnError = (error: string) => void;
@@ -24,7 +25,7 @@ type ConnectWallet = (
 ) => (onError: OnError) => () => void;
 
 type CreateFundraising = (
-  onSuccess: (fundraisingData: FundraisingData) => void
+  onSuccess: (fundraisingData: Fundraising) => void
 ) => (
   onError: OnError
 ) => (

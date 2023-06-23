@@ -28,7 +28,9 @@ import {
 
 const CreationForm = ({ onClose }: Props) => {
   const navigate = useNavigate();
-  const handleSuccess = () => {
+  const [createdPath, setCreatedPath] = useState('');
+  const handleSuccess = (path) => {
+    setCreatedPath(path);
     setIsSuccessModalOpen(true);
   };
   const handleError = () => {
@@ -235,6 +237,7 @@ const CreationForm = ({ onClose }: Props) => {
         </ButtonWrapper>
       </Form>
       <ModalProjectCreated
+        path={createdPath}
         isOpen={isSuccessModalOpen}
         onClose={() => {
           setIsSuccessModalOpen(false);
