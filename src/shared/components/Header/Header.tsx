@@ -41,8 +41,8 @@ const Header = ({ currentPage }: Props) => {
               <Logo />
             </LogoWrapper>
           )}
-          <LinksAndButton>
-            <Links isMenuOpen={isMenuOpen}>
+          <LinksAndButton isMenuOpen={isMenuOpen}>
+            <Links>
               {isManager && (
                 <LinkWrapper
                   key={managerLink.id}

@@ -2,6 +2,10 @@ import styled from 'styled-components';
 
 const Wrapper = styled.div`
   position: relative;
+  @media (max-width: 860px) {
+    display: flex;
+    justify-content: center;
+  }
 `;
 
 const ConnectButton = styled.button`
