@@ -9,6 +9,7 @@ import { type Fundraisings, type AppReduxState } from 'shared/types';
 
 import {
   CardsWrapper,
+  CreateButton,
   Title,
   TitleAndButton,
   Wrapper,
@@ -49,16 +50,18 @@ const AllProjects = () => {
       <Wrapper>
         <TitleAndButton>
           <Title>All Donation pools</Title>
-          <Button
-            primaryColor="red"
-            secondaryColor="blue"
-            fontColor="black"
-            onClick={() => {
-              navigate('/new-project');
-            }}
-          >
-            Create a new project
-          </Button>
+          <CreateButton>
+            <Button
+              primaryColor="red"
+              secondaryColor="blue"
+              fontColor="black"
+              onClick={() => {
+                navigate('/new-project');
+              }}
+            >
+              Create a new project
+            </Button>
+          </CreateButton>
         </TitleAndButton>
 
         <CardsWrapper>

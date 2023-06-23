@@ -7,13 +7,15 @@ const Wrapper = styled.header<{ isMenuOpen: boolean }>`
   background: ${({ theme }) => theme.colors.red};
 
   @media (max-width: 860px) {
+    position: relative;
     width: 100vw;
     min-height: ${({ isMenuOpen }) => (isMenuOpen ? '100vh' : 'auto')};
     padding-top: ${({ isMenuOpen }) => isMenuOpen && '140px'};
+    z-index: ${({ isMenuOpen }) => isMenuOpen && '999'};
   }
 `;
 
-const Inner = styled.div`
+const Inner = styled.div<{ isMenuOpen: boolean }>`
   ${baseInner}
   display: flex;
   align-items: center;
@@ -22,6 +24,9 @@ const Inner = styled.div`
   @media (max-width: 1200px) {
     flex-direction: column;
     gap: 30px;
+  }
+  @media (max-width: 860px) {
+    align-items: ${({ isMenuOpen }) => (isMenuOpen ? 'center' : 'start')};
   }
 `;
 
@@ -57,13 +62,13 @@ const Icon = styled.img<{ isMenuOpen: boolean }>`
     width: 40px;
     height: 40px;
   }
-`;
-
-const LogoWrapper = styled.div`
   @media (max-width: 450px) {
-    opacity: 0;
+    width: 28px;
+    height: 28px;
   }
 `;
+
+const LogoWrapper = styled.div``;
 
 const LinksAndButton = styled.div<{ isMenuOpen: boolean }>`
   display: flex;

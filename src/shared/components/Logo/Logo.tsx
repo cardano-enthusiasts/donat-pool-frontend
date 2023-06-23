@@ -1,10 +1,14 @@
 import { Link } from 'react-router-dom';
 
+import { LogoWrapper } from './Logo.styled';
+
 const Logo = () => {
   return (
-    <Link to="/">
-      <img src="/img/logo.svg" alt="logo" />
-    </Link>
+    <LogoWrapper>
+      <Link to="/">
+        <img src="/img/logo.svg" alt="logo" />
+      </Link>
+    </LogoWrapper>
   );
 };
 

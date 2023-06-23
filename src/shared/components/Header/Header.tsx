@@ -35,7 +35,7 @@ const Header = ({ currentPage }: Props) => {
   return (
     <>
       <Wrapper isMenuOpen={isMenuOpen}>
-        <Inner>
+        <Inner isMenuOpen={isMenuOpen}>
           {!isMenuOpen && (
             <LogoWrapper>
               <Logo />

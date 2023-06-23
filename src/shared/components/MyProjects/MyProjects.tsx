@@ -9,6 +9,7 @@ import {
 
 import {
   CardsWrapper,
+  CreateButton,
   FilterButtons,
   NoProject,
   PageHeader,
@@ -84,13 +85,15 @@ const MyProjects = ({ onCreateAProjectClick }: Props) => {
           )}
         </TitleAndButtons>
 
-        <Button
-          primaryColor="red"
-          secondaryColor="blue"
-          onClick={onCreateAProjectClick}
-        >
-          Create a new project
-        </Button>
+        <CreateButton>
+          <Button
+            primaryColor="red"
+            secondaryColor="blue"
+            onClick={onCreateAProjectClick}
+          >
+            Create a new project
+          </Button>
+        </CreateButton>
       </PageHeader>
 
       <ProjectWrapper>
