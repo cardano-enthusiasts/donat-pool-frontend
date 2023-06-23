@@ -3,7 +3,10 @@ import styled, { css } from 'styled-components';
 const Wrapper = styled.div`
   margin-bottom: 140px;
   @media (max-width: 1100px) {
-    margin-bottom: 80px;
+    margin-bottom: 40px;
+  }
+  @media (max-width: 900px) {
+    margin-bottom: 0;
   }
 `;
 const TeamWrapper = styled.div`
@@ -60,6 +63,7 @@ const KatePhoto = styled.img`
   }
   @media (max-width: 700px) {
     width: 175px;
+    top: 97px;
   }
 `;
 const OksanaPhoto = styled.img`
@@ -80,6 +84,10 @@ const OksanaPhoto = styled.img`
   }
   @media (max-width: 700px) {
     width: 210px;
+    top: 45px;
+  }
+  @media (max-width: 380px) {
+    top: -220px;
   }
 `;
 const OlgaPhoto = styled.img`
@@ -145,9 +153,11 @@ const MariayPhoto = styled.img`
   }
   @media (max-width: 1200px) {
     width: 300px;
+    bottom: 36px;
   }
   @media (max-width: 700px) {
     width: 200px;
+    bottom: 24px;
   }
 `;
 
