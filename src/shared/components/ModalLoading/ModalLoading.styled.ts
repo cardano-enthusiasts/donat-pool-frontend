@@ -19,6 +19,8 @@ const Img = styled.img`
   margin-bottom: 40px;
 `;
 
-const Description = styled.div``;
+const Description = styled.div`
+  text-align: center;
+`;
 
 export { Inner, Title, Img, Description };
