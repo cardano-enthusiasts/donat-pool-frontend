@@ -2,9 +2,13 @@ import styled from 'styled-components';
 
 import { baseContainer, baseInner, link } from 'shared/styles/mixins';
 
-const Wrapper = styled.footer`
+import { type Props } from './types';
+
+const Wrapper = styled.footer<{
+  backgroundColor: NonNullable<Props['backgroundColor']>;
+}>`
   ${baseContainer};
-  background: ${({ theme }) => theme.colors.blue};
+  background: ${({ theme, backgroundColor }) => theme.colors[backgroundColor]};
 `;
 
 const Inner = styled.div`
@@ -12,13 +16,14 @@ const Inner = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-top: 60px;
+  padding-top: 40px;
   padding-bottom: 80px;
+  width: 100%;
   @media (max-width: 700px) {
     flex-direction: column;
     gap: 40px;
     padding-top: 40px;
-    padding-bottom: 50px;
+    padding-bottom: 60px;
   }
 `;
 

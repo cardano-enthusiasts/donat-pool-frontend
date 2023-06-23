@@ -18,7 +18,6 @@ export { Waves } from './Waves/Waves';
 export { WhyChooseUs } from './WhyChooseUs/WhyChooseUs';
 export { AboutUs } from './AboutUs/AboutUs';
 export { Roadmap } from './Roadmap/Roadmap';
-export { ContactUsSection } from './ContactUsSection/ContactUsSection';
 export { ContactUsForm } from './ContactUsForm/ContactUsForm';
 export { HowItWorksItems } from './HowItWorksItems/HowItWorksItems';
 export { GitHub } from './GitHub/Github';

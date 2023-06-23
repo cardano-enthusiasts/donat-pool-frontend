@@ -4,7 +4,7 @@ const InnerCircle = styled.div.attrs((props) => ({
   style: {
     transform: `scale(${props['data-window-scroll']})`,
   },
-}))`
+}))<{ windowScroll }>`
   position: absolute;
   width: 230px;
   height: 230px;
@@ -12,6 +12,8 @@ const InnerCircle = styled.div.attrs((props) => ({
   margin-top: 45vh;
   z-index: 4;
   border-radius: 100%;
+  ${({ windowScroll }) =>
+    windowScroll < 50 ? 'display: block' : 'display: none'};
   @media (max-width: 1100px) {
     display: none;
   }

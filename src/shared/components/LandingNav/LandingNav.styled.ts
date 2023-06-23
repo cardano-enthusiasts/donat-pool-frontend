@@ -15,10 +15,10 @@ const Wrapper = styled.nav<{
   overflow-wrap: break-word;
 
   z-index: ${({ currentSection }) =>
-    currentSection === 'contact-us' ? '-1' : '2'};
+    currentSection === 'contact-us' ? '-1' : '3'};
 
   ${({ windowScroll }) =>
-    windowScroll > 10 ? 'display: block' : 'display: none'};
+    windowScroll > 50 ? 'display: block' : 'display: none'};
 
   @media (max-width: 1920px) {
     left: 90px;

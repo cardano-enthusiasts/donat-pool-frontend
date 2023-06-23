@@ -11,6 +11,7 @@ const Wrapper = styled.div`
   align-items: flex-start;
   background: ${({ theme }) => theme.colors.blue}66;
   overflow-y: auto;
+  z-index: 101;
 `;
 
 const Background = styled.div`
