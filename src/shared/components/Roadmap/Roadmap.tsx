@@ -46,7 +46,7 @@ const Roadmap = () => {
           primaryColor="blue"
           secondaryColor="green"
           size="s"
-          href="https://fullstack-development.github.io/donat-pool-offchain/ROADMAP.html"
+          href="https://fullstack-development.github.io/donat-pool-offchain/roadmap.html"
         >
           All phases
         </Button>

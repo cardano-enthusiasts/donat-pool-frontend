@@ -29,12 +29,12 @@ const Content = styled.section`
   background: ${({ theme }) => theme.colors.white};
   border-radius: 6px;
   padding: 40px 40px 60px 40px;
-  margin: 150px 0;
+  margin: 100px 0;
   box-shadow: 0px 15px 40px ${({ theme }) => theme.colors.blue};
   @media (max-width: 800px) {
     width: 90%;
     padding: 20px;
-    margin: 100px 0 150px;
+    margin: 40px 0;
   }
 `;
 

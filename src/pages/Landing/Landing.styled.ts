@@ -71,6 +71,9 @@ const DescriptionPart2 = styled.div`
 
 const ButtonWrapper = styled.div`
   margin-bottom: 90px;
+  @media (max-width: 1100px) {
+    margin-bottom: 48px;
+  }
 `;
 
 const WavesWrapper = styled.div`
@@ -114,7 +117,7 @@ const HowItWorksItemsWrapper = styled.div`
   padding-bottom: 80px;
   ${() => getLargeLayoutPadding()}
   @media (max-width: 1100px) {
-    margin-bottom: 50px;
+    padding-bottom: 60px;
     ${() => getMediumLayoutPadding()}
   }
   @media (max-width: 500px) {
@@ -145,11 +148,10 @@ const AboutUsWrapper = styled.div`
   padding-top: 0;
   @media (max-width: 1100px) {
     ${() => getMediumLayoutPadding()}
-    padding-top: 50px;
-    padding-bottom: 50px;
   }
   @media (max-width: 500px) {
     ${() => getSmallLayoutPadding()}
+    padding-top: 50px;
   }
 `;
 
