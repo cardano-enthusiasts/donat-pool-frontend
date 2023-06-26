@@ -97,7 +97,7 @@ const MyProjects = ({ onCreateAProjectClick }: Props) => {
       </PageHeader>
 
       <ProjectWrapper>
-        {filteredProjects ? (
+        {filteredProjects && filteredProjects.length !== 0 ? (
           <CardsWrapper>
             {filteredProjects.map((item) => (
               <ProjectCard
