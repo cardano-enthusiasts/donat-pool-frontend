@@ -35,7 +35,12 @@ interface CreateFundraisingParams {
   };
 }
 
-type WalletStatus = 'default' | 'connected' | 'declined' | 'notAvailable';
+type WalletStatus =
+  | 'default'
+  | 'connected'
+  | 'declined'
+  | 'notAvailable'
+  | 'missingCollateral';
 
 interface UserInfo {
   isManager: boolean;

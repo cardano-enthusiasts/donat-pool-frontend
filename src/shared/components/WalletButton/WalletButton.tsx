@@ -12,7 +12,9 @@ const WalletButton = () => {
   const { address } = useSelector(
     (state: AppReduxState) => state.info.data.user
   );
-
+  const { walletStatus } = useSelector(
+    (state: AppReduxState) => state.info.data
+  );
   return (
     <Wrapper
       onMouseEnter={() => {
@@ -27,7 +29,9 @@ const WalletButton = () => {
           connectWallet();
         }}
       >
-        {address ? 'Wallet connected' : 'Connect wallet'}
+        {walletStatus === 'connected' || walletStatus === 'missingCollateral'
+          ? 'Wallet connected'
+          : 'Connect wallet'}
       </ConnectButton>
       {address && isAddressShown && (
         <Address>{`${address.substring(0, 6)} ... ${address.substring(

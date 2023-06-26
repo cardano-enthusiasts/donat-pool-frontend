@@ -1,11 +1,17 @@
 import { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
 
-import { Footer, Header } from 'shared/components';
+import { CommonError, Footer, Header } from 'shared/components';
+import { errors, missingCollateral } from 'shared/constants';
+import { type AppReduxState } from 'shared/types';
 
 import { Inner, Main } from './Common.styled';
 
 const Common = ({ children }) => {
   const [currentPage, setCurrentPage] = useState('');
+  const { walletStatus } = useSelector(
+    (state: AppReduxState) => state.info.data
+  );
 
   useEffect(() => {
     setCurrentPage(location.pathname);
@@ -14,6 +20,9 @@ const Common = ({ children }) => {
   return (
     <>
       <Header currentPage={currentPage} />
+      {walletStatus === 'missingCollateral' && (
+        <CommonError>{errors[missingCollateral]}</CommonError>
+      )}
       <Main>
         <Inner>{children}</Inner>
       </Main>
