@@ -6,4 +6,4 @@ const getDate = (timestamp) => {
   return `${date}`;
 };
 
-export default getDate;
+export { getDate };

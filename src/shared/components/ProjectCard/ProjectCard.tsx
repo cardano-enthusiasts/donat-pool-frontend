@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 
-import getDate from 'shared/helpers/getDate';
+import { getDate } from 'shared/helpers';
 
 import {
   DateItem,
