@@ -11,7 +11,7 @@ import {
   ModalSuccess,
   RaisedCounter,
 } from 'shared/components';
-import getDate from 'shared/helpers/getDate';
+import { getDate } from 'shared/helpers';
 import {
   useDonate,
   useGetAllFundraisings,

@@ -4,7 +4,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 
 import { Common, Project } from 'layouts';
 import { PrivateProjectsActions, RaisedCounter } from 'shared/components';
-import getDate from 'shared/helpers/getDate';
+import { getDate } from 'shared/helpers';
 import { useGetUserFundraisings, useOffchain } from 'shared/helpers/hooks';
 import { type AppReduxState, type Fundraising } from 'shared/types';
 
