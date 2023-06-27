@@ -60,6 +60,7 @@ const ModalProjectCreated = ({ isOpen, onClose, path }) => {
               secondaryColor="blue"
               width="100%"
               onClick={handleCopyLinkClick}
+              fontColor="white"
             >
               Copy link
             </Button>

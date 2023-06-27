@@ -85,6 +85,7 @@ const PrivateProjectsActions = ({ project }: Props) => {
               frThreadTokenName: project.threadTokenName,
             });
           }}
+          fontColor="white"
         >
           {project.raisedAmount === project.goal
             ? 'You have reached the goal! Take money'
