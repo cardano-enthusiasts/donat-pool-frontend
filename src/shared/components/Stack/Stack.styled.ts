@@ -15,7 +15,6 @@ const Title = styled.div`
 
 const Img = styled.img<{ isActive: boolean }>`
   max-width: 100%;
-  transform: translateY(100%);
   transition: transform 1s ease 0s;
   transform: ${({ isActive }) =>
     isActive ? 'translateY(0%)' : 'translateY(100%)'};

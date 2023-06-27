@@ -14,6 +14,7 @@ const Wrapper = styled.div`
 
 const Inner = styled.div`
   max-width: 620px;
+  width: 100%;
 `;
 
 const PreviousPage = styled.div`

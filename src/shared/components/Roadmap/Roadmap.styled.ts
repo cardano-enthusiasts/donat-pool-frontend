@@ -7,7 +7,6 @@ const WrapperAndButton = styled.div`
 const Wrapper = styled.div`
   position: relative;
   height: 700px;
-  top: 0;
   width: 90%;
   font-size: 36px;
   font-weight: bold;

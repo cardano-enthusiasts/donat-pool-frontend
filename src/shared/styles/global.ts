@@ -22,6 +22,15 @@ const GlobalStyles = createGlobalStyle`
 
   body {
     background-color: white;
+    &::-webkit-scrollbar {
+      width: 5px;
+    }
+    &::-webkit-scrollbar-track {
+      background-color: #FFC5CF;
+    }
+    &::-webkit-scrollbar-thumb {
+      background-color: #FF6B95;
+    }
   }
 
   #root {

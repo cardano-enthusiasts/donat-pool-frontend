@@ -37,6 +37,7 @@ import {
 } from './Landing.styled';
 
 const Landing = () => {
+  const [isActive, setIsActive] = useState(false);
   const windowScroll = useWindowScroll();
   const { width: windowWidth } = useWindowSize();
   const [currentSection, setCurrentSection] = useState<LandingSection>('home');
@@ -47,6 +48,10 @@ const Landing = () => {
   const whyChooseUsRef = useRef<HTMLDivElement>(null);
   const aboutUsRef = useRef<HTMLDivElement>(null);
   const contactUsRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    document.title = 'Donat.Pool';
+  }, []);
 
   const getRefSection = (): LandingSection => {
     const areRefsDefined =
@@ -104,6 +109,14 @@ const Landing = () => {
     setCurrentSection(clickedSection);
   };
 
+  useEffect(() => {
+    if (homeRef.current) {
+      setIsActive(
+        window.innerHeight - 400 > homeRef.current.getBoundingClientRect().top
+      );
+    }
+  }, [windowScroll]);
+
   return (
     <Wrapper>
       <Inner>
@@ -119,7 +132,7 @@ const Landing = () => {
 
         <MainWrapper backgroundColor="blue">
           <MainInner>
-            <TitleAndDescription id="home" ref={homeRef}>
+            <TitleAndDescription id="home" ref={homeRef} isActive={isActive}>
               <MainLogo src="/img/big-logo.svg" alt="Donat pool logo" />
               <Description>
                 <DescriptionPart1>Give a little,</DescriptionPart1>

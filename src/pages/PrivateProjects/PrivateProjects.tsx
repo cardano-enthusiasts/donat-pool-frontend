@@ -16,7 +16,7 @@ const PrivateProjects = () => {
   );
 
   useEffect(() => {
-    document.title = 'Profile';
+    document.title = 'My projects';
   }, []);
 
   useEffect(() => {

@@ -17,16 +17,24 @@ const Inner = styled.div`
   flex-direction: column;
 `;
 
-const TitleAndDescription = styled.div`
+const TitleAndDescription = styled.div<{ isActive: boolean }>`
   font-family: 'Rammetto One', Arial, sans-serif;
   display: flex;
   flex-direction: column;
   padding-left: 400px;
   ${() => getLargeLayoutPadding()}
+  > * {
+    transition: transform 1s ease 0s;
+    transform: ${({ isActive }) =>
+      isActive ? 'translateY(0%)' : 'translateY(50%)'};
+  }
 
   @media (max-width: 1100px) {
     ${() => getMediumLayoutPadding()}
     align-items: center;
+    > * {
+      transition: none;
+    }
   }
   @media (max-width: 500px) {
     ${() => getSmallLayoutPadding()}
@@ -48,6 +56,7 @@ const Description = styled.div`
   max-width: 1000px;
   width: 100%;
   margin-bottom: 40px;
+  transition-delay: 200ms;
   @media (max-width: 1300px) {
     font-size: 56px;
     width: 70%;
@@ -71,6 +80,7 @@ const DescriptionPart2 = styled.div`
 
 const ButtonWrapper = styled.div`
   margin-bottom: 90px;
+  transition-delay: 600ms;
   @media (max-width: 1100px) {
     margin-bottom: 48px;
   }
