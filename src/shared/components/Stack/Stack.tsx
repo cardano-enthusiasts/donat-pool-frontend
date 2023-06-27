@@ -31,7 +31,7 @@ const Stack = () => {
         ))}
       </Items>
 
-      <Button themeType="primary" primaryColor="red" secondaryColor="blue">
+      <Button primaryColor="red" secondaryColor="blue" fontColor="white">
         Read more
       </Button>
     </Wrapper>

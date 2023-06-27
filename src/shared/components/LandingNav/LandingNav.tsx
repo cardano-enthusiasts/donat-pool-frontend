@@ -65,6 +65,7 @@ const LandingNav = forwardRef(function LandingNav(
               themeType="primary"
               primaryColor="red"
               secondaryColor="blue"
+              fontColor="white"
               href="/new-project"
             >
               Create a fundraising

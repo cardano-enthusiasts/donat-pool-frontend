@@ -87,6 +87,7 @@ const ManagerEditor = ({ config }: Props) => {
             width="100%"
             primaryColor="red"
             secondaryColor="blue"
+            fontColor="white"
           >
             Save
           </Button>

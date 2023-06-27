@@ -60,6 +60,7 @@ const ModalDonate = ({
             secondaryColor="blue"
             width="100%"
             type="submit"
+            fontColor="white"
           >
             Donate
           </Button>

@@ -10,13 +10,19 @@ const getHoverAndDisabled = (primaryColor, secondaryColor) => {
   `;
 };
 
-const getPrimaryStyles = (primaryColor, secondaryColor, size) => css`
+const getPrimaryStyles = ({
+  primaryColor,
+  secondaryColor,
+  size,
+  fontColor,
+}) => css`
   font-size: ${size === 's' ? '16px' : '20px'};
   padding: ${size === 's' ? '10px' : '12px'} 16px;
   font-weight: bold;
   line-height: 133%;
 
-  color: ${({ theme }) => theme.colors.white};
+  color: ${({ theme }) =>
+    fontColor ? theme.colors[fontColor] : theme.colors.white};
   border-radius: 6px;
   background: ${({ theme }) =>
     theme.colors[primaryColor] ? theme.colors[primaryColor] : theme.colors.red};
@@ -40,12 +46,22 @@ const getPrimaryStyles = (primaryColor, secondaryColor, size) => css`
   }
 `;
 
-const getSecondaryStyles = (primaryColor, secondaryColor, size) => css`
+const getSecondaryStyles = ({
+  primaryColor,
+  secondaryColor,
+  size,
+  fontColor,
+}) => css`
   position: absolute;
   font-size: 32px;
   width: 290px;
   height: ${size === 's' ? '97px' : '127px'};
   font-family: 'Rammetto One', Arial, sans-serif;
+  color: ${({ theme }) => theme.colors[fontColor]};
+  background-color: ${({ theme }) =>
+    theme.colors[primaryColor]
+      ? theme.colors[primaryColor]
+      : theme.colors.yellow};
 
   &::before {
     position: absolute;
@@ -192,19 +208,13 @@ const getStyles = ({
     width: ${width};
     line-height: 94%;
     cursor: pointer;
-    color: ${({ theme }) =>
-      theme.colors[fontColor] ? theme.colors[fontColor] : theme.colors.red};
-    background-color: ${({ theme }) =>
-      theme.colors[primaryColor]
-        ? theme.colors[primaryColor]
-        : theme.colors.yellow};
     border: none;
     transition: all 0.5s;
     text-decoration: none;
     ${themeType === 'primary'
-      ? getPrimaryStyles(primaryColor, secondaryColor, size)
+      ? getPrimaryStyles({ primaryColor, secondaryColor, size, fontColor })
       : themeType === 'secondary'
-      ? getSecondaryStyles(primaryColor, secondaryColor, size)
+      ? getSecondaryStyles({ primaryColor, secondaryColor, size, fontColor })
       : themeType === 'tertiary'
       ? getTertiaryStyles(primaryColor, secondaryColor, size)
       : getQuaternaryStyles(primaryColor, isClickedTheme, size)}
