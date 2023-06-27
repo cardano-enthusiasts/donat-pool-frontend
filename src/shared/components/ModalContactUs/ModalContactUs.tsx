@@ -77,6 +77,7 @@ const ModalContactUs = ({ isOpen, onClose }) => {
             type="submit"
             primaryColor="red"
             secondaryColor="blue"
+            fontColor="white"
             width="100%"
           >
             Send

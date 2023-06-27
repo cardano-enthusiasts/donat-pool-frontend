@@ -26,8 +26,22 @@ const WhyChooseUs = () => {
             themeType="primary"
             primaryColor="blue"
             secondaryColor="green"
+            fontColor="white"
+            href="https://github.com/fullstack-development/donat-pool-onchain"
           >
-            See code
+            On-chain code
+          </Button>
+        </ButtonWrapper>
+
+        <ButtonWrapper>
+          <Button
+            themeType="primary"
+            primaryColor="green"
+            secondaryColor="blue"
+            fontColor="black"
+            href="https://github.com/fullstack-development/donat-pool-offchain"
+          >
+            Off-chain code
           </Button>
         </ButtonWrapper>
 
