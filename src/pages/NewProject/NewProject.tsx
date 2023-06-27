@@ -13,7 +13,7 @@ const NewProject = () => {
   );
 
   useEffect(() => {
-    document.title = 'New Project';
+    document.title = 'New project';
   }, []);
 
   return !isRequesting ? (

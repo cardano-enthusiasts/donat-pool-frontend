@@ -49,6 +49,10 @@ const Landing = () => {
   const aboutUsRef = useRef<HTMLDivElement>(null);
   const contactUsRef = useRef<HTMLDivElement>(null);
 
+  useEffect(() => {
+    document.title = 'Donat.Pool';
+  }, []);
+
   const getRefSection = (): LandingSection => {
     const areRefsDefined =
       navRef.current &&
