@@ -1,8 +1,10 @@
 import styled, { css } from 'styled-components';
 
+const duration = '1s';
+
 const Wrapper = styled.div`
   position: absolute;
-  top: 86vh;
+  top: 45vh;
   width: 42px;
   height: 64px;
   left: 0;
@@ -26,7 +28,7 @@ const Circle1 = styled.div`
 `;
 const Circle2 = styled.div`
   ${circle};
-  animation: circle2 3s forwards linear infinite;
+  animation: circle2 ${duration} forwards linear infinite;
 
   @keyframes circle2 {
     0% {
@@ -42,7 +44,7 @@ const Circle2 = styled.div`
 `;
 const Circle3 = styled.div`
   ${circle};
-  animation: circle3 3s forwards linear infinite;
+  animation: circle3 ${duration} forwards linear infinite;
   @keyframes circle3 {
     0% {
       top: 0;
@@ -58,7 +60,7 @@ const Circle3 = styled.div`
 
 const Circle4 = styled.div`
   ${circle};
-  animation: circle4 3s forwards linear infinite;
+  animation: circle4 ${duration} forwards linear infinite;
   top: 54px;
   opacity: 0;
   @keyframes circle4 {
@@ -83,7 +85,7 @@ const VerticalLine = styled.div`
   top: 36px;
   opacity: 0;
 
-  animation: line 3s forwards linear infinite;
+  animation: line ${duration} forwards linear infinite;
   @keyframes line {
     49% {
       opacity: 0;
@@ -117,7 +119,7 @@ const ArrowLeft = styled.div`
   ${arrow}
   right: 16px;
   transform: rotate(-45deg);
-  animation: arrow-left 3s forwards linear infinite;
+  animation: arrow-left ${duration} forwards linear infinite;
 
   @keyframes arrow-left {
     74% {
@@ -139,7 +141,7 @@ const ArrowRight = styled.div`
   ${arrow}
   left: 16px;
   transform: rotate(45deg);
-  animation: arrow-right 3s forwards linear infinite;
+  animation: arrow-right ${duration} forwards linear infinite;
   @keyframes arrow-right {
     74% {
       opacity: 0;
