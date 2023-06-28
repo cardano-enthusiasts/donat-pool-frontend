@@ -42,6 +42,7 @@ const Landing = () => {
   const { width: windowWidth } = useWindowSize();
   const [currentSection, setCurrentSection] = useState<LandingSection>('home');
   const [isMobileHeaderOpen, setIsMobileHeaderOpen] = useState(false);
+  const [isAnimationActive, setIsAnimationActive] = useState(true);
   const navRef = useRef<HTMLDivElement>(null);
   const homeRef = useRef<HTMLDivElement>(null);
   const howItWorksRef = useRef<HTMLDivElement>(null);
@@ -52,6 +53,15 @@ const Landing = () => {
   useEffect(() => {
     document.title = 'Donat.Pool';
   }, []);
+
+  useEffect(() => {
+    if (
+      homeRef.current &&
+      windowScroll > homeRef.current.getBoundingClientRect().top
+    ) {
+      setIsAnimationActive(false);
+    }
+  }, [windowScroll, homeRef.current]);
 
   const getRefSection = (): LandingSection => {
     const areRefsDefined =
@@ -121,8 +131,14 @@ const Landing = () => {
     <Wrapper>
       <Inner>
         <DonutsWrapper>
-          <InitialLoadingWrapper>
-            <InitialLoading windowScroll={windowScroll} />
+          <InitialLoadingWrapper
+            isAnimationActive={isAnimationActive}
+            windowScroll={windowScroll}
+          >
+            <InitialLoading
+              windowScroll={windowScroll}
+              isAnimationActive={isAnimationActive}
+            />
           </InitialLoadingWrapper>
 
           <WavesWrapper>
@@ -202,6 +218,7 @@ const Landing = () => {
           handleSectionClick={handleSectionClick}
           isOpen={isMobileHeaderOpen}
           ref={navRef}
+          isAnimationActive={isAnimationActive}
         />
       </Inner>
     </Wrapper>

@@ -4,7 +4,7 @@ const InnerCircle = styled.div.attrs((props) => ({
   style: {
     transform: `scale(${props['data-window-scroll']})`,
   },
-}))<{ windowScroll }>`
+}))<{ windowScroll; isAnimationActive }>`
   position: absolute;
   width: 230px;
   height: 230px;
@@ -12,31 +12,39 @@ const InnerCircle = styled.div.attrs((props) => ({
   margin-top: 45vh;
   z-index: 4;
   border-radius: 100%;
-  ${({ windowScroll }) =>
-    windowScroll < 50 ? 'display: block' : 'display: none'};
+  ${({ windowScroll, isAnimationActive }) =>
+    windowScroll < 50 && isAnimationActive
+      ? 'display: block'
+      : 'display: none'};
   @media (max-width: 1100px) {
     display: none;
   }
 `;
 
-const OuterCircle = styled.div<{ windowScroll }>`
+const OuterCircle = styled.div<{ windowScroll; isAnimationActive }>`
   position: absolute;
   width: 100%;
   height: 100%;
   background-color: ${({ theme }) => theme.colors.red};
   z-index: 3;
-  ${({ windowScroll }) =>
-    windowScroll < 4 ? 'display: block' : 'display: none'};
+  ${({ windowScroll, isAnimationActive }) =>
+    windowScroll < 4 && isAnimationActive ? 'display: block' : 'display: none'};
   @media (max-width: 1100px) {
     display: none;
   }
 `;
 
-const CatImage = styled.img`
-  position: absolute;
-  top: 660px;
+const CatImage = styled.img<{ isAnimationActive }>`
+  position: ${({ isAnimationActive }) =>
+    isAnimationActive ? 'absolute' : 'static'};
+  bottom: 0;
   z-index: 2;
-  max-width: 770px;
+  max-width: ${({ isAnimationActive }) =>
+    isAnimationActive ? '770px' : '90vw'};
+
+  ${({ isAnimationActive }) =>
+    !isAnimationActive && 'padding: 150px 20px 20px;'};
+
   @media (max-width: 1100px) {
     position: static;
     padding: 150px 20px 20px;

@@ -13,6 +13,7 @@ const LandingNav = forwardRef(function LandingNav(
     handleIconClick,
     handleSectionClick,
     isOpen,
+    isAnimationActive,
   }: Props,
   ref: ForwardedRef<HTMLElement>
 ) {
@@ -31,6 +32,7 @@ const LandingNav = forwardRef(function LandingNav(
       mobileResolution={mobileResolution}
       ref={ref}
       currentSection={section}
+      isAnimationActive={isAnimationActive}
     >
       {windowWidth < mobileResolution && (
         <>
