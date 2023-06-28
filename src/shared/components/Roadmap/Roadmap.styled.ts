@@ -54,8 +54,9 @@ const Ul = styled.ul`
 const Li = styled.li``;
 
 const SubLi = styled.li`
-  margin-left: 100px;
+  margin-left: 70px;
   list-style: none;
+  font-size: 30px;
   @media (max-width: 1200px) {
     margin-left: 50px;
   }
