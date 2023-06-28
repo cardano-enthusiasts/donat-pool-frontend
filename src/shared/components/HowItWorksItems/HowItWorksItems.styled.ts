@@ -11,6 +11,7 @@ const Wrapper = styled.div`
 
 const Item = styled.div`
   height: 66px;
+  cursor: default;
   &:hover {
     > div:first-child {
       transform: rotateX(90deg) translateZ(33px);
