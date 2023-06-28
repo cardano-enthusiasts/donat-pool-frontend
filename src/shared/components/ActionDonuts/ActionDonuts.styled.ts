@@ -11,7 +11,7 @@ const getDonuts = () => css`
   overflow: hidden;
 `;
 
-const Wrapper = styled.div`
+const Wrapper = styled.div<{ isAnimationActive: boolean }>`
   width: 100%;
   max-width: 1920px;
   height: 100%;
@@ -21,6 +21,8 @@ const Wrapper = styled.div`
   z-index: 1;
 
   display: flex;
+  position: ${({ isAnimationActive }) =>
+    isAnimationActive ? 'static' : 'absolute'};
   @media (max-width: 1100px) {
     position: absolute;
   }

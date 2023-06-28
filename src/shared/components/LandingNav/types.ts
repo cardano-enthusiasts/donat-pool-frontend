@@ -7,4 +7,5 @@ export interface Props {
   handleIconClick: () => void;
   handleSectionClick: (currentSection: LandingSection) => void;
   isOpen: boolean;
+  isAnimationActive: boolean;
 }

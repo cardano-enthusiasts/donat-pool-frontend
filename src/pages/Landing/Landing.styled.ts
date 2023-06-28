@@ -92,10 +92,14 @@ const WavesWrapper = styled.div`
   width: 100%;
 `;
 
-const InitialLoadingWrapper = styled.div`
+const InitialLoadingWrapper = styled.div<{
+  isAnimationActive: boolean;
+  windowScroll: number;
+}>`
   position: relative;
   width: 100%;
-  height: 1500px;
+  height: ${({ windowScroll, isAnimationActive }) =>
+    windowScroll < 535 && isAnimationActive ? 1500 - windowScroll : 965}px;
   background: ${({ theme }) => theme.colors.red};
   display: flex;
   justify-content: center;

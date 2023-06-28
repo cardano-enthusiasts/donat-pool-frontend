@@ -8,6 +8,7 @@ const Wrapper = styled.nav<{
   isOpen;
   mobileResolution;
   currentSection;
+  isAnimationActive;
 }>`
   position: fixed;
   left: ${({ windowWidth }) => (windowWidth - 1920) / 2 + 90}px;
@@ -17,8 +18,8 @@ const Wrapper = styled.nav<{
   z-index: ${({ currentSection }) =>
     currentSection === 'contact-us' ? '-1' : '3'};
 
-  ${({ windowScroll }) =>
-    windowScroll > 50 ? 'display: block' : 'display: none'};
+  display: ${({ windowScroll, isAnimationActive }) =>
+    windowScroll > 50 || !isAnimationActive ? 'block' : 'none'};
 
   @media (max-width: 1920px) {
     left: 90px;

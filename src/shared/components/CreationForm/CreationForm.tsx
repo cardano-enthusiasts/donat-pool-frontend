@@ -231,6 +231,7 @@ const CreationForm = ({ onClose }: Props) => {
             primaryColor="red"
             secondaryColor="blue"
             width="100%"
+            fontColor="white"
           >
             Confirm
           </Button>

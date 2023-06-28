@@ -54,7 +54,7 @@ const AllProjects = () => {
             <Button
               primaryColor="red"
               secondaryColor="blue"
-              fontColor="black"
+              fontColor="white"
               onClick={() => {
                 navigate('/new-project');
               }}
