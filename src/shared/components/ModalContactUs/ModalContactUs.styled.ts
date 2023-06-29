@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 import { h1 } from 'shared/styles/mixins';
 
-const Inner = styled.form`
+const Inner = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
