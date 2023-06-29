@@ -213,7 +213,7 @@ const CreationForm = ({ onClose }: Props) => {
         >
           I agree to pay a commission in favor of the service.
           <br />
-          The commission will be debited after the end of the donating pull.
+          The commission will be debited after the end of the donation pool.
         </Checkbox>
         <ButtonWrapper>
           <Button
