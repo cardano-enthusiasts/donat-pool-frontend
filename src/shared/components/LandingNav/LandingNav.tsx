@@ -64,7 +64,6 @@ const LandingNav = forwardRef(function LandingNav(
           ))}
           {section !== 'home' && (
             <Button
-              themeType="primary"
               primaryColor="red"
               secondaryColor="blue"
               fontColor="white"

@@ -42,7 +42,7 @@ const Roadmap = () => {
       </Wrapper>
       <ButtonWrapper>
         <Button
-          themeType="secondary"
+          themeType="accent"
           primaryColor="blue"
           secondaryColor="green"
           size="s"

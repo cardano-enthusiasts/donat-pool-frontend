@@ -220,7 +220,7 @@ const CreationForm = ({ onClose }: Props) => {
           <Button
             type="button"
             onClick={onClose}
-            themeType="tertiary"
+            themeType="double-bordered"
             primaryColor="blue"
             size="m"
           >
