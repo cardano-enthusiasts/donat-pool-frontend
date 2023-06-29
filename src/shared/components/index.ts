@@ -19,7 +19,7 @@ export { WhyChooseUs } from './WhyChooseUs/WhyChooseUs';
 export { AboutUs } from './AboutUs/AboutUs';
 export { Roadmap } from './Roadmap/Roadmap';
 export { HowItWorksItems } from './HowItWorksItems/HowItWorksItems';
-export { GitHub } from './GitHub/Github';
+export { Socials } from './Socials/Socials';
 export { Modal } from './Modal/Modal';
 export { ModalDonate } from './ModalDonate/ModalDonate';
 export { ProjectCreation } from './ProjectCreation/ProjectCreation';

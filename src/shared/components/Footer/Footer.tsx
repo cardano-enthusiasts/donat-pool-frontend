@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-import { Button, GitHub, ModalContactUs } from './..';
+import { Button, Socials, ModalContactUs } from './..';
 import {
   Links,
   Wrapper,
@@ -25,7 +25,7 @@ const Footer = ({ backgroundColor = 'blue' }: Props) => {
       <Wrapper backgroundColor={backgroundColor}>
         <Inner>
           <IconAndLinks>
-            <GitHub />
+            <Socials />
             <Links>
               {links.map(({ title, href }) => (
                 <LinkWrapper key={title}>
