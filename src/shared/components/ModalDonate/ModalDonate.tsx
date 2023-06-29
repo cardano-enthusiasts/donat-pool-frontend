@@ -43,7 +43,7 @@ const ModalDonate = ({
       <Title>How many ADA would you like to donate?</Title>
       <form onSubmit={handleSubmit}>
         <InputWrapper>
-          <Input value={value} onChange={handleChange} />
+          <Input value={value} onChange={handleChange} type="number" />
         </InputWrapper>
         <Buttons>
           <Button

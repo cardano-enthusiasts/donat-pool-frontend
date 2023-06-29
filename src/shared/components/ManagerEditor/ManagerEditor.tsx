@@ -75,6 +75,7 @@ const ManagerEditor = ({ config }: Props) => {
                 }}
                 dataAttr={id}
                 value={params[id]}
+                type="number"
               >
                 {title} / <Hint>{hint}</Hint>
               </Input>
