@@ -2,14 +2,6 @@ import styled, { css } from 'styled-components';
 
 import { type Props } from './types';
 
-const getHoverAndDisabled = (primaryColor, secondaryColor) => {
-  return css`
-    :disabled {
-      pointer-events: none;
-    }
-  `;
-};
-
 const getStandardStyles = ({
   primaryColor,
   secondaryColor,
@@ -109,10 +101,6 @@ const getAccentStyles = ({
     }
   }
 
-  &:hover {
-    ${getHoverAndDisabled(primaryColor, secondaryColor)};
-  }
-
   @media (max-width: 1100px) {
     padding: 20px 50px;
     font-size: 22px;
@@ -192,8 +180,6 @@ const getBorderedStyles = (primaryColor, isClickedTheme, size) => css`
   border-radius: 6px;
 `;
 
-const getDashedStyles = (primaryColor, secondaryColor, size) => css``;
-
 const getStyles = ({
   primaryColor,
   secondaryColor,
@@ -219,9 +205,7 @@ const getStyles = ({
       ? getAccentStyles({ primaryColor, secondaryColor, size, fontColor })
       : themeType === 'double-bordered'
       ? getDoubleBorderedStyles(primaryColor, secondaryColor, size)
-      : themeType === 'bordered'
-      ? getBorderedStyles(primaryColor, isClickedTheme, size)
-      : getDashedStyles(primaryColor, secondaryColor, size)}
+      : getBorderedStyles(primaryColor, isClickedTheme, size)}
   `;
 
 const StyledButton = styled.button<{
