@@ -22,6 +22,14 @@ const Item = styled.div`
   }
   @media (max-width: 730px) {
     height: auto;
+    &:hover {
+      > div:first-child {
+        transform: none;
+      }
+      > div:last-child {
+        transform: none;
+      }
+    }
   }
 `;
 
