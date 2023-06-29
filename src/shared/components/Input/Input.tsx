@@ -22,6 +22,8 @@ const Input = ({
   rows = undefined,
   error = null,
   fontColor = 'black',
+  min = 0,
+  step = 1,
 }: Props) => {
   return (
     <Wrapper>
@@ -53,6 +55,8 @@ const Input = ({
               event.currentTarget.blur();
             }}
             fontColor={fontColor}
+            min={type === 'number' ? min : undefined}
+            step={type === 'number' ? step : undefined}
           />
         )}
         {error !== '' && error !== null && <Message>{error}</Message>}
