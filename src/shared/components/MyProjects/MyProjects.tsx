@@ -60,7 +60,7 @@ const MyProjects = ({ onCreateAProjectClick }: Props) => {
           {allProjectsWithStatus !== null && (
             <FilterButtons>
               <Button
-                themeType="quaternary"
+                themeType="bordered"
                 primaryColor="red"
                 onClick={() => {
                   handleFilterClick('active', allProjectsWithStatus);
@@ -71,7 +71,7 @@ const MyProjects = ({ onCreateAProjectClick }: Props) => {
                 Active
               </Button>
               <Button
-                themeType="quaternary"
+                themeType="bordered"
                 primaryColor="green"
                 onClick={() => {
                   handleFilterClick('completed', allProjectsWithStatus);

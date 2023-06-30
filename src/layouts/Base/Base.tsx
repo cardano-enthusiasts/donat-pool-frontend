@@ -6,7 +6,6 @@ import { setWalletStatusSuccess } from 'features/info/redux/actionCreators';
 import {
   AllProjects,
   Landing,
-  Management,
   PrivateProject,
   PublicProject,
   NewProject,
@@ -61,7 +60,6 @@ const Base = () => {
     <>
       <Routes>
         <Route path="/" element={<Landing />} />
-        <Route path="/management" element={<Management />} />
         <Route path="/my-projects" element={<PrivateProjects />} />
         <Route path="/new-project" element={<NewProject />} />
         <Route path="/all-projects" element={<AllProjects />} />

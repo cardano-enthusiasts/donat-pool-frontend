@@ -9,11 +9,16 @@ const PrecalculationFee = ({ goal }: Props) => {
   const { protocolFeeParam } = useSelector(
     (state: AppReduxState) => state.protocol.data.config
   );
-  const extraFee = Math.ceil(goal * (protocolFeeParam / 100));
+  const minFee = 2;
+  const extraFee = Math.max(
+    Math.round(goal * (protocolFeeParam / 100) * Math.pow(10, 6)) /
+      Math.pow(10, 6),
+    minFee
+  );
 
   return (
     <Wrapper>
-      Сommission —{' '}
+      Commission —{' '}
       {extraFee !== 0
         ? `${extraFee} ADA (${protocolFeeParam}%)`
         : `${protocolFeeParam}%`}

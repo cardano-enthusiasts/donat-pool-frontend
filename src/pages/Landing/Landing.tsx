@@ -155,7 +155,7 @@ const Landing = () => {
                 <DescriptionPart2>help a lot</DescriptionPart2>
               </Description>
               <ButtonWrapper>
-                <Button themeType="secondary" href="/all-projects">
+                <Button themeType="accent" href="/all-projects">
                   Start
                   <br />
                   using

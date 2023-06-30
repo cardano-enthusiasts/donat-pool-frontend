@@ -155,6 +155,7 @@ const CreationForm = ({ onClose }: Props) => {
           <DurationTitle>
             Project duration
             <LabelHint>
+              {' '}
               / Max: {Math.floor(maxDurationParam / 1440)} days
             </LabelHint>
           </DurationTitle>
@@ -195,12 +196,12 @@ const CreationForm = ({ onClose }: Props) => {
               handleChange(event, 'goal');
             }}
             type="number"
-            placeholder="10"
+            placeholder={`${minAmountParam}`}
             hint={`MAX: ${maxAmountParam}`}
             error={error.goal}
           >
             Amount
-            <LabelHint>/ ADA</LabelHint>
+            <LabelHint> / ADA</LabelHint>
           </Input>
           <PrecalculationFee goal={Number(data.goal)} />
         </FundingGoal>
@@ -213,13 +214,13 @@ const CreationForm = ({ onClose }: Props) => {
         >
           I agree to pay a commission in favor of the service.
           <br />
-          The commission will be debited after the end of the donating pull.
+          The commission will be debited after the end of the donation pool.
         </Checkbox>
         <ButtonWrapper>
           <Button
             type="button"
             onClick={onClose}
-            themeType="tertiary"
+            themeType="double-bordered"
             primaryColor="blue"
             size="m"
           >

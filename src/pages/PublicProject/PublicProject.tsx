@@ -96,7 +96,7 @@ const PublicProject = () => {
 
           <ButtonWrapper>
             <Button
-              themeType="secondary"
+              themeType="accent"
               onClick={() => {
                 setIsModalOpen(true);
               }}

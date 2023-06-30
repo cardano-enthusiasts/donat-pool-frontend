@@ -55,7 +55,7 @@ const PrivateProjectsActions = ({ project }: Props) => {
         {link}
         <ButtonWrapper>
           <Button
-            themeType="tertiary"
+            themeType="double-bordered"
             size="s"
             primaryColor="blue"
             onClick={handleCopyLinkClick}

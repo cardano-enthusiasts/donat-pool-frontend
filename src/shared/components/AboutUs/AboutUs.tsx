@@ -41,7 +41,7 @@ const AboutUs = () => {
       </TeamWrapper>
 
       <ButtonWrapper>
-        <Button themeType="secondary" primaryColor="blue" secondaryColor="red">
+        <Button themeType="accent" primaryColor="blue" secondaryColor="red">
           Donate
           <br /> To Us
         </Button>

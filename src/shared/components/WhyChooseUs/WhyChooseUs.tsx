@@ -23,7 +23,6 @@ const WhyChooseUs = () => {
       <ButtonAndInfo>
         <ButtonWrapper>
           <Button
-            themeType="primary"
             primaryColor="blue"
             secondaryColor="green"
             fontColor="white"
@@ -35,7 +34,6 @@ const WhyChooseUs = () => {
 
         <ButtonWrapper>
           <Button
-            themeType="primary"
             primaryColor="green"
             secondaryColor="blue"
             fontColor="black"

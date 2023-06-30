@@ -2,15 +2,7 @@ import styled, { css } from 'styled-components';
 
 import { type Props } from './types';
 
-const getHoverAndDisabled = (primaryColor, secondaryColor) => {
-  return css`
-    :disabled {
-      pointer-events: none;
-    }
-  `;
-};
-
-const getPrimaryStyles = ({
+const getStandardStyles = ({
   primaryColor,
   secondaryColor,
   size,
@@ -46,7 +38,7 @@ const getPrimaryStyles = ({
   }
 `;
 
-const getSecondaryStyles = ({
+const getAccentStyles = ({
   primaryColor,
   secondaryColor,
   size,
@@ -109,10 +101,6 @@ const getSecondaryStyles = ({
     }
   }
 
-  &:hover {
-    ${getHoverAndDisabled(primaryColor, secondaryColor)};
-  }
-
   @media (max-width: 1100px) {
     padding: 20px 50px;
     font-size: 22px;
@@ -121,7 +109,7 @@ const getSecondaryStyles = ({
   }
 `;
 
-const getTertiaryStyles = (primaryColor, secondaryColor, size) => css`
+const getDoubleBorderedStyles = (primaryColor, secondaryColor, size) => css`
   position: relative;
   font-size: ${size === 's' ? '16px' : '20px'};
   padding: ${size === 's' ? '10px 16px' : '10px 20px'};
@@ -174,7 +162,7 @@ const getTertiaryStyles = (primaryColor, secondaryColor, size) => css`
   }
 `;
 
-const getQuaternaryStyles = (primaryColor, isClickedTheme, size) => css`
+const getBorderedStyles = (primaryColor, isClickedTheme, size) => css`
   font-size: ${size === 's' ? '14px' : '16px'};
   padding: ${size === 's' ? '8px' : '10px'} 16px;
   font-weight: bold;
@@ -211,13 +199,13 @@ const getStyles = ({
     border: none;
     transition: all 0.5s;
     text-decoration: none;
-    ${themeType === 'primary'
-      ? getPrimaryStyles({ primaryColor, secondaryColor, size, fontColor })
-      : themeType === 'secondary'
-      ? getSecondaryStyles({ primaryColor, secondaryColor, size, fontColor })
-      : themeType === 'tertiary'
-      ? getTertiaryStyles(primaryColor, secondaryColor, size)
-      : getQuaternaryStyles(primaryColor, isClickedTheme, size)}
+    ${themeType === 'standard'
+      ? getStandardStyles({ primaryColor, secondaryColor, size, fontColor })
+      : themeType === 'accent'
+      ? getAccentStyles({ primaryColor, secondaryColor, size, fontColor })
+      : themeType === 'double-bordered'
+      ? getDoubleBorderedStyles(primaryColor, secondaryColor, size)
+      : getBorderedStyles(primaryColor, isClickedTheme, size)}
   `;
 
 const StyledButton = styled.button<{
@@ -297,16 +285,17 @@ const Wrapper = styled.div<{
   size: Props['size'];
 }>`
   width: ${({ themeType, width }) =>
-    themeType === 'secondary' ? '290px' : width};
+    themeType === 'accent' ? '290px' : width};
 
   transition: all 0.5s;
   ${({ themeType }) =>
-    themeType === 'tertiary' && '&:active {transform: translate(-4px, 4px);}'};
+    themeType === 'double-bordered' &&
+    '&:active {transform: translate(-4px, 4px);}'};
   ${({ themeType, size }) =>
-    themeType === 'secondary' && getSecondaryWrapperStyles(size)};
+    themeType === 'accent' && getSecondaryWrapperStyles(size)};
 
   @media (max-width: 1100px) {
-    width: ${({ themeType }) => themeType === 'secondary' && '200px'};
+    width: ${({ themeType }) => themeType === 'accent' && '200px'};
   }
 `;
 

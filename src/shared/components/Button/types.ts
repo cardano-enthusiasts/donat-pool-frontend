@@ -6,7 +6,7 @@ export interface Props {
   primaryColor?: 'yellow' | 'blue' | 'red' | 'green';
   secondaryColor?: 'red' | 'blue' | 'green';
   fontColor?: Props['secondaryColor'] | 'white' | 'black';
-  themeType?: 'primary' | 'secondary' | 'tertiary' | 'quaternary';
+  themeType?: 'standard' | 'accent' | 'double-bordered' | 'bordered' | 'dashed';
   type?: 'submit' | 'button';
   href?: string | null;
   isDisabled?: boolean;

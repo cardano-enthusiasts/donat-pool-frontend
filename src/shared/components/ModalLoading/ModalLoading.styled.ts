@@ -10,6 +10,7 @@ const Inner = styled.div`
 
 const Title = styled.h1`
   ${h1};
+  text-align: center;
   font-size: 36px;
   margin-bottom: 24px;
 `;

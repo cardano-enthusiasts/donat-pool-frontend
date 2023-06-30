@@ -14,4 +14,6 @@ export interface Props {
   rows?: number | undefined;
   error?: string | null;
   fontColor?: 'green' | 'yellow' | 'black';
+  min?: number;
+  step?: number;
 }

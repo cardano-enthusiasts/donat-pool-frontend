@@ -9,7 +9,8 @@ import {
 import { Button, Input, Modal } from '../.';
 
 const ModalContactUs = ({ isOpen, onClose }) => {
-  const [data, setData] = useState({ contact: '', name: '', message: '' });
+  const initialData = { contact: '', name: '', message: '' };
+  const [data, setData] = useState(initialData);
 
   const handleInputChange = (
     event,
@@ -24,6 +25,10 @@ const ModalContactUs = ({ isOpen, onClose }) => {
   const handleSubmit = (event) => {
     event.preventDefault();
     console.log(data);
+  };
+  const handleCancelClick = () => {
+    onClose();
+    setData(initialData);
   };
 
   return (
@@ -40,7 +45,6 @@ const ModalContactUs = ({ isOpen, onClose }) => {
               handleInputChange(event, 'contact');
             }}
             placeholder="+0 / mail@mail.com / @nickname"
-            fontColor="yellow"
           >
             Phone / E-mail / Telegram nickname
           </Input>
@@ -50,7 +54,6 @@ const ModalContactUs = ({ isOpen, onClose }) => {
               handleInputChange(event, 'name');
             }}
             placeholder="Elon Mask"
-            fontColor="yellow"
           >
             Your Name
           </Input>
@@ -62,18 +65,16 @@ const ModalContactUs = ({ isOpen, onClose }) => {
             placeholder="Hello!"
             multiline={true}
             rows={6}
-            fontColor="yellow"
           >
             Your Message
           </Input>
         </Inner>
 
         <ButtonsWrapper>
-          <Button themeType="tertiary" onClick={onClose} primaryColor="blue">
+          <Button onClick={handleCancelClick} primaryColor="blue">
             Cancel
           </Button>
           <Button
-            themeType="primary"
             type="submit"
             primaryColor="red"
             secondaryColor="blue"

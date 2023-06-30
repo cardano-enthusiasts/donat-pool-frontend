@@ -19,7 +19,7 @@
     "css-loader": "^6.7.3",
     "eslint-config-next": "^13.1.6",
     "html-react-parser": "^3.0.16",
-    "offchain": "git+ssh://git@github.com:fullstack-development/donat-pool-offchain.git#24bcea73658dc1e472fd889f4e2097c61b64fe1b",
+    "offchain": "git+ssh://git@github.com:fullstack-development/donat-pool-offchain.git#94ad7cb33939b83aab0f3aaa770e237cbf53ea82",
     "path": "^0.12.7",
     "postcss-loader": "^7.0.2",
     "postcss-scss": "^4.0.6",

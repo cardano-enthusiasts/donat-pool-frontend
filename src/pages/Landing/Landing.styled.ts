@@ -34,6 +34,7 @@ const TitleAndDescription = styled.div<{ isActive: boolean }>`
     align-items: center;
     > * {
       transition: none;
+      transform: translateY(0%);
     }
   }
   @media (max-width: 500px) {
