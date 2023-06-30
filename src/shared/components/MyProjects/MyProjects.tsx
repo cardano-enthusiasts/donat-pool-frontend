@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 
 import {
-  type ProjectStatus,
+  type Fundraisings,
   type AppReduxState,
   type Fundraising,
 } from 'shared/types';
@@ -18,7 +18,7 @@ import {
   Title,
   TitleAndButtons,
 } from './MyProjects.styled';
-import { type Props } from './types';
+import { type ProjectStatus, type Props } from './types';
 import { Button, ProjectCard } from '../.';
 
 const MyProjects = ({ onCreateAProjectClick }: Props) => {
@@ -42,12 +42,15 @@ const MyProjects = ({ onCreateAProjectClick }: Props) => {
     }
   }, [fundraisings]);
 
-  const handleFilterClick = (status: ProjectStatus, projects) => {
+  const handleFilterClick = (status: ProjectStatus, projects: Fundraisings) => {
     if (filter === status) {
       setFilteredProjects(projects);
       setFilter(null);
     } else {
-      setFilteredProjects(projects.filter((item) => item.status === status));
+      const isCompleted = status === 'completed';
+      setFilteredProjects(
+        projects.filter((item) => item.isCompleted === isCompleted)
+      );
       setFilter(status);
     }
   };
@@ -105,7 +108,7 @@ const MyProjects = ({ onCreateAProjectClick }: Props) => {
                 data={item}
                 linkSection="my-projects"
                 key={item.path}
-                status={item.status}
+                status={item.isCompleted ? 'completed' : 'active'}
                 paddingSize="s"
               />
             ))}

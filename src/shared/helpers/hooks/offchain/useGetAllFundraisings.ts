@@ -6,6 +6,7 @@ import {
   getAllFundraisingsSuccess,
   setWalletStatusSuccess,
 } from 'features/info/redux/actionCreators';
+import { type BackendProjects } from 'shared/types';
 
 import { useOffchain, useCheckWalletStatus, useHandleError } from '..';
 import { getOffchainError } from '../..';
@@ -17,7 +18,8 @@ const useGetAllFundraisings = () => {
   const checkWalletStatus = useCheckWalletStatus();
   const protocol = JSON.parse(process.env.PROTOCOL);
 
-  const handleSuccess = (projects) => {
+  const handleSuccess = (projects: BackendProjects) => {
+    console.log(projects);
     const filteredProjects = projects.map(
       ({
         creator,
@@ -28,6 +30,7 @@ const useGetAllFundraisings = () => {
         threadTokenCurrency,
         threadTokenName,
         path,
+        isCompleted,
       }) => {
         return {
           creator,
@@ -38,6 +41,7 @@ const useGetAllFundraisings = () => {
           threadTokenCurrency,
           threadTokenName,
           path,
+          isCompleted,
         };
       }
     );

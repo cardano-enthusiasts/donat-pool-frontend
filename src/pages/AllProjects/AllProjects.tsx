@@ -42,7 +42,7 @@ const AllProjects = () => {
         (fundraising1, fundraising2) =>
           fundraising1.deadline - fundraising2.deadline
       )
-      .filter((fundraising) => fundraising.status === 'active');
+      .filter(({ isCompleted }) => !isCompleted);
   };
 
   return !isRequesting ? (
