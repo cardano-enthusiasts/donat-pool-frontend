@@ -71,7 +71,11 @@ const ModalContactUs = ({ isOpen, onClose }) => {
         </Inner>
 
         <ButtonsWrapper>
-          <Button onClick={handleCancelClick} primaryColor="blue">
+          <Button
+            onClick={handleCancelClick}
+            primaryColor="blue"
+            themeType="double-bordered"
+          >
             Cancel
           </Button>
           <Button
