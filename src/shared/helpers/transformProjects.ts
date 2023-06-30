@@ -11,6 +11,7 @@ const transformProjects = (projects: BackendProjects): Fundraisings => {
       threadTokenCurrency,
       threadTokenName,
       path,
+      isCompleted,
     }) => {
       return {
         creator,
@@ -21,6 +22,7 @@ const transformProjects = (projects: BackendProjects): Fundraisings => {
         threadTokenCurrency,
         threadTokenName,
         path,
+        isCompleted,
       };
     }
   );

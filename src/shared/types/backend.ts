@@ -9,6 +9,7 @@ interface BackendProject {
   threadTokenCurrency: Uint8Array;
   threadTokenName: Uint8Array;
   path: string;
+  isCompleted: boolean;
 }
 
 type BackendProjects = BackendProject[];

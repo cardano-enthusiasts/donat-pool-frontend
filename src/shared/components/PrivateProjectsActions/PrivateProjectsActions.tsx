@@ -49,30 +49,7 @@ const PrivateProjectsActions = ({ project }: Props) => {
     });
   };
 
-  return project.status === 'active' ? (
-    <>
-      <LinkWrapper>
-        {link}
-        <ButtonWrapper>
-          <Button
-            themeType="double-bordered"
-            size="s"
-            primaryColor="blue"
-            onClick={handleCopyLinkClick}
-          >
-            Copy link
-          </Button>
-        </ButtonWrapper>
-      </LinkWrapper>
-      <ModalSuccess
-        description="Link copied to clipboard."
-        isOpen={isModalSuccessOpen}
-        onClose={() => {
-          setIsModalSuccessOpen(false);
-        }}
-      />
-    </>
-  ) : (
+  return project.isCompleted ? (
     <>
       <WithdrawSection>
         <Button
@@ -103,6 +80,29 @@ const PrivateProjectsActions = ({ project }: Props) => {
         errorText={error}
         onClose={() => {
           setIsModalErrorOpen(false);
+        }}
+      />
+    </>
+  ) : (
+    <>
+      <LinkWrapper>
+        {link}
+        <ButtonWrapper>
+          <Button
+            themeType="double-bordered"
+            size="s"
+            primaryColor="blue"
+            onClick={handleCopyLinkClick}
+          >
+            Copy link
+          </Button>
+        </ButtonWrapper>
+      </LinkWrapper>
+      <ModalSuccess
+        description="Link copied to clipboard."
+        isOpen={isModalSuccessOpen}
+        onClose={() => {
+          setIsModalSuccessOpen(false);
         }}
       />
     </>
