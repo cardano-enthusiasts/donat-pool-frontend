@@ -8,18 +8,18 @@ const items = [
   {
     title: 'Create a project',
     description:
-      'Create a project and share a link to the project page with your followers/contributors.',
+      'Create a project and share a link to the project page with your followers/contributors',
     id: 1,
   },
   {
     title: 'Flexible donation options',
-    description: 'Withdraw the funds to your wallet',
+    description: 'Transfer funds to your wallet',
     id: 2,
   },
   {
-    title: 'Withdraw the funds to your wallet',
+    title: 'Receive the funds to your wallet',
     description:
-      'Withdraw the funds with just a single click and a small service fee after the project campaign is completed',
+      'Receive funds with just a single click and pay a small service fee after the project campaign is completed',
     id: 3,
   },
 ];

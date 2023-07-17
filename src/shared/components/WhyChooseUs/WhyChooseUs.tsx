@@ -46,8 +46,8 @@ const WhyChooseUs = () => {
         </ButtonWrapper>
 
         <MinorDescription>
-          Мы открыли для вас код контрактов, чтобы вы могли удостовериться, что
-          система безопасна.
+          We made the code of our smart contracts publicly available so that you
+          can be sure the system is secure.
         </MinorDescription>
       </ButtonAndInfo>
       <Title>Donate with ease</Title>
