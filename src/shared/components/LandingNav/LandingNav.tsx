@@ -69,7 +69,7 @@ const LandingNav = forwardRef(function LandingNav(
               fontColor="white"
               href="/new-project"
             >
-              Create a fundraising
+              Start a fundraiser
             </Button>
           )}
         </Inner>

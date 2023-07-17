@@ -1,3 +1,5 @@
+import HTMLReactParser from 'html-react-parser';
+
 import { primaryInfoSections, secondaryInfoSections } from './data';
 import {
   Wrapper,
@@ -17,7 +19,7 @@ const WhyChooseUs = () => {
       {primaryInfoSections.map(({ title, description }) => (
         <InfoSection key={title}>
           <Title>{title}</Title>
-          <Description>{description}</Description>
+          <Description>{HTMLReactParser(description)}</Description>
         </InfoSection>
       ))}
       <ButtonAndInfo>
@@ -44,14 +46,18 @@ const WhyChooseUs = () => {
         </ButtonWrapper>
 
         <MinorDescription>
-          Мы открыли для вас код контрактов, чтобы вы могли удостовериться, что
-          система безопасна.
+          We made the code of our smart contracts publicly available so that you
+          can be sure the system is secure.
         </MinorDescription>
       </ButtonAndInfo>
       <Title>Donate with ease</Title>
       <MinorInfoSection>
-        <Description>{secondaryInfoSections.description1}</Description>
-        <Description>{secondaryInfoSections.description2}</Description>
+        <Description>
+          {HTMLReactParser(secondaryInfoSections.description1)}
+        </Description>
+        <Description>
+          {HTMLReactParser(secondaryInfoSections.description2)}
+        </Description>
       </MinorInfoSection>
     </Wrapper>
   );
