@@ -4,8 +4,10 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 60px;
+  margin-bottom: 60px;
   @media (max-width: 1360px) {
     gap: 30px;
+    margin-bottom: 30px;
   }
 `;
 

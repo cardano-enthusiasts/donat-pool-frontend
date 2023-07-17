@@ -180,6 +180,59 @@ const getBorderedStyles = (primaryColor, isClickedTheme, size) => css`
   border-radius: 6px;
 `;
 
+const getDashedStyles = (primaryColor, secondaryColor, size) => css`
+  position: relative;
+  z-index: 0;
+  display: flex;
+  gap: 6px;
+  font-size: ${size === 's' ? '16px' : '20px'};
+  padding: ${size === 's' ? '10px 10px 10px 16px' : '10px 10px 10px 20px'};
+  font-weight: bold;
+  line-height: 133%;
+
+  background-color: ${({ theme }) => theme.colors.green};
+  color: ${({ theme }) =>
+    theme.colors[primaryColor]
+      ? theme.colors[primaryColor]
+      : theme.colors.blue};
+  border: 2px dashed
+    ${({ theme }) =>
+      theme.colors[primaryColor]
+        ? theme.colors[primaryColor]
+        : theme.colors.blue};
+  border-radius: 6px;
+
+  &:before {
+    content: '';
+    position: absolute;
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    left: -6px;
+    bottom: -6px;
+    border: 2px dashed ${({ theme }) => theme.colors.red};
+    border-radius: 6px;
+    z-index: -1;
+
+    transition: all 0.5s;
+    user-select: none;
+  }
+  &:active {
+    &:before {
+      left: 0;
+      bottom: 0;
+      opacity: 0;
+    }
+  }
+  &:disabled {
+    color: ${({ theme }) => theme.colors.gray};
+    border: 2px solid ${({ theme }) => theme.colors.gray};
+    pointer-events: none;
+    &:before {
+      border: 2px solid ${({ theme }) => theme.colors.gray};
+    }
+  }
+`;
+
 const getStyles = ({
   primaryColor,
   secondaryColor,
@@ -205,6 +258,8 @@ const getStyles = ({
       ? getAccentStyles({ primaryColor, secondaryColor, size, fontColor })
       : themeType === 'double-bordered'
       ? getDoubleBorderedStyles(primaryColor, secondaryColor, size)
+      : themeType === 'dashed'
+      ? getDashedStyles(primaryColor, secondaryColor, size)
       : getBorderedStyles(primaryColor, isClickedTheme, size)}
   `;
 

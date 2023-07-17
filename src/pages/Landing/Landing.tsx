@@ -8,6 +8,7 @@ import {
   InitialLoading,
   LandingNav,
   Roadmap,
+  Tutorial,
   Waves,
   WhyChooseUs,
 } from 'shared/components';
@@ -31,7 +32,7 @@ import {
   RoadmapWrapper,
   Inner,
   InitialLoadingWrapper,
-  HowItWorksItemsWrapper,
+  HowItWorksWrapper,
   MainLogo,
   ContactUsWrapper,
 } from './Landing.styled';
@@ -169,9 +170,10 @@ const Landing = () => {
 
         <MainWrapper backgroundColor="green">
           <MainInner>
-            <HowItWorksItemsWrapper id="how-it-works" ref={howItWorksRef}>
+            <HowItWorksWrapper id="how-it-works" ref={howItWorksRef}>
               <HowItWorksItems />
-            </HowItWorksItemsWrapper>
+              <Tutorial />
+            </HowItWorksWrapper>
           </MainInner>
         </MainWrapper>
 

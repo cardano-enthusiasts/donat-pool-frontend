@@ -127,7 +127,7 @@ const MainInner = styled.div`
   margin: 0 auto;
 `;
 
-const HowItWorksItemsWrapper = styled.div`
+const HowItWorksWrapper = styled.div`
   padding-left: 400px;
   padding-bottom: 80px;
   ${() => getLargeLayoutPadding()}
@@ -205,6 +205,6 @@ export {
   WhyChooseUsWrapper,
   AboutUsWrapper,
   RoadmapWrapper,
-  HowItWorksItemsWrapper,
+  HowItWorksWrapper,
   ContactUsWrapper,
 };

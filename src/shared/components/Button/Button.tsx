@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 
 import { LinkWrapper, StyledButton, Wrapper } from './Button.styled';
 import { type Props } from './types';
+import { Arrow } from '..';
 
 const Button = ({
   onClick,
@@ -39,6 +40,7 @@ const Button = ({
           rel={isLinkExternal ? 'noopener noreferrer' : undefined}
         >
           {children}
+          {themeType === 'dashed' && <Arrow isUp={isClickedTheme} />}
         </Link>
       </LinkWrapper>
     </Wrapper>
@@ -57,6 +59,7 @@ const Button = ({
         size={size}
       >
         {children}
+        {themeType === 'dashed' && <Arrow isUp={isClickedTheme} />}
       </StyledButton>
     </Wrapper>
   );
