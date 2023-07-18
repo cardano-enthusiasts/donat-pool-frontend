@@ -22,6 +22,7 @@ const Button = ({
   const isLinkExternal = Boolean(
     href && (href.indexOf('http://') !== 0 || href.indexOf('https://') !== 0)
   );
+
   return href !== null ? (
     <Wrapper themeType={themeType} width={width} size={size}>
       <LinkWrapper
@@ -42,7 +43,12 @@ const Button = ({
           rel={isLinkExternal ? 'noopener noreferrer' : undefined}
         >
           {children}
-          {themeType === 'dashed' && <Arrow isUp={isClickedTheme} />}
+          {themeType === 'dashed' && (
+            <Arrow
+              isUp={!isClickedTheme}
+              color={primaryColor === 'blue' ? 'blue' : 'red'}
+            />
+          )}
         </Link>
       </LinkWrapper>
     </Wrapper>
@@ -62,7 +68,12 @@ const Button = ({
         size={size}
       >
         {children}
-        {themeType === 'dashed' && <Arrow isUp={isClickedTheme} />}
+        {themeType === 'dashed' && (
+          <Arrow
+            isUp={!isClickedTheme}
+            color={primaryColor === 'blue' ? 'blue' : 'red'}
+          />
+        )}
       </StyledButton>
     </Wrapper>
   );

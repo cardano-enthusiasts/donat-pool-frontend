@@ -31,7 +31,13 @@ const Stack = () => {
         ))}
       </Items>
 
-      <Button primaryColor="red" secondaryColor="blue" fontColor="white">
+      <Button
+        themeType="dashed"
+        primaryColor="red"
+        secondaryColor="blue"
+        tertiaryColor="yellow"
+        fontColor="white"
+      >
         Read more
       </Button>
     </Wrapper>

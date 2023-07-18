@@ -5,7 +5,7 @@ export interface Props {
   children: string | ReactNode;
   primaryColor?: 'yellow' | 'blue' | 'red' | 'green';
   secondaryColor?: 'red' | 'blue' | 'green';
-  tertiaryColor?: 'green';
+  tertiaryColor?: 'green' | 'yellow';
   fontColor?: Props['secondaryColor'] | 'white' | 'black';
   themeType?: 'standard' | 'accent' | 'double-bordered' | 'bordered' | 'dashed';
   type?: 'submit' | 'button';

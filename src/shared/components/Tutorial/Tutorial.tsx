@@ -24,7 +24,7 @@ const Tutorial = () => {
         onClick={() => {
           setIsOpen(!isOpen);
         }}
-        isClickedTheme={!isOpen}
+        isClickedTheme={isOpen}
       >
         Watch the tutorial
       </Button>
