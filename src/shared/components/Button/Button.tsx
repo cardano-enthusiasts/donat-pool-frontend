@@ -9,6 +9,7 @@ const Button = ({
   children,
   primaryColor = 'yellow',
   secondaryColor = 'red',
+  tertiaryColor = 'green',
   fontColor = secondaryColor,
   themeType = 'standard',
   type = 'button',
@@ -26,6 +27,7 @@ const Button = ({
       <LinkWrapper
         primaryColor={primaryColor}
         secondaryColor={secondaryColor}
+        tertiaryColor={tertiaryColor}
         fontColor={fontColor}
         themeType={themeType}
         isDisabled={isDisabled}
@@ -50,6 +52,7 @@ const Button = ({
         onClick={onClick}
         primaryColor={primaryColor}
         secondaryColor={secondaryColor}
+        tertiaryColor={tertiaryColor}
         fontColor={fontColor}
         themeType={themeType}
         type={type}
