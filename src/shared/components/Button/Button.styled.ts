@@ -182,7 +182,6 @@ const getBorderedStyles = (primaryColor, isClickedTheme, size) => css`
 
 const getDashedStyles = (primaryColor, secondaryColor, size) => css`
   position: relative;
-  z-index: 0;
   display: flex;
   gap: 6px;
   font-size: ${size === 's' ? '16px' : '20px'};
@@ -201,6 +200,7 @@ const getDashedStyles = (primaryColor, secondaryColor, size) => css`
         ? theme.colors[primaryColor]
         : theme.colors.blue};
   border-radius: 6px;
+  transform-style: preserve-3d;
 
   &:before {
     content: '';
@@ -211,17 +211,9 @@ const getDashedStyles = (primaryColor, secondaryColor, size) => css`
     bottom: -6px;
     border: 2px dashed ${({ theme }) => theme.colors.red};
     border-radius: 6px;
-    z-index: -1;
-
+    transform: translateZ(-1px);
     transition: all 0.5s;
     user-select: none;
-  }
-  &:active {
-    &:before {
-      left: 0;
-      bottom: 0;
-      opacity: 0;
-    }
   }
   &:disabled {
     color: ${({ theme }) => theme.colors.gray};

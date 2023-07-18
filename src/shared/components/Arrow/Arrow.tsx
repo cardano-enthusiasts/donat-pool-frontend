@@ -21,9 +21,9 @@ const Arrow = ({ color = 'blue', isUp = false }: Props) => {
             id="Vector 11"
             d="M12 19V5M12 5L16 9.36364M12 5L8 9.36364"
             stroke={theme.colors[color]}
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
           />
         </g>
       </svg>
