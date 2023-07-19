@@ -2,30 +2,28 @@ import { useEffect, useRef, useState } from 'react';
 
 import { useWindowScroll } from 'shared/helpers/hooks/useWindowScroll';
 
-import { DocLink, Img, Items, Title, Wrapper } from './Stack.styled';
+import {
+  Description,
+  Img,
+  Items,
+  Link,
+  Part1,
+  Title,
+  Wrapper,
+} from './Stack.styled';
 import { Button } from '../.';
 
 const Stack = () => {
   const ref = useRef<HTMLDivElement>(null);
   const [isActive, setIsActive] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
   const windowScroll = useWindowScroll();
-  const stack: Array<{ id: string; src: string; href: string }> = [
-    {
-      id: 'plutarch',
-      src: '/img/plutarch.svg',
-      href: 'https://github.com/Plutonomicon/plutarch-plutus',
-    },
-    {
-      id: 'cardano-transaction-lib',
-      src: '/img/cardano-transaction-lib.svg',
-      href: 'https://github.com/Plutonomicon/cardano-transaction-lib',
-    },
-    {
-      id: 'react',
-      src: '/img/react.svg',
-      href: 'https://react.dev/',
-    },
+  const stack: Array<{ id: string; src: string }> = [
+    { id: 'plutarch', src: '/img/plutarch.svg' },
+    { id: 'cardano-transaction-lib', src: '/img/cardano-transaction-lib.svg' },
+    { id: 'react', src: '/img/react.svg' },
   ];
+
   useEffect(() => {
     if (ref.current) {
       setIsActive(
@@ -34,20 +32,62 @@ const Stack = () => {
     }
   }, [windowScroll]);
 
+  const getLink = (title, href) => {
+    return (
+      <>
+        {' '}
+        <Link target="_blank" rel="noreferrer" href={href}>
+          {title}
+        </Link>{' '}
+      </>
+    );
+  };
+
   return (
     <Wrapper>
       <Title>Our stack</Title>
       <Items ref={ref}>
-        {stack.map(({ id, src, href }) => (
-          <DocLink target="_blank" rel="noreferrer" href={href} key={id}>
-            <Img src={src} alt={id} isActive={isActive} />
-          </DocLink>
+        {stack.map(({ id, src }) => (
+          <Img key={id} src={src} alt={id} isActive={isActive} />
         ))}
       </Items>
 
-      <Button primaryColor="red" secondaryColor="blue" fontColor="white">
+      <Button
+        themeType="dashed"
+        primaryColor="red"
+        secondaryColor="blue"
+        tertiaryColor="yellow"
+        fontColor="white"
+        onClick={() => {
+          setIsOpen(!isOpen);
+        }}
+        isClickedTheme={isOpen}
+      >
         Read more
       </Button>
+      {isOpen && (
+        <Description>
+          <Part1>
+            We use strongly typed Haskell and
+            {getLink(
+              'Plutarch',
+              'https://github.com/Plutonomicon/plutarch-plutus'
+            )}
+            to build reliable and efficient smart contracts for Cardano
+            blockchain. For off-chain part we use
+            {getLink(
+              'cardano-transaction-lib',
+              'https://github.com/Plutonomicon/cardano-transaction-lib'
+            )}
+            and{getLink('React.', 'https://react.dev/')}
+          </Part1>
+          As a part of
+          {getLink('MetaLamp team', 'https://www.metalamp.io/')}
+          with years of experience in blockchain (Cardano, Ethereum) and
+          traditional services (dashboards, logistics, banking, etc) we know
+          exactly what we do and eager to write our code the best possible way.
+        </Description>
+      )}
     </Wrapper>
   );
 };

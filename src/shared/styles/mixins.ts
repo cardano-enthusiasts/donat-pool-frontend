@@ -46,17 +46,6 @@ const h1 = css`
   }
 `;
 
-const h2 = css`
-  font-weight: 700;
-  line-height: 120%;
-`;
-
-const h3 = css`
-  text-transform: uppercase;
-  font-weight: 700;
-  font-size: 13px;
-`;
-
 const getLargeLayoutPadding = () => css`
   padding-right: 80px;
 `;
@@ -75,8 +64,6 @@ export {
   baseInner,
   link,
   h1,
-  h2,
-  h3,
   getLargeLayoutPadding,
   getMediumLayoutPadding,
   getSmallLayoutPadding,

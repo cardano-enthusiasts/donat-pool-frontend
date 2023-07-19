@@ -180,9 +180,56 @@ const getBorderedStyles = (primaryColor, isClickedTheme, size) => css`
   border-radius: 6px;
 `;
 
+const getDashedStyles = (
+  primaryColor,
+  secondaryColor,
+  tertiaryColor,
+  size
+) => css`
+  position: relative;
+  display: flex;
+  gap: 6px;
+  font-size: ${size === 's' ? '16px' : '20px'};
+  padding: ${size === 's' ? '10px 10px 10px 16px' : '10px 10px 10px 20px'};
+  font-weight: bold;
+  line-height: 133%;
+
+  background-color: ${({ theme }) => theme.colors[tertiaryColor]};
+  color: ${({ theme }) =>
+    theme.colors[primaryColor]
+      ? theme.colors[primaryColor]
+      : theme.colors.blue};
+  border: 2px dashed ${({ theme }) => theme.colors[primaryColor]};
+  border-radius: 6px;
+  transform-style: preserve-3d;
+
+  &:before {
+    content: '';
+    position: absolute;
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    left: -6px;
+    bottom: -6px;
+    border: 2px dashed ${({ theme }) => theme.colors[secondaryColor]};
+    border-radius: 6px;
+    transform: translateZ(-1px);
+    transition: all 0.5s;
+    user-select: none;
+  }
+  &:disabled {
+    color: ${({ theme }) => theme.colors.gray};
+    border: 2px solid ${({ theme }) => theme.colors.gray};
+    pointer-events: none;
+    &:before {
+      border: 2px solid ${({ theme }) => theme.colors.gray};
+    }
+  }
+`;
+
 const getStyles = ({
   primaryColor,
   secondaryColor,
+  tertiaryColor,
   fontColor,
   width,
   themeType,
@@ -205,12 +252,15 @@ const getStyles = ({
       ? getAccentStyles({ primaryColor, secondaryColor, size, fontColor })
       : themeType === 'double-bordered'
       ? getDoubleBorderedStyles(primaryColor, secondaryColor, size)
+      : themeType === 'dashed'
+      ? getDashedStyles(primaryColor, secondaryColor, tertiaryColor, size)
       : getBorderedStyles(primaryColor, isClickedTheme, size)}
   `;
 
 const StyledButton = styled.button<{
   primaryColor: NonNullable<Props['primaryColor']>;
   secondaryColor: NonNullable<Props['secondaryColor']>;
+  tertiaryColor: NonNullable<Props['tertiaryColor']>;
   fontColor: NonNullable<Props['fontColor']>;
   themeType: Props['themeType'];
   width: Props['width'];
@@ -220,6 +270,7 @@ const StyledButton = styled.button<{
   ${({
     primaryColor,
     secondaryColor,
+    tertiaryColor,
     fontColor,
     width,
     themeType,
@@ -229,6 +280,7 @@ const StyledButton = styled.button<{
     getStyles({
       primaryColor,
       secondaryColor,
+      tertiaryColor,
       fontColor,
       width,
       themeType,
@@ -240,6 +292,7 @@ const StyledButton = styled.button<{
 const LinkWrapper = styled.div<{
   primaryColor: NonNullable<Props['primaryColor']>;
   secondaryColor: NonNullable<Props['secondaryColor']>;
+  tertiaryColor: NonNullable<Props['tertiaryColor']>;
   fontColor: NonNullable<Props['fontColor']>;
   themeType: Props['themeType'];
   isDisabled: boolean;
@@ -251,6 +304,7 @@ const LinkWrapper = styled.div<{
     ${({
       primaryColor,
       secondaryColor,
+      tertiaryColor,
       fontColor,
       width,
       themeType,
@@ -260,6 +314,7 @@ const LinkWrapper = styled.div<{
       getStyles({
         primaryColor,
         secondaryColor,
+        tertiaryColor,
         fontColor,
         width,
         themeType,

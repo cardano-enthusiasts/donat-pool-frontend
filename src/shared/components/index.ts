@@ -34,3 +34,5 @@ export { ModalContactUs } from './ModalContactUs/ModalContactUs';
 export { Stack } from './Stack/Stack';
 export { ScrollHelper } from './ScrollHelper/ScrollHelper';
 export { CommonError } from './CommonError/CommonError';
+export { Arrow } from './Arrow/Arrow';
+export { Tutorial } from './Tutorial/Tutorial';

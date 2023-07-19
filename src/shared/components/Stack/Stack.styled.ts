@@ -18,43 +18,44 @@ const Img = styled.img<{ isActive: boolean }>`
   transition: transform 1s ease 0s;
   transform: ${({ isActive }) =>
     isActive ? 'translateY(0%)' : 'translateY(100%)'};
-
+  &:not(:first-child) {
+    margin-top: -30px;
+    @media (max-width: 850px) {
+      margin-top: -20px;
+    }
+    @media (max-width: 850px) {
+      margin-top: -10px;
+    }
+  }
+  &:first-child {
+    @media (max-width: 850px) {
+      max-width: 65%;
+    }
+  }
   &:nth-child(2) {
     transition-delay: 250ms;
   }
   &:nth-child(3) {
     transition-delay: 500ms;
-  }
-`;
-
-const DocLink = styled.a`
-  display: block;
-  &:not(:first-child) {
-    margin-top: -30px;
-    @media (max-width: 1260px) {
-      margin-top: -20px;
-    }
-    @media (max-width: 550px) {
-      margin-top: -10px;
-    }
-    @media (max-width: 500px) {
-      margin-top: 0;
-    }
-  }
-
-  &:first-child {
-    @media (max-width: 1260px) {
+    @media (max-width: 850px) {
       max-width: 50%;
-    }
-  }
-
-  &:nth-child(3) {
-    @media (max-width: 1260px) {
-      max-width: 40%;
     }
   }
 `;
 
 const Items = styled.div``;
 
-export { Wrapper, Title, Img, Items, DocLink };
+const Description = styled.div`
+  font-size: 24px;
+`;
+
+const Part1 = styled.div`
+  margin-bottom: 40px;
+`;
+
+const Link = styled.a`
+  color: ${({ theme }) => theme.colors.red};
+  text-decoration: underline;
+`;
+
+export { Wrapper, Title, Img, Items, Description, Part1, Link };

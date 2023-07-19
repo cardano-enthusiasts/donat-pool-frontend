@@ -2,12 +2,14 @@ import { Link } from 'react-router-dom';
 
 import { LinkWrapper, StyledButton, Wrapper } from './Button.styled';
 import { type Props } from './types';
+import { Arrow } from '..';
 
 const Button = ({
   onClick,
   children,
   primaryColor = 'yellow',
   secondaryColor = 'red',
+  tertiaryColor = 'green',
   fontColor = secondaryColor,
   themeType = 'standard',
   type = 'button',
@@ -20,11 +22,13 @@ const Button = ({
   const isLinkExternal = Boolean(
     href && (href.indexOf('http://') !== 0 || href.indexOf('https://') !== 0)
   );
+
   return href !== null ? (
     <Wrapper themeType={themeType} width={width} size={size}>
       <LinkWrapper
         primaryColor={primaryColor}
         secondaryColor={secondaryColor}
+        tertiaryColor={tertiaryColor}
         fontColor={fontColor}
         themeType={themeType}
         isDisabled={isDisabled}
@@ -39,6 +43,12 @@ const Button = ({
           rel={isLinkExternal ? 'noopener noreferrer' : undefined}
         >
           {children}
+          {themeType === 'dashed' && (
+            <Arrow
+              isUp={!isClickedTheme}
+              color={primaryColor === 'blue' ? 'blue' : 'red'}
+            />
+          )}
         </Link>
       </LinkWrapper>
     </Wrapper>
@@ -48,6 +58,7 @@ const Button = ({
         onClick={onClick}
         primaryColor={primaryColor}
         secondaryColor={secondaryColor}
+        tertiaryColor={tertiaryColor}
         fontColor={fontColor}
         themeType={themeType}
         type={type}
@@ -57,6 +68,12 @@ const Button = ({
         size={size}
       >
         {children}
+        {themeType === 'dashed' && (
+          <Arrow
+            isUp={!isClickedTheme}
+            color={primaryColor === 'blue' ? 'blue' : 'red'}
+          />
+        )}
       </StyledButton>
     </Wrapper>
   );
