@@ -45,4 +45,17 @@ const Img = styled.img<{ isActive: boolean }>`
 
 const Items = styled.div``;
 
-export { Wrapper, Title, Img, Items };
+const Description = styled.div`
+  font-size: 24px;
+`;
+
+const Part1 = styled.div`
+  margin-bottom: 40px;
+`;
+
+const Link = styled.a`
+  color: ${({ theme }) => theme.colors.red};
+  text-decoration: underline;
+`;
+
+export { Wrapper, Title, Img, Items, Description, Part1, Link };
