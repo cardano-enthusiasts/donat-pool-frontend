@@ -5,12 +5,12 @@ const data = [
     src: 'tutorial-1.gif',
     description: [
       'Open Google Chrome/Chromium/Brave/Edge browser.',
-      'Install Nami Wallet extension from <a href="https://namiwallet.io/" target="_blank" rel="noreferrer">https://namiwallet.io/.</a>',
+      'Install the Nami Wallet extension from <a href="https://namiwallet.io/" target="_blank" rel="noreferrer">https://namiwallet.io/.</a>',
       'Open the installed extension and click &#34;New wallet&#34;, read and accept the &#34;terms of use&#34;.',
-      'Nami wallet will show the seed phrase for your wallet, we recommend you to write it down and store it in a secure place.',
-      'On the next step Nami will check if you remember the seed phrase, use your record to populate the missing words in your seed phrase.',
-      'The last thing is to create an account - don&#39;t forget to use a strong password for your account!',
-      'Now you have a wallet and can use it in the Nami wallet extension.',
+      'Nami wallet will show a seed phrase for your wallet, we recommend that you  write it down and store it in a secure place.',
+      'At the next step Nami will check if you remember the seed phrase. Use your record to enter the missing words in your seed phrase.',
+      'The last thing is to create an account. Please, don&#39;t forget to use a strong password for your account!',
+      'Now you have a wallet and you can use it with the Nami wallet extension.',
     ],
   },
   {
@@ -18,7 +18,7 @@ const data = [
     title: 'Replenishment via Faucet',
     src: 'tutorial-2.gif',
     description: [
-      'After creation the wallet has zero balance.',
+      'After you&#39;ve created  the wallet, it has a zero balance.',
       'Click the account icon and go to Settings &#8594 Network. Choose Preprod here.',
       'Then go to the main extension page, click &#34;Receive&#34; and copy the address of your wallet.',
       'Go to <a href="https://docs.cardano.org/cardano-testnet/tools/faucet/" target="_blank" rel="noreferrer">https://docs.cardano.org/cardano-testnet/tools/faucet/</a> website.',
@@ -28,12 +28,12 @@ const data = [
   },
   {
     order: '03.',
-    title: 'Adding a collateral',
+    title: 'Adding collateral',
     src: 'tutorial-3.gif',
     description: [
       'To start spending TADA in transactions your wallet should have collateral.',
-      'Click the account icon and go to &#34;Collateral&#34;. Enter the password of your account and click &#34;Confirm&#34; to lock 5 ADA as collateral.',
-      'Your wallet is ready to work with DonatPool and another Cardano services in preprod!',
+      'Click the account icon and go to &#34;Collateral&#34;. Enter your account password and click &#34;Confirm&#34; to lock 5 ADA as collateral.',
+      'Your wallet is ready to work with DonatPool and other Cardano services in preprod!',
     ],
   },
 ];

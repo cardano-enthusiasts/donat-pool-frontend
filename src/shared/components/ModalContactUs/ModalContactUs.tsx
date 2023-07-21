@@ -37,7 +37,7 @@ const ModalContactUs = ({ isOpen, onClose }) => {
         <Inner>
           <Title>Contact us</Title>
           <Description>
-            You can report about error or write to us how we can help you.
+            You can report about an error or write to us how we can help you.
           </Description>
           <Input
             value={data.contact}

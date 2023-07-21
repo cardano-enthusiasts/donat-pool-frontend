@@ -73,19 +73,20 @@ const Stack = () => {
               'Plutarch',
               'https://github.com/Plutonomicon/plutarch-plutus'
             )}
-            to build reliable and efficient smart contracts for Cardano
-            blockchain. For off-chain part we use
+            to build reliable and efficient smart contracts for the Cardano
+            blockchain. For the off-chain part we use
             {getLink(
               'cardano-transaction-lib',
               'https://github.com/Plutonomicon/cardano-transaction-lib'
             )}
             and{getLink('React.', 'https://react.dev/')}
           </Part1>
-          As a part of
+          As part of the
           {getLink('MetaLamp team', 'https://www.metalamp.io/')}
-          with years of experience in blockchain (Cardano, Ethereum) and
-          traditional services (dashboards, logistics, banking, etc) we know
-          exactly what we do and eager to write our code the best possible way.
+          with years of experience in developing blockchain (Cardano, Ethereum)
+          and traditional services (dashboards, logistics, banking, etc) we know
+          exactly what we do and we are eager to write our code in the best way
+          possible.
         </Description>
       )}
     </Wrapper>

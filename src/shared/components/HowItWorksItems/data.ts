@@ -17,7 +17,7 @@ const items = [
     id: 2,
   },
   {
-    title: 'Receive the funds to your wallet',
+    title: 'Receive funds to your wallet',
     description:
       'Receive funds with just a single click and pay a small service fee after the project campaign is completed',
     id: 3,
