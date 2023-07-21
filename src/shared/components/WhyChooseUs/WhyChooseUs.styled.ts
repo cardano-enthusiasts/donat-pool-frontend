@@ -18,6 +18,9 @@ const Title = styled.h3`
 
 const Description = styled.div`
   font-size: 24px;
+  @media (max-width: 800px) {
+    font-size: 18px;
+  }
 `;
 
 const InfoSection = styled.div`

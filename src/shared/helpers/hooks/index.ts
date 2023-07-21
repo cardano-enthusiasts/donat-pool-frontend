@@ -11,3 +11,4 @@ export { useConnectWallet } from './offchain/useConnectWallet';
 export { useCheckWalletStatus } from './useCheckWalletStatus';
 export { useHandleError } from './useHandleError';
 export { useWindowSize } from './useWindowSize';
+export { useWindowScroll } from './useWindowScroll';

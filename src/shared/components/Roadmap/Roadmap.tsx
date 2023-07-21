@@ -11,9 +11,10 @@ import {
   WrapperAndButton,
   ButtonWrapper,
 } from './Roadmap.styled';
+import { type Props } from './types';
 import { Button } from '../.';
 
-const Roadmap = () => {
+const Roadmap = ({ isActive }: Props) => {
   const getSubLis = (item) => {
     return item.subItems.map(({ id, title }) => (
       <SubLi key={id}>{title}</SubLi>
@@ -23,7 +24,7 @@ const Roadmap = () => {
   return (
     <WrapperAndButton>
       <Wrapper>
-        <Inner>
+        <Inner isActive={isActive}>
           {texts.phases.map(({ title, items }) => (
             <Fragment key={title}>
               <Title>{title}</Title>

@@ -1,10 +1,15 @@
-import { CatImage, InnerCircle, OuterCircle } from './InitialLoading.styled';
+import {
+  CatImage,
+  InnerCircle,
+  OuterCircle,
+  Wrapper,
+} from './InitialLoading.styled';
 import { type Props } from './types';
 import { ActionDonuts, ScrollHelper } from '../.';
 
 const InitialLoading = ({ windowScroll, isAnimationActive }: Props) => {
   return (
-    <>
+    <Wrapper isAnimationActive={isAnimationActive} windowScroll={windowScroll}>
       <InnerCircle
         data-window-scroll={windowScroll / 10}
         windowScroll={windowScroll / 10}
@@ -18,7 +23,7 @@ const InitialLoading = ({ windowScroll, isAnimationActive }: Props) => {
       </OuterCircle>
       <ActionDonuts isAnimationActive={isAnimationActive} />
       <CatImage src="/img/cat.svg" isAnimationActive={isAnimationActive} />
-    </>
+    </Wrapper>
   );
 };
 

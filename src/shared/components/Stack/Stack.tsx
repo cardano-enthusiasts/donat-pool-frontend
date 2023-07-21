@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 
-import { useWindowScroll } from 'shared/helpers/hooks/useWindowScroll';
+import { useWindowScroll } from 'shared/helpers/hooks';
 
 import {
   Description,
@@ -62,8 +62,9 @@ const Stack = () => {
           setIsOpen(!isOpen);
         }}
         isClickedTheme={isOpen}
+        width="180px"
       >
-        Read more
+        Read {isOpen ? 'less' : 'more'}
       </Button>
       {isOpen && (
         <Description>
