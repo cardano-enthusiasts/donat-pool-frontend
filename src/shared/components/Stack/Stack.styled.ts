@@ -47,6 +47,9 @@ const Items = styled.div``;
 
 const Description = styled.div`
   font-size: 24px;
+  @media (max-width: 800px) {
+    font-size: 18px;
+  }
 `;
 
 const Part1 = styled.div`
