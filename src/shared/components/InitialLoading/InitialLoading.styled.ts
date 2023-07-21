@@ -1,5 +1,23 @@
 import styled from 'styled-components';
 
+const Wrapper = styled.div<{
+  isAnimationActive: boolean;
+  windowScroll: number;
+}>`
+  position: relative;
+  width: 100%;
+  height: ${({ windowScroll, isAnimationActive }) =>
+    windowScroll < 535 && isAnimationActive ? 1500 - windowScroll : 965}px;
+  background: ${({ theme }) => theme.colors.red};
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  overflow: hidden;
+  @media (max-width: 1100px) {
+    height: auto;
+  }
+`;
+
 const InnerCircle = styled.div.attrs((props) => ({
   style: {
     transform: `scale(${props['data-window-scroll']})`,
@@ -52,4 +70,4 @@ const CatImage = styled.img<{ isAnimationActive }>`
   }
 `;
 
-export { InnerCircle, OuterCircle, CatImage };
+export { Wrapper, InnerCircle, OuterCircle, CatImage };
