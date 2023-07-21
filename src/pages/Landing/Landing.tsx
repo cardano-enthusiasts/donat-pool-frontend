@@ -2,12 +2,12 @@ import { useEffect, useRef, useState } from 'react';
 
 import {
   AboutUs,
-  Button,
   Footer,
   HowItWorksItems,
   InitialLoading,
   LandingNav,
   Roadmap,
+  TitleAndDescription,
   Tutorial,
   Waves,
   WhyChooseUs,
@@ -17,12 +17,8 @@ import { useWindowScroll } from 'shared/helpers/hooks/useWindowScroll';
 import { type LandingSection } from 'shared/types';
 
 import {
-  TitleAndDescription,
+  TitleAndDescriptionWrapper,
   DonutsWrapper,
-  Description,
-  DescriptionPart1,
-  DescriptionPart2,
-  ButtonWrapper,
   WavesWrapper,
   Wrapper,
   MainWrapper,
@@ -33,7 +29,6 @@ import {
   Inner,
   InitialLoadingWrapper,
   HowItWorksWrapper,
-  MainLogo,
   ContactUsWrapper,
 } from './Landing.styled';
 
@@ -149,20 +144,9 @@ const Landing = () => {
 
         <MainWrapper backgroundColor="blue">
           <MainInner>
-            <TitleAndDescription id="home" ref={homeRef} isActive={isActive}>
-              <MainLogo src="/img/big-logo.svg" alt="Donat pool logo" />
-              <Description>
-                <DescriptionPart1>Give a little,</DescriptionPart1>
-                <DescriptionPart2>help a lot</DescriptionPart2>
-              </Description>
-              <ButtonWrapper>
-                <Button themeType="accent" href="/all-projects">
-                  Start
-                  <br />
-                  using
-                </Button>
-              </ButtonWrapper>
-            </TitleAndDescription>
+            <TitleAndDescriptionWrapper id="home" ref={homeRef}>
+              <TitleAndDescription isActive={isActive} />
+            </TitleAndDescriptionWrapper>
           </MainInner>
         </MainWrapper>
 

@@ -36,3 +36,4 @@ export { ScrollHelper } from './ScrollHelper/ScrollHelper';
 export { CommonError } from './CommonError/CommonError';
 export { Arrow } from './Arrow/Arrow';
 export { Tutorial } from './Tutorial/Tutorial';
+export { TitleAndDescription } from './TitleAndDescription/TitleAndDescription';
