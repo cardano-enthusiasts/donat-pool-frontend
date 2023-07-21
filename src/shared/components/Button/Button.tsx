@@ -22,20 +22,20 @@ const Button = ({
   const isLinkExternal = Boolean(
     href && (href.indexOf('http://') !== 0 || href.indexOf('https://') !== 0)
   );
+  const attributes = {
+    primaryColor,
+    secondaryColor,
+    tertiaryColor,
+    fontColor,
+    themeType,
+    isClickedTheme,
+    width,
+    size,
+  };
 
   return href !== null ? (
     <Wrapper themeType={themeType} width={width} size={size}>
-      <LinkWrapper
-        primaryColor={primaryColor}
-        secondaryColor={secondaryColor}
-        tertiaryColor={tertiaryColor}
-        fontColor={fontColor}
-        themeType={themeType}
-        isDisabled={isDisabled}
-        width={width}
-        isClickedTheme={isClickedTheme}
-        size={size}
-      >
+      <LinkWrapper {...attributes} isDisabled={isDisabled}>
         <Link
           to={href}
           reloadDocument={isLinkExternal}
@@ -44,10 +44,7 @@ const Button = ({
         >
           {children}
           {themeType === 'dashed' && (
-            <Arrow
-              isUp={!isClickedTheme}
-              color={primaryColor === 'blue' ? 'blue' : 'red'}
-            />
+            <Arrow color={primaryColor === 'blue' ? 'blue' : 'red'} />
           )}
         </Link>
       </LinkWrapper>
@@ -56,16 +53,9 @@ const Button = ({
     <Wrapper themeType={themeType} width={width} size={size}>
       <StyledButton
         onClick={onClick}
-        primaryColor={primaryColor}
-        secondaryColor={secondaryColor}
-        tertiaryColor={tertiaryColor}
-        fontColor={fontColor}
-        themeType={themeType}
-        type={type}
+        {...attributes}
         disabled={isDisabled}
-        width={width}
-        isClickedTheme={isClickedTheme}
-        size={size}
+        type={type}
       >
         {children}
         {themeType === 'dashed' && (
