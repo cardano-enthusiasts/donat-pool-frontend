@@ -5,6 +5,7 @@ import { type LandingSection } from 'shared/types';
 export interface Props {
   windowScroll: number;
   setIsAnimationActive: (isAnimationActive: boolean) => void;
+  currentSection: LandingSection;
   setCurrentSection: (landingSecton: LandingSection) => void;
 }
 

@@ -31,7 +31,12 @@ import {
 } from '..';
 
 const LandingContent = forwardRef(function LandingContent(
-  { windowScroll, setIsAnimationActive, setCurrentSection }: Props,
+  {
+    windowScroll,
+    setIsAnimationActive,
+    currentSection,
+    setCurrentSection,
+  }: Props,
   navRef: ForwardedRef<HTMLElement> | null
 ) {
   const homeRef = useRef<HTMLDivElement>(null);
@@ -40,7 +45,9 @@ const LandingContent = forwardRef(function LandingContent(
   const aboutUsRef = useRef<HTMLDivElement>(null);
   const contactUsRef = useRef<HTMLDivElement>(null);
 
-  const [isActive, setIsActive] = useState(false);
+  const [isHomeAnimationActive, setIsHomeAnimationActive] = useState(false);
+  const [isRoadmapAnimationActive, setIsRoadmapAnimationActive] =
+    useState(false);
 
   useEffect(() => {
     if (
@@ -52,8 +59,14 @@ const LandingContent = forwardRef(function LandingContent(
   }, [windowScroll, homeRef.current]);
 
   useEffect(() => {
+    if (currentSection === 'roadmap') {
+      setIsRoadmapAnimationActive(true);
+    }
+  }, [currentSection]);
+
+  useEffect(() => {
     if (homeRef.current) {
-      setIsActive(
+      setIsHomeAnimationActive(
         window.innerHeight - 400 > homeRef.current.getBoundingClientRect().top
       );
     }
@@ -117,7 +130,7 @@ const LandingContent = forwardRef(function LandingContent(
     {
       element: (
         <TitleAndDescriptionWrapper id="home" ref={homeRef}>
-          <TitleAndDescription isActive={isActive} />
+          <TitleAndDescription isActive={isHomeAnimationActive} />
         </TitleAndDescriptionWrapper>
       ),
       id: 'home',
@@ -166,7 +179,7 @@ const LandingContent = forwardRef(function LandingContent(
     {
       element: (
         <RoadmapWrapper id="roadmap">
-          <Roadmap />
+          <Roadmap isActive={isRoadmapAnimationActive} />
         </RoadmapWrapper>
       ),
       id: 'roadmap',

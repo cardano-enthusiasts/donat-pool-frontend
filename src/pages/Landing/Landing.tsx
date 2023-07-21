@@ -47,6 +47,7 @@ const Landing = () => {
 
       <LandingContent
         windowScroll={windowScroll}
+        currentSection={currentSection}
         setCurrentSection={setCurrentSection}
         setIsAnimationActive={setIsAnimationActive}
         ref={navRef}

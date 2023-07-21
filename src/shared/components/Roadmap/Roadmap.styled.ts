@@ -26,18 +26,18 @@ const Wrapper = styled.div`
   }
 `;
 
-const Inner = styled.div`
+const Inner = styled.div<{ isActive: boolean }>`
   position: absolute;
   top: 100%;
-  animation: scroll 60s linear infinite;
-
+  ${({ isActive }) => isActive && 'animation: scroll 60s linear infinite;'};
+  animation-delay: -5s;
   color: ${({ theme }) => theme.colors.yellow};
   @keyframes scroll {
     0% {
       top: 100%;
     }
     100% {
-      top: -350%;
+      top: -340%;
     }
   }
 `;
