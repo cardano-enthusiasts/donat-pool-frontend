@@ -62,8 +62,9 @@ const Stack = () => {
           setIsOpen(!isOpen);
         }}
         isClickedTheme={isOpen}
+        width="180px"
       >
-        Read more
+        Read {isOpen ? 'less' : 'more'}
       </Button>
       {isOpen && (
         <Description>

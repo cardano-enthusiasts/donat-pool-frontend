@@ -190,7 +190,7 @@ const getDashedStyles = (
   display: flex;
   gap: 6px;
   font-size: ${size === 's' ? '16px' : '20px'};
-  padding: ${size === 's' ? '10px 10px 10px 16px' : '10px 10px 10px 20px'};
+  padding: ${size === 's' ? '10px 40px 10px 16px' : '10px 40px 10px 20px'};
   font-weight: bold;
   line-height: 133%;
 
@@ -354,4 +354,9 @@ const Wrapper = styled.div<{
   }
 `;
 
-export { StyledButton, LinkWrapper, Wrapper };
+const ArrowWrapper = styled.div`
+  position: absolute;
+  right: 10px;
+`;
+
+export { StyledButton, LinkWrapper, Wrapper, ArrowWrapper };
