@@ -7,7 +7,11 @@ const Main = styled.main`
 `;
 
 const Inner = styled.div`
-  ${baseInner}
+  ${baseInner};
+  margin: 80px 0 160px;
+  @media (max-width: 600px) {
+    margin: 40px 0 60px;
+  }
 `;
 
 export { Main, Inner };
