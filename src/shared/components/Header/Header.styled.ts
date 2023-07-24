@@ -43,7 +43,7 @@ const Links = styled.div`
   }
 `;
 
-const LinkWrapper = styled.div<{ isActive: boolean }>`
+const LinkWrapper = styled.div<{ isActive?: boolean }>`
   ${link};
   flex-shrink: 0;
   a {

@@ -14,7 +14,7 @@ import {
 import { type Props } from './types';
 import { Logo, WalletButton } from '..';
 
-const Header = ({ currentPage }: Props) => {
+const Header = ({ currentPage = null }: Props) => {
   const links = [
     { title: 'My projects', href: '/my-projects', id: 'my-projects' },
     { title: 'All Donation pools', href: '/all-projects', id: 'projects' },
@@ -33,7 +33,10 @@ const Header = ({ currentPage }: Props) => {
           <LinksAndButton isMenuOpen={isMenuOpen}>
             <Links>
               {links.map(({ title, href, id }) => (
-                <LinkWrapper key={id} isActive={href === currentPage}>
+                <LinkWrapper
+                  key={id}
+                  {...(currentPage ? { isActive: href === currentPage } : {})}
+                >
                   <Link to={href}>{title}</Link>
                 </LinkWrapper>
               ))}

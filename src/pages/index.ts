@@ -1,4 +1,5 @@
 import AllProjects from './AllProjects/AllProjects';
+import FAQ from './FAQ/FAQ';
 import Landing from './Landing/Landing';
 import Management from './Management/Management';
 import NewProject from './NewProject/NewProject';
@@ -14,4 +15,5 @@ export {
   PublicProject,
   PrivateProject,
   NewProject,
+  FAQ,
 };

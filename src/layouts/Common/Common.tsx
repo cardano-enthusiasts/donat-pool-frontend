@@ -6,8 +6,9 @@ import { errors, missingCollateral } from 'shared/constants';
 import { type AppReduxState } from 'shared/types';
 
 import { Inner, Main } from './Common.styled';
+import { type Props } from './types';
 
-const Common = ({ children }) => {
+const Common = ({ children }: Props) => {
   const [currentPage, setCurrentPage] = useState('');
   const { walletStatus } = useSelector(
     (state: AppReduxState) => state.info.data

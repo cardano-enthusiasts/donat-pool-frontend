@@ -10,6 +10,7 @@ import {
   PublicProject,
   NewProject,
   PrivateProjects,
+  FAQ,
 } from 'pages';
 import { NotAvailableError } from 'shared/components';
 import { useGetAppInfo, useOffchain } from 'shared/helpers/hooks';
@@ -65,6 +66,7 @@ const Base = () => {
         <Route path="/all-projects" element={<AllProjects />} />
         <Route path="/all-projects/:id" element={<PublicProject />} />
         <Route path="/my-projects/:id" element={<PrivateProject />} />
+        <Route path="/FAQ" element={<FAQ />} />
       </Routes>
     </>
   );
