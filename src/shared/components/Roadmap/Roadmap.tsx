@@ -49,7 +49,7 @@ const Roadmap = ({ isActive }: Props) => {
           primaryColor="blue"
           secondaryColor="green"
           size="s"
-          href="https://fullstack-development.github.io/donat-pool-offchain/roadmap.html"
+          href="/roadmap"
         >
           All phases
         </Button>
