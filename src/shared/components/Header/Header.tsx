@@ -1,5 +1,8 @@
 import { useState } from 'react';
+import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+
+import { type AppReduxState } from 'shared/types';
 
 import {
   Inner,
@@ -12,7 +15,7 @@ import {
   Line,
 } from './Header.styled';
 import { type Props } from './types';
-import { Logo, WalletButton } from '..';
+import { Button, Logo, WalletButton } from '..';
 
 const Header = ({ currentPage = null }: Props) => {
   const links = [
@@ -20,6 +23,9 @@ const Header = ({ currentPage = null }: Props) => {
     { title: 'All Donation pools', href: '/all-projects', id: 'projects' },
   ];
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { walletStatus } = useSelector(
+    (state: AppReduxState) => state.info.data
+  );
 
   return (
     <>
@@ -30,20 +36,31 @@ const Header = ({ currentPage = null }: Props) => {
               <Logo />
             </LogoWrapper>
           )}
-          <LinksAndButton isMenuOpen={isMenuOpen}>
-            <Links>
-              {links.map(({ title, href, id }) => (
-                <LinkWrapper
-                  key={id}
-                  {...(currentPage ? { isActive: href === currentPage } : {})}
-                >
-                  <Link to={href}>{title}</Link>
-                </LinkWrapper>
-              ))}
-            </Links>
-            <Line />
-            <WalletButton />
-          </LinksAndButton>
+          {walletStatus === 'connected' ? (
+            <LinksAndButton isMenuOpen={isMenuOpen}>
+              <Links>
+                {links.map(({ title, href, id }) => (
+                  <LinkWrapper
+                    key={id}
+                    {...(currentPage ? { isActive: href === currentPage } : {})}
+                  >
+                    <Link to={href}>{title}</Link>
+                  </LinkWrapper>
+                ))}
+              </Links>
+              <Line />
+              <WalletButton />
+            </LinksAndButton>
+          ) : (
+            <Button
+              href="/new-project"
+              primaryColor="yellow"
+              secondaryColor="blue"
+              fontColor="black"
+            >
+              Start a fundraiser
+            </Button>
+          )}
         </Inner>
 
         <Icon

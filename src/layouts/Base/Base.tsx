@@ -14,7 +14,6 @@ import {
   RoadmapForReading,
 } from 'pages';
 import { NotAvailableError } from 'shared/components';
-import { useGetAppInfo, useOffchain } from 'shared/helpers/hooks';
 import { type AppReduxState } from 'shared/types';
 
 const Base = () => {
@@ -25,15 +24,6 @@ const Base = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [walletIsNotAvailable, setWalletIsNotAvailable] = useState(false);
-
-  const getAppInfo = useGetAppInfo();
-  const offchain = useOffchain();
-
-  useEffect(() => {
-    if (offchain) {
-      getAppInfo();
-    }
-  }, [offchain]);
 
   useEffect(() => {
     setTimeout(() => {
