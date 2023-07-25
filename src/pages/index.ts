@@ -6,6 +6,7 @@ import NewProject from './NewProject/NewProject';
 import PrivateProject from './PrivateProject/PrivateProject';
 import PrivateProjects from './PrivateProjects/PrivateProjects';
 import PublicProject from './PublicProject/PublicProject';
+import RoadmapForReading from './RoadmapForReading/RoadmapForReading';
 
 export {
   PrivateProjects,
@@ -16,4 +17,5 @@ export {
   PrivateProject,
   NewProject,
   FAQ,
+  RoadmapForReading,
 };

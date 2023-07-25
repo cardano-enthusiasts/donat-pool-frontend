@@ -1,6 +1,8 @@
+import HTMLReactParser from 'html-react-parser';
 import { Fragment } from 'react';
 
-import { texts } from './data';
+import { roadmapText } from 'shared/constants';
+
 import {
   Inner,
   Li,
@@ -25,9 +27,9 @@ const Roadmap = ({ isActive }: Props) => {
     <WrapperAndButton>
       <Wrapper>
         <Inner isActive={isActive}>
-          {texts.phases.map(({ title, items }) => (
+          {roadmapText.phases.map(({ title, items }) => (
             <Fragment key={title}>
-              <Title>{title}</Title>
+              <Title>{HTMLReactParser(title)}</Title>
               <Ul>
                 {items.map((item) => {
                   return item.title ? (

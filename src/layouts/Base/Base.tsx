@@ -11,6 +11,7 @@ import {
   NewProject,
   PrivateProjects,
   FAQ,
+  RoadmapForReading,
 } from 'pages';
 import { NotAvailableError } from 'shared/components';
 import { useGetAppInfo, useOffchain } from 'shared/helpers/hooks';
@@ -67,6 +68,7 @@ const Base = () => {
         <Route path="/all-projects/:id" element={<PublicProject />} />
         <Route path="/my-projects/:id" element={<PrivateProject />} />
         <Route path="/faq" element={<FAQ />} />
+        <Route path="/roadmap" element={<RoadmapForReading />} />
       </Routes>
     </>
   );
