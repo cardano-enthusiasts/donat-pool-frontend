@@ -66,7 +66,7 @@ const Base = () => {
         <Route path="/all-projects" element={<AllProjects />} />
         <Route path="/all-projects/:id" element={<PublicProject />} />
         <Route path="/my-projects/:id" element={<PrivateProject />} />
-        <Route path="/FAQ" element={<FAQ />} />
+        <Route path="/faq" element={<FAQ />} />
       </Routes>
     </>
   );

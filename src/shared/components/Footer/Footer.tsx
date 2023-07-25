@@ -16,7 +16,7 @@ const Footer = ({ backgroundColor = 'blue' }: Props) => {
     { title: 'Home', href: '/' },
     { title: 'About us on MetaLamp', href: '/mock-address' },
     { title: 'Terms of use', href: '/mock-address' },
-    { title: 'FAQ', href: '/mock-address' },
+    { title: 'FAQ', href: '/faq' },
   ];
   const [isModalContactUsOpen, setIsModalContactUsOpen] = useState(false);
 
