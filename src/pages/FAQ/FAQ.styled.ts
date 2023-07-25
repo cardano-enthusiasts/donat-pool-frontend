@@ -37,6 +37,11 @@ const Li = styled.li`
 const Alert = styled.div`
   padding: 20px 40px;
   background: ${({ theme }) => theme.colors.purple};
+
+  a {
+    color: ${({ theme }) => theme.colors.blue};
+    font-weight: bold;
+  }
   @media (max-width: 600px) {
     padding: 10px 20px;
   }
@@ -57,11 +62,6 @@ const Line = styled.div`
   background: #dfdfdf;
 `;
 
-const Link = styled.a`
-  color: ${({ theme }) => theme.colors.blue};
-  font-weight: bold;
-`;
-
 export {
   Wrapper,
   SectionWrapper,
@@ -73,5 +73,4 @@ export {
   SubSection,
   Subtitle,
   Line,
-  Link,
 };

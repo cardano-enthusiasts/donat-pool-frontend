@@ -15,9 +15,10 @@ import {
 import { Button } from '..';
 
 const Tutorial = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(true);
+
   return (
-    <>
+    <div id="tutorial">
       <Button
         themeType="dashed"
         primaryColor="blue"
@@ -50,7 +51,7 @@ const Tutorial = () => {
           })}
         </Items>
       )}
-    </>
+    </div>
   );
 };
 
