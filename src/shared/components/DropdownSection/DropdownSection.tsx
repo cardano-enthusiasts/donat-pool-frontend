@@ -7,8 +7,9 @@ import {
   Title,
   Wrapper,
 } from './DropdownSection.styled';
+import { type Props } from './types';
 
-const DropdownSection = () => {
+const DropdownSection = ({ title = '', children }: Props) => {
   const [isOpen, setIsOpen] = useState(false);
   return (
     <Wrapper>
@@ -17,10 +18,10 @@ const DropdownSection = () => {
           setIsOpen(!isOpen);
         }}
       >
-        <Title>What is Donat.Pool?</Title>
-        <Arrow src="/icons/red-arrow.svg"></Arrow>
+        <Title>{title}</Title>
+        <Arrow src="/icons/red-arrow.svg" isOpen={isOpen}></Arrow>
       </Header>
-      {isOpen && <Content>dd</Content>}
+      {isOpen && <Content>{children}</Content>}
     </Wrapper>
   );
 };

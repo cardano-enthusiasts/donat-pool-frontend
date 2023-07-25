@@ -29,7 +29,7 @@ const Item = styled.div`
 const ItemTitle = styled.div``;
 
 const Label = styled.span`
-  color: ${({ theme }) => theme.colors.gray};
+  color: ${({ theme }) => theme.colors.secondaryGray};
   margin-left: 8px;
 `;
 

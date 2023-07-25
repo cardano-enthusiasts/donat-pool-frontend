@@ -10,8 +10,9 @@ const theme: Theme = {
     yellow: '#FED900',
     white: '#FFFFFF',
     black: '#141414',
-    darkGray: '#333333',
-    gray: '#828587',
+    primaryGray: '#333333',
+    secondaryGray: '#828587',
+    tertiaryGray: '#5C5F60',
     error: '#C820F2',
   },
 };

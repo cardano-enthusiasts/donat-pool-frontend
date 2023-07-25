@@ -34,7 +34,7 @@ const getFieldStyles = ({ errorInfo, fontColor }) =>
 
     &:disabled {
       cursor: not-allowed;
-      color: ${({ theme }) => theme.colors.gray};
+      color: ${({ theme }) => theme.colors.secondaryGray};
     }
   `;
 
@@ -52,7 +52,7 @@ const InputContainer = styled.div<{ hint: string | null }>`
         transform: translateY(-50%);
         right: 16px;
         content: "${hint}";
-        color: ${theme.colors.gray};
+        color: ${theme.colors.secondaryGray};
       }`}
 `;
 
