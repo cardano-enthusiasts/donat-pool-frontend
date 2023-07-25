@@ -2,13 +2,6 @@ import styled from 'styled-components';
 
 import { h1 } from 'shared/styles/mixins';
 
-const Wrapper = styled.div`
-  margin: 80px 0;
-  @media (max-width: 900px) {
-    margin: 56px 0;
-  }
-`;
-
 const TitleAndButton = styled.div`
   display: flex;
   justify-content: space-between;
@@ -51,4 +44,4 @@ const CardsWrapper = styled.div`
   }
 `;
 
-export { Wrapper, TitleAndButton, Title, CardsWrapper, CreateButton };
+export { TitleAndButton, Title, CardsWrapper, CreateButton };

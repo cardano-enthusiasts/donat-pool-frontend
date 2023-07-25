@@ -12,7 +12,6 @@ import {
   CreateButton,
   Title,
   TitleAndButton,
-  Wrapper,
 } from './AllProjects.styled';
 
 const AllProjects = () => {
@@ -47,39 +46,37 @@ const AllProjects = () => {
 
   return !isRequesting ? (
     <Common>
-      <Wrapper>
-        <TitleAndButton>
-          <Title>All Donation pools</Title>
-          <CreateButton>
-            <Button
-              primaryColor="red"
-              secondaryColor="blue"
-              fontColor="white"
-              onClick={() => {
-                navigate('/new-project');
-              }}
-            >
-              Create a new project
-            </Button>
-          </CreateButton>
-        </TitleAndButton>
+      <TitleAndButton>
+        <Title>All Donation pools</Title>
+        <CreateButton>
+          <Button
+            primaryColor="red"
+            secondaryColor="blue"
+            fontColor="white"
+            onClick={() => {
+              navigate('/new-project');
+            }}
+          >
+            Create a new project
+          </Button>
+        </CreateButton>
+      </TitleAndButton>
 
-        <CardsWrapper>
-          {allFundraisings ? (
-            sortAndFilterFundraising(allFundraisings).map((project) => {
-              return (
-                <ProjectCard
-                  data={project}
-                  key={project.threadTokenCurrency.toString()}
-                  linkSection="all-projects"
-                />
-              );
-            })
-          ) : (
-            <></>
-          )}
-        </CardsWrapper>
-      </Wrapper>
+      <CardsWrapper>
+        {allFundraisings ? (
+          sortAndFilterFundraising(allFundraisings).map((project) => {
+            return (
+              <ProjectCard
+                data={project}
+                key={project.threadTokenCurrency.toString()}
+                linkSection="all-projects"
+              />
+            );
+          })
+        ) : (
+          <></>
+        )}
+      </CardsWrapper>
     </Common>
   ) : (
     <></>

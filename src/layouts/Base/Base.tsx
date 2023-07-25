@@ -10,9 +10,10 @@ import {
   PublicProject,
   NewProject,
   PrivateProjects,
+  FAQ,
+  RoadmapForReading,
 } from 'pages';
 import { NotAvailableError } from 'shared/components';
-import { useGetAppInfo, useOffchain } from 'shared/helpers/hooks';
 import { type AppReduxState } from 'shared/types';
 
 const Base = () => {
@@ -23,15 +24,6 @@ const Base = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [walletIsNotAvailable, setWalletIsNotAvailable] = useState(false);
-
-  const getAppInfo = useGetAppInfo();
-  const offchain = useOffchain();
-
-  useEffect(() => {
-    if (offchain) {
-      getAppInfo();
-    }
-  }, [offchain]);
 
   useEffect(() => {
     setTimeout(() => {
@@ -65,6 +57,8 @@ const Base = () => {
         <Route path="/all-projects" element={<AllProjects />} />
         <Route path="/all-projects/:id" element={<PublicProject />} />
         <Route path="/my-projects/:id" element={<PrivateProject />} />
+        <Route path="/faq" element={<FAQ />} />
+        <Route path="/roadmap" element={<RoadmapForReading />} />
       </Routes>
     </>
   );

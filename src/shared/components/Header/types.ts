@@ -1,3 +1,3 @@
 export interface Props {
-  currentPage: string;
+  currentPage?: string | null;
 }

@@ -1,10 +1,12 @@
 import AllProjects from './AllProjects/AllProjects';
+import FAQ from './FAQ/FAQ';
 import Landing from './Landing/Landing';
 import Management from './Management/Management';
 import NewProject from './NewProject/NewProject';
 import PrivateProject from './PrivateProject/PrivateProject';
 import PrivateProjects from './PrivateProjects/PrivateProjects';
 import PublicProject from './PublicProject/PublicProject';
+import RoadmapForReading from './RoadmapForReading/RoadmapForReading';
 
 export {
   PrivateProjects,
@@ -14,4 +16,6 @@ export {
   PublicProject,
   PrivateProject,
   NewProject,
+  FAQ,
+  RoadmapForReading,
 };

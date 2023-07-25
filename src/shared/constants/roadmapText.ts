@@ -1,7 +1,7 @@
-const texts = {
+const roadmapText = {
   phases: [
     {
-      title: 'Phase 1 (finished)',
+      title: 'Phase 1 <span>(finished)</span>',
       items: [
         {
           title:
@@ -179,4 +179,4 @@ const texts = {
   ],
 };
 
-export { texts };
+export { roadmapText };

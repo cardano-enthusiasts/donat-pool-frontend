@@ -14,13 +14,13 @@ const FilterButtons = styled.div`
 const PageHeader = styled.div`
   display: flex;
   justify-content: space-between;
-  margin: 80px 0 60px 0;
+  margin-bottom: 60px;
   @media (max-width: 1000px) {
     flex-direction: column;
     gap: 20px;
   }
   @media (max-width: 900px) {
-    margin: 56px 0 32px 0;
+    margin-bottom: 32px;
   }
 `;
 
@@ -47,11 +47,7 @@ const CreateButton = styled.div`
 
 const ProjectWrapper = styled.div`
   width: 100%;
-  padding-bottom: 160px;
   margin: 0 auto;
-  @media (max-width: 900px) {
-    padding-bottom: 56px;
-  }
   @media (max-width: 700px) {
     max-width: 90vw;
   }

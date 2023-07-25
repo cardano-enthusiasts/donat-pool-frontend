@@ -153,11 +153,11 @@ const getDoubleBorderedStyles = (primaryColor, secondaryColor, size) => css`
     }
   }
   &:disabled {
-    color: ${({ theme }) => theme.colors.gray};
-    border: 2px solid ${({ theme }) => theme.colors.gray};
+    color: ${({ theme }) => theme.colors.secondaryGray};
+    border: 2px solid ${({ theme }) => theme.colors.secondaryGray};
     pointer-events: none;
     &:before {
-      border: 2px solid ${({ theme }) => theme.colors.gray};
+      border: 2px solid ${({ theme }) => theme.colors.secondaryGray};
     }
   }
 `;
@@ -217,11 +217,11 @@ const getDashedStyles = (
     user-select: none;
   }
   &:disabled {
-    color: ${({ theme }) => theme.colors.gray};
-    border: 2px solid ${({ theme }) => theme.colors.gray};
+    color: ${({ theme }) => theme.colors.secondaryGray};
+    border: 2px solid ${({ theme }) => theme.colors.secondaryGray};
     pointer-events: none;
     &:before {
-      border: 2px solid ${({ theme }) => theme.colors.gray};
+      border: 2px solid ${({ theme }) => theme.colors.secondaryGray};
     }
   }
 `;

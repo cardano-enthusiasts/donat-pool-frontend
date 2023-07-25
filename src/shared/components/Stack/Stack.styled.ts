@@ -10,7 +10,7 @@ const Wrapper = styled.div`
 const Title = styled.div`
   font-weight: bold;
   font-size: 24px;
-  color: ${({ theme }) => theme.colors.darkGray};
+  color: ${({ theme }) => theme.colors.primaryGray};
 `;
 
 const Img = styled.img<{ isActive: boolean }>`
