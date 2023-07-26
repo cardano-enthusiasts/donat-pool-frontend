@@ -28,8 +28,6 @@ const Footer = ({ backgroundColor = 'blue' }: Props) => {
             <Socials />
             <Links>
               {links.map(({ title, href }) => {
-                console.log(`${href}#top`);
-
                 return (
                   <LinkWrapper key={title}>
                     <HashLink to={`${href}${href !== '/' ? '#top' : ''}`}>
