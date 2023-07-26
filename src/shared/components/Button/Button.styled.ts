@@ -251,7 +251,7 @@ const getStyles = ({
       : themeType === 'accent'
       ? getAccentStyles({ primaryColor, secondaryColor, size, fontColor })
       : themeType === 'double-bordered'
-      ? getDoubleBorderedStyles(primaryColor, secondaryColor, size)
+      ? getDoubleBorderedStyles(primaryColor, tertiaryColor, size)
       : themeType === 'dashed'
       ? getDashedStyles(primaryColor, secondaryColor, tertiaryColor, size)
       : getBorderedStyles(primaryColor, isClickedTheme, size)}
