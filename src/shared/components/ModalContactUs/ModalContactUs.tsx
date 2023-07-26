@@ -75,6 +75,7 @@ const ModalContactUs = ({ isOpen, onClose }) => {
             onClick={handleCancelClick}
             primaryColor="blue"
             themeType="double-bordered"
+            tertiaryColor="white"
           >
             Cancel
           </Button>
