@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { HashLink } from 'react-router-hash-link';
 
 import { Button, Socials, ModalContactUs } from './..';
 import {
@@ -27,11 +27,15 @@ const Footer = ({ backgroundColor = 'blue' }: Props) => {
           <IconAndLinks>
             <Socials />
             <Links>
-              {links.map(({ title, href }) => (
-                <LinkWrapper key={title}>
-                  <Link to={href}>{title}</Link>
-                </LinkWrapper>
-              ))}
+              {links.map(({ title, href }) => {
+                return (
+                  <LinkWrapper key={title}>
+                    <HashLink to={`${href}${href !== '/' ? '#top' : ''}`}>
+                      {title}
+                    </HashLink>
+                  </LinkWrapper>
+                );
+              })}
             </Links>
           </IconAndLinks>
           <Button

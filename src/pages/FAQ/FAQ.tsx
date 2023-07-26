@@ -44,7 +44,7 @@ const FAQ = () => {
             </Alert>
           </SectionWrapper>
         </DropdownSection>
-        <DropdownSection title="Low fees and Fast transactions">
+        <DropdownSection title="How this service is different from other donation services?">
           <SectionWrapper>
             The main difference of Donat.Pool from other donation services is
             that it is the first fundraising service based on the Cardano
