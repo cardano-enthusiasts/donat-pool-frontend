@@ -24,15 +24,55 @@ const Base = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [walletIsNotAvailable, setWalletIsNotAvailable] = useState(false);
+  const routes = [
+    { path: '/', element: <Landing />, isAvailableWithoutWallet: true },
+    {
+      path: '/my-projects',
+      element: <PrivateProjects />,
+      isAvailableWithoutWallet: false,
+    },
+    {
+      path: '/new-project',
+      element: <NewProject />,
+      isAvailableWithoutWallet: false,
+    },
+    {
+      path: '/all-projects',
+      element: <AllProjects />,
+      isAvailableWithoutWallet: false,
+    },
+    {
+      path: '/all-projects/:id',
+      element: <PublicProject />,
+      isAvailableWithoutWallet: false,
+    },
+    {
+      path: '/my-projects/:id',
+      element: <PrivateProject />,
+      isAvailableWithoutWallet: false,
+    },
+    { path: '/faq', element: <FAQ />, isAvailableWithoutWallet: true },
+    {
+      path: '/roadmap',
+      element: <RoadmapForReading />,
+      isAvailableWithoutWallet: true,
+    },
+  ];
 
   useEffect(() => {
     setTimeout(() => {
-      const isAvailable =
+      const isNotAvailable =
         walletStatus === 'notAvailable' ||
         !window.cardano ||
         !window.cardano.nami;
-      const isLanding = location.pathname === '/';
-      setWalletIsNotAvailable(isAvailable && !isLanding);
+      const pathsWithoutWallets = routes.filter(
+        ({ isAvailableWithoutWallet }) => isAvailableWithoutWallet
+      );
+      const isWalletFreePage = pathsWithoutWallets.some(
+        ({ path }) => path === location.pathname
+      );
+
+      setWalletIsNotAvailable(isNotAvailable && !isWalletFreePage);
     }, 1000);
   }, [walletStatus, location.pathname]);
 
@@ -51,14 +91,9 @@ const Base = () => {
   ) : (
     <>
       <Routes>
-        <Route path="/" element={<Landing />} />
-        <Route path="/my-projects" element={<PrivateProjects />} />
-        <Route path="/new-project" element={<NewProject />} />
-        <Route path="/all-projects" element={<AllProjects />} />
-        <Route path="/all-projects/:id" element={<PublicProject />} />
-        <Route path="/my-projects/:id" element={<PrivateProject />} />
-        <Route path="/faq" element={<FAQ />} />
-        <Route path="/roadmap" element={<RoadmapForReading />} />
+        {routes.map(({ path, element }) => (
+          <Route path={path} element={element} key={path} />
+        ))}
       </Routes>
     </>
   );

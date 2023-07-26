@@ -222,6 +222,7 @@ const CreationForm = ({ onClose }: Props) => {
             onClick={onClose}
             themeType="double-bordered"
             primaryColor="blue"
+            tertiaryColor="white"
             size="m"
           >
             Cancel

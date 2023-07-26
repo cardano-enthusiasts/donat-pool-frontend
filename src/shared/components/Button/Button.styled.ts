@@ -109,14 +109,14 @@ const getAccentStyles = ({
   }
 `;
 
-const getDoubleBorderedStyles = (primaryColor, secondaryColor, size) => css`
+const getDoubleBorderedStyles = (primaryColor, tertiaryColor, size) => css`
   position: relative;
   font-size: ${size === 's' ? '16px' : '20px'};
   padding: ${size === 's' ? '10px 16px' : '10px 20px'};
   font-weight: bold;
   line-height: 133%;
 
-  background-color: ${({ theme }) => theme.colors.white};
+  background-color: ${({ theme }) => theme.colors[tertiaryColor]};
   color: ${({ theme }) =>
     theme.colors[primaryColor]
       ? theme.colors[primaryColor]
@@ -127,6 +127,7 @@ const getDoubleBorderedStyles = (primaryColor, secondaryColor, size) => css`
         ? theme.colors[primaryColor]
         : theme.colors.blue};
   border-radius: 6px;
+  transform-style: preserve-3d;
 
   &:before {
     content: '';
@@ -141,8 +142,7 @@ const getDoubleBorderedStyles = (primaryColor, secondaryColor, size) => css`
           ? theme.colors[primaryColor]
           : theme.colors.blue};
     border-radius: 6px;
-    z-index: -1;
-    transition: all 0.5s;
+    transform: translateZ(-1px);
     user-select: none;
   }
   &:active {
@@ -251,7 +251,7 @@ const getStyles = ({
       : themeType === 'accent'
       ? getAccentStyles({ primaryColor, secondaryColor, size, fontColor })
       : themeType === 'double-bordered'
-      ? getDoubleBorderedStyles(primaryColor, secondaryColor, size)
+      ? getDoubleBorderedStyles(primaryColor, tertiaryColor, size)
       : themeType === 'dashed'
       ? getDashedStyles(primaryColor, secondaryColor, tertiaryColor, size)
       : getBorderedStyles(primaryColor, isClickedTheme, size)}

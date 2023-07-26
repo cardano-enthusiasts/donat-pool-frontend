@@ -90,6 +90,7 @@ const PrivateProjectsActions = ({ project }: Props) => {
         <ButtonWrapper>
           <Button
             themeType="double-bordered"
+            tertiaryColor="white"
             size="s"
             primaryColor="blue"
             onClick={handleCopyLinkClick}

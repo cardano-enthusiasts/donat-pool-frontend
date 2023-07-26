@@ -48,6 +48,7 @@ const ModalDonate = ({
         <Buttons>
           <Button
             themeType="double-bordered"
+            tertiaryColor="white"
             onClick={() => {
               handleClose();
             }}

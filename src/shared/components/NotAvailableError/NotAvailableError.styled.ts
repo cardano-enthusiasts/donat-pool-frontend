@@ -3,9 +3,48 @@ import styled from 'styled-components';
 import { h1 } from 'shared/styles/mixins';
 
 const Container = styled.form`
-  ${h1}
-  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  height: 100vh;
+  min-height: 670px;
+  background: ${({ theme }) => theme.colors.red};
+
   margin: 0 auto;
 `;
 
-export { Container };
+const Inner = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(100% - 100px);
+`;
+
+const Content = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 600px;
+  padding: 40px 40px 60px 40px;
+`;
+
+const Title = styled.h1`
+  ${h1};
+  color: ${({ theme }) => theme.colors.white};
+  margin-bottom: 24px;
+  text-align: center;
+`;
+
+const Img = styled.img`
+  max-width: 140px;
+  margin-bottom: 40px;
+`;
+
+const Description = styled.div`
+  color: ${({ theme }) => theme.colors.black};
+  text-align: center;
+  margin-bottom: 32px;
+`;
+
+export { Container, Content, Title, Img, Description, Inner };

@@ -45,6 +45,7 @@ const ModalProjectCreated = ({ isOpen, onClose, path }) => {
             <Description>Link copied to clipboard.</Description>
             <Button
               themeType="double-bordered"
+              tertiaryColor="white"
               primaryColor="blue"
               width="100%"
               onClick={onClose}
