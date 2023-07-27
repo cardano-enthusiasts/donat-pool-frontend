@@ -19,17 +19,17 @@ const AllProjects = () => {
   const navigate = useNavigate();
   const getAllFundraisings = useGetAllFundraisings();
   const {
-    data: { allFundraisings },
+    data: { allFundraisings, walletStatus },
     communication: {
       setWalletStatus: { isRequesting },
     },
   } = useSelector((state: AppReduxState) => state.info);
 
   useEffect(() => {
-    if (offchain) {
+    if (offchain && walletStatus === 'connected') {
       getAllFundraisings();
     }
-  }, [offchain]);
+  }, [offchain, walletStatus]);
 
   useEffect(() => {
     document.title = 'All projects';
