@@ -1,6 +1,6 @@
 import { useHandleError, useOffchain } from 'shared/helpers/hooks';
 
-import { getOffchainError } from '../..';
+import { getOffchainError } from '../../..';
 
 const useStartProtocol = () => {
   const offchain = useOffchain();

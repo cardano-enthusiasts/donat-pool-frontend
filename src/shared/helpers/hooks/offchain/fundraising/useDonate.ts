@@ -1,52 +1,53 @@
 import { useDispatch } from 'react-redux';
 
 import {
-  receiveFunds,
-  receiveFundsFail,
-  receiveFundsSuccess,
+  donate,
+  donateFail,
+  donateSuccess,
 } from 'features/fundraising/redux/actionCreators';
 import { setWalletStatusSuccess } from 'features/info/redux/actionCreators';
 import { type FundraisingData } from 'shared/types';
 
 import {
   useCheckWalletStatus,
-  useGetUserFundraisings,
+  useGetAllFundraisings,
   useHandleError,
   useOffchain,
-} from '..';
-import { getOffchainError } from '../..';
+} from '../..';
+import { getOffchainError } from '../../..';
 
-const useReceiveFunds = ({ onSuccess, onError }) => {
+const useDonate = ({ onSuccess, onError }) => {
   const offchain = useOffchain();
   const dispatch = useDispatch();
-  const getUserFundraisings = useGetUserFundraisings();
+  const getAllFundraisings = useGetAllFundraisings();
   const handleCommonError = useHandleError();
   const checkWalletStatus = useCheckWalletStatus();
   const protocol = JSON.parse(process.env.PROTOCOL);
 
   const handleSuccess = () => {
-    dispatch(receiveFundsSuccess());
     dispatch(setWalletStatusSuccess('connected'));
-    getUserFundraisings();
+
+    dispatch(donateSuccess());
+    getAllFundraisings();
     onSuccess();
   };
 
   const handleError = (error) => {
-    onError();
     handleCommonError(error);
-    dispatch(receiveFundsFail(error));
+    onError();
+    dispatch(donateFail(error));
   };
 
   if (offchain) {
-    return (fundraisingData: FundraisingData) => {
-      offchain.receiveFunds(handleSuccess)(handleError)(protocol)(
-        fundraisingData
+    return (fundraisingData: FundraisingData, amount: number) => {
+      offchain.donate(handleSuccess)(handleError)(protocol)(fundraisingData)(
+        amount
       )();
       checkWalletStatus();
-      dispatch(receiveFunds());
+      dispatch(donate());
     };
   }
   return () => getOffchainError;
 };
 
-export { useReceiveFunds };
+export { useDonate };
