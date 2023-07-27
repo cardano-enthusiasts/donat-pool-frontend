@@ -12,8 +12,8 @@ import {
   useHandleError,
 } from 'shared/helpers/hooks';
 
-import { getOffchainError } from '../..';
-import { transformProjects } from '../../transformProjects';
+import { getOffchainError } from '../../..';
+import { transformProjects } from '../../../transformProjects';
 
 const useGetUserFundraisings = () => {
   const offchain = useOffchain();

@@ -13,8 +13,8 @@ import {
   useGetUserFundraisings,
   useHandleError,
   useCheckWalletStatus,
-} from '..';
-import { getOffchainError } from '../..';
+} from '../..';
+import { getOffchainError } from '../../..';
 
 const useCreateFundraising = (onSuccess, onError) => {
   const offchain = useOffchain();

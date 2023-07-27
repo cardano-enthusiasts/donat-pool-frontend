@@ -11,19 +11,22 @@ const PrivateProjects = () => {
   const navigate = useNavigate();
   const offchain = useOffchain();
   const getUserFundraisings = useGetUserFundraisings();
-  const { isRequesting } = useSelector(
-    (state: AppReduxState) => state.info.communication.setWalletStatus
-  );
+  const {
+    communication: {
+      setWalletStatus: { isRequesting },
+    },
+    data: { walletStatus },
+  } = useSelector((state: AppReduxState) => state.info);
 
   useEffect(() => {
     document.title = 'My projects';
   }, []);
 
   useEffect(() => {
-    if (offchain) {
+    if (offchain && walletStatus === 'connected') {
       getUserFundraisings();
     }
-  }, [offchain]);
+  }, [offchain, walletStatus]);
 
   return !isRequesting ? (
     <Common>

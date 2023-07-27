@@ -1,10 +1,4 @@
-import { useEffect } from 'react';
-
-import {
-  useGetAppInfo,
-  useOffchain,
-  useWindowSize,
-} from 'shared/helpers/hooks';
+import { useWindowSize } from 'shared/helpers/hooks';
 
 import {
   Inner,
@@ -23,14 +17,6 @@ const Project = ({
 }: Props) => {
   const { width } = useWindowSize();
 
-  const getAppInfo = useGetAppInfo();
-  const offchain = useOffchain();
-
-  useEffect(() => {
-    if (offchain) {
-      getAppInfo();
-    }
-  }, [offchain]);
   return (
     <Wrapper>
       <Inner>
