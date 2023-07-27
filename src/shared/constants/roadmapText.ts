@@ -37,7 +37,7 @@ const roadmapText = {
       ],
     },
     {
-      title: 'Phase 2',
+      title: 'Phase 2 <span>(finished)</span>',
       items: [
         {
           title: 'Implement a new frontend design',
