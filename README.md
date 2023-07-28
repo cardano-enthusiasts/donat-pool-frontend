@@ -1,19 +1,33 @@
-# donat-pool-frontend
-## Getting Started
+# Donat.Pool
 
-Create .env.local and add config parameters from .env.example
+Front-end for Donat.Pool made with React, Typescript and love)
 
-Run the development server:
+## Prerequisites
+
+1. Nodejs
+2. Docker
+
+## Installation
+
+1. Clone repository
+2. Install project's required dependencies
+3. Create `.env.local` file and add config parameters from `.env.example`
+
+## Starting project in development mode
+
+1. Run necessary docker's containers via
+
+```bash
+docker compose up
+```
+
+2. Start project
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
 ```
 
-Open [http://localhost:4008](http://localhost:4008) with your browser to see the result.
+3. Open [http://localhost:4008](http://localhost:4008) with your browser
 
 ## Start in docker
 
