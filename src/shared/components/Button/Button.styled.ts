@@ -184,7 +184,7 @@ const getDashedStyles = (
   primaryColor,
   secondaryColor,
   tertiaryColor,
-  size
+  size,
 ) => css`
   position: relative;
   display: flex;
@@ -235,27 +235,26 @@ const getStyles = ({
   themeType,
   isClickedTheme,
   size,
-}) =>
-  css`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: ${width};
-    line-height: 94%;
-    cursor: pointer;
-    border: none;
-    transition: all 0.5s;
-    text-decoration: none;
-    ${themeType === 'standard'
-      ? getStandardStyles({ primaryColor, secondaryColor, size, fontColor })
-      : themeType === 'accent'
-      ? getAccentStyles({ primaryColor, secondaryColor, size, fontColor })
-      : themeType === 'double-bordered'
-      ? getDoubleBorderedStyles(primaryColor, tertiaryColor, size)
-      : themeType === 'dashed'
-      ? getDashedStyles(primaryColor, secondaryColor, tertiaryColor, size)
-      : getBorderedStyles(primaryColor, isClickedTheme, size)}
-  `;
+}) => css`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: ${width};
+  line-height: 94%;
+  cursor: pointer;
+  border: none;
+  transition: all 0.5s;
+  text-decoration: none;
+  ${themeType === 'standard'
+    ? getStandardStyles({ primaryColor, secondaryColor, size, fontColor })
+    : themeType === 'accent'
+    ? getAccentStyles({ primaryColor, secondaryColor, size, fontColor })
+    : themeType === 'double-bordered'
+    ? getDoubleBorderedStyles(primaryColor, tertiaryColor, size)
+    : themeType === 'dashed'
+    ? getDashedStyles(primaryColor, secondaryColor, tertiaryColor, size)
+    : getBorderedStyles(primaryColor, isClickedTheme, size)}
+`;
 
 const StyledButton = styled.button<{
   primaryColor: NonNullable<Props['primaryColor']>;
@@ -324,15 +323,14 @@ const LinkWrapper = styled.div<{
   }
 `;
 
-const getSecondaryWrapperStyles = (size) =>
-  css`
-    padding-left: 22px;
-    padding-bottom: 22px;
-    height: ${size === 's' ? '97px' : '150px'};
-    @media (max-width: 1100px) {
-      height: 120px;
-    }
-  `;
+const getSecondaryWrapperStyles = (size) => css`
+  padding-left: 22px;
+  padding-bottom: 22px;
+  height: ${size === 's' ? '97px' : '150px'};
+  @media (max-width: 1100px) {
+    height: 120px;
+  }
+`;
 
 const Wrapper = styled.div<{
   themeType: NonNullable<Props['themeType']>;

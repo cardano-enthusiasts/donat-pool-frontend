@@ -10,13 +10,13 @@ const communication = combineReducers<ReduxState['communication']>({
     'PROTOCOL:UPDATE',
     'PROTOCOL:UPDATE_SUCCESS',
     'PROTOCOL:UPDATE_FAIL',
-    initialState.communication.update
+    initialState.communication.update,
   ),
   getInfo: makeCommunicationReducer<A.GetInfo, A.GetInfoSuccess, A.GetInfoFail>(
     'PROTOCOL:GET_INFO',
     'PROTOCOL:GET_INFO_SUCCESS',
     'PROTOCOL:GET_INFO_FAIL',
-    initialState.communication.getInfo
+    initialState.communication.getInfo,
   ),
 });
 

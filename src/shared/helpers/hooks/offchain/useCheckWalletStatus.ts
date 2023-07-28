@@ -5,7 +5,7 @@ import { type AppReduxState } from 'shared/types';
 
 const useCheckWalletStatus = () => {
   const { walletStatus } = useSelector(
-    (state: AppReduxState) => state.info.data
+    (state: AppReduxState) => state.info.data,
   );
   const dispatch = useDispatch();
   return () => {

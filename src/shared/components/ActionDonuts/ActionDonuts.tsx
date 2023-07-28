@@ -11,7 +11,7 @@ const ActionDonuts = ({ isAnimationActive }: Props) => {
         <Fragment key={i}>
           <Column1 />
           <Column2 />
-        </Fragment>
+        </Fragment>,
       );
     }
     return donuts;

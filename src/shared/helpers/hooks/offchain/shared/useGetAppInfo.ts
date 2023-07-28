@@ -42,7 +42,7 @@ const useGetAppInfo = () => {
         minDurationParam: Number(minDurationParam.value),
         maxDurationParam: Number(maxDurationParam.value),
         protocolFeeParam: Number(protocolFeeParam.value),
-      })
+      }),
     );
     dispatch(getUserInfoSuccess(userInfo));
   };

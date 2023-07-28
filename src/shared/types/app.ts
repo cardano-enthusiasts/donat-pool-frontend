@@ -21,47 +21,47 @@ import {
 type OnError = (error: string) => void;
 
 type ConnectWallet = (
-  onSuccess: () => void
+  onSuccess: () => void,
 ) => (onError: OnError) => () => void;
 
 type CreateFundraising = (
-  onSuccess: (fundraisingData: Fundraising) => void
+  onSuccess: (fundraisingData: Fundraising) => void,
 ) => (
-  onError: OnError
+  onError: OnError,
 ) => (
-  fixedProtocol: string
+  fixedProtocol: string,
 ) => (createFundraisingParams: CreateFundraisingParams) => () => void;
 
 type Donate = (
-  onSuccess: () => void
+  onSuccess: () => void,
 ) => (
-  onError: OnError
+  onError: OnError,
 ) => (
-  fixedProtocol: string
+  fixedProtocol: string,
 ) => (fundraisingData: FundraisingData) => (amount: number) => () => void;
 
 type GetFundraisings = (
-  onSuccess: (projects: BackendProjects) => void
+  onSuccess: (projects: BackendProjects) => void,
 ) => (onError: OnError) => (fixedProtocol: string) => () => void;
 
 type GetAppInfo = (
-  onSuccess: (params: UserAndProtocolParams) => void
+  onSuccess: (params: UserAndProtocolParams) => void,
 ) => (onError: OnError) => (fixedProtocol: string) => () => void;
 
 type StartProtocol = (
-  onSuccess: (params: BackendParams) => void
+  onSuccess: (params: BackendParams) => void,
 ) => (onError: OnError) => (config: Config) => () => void;
 
 type UpdateProtocol = (
-  onSuccess: (config: Config) => void
+  onSuccess: (config: Config) => void,
 ) => (
-  onError: OnError
+  onError: OnError,
 ) => (fixedProtocol: string) => (config: Config) => () => void;
 
 type ReceiveFunds = (
-  onSuccess: (something) => void
+  onSuccess: (something) => void,
 ) => (
-  onError: OnError
+  onError: OnError,
 ) => (protocol: string) => (fundraisingData: FundraisingData) => () => void;
 declare global {
   interface Window {

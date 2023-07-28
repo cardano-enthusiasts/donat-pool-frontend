@@ -15,7 +15,7 @@ const communication = combineReducers<ReduxState['communication']>({
     'INFO:GET_USER_FUNDRAISINGS',
     'INFO:GET_USER_FUNDRAISINGS_SUCCESS',
     'INFO:GET_USER_FUNDRAISINGS_FAIL',
-    initialState.communication.getUserFundraisings
+    initialState.communication.getUserFundraisings,
   ),
   getAllFundraisings: makeCommunicationReducer<
     A.GetAllFundraisings,
@@ -25,7 +25,7 @@ const communication = combineReducers<ReduxState['communication']>({
     'INFO:GET_ALL_FUNDRAISINGS',
     'INFO:GET_ALL_FUNDRAISINGS_SUCCESS',
     'INFO:GET_ALL_FUNDRAISINGS_FAIL',
-    initialState.communication.getAllFundraisings
+    initialState.communication.getAllFundraisings,
   ),
   setWalletStatus: makeCommunicationReducer<
     A.SetWalletStatus,
@@ -35,7 +35,7 @@ const communication = combineReducers<ReduxState['communication']>({
     'INFO:SET_WALLET_STATUS',
     'INFO:SET_WALLET_STATUS_SUCCESS',
     'INFO:SET_WALLET_STATUS_FAIL',
-    initialState.communication.setWalletStatus
+    initialState.communication.setWalletStatus,
   ),
   getUserInfo: makeCommunicationReducer<
     A.GetUserInfo,
@@ -45,7 +45,7 @@ const communication = combineReducers<ReduxState['communication']>({
     'INFO:GET_USER_INFO',
     'INFO:GET_USER_INFO_SUCCESS',
     'INFO:GET_USER_INFO_FAIL',
-    initialState.communication.getUserInfo
+    initialState.communication.getUserInfo,
   ),
 });
 

@@ -10,13 +10,13 @@ const communication = combineReducers<ReduxState['communication']>({
     'FUNDRAISING:CREATE',
     'FUNDRAISING:CREATE_SUCCESS',
     'FUNDRAISING:CREATE_FAIL',
-    initialState.communication.create
+    initialState.communication.create,
   ),
   donate: makeCommunicationReducer<A.Donate, A.DonateSuccess, A.DonateFail>(
     'FUNDRAISING:DONATE',
     'FUNDRAISING:DONATE_SUCCESS',
     'FUNDRAISING:DONATE_FAIL',
-    initialState.communication.donate
+    initialState.communication.donate,
   ),
   receiveFunds: makeCommunicationReducer<
     A.ReceiveFunds,
@@ -26,7 +26,7 @@ const communication = combineReducers<ReduxState['communication']>({
     'FUNDRAISING:RECEIVE_FUNDS',
     'FUNDRAISING:RECEIVE_FUNDS_SUCCESS',
     'FUNDRAISING:RECEIVE_FUNDS_FAIL',
-    initialState.communication.receiveFunds
+    initialState.communication.receiveFunds,
   ),
 });
 

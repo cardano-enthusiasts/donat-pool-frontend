@@ -32,7 +32,7 @@ const PublicProject = () => {
   const offchain = useOffchain();
   const getAllFundraisings = useGetAllFundraisings();
   const [currentProject, setCurrentProject] = useState<Fundraising | null>(
-    null
+    null,
   );
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isModalErrorOpen, setIsModalErrorOpen] = useState(false);
@@ -51,10 +51,10 @@ const PublicProject = () => {
     onError: handleDonateError,
   });
   const { allFundraisings } = useSelector(
-    (state: AppReduxState) => state.info.data
+    (state: AppReduxState) => state.info.data,
   );
   const { isRequesting, error } = useSelector(
-    (state: AppReduxState) => state.fundraising.communication.donate
+    (state: AppReduxState) => state.fundraising.communication.donate,
   );
 
   useEffect(() => {

@@ -9,7 +9,7 @@ const {
 } = makeCommunicationActionCreators<A.Create, A.CreateSuccess, A.CreateFail>(
   'FUNDRAISING:CREATE',
   'FUNDRAISING:CREATE_SUCCESS',
-  'FUNDRAISING:CREATE_FAIL'
+  'FUNDRAISING:CREATE_FAIL',
 );
 
 const {
@@ -19,7 +19,7 @@ const {
 } = makeCommunicationActionCreators<A.Donate, A.DonateSuccess, A.DonateFail>(
   'FUNDRAISING:DONATE',
   'FUNDRAISING:DONATE_SUCCESS',
-  'FUNDRAISING:DONATE_FAIL'
+  'FUNDRAISING:DONATE_FAIL',
 );
 
 const {
@@ -33,7 +33,7 @@ const {
 >(
   'FUNDRAISING:RECEIVE_FUNDS',
   'FUNDRAISING:RECEIVE_FUNDS_SUCCESS',
-  'FUNDRAISING:RECEIVE_FUNDS_FAIL'
+  'FUNDRAISING:RECEIVE_FUNDS_FAIL',
 );
 
 export {

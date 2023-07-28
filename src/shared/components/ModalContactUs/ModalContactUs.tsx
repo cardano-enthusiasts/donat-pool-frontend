@@ -14,7 +14,7 @@ const ModalContactUs = ({ isOpen, onClose }) => {
 
   const handleInputChange = (
     event,
-    fieldName: 'contact' | 'name' | 'message'
+    fieldName: 'contact' | 'name' | 'message',
   ) => {
     const { value } = event.target as HTMLInputElement;
     setData({

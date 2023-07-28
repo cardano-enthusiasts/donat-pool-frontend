@@ -10,10 +10,10 @@ const WalletButton = () => {
   const [isAddressShown, setIsAddressShown] = useState(false);
   const connectWallet = useConnectWallet();
   const { address } = useSelector(
-    (state: AppReduxState) => state.info.data.user
+    (state: AppReduxState) => state.info.data.user,
   );
   const { walletStatus } = useSelector(
-    (state: AppReduxState) => state.info.data
+    (state: AppReduxState) => state.info.data,
   );
   return (
     <Wrapper
@@ -35,7 +35,7 @@ const WalletButton = () => {
       </ConnectButton>
       {address && isAddressShown && (
         <Address>{`${address.substring(0, 6)} ... ${address.substring(
-          address.length - 4
+          address.length - 4,
         )}`}</Address>
       )}
     </Wrapper>
