@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { Route, Routes, useLocation, useNavigate } from 'react-router-dom';
 
-import { setWalletStatusSuccess } from 'features/info/redux/actionCreators';
+import { useAppSelector } from 'core/hooks';
+import { updateWalletStatus } from 'core/slices/walletStatus';
 import {
   AllProjects,
   Landing,
@@ -14,13 +15,10 @@ import {
   RoadmapForReading,
 } from 'pages';
 import { NotAvailableError } from 'shared/components';
-import { type AppReduxState } from 'shared/types';
 
 const Base = () => {
   const location = useLocation();
-  const { walletStatus } = useSelector(
-    (state: AppReduxState) => state.info.data
-  );
+  const walletStatus = useAppSelector((state) => state.walletStatus.value);
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [walletIsNotAvailable, setWalletIsNotAvailable] = useState(false);
@@ -79,7 +77,7 @@ const Base = () => {
   useEffect(() => {
     if (walletStatus === 'declined') {
       navigate('/');
-      dispatch(setWalletStatusSuccess('default'));
+      dispatch(updateWalletStatus('default'));
     }
     if (walletIsNotAvailable) {
       navigate('/');
