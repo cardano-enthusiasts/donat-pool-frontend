@@ -1,15 +1,15 @@
 import { useDispatch } from 'react-redux';
 
 import {
-  getAllFundraisings,
-  getAllFundraisingsFail,
-  getAllFundraisingsSuccess,
-  setWalletStatusSuccess,
-} from 'features/info/redux/actionCreators';
+  setError,
+  setStatus,
+  updateAllFundraisings,
+} from 'core/slices/allFundraisings';
+import { updateWalletStatus } from 'core/slices/walletStatus';
 import { type BackendProjects } from 'shared/types';
 
-import { useOffchain, useCheckWalletStatus, useHandleError } from '../..';
-import { getOffchainError } from '../../..';
+import { useOffchain, useCheckWalletStatus, useHandleError } from '..';
+import { getOffchainError } from '../..';
 
 const useGetAllFundraisings = () => {
   const offchain = useOffchain();
@@ -45,20 +45,20 @@ const useGetAllFundraisings = () => {
         };
       }
     );
-    dispatch(getAllFundraisingsSuccess(filteredProjects));
-    dispatch(setWalletStatusSuccess('connected'));
+    dispatch(updateAllFundraisings(filteredProjects));
+    dispatch(updateWalletStatus('connected'));
   };
 
   const handleError = (error) => {
     handleCommonError(error);
-    dispatch(getAllFundraisingsFail(error));
+    dispatch(setError(error));
   };
 
   if (offchain) {
     return () => {
       offchain.getAllFundraisings(handleSuccess)(handleError)(protocol)();
       checkWalletStatus();
-      dispatch(getAllFundraisings());
+      dispatch(setStatus('requesting'));
     };
   }
   return getOffchainError;

@@ -1,16 +1,14 @@
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
-import { setWalletStatus } from 'features/info/redux/actionCreators';
-import { type AppReduxState } from 'shared/types';
+import { useAppSelector } from 'core/hooks';
+import { setStatus } from 'core/slices/walletStatus/walletStatus';
 
 const useCheckWalletStatus = () => {
-  const { walletStatus } = useSelector(
-    (state: AppReduxState) => state.info.data
-  );
+  const walletStatus = useAppSelector((state) => state.walletStatus.value);
   const dispatch = useDispatch();
   return () => {
     if (walletStatus === 'declined' || walletStatus === 'default') {
-      dispatch(setWalletStatus());
+      dispatch(setStatus('requesting'));
     }
   };
 };

@@ -1,11 +1,7 @@
 import { useDispatch } from 'react-redux';
 
-import {
-  create,
-  createFail,
-  createSuccess,
-} from 'features/fundraising/redux/actionCreators';
-import { setWalletStatusSuccess } from 'features/info/redux/actionCreators';
+import { setError, setStatus } from 'core/slices/fundraisingCreating';
+import { updateWalletStatus } from 'core/slices/walletStatus';
 import { type Fundraising, type CreateFundraisingParams } from 'shared/types';
 
 import {
@@ -13,8 +9,8 @@ import {
   useGetUserFundraisings,
   useHandleError,
   useCheckWalletStatus,
-} from '../..';
-import { getOffchainError } from '../../..';
+} from '..';
+import { getOffchainError } from '../..';
 
 const useCreateFundraising = (onSuccess, onError) => {
   const offchain = useOffchain();
@@ -25,16 +21,16 @@ const useCreateFundraising = (onSuccess, onError) => {
   const protocol = JSON.parse(process.env.PROTOCOL);
 
   const handleSuccess = (fundraisingData: Fundraising) => {
-    dispatch(setWalletStatusSuccess('connected'));
+    dispatch(updateWalletStatus('connected'));
     onSuccess(fundraisingData.path);
-    dispatch(createSuccess());
+    dispatch(setStatus('success'));
     getUserFundraisings();
   };
 
   const handleError = (error) => {
     handleCommonError(error);
     onError();
-    dispatch(createFail(error));
+    dispatch(setError(error));
   };
 
   if (offchain) {
@@ -43,7 +39,7 @@ const useCreateFundraising = (onSuccess, onError) => {
         createFundraisingParams
       )();
       checkWalletStatus();
-      dispatch(create());
+      dispatch(setStatus('requesting'));
     };
   }
   return () => getOffchainError;

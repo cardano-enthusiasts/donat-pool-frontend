@@ -1,11 +1,7 @@
 import { useDispatch } from 'react-redux';
 
-import { setWalletStatusSuccess } from 'features/info/redux/actionCreators';
-import {
-  update,
-  updateFail,
-  updateSuccess,
-} from 'features/protocol/redux/actionCreators';
+import { setError, setStatus } from 'core/slices/protocolUpdating';
+import { updateWalletStatus } from 'core/slices/walletStatus';
 import { type Config } from 'shared/types';
 
 import {
@@ -13,8 +9,8 @@ import {
   useOffchain,
   useCheckWalletStatus,
   useHandleError,
-} from '../..';
-import { getOffchainError } from '../../..';
+} from '..';
+import { getOffchainError } from '../..';
 
 const useUpdateProtocol = ({ onSuccess, onError }) => {
   const offchain = useOffchain();
@@ -25,15 +21,15 @@ const useUpdateProtocol = ({ onSuccess, onError }) => {
   const protocol = JSON.parse(process.env.PROTOCOL);
 
   const handleSuccess = () => {
-    dispatch(updateSuccess());
-    dispatch(setWalletStatusSuccess('connected'));
+    dispatch(setStatus('success'));
+    dispatch(updateWalletStatus('connected'));
     getAppInfo();
     onSuccess();
   };
 
   const handleError = (error) => {
     handleCommonError(error);
-    dispatch(updateFail(error));
+    dispatch(setError(error));
     onError();
   };
 
@@ -51,7 +47,7 @@ const useUpdateProtocol = ({ onSuccess, onError }) => {
         editConfig(config)
       )();
       checkWalletStatus();
-      dispatch(update());
+      dispatch(setStatus('requesting'));
     };
   }
   return () => getOffchainError;

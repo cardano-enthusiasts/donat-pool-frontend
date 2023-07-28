@@ -1,36 +1,38 @@
-import { useDispatch } from 'react-redux';
-
+import { useAppDispatch } from 'core/hooks';
 import {
-  getUserFundraisings,
-  getUserFundraisingsFail,
-  getUserFundraisingsSuccess,
-  setWalletStatusSuccess,
-} from 'features/info/redux/actionCreators';
+  setError,
+  updateUserFundraisings,
+  setStatus,
+} from 'core/slices/userFundraisings';
+import { updateWalletStatus } from 'core/slices/walletStatus';
 import {
   useCheckWalletStatus,
   useOffchain,
   useHandleError,
 } from 'shared/helpers/hooks';
 
-import { getOffchainError } from '../../..';
-import { transformProjects } from '../../../transformProjects';
+import { getOffchainError } from '../..';
+import { transformProjects } from '../../transformProjects';
 
 const useGetUserFundraisings = () => {
   const offchain = useOffchain();
-  const dispatch = useDispatch();
   const handleCommonError = useHandleError();
   const checkWalletStatus = useCheckWalletStatus();
   const protocol = JSON.parse(process.env.PROTOCOL);
+  const dispatch = useAppDispatch();
 
   const handleSuccess = (projects) => {
-    dispatch(setWalletStatusSuccess('connected'));
+    dispatch(updateWalletStatus('connected'));
     const transformedProjects = transformProjects(projects);
-    dispatch(getUserFundraisingsSuccess(transformedProjects));
+    console.log(transformedProjects);
+
+    dispatch(updateUserFundraisings(transformedProjects));
+    dispatch(setStatus('success'));
   };
 
   const handleError = (error) => {
     handleCommonError(error);
-    dispatch(getUserFundraisingsFail(error));
+    dispatch(setError(error));
   };
 
   if (offchain) {
@@ -39,7 +41,7 @@ const useGetUserFundraisings = () => {
         protocol
       )();
       checkWalletStatus();
-      dispatch(getUserFundraisings());
+      dispatch(setStatus('requesting'));
     };
   }
   return getOffchainError;

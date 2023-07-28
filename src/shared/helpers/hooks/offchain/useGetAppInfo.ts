@@ -1,20 +1,16 @@
 import { useDispatch } from 'react-redux';
 
 import {
-  getUserInfo,
-  getUserInfoFail,
-  getUserInfoSuccess,
-  setWalletStatusSuccess,
-} from 'features/info/redux/actionCreators';
-import {
-  getInfo,
-  getInfoFail,
-  getInfoSuccess,
-} from 'features/protocol/redux/actionCreators';
+  setError,
+  setStatus,
+  updateProtocol,
+  updateUserInfo,
+} from 'core/slices/appInfo';
+import { updateWalletStatus } from 'core/slices/walletStatus';
 import { type UserAndProtocolParams } from 'shared/types';
 
-import { useCheckWalletStatus, useHandleError, useOffchain } from '../..';
-import { getOffchainError } from '../../..';
+import { useCheckWalletStatus, useHandleError, useOffchain } from '..';
+import { getOffchainError } from '../..';
 
 const useGetAppInfo = () => {
   const offchain = useOffchain();
@@ -27,7 +23,7 @@ const useGetAppInfo = () => {
     protocolConfig,
     userInfo,
   }: UserAndProtocolParams) => {
-    dispatch(setWalletStatusSuccess('connected'));
+    dispatch(updateWalletStatus('connected'));
     const {
       minAmountParam,
       maxAmountParam,
@@ -36,7 +32,7 @@ const useGetAppInfo = () => {
       protocolFeeParam,
     } = protocolConfig;
     dispatch(
-      getInfoSuccess({
+      updateProtocol({
         minAmountParam: Number(minAmountParam.value) / 1000000,
         maxAmountParam: Number(maxAmountParam.value) / 1000000,
         minDurationParam: Number(minDurationParam.value),
@@ -44,21 +40,20 @@ const useGetAppInfo = () => {
         protocolFeeParam: Number(protocolFeeParam.value),
       })
     );
-    dispatch(getUserInfoSuccess(userInfo));
+    dispatch(updateUserInfo(userInfo));
+    setStatus('success');
   };
 
   const handleError = (error) => {
     handleCommonError(error);
-    dispatch(getInfoFail(error));
-    dispatch(getUserInfoFail(error));
+    dispatch(setError(error));
   };
 
   if (offchain) {
     return () => {
       offchain?.getAppInfo(handleSuccess)(handleError)(protocol)();
       checkWalletStatus();
-      dispatch(getInfo());
-      dispatch(getUserInfo());
+      dispatch(setStatus('requesting'));
     };
   }
   return getOffchainError;
