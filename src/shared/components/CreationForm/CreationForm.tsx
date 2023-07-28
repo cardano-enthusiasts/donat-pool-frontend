@@ -1,5 +1,4 @@
 import { type ChangeEvent, useState, useEffect } from 'react';
-import 'react-datepicker/dist/react-datepicker.css';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
