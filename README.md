@@ -1,4 +1,4 @@
-# Donat.Pool
+# donat-pool-frontend
 
 Front-end for Donat.Pool made with React, Typescript and love)
 
