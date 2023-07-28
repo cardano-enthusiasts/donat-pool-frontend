@@ -4,6 +4,9 @@
     "es2022": true
   },
   "settings": {
+    "react": {
+      "version": "detect"
+    },
     "import/resolver": {
       "typescript": true
     }
