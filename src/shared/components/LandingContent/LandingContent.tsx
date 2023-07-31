@@ -56,6 +56,7 @@ const LandingContent = forwardRef(function LandingContent(
     ) {
       setIsAnimationActive(false);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [windowScroll, homeRef.current]);
 
   useEffect(() => {
@@ -124,6 +125,7 @@ const LandingContent = forwardRef(function LandingContent(
 
   useEffect(() => {
     setCurrentSection(getRefSection());
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [windowScroll]);
 
   const content: Content = [

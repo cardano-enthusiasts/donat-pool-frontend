@@ -32,6 +32,7 @@ const PrivateProject = () => {
     if (offchain) {
       getUserFundraisings();
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [offchain]);
 
   useEffect(() => {
