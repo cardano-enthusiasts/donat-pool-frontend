@@ -9,34 +9,31 @@ const getColor = (errorInfo, fontColor) => {
   return ({ theme }) => theme.colors[fontColor];
 };
 
-const getFieldStyles = ({ errorInfo, fontColor }) =>
-  css`
-    width: 100%;
-    min-width: 150px;
-    border: 2px solid
-      ${({ theme }) =>
-        errorInfo || errorInfo === ''
-          ? theme.colors.error
-          : theme.colors.black};
-    color: ${getColor(errorInfo, fontColor)};
-    border-radius: 6px;
-    width: 100%;
-    padding: 13px 16px;
-    outline: none;
-    background-color: transparent;
+const getFieldStyles = ({ errorInfo, fontColor }) => css`
+  width: 100%;
+  min-width: 150px;
+  border: 2px solid
+    ${({ theme }) =>
+      errorInfo || errorInfo === '' ? theme.colors.error : theme.colors.black};
+  color: ${getColor(errorInfo, fontColor)};
+  border-radius: 6px;
+  width: 100%;
+  padding: 13px 16px;
+  outline: none;
+  background-color: transparent;
+  font-size: 20px;
+
+  &::placeholder {
+    font-family: 'Microsoft YaHei', Arial, sans-serif;
     font-size: 20px;
+    color: ${({ theme }) => theme.colors.green};
+  }
 
-    &::placeholder {
-      font-family: 'Microsoft YaHei', Arial, sans-serif;
-      font-size: 20px;
-      color: ${({ theme }) => theme.colors.green};
-    }
-
-    &:disabled {
-      cursor: not-allowed;
-      color: ${({ theme }) => theme.colors.secondaryGray};
-    }
-  `;
+  &:disabled {
+    cursor: not-allowed;
+    color: ${({ theme }) => theme.colors.secondaryGray};
+  }
+`;
 
 const Wrapper = styled.div`
   width: 100%;

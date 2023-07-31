@@ -35,11 +35,11 @@ function configureStore(): IStoreData {
     combineReducers(
       Object.fromEntries(
         Object.entries(reducersMap).filter(
-          ([, reducer]) => reducer !== undefined
-        )
-      ) as Record<keyof AppReduxState, Reducer>
+          ([, reducer]) => reducer !== undefined,
+        ),
+      ) as Record<keyof AppReduxState, Reducer>,
     ),
-    composeEnhancers(applyMiddleware(...middlewares))
+    composeEnhancers(applyMiddleware(...middlewares)),
   );
 
   return { store, runSaga: sagaMiddleware.run };

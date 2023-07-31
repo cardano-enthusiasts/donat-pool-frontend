@@ -21,7 +21,7 @@ const ManagerEditor = ({ config }: Props) => {
   const [isModalErrorOpen, setIsModalErrorOpen] = useState(false);
   const [isModalLoadingOpen, setIsModalLoadingOpen] = useState(false);
   const { isRequesting, error } = useSelector(
-    (state: AppReduxState) => state.protocol.communication.update
+    (state: AppReduxState) => state.protocol.communication.update,
   );
   const onSuccess = () => {
     setIsModalSuccessOpen(true);

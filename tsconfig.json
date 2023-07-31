@@ -1,22 +1,11 @@
 {
   "compilerOptions": {
-    "typeRoots": [
-      "./node_modules/@types",
-      "./@types"
-    ],
+    "typeRoots": ["./node_modules/@types", "./@types"],
     "strictNullChecks": true,
     "noImplicitAny": false,
-    "target": "es6",
+    "target": "ES6",
     "sourceMap": true,
-    "lib": [
-      "es2015",
-      "es2017",
-      "es6",
-      "es7",
-      "es5",
-      "dom",
-      "scripthost",
-    ],
+    "lib": ["ES2022", "DOM"],
     "jsx": "preserve",
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
@@ -34,19 +23,13 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "incremental": true,
+    "incremental": true
   },
-  "include": [
-    "src/**/*",
-    "**/*.ts",
-    "**/*.tsx"
-  ],
-  "exclude": [
-    "node_modules"
-  ],
+  "include": ["src/**/*", "**/*.ts", "**/*.tsx"],
+  "exclude": ["node_modules"],
   "ts-node": {
     "compilerOptions": {
       "module": "CommonJS"
     }
-  },
+  }
 }

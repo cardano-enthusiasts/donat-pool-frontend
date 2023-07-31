@@ -30,7 +30,7 @@ const MyProjects = ({ onCreateAProjectClick }: Props) => {
   >(null);
   const [filter, setFilter] = useState<ProjectStatus | null>(null);
   const { fundraisings } = useSelector(
-    (state: AppReduxState) => state.info.data.user
+    (state: AppReduxState) => state.info.data.user,
   );
 
   useEffect(() => {
@@ -49,7 +49,7 @@ const MyProjects = ({ onCreateAProjectClick }: Props) => {
     } else {
       const isCompleted = status === 'completed';
       setFilteredProjects(
-        projects.filter((item) => item.isCompleted === isCompleted)
+        projects.filter((item) => item.isCompleted === isCompleted),
       );
       setFilter(status);
     }

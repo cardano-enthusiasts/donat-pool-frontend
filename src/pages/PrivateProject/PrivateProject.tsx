@@ -22,10 +22,10 @@ const PrivateProject = () => {
   const navigate = useNavigate();
   const getUserFundraisings = useGetUserFundraisings();
   const [currentProject, setCurrentProject] = useState<Fundraising | null>(
-    null
+    null,
   );
   const { fundraisings } = useSelector(
-    (state: AppReduxState) => state.info.data.user
+    (state: AppReduxState) => state.info.data.user,
   );
 
   useEffect(() => {

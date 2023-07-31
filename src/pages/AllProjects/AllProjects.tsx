@@ -39,7 +39,7 @@ const AllProjects = () => {
     return fundraisings
       .sort(
         (fundraising1, fundraising2) =>
-          fundraising1.deadline - fundraising2.deadline
+          fundraising1.deadline - fundraising2.deadline,
       )
       .filter(({ isCompleted }) => !isCompleted);
   };

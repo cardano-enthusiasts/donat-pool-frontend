@@ -7,13 +7,13 @@ import { type Props } from './types';
 
 const PrecalculationFee = ({ goal }: Props) => {
   const { protocolFeeParam } = useSelector(
-    (state: AppReduxState) => state.protocol.data.config
+    (state: AppReduxState) => state.protocol.data.config,
   );
   const minFee = 2;
   const extraFee = Math.max(
     Math.round(goal * (protocolFeeParam / 100) * Math.pow(10, 6)) /
       Math.pow(10, 6),
-    minFee
+    minFee,
   );
 
   return (

@@ -9,7 +9,7 @@ const {
 } = makeCommunicationActionCreators<A.Update, A.UpdateSuccess, A.UpdateFail>(
   'PROTOCOL:UPDATE',
   'PROTOCOL:UPDATE_SUCCESS',
-  'PROTOCOL:UPDATE_FAIL'
+  'PROTOCOL:UPDATE_FAIL',
 );
 
 const {
@@ -19,7 +19,7 @@ const {
 } = makeCommunicationActionCreators<A.GetInfo, A.GetInfoSuccess, A.GetInfoFail>(
   'PROTOCOL:GET_INFO',
   'PROTOCOL:GET_INFO_SUCCESS',
-  'PROTOCOL:GET_INFO_FAIL'
+  'PROTOCOL:GET_INFO_FAIL',
 );
 
 export {

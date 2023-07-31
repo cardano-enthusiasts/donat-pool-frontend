@@ -12,7 +12,7 @@ import { type Props } from './types';
 const Common = ({ children }: Props) => {
   const [currentPage, setCurrentPage] = useState('');
   const { walletStatus } = useSelector(
-    (state: AppReduxState) => state.info.data
+    (state: AppReduxState) => state.info.data,
   );
 
   const getAppInfo = useGetAppInfo();

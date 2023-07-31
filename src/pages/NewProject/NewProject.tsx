@@ -9,7 +9,7 @@ import { type AppReduxState } from 'shared/types';
 const NewProject = () => {
   const navigate = useNavigate();
   const { isRequesting } = useSelector(
-    (state: AppReduxState) => state.info.communication.setWalletStatus
+    (state: AppReduxState) => state.info.communication.setWalletStatus,
   );
 
   useEffect(() => {

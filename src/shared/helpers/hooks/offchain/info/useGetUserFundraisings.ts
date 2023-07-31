@@ -36,7 +36,7 @@ const useGetUserFundraisings = () => {
   if (offchain) {
     return () => {
       offchain.getUserRelatedFundraisings(handleSuccess)(handleError)(
-        protocol
+        protocol,
       )();
       checkWalletStatus();
       dispatch(getUserFundraisings());

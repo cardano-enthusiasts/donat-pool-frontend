@@ -26,10 +26,10 @@ const PrivateProjectsActions = ({ project }: Props) => {
   };
   const receiveFunds = useReceiveFunds({ onSuccess, onError });
   const { protocolFeeParam } = useSelector(
-    (state: AppReduxState) => state.protocol.data.config
+    (state: AppReduxState) => state.protocol.data.config,
   );
   const { isRequesting, error } = useSelector(
-    (state: AppReduxState) => state.fundraising.communication.receiveFunds
+    (state: AppReduxState) => state.fundraising.communication.receiveFunds,
   );
   const link = window.location.href;
 

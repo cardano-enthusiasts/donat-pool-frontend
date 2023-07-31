@@ -1,7 +1,7 @@
 import { type LandingSection } from 'shared/types';
 
 const getSections = (
-  currentSection
+  currentSection,
 ): Array<{
   title: string;
   isActive: boolean;

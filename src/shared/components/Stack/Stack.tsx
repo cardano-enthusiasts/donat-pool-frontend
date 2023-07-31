@@ -27,7 +27,7 @@ const Stack = () => {
   useEffect(() => {
     if (ref.current) {
       setIsActive(
-        window.innerHeight - 100 > ref.current.getBoundingClientRect().top
+        window.innerHeight - 100 > ref.current.getBoundingClientRect().top,
       );
     }
   }, [windowScroll]);
@@ -72,13 +72,13 @@ const Stack = () => {
             We use strongly typed Haskell and
             {getLink(
               'Plutarch',
-              'https://github.com/Plutonomicon/plutarch-plutus'
+              'https://github.com/Plutonomicon/plutarch-plutus',
             )}
             to build reliable and efficient smart contracts for the Cardano
             blockchain. For the off-chain part we use
             {getLink(
               'cardano-transaction-lib',
-              'https://github.com/Plutonomicon/cardano-transaction-lib'
+              'https://github.com/Plutonomicon/cardano-transaction-lib',
             )}
             and{getLink('React.', 'https://react.dev/')}
           </Part1>
