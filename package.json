@@ -5,7 +5,8 @@
   "scripts": {
     "build": "webpack",
     "dev": "webpack serve --config webpack.config.ts --env ALLOW_ORIGIN=*",
-    "prod": "webpack serve --env ALLOW_ORIGIN=https://testnet.donat-pool.io --env KUPO_HOST=http://0.0.0.0:1442 --env WEB_SOCKET_URL=wss://ogmios.donat-pool.io/ --env NODE_ENV=production"
+    "prod": "webpack serve --env ALLOW_ORIGIN=https://testnet.donat-pool.io --env KUPO_HOST=http://0.0.0.0:1442 --env WEB_SOCKET_URL=wss://ogmios.donat-pool.io/ --env NODE_ENV=production",
+    "eslint": "eslint ."
   },
   "dependencies": {
     "offchain": "git+ssh://git@github.com:fullstack-development/donat-pool-offchain.git#3ff09c38ccbe82494f101ed7f17d6c55d20a5be6",
