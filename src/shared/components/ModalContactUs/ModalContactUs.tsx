@@ -6,9 +6,10 @@ import {
   Inner,
   ButtonsWrapper,
 } from './ModalContactUs.styled';
+import { type Props } from './types';
 import { Button, Input, Modal } from '../.';
 
-const ModalContactUs = ({ isOpen, onClose }) => {
+const ModalContactUs = ({ isOpen, onClose }: Props) => {
   const initialData = { contact: '', name: '', message: '' };
   const [data, setData] = useState(initialData);
 
