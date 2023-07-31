@@ -64,10 +64,10 @@ const Base = () => {
         !window.cardano ||
         !window.cardano.nami;
       const pathsWithoutWallets = routes.filter(
-        ({ isAvailableWithoutWallet }) => isAvailableWithoutWallet
+        ({ isAvailableWithoutWallet }) => isAvailableWithoutWallet,
       );
       const isWalletFreePage = pathsWithoutWallets.some(
-        ({ path }) => path === location.pathname
+        ({ path }) => path === location.pathname,
       );
 
       setWalletIsNotAvailable(isNotAvailable && !isWalletFreePage);

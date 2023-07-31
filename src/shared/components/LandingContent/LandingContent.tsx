@@ -37,7 +37,7 @@ const LandingContent = forwardRef(function LandingContent(
     currentSection,
     setCurrentSection,
   }: Props,
-  navRef: ForwardedRef<HTMLElement> | null
+  navRef: ForwardedRef<HTMLElement> | null,
 ) {
   const homeRef = useRef<HTMLDivElement>(null);
   const howItWorksRef = useRef<HTMLDivElement>(null);
@@ -67,7 +67,7 @@ const LandingContent = forwardRef(function LandingContent(
   useEffect(() => {
     if (homeRef.current) {
       setIsHomeAnimationActive(
-        window.innerHeight - 400 > homeRef.current.getBoundingClientRect().top
+        window.innerHeight - 400 > homeRef.current.getBoundingClientRect().top,
       );
     }
   }, [windowScroll]);
@@ -85,12 +85,12 @@ const LandingContent = forwardRef(function LandingContent(
       const navTop = Math.round(
         (
           navRef as MutableRefObject<HTMLElement>
-        )?.current.getBoundingClientRect().top
+        )?.current.getBoundingClientRect().top,
       );
       const navBottom = Math.round(
         (
           navRef as MutableRefObject<HTMLElement>
-        )?.current.getBoundingClientRect().bottom
+        )?.current.getBoundingClientRect().bottom,
       );
       const navMiddle = (navBottom - navTop) / 2 + navTop;
 
@@ -112,7 +112,7 @@ const LandingContent = forwardRef(function LandingContent(
       }
 
       const contactUsTop = Math.round(
-        contactUsRef.current.getBoundingClientRect().top
+        contactUsRef.current.getBoundingClientRect().top,
       );
       if (contactUsTop - 100 > navBottom) {
         return 'roadmap';

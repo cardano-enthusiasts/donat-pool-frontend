@@ -15,7 +15,7 @@ const LandingNav = forwardRef(function LandingNav(
     isOpen,
     isAnimationActive,
   }: Props,
-  ref: ForwardedRef<HTMLElement>
+  ref: ForwardedRef<HTMLElement>,
 ) {
   const mobileResolution = 1100;
   const isContentShown = windowWidth > mobileResolution ? true : isOpen;

@@ -1,5 +1,4 @@
 import { type ChangeEvent, useState, useEffect } from 'react';
-import 'react-datepicker/dist/react-datepicker.css';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
@@ -50,7 +49,7 @@ const CreationForm = ({ onClose }: Props) => {
     durationMinutes: '',
   });
   const { isRequesting, error: createError } = useSelector(
-    (state: AppReduxState) => state.fundraising.communication.create
+    (state: AppReduxState) => state.fundraising.communication.create,
   );
   const { maxAmountParam, minAmountParam, maxDurationParam, minDurationParam } =
     useSelector((state: AppReduxState) => state.protocol.data.config);
@@ -127,7 +126,7 @@ const CreationForm = ({ onClose }: Props) => {
       | 'goal'
       | 'durationDays'
       | 'durationHours'
-      | 'durationMinutes'
+      | 'durationMinutes',
   ) => {
     event.preventDefault();
     setError(initialErrors);

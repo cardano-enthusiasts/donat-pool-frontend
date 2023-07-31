@@ -36,7 +36,7 @@ const useCreateFundraising = (onSuccess, onError) => {
   if (offchain) {
     return (createFundraisingParams: CreateFundraisingParams) => {
       offchain.createFundraising(handleSuccess)(handleError)(protocol)(
-        createFundraisingParams
+        createFundraisingParams,
       )();
       checkWalletStatus();
       dispatch(setStatus('requesting'));

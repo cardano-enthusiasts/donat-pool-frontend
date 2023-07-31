@@ -25,7 +25,7 @@ const Button = ({
   size = 'm',
 }: Props) => {
   const isLinkExternal = Boolean(
-    href && (href.indexOf('http://') !== 0 || href.indexOf('https://') !== 0)
+    href && (href.indexOf('http://') !== 0 || href.indexOf('https://') !== 0),
   );
   const attributes = {
     primaryColor,

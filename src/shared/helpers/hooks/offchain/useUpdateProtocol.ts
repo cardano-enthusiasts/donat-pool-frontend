@@ -44,7 +44,7 @@ const useUpdateProtocol = ({ onSuccess, onError }) => {
   if (offchain) {
     return (config: Config) => {
       offchain.updateProtocol(handleSuccess)(handleError)(protocol)(
-        editConfig(config)
+        editConfig(config),
       )();
       checkWalletStatus();
       dispatch(setStatus('requesting'));

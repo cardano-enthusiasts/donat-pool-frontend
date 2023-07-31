@@ -2,7 +2,7 @@ import CopyPlugin from 'copy-webpack-plugin';
 import Dotenv from 'dotenv-webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import NodePolyfillWebpackPlugin from 'node-polyfill-webpack-plugin';
-import path from 'path';
+import path from 'node:path';
 import 'webpack-dev-server';
 
 module.exports = (env) => {

@@ -36,7 +36,7 @@ const useReceiveFunds = ({ onSuccess, onError }) => {
   if (offchain) {
     return (fundraisingData: FundraisingData) => {
       offchain.receiveFunds(handleSuccess)(handleError)(protocol)(
-        fundraisingData
+        fundraisingData,
       )();
       checkWalletStatus();
       dispatch(setStatus('requesting'));

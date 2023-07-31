@@ -24,7 +24,7 @@ const Header = ({ currentPage = null }: Props) => {
   ];
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { walletStatus } = useSelector(
-    (state: AppReduxState) => state.info.data
+    (state: AppReduxState) => state.info.data,
   );
 
   return (

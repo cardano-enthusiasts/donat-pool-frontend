@@ -43,7 +43,7 @@ const useGetAllFundraisings = () => {
           path,
           isCompleted,
         };
-      }
+      },
     );
     dispatch(updateAllFundraisings(filteredProjects));
     dispatch(updateWalletStatus('connected'));

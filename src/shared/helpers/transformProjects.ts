@@ -24,7 +24,7 @@ const transformProjects = (projects: BackendProjects): Fundraisings => {
         path,
         isCompleted,
       };
-    }
+    },
   );
 };
 export { transformProjects };
