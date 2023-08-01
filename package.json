@@ -9,6 +9,7 @@
     "eslint": "eslint ."
   },
   "dependencies": {
+    "@reduxjs/toolkit": "^1.9.5",
     "offchain": "git+ssh://git@github.com:fullstack-development/donat-pool-offchain.git#3ff09c38ccbe82494f101ed7f17d6c55d20a5be6",
     "react": "18.2.0",
     "react-dom": "18.2.0",
@@ -17,8 +18,6 @@
     "react-router-hash-link": "2.4.3",
     "redux": "4.2.1",
     "redux-devtools-extension": "2.13.9",
-    "redux-make-communication": "2.0.0",
-    "redux-saga": "1.2.2",
     "redux-toolkit": "^1.1.2",
     "style-loader": "3.3.1",
     "styled-components": "5.3.6"
