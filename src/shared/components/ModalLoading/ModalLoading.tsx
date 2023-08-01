@@ -1,13 +1,14 @@
 import { useEffect, useState } from 'react';
 
 import { Description, Img, Inner, Title } from './ModalLoading.styled';
+import { type Props } from './types';
 import { Modal } from '../.';
 
 const ModalLoading = ({
   isOpen,
   title = 'Please wait...',
   description = 'Please wait a bit. We are preparing your donut',
-}) => {
+}: Props) => {
   const [index, setIndex] = useState(0);
   const maxDonutIndex = 4;
 
