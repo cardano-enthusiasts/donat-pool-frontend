@@ -1,7 +1,7 @@
 import { type State } from './types';
 
 const initialState: State = {
-  value: 'default',
+  mode: 'default',
   status: 'default',
 };
 

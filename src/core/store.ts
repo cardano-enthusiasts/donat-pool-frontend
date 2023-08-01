@@ -7,7 +7,7 @@ import fundraisingCreatingReducer from './slices/fundraisingCreating/fundraising
 import fundsReceivingReducer from './slices/fundsReceiving/fundsReceiving';
 import protocolUpdatingReducer from './slices/protocolUpdating/protocolUpdating';
 import userFundraisingsReducer from './slices/userFundraisings/userFundraisings';
-import walletStatusReducer from './slices/walletStatus/walletStatus';
+import walletReducer from './slices/wallet/wallet';
 
 export const store = configureStore({
   reducer: {
@@ -18,7 +18,7 @@ export const store = configureStore({
     fundraisingsCreating: fundraisingCreatingReducer,
     fundsReceiving: fundsReceivingReducer,
     protocolUpdating: protocolUpdatingReducer,
-    walletStatus: walletStatusReducer,
+    wallet: walletReducer,
   },
 });
 

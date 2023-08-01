@@ -1,16 +1,16 @@
 import { createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
 
-import { type Status, type WalletStatus } from 'shared/types';
+import { type Status, type WalletMode } from 'shared/types';
 
 import { initialState } from './constants';
 
 export const slice = createSlice({
-  name: 'walletStatus',
+  name: 'wallet',
   initialState,
   reducers: {
-    updateWalletStatus: (state, action: PayloadAction<WalletStatus>) => {
-      state.value = action.payload;
+    updateWalletMode: (state, action: PayloadAction<WalletMode>) => {
+      state.mode = action.payload;
       state.status = 'success';
     },
     setStatus: (state, action: PayloadAction<Status>) => {
@@ -19,6 +19,6 @@ export const slice = createSlice({
   },
 });
 
-export const { updateWalletStatus, setStatus } = slice.actions;
+export const { updateWalletMode, setStatus } = slice.actions;
 
 export default slice.reducer;
