@@ -7,9 +7,10 @@ import {
   ProjectLink,
   Title,
 } from './ModalProjectCreated.styled';
+import { type Props } from './types';
 import { Button, Modal } from '../.';
 
-const ModalProjectCreated = ({ isOpen, onClose, path }) => {
+const ModalProjectCreated = ({ isOpen, onClose, path }: Props) => {
   const link = `${location.origin}/my-projects/${path}`;
   const [isSuccessfullyCopied, setIsSuccessfullyCopied] = useState(false);
 

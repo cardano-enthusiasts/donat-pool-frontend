@@ -1,5 +1,7 @@
 import styled, { css } from 'styled-components';
 
+import { type Theme } from 'shared/styles/types';
+
 import { type Props } from './types';
 
 const getColor = (errorInfo, fontColor) => {
@@ -40,7 +42,7 @@ const Wrapper = styled.div`
 `;
 const InputContainer = styled.div<{ hint: string | null }>`
   position: relative;
-  ${({ hint, theme }) =>
+  ${({ theme, hint }: { theme: Theme; hint: string | null }) =>
     hint &&
     `
       &::after {
