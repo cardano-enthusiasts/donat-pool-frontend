@@ -33,7 +33,7 @@ const Links = styled.div`
   font-family: 'Rammetto One', Arial, Helvetica, sans-serif;
   font-size: 15px;
   line-height: 107%;
-  color: ${({ theme }) => theme.colors.white};
+  color: #fff;
   @media (max-width: 1200px) {
     flex-direction: column;
     gap: 15px;

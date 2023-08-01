@@ -134,10 +134,8 @@ const LandingContent = forwardRef(function LandingContent(
         </TitleAndDescriptionWrapper>
       ),
       id: 'home',
-      backgroundColor: 'blue',
-      waves: {
-        color: 'green',
-      },
+      wavesClassName: 'bg-blue',
+      wavesUseClassName: 'fill-green',
     },
 
     {
@@ -147,10 +145,8 @@ const LandingContent = forwardRef(function LandingContent(
         </HowItWorksWrapper>
       ),
       id: 'how-it-works',
-      backgroundColor: 'green',
-      waves: {
-        color: 'red',
-      },
+      wavesClassName: 'bg-green',
+      wavesUseClassName: 'fill-red',
     },
 
     {
@@ -160,8 +156,7 @@ const LandingContent = forwardRef(function LandingContent(
         </WhyChooseUsWrapper>
       ),
       id: 'why-choose-us',
-      backgroundColor: 'red',
-      waves: null,
+      wavesClassName: 'bg-red',
     },
     {
       element: (
@@ -170,10 +165,8 @@ const LandingContent = forwardRef(function LandingContent(
         </AboutUsWrapper>
       ),
       id: 'about-us',
-      backgroundColor: 'yellow',
-      waves: {
-        color: 'black',
-      },
+      wavesClassName: 'bg-yellow',
+      wavesUseClassName: 'fill-black',
     },
 
     {
@@ -183,8 +176,7 @@ const LandingContent = forwardRef(function LandingContent(
         </RoadmapWrapper>
       ),
       id: 'roadmap',
-      backgroundColor: 'black',
-      waves: null,
+      wavesClassName: 'bg-black',
     },
 
     {
@@ -194,20 +186,22 @@ const LandingContent = forwardRef(function LandingContent(
         </div>
       ),
       id: 'contact-us',
-      backgroundColor: 'black',
-      waves: null,
+      wavesClassName: 'black',
     },
   ];
   return (
     <>
-      {content.map(({ element, id, backgroundColor, waves }) => {
+      {content.map(({ element, id, wavesClassName, wavesUseClassName }) => {
         return (
           <Fragment key={id}>
-            <MainWrapper backgroundColor={backgroundColor}>
+            <div className={`w-full ${wavesClassName}`}>
               <MainInner>{element}</MainInner>
-            </MainWrapper>
-            {waves && (
-              <Waves color={waves.color} backgroundColor={backgroundColor} />
+            </div>
+            {wavesUseClassName && (
+              <Waves
+                className={wavesClassName}
+                useClassName={wavesUseClassName}
+              />
             )}
           </Fragment>
         );

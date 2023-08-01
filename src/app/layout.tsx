@@ -1,12 +1,14 @@
+'use client';
+
 import type { Metadata } from 'next';
 import { Rammetto_One } from 'next/font/google';
 import localFont from 'next/font/local';
 import { Provider as ReduxProvider } from 'react-redux';
 
 import { store } from '@/core/store';
-import StyledComponentsRegistry from '@/lib/registry';
 
 import './globals.css';
+import StyledComponentProvider from '@/lib/themeProvider';
 
 const microsoftYaHeiFont = localFont({
   src: [
@@ -23,12 +25,11 @@ const microsoftYaHeiFont = localFont({
   ],
   variable: '--microsoft-ya-hei-font',
 });
-const rammetoOneFont = Rammetto_One({
+const rammettoOneFont = Rammetto_One({
   subsets: ['latin'],
   weight: '400',
-  variable: '--rammeto-one-font',
+  variable: '--rammetto-one-font',
 });
-console.log(rammetoOneFont);
 
 export const metadata: Metadata = {
   themeColor: '#ff6b95',
@@ -43,13 +44,14 @@ export const metadata: Metadata = {
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <html
-      className={`${microsoftYaHeiFont.variable} bg-white font-sans text-[16px] text-black`}
+      className={`${microsoftYaHeiFont.variable} ${microsoftYaHeiFont.className} ${rammettoOneFont.variable} bg-white text-[16px] text-black`}
       lang="en"
     >
       <body>
-        <StyledComponentsRegistry>
+        {/* TODO: delete StyledComponentProvider and lib folder after all code that uses styled components is removed */}
+        <StyledComponentProvider>
           <ReduxProvider store={store}>{children}</ReduxProvider>
-        </StyledComponentsRegistry>
+        </StyledComponentProvider>
       </body>
     </html>
   );

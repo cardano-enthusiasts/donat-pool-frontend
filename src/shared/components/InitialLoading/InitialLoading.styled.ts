@@ -8,7 +8,7 @@ const Wrapper = styled.div<{
   width: 100%;
   height: ${({ windowScroll, isAnimationActive }) =>
     windowScroll < 535 && isAnimationActive ? 1500 - windowScroll : 965}px;
-  background: ${({ theme }) => theme.colors.red};
+  background: #ff6b95;
   display: flex;
   justify-content: center;
   align-items: start;
@@ -18,17 +18,15 @@ const Wrapper = styled.div<{
   }
 `;
 
-const InnerCircle = styled.div.attrs(
-  (props: { 'data-window-scroll': number }) => ({
-    style: {
-      transform: `scale(${props['data-window-scroll']})`,
-    },
-  }),
-)<{ windowScroll; isAnimationActive }>`
+const InnerCircle = styled.div.attrs((props) => ({
+  style: {
+    transform: `scale(${props['data-window-scroll']})`,
+  },
+}))<{ windowScroll; isAnimationActive }>`
   position: absolute;
   width: 230px;
   height: 230px;
-  border: 90px solid ${({ theme }) => theme.colors.yellow};
+  border: 90px solid #fed900;
   margin-top: 45vh;
   z-index: 4;
   border-radius: 100%;
@@ -45,7 +43,7 @@ const OuterCircle = styled.div<{ windowScroll; isAnimationActive }>`
   position: absolute;
   width: 100%;
   height: 100%;
-  background-color: ${({ theme }) => theme.colors.red};
+  background-color: #ff6b95;
   z-index: 3;
   ${({ windowScroll, isAnimationActive }) =>
     windowScroll < 4 && isAnimationActive ? 'display: block' : 'display: none'};

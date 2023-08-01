@@ -1,26 +1,5 @@
 import styled from 'styled-components';
 
-import { type Props } from './types';
-
-const Wrapper = styled.div<{
-  backgroundColor: NonNullable<Props['backgroundColor']>;
-}>`
-  position: relative;
-
-  text-align: center;
-  background-color: ${({ theme, backgroundColor }) => {
-    if (backgroundColor === 'transparent') {
-      return 'transparent';
-    }
-    if (theme.colors[backgroundColor]) {
-      return theme.colors[backgroundColor];
-    }
-    return 'transparent';
-  }};
-  z-index: 1;
-  height: 100px;
-`;
-
 const SVG = styled.svg<{ isUpsideDown: boolean }>`
   position: relative;
   max-width: 100%;
@@ -48,4 +27,4 @@ const G = styled.g<{ isMoving: boolean }>`
   }`}
 `;
 
-export { SVG, G, Wrapper };
+export { SVG, G };

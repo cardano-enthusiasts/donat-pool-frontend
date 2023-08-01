@@ -22,7 +22,7 @@ const PreviousPage = styled.div`
   font-weight: bold;
   font-size: 20px;
   line-height: 280%;
-  color: ${({ theme }) => theme.colors.blue};
+  color: #4757e6;
   cursor: pointer;
   &:before {
     display: block;

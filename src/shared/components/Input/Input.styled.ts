@@ -28,12 +28,12 @@ const getFieldStyles = ({ errorInfo, fontColor }: any) => css`
   &::placeholder {
     font-family: 'Microsoft YaHei', Arial, sans-serif;
     font-size: 20px;
-    color: ${({ theme }) => theme.colors.green};
+    color: #29dea8;
   }
 
   &:disabled {
     cursor: not-allowed;
-    color: ${({ theme }) => theme.colors.secondaryGray};
+    color: #828587;
   }
 `;
 
@@ -80,8 +80,8 @@ const Message = styled.div`
   width: 244px;
   margin-left: 6px;
   padding: 12px;
-  background: ${({ theme }) => theme.colors.error};
-  color: ${({ theme }) => theme.colors.white};
+  background: #c820f2;
+  color: #fff;
   border-radius: 0px 6px 6px 6px;
   &:after {
     position: absolute;

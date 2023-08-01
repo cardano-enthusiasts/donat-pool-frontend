@@ -8,6 +8,10 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        'microsoft-ya-hei': 'var(--microsoft-ya-hei-font)',
+        'rammetto-one': 'var(--rammetto-one-font)',
+      },
       colors: {
         purple: '#ffc5cf',
         blue: {
@@ -27,7 +31,7 @@ module.exports = {
         error: '#c820f2',
       },
       spacing: {
-        1.125: '0.3125rem',
+        25: '6.25rem',
       },
     },
   },

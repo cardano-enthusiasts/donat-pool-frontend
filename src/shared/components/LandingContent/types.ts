@@ -12,8 +12,6 @@ export interface Props {
 export type Content = Array<{
   element: ReactElement;
   id: string;
-  backgroundColor: 'blue' | 'green' | 'red' | 'black' | 'yellow';
-  waves: {
-    color: 'green' | 'red' | 'black';
-  } | null;
+  wavesClassName: string;
+  wavesUseClassName?: string;
 }>;

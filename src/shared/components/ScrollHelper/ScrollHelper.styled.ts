@@ -19,7 +19,7 @@ const circle = css`
   margin: 0 auto;
   width: 10px;
   height: 10px;
-  background-color: ${({ theme }) => theme.colors.yellow};
+  background-color: #fed900;
   border-radius: 100%;
 `;
 
@@ -80,7 +80,7 @@ const VerticalLine = styled.div`
   margin: 0 auto;
   width: 10px;
   height: 28px;
-  background-color: ${({ theme }) => theme.colors.yellow};
+  background-color: #fed900;
   border-radius: 10px;
   top: 36px;
   opacity: 0;
@@ -107,7 +107,7 @@ const VerticalLine = styled.div`
 
 const arrow = css`
   position: absolute;
-  background-color: ${({ theme }) => theme.colors.yellow};
+  background-color: #fed900;
   bottom: -3px;
   border-radius: 10px;
   width: 10px;

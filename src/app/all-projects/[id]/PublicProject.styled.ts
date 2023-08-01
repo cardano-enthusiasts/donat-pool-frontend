@@ -16,7 +16,7 @@ const Title = styled.h1`
   overflow: hidden;
   text-overflow: ellipsis;
 
-  color: ${({ theme }) => theme.colors.red};
+  color: #ff6b95;
   margin: 0 0 24px;
   @media (max-width: 800px) {
     font-size: 36px;
@@ -25,8 +25,8 @@ const Title = styled.h1`
 
 const Duration = styled.div`
   padding: 24px 0;
-  border-top: 2px solid ${({ theme }) => theme.colors.black};
-  border-bottom: 2px solid ${({ theme }) => theme.colors.black};
+  border-top: 2px solid #141414;
+  border-bottom: 2px solid #141414;
   text-align: center;
   font-weight: bold;
   font-size: 20px;

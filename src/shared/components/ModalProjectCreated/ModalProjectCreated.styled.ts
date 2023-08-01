@@ -28,7 +28,7 @@ const ProjectLink = styled.a`
   font-size: 20px;
   line-height: 130%;
   margin-bottom: 24px;
-  color: ${({ theme }) => theme.colors.blue};
+  color: #4757e6;
   overflow-wrap: anywhere;
   text-align: center;
 `;

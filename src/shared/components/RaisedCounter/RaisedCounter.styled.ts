@@ -25,16 +25,16 @@ const Img = styled.img`
 `;
 
 const Raised = styled.div`
-  color: ${({ theme }) => theme.colors.red};
+  color: #ff6b95;
 `;
 const Line = styled.div`
   height: 48px;
   width: 5px;
   border-radius: 5px;
-  background-color: ${({ theme }) => theme.colors.red};
+  background-color: #ff6b95;
 `;
 const Goal = styled.div`
-  color: ${({ theme }) => theme.colors.yellow};
+  color: #fed900;
 `;
 
 export { Wrapper, Img, Raised, Line, Goal };

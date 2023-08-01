@@ -15,7 +15,7 @@ const Wrapper = styled.div<{ isAnimationActive: boolean }>`
   width: 100%;
   max-width: 1920px;
   height: 100%;
-  background-color: ${({ theme }) => theme.colors.red};
+  background-color: #ff6b95;
   background-repeat: repeat;
   background-size: 115px;
   z-index: 1;

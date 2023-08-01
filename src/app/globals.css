@@ -4,7 +4,7 @@
 
 @layer base {
   -webkit-scrollbar {
-    @apply w-1.125;
+    @apply w-[5px];
   }
   -webkit-scrollbar-track {
     @apply bg-purple;

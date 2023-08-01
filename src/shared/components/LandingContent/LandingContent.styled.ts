@@ -67,7 +67,7 @@ const AboutUsWrapper = styled.div`
 const RoadmapWrapper = styled.div`
   ${paddings}
   padding-bottom: 0;
-  background-color: ${({ theme }) => theme.colors.black};
+  background-color: #141414;
   user-select: none;
 
   overflow: hidden;

@@ -68,7 +68,7 @@ const Inner = styled.div<{
   display: flex;
   flex-direction: column;
   gap: 24px;
-  color: ${({ theme }) => theme.colors.white};
+  color: #fff;
   max-width: 245px;
 
   @media (max-width: ${({ mobileResolution }) => mobileResolution}px) {

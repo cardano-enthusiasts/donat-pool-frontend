@@ -33,8 +33,8 @@ const getStandardStyles = ({
       transform: none;
     }
     cursor: default;
-    background-color: ${({ theme }) => theme.colors.purple};
-    box-shadow: -4px 4px 0px ${({ theme }) => theme.colors.black};
+    background-color: #ffc5cf;
+    box-shadow: -4px 4px 0px #141414;
   }
 `;
 
@@ -153,11 +153,11 @@ const getDoubleBorderedStyles = (primaryColor, tertiaryColor, size) => css`
     }
   }
   &:disabled {
-    color: ${({ theme }) => theme.colors.secondaryGray};
-    border: 2px solid ${({ theme }) => theme.colors.secondaryGray};
+    color: #828587;
+    border: 2px solid #828587;
     pointer-events: none;
     &:before {
-      border: 2px solid ${({ theme }) => theme.colors.secondaryGray};
+      border: 2px solid #828587;
     }
   }
 `;
@@ -217,11 +217,11 @@ const getDashedStyles = (
     user-select: none;
   }
   &:disabled {
-    color: ${({ theme }) => theme.colors.secondaryGray};
-    border: 2px solid ${({ theme }) => theme.colors.secondaryGray};
+    color: #828587;
+    border: 2px solid #828587;
     pointer-events: none;
     &:before {
-      border: 2px solid ${({ theme }) => theme.colors.secondaryGray};
+      border: 2px solid #828587;
     }
   }
 `;

@@ -34,7 +34,7 @@ const h1 = css`
   font-weight: normal;
   font-size: 54px;
   line-height: 104%;
-  color: ${({ theme }) => theme.colors.red};
+  color: #ff6b95;
   margin: 0;
 
   @media (max-width: 900px) {

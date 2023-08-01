@@ -12,14 +12,14 @@ const Item = styled.div`
 `;
 
 const Order = styled.div`
-  color: ${({ theme }) => theme.colors.red};
+  color: #ff6b95;
   font-size: 20px;
   font-weight: bold;
   margin-bottom: 8px;
 `;
 
 const Title = styled.div`
-  color: ${({ theme }) => theme.colors.black};
+  color: #141414;
   font-family: 'Rammetto One', Arial, Helvetica, sans-serif;
   font-size: 20px;
   line-height: 120%;
@@ -28,8 +28,8 @@ const Title = styled.div`
 
 const Gif = styled.img`
   border-radius: 6px;
-  border: 12px solid ${({ theme }) => theme.colors.yellow};
-  box-shadow: 4px 4px 0px 0px ${({ theme }) => theme.colors.red};
+  border: 12px solid #fed900;
+  box-shadow: 4px 4px 0px 0px #ff6b95;
   max-width: 650px;
   max-height: 360px;
 `;
@@ -47,7 +47,7 @@ const Description = styled.ul`
   padding-left: 20px;
 
   a {
-    color: ${({ theme }) => theme.colors.blue};
+    color: #4757e6;
     text-decoration: underline;
   }
 `;

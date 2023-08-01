@@ -1,18 +1,14 @@
-import { useTheme } from 'styled-components';
-
 import { useWindowSize } from '@/shared/helpers/hooks';
-import { type Theme } from '@/shared/styles/types';
 
 import { type Props } from './types';
-import { G, SVG, Wrapper } from './Waves.styled';
+import { G, SVG } from './Waves.styled';
 
 const Waves = ({
-  color = 'blue',
-  backgroundColor = 'transparent',
+  className = 'bg-transparent',
+  useClassName = 'fill-blue',
   isUpsideDown = false,
   isMoving = true,
 }: Props) => {
-  const theme = useTheme() as Theme;
   const size = useWindowSize();
 
   const getWidthForViewBox = () => {
@@ -23,7 +19,7 @@ const Waves = ({
   };
 
   return (
-    <Wrapper backgroundColor={backgroundColor}>
+    <div className={`relative z-[1] h-25 ${className} text-center`}>
       <SVG
         viewBox={`200 0 ${getWidthForViewBox()} 100`}
         width="100%"
@@ -41,15 +37,10 @@ const Waves = ({
         </defs>
 
         <G isMoving={isMoving}>
-          <use
-            xlinkHref="#gentle-wave"
-            x="48"
-            y="0"
-            fill={theme.colors[color] ? theme.colors[color] : color}
-          />
+          <use className={useClassName} xlinkHref="#gentle-wave" x="48" y="0" />
         </G>
       </SVG>
-    </Wrapper>
+    </div>
   );
 };
 

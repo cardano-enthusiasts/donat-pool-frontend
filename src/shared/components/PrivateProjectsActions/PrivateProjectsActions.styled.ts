@@ -6,7 +6,7 @@ const LinkWrapper = styled.div`
   gap: 24px;
   font-size: 20px;
   font-weight: bold;
-  color: ${({ theme }) => theme.colors.blue};
+  color: #4757e6;
   overflow-wrap: anywhere;
   margin-top: 24px;
   @media (max-width: 1200px) {
@@ -28,7 +28,7 @@ const WithdrawSection = styled.div`
 
 const Commission = styled.div`
   font-size: 16px;
-  color: ${({ theme }) => theme.colors.red};
+  color: #ff6b95;
 `;
 
 export { LinkWrapper, ButtonWrapper, WithdrawSection, Commission };

@@ -15,7 +15,7 @@ const Header = styled.div`
 `;
 
 const Title = styled.h2`
-  color: ${({ theme }) => theme.colors.black};
+  color: #141414;
   margin: 0;
   @media (max-width: 600px) {
     font-size: 20px;

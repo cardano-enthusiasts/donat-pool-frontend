@@ -23,13 +23,13 @@ const PhaseTitle = styled.h2`
   font-weight: bold;
   margin: 0;
   span {
-    color: ${({ theme }) => theme.colors.red};
+    color: #ff6b95;
   }
 `;
 
 const ColorTitle = styled.span`
   ${h1};
-  color: ${({ theme }) => theme.colors.green};
+  color: #29dea8;
 `;
 
 const Ul = styled.ul`

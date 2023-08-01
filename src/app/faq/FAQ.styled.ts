@@ -20,7 +20,7 @@ const Title = styled.h1`
 
 const ColorTitle = styled.span`
   ${h1};
-  color: ${({ theme }) => theme.colors.green};
+  color: #29dea8;
 `;
 
 const Ul = styled.ul`
@@ -36,10 +36,10 @@ const Li = styled.li`
 
 const Alert = styled.div`
   padding: 20px 40px;
-  background: ${({ theme }) => theme.colors.purple};
+  background: #ffc5cf;
 
   a {
-    color: ${({ theme }) => theme.colors.blue};
+    color: #4757e6;
     font-weight: bold;
   }
   @media (max-width: 600px) {
@@ -50,7 +50,7 @@ const Alert = styled.div`
 const SubSection = styled.div``;
 
 const Subtitle = styled.h3`
-  color: ${({ theme }) => theme.colors.tertiaryGray};
+  color: #5c5f60;
   font-size: 20px;
   font-weight: bold;
   margin: 0 0 12px 0;

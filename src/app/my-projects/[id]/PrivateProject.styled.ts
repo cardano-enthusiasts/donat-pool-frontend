@@ -11,7 +11,7 @@ const DeadlineAndStatus = styled.div`
 
 const Status = styled.div<{ isActive: boolean }>`
   padding: 8px 12px;
-  background: ${({ theme }) => theme.colors.white};
+  background: #fff;
   border: 2px solid
     ${({ theme, isActive }) =>
       isActive ? theme.colors.red : theme.colors.green};
@@ -26,7 +26,7 @@ const Deadline = styled.div`
   font-weight: bold;
   font-size: 20px;
 
-  color: ${({ theme }) => theme.colors.black};
+  color: #141414;
 `;
 
 const Inner = styled.div`

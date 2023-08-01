@@ -1,5 +1,6 @@
 export interface Props {
-  color?: 'blue' | 'green' | 'red' | 'black';
+  className?: string;
+  useClassName?: string;
   backgroundColor?:
     | 'transparent'
     | 'blue'
