@@ -11,9 +11,11 @@ export const slice = createSlice({
   reducers: {
     updateProtocol: (state, action: PayloadAction<Config>) => {
       state.protocol = action.payload;
+      state.status = 'success';
     },
     updateUserInfo: (state, action: PayloadAction<UserInfo>) => {
       state.userInfo = action.payload;
+      state.status = 'success';
     },
     setError: (state, action: PayloadAction<string | null>) => {
       state.error = action.payload;

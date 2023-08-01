@@ -11,6 +11,7 @@ export const slice = createSlice({
   reducers: {
     updateWalletStatus: (state, action: PayloadAction<WalletStatus>) => {
       state.value = action.payload;
+      state.status = 'success';
     },
     setStatus: (state, action: PayloadAction<Status>) => {
       state.status = action.payload;

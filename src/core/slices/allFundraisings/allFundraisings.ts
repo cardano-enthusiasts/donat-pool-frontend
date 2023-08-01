@@ -11,6 +11,7 @@ export const slice = createSlice({
   reducers: {
     updateAllFundraisings: (state, action: PayloadAction<Fundraisings>) => {
       state.value = action.payload;
+      state.status = 'success';
     },
     setError: (state, action: PayloadAction<string | null>) => {
       state.error = action.payload;
