@@ -1,13 +1,13 @@
 import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import { useRouter } from 'next/navigation';
 
 import { Common } from '@/layouts';
 import { ProjectCreation } from '@/shared/components';
 import { type AppReduxState } from '@/shared/types';
 
 const NewProject = () => {
-  const navigate = useNavigate();
+  const router = useRouter();
   const { isRequesting } = useSelector(
     (state: AppReduxState) => state.info.communication.setWalletStatus,
   );
@@ -20,7 +20,7 @@ const NewProject = () => {
     <Common>
       <ProjectCreation
         onClose={() => {
-          navigate('/my-projects');
+          router.push('/my-projects');
         }}
       />
     </Common>

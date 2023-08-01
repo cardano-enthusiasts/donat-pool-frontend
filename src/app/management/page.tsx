@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import { useRouter } from 'next/navigation';
 
 import { Common } from '@/layouts';
 import { ManagementParams, ManagerEditor } from '@/shared/components';
@@ -22,7 +22,7 @@ const Management = () => {
       },
     },
   } = useSelector((state: AppReduxState) => state);
-  const navigate = useNavigate();
+  const router = useRouter();
 
   useEffect(() => {
     document.title = 'Management';
@@ -30,7 +30,7 @@ const Management = () => {
 
   useEffect(() => {
     if (isManager === false) {
-      navigate('/all-projects');
+      router.push('/all-projects');
     }
   }, [isManager]);
 

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useParams, useRouter } from 'next/navigation';
 
 import { Common, Project } from '@/layouts';
 import { PrivateProjectsActions, RaisedCounter } from '@/shared/components';
@@ -19,7 +19,7 @@ import {
 const PrivateProject = () => {
   const params = useParams();
   const offchain = useOffchain();
-  const navigate = useNavigate();
+  const router = useRouter();
   const getUserFundraisings = useGetUserFundraisings();
   const [currentProject, setCurrentProject] = useState<Fundraising | null>(
     null,
@@ -36,14 +36,14 @@ const PrivateProject = () => {
 
   useEffect(() => {
     if (fundraisings) {
-      const project = fundraisings.find(({ path }) => path === params.id);
+      const project = fundraisings.find(({ path }) => path === params?.id);
       if (project) {
         setCurrentProject(project);
       } else {
         setCurrentProject(null);
       }
     }
-  }, [fundraisings, params.id]);
+  }, [fundraisings, params?.id]);
 
   return currentProject ? (
     <>
@@ -51,7 +51,7 @@ const PrivateProject = () => {
         <Project
           previousPageTitle="My projects"
           onPreviousPageClick={() => {
-            navigate('/my-projects');
+            router.push('/my-projects');
           }}
           title={currentProject.description}
         >

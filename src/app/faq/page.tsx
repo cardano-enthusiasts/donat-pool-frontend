@@ -1,6 +1,6 @@
 import HTMLReactParser from 'html-react-parser';
 import { useEffect } from 'react';
-import { HashLink } from 'react-router-hash-link';
+import Link from 'next/link';
 
 import { Service } from '@/layouts';
 import { DropdownSection } from '@/shared/components';
@@ -97,15 +97,7 @@ const FAQ = () => {
             </Alert>
             <Alert>
               How to enable Nami wallet to work with any smart contract you can
-              find{' '}
-              <HashLink
-                to="/#tutorial"
-                scroll={(el) =>
-                  el.scrollIntoView({ behavior: 'auto', block: 'start' })
-                }
-              >
-                here.
-              </HashLink>
+              find <Link href="/#tutorial">here.</Link>
             </Alert>
           </SectionWrapper>
         </DropdownSection>

@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import { useRouter } from 'next/navigation';
 
 import { Common } from '@/layouts';
 import { Button, ProjectCard } from '@/shared/components';
@@ -12,11 +12,11 @@ import {
   CreateButton,
   Title,
   TitleAndButton,
-} from './AllProjects.styled';
+} from '../../pages/AllProjects/AllProjects.styled';
 
 const AllProjects = () => {
   const offchain = useOffchain();
-  const navigate = useNavigate();
+  const router = useRouter();
   const getAllFundraisings = useGetAllFundraisings();
   const {
     data: { allFundraisings, walletStatus },
@@ -54,7 +54,7 @@ const AllProjects = () => {
             secondaryColor="blue"
             fontColor="white"
             onClick={() => {
-              navigate('/new-project');
+              router.push('/new-project');
             }}
           >
             Create a new project

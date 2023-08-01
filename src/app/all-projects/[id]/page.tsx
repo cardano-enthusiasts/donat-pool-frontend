@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { useParams } from 'next/navigation';
 
 import { Common } from '@/layouts';
 import {
@@ -72,14 +72,14 @@ const PublicProject = () => {
 
   useEffect(() => {
     if (allFundraisings) {
-      const project = allFundraisings.find(({ path }) => path === params.id);
+      const project = allFundraisings.find(({ path }) => path === params?.id);
       if (project) {
         setCurrentProject(project);
       } else {
         setCurrentProject(null);
       }
     }
-  }, [allFundraisings, params.id]);
+  }, [allFundraisings, params?.id]);
 
   return currentProject ? (
     <>

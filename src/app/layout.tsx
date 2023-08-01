@@ -10,12 +10,10 @@ import {
   useSelector,
   Provider as ReduxProvider,
 } from 'react-redux';
-import { ThemeProvider } from 'styled-components';
-
+import StyledComponentsRegistry from '@/lib/registry';
 import { store } from '@/core/store';
 import { setWalletStatusSuccess } from '@/features/info/redux/actionCreators';
 import { NotAvailableError } from '@/shared/components';
-import { theme } from '@/shared/styles/theme';
 import { type AppReduxState } from '@/shared/types';
 
 import './globals.css';
@@ -124,9 +122,9 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       lang="en"
     >
       <body>
-        <ThemeProvider theme={theme}>
+        <StyledComponentsRegistry>
           <ReduxProvider store={store}>{children}</ReduxProvider>
-        </ThemeProvider>
+        </StyledComponentsRegistry>
       </body>
     </html>
   );
