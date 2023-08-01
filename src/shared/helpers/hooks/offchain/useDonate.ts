@@ -1,7 +1,7 @@
 import { useDispatch } from 'react-redux';
 
 import { setError, setStatus } from 'core/slices/donating';
-import { updateWalletStatus } from 'core/slices/walletStatus';
+import { updateWalletMode } from 'core/slices/wallet';
 import { type FundraisingData } from 'shared/types';
 
 import {
@@ -21,7 +21,7 @@ const useDonate = ({ onSuccess, onError }) => {
   const protocol = JSON.parse(process.env.PROTOCOL);
 
   const handleSuccess = () => {
-    dispatch(updateWalletStatus('connected'));
+    dispatch(updateWalletMode('connected'));
 
     dispatch(setStatus('success'));
     getAllFundraisings();

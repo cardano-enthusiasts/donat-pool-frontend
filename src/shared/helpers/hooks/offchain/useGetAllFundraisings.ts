@@ -5,7 +5,7 @@ import {
   setStatus,
   updateAllFundraisings,
 } from 'core/slices/allFundraisings';
-import { updateWalletStatus } from 'core/slices/walletStatus';
+import { updateWalletMode } from 'core/slices/wallet';
 import { type BackendProjects } from 'shared/types';
 
 import { useOffchain, useCheckWalletStatus, useHandleError } from '..';
@@ -33,23 +33,24 @@ const useGetAllFundraisings = () => {
         isCompleted,
       }) => {
         return {
-          creator,
+          // creator,
           deadline: Number(deadline.value),
           description,
           goal: Number(goal.value),
           raisedAmount: Number(raisedAmt.value),
-          threadTokenCurrency,
-          threadTokenName,
+          threadTokenCurrency: threadTokenCurrency.toString(),
+          threadTokenName: threadTokenName.toString(),
           path,
           isCompleted,
         };
       },
     );
     dispatch(updateAllFundraisings(filteredProjects));
-    dispatch(updateWalletStatus('connected'));
+    dispatch(updateWalletMode('connected'));
   };
 
   const handleError = (error) => {
+    
     handleCommonError(error);
     dispatch(setError(error));
   };

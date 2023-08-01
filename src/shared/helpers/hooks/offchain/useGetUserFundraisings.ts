@@ -4,7 +4,7 @@ import {
   updateUserFundraisings,
   setStatus,
 } from 'core/slices/userFundraisings';
-import { updateWalletStatus } from 'core/slices/walletStatus';
+import { updateWalletMode } from 'core/slices/wallet';
 import {
   useCheckWalletStatus,
   useOffchain,
@@ -22,7 +22,7 @@ const useGetUserFundraisings = () => {
   const dispatch = useAppDispatch();
 
   const handleSuccess = (projects) => {
-    dispatch(updateWalletStatus('connected'));
+    dispatch(updateWalletMode('connected'));
     const transformedProjects = transformProjects(projects);
     console.log(transformedProjects);
 

@@ -6,7 +6,7 @@ import {
   updateProtocol,
   updateUserInfo,
 } from 'core/slices/appInfo';
-import { updateWalletStatus } from 'core/slices/walletStatus';
+import { updateWalletMode } from 'core/slices/wallet';
 import { type UserAndProtocolParams } from 'shared/types';
 
 import { useCheckWalletStatus, useHandleError, useOffchain } from '..';
@@ -23,7 +23,7 @@ const useGetAppInfo = () => {
     protocolConfig,
     userInfo,
   }: UserAndProtocolParams) => {
-    dispatch(updateWalletStatus('connected'));
+    dispatch(updateWalletMode('connected'));
     const {
       minAmountParam,
       maxAmountParam,

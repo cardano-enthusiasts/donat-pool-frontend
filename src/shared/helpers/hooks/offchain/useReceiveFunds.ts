@@ -1,7 +1,7 @@
 import { useDispatch } from 'react-redux';
 
 import { setError, setStatus } from 'core/slices/fundsReceiving';
-import { updateWalletStatus } from 'core/slices/walletStatus';
+import { updateWalletMode } from 'core/slices/wallet';
 import { type FundraisingData } from 'shared/types';
 
 import {
@@ -22,7 +22,7 @@ const useReceiveFunds = ({ onSuccess, onError }) => {
 
   const handleSuccess = () => {
     dispatch(setStatus('success'));
-    dispatch(updateWalletStatus('connected'));
+    dispatch(updateWalletMode('connected'));
     getUserFundraisings();
     onSuccess();
   };

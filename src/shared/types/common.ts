@@ -35,7 +35,7 @@ interface CreateFundraisingParams {
   };
 }
 
-type WalletStatus =
+type WalletMode =
   | 'default'
   | 'connected'
   | 'declined'
@@ -55,13 +55,16 @@ type LandingSection =
   | 'roadmap'
   | 'contact-us';
 
+type Status = 'default' | 'success' | 'error' | 'requesting';
+
 export type {
   Config,
   Fundraisings,
   Fundraising,
   FundraisingData,
   CreateFundraisingParams,
-  WalletStatus,
+  WalletMode,
   UserInfo,
   LandingSection,
+  Status,
 };
