@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 
 import { getDate } from '@/shared/helpers';
 
@@ -34,7 +34,7 @@ const ProjectCard = ({
   };
 
   return (
-    <Link to={`/${linkSection}/${path}`}>
+    <Link href={`/${linkSection}/${path}`}>
       <Wrapper status={status} paddingSize={paddingSize}>
         {status !== 'default' && (
           <Status status={status}>{statusTitles[status]}</Status>

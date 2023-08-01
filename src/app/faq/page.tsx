@@ -1,6 +1,6 @@
 import HTMLReactParser from 'html-react-parser';
-import { useEffect } from 'react';
 import Link from 'next/link';
+import { useEffect } from 'react';
 
 import { Service } from '@/layouts';
 import { DropdownSection } from '@/shared/components';

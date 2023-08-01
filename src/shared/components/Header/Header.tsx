@@ -1,6 +1,6 @@
+import Link from 'next/link';
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
 
 import { type AppReduxState } from '@/shared/types';
 
@@ -44,7 +44,7 @@ const Header = ({ currentPage = null }: Props) => {
                     key={id}
                     {...(currentPage ? { isActive: href === currentPage } : {})}
                   >
-                    <Link to={href}>{title}</Link>
+                    <Link href={href}>{title}</Link>
                   </LinkWrapper>
                 ))}
               </Links>

@@ -1,11 +1,11 @@
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 
 import { LogoWrapper } from './Logo.styled';
 
 const Logo = () => {
   return (
     <LogoWrapper>
-      <Link to="/">
+      <Link href="/">
         <img src="/img/logo.svg" alt="logo" />
       </Link>
     </LogoWrapper>

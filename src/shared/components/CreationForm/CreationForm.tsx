@@ -1,6 +1,6 @@
+import { useRouter } from 'next/navigation';
 import { type ChangeEvent, useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
 
 import { useCreateFundraising } from '@/shared/helpers/hooks';
 import { type AppReduxState } from '@/shared/types';
@@ -26,7 +26,7 @@ import {
 } from '..';
 
 const CreationForm = ({ onClose }: Props) => {
-  const navigate = useNavigate();
+  const router = useRouter();
   const [createdPath, setCreatedPath] = useState('');
   const handleSuccess = (path) => {
     setCreatedPath(path);
@@ -243,7 +243,7 @@ const CreationForm = ({ onClose }: Props) => {
         isOpen={isSuccessModalOpen}
         onClose={() => {
           setIsSuccessModalOpen(false);
-          navigate('/my-projects');
+          router.push('/my-projects');
         }}
       />
       <ModalLoading isOpen={isLoadingModalOpen} />

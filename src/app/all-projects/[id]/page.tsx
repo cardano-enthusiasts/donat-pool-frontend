@@ -1,7 +1,8 @@
+import { useParams, useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
-import { useParams } from 'next/navigation';
+import { useSelector, useDispatch } from 'react-redux';
 
+import { setWalletStatusSuccess } from '@/features/info/redux/actionCreators';
 import { Common } from '@/layouts';
 import {
   Button,
@@ -9,6 +10,7 @@ import {
   ModalError,
   ModalLoading,
   ModalSuccess,
+  NotAvailableError,
   RaisedCounter,
 } from '@/shared/components';
 import { getDate } from '@/shared/helpers';
@@ -28,7 +30,9 @@ import {
 } from './PublicProject.styled';
 
 const PublicProject = () => {
+  const dispatch = useDispatch();
   const params = useParams();
+  const router = useRouter();
   const offchain = useOffchain();
   const getAllFundraisings = useGetAllFundraisings();
   const [currentProject, setCurrentProject] = useState<Fundraising | null>(
@@ -56,6 +60,9 @@ const PublicProject = () => {
   const { isRequesting, error } = useSelector(
     (state: AppReduxState) => state.fundraising.communication.donate,
   );
+  const {
+    data: { walletStatus },
+  } = useSelector((state: AppReduxState) => state.info);
 
   useEffect(() => {
     setIsModalLoadingOpen(isRequesting);
@@ -81,7 +88,16 @@ const PublicProject = () => {
     }
   }, [allFundraisings, params?.id]);
 
-  return currentProject ? (
+  useEffect(() => {
+    if (walletStatus === 'declined') {
+      router.push('/');
+      dispatch(setWalletStatusSuccess('default'));
+    }
+  }, [walletStatus, window]);
+
+  return walletStatus === 'notAvailable' || !window?.cardano?.nami ? (
+    <NotAvailableError />
+  ) : currentProject ? (
     <>
       <Common>
         <Wrapper>

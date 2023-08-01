@@ -1,6 +1,6 @@
+import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
 
 import { useReceiveFunds } from '@/shared/helpers/hooks';
 import { type AppReduxState } from '@/shared/types';
@@ -17,9 +17,9 @@ import { Button, ModalError, ModalLoading, ModalSuccess } from '../.';
 const PrivateProjectsActions = ({ project }: Props) => {
   const [isModalSuccessOpen, setIsModalSuccessOpen] = useState(false);
   const [isModalErrorOpen, setIsModalErrorOpen] = useState(false);
-  const navigate = useNavigate();
+  const router = useRouter();
   const onSuccess = () => {
-    navigate('/my-projects');
+    router.push('/my-projects');
   };
   const onError = () => {
     setIsModalErrorOpen(true);

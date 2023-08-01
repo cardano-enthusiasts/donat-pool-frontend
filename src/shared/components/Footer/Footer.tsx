@@ -1,5 +1,5 @@
+import Link from 'next/link';
 import { useState } from 'react';
-import { HashLink } from 'react-router-hash-link';
 
 import { Button, Socials, ModalContactUs } from './..';
 import {
@@ -30,9 +30,9 @@ const Footer = ({ backgroundColor = 'blue' }: Props) => {
               {links.map(({ title, href }) => {
                 return (
                   <LinkWrapper key={title}>
-                    <HashLink to={`${href}${href !== '/' ? '#top' : ''}`}>
+                    <Link href={`${href}${href !== '/' ? '#top' : ''}`}>
                       {title}
-                    </HashLink>
+                    </Link>
                   </LinkWrapper>
                 );
               })}

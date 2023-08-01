@@ -1,9 +1,10 @@
-import { useEffect } from 'react';
-import { useSelector } from 'react-redux';
 import { useRouter } from 'next/navigation';
+import { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 
+import { setWalletStatusSuccess } from '@/features/info/redux/actionCreators';
 import { Common } from '@/layouts';
-import { Button, ProjectCard } from '@/shared/components';
+import { Button, NotAvailableError, ProjectCard } from '@/shared/components';
 import { useGetAllFundraisings, useOffchain } from '@/shared/helpers/hooks';
 import { type Fundraisings, type AppReduxState } from '@/shared/types';
 
@@ -12,9 +13,10 @@ import {
   CreateButton,
   Title,
   TitleAndButton,
-} from '../../pages/AllProjects/AllProjects.styled';
+} from './AllProjects.styled';
 
 const AllProjects = () => {
+  const dispatch = useDispatch();
   const offchain = useOffchain();
   const router = useRouter();
   const getAllFundraisings = useGetAllFundraisings();
@@ -35,6 +37,13 @@ const AllProjects = () => {
     document.title = 'All projects';
   }, []);
 
+  useEffect(() => {
+    if (walletStatus === 'declined') {
+      router.push('/');
+      dispatch(setWalletStatusSuccess('default'));
+    }
+  }, [walletStatus, window]);
+
   const sortAndFilterFundraising = (fundraisings: Fundraisings) => {
     return fundraisings
       .sort(
@@ -44,7 +53,9 @@ const AllProjects = () => {
       .filter(({ isCompleted }) => !isCompleted);
   };
 
-  return !isRequesting ? (
+  return walletStatus === 'notAvailable' || !window?.cardano?.nami ? (
+    <NotAvailableError />
+  ) : !isRequesting ? (
     <Common>
       <TitleAndButton>
         <Title>All Donation pools</Title>

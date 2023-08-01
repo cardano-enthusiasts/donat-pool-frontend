@@ -1,9 +1,14 @@
-import { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
 import { useParams, useRouter } from 'next/navigation';
+import { useEffect, useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 
+import { setWalletStatusSuccess } from '@/features/info/redux/actionCreators';
 import { Common, Project } from '@/layouts';
-import { PrivateProjectsActions, RaisedCounter } from '@/shared/components';
+import {
+  NotAvailableError,
+  PrivateProjectsActions,
+  RaisedCounter,
+} from '@/shared/components';
 import { getDate } from '@/shared/helpers';
 import { useGetUserFundraisings, useOffchain } from '@/shared/helpers/hooks';
 import { type AppReduxState, type Fundraising } from '@/shared/types';
@@ -17,6 +22,7 @@ import {
 } from './PrivateProject.styled';
 
 const PrivateProject = () => {
+  const dispatch = useDispatch();
   const params = useParams();
   const offchain = useOffchain();
   const router = useRouter();
@@ -27,6 +33,9 @@ const PrivateProject = () => {
   const { fundraisings } = useSelector(
     (state: AppReduxState) => state.info.data.user,
   );
+  const {
+    data: { walletStatus },
+  } = useSelector((state: AppReduxState) => state.info);
 
   useEffect(() => {
     if (offchain) {
@@ -45,7 +54,16 @@ const PrivateProject = () => {
     }
   }, [fundraisings, params?.id]);
 
-  return currentProject ? (
+  useEffect(() => {
+    if (walletStatus === 'declined') {
+      router.push('/');
+      dispatch(setWalletStatusSuccess('default'));
+    }
+  }, [walletStatus, window]);
+
+  return walletStatus === 'notAvailable' || !window?.cardano?.nami ? (
+    <NotAvailableError />
+  ) : currentProject ? (
     <>
       <Common>
         <Project
