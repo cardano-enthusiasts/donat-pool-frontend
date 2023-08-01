@@ -1,4 +1,3 @@
-import { useDispatch } from 'react-redux';
 
 import {
   getUserInfo,
@@ -11,6 +10,8 @@ import {
   getInfoFail,
   getInfoSuccess,
 } from 'features/protocol/redux/actionCreators';
+import { useDispatch } from 'react-redux';
+
 import { type UserAndProtocolParams } from '@/shared/types';
 
 import { useCheckWalletStatus, useHandleError, useOffchain } from '../..';

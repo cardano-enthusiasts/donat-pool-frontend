@@ -1,4 +1,3 @@
-import { useDispatch } from 'react-redux';
 
 import { setWalletStatusSuccess } from 'features/info/redux/actionCreators';
 import {
@@ -6,6 +5,8 @@ import {
   updateFail,
   updateSuccess,
 } from 'features/protocol/redux/actionCreators';
+import { useDispatch } from 'react-redux';
+
 import { type Config } from '@/shared/types';
 
 import {

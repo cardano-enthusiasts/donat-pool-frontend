@@ -1,6 +1,6 @@
+import { setWalletStatus } from 'features/info/redux/actionCreators';
 import { useSelector, useDispatch } from 'react-redux';
 
-import { setWalletStatus } from 'features/info/redux/actionCreators';
 import { type AppReduxState } from '@/shared/types';
 
 const useCheckWalletStatus = () => {

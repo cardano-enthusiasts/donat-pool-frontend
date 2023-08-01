@@ -1,4 +1,3 @@
-import { useDispatch } from 'react-redux';
 
 import {
   receiveFunds,
@@ -6,6 +5,8 @@ import {
   receiveFundsSuccess,
 } from 'features/fundraising/redux/actionCreators';
 import { setWalletStatusSuccess } from 'features/info/redux/actionCreators';
+import { useDispatch } from 'react-redux';
+
 import { type FundraisingData } from '@/shared/types';
 
 import {

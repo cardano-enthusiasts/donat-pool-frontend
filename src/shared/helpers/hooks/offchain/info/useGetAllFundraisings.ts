@@ -1,11 +1,11 @@
-import { useDispatch } from 'react-redux';
-
 import {
   getAllFundraisings,
   getAllFundraisingsFail,
   getAllFundraisingsSuccess,
   setWalletStatusSuccess,
 } from 'features/info/redux/actionCreators';
+import { useDispatch } from 'react-redux';
+
 import { type BackendProjects } from '@/shared/types';
 
 import { useOffchain, useCheckWalletStatus, useHandleError } from '../..';

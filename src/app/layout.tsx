@@ -1,12 +1,20 @@
+'use client';
+
 import type { Metadata } from 'next';
 import { Rammetto_One } from 'next/font/google';
 import localFont from 'next/font/local';
+import { usePathname, useRouter } from 'next/navigation';
+import { useEffect, useState } from 'react';
+import { useDispatch, useSelector , Provider as ReduxProvider } from 'react-redux';
 
 import './globals.css';
+import { setWalletStatusSuccess } from 'features/info/redux/actionCreators';
 import { ThemeProvider } from 'styled-components';
-import { Provider as ReduxProvider } from 'react-redux';
+
 import { store } from '@/core/store';
+import { NotAvailableError } from '@/shared/components';
 import { theme } from '@/shared/styles/theme';
+import { type AppReduxState } from '@/shared/types';
 
 const microsoftYaHeiFont = localFont({
   src: [
@@ -40,7 +48,73 @@ export const metadata: Metadata = {
 };
 
 export default function Layout({ children }: { children: React.ReactNode }) {
-  return (
+  const pathname = usePathname();
+  const { walletStatus } = useSelector(
+    (state: AppReduxState) => state.info.data,
+  );
+  const router = useRouter();
+  const dispatch = useDispatch();
+  const [walletIsNotAvailable, setWalletIsNotAvailable] = useState(false);
+  const routes = [
+    { path: '/', isAvailableWithoutWallet: true },
+    {
+      path: '/my-projects',
+      isAvailableWithoutWallet: false,
+    },
+    {
+      path: '/new-project',
+      isAvailableWithoutWallet: false,
+    },
+    {
+      path: '/all-projects',
+      isAvailableWithoutWallet: false,
+    },
+    {
+      path: '/all-projects/:id',
+      isAvailableWithoutWallet: false,
+    },
+    {
+      path: '/my-projects/:id',
+      isAvailableWithoutWallet: false,
+    },
+    { path: '/faq', isAvailableWithoutWallet: true },
+    {
+      path: '/roadmap',
+      isAvailableWithoutWallet: true,
+    },
+  ];
+
+  useEffect(() => {
+    setTimeout(() => {
+      const isNotAvailable =
+        walletStatus === 'notAvailable' ||
+        !window.cardano ||
+        !window.cardano.nami;
+      const pathsWithoutWallets = routes.filter(
+        ({ isAvailableWithoutWallet }) => isAvailableWithoutWallet,
+      );
+      const isWalletFreePage = pathsWithoutWallets.some(
+        ({ path }) => path === pathname,
+      );
+
+      setWalletIsNotAvailable(isNotAvailable && !isWalletFreePage);
+    }, 1000);
+  }, [walletStatus, pathname]);
+
+  useEffect(() => {
+    if (walletStatus === 'declined') {
+      router.push('/');
+      dispatch(setWalletStatusSuccess('default'));
+    }
+
+    if (walletIsNotAvailable) {
+      router.push('/');
+    }
+  }, [walletStatus, window]);
+
+  return walletIsNotAvailable ? (
+    <NotAvailableError />
+  ) : (
     <html
       className={`${microsoftYaHeiFont.variable} bg-white font-sans text-[16px] text-black`}
       lang="en"
