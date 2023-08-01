@@ -5,16 +5,20 @@ import { Rammetto_One } from 'next/font/google';
 import localFont from 'next/font/local';
 import { usePathname, useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
-import { useDispatch, useSelector , Provider as ReduxProvider } from 'react-redux';
-
-import './globals.css';
-import { setWalletStatusSuccess } from 'features/info/redux/actionCreators';
+import {
+  useDispatch,
+  useSelector,
+  Provider as ReduxProvider,
+} from 'react-redux';
 import { ThemeProvider } from 'styled-components';
 
 import { store } from '@/core/store';
+import { setWalletStatusSuccess } from '@/features/info/redux/actionCreators';
 import { NotAvailableError } from '@/shared/components';
 import { theme } from '@/shared/styles/theme';
 import { type AppReduxState } from '@/shared/types';
+
+import './globals.css';
 
 const microsoftYaHeiFont = localFont({
   src: [

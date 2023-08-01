@@ -1,7 +1,7 @@
-import { type ReduxState } from 'features/info/types';
 import { combineReducers } from 'redux';
 import { makeCommunicationReducer } from 'redux-make-communication';
 
+import { type ReduxState } from '@/features/info/types';
 
 import type * as A from '../../types/actions';
 import { initialState } from '../initialState';

@@ -1,17 +1,16 @@
+import { useDispatch } from 'react-redux';
 
 import {
   getUserInfo,
   getUserInfoFail,
   getUserInfoSuccess,
   setWalletStatusSuccess,
-} from 'features/info/redux/actionCreators';
+} from '@/features/info/redux/actionCreators';
 import {
   getInfo,
   getInfoFail,
   getInfoSuccess,
-} from 'features/protocol/redux/actionCreators';
-import { useDispatch } from 'react-redux';
-
+} from '@/features/protocol/redux/actionCreators';
 import { type UserAndProtocolParams } from '@/shared/types';
 
 import { useCheckWalletStatus, useHandleError, useOffchain } from '../..';

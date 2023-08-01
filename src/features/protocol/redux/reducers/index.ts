@@ -1,6 +1,6 @@
-import { type ReduxState } from 'features/protocol/types';
 import { combineReducers } from 'redux';
 
+import { type ReduxState } from '@/features/protocol/types';
 
 import { communication } from './communication';
 import { data } from './data';

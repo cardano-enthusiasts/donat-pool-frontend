@@ -1,4 +1,3 @@
-import * as features from 'features';
 import {
   compose,
   applyMiddleware,
@@ -11,6 +10,7 @@ import {
 import { composeWithDevTools } from 'redux-devtools-extension';
 import createSagaMiddleware, { type SagaMiddleware } from 'redux-saga';
 
+import * as features from '@/features';
 import { type AppReduxState } from '@/shared/types';
 
 interface IStoreData {

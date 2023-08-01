@@ -1,6 +1,6 @@
-import { setWalletStatusSuccess } from 'features/info/redux/actionCreators';
 import { useDispatch } from 'react-redux';
 
+import { setWalletStatusSuccess } from '@/features/info/redux/actionCreators';
 
 import { useGetAppInfo, useHandleError, useOffchain } from '..';
 import { getOffchainError } from '../..';

@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "eslint:fix": "eslint . --fix"
+    "prettify": "prettier . --write",
+    "eslint:fix": "eslint . --ext .ts,.tsx --fix",
+    "stylelint:fix": "stylelint \"src/**/*.css\" --fix"
   },
   "dependencies": {
     "next": "13.4.12",

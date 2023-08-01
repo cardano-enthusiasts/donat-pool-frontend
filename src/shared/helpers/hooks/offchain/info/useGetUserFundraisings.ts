@@ -1,11 +1,11 @@
+import { useDispatch } from 'react-redux';
+
 import {
   getUserFundraisings,
   getUserFundraisingsFail,
   getUserFundraisingsSuccess,
   setWalletStatusSuccess,
-} from 'features/info/redux/actionCreators';
-import { useDispatch } from 'react-redux';
-
+} from '@/features/info/redux/actionCreators';
 import {
   useCheckWalletStatus,
   useOffchain,

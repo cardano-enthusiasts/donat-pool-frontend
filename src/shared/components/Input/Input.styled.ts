@@ -1,17 +1,17 @@
 import styled, { css } from 'styled-components';
 
-import { type Theme } from 'shared/styles/types';
+import { type Theme } from '@/shared/styles/types';
 
 import { type Props } from './types';
 
-const getColor = (errorInfo, fontColor) => {
+const getColor = (errorInfo: any, fontColor: any) => {
   if (errorInfo || errorInfo === '') {
-    return ({ theme }) => theme.colors.error;
+    return ({ theme }: any) => theme.colors.error;
   }
-  return ({ theme }) => theme.colors[fontColor];
+  return ({ theme }: any) => theme.colors[fontColor];
 };
 
-const getFieldStyles = ({ errorInfo, fontColor }) => css`
+const getFieldStyles = ({ errorInfo, fontColor }: any) => css`
   width: 100%;
   min-width: 150px;
   border: 2px solid
