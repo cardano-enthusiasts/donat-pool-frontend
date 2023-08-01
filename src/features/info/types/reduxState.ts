@@ -1,6 +1,6 @@
 import { type ICommunication } from 'redux-make-communication';
 
-import { type WalletStatus, type Fundraisings } from 'shared/types';
+import { type WalletStatus, type Fundraisings } from '@/shared/types';
 
 interface ReduxState {
   communication: {

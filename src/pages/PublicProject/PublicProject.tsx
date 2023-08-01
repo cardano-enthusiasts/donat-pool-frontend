@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 
-import { Common } from 'layouts';
+import { Common } from '@/layouts';
 import {
   Button,
   ModalDonate,
@@ -10,14 +10,14 @@ import {
   ModalLoading,
   ModalSuccess,
   RaisedCounter,
-} from 'shared/components';
-import { getDate } from 'shared/helpers';
+} from '@/shared/components';
+import { getDate } from '@/shared/helpers';
 import {
   useDonate,
   useGetAllFundraisings,
   useOffchain,
-} from 'shared/helpers/hooks';
-import { type AppReduxState, type Fundraising } from 'shared/types';
+} from '@/shared/helpers/hooks';
+import { type AppReduxState, type Fundraising } from '@/shared/types';
 
 import {
   ButtonWrapper,

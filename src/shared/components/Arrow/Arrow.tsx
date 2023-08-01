@@ -1,6 +1,6 @@
 import { useTheme } from 'styled-components';
 
-import { type Theme } from 'shared/styles/types';
+import { type Theme } from '@/shared/styles/types';
 
 import { Wrapper } from './Arrow.styled';
 import { type Props } from './types';

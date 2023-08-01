@@ -2,8 +2,8 @@ import { type ChangeEvent, useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
-import { useCreateFundraising } from 'shared/helpers/hooks';
-import { type AppReduxState } from 'shared/types';
+import { useCreateFundraising } from '@/shared/helpers/hooks';
+import { type AppReduxState } from '@/shared/types';
 
 import {
   ButtonWrapper,

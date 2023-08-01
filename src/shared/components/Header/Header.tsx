@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-import { type AppReduxState } from 'shared/types';
+import { type AppReduxState } from '@/shared/types';
 
 import {
   Inner,

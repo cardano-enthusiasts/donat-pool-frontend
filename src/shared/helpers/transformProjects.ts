@@ -1,4 +1,4 @@
-import { type BackendProjects, type Fundraisings } from 'shared/types';
+import { type BackendProjects, type Fundraisings } from '@/shared/types';
 
 const transformProjects = (projects: BackendProjects): Fundraisings => {
   return projects.map(

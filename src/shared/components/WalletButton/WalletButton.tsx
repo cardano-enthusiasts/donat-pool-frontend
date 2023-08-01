@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
 
-import { useConnectWallet } from 'shared/helpers/hooks';
-import { type AppReduxState } from 'shared/types';
+import { useConnectWallet } from '@/shared/helpers/hooks';
+import { type AppReduxState } from '@/shared/types';
 
 import { Address, ConnectButton, Wrapper } from './WalletButton.styled';
 

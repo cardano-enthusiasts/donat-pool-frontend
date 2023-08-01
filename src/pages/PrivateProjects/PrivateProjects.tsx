@@ -2,10 +2,10 @@ import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
-import { Common } from 'layouts';
-import { MyProjects } from 'shared/components';
-import { useGetUserFundraisings, useOffchain } from 'shared/helpers/hooks';
-import { type AppReduxState } from 'shared/types';
+import { Common } from '@/layouts';
+import { MyProjects } from '@/shared/components';
+import { useGetUserFundraisings, useOffchain } from '@/shared/helpers/hooks';
+import { type AppReduxState } from '@/shared/types';
 
 const PrivateProjects = () => {
   const navigate = useNavigate();

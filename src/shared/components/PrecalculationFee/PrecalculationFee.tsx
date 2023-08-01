@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux';
 
-import { type AppReduxState } from 'shared/types';
+import { type AppReduxState } from '@/shared/types';
 
 import { Wrapper } from './PrecalculationFee.styled';
 import { type Props } from './types';

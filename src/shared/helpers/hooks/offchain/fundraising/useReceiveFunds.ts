@@ -6,7 +6,7 @@ import {
   receiveFundsSuccess,
 } from 'features/fundraising/redux/actionCreators';
 import { setWalletStatusSuccess } from 'features/info/redux/actionCreators';
-import { type FundraisingData } from 'shared/types';
+import { type FundraisingData } from '@/shared/types';
 
 import {
   useCheckWalletStatus,

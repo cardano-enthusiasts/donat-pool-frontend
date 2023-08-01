@@ -1,4 +1,4 @@
-import { type LandingSection } from 'shared/types';
+import { type LandingSection } from '@/shared/types';
 
 const getSections = (
   currentSection,

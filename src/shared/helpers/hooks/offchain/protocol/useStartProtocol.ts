@@ -1,4 +1,4 @@
-import { useHandleError, useOffchain } from 'shared/helpers/hooks';
+import { useHandleError, useOffchain } from '@/shared/helpers/hooks';
 
 import { getOffchainError } from '../../..';
 

@@ -1,4 +1,4 @@
-import { Footer, Header } from 'shared/components';
+import { Footer, Header } from '@/shared/components';
 
 import { Inner, Main } from './Service.styled';
 import { type Props } from './types';

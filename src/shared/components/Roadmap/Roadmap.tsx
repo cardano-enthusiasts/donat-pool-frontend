@@ -1,7 +1,7 @@
 import HTMLReactParser from 'html-react-parser';
 import { Fragment } from 'react';
 
-import { roadmapText } from 'shared/constants';
+import { roadmapText } from '@/shared/constants';
 
 import {
   Inner,

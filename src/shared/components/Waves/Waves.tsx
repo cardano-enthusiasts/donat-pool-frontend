@@ -1,7 +1,7 @@
 import { useTheme } from 'styled-components';
 
-import { useWindowSize } from 'shared/helpers/hooks';
-import { type Theme } from 'shared/styles/types';
+import { useWindowSize } from '@/shared/helpers/hooks';
+import { type Theme } from '@/shared/styles/types';
 
 import { type Props } from './types';
 import { G, SVG, Wrapper } from './Waves.styled';

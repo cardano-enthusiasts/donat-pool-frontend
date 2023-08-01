@@ -10,7 +10,7 @@ import {
   useCheckWalletStatus,
   useOffchain,
   useHandleError,
-} from 'shared/helpers/hooks';
+} from '@/shared/helpers/hooks';
 
 import { getOffchainError } from '../../..';
 import { transformProjects } from '../../../transformProjects';

@@ -1,6 +1,6 @@
 import { type ICommunication } from 'redux-make-communication';
 
-import { type Config } from 'shared/types';
+import { type Config } from '@/shared/types';
 
 interface ReduxState {
   communication: {

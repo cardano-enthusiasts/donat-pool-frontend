@@ -1,5 +1,5 @@
-import { Project } from 'layouts';
-import { CreationForm } from 'shared/components';
+import { Project } from '@/layouts';
+import { CreationForm } from '@/shared/components';
 
 import { type Props } from './types';
 

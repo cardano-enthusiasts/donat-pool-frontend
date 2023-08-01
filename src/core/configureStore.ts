@@ -11,7 +11,7 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import createSagaMiddleware, { type SagaMiddleware } from 'redux-saga';
 
 import * as features from 'features';
-import { type AppReduxState } from 'shared/types';
+import { type AppReduxState } from '@/shared/types';
 
 interface IStoreData {
   store: Store<AppReduxState>;

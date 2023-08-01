@@ -1,8 +1,8 @@
 import { type ChangeEvent, useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 
-import { useUpdateProtocol } from 'shared/helpers/hooks';
-import { type AppReduxState } from 'shared/types';
+import { useUpdateProtocol } from '@/shared/helpers/hooks';
+import { type AppReduxState } from '@/shared/types';
 
 import { defaultParams } from './data';
 import {

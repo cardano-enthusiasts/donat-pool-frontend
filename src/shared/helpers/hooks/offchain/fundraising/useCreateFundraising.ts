@@ -6,7 +6,7 @@ import {
   createSuccess,
 } from 'features/fundraising/redux/actionCreators';
 import { setWalletStatusSuccess } from 'features/info/redux/actionCreators';
-import { type Fundraising, type CreateFundraisingParams } from 'shared/types';
+import { type Fundraising, type CreateFundraisingParams } from '@/shared/types';
 
 import {
   useOffchain,

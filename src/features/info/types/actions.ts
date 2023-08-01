@@ -8,7 +8,7 @@ import {
   type WalletStatus,
   type Fundraisings,
   type UserInfo,
-} from 'shared/types';
+} from '@/shared/types';
 
 type GetUserFundraisings = IPlainAction<'INFO:GET_USER_FUNDRAISINGS'>;
 type GetUserFundraisingsSuccess = IAction<

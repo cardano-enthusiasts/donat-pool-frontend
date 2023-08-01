@@ -1,7 +1,7 @@
 import HTMLReactParser from 'html-react-parser';
 
-import { Service } from 'layouts';
-import { roadmapText } from 'shared/constants';
+import { Service } from '@/layouts';
+import { roadmapText } from '@/shared/constants';
 
 import {
   ColorTitle,

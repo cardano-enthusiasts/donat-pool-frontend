@@ -4,7 +4,7 @@ import {
   type IAction,
 } from 'redux-make-communication';
 
-import { type Config } from 'shared/types';
+import { type Config } from '@/shared/types';
 
 type Update = IPlainAction<'PROTOCOL:UPDATE'>;
 type UpdateSuccess = IPlainAction<'PROTOCOL:UPDATE_SUCCESS'>;

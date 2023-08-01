@@ -1,4 +1,4 @@
-import { type FeatureEntry } from 'shared/types';
+import { type FeatureEntry } from '@/shared/types';
 
 import { actionCreators, selectors, reducer, rootSaga } from './redux';
 import * as types from './types';

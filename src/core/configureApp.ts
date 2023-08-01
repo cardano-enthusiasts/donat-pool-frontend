@@ -1,7 +1,7 @@
 import { type AnyAction, type Store } from 'redux';
 
 import * as features from 'features';
-import { type FeatureSaga, type AppReduxState } from 'shared/types';
+import { type FeatureSaga, type AppReduxState } from '@/shared/types';
 
 import { configureDeps } from './configureDeps';
 import { configureStore } from './configureStore';

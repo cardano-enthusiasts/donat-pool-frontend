@@ -13,8 +13,8 @@ import {
   FAQ,
   RoadmapForReading,
 } from 'pages';
-import { NotAvailableError } from 'shared/components';
-import { type AppReduxState } from 'shared/types';
+import { NotAvailableError } from '@/shared/components';
+import { type AppReduxState } from '@/shared/types';
 
 const Base = () => {
   const location = useLocation();

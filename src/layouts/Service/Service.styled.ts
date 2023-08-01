@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { baseContainer, baseInner } from 'shared/styles/mixins';
+import { baseContainer, baseInner } from '@/shared/styles/mixins';
 
 const Main = styled.main`
   ${baseContainer}

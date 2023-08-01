@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { h1 } from 'shared/styles/mixins';
+import { h1 } from '@/shared/styles/mixins';
 
 const Container = styled.form`
   display: flex;

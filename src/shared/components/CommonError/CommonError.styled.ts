@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { baseContainer } from 'shared/styles/mixins';
+import { baseContainer } from '@/shared/styles/mixins';
 
 const Wrapper = styled.div`
   ${baseContainer};

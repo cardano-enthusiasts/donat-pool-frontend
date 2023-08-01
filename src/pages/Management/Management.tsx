@@ -2,9 +2,9 @@ import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
-import { Common } from 'layouts';
-import { ManagementParams, ManagerEditor } from 'shared/components';
-import { type AppReduxState } from 'shared/types';
+import { Common } from '@/layouts';
+import { ManagementParams, ManagerEditor } from '@/shared/components';
+import { type AppReduxState } from '@/shared/types';
 
 import { Title, Wrapper } from './Management.styled';
 

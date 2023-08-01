@@ -2,8 +2,8 @@ import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
-import { useReceiveFunds } from 'shared/helpers/hooks';
-import { type AppReduxState } from 'shared/types';
+import { useReceiveFunds } from '@/shared/helpers/hooks';
+import { type AppReduxState } from '@/shared/types';
 
 import {
   ButtonWrapper,

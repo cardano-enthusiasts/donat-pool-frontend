@@ -2,10 +2,10 @@ import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
-import { Common } from 'layouts';
-import { Button, ProjectCard } from 'shared/components';
-import { useGetAllFundraisings, useOffchain } from 'shared/helpers/hooks';
-import { type Fundraisings, type AppReduxState } from 'shared/types';
+import { Common } from '@/layouts';
+import { Button, ProjectCard } from '@/shared/components';
+import { useGetAllFundraisings, useOffchain } from '@/shared/helpers/hooks';
+import { type Fundraisings, type AppReduxState } from '@/shared/types';
 
 import {
   CardsWrapper,

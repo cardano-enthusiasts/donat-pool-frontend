@@ -1,4 +1,4 @@
-import { type AppReduxState } from 'shared/types';
+import { type AppReduxState } from '@/shared/types';
 
 function makeSelectFeatureState<
   T extends AppReduxState,

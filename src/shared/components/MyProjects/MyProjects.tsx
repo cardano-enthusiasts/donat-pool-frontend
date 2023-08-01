@@ -5,7 +5,7 @@ import {
   type Fundraisings,
   type AppReduxState,
   type Fundraising,
-} from 'shared/types';
+} from '@/shared/types';
 
 import {
   CardsWrapper,

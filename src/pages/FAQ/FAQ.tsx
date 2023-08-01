@@ -2,8 +2,8 @@ import HTMLReactParser from 'html-react-parser';
 import { useEffect } from 'react';
 import { HashLink } from 'react-router-hash-link';
 
-import { Service } from 'layouts';
-import { DropdownSection } from 'shared/components';
+import { Service } from '@/layouts';
+import { DropdownSection } from '@/shared/components';
 
 import { basicSection } from './data';
 import {

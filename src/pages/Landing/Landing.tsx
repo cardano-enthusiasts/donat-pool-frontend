@@ -5,9 +5,9 @@ import {
   LandingContent,
   LandingNav,
   Waves,
-} from 'shared/components';
-import { useWindowSize, useWindowScroll } from 'shared/helpers/hooks';
-import { type LandingSection } from 'shared/types';
+} from '@/shared/components';
+import { useWindowSize, useWindowScroll } from '@/shared/helpers/hooks';
+import { type LandingSection } from '@/shared/types';
 
 import { DonutsWrapper, WavesWrapper, Wrapper } from './Landing.styled';
 

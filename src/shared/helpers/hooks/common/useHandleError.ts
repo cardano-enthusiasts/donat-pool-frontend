@@ -6,7 +6,7 @@ import {
   missingCollateral,
   walletDisconnect,
   walletIsNotAvailable,
-} from 'shared/constants';
+} from '@/shared/constants';
 
 const useHandleError = () => {
   const dispatch = useDispatch();

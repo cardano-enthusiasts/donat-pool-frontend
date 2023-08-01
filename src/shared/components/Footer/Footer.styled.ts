@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { baseContainer, baseInner, link } from 'shared/styles/mixins';
+import { baseContainer, baseInner, link } from '@/shared/styles/mixins';
 
 import { type Props } from './types';
 

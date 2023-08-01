@@ -6,7 +6,7 @@ import {
   updateFail,
   updateSuccess,
 } from 'features/protocol/redux/actionCreators';
-import { type Config } from 'shared/types';
+import { type Config } from '@/shared/types';
 
 import {
   useGetAppInfo,

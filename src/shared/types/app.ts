@@ -6,7 +6,7 @@ import {
   type Action,
 } from 'redux';
 
-import type * as features from 'features';
+import type * as features from '@/features';
 
 import {
   type BackendProjects,

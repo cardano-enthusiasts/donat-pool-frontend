@@ -11,7 +11,7 @@ import {
   getInfoFail,
   getInfoSuccess,
 } from 'features/protocol/redux/actionCreators';
-import { type UserAndProtocolParams } from 'shared/types';
+import { type UserAndProtocolParams } from '@/shared/types';
 
 import { useCheckWalletStatus, useHandleError, useOffchain } from '../..';
 import { getOffchainError } from '../../..';

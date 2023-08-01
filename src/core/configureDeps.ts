@@ -1,6 +1,6 @@
 import { type Store } from 'redux';
 
-import { type AppReduxState, type Dependencies } from 'shared/types';
+import { type AppReduxState, type Dependencies } from '@/shared/types';
 
 function configureDeps(store: Store<AppReduxState>): Dependencies {
   return {
