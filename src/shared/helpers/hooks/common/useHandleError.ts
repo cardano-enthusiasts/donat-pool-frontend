@@ -11,22 +11,22 @@ import {
 const useHandleError = () => {
   const dispatch = useDispatch();
 
-  return (backendError: string) => {
+  return (backendError: string): string => {
     switch (backendError) {
       case walletDisconnect:
         dispatch(updateWalletMode('declined'));
         setTimeout(() => {
           console.error(errors[walletDisconnect]);
         }, 500);
-        break;
+        return errors[walletDisconnect];
       case walletIsNotAvailable:
         dispatch(updateWalletMode('notAvailable'));
-        break;
+        return errors[walletIsNotAvailable];
       case missingCollateral:
         dispatch(updateWalletMode('missingCollateral'));
-        break;
+        return errors[missingCollateral];
       default:
-        console.log(errors[backendError]);
+        return errors[backendError];
     }
   };
 };

@@ -2,6 +2,7 @@ import { useDispatch } from 'react-redux';
 
 import { setError, setStatus } from 'core/slices/fundraisingCreating';
 import { updateWalletMode } from 'core/slices/wallet';
+import { testnetNami } from 'shared/constants/wallet';
 import { type Fundraising, type CreateFundraisingParams } from 'shared/types';
 
 import {
@@ -22,7 +23,7 @@ const useCreateFundraising = (onSuccess, onError) => {
 
   const handleSuccess = (fundraisingData: Fundraising) => {
     dispatch(updateWalletMode('connected'));
-    onSuccess(fundraisingData.path);
+    onSuccess(fundraisingData.threadTokenCurrency);
     dispatch(setStatus('success'));
     getUserFundraisings();
   };
@@ -36,8 +37,8 @@ const useCreateFundraising = (onSuccess, onError) => {
   if (offchain) {
     return (createFundraisingParams: CreateFundraisingParams) => {
       offchain.createFundraising(handleSuccess)(handleError)(protocol)(
-        createFundraisingParams,
-      )();
+        testnetNami,
+      )(createFundraisingParams)();
       checkWalletStatus();
       dispatch(setStatus('requesting'));
     };

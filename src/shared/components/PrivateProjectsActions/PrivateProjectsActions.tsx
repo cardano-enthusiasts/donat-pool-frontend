@@ -1,9 +1,10 @@
-import { useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
+import { useAppSelector } from 'core/hooks';
+import { setError, setStatus } from 'core/slices/fundsReceiving';
 import { useReceiveFunds } from 'shared/helpers/hooks';
-import { type AppReduxState } from 'shared/types';
 
 import {
   ButtonWrapper,
@@ -17,20 +18,29 @@ import { Button, ModalError, ModalLoading, ModalSuccess } from '../.';
 const PrivateProjectsActions = ({ project }: Props) => {
   const [isModalSuccessOpen, setIsModalSuccessOpen] = useState(false);
   const [isModalErrorOpen, setIsModalErrorOpen] = useState(false);
+  const dispatch = useDispatch();
   const navigate = useNavigate();
-  const onSuccess = () => {
-    navigate('/my-projects');
-  };
-  const onError = () => {
-    setIsModalErrorOpen(true);
-  };
-  const receiveFunds = useReceiveFunds({ onSuccess, onError });
-  const { protocolFeeParam } = useSelector(
-    (state: AppReduxState) => state.protocol.data.config,
-  );
-  const { isRequesting, error } = useSelector(
-    (state: AppReduxState) => state.fundraising.communication.receiveFunds,
-  );
+  const receiveFunds = useReceiveFunds();
+
+  const {
+    fundsReceiving: { error, status },
+    appInfo: { protocol },
+  } = useAppSelector((state) => state);
+
+  useEffect(() => {
+    if (error) {
+      setIsModalErrorOpen(true);
+    }
+  }, [error, dispatch]);
+
+  useEffect(() => {
+    if (status === 'success') {
+      setIsModalErrorOpen(true);
+      navigate('/my-projects');
+      dispatch(setStatus('default'));
+    }
+  }, [status, dispatch, navigate]);
+
   const link = window.location.href;
 
   const copyContent = async () => {
@@ -68,18 +78,21 @@ const PrivateProjectsActions = ({ project }: Props) => {
             ? 'You have reached the goal! Take money'
             : 'Project reached its deadline. Collect fund'}
         </Button>
-        <Commission>
-          We remind you that our commission is {protocolFeeParam}%
-        </Commission>
+        {protocol?.protocolFeeParam && (
+          <Commission>
+            We remind you that our commission is {protocol.protocolFeeParam}%
+          </Commission>
+        )}
       </WithdrawSection>
 
-      <ModalLoading isOpen={isRequesting} />
+      <ModalLoading isOpen={status === 'requesting'} />
       <ModalError
         isOpen={isModalErrorOpen}
         title="Withdrawal of funds"
         errorText={error}
         onClose={() => {
           setIsModalErrorOpen(false);
+          dispatch(setError(null));
         }}
       />
     </>

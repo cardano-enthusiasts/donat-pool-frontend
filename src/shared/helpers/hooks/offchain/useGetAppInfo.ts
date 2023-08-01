@@ -7,6 +7,7 @@ import {
   updateUserInfo,
 } from 'core/slices/appInfo';
 import { updateWalletMode } from 'core/slices/wallet';
+import { testnetNami } from 'shared/constants/wallet';
 import { type UserAndProtocolParams } from 'shared/types';
 
 import { useCheckWalletStatus, useHandleError, useOffchain } from '..';
@@ -51,7 +52,7 @@ const useGetAppInfo = () => {
 
   if (offchain) {
     return () => {
-      offchain?.getAppInfo(handleSuccess)(handleError)(protocol)();
+      offchain?.getAppInfo(handleSuccess)(handleError)(protocol)(testnetNami)();
       checkWalletStatus();
       dispatch(setStatus('requesting'));
     };

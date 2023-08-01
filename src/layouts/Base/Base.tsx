@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { Route, Routes, useLocation, useNavigate } from 'react-router-dom';
 
 import { useAppSelector } from 'core/hooks';
-import { updateWalletStatus } from 'core/slices/walletStatus';
+import { updateWalletMode } from 'core/slices/wallet';
 import {
   AllProjects,
   Landing,
@@ -18,7 +18,7 @@ import { NotAvailableError } from 'shared/components';
 
 const Base = () => {
   const location = useLocation();
-  const walletStatus = useAppSelector((state) => state.walletStatus.value);
+  const walletMode = useAppSelector((state) => state.wallet.mode);
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [walletIsNotAvailable, setWalletIsNotAvailable] = useState(false);
@@ -60,7 +60,7 @@ const Base = () => {
   useEffect(() => {
     setTimeout(() => {
       const isNotAvailable =
-        walletStatus === 'notAvailable' ||
+        walletMode === 'notAvailable' ||
         !window.cardano ||
         !window.cardano.nami;
       const pathsWithoutWallets = routes.filter(
@@ -72,28 +72,26 @@ const Base = () => {
 
       setWalletIsNotAvailable(isNotAvailable && !isWalletFreePage);
     }, 1000);
-  }, [walletStatus, location.pathname]);
+  }, [walletMode, location.pathname]);
 
   useEffect(() => {
-    if (walletStatus === 'declined') {
+    if (walletMode === 'declined') {
       navigate('/');
-      dispatch(updateWalletStatus('default'));
+      dispatch(updateWalletMode('default'));
     }
     if (walletIsNotAvailable) {
       navigate('/');
     }
-  }, [walletStatus, window]);
+  }, [walletMode, window]);
 
   return walletIsNotAvailable ? (
     <NotAvailableError />
   ) : (
-    <>
-      <Routes>
-        {routes.map(({ path, element }) => (
-          <Route path={path} element={element} key={path} />
-        ))}
-      </Routes>
-    </>
+    <Routes>
+      {routes.map(({ path, element }) => (
+        <Route path={path} element={element} key={path} />
+      ))}
+    </Routes>
   );
 };
 

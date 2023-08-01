@@ -6,6 +6,7 @@ import {
   updateAllFundraisings,
 } from 'core/slices/allFundraisings';
 import { updateWalletMode } from 'core/slices/wallet';
+import { testnetNami } from 'shared/constants/wallet';
 import { type BackendProjects } from 'shared/types';
 
 import { useOffchain, useCheckWalletStatus, useHandleError } from '..';
@@ -24,23 +25,21 @@ const useGetAllFundraisings = () => {
       ({
         creator,
         deadline,
-        description,
+        title,
         goal,
         raisedAmt,
         threadTokenCurrency,
         threadTokenName,
-        path,
         isCompleted,
       }) => {
         return {
-          // creator,
+          creator,
           deadline: Number(deadline.value),
-          description,
+          title,
           goal: Number(goal.value),
           raisedAmount: Number(raisedAmt.value),
-          threadTokenCurrency: threadTokenCurrency.toString(),
-          threadTokenName: threadTokenName.toString(),
-          path,
+          threadTokenCurrency,
+          threadTokenName,
           isCompleted,
         };
       },
@@ -50,14 +49,15 @@ const useGetAllFundraisings = () => {
   };
 
   const handleError = (error) => {
-    
     handleCommonError(error);
     dispatch(setError(error));
   };
 
   if (offchain) {
     return () => {
-      offchain.getAllFundraisings(handleSuccess)(handleError)(protocol)();
+      offchain.getAllFundraisings(handleSuccess)(handleError)(protocol)(
+        testnetNami,
+      )();
       checkWalletStatus();
       dispatch(setStatus('requesting'));
     };

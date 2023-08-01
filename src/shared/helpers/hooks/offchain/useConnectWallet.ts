@@ -1,6 +1,7 @@
 import { useDispatch } from 'react-redux';
 
 import { updateWalletMode } from 'core/slices/wallet';
+import { testnetNami } from 'shared/constants/wallet';
 
 import { useGetAppInfo, useHandleError, useOffchain } from '..';
 import { getOffchainError } from '../..';
@@ -22,7 +23,7 @@ const useConnectWallet = () => {
 
   if (offchain) {
     return () => {
-      offchain.connectWallet(handleSuccess)(handleError)();
+      offchain.connectWallet(handleSuccess)(handleError)(testnetNami)();
     };
   }
   return () => getOffchainError;

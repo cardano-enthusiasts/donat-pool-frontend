@@ -2,6 +2,7 @@ import { useDispatch } from 'react-redux';
 
 import { setError, setStatus } from 'core/slices/fundsReceiving';
 import { updateWalletMode } from 'core/slices/wallet';
+import { testnetNami } from 'shared/constants/wallet';
 import { type FundraisingData } from 'shared/types';
 
 import {
@@ -12,7 +13,7 @@ import {
 } from '..';
 import { getOffchainError } from '../..';
 
-const useReceiveFunds = ({ onSuccess, onError }) => {
+const useReceiveFunds = () => {
   const offchain = useOffchain();
   const dispatch = useDispatch();
   const getUserFundraisings = useGetUserFundraisings();
@@ -24,18 +25,16 @@ const useReceiveFunds = ({ onSuccess, onError }) => {
     dispatch(setStatus('success'));
     dispatch(updateWalletMode('connected'));
     getUserFundraisings();
-    onSuccess();
   };
 
   const handleError = (error) => {
-    onError();
-    handleCommonError(error);
-    dispatch(setError(error));
+    const filteredError = handleCommonError(error);
+    dispatch(setError(filteredError));
   };
 
   if (offchain) {
     return (fundraisingData: FundraisingData) => {
-      offchain.receiveFunds(handleSuccess)(handleError)(protocol)(
+      offchain.receiveFunds(handleSuccess)(handleError)(protocol)(testnetNami)(
         fundraisingData,
       )();
       checkWalletStatus();

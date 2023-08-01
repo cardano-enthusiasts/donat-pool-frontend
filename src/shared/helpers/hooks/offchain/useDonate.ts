@@ -2,6 +2,7 @@ import { useDispatch } from 'react-redux';
 
 import { setError, setStatus } from 'core/slices/donating';
 import { updateWalletMode } from 'core/slices/wallet';
+import { testnetNami } from 'shared/constants/wallet';
 import { type FundraisingData } from 'shared/types';
 
 import {
@@ -22,7 +23,6 @@ const useDonate = ({ onSuccess, onError }) => {
 
   const handleSuccess = () => {
     dispatch(updateWalletMode('connected'));
-
     dispatch(setStatus('success'));
     getAllFundraisings();
     onSuccess();
@@ -36,9 +36,9 @@ const useDonate = ({ onSuccess, onError }) => {
 
   if (offchain) {
     return (fundraisingData: FundraisingData, amount: number) => {
-      offchain.donate(handleSuccess)(handleError)(protocol)(fundraisingData)(
-        amount,
-      )();
+      offchain.donate(handleSuccess)(handleError)(protocol)(testnetNami)(
+        fundraisingData,
+      )(amount)();
       checkWalletStatus();
       dispatch(setStatus('requesting'));
     };

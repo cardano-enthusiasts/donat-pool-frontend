@@ -1,9 +1,8 @@
 import { type ChangeEvent, useState, useEffect } from 'react';
-import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
+import { useAppSelector } from 'core/hooks';
 import { useCreateFundraising } from 'shared/helpers/hooks';
-import { type AppReduxState } from 'shared/types';
 
 import {
   ButtonWrapper,
@@ -25,7 +24,9 @@ import {
   ModalProjectCreated,
 } from '..';
 
-const CreationForm = ({ onClose }: Props) => {
+const CreationForm = ({ onClose, protocol }: Props) => {
+  const { minAmountParam, maxAmountParam, minDurationParam, maxDurationParam } =
+    protocol;
   const navigate = useNavigate();
   const [createdPath, setCreatedPath] = useState('');
   const handleSuccess = (path) => {
@@ -48,11 +49,10 @@ const CreationForm = ({ onClose }: Props) => {
     durationHours: '',
     durationMinutes: '',
   });
-  const { isRequesting, error: createError } = useSelector(
-    (state: AppReduxState) => state.fundraising.communication.create,
+  const { error: createError, status } = useAppSelector(
+    (state) => state.fundraisingsCreating,
   );
-  const { maxAmountParam, minAmountParam, maxDurationParam, minDurationParam } =
-    useSelector((state: AppReduxState) => state.protocol.data.config);
+
   const initialErrors = {
     title: null,
     duration: null,
@@ -97,8 +97,8 @@ const CreationForm = ({ onClose }: Props) => {
   };
 
   useEffect(() => {
-    setIsLoadingModalOpen(isRequesting);
-  }, [isRequesting]);
+    setIsLoadingModalOpen(status === 'requesting');
+  }, [status]);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -143,7 +143,7 @@ const CreationForm = ({ onClose }: Props) => {
           onChange={(event) => {
             handleChange(event, 'title');
           }}
-          isDisabled={isRequesting}
+          isDisabled={status === 'requesting'}
           maxLength={29}
           placeholder="My project"
           error={error.title}

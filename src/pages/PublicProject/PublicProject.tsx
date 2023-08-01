@@ -1,7 +1,9 @@
 import { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
 
+import { useAppSelector } from 'core/hooks';
+import { setStatus } from 'core/slices/donating';
 import { Common } from 'layouts';
 import {
   Button,
@@ -17,7 +19,7 @@ import {
   useGetAllFundraisings,
   useOffchain,
 } from 'shared/helpers/hooks';
-import { type AppReduxState, type Fundraising } from 'shared/types';
+import { type Fundraising } from 'shared/types';
 
 import {
   ButtonWrapper,
@@ -30,6 +32,7 @@ import {
 const PublicProject = () => {
   const params = useParams();
   const offchain = useOffchain();
+  const dispatch = useDispatch();
   const getAllFundraisings = useGetAllFundraisings();
   const [currentProject, setCurrentProject] = useState<Fundraising | null>(
     null,
@@ -50,19 +53,27 @@ const PublicProject = () => {
     onSuccess: handleDonateSuccess,
     onError: handleDonateError,
   });
-  const { allFundraisings } = useSelector(
-    (state: AppReduxState) => state.info.data,
-  );
-  const { isRequesting, error } = useSelector(
-    (state: AppReduxState) => state.fundraising.communication.donate,
-  );
+
+  const {
+    donating: { error, status },
+    allFundraisings: { value: allFundraisings },
+  } = useAppSelector((state) => state);
 
   useEffect(() => {
+    const isRequesting = status === 'requesting';
     setIsModalLoadingOpen(isRequesting);
-    if (isRequesting) {
+
+    const isSuccessfully = status === 'success';
+    if (isRequesting || isSuccessfully || error) {
       setIsModalOpen(false);
     }
-  }, [isRequesting]);
+    if (isSuccessfully) {
+      setIsModalSuccessOpen(true);
+    }
+    if (error) {
+      setIsModalErrorOpen(true);
+    }
+  }, [status, error]);
 
   useEffect(() => {
     if (offchain) {
@@ -72,7 +83,9 @@ const PublicProject = () => {
 
   useEffect(() => {
     if (allFundraisings) {
-      const project = allFundraisings.find(({ path }) => path === params.id);
+      const project = allFundraisings.find(
+        ({ threadTokenCurrency }) => threadTokenCurrency === params.id,
+      );
       if (project) {
         setCurrentProject(project);
       } else {
@@ -85,7 +98,7 @@ const PublicProject = () => {
     <>
       <Common>
         <Wrapper>
-          <Title>{currentProject.description}</Title>
+          <Title>{currentProject.title}</Title>
           <Duration>Until {getDate(currentProject.deadline)} </Duration>
           <CounterWrapper>
             <RaisedCounter
@@ -123,6 +136,7 @@ const PublicProject = () => {
         errorText={error}
         onClose={() => {
           setIsModalErrorOpen(false);
+          dispatch(setStatus('default'));
         }}
       />
       <ModalLoading
@@ -134,6 +148,7 @@ const PublicProject = () => {
         description="Congratulations! Your donut is ready!"
         onClose={() => {
           setIsModalSuccessOpen(false);
+          dispatch(setStatus('default'));
         }}
       />
     </>

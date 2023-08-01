@@ -10,7 +10,7 @@ import { type Props } from './types';
 
 const Common = ({ children }: Props) => {
   const [currentPage, setCurrentPage] = useState('');
-  const walletStatus = useAppSelector((state) => state.walletStatus.value);
+  const walletStatus = useAppSelector((state) => state.wallet.mode);
 
   const getAppInfo = useGetAppInfo();
   const offchain = useOffchain();

@@ -1,11 +1,7 @@
 import { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
 
-import {
-  type Fundraisings,
-  type AppReduxState,
-  type Fundraising,
-} from 'shared/types';
+import { useAppSelector } from 'core/hooks';
+import { type Fundraisings, type Fundraising } from 'shared/types';
 
 import {
   CardsWrapper,
@@ -29,18 +25,20 @@ const MyProjects = ({ onCreateAProjectClick }: Props) => {
     Fundraising[] | null
   >(null);
   const [filter, setFilter] = useState<ProjectStatus | null>(null);
-  const { fundraisings } = useSelector(
-    (state: AppReduxState) => state.info.data.user,
+  const userFundraisings = useAppSelector(
+    (state) => state.userFundraisings.value,
   );
 
   useEffect(() => {
-    if (fundraisings) {
-      setAllProjectsWithStatus(fundraisings);
-      setFilteredProjects(fundraisings);
+    if (userFundraisings) {
+      setAllProjectsWithStatus(userFundraisings);
+      setFilteredProjects(userFundraisings);
+
+      console.log(filteredProjects);
     } else {
       setAllProjectsWithStatus(null);
     }
-  }, [fundraisings]);
+  }, [userFundraisings]);
 
   const handleFilterClick = (status: ProjectStatus, projects: Fundraisings) => {
     if (filter === status) {
@@ -107,7 +105,7 @@ const MyProjects = ({ onCreateAProjectClick }: Props) => {
               <ProjectCard
                 data={item}
                 linkSection="my-projects"
-                key={item.path}
+                key={item.threadTokenCurrency}
                 status={item.isCompleted ? 'completed' : 'active'}
                 paddingSize="s"
               />

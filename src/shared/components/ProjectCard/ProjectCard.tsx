@@ -17,9 +17,8 @@ import { type Props } from './types';
 const ProjectCard = ({
   data: {
     deadline,
-    description,
+    title,
     goal,
-    path,
     raisedAmount,
     threadTokenName,
     threadTokenCurrency,
@@ -34,12 +33,12 @@ const ProjectCard = ({
   };
 
   return (
-    <Link to={`/${linkSection}/${path}`}>
+    <Link to={`/${linkSection}/${threadTokenCurrency}`}>
       <Wrapper status={status} paddingSize={paddingSize}>
         {status !== 'default' && (
           <Status status={status}>{statusTitles[status]}</Status>
         )}
-        <Title>{description}</Title>
+        <Title>{title}</Title>
         <DateAndAmount>
           <DateItem>{getDate(deadline)}</DateItem>
           <Amount>

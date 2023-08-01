@@ -1,14 +1,13 @@
 import { type UserInfo } from './common';
 
 interface BackendProject {
-  creator: object;
+  creator: string;
   deadline: { value: bigint };
-  description: string;
+  title: string;
   goal: { value: bigint };
   raisedAmt: { value: bigint };
-  threadTokenCurrency: Uint8Array;
-  threadTokenName: Uint8Array;
-  path: string;
+  threadTokenCurrency: string;
+  threadTokenName: string;
   isCompleted: boolean;
 }
 

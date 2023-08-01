@@ -1,8 +1,7 @@
 import { type ChangeEvent, useState, useEffect } from 'react';
-import { useSelector } from 'react-redux';
 
+import { useAppSelector } from 'core/hooks';
 import { useUpdateProtocol } from 'shared/helpers/hooks';
-import { type AppReduxState } from 'shared/types';
 
 import { defaultParams } from './data';
 import {
@@ -20,9 +19,9 @@ const ManagerEditor = ({ config }: Props) => {
   const [isModalSuccessOpen, setIsModalSuccessOpen] = useState(false);
   const [isModalErrorOpen, setIsModalErrorOpen] = useState(false);
   const [isModalLoadingOpen, setIsModalLoadingOpen] = useState(false);
-  const { isRequesting, error } = useSelector(
-    (state: AppReduxState) => state.protocol.communication.update,
-  );
+
+  const { error, status } = useAppSelector((state) => state.protocolUpdating);
+
   const onSuccess = () => {
     setIsModalSuccessOpen(true);
   };
@@ -41,8 +40,8 @@ const ManagerEditor = ({ config }: Props) => {
   };
 
   useEffect(() => {
-    setIsModalLoadingOpen(isRequesting);
-  }, [isRequesting]);
+    setIsModalLoadingOpen(status === 'requesting');
+  }, [status]);
 
   useEffect(() => {
     setParams(config);

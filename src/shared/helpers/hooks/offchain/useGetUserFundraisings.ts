@@ -5,6 +5,7 @@ import {
   setStatus,
 } from 'core/slices/userFundraisings';
 import { updateWalletMode } from 'core/slices/wallet';
+import { testnetNami } from 'shared/constants/wallet';
 import {
   useCheckWalletStatus,
   useOffchain,
@@ -25,7 +26,6 @@ const useGetUserFundraisings = () => {
     dispatch(updateWalletMode('connected'));
     const transformedProjects = transformProjects(projects);
     console.log(transformedProjects);
-
     dispatch(updateUserFundraisings(transformedProjects));
     dispatch(setStatus('success'));
   };
@@ -37,8 +37,8 @@ const useGetUserFundraisings = () => {
 
   if (offchain) {
     return () => {
-      offchain.getUserRelatedFundraisings(handleSuccess)(handleError)(
-        protocol,
+      offchain.getUserRelatedFundraisings(handleSuccess)(handleError)(protocol)(
+        testnetNami,
       )();
       checkWalletStatus();
       dispatch(setStatus('requesting'));

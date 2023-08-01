@@ -7,22 +7,21 @@ interface Config {
 }
 
 interface Fundraising {
-  creator: object;
+  creator: string;
   deadline: number;
-  description: string;
+  title: string;
   goal: number;
   raisedAmount: number;
-  threadTokenCurrency: Uint8Array;
-  threadTokenName: Uint8Array;
-  path: string;
+  threadTokenCurrency: string;
+  threadTokenName: string;
   isCompleted: boolean;
 }
 
 type Fundraisings = Fundraising[];
 
 interface FundraisingData {
-  frThreadTokenCurrency: Uint8Array;
-  frThreadTokenName: Uint8Array;
+  frThreadTokenCurrency: string;
+  frThreadTokenName: string;
 }
 
 interface CreateFundraisingParams {
