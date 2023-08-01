@@ -18,7 +18,7 @@ Front-end for Donat.Pool made with React, Typescript and love)
 1. Run necessary docker's containers via
 
 ```bash
-docker compose up
+docker compose up -d
 ```
 
 2. Start project
