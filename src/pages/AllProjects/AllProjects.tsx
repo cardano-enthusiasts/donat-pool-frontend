@@ -29,7 +29,6 @@ const AllProjects = () => {
     if (offchain && walletStatus === 'connected') {
       getAllFundraisings();
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [offchain, walletStatus]);
 
   useEffect(() => {

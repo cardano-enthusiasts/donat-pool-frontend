@@ -32,7 +32,6 @@ const Management = () => {
     if (isManager === false) {
       navigate('/all-projects');
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isManager]);
 
   return !isRequesting ? (

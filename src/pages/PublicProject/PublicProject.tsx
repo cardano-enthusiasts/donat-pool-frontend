@@ -68,7 +68,6 @@ const PublicProject = () => {
     if (offchain) {
       getAllFundraisings();
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [offchain]);
 
   useEffect(() => {

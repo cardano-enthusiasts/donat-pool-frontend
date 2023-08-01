@@ -22,12 +22,10 @@ const Common = ({ children }: Props) => {
     if (offchain) {
       getAppInfo();
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [offchain]);
 
   useEffect(() => {
     setCurrentPage(location.pathname);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [location.pathname]);
 
   return (

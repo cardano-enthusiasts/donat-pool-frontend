@@ -74,7 +74,6 @@ const Base = () => {
 
       setWalletIsNotAvailable(isNotAvailable && !isWalletFreePage);
     }, 1000);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [walletStatus, location.pathname]);
 
   useEffect(() => {
@@ -85,7 +84,6 @@ const Base = () => {
     if (walletIsNotAvailable) {
       navigate('/');
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [walletStatus, window]);
 
   return walletIsNotAvailable ? (

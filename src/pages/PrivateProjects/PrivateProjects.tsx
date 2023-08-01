@@ -26,7 +26,6 @@ const PrivateProjects = () => {
     if (offchain && walletStatus === 'connected') {
       getUserFundraisings();
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [offchain, walletStatus]);
 
   return !isRequesting ? (
