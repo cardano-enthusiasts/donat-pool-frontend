@@ -65,7 +65,7 @@ type ReceiveFunds = (
 ) => (protocol: string) => (fundraisingData: FundraisingData) => () => void;
 declare global {
   interface Window {
-    offchain: {
+    donatPool: {
       closeProtocol: any;
       connectWallet: ConnectWallet;
       createFundraising: CreateFundraising;
