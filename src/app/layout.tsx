@@ -1,15 +1,11 @@
-'use client';
-
 import type { Metadata } from 'next';
 import { Rammetto_One } from 'next/font/google';
 import localFont from 'next/font/local';
 import Script from 'next/script';
-import { Provider as ReduxProvider } from 'react-redux';
-
-import { store } from '@/core/store';
 
 import './globals.css';
 import StyledComponentsProvider from '@/styled';
+import StoreProvider from '@/store';
 
 const microsoftYaHeiFont = localFont({
   src: [
@@ -50,7 +46,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     >
       <body>
         <StyledComponentsProvider>
-          <ReduxProvider store={store}>{children}</ReduxProvider>
+          <StoreProvider>{children}</StoreProvider>
         </StyledComponentsProvider>
         <Script src="/offchain/index.js" />
       </body>
