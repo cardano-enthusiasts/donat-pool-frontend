@@ -9,6 +9,10 @@ export const slice = createSlice({
   name: 'fundraisingCreating',
   initialState,
   reducers: {
+    updateCreatedPath: (state, action: PayloadAction<string>) => {
+      state.path = action.payload;
+      state.status = 'success';
+    },
     setError: (state, action: PayloadAction<string | null>) => {
       state.error = action.payload;
       state.status = 'error';
@@ -19,6 +23,6 @@ export const slice = createSlice({
   },
 });
 
-export const { setError, setStatus } = slice.actions;
+export const { setError, setStatus, updateCreatedPath } = slice.actions;
 
 export default slice.reducer;

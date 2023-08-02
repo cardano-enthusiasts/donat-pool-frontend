@@ -1,7 +1,9 @@
 import { type ChangeEvent, useState, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
 import { useAppSelector } from 'core/hooks';
+import { setError as setCreateError, setStatus } from 'core/slices/fundraisingCreating';
 import { useCreateFundraising } from 'shared/helpers/hooks';
 
 import {
@@ -27,16 +29,10 @@ import {
 const CreationForm = ({ onClose, protocol }: Props) => {
   const { minAmountParam, maxAmountParam, minDurationParam, maxDurationParam } =
     protocol;
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   const [createdPath, setCreatedPath] = useState('');
-  const handleSuccess = (path) => {
-    setCreatedPath(path);
-    setIsSuccessModalOpen(true);
-  };
-  const handleError = () => {
-    setIsErrorModalOpen(true);
-  };
-  const createFundraising = useCreateFundraising(handleSuccess, handleError);
+  const createFundraising = useCreateFundraising();
   const [isChecked, setIsChecked] = useState(false);
   const [isSuccessModalOpen, setIsSuccessModalOpen] = useState(false);
   const [isLoadingModalOpen, setIsLoadingModalOpen] = useState(false);
@@ -49,9 +45,21 @@ const CreationForm = ({ onClose, protocol }: Props) => {
     durationHours: '',
     durationMinutes: '',
   });
-  const { error: createError, status } = useAppSelector(
-    (state) => state.fundraisingsCreating,
-  );
+  const {
+    error: createError,
+    status,
+    path,
+  } = useAppSelector((state) => state.fundraisingsCreating);
+
+  useEffect(() => {
+    if (status === 'success' && path) {
+      setCreatedPath(path);
+      setIsSuccessModalOpen(true);
+    }
+    if (status === 'error') {
+      setIsErrorModalOpen(true);
+    }
+  }, [status, path]);
 
   const initialErrors = {
     title: null,
@@ -106,7 +114,7 @@ const CreationForm = ({ onClose, protocol }: Props) => {
       setErrorsToForm();
     } else {
       const createFundraisingParams = {
-        description: data.title,
+        title: data.title,
         amount: Number(data.goal),
         duration: {
           days: Number(data.durationDays),
@@ -114,7 +122,6 @@ const CreationForm = ({ onClose, protocol }: Props) => {
           minutes: Number(data.durationMinutes),
         },
       };
-
       createFundraising(createFundraisingParams);
     }
   };
@@ -244,6 +251,7 @@ const CreationForm = ({ onClose, protocol }: Props) => {
         onClose={() => {
           setIsSuccessModalOpen(false);
           navigate('/my-projects');
+          dispatch(setStatus('default'));
         }}
       />
       <ModalLoading isOpen={isLoadingModalOpen} />
@@ -253,6 +261,7 @@ const CreationForm = ({ onClose, protocol }: Props) => {
         errorText={createError}
         onClose={() => {
           setIsErrorModalOpen(false);
+          dispatch(setCreateError(null));
         }}
       />
     </>

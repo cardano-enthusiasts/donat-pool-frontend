@@ -3,8 +3,8 @@ import {
   type CreateFundraisingParams,
   type FundraisingData,
   type UserAndProtocolParams,
-  type Fundraising,
   type Config,
+  type BackendProject,
 } from './';
 
 type OnError = (error: string) => void;
@@ -19,7 +19,7 @@ type ConnectWallet = (
 ) => (onError: OnError) => (walletParams: TestnetNami) => () => void;
 
 type CreateFundraising = (
-  onSuccess: (fundraisingData: Fundraising) => void,
+  onSuccess: (fundraisingData: BackendProject) => void,
 ) => (
   onError: OnError,
 ) => (

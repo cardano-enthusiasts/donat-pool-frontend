@@ -25,7 +25,7 @@ interface FundraisingData {
 }
 
 interface CreateFundraisingParams {
-  description: string;
+  title: string;
   amount: number;
   duration: {
     days: number;

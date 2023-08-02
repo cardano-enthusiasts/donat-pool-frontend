@@ -1,9 +1,16 @@
 import { useDispatch } from 'react-redux';
 
-import { setError, setStatus } from 'core/slices/fundraisingCreating';
+import {
+  setError,
+  setStatus,
+  updateCreatedPath,
+} from 'core/slices/fundraisingCreating';
 import { updateWalletMode } from 'core/slices/wallet';
 import { testnetNami } from 'shared/constants/wallet';
-import { type Fundraising, type CreateFundraisingParams } from 'shared/types';
+import {
+  type CreateFundraisingParams,
+  type BackendProject,
+} from 'shared/types';
 
 import {
   useOffchain,
@@ -13,7 +20,7 @@ import {
 } from '..';
 import { getOffchainError } from '../..';
 
-const useCreateFundraising = (onSuccess, onError) => {
+const useCreateFundraising = () => {
   const offchain = useOffchain();
   const dispatch = useDispatch();
   const getUserFundraisings = useGetUserFundraisings();
@@ -21,17 +28,16 @@ const useCreateFundraising = (onSuccess, onError) => {
   const checkWalletStatus = useCheckWalletStatus();
   const protocol = JSON.parse(process.env.PROTOCOL);
 
-  const handleSuccess = (fundraisingData: Fundraising) => {
+  const handleSuccess = (fundraisingData: BackendProject) => {
+    dispatch(updateCreatedPath(fundraisingData.threadTokenCurrency));
     dispatch(updateWalletMode('connected'));
-    onSuccess(fundraisingData.threadTokenCurrency);
     dispatch(setStatus('success'));
     getUserFundraisings();
   };
 
   const handleError = (error) => {
-    handleCommonError(error);
-    onError();
-    dispatch(setError(error));
+    const filteredError = handleCommonError(error);
+    dispatch(setError(filteredError));
   };
 
   if (offchain) {

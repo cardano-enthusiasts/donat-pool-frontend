@@ -1,2 +1,2 @@
-import { setError, setStatus } from './fundraisingCreating';
-export { setError, setStatus };
+import { setError, setStatus, updateCreatedPath } from './fundraisingCreating';
+export { setError, setStatus, updateCreatedPath };
