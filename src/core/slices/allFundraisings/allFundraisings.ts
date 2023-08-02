@@ -19,6 +19,9 @@ export const slice = createSlice({
     },
     setStatus: (state, action: PayloadAction<Status>) => {
       state.status = action.payload;
+      if (action.payload === 'error') {
+        state.error = null;
+      }
     },
   },
 });
