@@ -26,7 +26,7 @@ const getFieldStyles = ({ errorInfo, fontColor }: any) => css`
   font-size: 20px;
 
   &::placeholder {
-    font-family: 'Microsoft YaHei', Arial, sans-serif;
+    font-family: var(--microsoft-ya-hei-font);
     font-size: 20px;
     color: #29dea8;
   }

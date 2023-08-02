@@ -1,10 +1,11 @@
+'use client';
 import { useRouter } from 'next/navigation';
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 import { setWalletStatusSuccess } from '@/features/info/redux/actionCreators';
 import { Common } from '@/layouts';
-import { MyProjects , NotAvailableError } from '@/shared/components';
+import { MyProjects, NotAvailableError } from '@/shared/components';
 import { useGetUserFundraisings, useOffchain } from '@/shared/helpers/hooks';
 import { type AppReduxState } from '@/shared/types';
 

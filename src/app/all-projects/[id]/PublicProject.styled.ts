@@ -6,7 +6,7 @@ const Wrapper = styled.div`
 `;
 
 const Title = styled.h1`
-  font-family: 'Rammetto One', Arial, Helvetica, sans-serif;
+  font-family: var(--rammetto-one-font);
   font-weight: normal;
   font-size: 54px;
   line-height: 104%;

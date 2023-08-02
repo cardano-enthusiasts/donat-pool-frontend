@@ -1,3 +1,4 @@
+'use client';
 import { useRouter } from 'next/navigation';
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
@@ -5,7 +6,11 @@ import { useSelector, useDispatch } from 'react-redux';
 import { setWalletStatusSuccess } from '@/features/info/redux/actionCreators';
 import { Common } from '@/layouts';
 import { Button, NotAvailableError, ProjectCard } from '@/shared/components';
-import { useGetAllFundraisings, useOffchain } from '@/shared/helpers/hooks';
+import {
+  useConnectWallet,
+  useGetAllFundraisings,
+  useOffchain,
+} from '@/shared/helpers/hooks';
 import { type Fundraisings, type AppReduxState } from '@/shared/types';
 
 import {
@@ -19,6 +24,7 @@ const AllProjects = () => {
   const dispatch = useDispatch();
   const offchain = useOffchain();
   const router = useRouter();
+  const connectWallet = useConnectWallet();
   const getAllFundraisings = useGetAllFundraisings();
   const {
     data: { allFundraisings, walletStatus },
@@ -26,6 +32,10 @@ const AllProjects = () => {
       setWalletStatus: { isRequesting },
     },
   } = useSelector((state: AppReduxState) => state.info);
+
+  useEffect(() => {
+    connectWallet();
+  }, []);
 
   useEffect(() => {
     if (offchain && walletStatus === 'connected') {

@@ -5,7 +5,7 @@ const Wrapper = styled.div`
   align-items: center;
   justify-content: center;
   gap: 16px;
-  font-family: 'Rammetto One', Arial, Helvetica, sans-serif;
+  font-family: var(--rammetto-one-font);
   font-weight: normal;
   font-size: 54px;
   line-height: 104%;

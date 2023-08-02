@@ -82,7 +82,7 @@ const Link = styled.a<{
   currentSection: LandingSection;
   mobileResolution: number;
 }>`
-  font-family: 'Rammetto One', Arial, Helvetica, sans-serif, sans-serif;
+  font-family: var(--rammetto-one-font);
   font-size: ${({ isActive }) => (isActive ? '54px' : '15px')};
   line-height: 104%;
   cursor: pointer;

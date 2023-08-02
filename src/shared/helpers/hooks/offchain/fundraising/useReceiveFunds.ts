@@ -22,7 +22,6 @@ const useReceiveFunds = ({ onSuccess, onError }) => {
   const getUserFundraisings = useGetUserFundraisings();
   const handleCommonError = useHandleError();
   const checkWalletStatus = useCheckWalletStatus();
-  const protocol = JSON.parse(process.env.PROTOCOL);
 
   const handleSuccess = () => {
     dispatch(receiveFundsSuccess());
@@ -39,9 +38,9 @@ const useReceiveFunds = ({ onSuccess, onError }) => {
 
   if (offchain) {
     return (fundraisingData: FundraisingData) => {
-      offchain.receiveFunds(handleSuccess)(handleError)(protocol)(
-        fundraisingData,
-      )();
+      offchain.receiveFunds(handleSuccess)(handleError)(
+        JSON.parse(process.env.NEXT_PUBLIC_PROTOCOL),
+      )(fundraisingData)();
       checkWalletStatus();
       dispatch(receiveFunds());
     };

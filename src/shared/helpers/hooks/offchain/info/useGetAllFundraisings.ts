@@ -16,7 +16,6 @@ const useGetAllFundraisings = () => {
   const dispatch = useDispatch();
   const handleCommonError = useHandleError();
   const checkWalletStatus = useCheckWalletStatus();
-  const protocol = JSON.parse(process.env.PROTOCOL);
 
   const handleSuccess = (projects: BackendProjects) => {
     console.log(projects);
@@ -56,7 +55,9 @@ const useGetAllFundraisings = () => {
 
   if (offchain) {
     return () => {
-      offchain.getAllFundraisings(handleSuccess)(handleError)(protocol)();
+      offchain.getAllFundraisings(handleSuccess)(handleError)(
+        JSON.parse(process.env.NEXT_PUBLIC_PROTOCOL),
+      )();
       checkWalletStatus();
       dispatch(getAllFundraisings());
     };

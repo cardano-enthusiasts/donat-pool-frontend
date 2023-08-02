@@ -20,7 +20,7 @@ const Order = styled.div`
 
 const Title = styled.div`
   color: #141414;
-  font-family: 'Rammetto One', Arial, Helvetica, sans-serif;
+  font-family: var(--rammetto-one-font);
   font-size: 20px;
   line-height: 120%;
   margin-bottom: 24px;

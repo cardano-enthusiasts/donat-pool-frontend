@@ -3,12 +3,13 @@
 import type { Metadata } from 'next';
 import { Rammetto_One } from 'next/font/google';
 import localFont from 'next/font/local';
+import Script from 'next/script';
 import { Provider as ReduxProvider } from 'react-redux';
 
 import { store } from '@/core/store';
 
 import './globals.css';
-import StyledComponentProvider from '@/lib/themeProvider';
+import StyledComponentsProvider from '@/styled';
 
 const microsoftYaHeiFont = localFont({
   src: [
@@ -48,10 +49,10 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       lang="en"
     >
       <body>
-        {/* TODO: delete StyledComponentProvider and lib folder after all code that uses styled components is removed */}
-        <StyledComponentProvider>
+        <StyledComponentsProvider>
           <ReduxProvider store={store}>{children}</ReduxProvider>
-        </StyledComponentProvider>
+        </StyledComponentsProvider>
+        <Script src="/offchain/index.js" />
       </body>
     </html>
   );

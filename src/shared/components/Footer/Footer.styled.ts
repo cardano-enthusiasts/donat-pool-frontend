@@ -30,7 +30,7 @@ const Inner = styled.div`
 const Links = styled.div`
   display: flex;
   gap: 80px;
-  font-family: 'Rammetto One', Arial, Helvetica, sans-serif;
+  font-family: var(--rammetto-one-font);
   font-size: 15px;
   line-height: 107%;
   color: #fff;

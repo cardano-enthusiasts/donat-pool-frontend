@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const Title = styled.h2`
-  font-family: 'Rammetto One', Arial, Helvetica, sans-serif;
+  font-family: var(--rammetto-one-font);
   font-size: 36px;
   line-height: 111%;
   color: #ff6b95;

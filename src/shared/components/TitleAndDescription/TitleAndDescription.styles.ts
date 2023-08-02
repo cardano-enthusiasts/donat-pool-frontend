@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const Wrapper = styled.div<{ isActive: boolean }>`
-  font-family: 'Rammetto One', Arial, sans-serif;
+  font-family: var(--rammetto-one-font);
   display: flex;
   flex-direction: column;
   > * {

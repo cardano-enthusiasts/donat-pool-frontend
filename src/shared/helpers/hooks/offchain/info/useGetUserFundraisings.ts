@@ -20,7 +20,6 @@ const useGetUserFundraisings = () => {
   const dispatch = useDispatch();
   const handleCommonError = useHandleError();
   const checkWalletStatus = useCheckWalletStatus();
-  const protocol = JSON.parse(process.env.PROTOCOL);
 
   const handleSuccess = (projects) => {
     dispatch(setWalletStatusSuccess('connected'));
@@ -36,7 +35,7 @@ const useGetUserFundraisings = () => {
   if (offchain) {
     return () => {
       offchain.getUserRelatedFundraisings(handleSuccess)(handleError)(
-        protocol,
+        JSON.parse(process.env.NEXT_PUBLIC_PROTOCOL),
       )();
       checkWalletStatus();
       dispatch(getUserFundraisings());

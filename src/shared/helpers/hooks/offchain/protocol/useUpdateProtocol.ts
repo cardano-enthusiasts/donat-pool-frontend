@@ -22,7 +22,6 @@ const useUpdateProtocol = ({ onSuccess, onError }) => {
   const getAppInfo = useGetAppInfo();
   const handleCommonError = useHandleError();
   const checkWalletStatus = useCheckWalletStatus();
-  const protocol = JSON.parse(process.env.PROTOCOL);
 
   const handleSuccess = () => {
     dispatch(updateSuccess());
@@ -47,9 +46,9 @@ const useUpdateProtocol = ({ onSuccess, onError }) => {
 
   if (offchain) {
     return (config: Config) => {
-      offchain.updateProtocol(handleSuccess)(handleError)(protocol)(
-        editConfig(config),
-      )();
+      offchain.updateProtocol(handleSuccess)(handleError)(
+        JSON.parse(process.env.NEXT_PUBLIC_PROTOCOL),
+      )(editConfig(config))();
       checkWalletStatus();
       dispatch(update());
     };

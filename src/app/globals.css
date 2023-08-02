@@ -3,13 +3,17 @@
 @tailwind utilities;
 
 @layer base {
-  -webkit-scrollbar {
+  ::-webkit-scrollbar {
     @apply w-[5px];
+
+    font-family: 1;
   }
-  -webkit-scrollbar-track {
+
+  ::-webkit-scrollbar-track {
     @apply bg-purple;
   }
-  -webkit-scrollbar-thumb {
+
+  ::-webkit-scrollbar-thumb {
     @apply bg-red;
   }
 }

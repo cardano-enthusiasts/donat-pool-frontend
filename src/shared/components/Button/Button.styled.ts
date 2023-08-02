@@ -48,7 +48,7 @@ const getAccentStyles = ({
   font-size: 32px;
   width: 290px;
   height: ${size === 's' ? '97px' : '127px'};
-  font-family: 'Rammetto One', Arial, sans-serif;
+  font-family: var(--rammetto-one-font);
   color: ${({ theme }) => theme.colors[fontColor]};
   background-color: ${({ theme }) =>
     theme.colors[primaryColor]

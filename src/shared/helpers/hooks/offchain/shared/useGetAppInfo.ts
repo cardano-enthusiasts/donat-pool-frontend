@@ -21,7 +21,6 @@ const useGetAppInfo = () => {
   const dispatch = useDispatch();
   const handleCommonError = useHandleError();
   const checkWalletStatus = useCheckWalletStatus();
-  const protocol = JSON.parse(process.env.PROTOCOL);
 
   const handleSuccess = ({
     protocolConfig,
@@ -55,7 +54,9 @@ const useGetAppInfo = () => {
 
   if (offchain) {
     return () => {
-      offchain?.getAppInfo(handleSuccess)(handleError)(protocol)();
+      offchain?.getAppInfo(handleSuccess)(handleError)(
+        JSON.parse(process.env.NEXT_PUBLIC_PROTOCOL),
+      )();
       checkWalletStatus();
       dispatch(getInfo());
       dispatch(getUserInfo());
