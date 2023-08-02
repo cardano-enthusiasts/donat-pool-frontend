@@ -1,6 +1,8 @@
 import { type ChangeEvent, useState, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 
 import { useAppSelector } from 'core/hooks';
+import { setError, setStatus } from 'core/slices/protocolUpdating';
 import { useUpdateProtocol } from 'shared/helpers/hooks';
 
 import { defaultParams } from './data';
@@ -19,16 +21,10 @@ const ManagerEditor = ({ config }: Props) => {
   const [isModalSuccessOpen, setIsModalSuccessOpen] = useState(false);
   const [isModalErrorOpen, setIsModalErrorOpen] = useState(false);
   const [isModalLoadingOpen, setIsModalLoadingOpen] = useState(false);
+  const dispatch = useDispatch();
 
   const { error, status } = useAppSelector((state) => state.protocolUpdating);
-
-  const onSuccess = () => {
-    setIsModalSuccessOpen(true);
-  };
-  const onError = () => {
-    setIsModalErrorOpen(true);
-  };
-  const updateProtocol = useUpdateProtocol({ onSuccess, onError });
+  const updateProtocol = useUpdateProtocol();
 
   const filterInputValue = (value: string): '' | number => {
     if (Number(value) < 0) {
@@ -38,6 +34,15 @@ const ManagerEditor = ({ config }: Props) => {
     }
     return '';
   };
+
+  useEffect(() => {
+    if (status === 'success') {
+      setIsModalSuccessOpen(true);
+    }
+    if (status === 'error') {
+      setIsModalErrorOpen(true);
+    }
+  }, [status]);
 
   useEffect(() => {
     setIsModalLoadingOpen(status === 'requesting');
@@ -104,6 +109,7 @@ const ManagerEditor = ({ config }: Props) => {
         errorText={error}
         onClose={() => {
           setIsModalErrorOpen(false);
+          dispatch(setError(null));
         }}
       />
       <ModalSuccess
@@ -111,6 +117,7 @@ const ManagerEditor = ({ config }: Props) => {
         description="All data saved"
         onClose={() => {
           setIsModalSuccessOpen(false);
+          dispatch(setStatus('default'));
         }}
       />
     </>
