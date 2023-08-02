@@ -5,8 +5,6 @@
 @layer base {
   ::-webkit-scrollbar {
     @apply w-[5px];
-
-    font-family: 1;
   }
 
   ::-webkit-scrollbar-track {

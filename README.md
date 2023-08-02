@@ -11,7 +11,7 @@ Front-end for Donat.Pool made with React, Typescript and love)
 
 1. Clone repository
 2. Install project's required dependencies
-3. Create `.env.local` file and add config parameters from `.env.example`
+3. Create `.env` file and add config parameters from `.env.example`
 
 ## Starting project in development mode
 
