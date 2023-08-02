@@ -41,18 +41,7 @@ const PublicProject = () => {
   const [isModalErrorOpen, setIsModalErrorOpen] = useState(false);
   const [isModalLoadingOpen, setIsModalLoadingOpen] = useState(false);
   const [isModalSuccessOpen, setIsModalSuccessOpen] = useState(false);
-  const handleDonateSuccess = () => {
-    setIsModalSuccessOpen(true);
-    setIsModalOpen(false);
-  };
-  const handleDonateError = () => {
-    setIsModalOpen(false);
-    setIsModalErrorOpen(true);
-  };
-  const donate = useDonate({
-    onSuccess: handleDonateSuccess,
-    onError: handleDonateError,
-  });
+  const donate = useDonate();
 
   const {
     donating: { error, status },
@@ -64,16 +53,17 @@ const PublicProject = () => {
     setIsModalLoadingOpen(isRequesting);
 
     const isSuccessfully = status === 'success';
-    if (isRequesting || isSuccessfully || error) {
+    const isError = status === 'error';
+    if (isRequesting || isSuccessfully || isError) {
       setIsModalOpen(false);
     }
     if (isSuccessfully) {
       setIsModalSuccessOpen(true);
     }
-    if (error) {
+    if (isError) {
       setIsModalErrorOpen(true);
     }
-  }, [status, error]);
+  }, [status]);
 
   useEffect(() => {
     if (offchain) {

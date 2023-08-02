@@ -13,7 +13,7 @@ import {
 } from '..';
 import { getOffchainError } from '../..';
 
-const useDonate = ({ onSuccess, onError }) => {
+const useDonate = () => {
   const offchain = useOffchain();
   const dispatch = useDispatch();
   const getAllFundraisings = useGetAllFundraisings();
@@ -25,13 +25,11 @@ const useDonate = ({ onSuccess, onError }) => {
     dispatch(updateWalletMode('connected'));
     dispatch(setStatus('success'));
     getAllFundraisings();
-    onSuccess();
   };
 
   const handleError = (error) => {
-    handleCommonError(error);
-    onError();
-    dispatch(setError(error));
+    const filteredError = handleCommonError(error);
+    dispatch(setError(filteredError));
   };
 
   if (offchain) {
