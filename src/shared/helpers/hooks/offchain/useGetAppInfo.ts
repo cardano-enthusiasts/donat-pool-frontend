@@ -46,8 +46,8 @@ const useGetAppInfo = () => {
   };
 
   const handleError = (error) => {
-    handleCommonError(error);
-    dispatch(setError(error));
+    const filteredError = handleCommonError(error);
+    dispatch(setError(filteredError));
   };
 
   if (offchain) {

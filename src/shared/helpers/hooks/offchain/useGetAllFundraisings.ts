@@ -10,7 +10,7 @@ import { testnetNami } from 'shared/constants/wallet';
 import { type BackendProjects } from 'shared/types';
 
 import { useOffchain, useCheckWalletStatus, useHandleError } from '..';
-import { getOffchainError } from '../..';
+import { getOffchainError, transformProjects } from '../..';
 
 const useGetAllFundraisings = () => {
   const offchain = useOffchain();
@@ -20,36 +20,14 @@ const useGetAllFundraisings = () => {
   const protocol = JSON.parse(process.env.PROTOCOL);
 
   const handleSuccess = (projects: BackendProjects) => {
-    const filteredProjects = projects.map(
-      ({
-        creator,
-        deadline,
-        title,
-        goal,
-        raisedAmt,
-        threadTokenCurrency,
-        threadTokenName,
-        isCompleted,
-      }) => {
-        return {
-          creator,
-          deadline: Number(deadline.value),
-          title,
-          goal: Number(goal.value),
-          raisedAmount: Number(raisedAmt.value),
-          threadTokenCurrency,
-          threadTokenName,
-          isCompleted,
-        };
-      },
-    );
+    const filteredProjects = transformProjects(projects);
     dispatch(updateAllFundraisings(filteredProjects));
     dispatch(updateWalletMode('connected'));
   };
 
   const handleError = (error) => {
-    handleCommonError(error);
-    dispatch(setError(error));
+    const filteredError = handleCommonError(error);
+    dispatch(setError(filteredError));
   };
 
   if (offchain) {
