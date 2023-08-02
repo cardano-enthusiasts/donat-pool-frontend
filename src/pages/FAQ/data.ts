@@ -3,12 +3,12 @@ const basicSection = [
     title:
       'Is it possible to edit a project title or other information after creating a project?',
     description:
-      'Project title, amount to raise, project duration and creator&#39;s wallet - are immutable parameters that are stored in the Cardano blockchain, so it&#39;s impossible to edit these parameters.',
+      'Project title, amount to raise, project duration and creator&#39;s wallet are immutable parameters that are stored on the Cardano blockchain, so it&#39;s impossible to edit these parameters.',
   },
   {
-    title: 'What is the Donat.Pool service fee?',
+    title: 'What is a Donat.Pool service fee?',
     description:
-      'Donat.Pool service fee is the fee that must be paid to the service after completing a fundraising project. The interest rate is established by the service protocol and the project owner has to agree with it while creating a project. The service fee interest rate is an immutable parameter so it cannot be changed after starting a project even if it was changed in the Donat.Pool protocol. The minimal fee is 2 Ada, so the final fee is counted as a maximum of 2 Ada or the actual percentage of the raised amount. Service fee is paid only once automatically when the project owner receives the raised funds.',
+      'A Donat.Pool service fee is a fee that must be paid to the service after completing a fundraising project. The interest rate is established by the service protocol and the project owner has to agree with it while creating a project. The service fee interest rate is an immutable parameter so it cannot be changed after starting a project even if it was changed in the Donat.Pool protocol. The minimum fee is 2 ADA, so the final fee is calculated as a maximum of 2 ADA or the actual percentage of the raised amount. The service fee is paid only once automatically when the project owner receives the raised funds.',
   },
   {
     title: 'Is it possible to donate to my own fundraising project?',
@@ -27,7 +27,7 @@ const basicSection = [
   {
     title: 'Who can withdraw the raised funds?',
     description:
-      'Only a project creator may receive the raised funds. Information about the creator&#39;s wallet address is recorded in the blockchain, so it&#39;s impossible to receive funds with different wallets. Remember that after creating a project you should keep an access to the current wallet, otherwise the funds stay locked on a script address forever. ',
+      'Only a project creator can receive the raised funds. Information about the creator&#39;s wallet address is recorded on the blockchain, so it&#39;s impossible to receive funds with different wallets. Remember that after creating a project you should keep access to the current wallet, otherwise the funds stay locked on a script address forever. ',
   },
   {
     title: 'How to receive funds?',
@@ -37,7 +37,7 @@ const basicSection = [
   {
     title: 'Is the partial withdrawal possible? ',
     description:
-      'No, a project owner can only withdraw the full amount at once.',
+      'No, a project owner can withdraw only the full amount at once.',
   },
   {
     title:
@@ -53,20 +53,31 @@ const basicSection = [
   },
   {
     title:
-      'As a donor, can I get the info where the funds raised went? How can I be sure that the funds raised will be spent in the way it was mentioned in the project description?',
+      'How can I be sure that the funds raised will be spent in the way it was mentioned in the project description?',
     description:
-      'As a donor, you can trace the raised funds using the Cardano observer. But Donat.Pool can&#39;t guarantee that funds will be spent in the way it was mentioned in the project description. You should donate only to reliable project owners, so you should be confident that the resource shared with the donation link is trustworthy.',
+      'As a donor, you can trace the raised funds using the Cardano observer. But Donat.Pool can&#39;t guarantee that funds will be spent in the way it was mentioned in the project description. You should donate only to reliable project owners, so that you can be confident that the resource where the donation link is shared is trustworthy.',
+  },
+  {
+    title:
+      'Do I have to provide a report on how the funds have been spent?',
+    description:
+      'Donat.Pool doesn&#39;t require a report, but if you want to build trust with your community and plan to start more donation projects, you can provide reports on your resource (website, youtube channel, etc) which you used to share the donation link.',
   },
   {
     title:
       'What are the minimum and maximum fundraising periods? What maximum amount can I claim?',
     description:
-      'Min and max periods, min and max amount, and Donat.Pool fee are dynamically changing parameters. They are regulated by governance token owners through the decentralized voting process.<br> Changes can affect only new projects. When you create a project you agree with current parameters (Min and max periods, min and max amount, and Donat.Pool fee) and they will be fixed for this project and can&#39;t be changed.',
+      'Min and max periods, min and max amount, and a Donat.Pool fee are dynamically changing parameters. They are regulated by governance token owners through a decentralized voting process.<br> Changes can affect only new projects. When you create a project you agree with the current parameters (Min and max periods, min and max amount, and a Donat.Pool fee) and they will be fixed for this project and can&#39;t be changed.',
   },
   {
     title: 'What happens to funds if I don&#39;t reach my goal?',
     description:
-      'If your fundraising doesn&#39;t earn the target amount, at the end of the donation period you can receive the raised funds with the same conditions - fee for service will be based on the raised amount.',
+      'If your fundraising doesn&#39;t earn the target amount, at the end of the donation period you can receive the raised funds on the same terms - a service fee will be based on the raised amount.',
+  },
+  {
+    title: 'What can I raise funds for?',
+    description:
+      'You can raise funds for any project you want (community project, business, art, sport, charity, etc.) except for projects where the act of raising funds or the purpose of the project is illegal.',
   },
 ];
 
