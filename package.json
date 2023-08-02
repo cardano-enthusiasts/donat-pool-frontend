@@ -13,7 +13,7 @@
   "dependencies": {
     "html-react-parser": "4.2.0",
     "next": "13.4.12",
-    "offchain": "git+ssh://git@github.com:fullstack-development/donat-pool-offchain.git#27f98c2b2162875e3192dec6d2799272dfce14e5",
+    "offchain": "git+ssh://git@github.com:fullstack-development/donat-pool-offchain.git#cb823e6fce4fc696da088ecde4d8e790db85ffe1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-redux": "8.1.2",
