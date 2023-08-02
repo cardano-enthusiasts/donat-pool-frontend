@@ -25,7 +25,6 @@ const useGetUserFundraisings = () => {
   const handleSuccess = (projects) => {
     dispatch(updateWalletMode('connected'));
     const transformedProjects = transformProjects(projects);
-    console.log(transformedProjects);
     dispatch(updateUserFundraisings(transformedProjects));
     dispatch(setStatus('success'));
   };

@@ -25,7 +25,6 @@ const ModalContactUs = ({ isOpen, onClose }: Props) => {
   };
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(data);
   };
   const handleCancelClick = () => {
     onClose();

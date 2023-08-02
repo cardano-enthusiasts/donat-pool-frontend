@@ -63,8 +63,6 @@ const AllProjects = () => {
       <CardsWrapper>
         {allFundraisings ? (
           sortAndFilterFundraising(allFundraisings).map((project) => {
-            console.log('project', project);
-
             return (
               <ProjectCard
                 data={project}

@@ -20,7 +20,6 @@ const useGetAllFundraisings = () => {
   const protocol = JSON.parse(process.env.PROTOCOL);
 
   const handleSuccess = (projects: BackendProjects) => {
-    console.log(projects);
     const filteredProjects = projects.map(
       ({
         creator,

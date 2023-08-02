@@ -33,8 +33,6 @@ const MyProjects = ({ onCreateAProjectClick }: Props) => {
     if (userFundraisings) {
       setAllProjectsWithStatus(userFundraisings);
       setFilteredProjects(userFundraisings);
-
-      console.log(filteredProjects);
     } else {
       setAllProjectsWithStatus(null);
     }
