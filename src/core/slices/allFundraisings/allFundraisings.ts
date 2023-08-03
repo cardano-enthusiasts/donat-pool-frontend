@@ -1,6 +1,6 @@
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
 
-import { type Status, type Fundraisings } from 'shared/types';
+import { type RequestStatus, type Fundraisings } from 'shared/types';
 
 import { initialState } from './constants';
 
@@ -16,7 +16,7 @@ export const slice = createSlice({
       state.error = action.payload;
       state.status = 'error';
     },
-    setStatus: (state, action: PayloadAction<Status>) => {
+    setStatus: (state, action: PayloadAction<RequestStatus>) => {
       state.status = action.payload;
       if (action.payload === 'error') {
         state.error = null;

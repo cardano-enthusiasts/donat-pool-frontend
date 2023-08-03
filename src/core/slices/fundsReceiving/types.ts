@@ -1,8 +1,8 @@
-import { type Status } from 'shared/types';
+import { type RequestStatus } from 'shared/types';
 
 interface State {
   error: string | null;
-  status: Status;
+  status: RequestStatus;
 }
 
 export type { State };

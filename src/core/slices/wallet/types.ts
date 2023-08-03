@@ -1,8 +1,8 @@
-import { type Status, type WalletMode } from 'shared/types';
+import { type RequestStatus, type WalletMode } from 'shared/types';
 
 interface State {
   mode: WalletMode;
-  status: Status;
+  status: RequestStatus;
 }
 
 export type { State };

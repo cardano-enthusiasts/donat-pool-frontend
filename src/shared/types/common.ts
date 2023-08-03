@@ -54,7 +54,7 @@ type LandingSection =
   | 'roadmap'
   | 'contact-us';
 
-type Status = 'default' | 'success' | 'error' | 'requesting';
+type RequestStatus = 'default' | 'success' | 'error' | 'requesting';
 
 export type {
   Config,
@@ -65,5 +65,5 @@ export type {
   WalletMode,
   UserInfo,
   LandingSection,
-  Status,
+  RequestStatus,
 };

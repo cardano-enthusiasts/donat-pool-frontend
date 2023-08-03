@@ -1,6 +1,6 @@
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
 
-import { type Status, type WalletMode } from 'shared/types';
+import { type RequestStatus, type WalletMode } from 'shared/types';
 
 import { initialState } from './constants';
 
@@ -12,7 +12,7 @@ export const slice = createSlice({
       state.mode = action.payload;
       state.status = 'success';
     },
-    setStatus: (state, action: PayloadAction<Status>) => {
+    setStatus: (state, action: PayloadAction<RequestStatus>) => {
       state.status = action.payload;
     },
   },
