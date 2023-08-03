@@ -1,16 +1,16 @@
-import { useAppDispatch } from 'core/hooks';
-import {
-  setError,
-  setUserFundraisings,
-  setStatus,
-} from 'store/slices/userFundraisings';
-import { setWalletMode } from 'store/slices/wallet';
 import { testnetNami } from 'shared/constants/wallet';
 import {
   useCheckWalletStatus,
   useOffchain,
   useHandleError,
 } from 'shared/helpers/hooks';
+import { useAppDispatch } from 'store/hooks';
+import {
+  setError,
+  setUserFundraisings,
+  setStatus,
+} from 'store/slices/userFundraisings';
+import { setWalletMode } from 'store/slices/wallet';
 
 import { getOffchainError } from '../..';
 import { transformProjects } from '../../transformProjects';

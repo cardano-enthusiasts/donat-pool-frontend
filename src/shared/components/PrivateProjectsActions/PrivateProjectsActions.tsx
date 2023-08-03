@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import { useAppDispatch, useAppSelector } from 'core/hooks';
-import { setError, setStatus } from 'store/slices/fundsReceiving';
 import { useReceiveFunds } from 'shared/helpers/hooks';
+import { useAppDispatch, useAppSelector } from 'store/hooks';
+import { setError, setStatus } from 'store/slices/fundsReceiving';
 
 import {
   ButtonWrapper,

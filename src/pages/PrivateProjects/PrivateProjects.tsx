@@ -1,10 +1,10 @@
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import { useAppSelector } from 'core/hooks';
 import { Common } from 'layouts';
 import { MyProjects } from 'shared/components';
 import { useGetUserFundraisings, useOffchain } from 'shared/helpers/hooks';
+import { useAppSelector } from 'store/hooks';
 
 const PrivateProjects = () => {
   const navigate = useNavigate();

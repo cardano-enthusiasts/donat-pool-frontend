@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
-import { useAppSelector } from 'core/hooks';
 import { useConnectWallet } from 'shared/helpers/hooks';
+import { useAppSelector } from 'store/hooks';
 
 import { Address, ConnectButton, Wrapper } from './WalletButton.styled';
 
@@ -32,12 +32,9 @@ const WalletButton = () => {
           : 'Connect wallet'}
       </ConnectButton>
       {userInfo?.address && isAddressShown && (
-        <Address>{`${String(userInfo.address.substring(
-          0,
-          6,
-        ))} ... ${String(userInfo.address.substring(
-          userInfo.address.length - 4,
-        ))}`}</Address>
+        <Address>{`${String(userInfo.address.substring(0, 6))} ... ${String(
+          userInfo.address.substring(userInfo.address.length - 4),
+        )}`}</Address>
       )}
     </Wrapper>
   );

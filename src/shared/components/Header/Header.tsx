@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-import { useAppSelector } from 'core/hooks';
+import { useAppSelector } from 'store/hooks';
 
 import {
   Inner,

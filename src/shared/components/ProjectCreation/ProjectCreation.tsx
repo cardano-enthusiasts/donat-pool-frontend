@@ -1,6 +1,6 @@
-import { useAppSelector } from 'core/hooks';
 import { Project } from 'layouts';
 import { CreationForm } from 'shared/components';
+import { useAppSelector } from 'store/hooks';
 
 import { type Props } from './types';
 

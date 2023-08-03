@@ -1,11 +1,11 @@
-import { useAppDispatch } from 'core/hooks';
-import { setWalletMode } from 'store/slices/wallet';
 import {
   errors,
   missingCollateral,
   walletDisconnect,
   walletIsNotAvailable,
 } from 'shared/constants';
+import { useAppDispatch } from 'store/hooks';
+import { setWalletMode } from 'store/slices/wallet';
 
 const useHandleError = () => {
   const dispatch = useAppDispatch();

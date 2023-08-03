@@ -1,11 +1,11 @@
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import { useAppSelector } from 'core/hooks';
 import { Common } from 'layouts';
 import { Button, ProjectCard } from 'shared/components';
 import { useGetAllFundraisings, useOffchain } from 'shared/helpers/hooks';
 import { type Fundraisings } from 'shared/types';
+import { useAppSelector } from 'store/hooks';
 
 import {
   CardsWrapper,

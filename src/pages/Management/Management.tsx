@@ -1,9 +1,9 @@
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import { useAppSelector } from 'core/hooks';
 import { Common } from 'layouts';
 import { ManagementParams, ManagerEditor } from 'shared/components';
+import { useAppSelector } from 'store/hooks';
 
 import { Title, Wrapper } from './Management.styled';
 

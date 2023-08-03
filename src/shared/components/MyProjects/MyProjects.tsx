@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 
-import { useAppSelector } from 'core/hooks';
 import { type Fundraisings, type Fundraising } from 'shared/types';
+import { useAppSelector } from 'store/hooks';
 
 import {
   CardsWrapper,

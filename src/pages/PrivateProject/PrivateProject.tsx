@@ -1,12 +1,12 @@
 import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 
-import { useAppSelector } from 'core/hooks';
 import { Common, Project } from 'layouts';
 import { PrivateProjectsActions, RaisedCounter } from 'shared/components';
 import { getDate } from 'shared/helpers';
 import { useGetUserFundraisings, useOffchain } from 'shared/helpers/hooks';
 import { type Fundraising } from 'shared/types';
+import { useAppSelector } from 'store/hooks';
 
 import {
   CounterWrapper,

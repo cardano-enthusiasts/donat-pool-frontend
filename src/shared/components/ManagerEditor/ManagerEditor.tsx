@@ -1,8 +1,8 @@
 import { type ChangeEvent, useState, useEffect } from 'react';
 
-import { useAppDispatch, useAppSelector } from 'core/hooks';
-import { setError, setStatus } from 'store/slices/protocolUpdating';
 import { useUpdateProtocol } from 'shared/helpers/hooks';
+import { useAppDispatch, useAppSelector } from 'store/hooks';
+import { setError, setStatus } from 'store/slices/protocolUpdating';
 
 import { defaultParams } from './data';
 import {

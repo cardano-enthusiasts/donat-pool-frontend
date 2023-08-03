@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
 
-import { useAppSelector } from 'core/hooks';
 import { CommonError, Footer, Header } from 'shared/components';
 import { errors, missingCollateral } from 'shared/constants';
 import { useGetAppInfo, useOffchain } from 'shared/helpers/hooks';
+import { useAppSelector } from 'store/hooks';
 
 import { Inner, Main } from './Common.styled';
 import { type Props } from './types';

@@ -1,12 +1,12 @@
 import { type ChangeEvent, useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import { useAppDispatch, useAppSelector } from 'core/hooks';
+import { useCreateFundraising } from 'shared/helpers/hooks';
+import { useAppDispatch, useAppSelector } from 'store/hooks';
 import {
   setError as setCreateError,
   setStatus,
 } from 'store/slices/fundraisingCreation';
-import { useCreateFundraising } from 'shared/helpers/hooks';
 
 import {
   ButtonWrapper,

@@ -1,4 +1,4 @@
-import { useAppDispatch, useAppSelector } from 'core/hooks';
+import { useAppDispatch, useAppSelector } from 'store/hooks';
 import { setStatus } from 'store/slices/wallet';
 
 const useCheckWalletStatus = () => {

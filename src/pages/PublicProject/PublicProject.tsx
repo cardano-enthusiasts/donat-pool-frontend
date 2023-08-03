@@ -1,8 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
-import { useAppDispatch, useAppSelector } from 'core/hooks';
-import { setStatus } from 'store/slices/donating';
 import { Common } from 'layouts';
 import {
   Button,
@@ -19,6 +17,8 @@ import {
   useOffchain,
 } from 'shared/helpers/hooks';
 import { type Fundraising } from 'shared/types';
+import { useAppDispatch, useAppSelector } from 'store/hooks';
+import { setStatus } from 'store/slices/donating';
 
 import {
   ButtonWrapper,
