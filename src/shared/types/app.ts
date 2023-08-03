@@ -65,7 +65,7 @@ type ReceiveFunds = (
 ) => (protocol: string) => (fundraisingData: FundraisingData) => () => void;
 declare global {
   interface Window {
-    donatPool: {
+    donatPool: Promise<{
       closeProtocol: any;
       connectWallet: ConnectWallet;
       createFundraising: CreateFundraising;
@@ -76,7 +76,7 @@ declare global {
       startProtocol: StartProtocol;
       updateProtocol: UpdateProtocol;
       receiveFunds: ReceiveFunds;
-    };
+    }>;
     cardano: {
       nami: any;
     };

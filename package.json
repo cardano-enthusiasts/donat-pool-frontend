@@ -9,7 +9,7 @@
     "eslint": "eslint ."
   },
   "dependencies": {
-    "offchain": "git+ssh://git@github.com:fullstack-development/donat-pool-offchain.git#cb823e6fce4fc696da088ecde4d8e790db85ffe1",
+    "offchain": "git+ssh://git@github.com:fullstack-development/donat-pool-offchain.git#d8b7cca7521e81842e2bcfb5a8e3447a472c28b4",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-redux": "8.1.2",
