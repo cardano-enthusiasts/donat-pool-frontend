@@ -37,7 +37,7 @@ const FAQ = () => {
               <Li>to donate ADA funds to support projects</Li>
             </Ul>
             The Donat.Pool service is deployed on the Cardano blockchain and
-            uses the Cardano native cryptocurrency - Ada.
+            uses the Cardano native cryptocurrency - ADA.
             <Alert>
               Current Donat.Pool version is available on the Cardano
               PreProduction testnet only.
@@ -51,14 +51,12 @@ const FAQ = () => {
             blockchain.
             <SubSection>
               <Subtitle>Low fees and Fast transactions</Subtitle>
-              The Cardano blockchain means that the transaction fees are low and
-              transaction speed is fast.
+              The Cardano blockchain suggests low transaction fees and fast transaction speed.
             </SubSection>
             <Line />
             <SubSection>
               <Subtitle>Secure transactions</Subtitle>
-              Cardano applications are based on smart contracts that allow the
-              creation of secure transactions. Every transaction should pass the
+              Cardano applications are based on smart contracts that allow to make secure transactions. Every transaction should pass the
               set of validations before it is recognized as legal.
             </SubSection>
             <Line />
@@ -114,8 +112,8 @@ const FAQ = () => {
           <SectionWrapper>
             <Ul>
               <Li>
-                To start a project, go to the &#34;My projects&#34; page and
-                press the &#34;Create a new project&#34; button. A fundraising
+                To start a project, go to the &#39;My projects&#39; page and
+                press the &#39;Create a new project&#39; button. A fundraising
                 project consists of a title, description, target amount and
                 duration. Choose these parameters and press the confirm button.
               </Li>
@@ -129,9 +127,8 @@ const FAQ = () => {
             <Alert>
               Technically creating a project means that you create a separate
               storage on the Donat.Pool script address for your project funds,
-              so you have to put 4 Ada to this storage temporarily. You will get
-              these 4 Ada back in addition to the funds raised while
-              withdrawing. These 4 Ada are taken from your wallet so be ready to
+              so you have to put 4 ADA to this storage temporarily. You will get
+              these 4 ADA back along with the funds raised. These 4 ADA are taken from your wallet so be ready to
               sign the transaction with Nami.
             </Alert>
             <Ul>
