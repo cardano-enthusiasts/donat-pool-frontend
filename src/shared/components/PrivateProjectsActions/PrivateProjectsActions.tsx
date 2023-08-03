@@ -1,8 +1,7 @@
 import { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
-import { useAppSelector } from 'core/hooks';
+import { useAppDispatch, useAppSelector } from 'core/hooks';
 import { setError, setStatus } from 'core/slices/fundsReceiving';
 import { useReceiveFunds } from 'shared/helpers/hooks';
 
@@ -18,7 +17,7 @@ import { Button, ModalError, ModalLoading, ModalSuccess } from '../.';
 const PrivateProjectsActions = ({ project }: Props) => {
   const [isModalSuccessOpen, setIsModalSuccessOpen] = useState(false);
   const [isModalErrorOpen, setIsModalErrorOpen] = useState(false);
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const receiveFunds = useReceiveFunds();
 

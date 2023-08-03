@@ -1,5 +1,4 @@
-import { useDispatch } from 'react-redux';
-
+import { useAppDispatch } from 'core/hooks';
 import {
   setError,
   setStatus,
@@ -15,7 +14,7 @@ import { getOffchainError } from '../..';
 
 const useGetAppInfo = () => {
   const offchain = useOffchain();
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const handleCommonError = useHandleError();
   const checkWalletStatus = useCheckWalletStatus();
   const protocol = JSON.parse(process.env.PROTOCOL);

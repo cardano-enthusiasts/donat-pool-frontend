@@ -1,5 +1,4 @@
-import { useDispatch } from 'react-redux';
-
+import { useAppDispatch } from 'core/hooks';
 import { setError, setStatus } from 'core/slices/protocolUpdating';
 import { setWalletMode } from 'core/slices/wallet';
 import { type Config } from 'shared/types';
@@ -14,7 +13,7 @@ import { getOffchainError } from '../..';
 
 const useUpdateProtocol = () => {
   const offchain = useOffchain();
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const getAppInfo = useGetAppInfo();
   const handleCommonError = useHandleError();
   const checkWalletStatus = useCheckWalletStatus();

@@ -1,8 +1,7 @@
 import { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
 
-import { useAppSelector } from 'core/hooks';
+import { useAppDispatch, useAppSelector } from 'core/hooks';
 import { setStatus } from 'core/slices/donating';
 import { Common } from 'layouts';
 import {
@@ -32,7 +31,7 @@ import {
 const PublicProject = () => {
   const params = useParams();
   const offchain = useOffchain();
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const getAllFundraisings = useGetAllFundraisings();
   const [currentProject, setCurrentProject] = useState<Fundraising | null>(
     null,

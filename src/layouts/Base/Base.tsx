@@ -1,8 +1,7 @@
 import { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
 import { Route, Routes, useLocation, useNavigate } from 'react-router-dom';
 
-import { useAppSelector } from 'core/hooks';
+import { useAppDispatch, useAppSelector } from 'core/hooks';
 import { setWalletMode } from 'core/slices/wallet';
 import {
   AllProjects,
@@ -20,7 +19,7 @@ const Base = () => {
   const location = useLocation();
   const walletMode = useAppSelector((state) => state.wallet.mode);
   const navigate = useNavigate();
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const [walletIsNotAvailable, setWalletIsNotAvailable] = useState(false);
   const routes = [
     { path: '/', element: <Landing />, isAvailableWithoutWallet: true },

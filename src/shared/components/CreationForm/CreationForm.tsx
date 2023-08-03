@@ -1,9 +1,11 @@
 import { type ChangeEvent, useState, useEffect } from 'react';
-import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
-import { useAppSelector } from 'core/hooks';
-import { setError as setCreateError, setStatus } from 'core/slices/fundraisingCreating';
+import { useAppDispatch, useAppSelector } from 'core/hooks';
+import {
+  setError as setCreateError,
+  setStatus,
+} from 'core/slices/fundraisingCreating';
 import { useCreateFundraising } from 'shared/helpers/hooks';
 
 import {
@@ -29,7 +31,7 @@ import {
 const CreationForm = ({ onClose, protocol }: Props) => {
   const { minAmountParam, maxAmountParam, minDurationParam, maxDurationParam } =
     protocol;
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const [createdPath, setCreatedPath] = useState('');
   const createFundraising = useCreateFundraising();

@@ -1,5 +1,4 @@
-import { useDispatch } from 'react-redux';
-
+import { useAppDispatch } from 'core/hooks';
 import { setWalletMode } from 'core/slices/wallet';
 import {
   errors,
@@ -9,7 +8,7 @@ import {
 } from 'shared/constants';
 
 const useHandleError = () => {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   return (backendError: string): string => {
     switch (backendError) {

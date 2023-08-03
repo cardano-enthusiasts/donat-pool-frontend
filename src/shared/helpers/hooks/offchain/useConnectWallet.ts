@@ -1,5 +1,4 @@
-import { useDispatch } from 'react-redux';
-
+import { useAppDispatch } from 'core/hooks';
 import { setWalletMode } from 'core/slices/wallet';
 import { testnetNami } from 'shared/constants/wallet';
 
@@ -8,7 +7,7 @@ import { getOffchainError } from '../..';
 
 const useConnectWallet = () => {
   const offchain = useOffchain();
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const handleCommonError = useHandleError();
   const getAppInfo = useGetAppInfo();
 

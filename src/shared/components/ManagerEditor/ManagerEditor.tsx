@@ -1,7 +1,6 @@
 import { type ChangeEvent, useState, useEffect } from 'react';
-import { useDispatch } from 'react-redux';
 
-import { useAppSelector } from 'core/hooks';
+import { useAppDispatch, useAppSelector } from 'core/hooks';
 import { setError, setStatus } from 'core/slices/protocolUpdating';
 import { useUpdateProtocol } from 'shared/helpers/hooks';
 
@@ -21,7 +20,7 @@ const ManagerEditor = ({ config }: Props) => {
   const [isModalSuccessOpen, setIsModalSuccessOpen] = useState(false);
   const [isModalErrorOpen, setIsModalErrorOpen] = useState(false);
   const [isModalLoadingOpen, setIsModalLoadingOpen] = useState(false);
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   const { error, status } = useAppSelector((state) => state.protocolUpdating);
   const setProtocol = useUpdateProtocol();

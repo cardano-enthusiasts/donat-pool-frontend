@@ -1,5 +1,4 @@
-import { useDispatch } from 'react-redux';
-
+import { useAppDispatch } from 'core/hooks';
 import {
   setError,
   setStatus,
@@ -22,7 +21,7 @@ import { getOffchainError } from '../..';
 
 const useCreateFundraising = () => {
   const offchain = useOffchain();
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const getUserFundraisings = useGetUserFundraisings();
   const handleCommonError = useHandleError();
   const checkWalletStatus = useCheckWalletStatus();

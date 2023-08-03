@@ -1,5 +1,4 @@
-import { useDispatch } from 'react-redux';
-
+import { useAppDispatch } from 'core/hooks';
 import { setError, setStatus } from 'core/slices/donating';
 import { setWalletMode } from 'core/slices/wallet';
 import { testnetNami } from 'shared/constants/wallet';
@@ -15,7 +14,7 @@ import { getOffchainError } from '../..';
 
 const useDonate = () => {
   const offchain = useOffchain();
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const getAllFundraisings = useGetAllFundraisings();
   const handleCommonError = useHandleError();
   const checkWalletStatus = useCheckWalletStatus();
