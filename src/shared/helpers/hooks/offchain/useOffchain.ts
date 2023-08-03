@@ -4,9 +4,7 @@ const useOffchain = () => {
   const [donatPool, setDonatPool] = useState<Awaited<Window['donatPool']>>();
 
   useEffect(() => {
-    void window.donatPool.then((result) => {
-      setDonatPool(result);
-    });
+    void window.donatPool.then(setDonatPool);
   }, []);
 
   return donatPool;
