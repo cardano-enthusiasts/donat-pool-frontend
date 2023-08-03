@@ -4,7 +4,7 @@ import { type RequestStatus, type Fundraisings } from 'shared/types';
 
 import { initialState } from './constants';
 
-export const slice = createSlice({
+const slice = createSlice({
   name: 'allFundraisings',
   initialState,
   reducers: {
@@ -26,5 +26,5 @@ export const slice = createSlice({
 });
 
 export const { updateAllFundraisings, setError, setStatus } = slice.actions;
-
-export default slice.reducer;
+export const { reducer } = slice;
+export default slice;

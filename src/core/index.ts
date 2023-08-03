@@ -1,11 +1,11 @@
-import allFundraisingsReducer from './slices/allFundraisings';
-import appInfoReducer from './slices/appInfo';
-import donatingReducer from './slices/donating';
-import fundraisingCreatingReducer from './slices/fundraisingCreating';
-import fundsReceivingReducer from './slices/fundsReceiving';
-import protocolUpdatingReducer from './slices/protocolUpdating';
-import userFundraisingsReducer from './slices/userFundraisings';
-import walletReducer from './slices/wallet';
+import { reducer as allFundraisingsReducer } from './slices/allFundraisings';
+import { reducer as appInfoReducer } from './slices/appInfo';
+import { reducer as donatingReducer } from './slices/donating';
+import { reducer as fundraisingCreatingReducer } from './slices/fundraisingCreating';
+import { reducer as fundsReceivingReducer } from './slices/fundsReceiving';
+import { reducer as protocolUpdatingReducer } from './slices/protocolUpdating';
+import { reducer as userFundraisingsReducer } from './slices/userFundraisings';
+import { reducer as walletReducer } from './slices/wallet';
 
 export {
   allFundraisingsReducer,

@@ -22,5 +22,5 @@ export const slice = createSlice({
 });
 
 export const { setError, setStatus } = slice.actions;
-
-export default slice.reducer;
+export const { reducer } = slice;
+export default slice;

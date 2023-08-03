@@ -31,5 +31,5 @@ export const slice = createSlice({
 
 export const { updateProtocol, updateUserInfo, setError, setStatus } =
   slice.actions;
-
-export default slice.reducer;
+export const { reducer } = slice;
+export default slice;

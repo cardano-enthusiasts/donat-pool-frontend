@@ -19,5 +19,5 @@ export const slice = createSlice({
 });
 
 export const { updateWalletMode, setStatus } = slice.actions;
-
-export default slice.reducer;
+export const { reducer } = slice;
+export default slice;
