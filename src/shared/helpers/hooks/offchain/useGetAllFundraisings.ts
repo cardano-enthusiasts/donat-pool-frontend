@@ -4,7 +4,7 @@ import {
   setStatus,
   setAllFundraisings,
 } from 'core/slices/allFundraisings';
-import { setWalletMode } from 'core/slices/wallet';
+import { setWalletMode } from 'store/slices/wallet';
 import { testnetNami } from 'shared/constants/wallet';
 import { type BackendProjects } from 'shared/types';
 

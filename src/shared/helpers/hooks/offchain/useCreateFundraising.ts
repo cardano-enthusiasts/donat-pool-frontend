@@ -3,8 +3,8 @@ import {
   setError,
   setStatus,
   setCreatedPath,
-} from 'core/slices/fundraisingCreation';
-import { setWalletMode } from 'core/slices/wallet';
+} from 'store/slices/fundraisingCreation';
+import { setWalletMode } from 'store/slices/wallet';
 import { testnetNami } from 'shared/constants/wallet';
 import {
   type CreateFundraisingParams,

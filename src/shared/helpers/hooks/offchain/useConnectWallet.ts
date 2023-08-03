@@ -1,5 +1,5 @@
 import { useAppDispatch } from 'core/hooks';
-import { setWalletMode } from 'core/slices/wallet';
+import { setWalletMode } from 'store/slices/wallet';
 import { testnetNami } from 'shared/constants/wallet';
 
 import { useGetAppInfo, useHandleError, useOffchain } from '..';

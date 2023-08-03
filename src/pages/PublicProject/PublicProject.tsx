@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
 import { useAppDispatch, useAppSelector } from 'core/hooks';
-import { setStatus } from 'core/slices/donating';
+import { setStatus } from 'store/slices/donating';
 import { Common } from 'layouts';
 import {
   Button,

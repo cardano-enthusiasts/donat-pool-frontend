@@ -4,8 +4,8 @@ import {
   setStatus,
   setProtocol,
   setUserInfo,
-} from 'core/slices/appInfo';
-import { setWalletMode } from 'core/slices/wallet';
+} from 'store/slices/appInfo';
+import { setWalletMode } from 'store/slices/wallet';
 import { testnetNami } from 'shared/constants/wallet';
 import { type UserAndProtocolParams } from 'shared/types';
 

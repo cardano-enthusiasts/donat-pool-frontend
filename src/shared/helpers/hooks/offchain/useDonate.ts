@@ -1,6 +1,6 @@
 import { useAppDispatch } from 'core/hooks';
-import { setError, setStatus } from 'core/slices/donating';
-import { setWalletMode } from 'core/slices/wallet';
+import { setError, setStatus } from 'store/slices/donating';
+import { setWalletMode } from 'store/slices/wallet';
 import { testnetNami } from 'shared/constants/wallet';
 import { type FundraisingData } from 'shared/types';
 

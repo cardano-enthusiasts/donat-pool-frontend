@@ -1,6 +1,6 @@
 import { useAppDispatch } from 'core/hooks';
-import { setError, setStatus } from 'core/slices/protocolUpdating';
-import { setWalletMode } from 'core/slices/wallet';
+import { setError, setStatus } from 'store/slices/protocolUpdating';
+import { setWalletMode } from 'store/slices/wallet';
 import { type Config } from 'shared/types';
 
 import {

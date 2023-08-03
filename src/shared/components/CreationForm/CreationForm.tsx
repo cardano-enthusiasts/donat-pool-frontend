@@ -5,7 +5,7 @@ import { useAppDispatch, useAppSelector } from 'core/hooks';
 import {
   setError as setCreateError,
   setStatus,
-} from 'core/slices/fundraisingCreation';
+} from 'store/slices/fundraisingCreation';
 import { useCreateFundraising } from 'shared/helpers/hooks';
 
 import {

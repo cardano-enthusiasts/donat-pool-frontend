@@ -3,8 +3,8 @@ import {
   setError,
   setUserFundraisings,
   setStatus,
-} from 'core/slices/userFundraisings';
-import { setWalletMode } from 'core/slices/wallet';
+} from 'store/slices/userFundraisings';
+import { setWalletMode } from 'store/slices/wallet';
 import { testnetNami } from 'shared/constants/wallet';
 import {
   useCheckWalletStatus,

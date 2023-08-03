@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { Route, Routes, useLocation, useNavigate } from 'react-router-dom';
 
 import { useAppDispatch, useAppSelector } from 'core/hooks';
-import { setWalletMode } from 'core/slices/wallet';
+import { setWalletMode } from 'store/slices/wallet';
 import {
   AllProjects,
   Landing,
