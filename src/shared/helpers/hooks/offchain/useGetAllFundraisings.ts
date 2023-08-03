@@ -3,9 +3,9 @@ import { useDispatch } from 'react-redux';
 import {
   setError,
   setStatus,
-  updateAllFundraisings,
+  setAllFundraisings,
 } from 'core/slices/allFundraisings';
-import { updateWalletMode } from 'core/slices/wallet';
+import { setWalletMode } from 'core/slices/wallet';
 import { testnetNami } from 'shared/constants/wallet';
 import { type BackendProjects } from 'shared/types';
 
@@ -21,8 +21,8 @@ const useGetAllFundraisings = () => {
 
   const handleSuccess = (projects: BackendProjects) => {
     const filteredProjects = transformProjects(projects);
-    dispatch(updateAllFundraisings(filteredProjects));
-    dispatch(updateWalletMode('connected'));
+    dispatch(setAllFundraisings(filteredProjects));
+    dispatch(setWalletMode('connected'));
   };
 
   const handleError = (error) => {

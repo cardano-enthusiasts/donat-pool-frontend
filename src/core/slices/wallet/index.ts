@@ -8,7 +8,7 @@ export const slice = createSlice({
   name: 'wallet',
   initialState,
   reducers: {
-    updateWalletMode: (state, action: PayloadAction<WalletMode>) => {
+    setWalletMode: (state, action: PayloadAction<WalletMode>) => {
       state.mode = action.payload;
       state.status = 'success';
     },
@@ -18,6 +18,6 @@ export const slice = createSlice({
   },
 });
 
-export const { updateWalletMode, setStatus } = slice.actions;
+export const { setWalletMode, setStatus } = slice.actions;
 export const { reducer } = slice;
 export default slice;

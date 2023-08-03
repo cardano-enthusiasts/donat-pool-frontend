@@ -1,10 +1,10 @@
 import { useAppDispatch } from 'core/hooks';
 import {
   setError,
-  updateUserFundraisings,
+  setUserFundraisings,
   setStatus,
 } from 'core/slices/userFundraisings';
-import { updateWalletMode } from 'core/slices/wallet';
+import { setWalletMode } from 'core/slices/wallet';
 import { testnetNami } from 'shared/constants/wallet';
 import {
   useCheckWalletStatus,
@@ -23,9 +23,9 @@ const useGetUserFundraisings = () => {
   const dispatch = useAppDispatch();
 
   const handleSuccess = (projects) => {
-    dispatch(updateWalletMode('connected'));
+    dispatch(setWalletMode('connected'));
     const transformedProjects = transformProjects(projects);
-    dispatch(updateUserFundraisings(transformedProjects));
+    dispatch(setUserFundraisings(transformedProjects));
     dispatch(setStatus('success'));
   };
 

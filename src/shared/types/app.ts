@@ -75,7 +75,7 @@ declare global {
       getAllFundraisings: GetFundraisings;
       getAppInfo: GetAppInfo;
       getUserRelatedFundraisings: GetFundraisings;
-      updateProtocol: UpdateProtocol;
+      setProtocol: UpdateProtocol;
       receiveFunds: ReceiveFunds;
     };
     cardano: {

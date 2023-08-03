@@ -24,7 +24,7 @@ const ManagerEditor = ({ config }: Props) => {
   const dispatch = useDispatch();
 
   const { error, status } = useAppSelector((state) => state.protocolUpdating);
-  const updateProtocol = useUpdateProtocol();
+  const setProtocol = useUpdateProtocol();
 
   const filterInputValue = (value: string): '' | number => {
     if (Number(value) < 0) {
@@ -64,7 +64,7 @@ const ManagerEditor = ({ config }: Props) => {
 
   const handleSubmit = (event: ChangeEvent<HTMLFormElement>) => {
     event.preventDefault();
-    updateProtocol(params);
+    setProtocol(params);
   };
 
   return (

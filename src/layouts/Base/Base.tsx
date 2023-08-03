@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { Route, Routes, useLocation, useNavigate } from 'react-router-dom';
 
 import { useAppSelector } from 'core/hooks';
-import { updateWalletMode } from 'core/slices/wallet';
+import { setWalletMode } from 'core/slices/wallet';
 import {
   AllProjects,
   Landing,
@@ -77,7 +77,7 @@ const Base = () => {
   useEffect(() => {
     if (walletMode === 'declined') {
       navigate('/');
-      dispatch(updateWalletMode('default'));
+      dispatch(setWalletMode('default'));
     }
     if (walletIsNotAvailable) {
       navigate('/');

@@ -8,11 +8,11 @@ export const slice = createSlice({
   name: 'appInfo',
   initialState,
   reducers: {
-    updateProtocol: (state, action: PayloadAction<Config>) => {
+    setProtocol: (state, action: PayloadAction<Config>) => {
       state.protocol = action.payload;
       state.status = 'success';
     },
-    updateUserInfo: (state, action: PayloadAction<UserInfo>) => {
+    setUserInfo: (state, action: PayloadAction<UserInfo>) => {
       state.userInfo = action.payload;
       state.status = 'success';
     },
@@ -29,7 +29,6 @@ export const slice = createSlice({
   },
 });
 
-export const { updateProtocol, updateUserInfo, setError, setStatus } =
-  slice.actions;
+export const { setProtocol, setUserInfo, setError, setStatus } = slice.actions;
 export const { reducer } = slice;
 export default slice;

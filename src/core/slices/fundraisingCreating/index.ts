@@ -8,7 +8,7 @@ export const slice = createSlice({
   name: 'fundraisingCreating',
   initialState,
   reducers: {
-    updateCreatedPath: (state, action: PayloadAction<string>) => {
+    setCreatedPath: (state, action: PayloadAction<string>) => {
       state.path = action.payload;
       state.status = 'success';
     },
@@ -25,6 +25,6 @@ export const slice = createSlice({
   },
 });
 
-export const { setError, setStatus, updateCreatedPath } = slice.actions;
+export const { setError, setStatus, setCreatedPath } = slice.actions;
 export const { reducer } = slice;
 export default slice;

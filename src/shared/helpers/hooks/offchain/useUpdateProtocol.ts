@@ -1,7 +1,7 @@
 import { useDispatch } from 'react-redux';
 
 import { setError, setStatus } from 'core/slices/protocolUpdating';
-import { updateWalletMode } from 'core/slices/wallet';
+import { setWalletMode } from 'core/slices/wallet';
 import { type Config } from 'shared/types';
 
 import {
@@ -22,7 +22,7 @@ const useUpdateProtocol = () => {
 
   const handleSuccess = () => {
     dispatch(setStatus('success'));
-    dispatch(updateWalletMode('connected'));
+    dispatch(setWalletMode('connected'));
     getAppInfo();
   };
 
@@ -41,7 +41,7 @@ const useUpdateProtocol = () => {
 
   if (offchain) {
     return (config: Config) => {
-      offchain.updateProtocol(handleSuccess)(handleError)(protocol)(
+      offchain.setProtocol(handleSuccess)(handleError)(protocol)(
         editConfig(config),
       )();
       checkWalletStatus();

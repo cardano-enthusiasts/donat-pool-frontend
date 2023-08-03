@@ -3,10 +3,10 @@ import { useDispatch } from 'react-redux';
 import {
   setError,
   setStatus,
-  updateProtocol,
-  updateUserInfo,
+  setProtocol,
+  setUserInfo,
 } from 'core/slices/appInfo';
-import { updateWalletMode } from 'core/slices/wallet';
+import { setWalletMode } from 'core/slices/wallet';
 import { testnetNami } from 'shared/constants/wallet';
 import { type UserAndProtocolParams } from 'shared/types';
 
@@ -24,7 +24,7 @@ const useGetAppInfo = () => {
     protocolConfig,
     userInfo,
   }: UserAndProtocolParams) => {
-    dispatch(updateWalletMode('connected'));
+    dispatch(setWalletMode('connected'));
     const {
       minAmountParam,
       maxAmountParam,
@@ -33,7 +33,7 @@ const useGetAppInfo = () => {
       protocolFeeParam,
     } = protocolConfig;
     dispatch(
-      updateProtocol({
+      setProtocol({
         minAmountParam: Number(minAmountParam.value) / 1000000,
         maxAmountParam: Number(maxAmountParam.value) / 1000000,
         minDurationParam: Number(minDurationParam.value),
@@ -41,7 +41,7 @@ const useGetAppInfo = () => {
         protocolFeeParam: Number(protocolFeeParam.value),
       }),
     );
-    dispatch(updateUserInfo(userInfo));
+    dispatch(setUserInfo(userInfo));
     setStatus('success');
   };
 

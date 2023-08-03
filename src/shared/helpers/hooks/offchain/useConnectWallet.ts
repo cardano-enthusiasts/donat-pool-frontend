@@ -1,6 +1,6 @@
 import { useDispatch } from 'react-redux';
 
-import { updateWalletMode } from 'core/slices/wallet';
+import { setWalletMode } from 'core/slices/wallet';
 import { testnetNami } from 'shared/constants/wallet';
 
 import { useGetAppInfo, useHandleError, useOffchain } from '..';
@@ -13,7 +13,7 @@ const useConnectWallet = () => {
   const getAppInfo = useGetAppInfo();
 
   const handleSuccess = () => {
-    dispatch(updateWalletMode('connected'));
+    dispatch(setWalletMode('connected'));
     getAppInfo();
   };
 

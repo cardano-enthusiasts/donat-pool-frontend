@@ -3,9 +3,9 @@ import { useDispatch } from 'react-redux';
 import {
   setError,
   setStatus,
-  updateCreatedPath,
+  setCreatedPath,
 } from 'core/slices/fundraisingCreating';
-import { updateWalletMode } from 'core/slices/wallet';
+import { setWalletMode } from 'core/slices/wallet';
 import { testnetNami } from 'shared/constants/wallet';
 import {
   type CreateFundraisingParams,
@@ -29,8 +29,8 @@ const useCreateFundraising = () => {
   const protocol = JSON.parse(process.env.PROTOCOL);
 
   const handleSuccess = (fundraisingData: BackendProject) => {
-    dispatch(updateCreatedPath(fundraisingData.threadTokenCurrency));
-    dispatch(updateWalletMode('connected'));
+    dispatch(setCreatedPath(fundraisingData.threadTokenCurrency));
+    dispatch(setWalletMode('connected'));
     dispatch(setStatus('success'));
     getUserFundraisings();
   };

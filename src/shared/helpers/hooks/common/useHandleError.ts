@@ -1,6 +1,6 @@
 import { useDispatch } from 'react-redux';
 
-import { updateWalletMode } from 'core/slices/wallet';
+import { setWalletMode } from 'core/slices/wallet';
 import {
   errors,
   missingCollateral,
@@ -14,16 +14,16 @@ const useHandleError = () => {
   return (backendError: string): string => {
     switch (backendError) {
       case walletDisconnect:
-        dispatch(updateWalletMode('declined'));
+        dispatch(setWalletMode('declined'));
         setTimeout(() => {
           console.error(errors[walletDisconnect]);
         }, 500);
         return errors[walletDisconnect];
       case walletIsNotAvailable:
-        dispatch(updateWalletMode('notAvailable'));
+        dispatch(setWalletMode('notAvailable'));
         return errors[walletIsNotAvailable];
       case missingCollateral:
-        dispatch(updateWalletMode('missingCollateral'));
+        dispatch(setWalletMode('missingCollateral'));
         return errors[missingCollateral];
       default:
         return errors[backendError];
