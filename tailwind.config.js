@@ -30,9 +30,6 @@ module.exports = {
         },
         error: '#c820f2',
       },
-      spacing: {
-        25: '6.25rem',
-      },
     },
   },
   plugins: [],

@@ -30,7 +30,6 @@ const rammettoOneFont = Rammetto_One({
 
 export const metadata: Metadata = {
   themeColor: '#ff6b95',
-  manifest: '/favicons/site.webmanifest',
   other: {
     'msapplication-TileColor': '#603cba',
     'msapplication-navbutton-color': '#ff6b95',
