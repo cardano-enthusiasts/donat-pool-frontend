@@ -18,7 +18,7 @@ import {
 } from 'shared/helpers/hooks';
 import { type Fundraising } from 'shared/types';
 import { useAppDispatch, useAppSelector } from 'store/hooks';
-import { setStatus } from 'store/slices/donating';
+import { reset } from 'store/slices/donating';
 
 import {
   ButtonWrapper,
@@ -44,7 +44,7 @@ const PublicProject = () => {
 
   const {
     donating: { error, status },
-    allFundraisings: { value: allFundraisings },
+    allFundraisings: { fundraisings },
   } = useAppSelector((state) => state);
 
   useEffect(() => {
@@ -71,8 +71,8 @@ const PublicProject = () => {
   }, [offchain]);
 
   useEffect(() => {
-    if (allFundraisings) {
-      const project = allFundraisings.find(
+    if (fundraisings) {
+      const project = fundraisings.find(
         ({ threadTokenCurrency }) => threadTokenCurrency === params.id,
       );
       if (project) {
@@ -81,7 +81,7 @@ const PublicProject = () => {
         setCurrentProject(null);
       }
     }
-  }, [allFundraisings, params.id]);
+  }, [fundraisings, params.id]);
 
   return currentProject ? (
     <>
@@ -125,7 +125,7 @@ const PublicProject = () => {
         errorText={error}
         onClose={() => {
           setIsModalErrorOpen(false);
-          dispatch(setStatus('default'));
+          dispatch(reset());
         }}
       />
       <ModalLoading
@@ -137,7 +137,7 @@ const PublicProject = () => {
         description="Congratulations! Your donut is ready!"
         onClose={() => {
           setIsModalSuccessOpen(false);
-          dispatch(setStatus('default'));
+          dispatch(reset());
         }}
       />
     </>

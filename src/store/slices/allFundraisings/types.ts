@@ -1,9 +1,9 @@
 import { type RequestStatus, type Fundraisings } from 'shared/types';
 
 interface State {
-  value: Fundraisings | null;
-  error: string | null;
+  fundraisings: Fundraisings;
   status: RequestStatus;
+  error?: string;
 }
 
 export type { State };

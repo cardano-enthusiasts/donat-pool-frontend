@@ -1,7 +1,7 @@
 import { testnetNami } from 'shared/constants/wallet';
 import { type FundraisingData } from 'shared/types';
 import { useAppDispatch } from 'store/hooks';
-import { setError, setStatus } from 'store/slices/donating';
+import { setError, setRequesting, setSuccess } from 'store/slices/donating';
 import { setWalletMode } from 'store/slices/wallet';
 
 import {
@@ -22,7 +22,7 @@ const useDonate = () => {
 
   const handleSuccess = () => {
     dispatch(setWalletMode('connected'));
-    dispatch(setStatus('success'));
+    dispatch(setSuccess());
     getAllFundraisings();
   };
 
@@ -37,7 +37,7 @@ const useDonate = () => {
         fundraisingData,
       )(amount)();
       checkWalletStatus();
-      dispatch(setStatus('requesting'));
+      dispatch(setRequesting());
     };
   }
   return () => getOffchainError;

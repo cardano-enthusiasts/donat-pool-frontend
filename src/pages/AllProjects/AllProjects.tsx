@@ -19,7 +19,7 @@ const AllProjects = () => {
   const navigate = useNavigate();
   const getAllFundraisings = useGetAllFundraisings();
   const {
-    allFundraisings: { value: allFundraisings },
+    allFundraisings: { fundraisings },
     wallet: { mode: walletMode, status },
   } = useAppSelector((state) => state);
 
@@ -61,8 +61,8 @@ const AllProjects = () => {
       </TitleAndButton>
 
       <CardsWrapper>
-        {allFundraisings ? (
-          sortAndFilterFundraising(allFundraisings).map((project) => {
+        {fundraisings ? (
+          sortAndFilterFundraising(fundraisings).map((project) => {
             return (
               <ProjectCard
                 data={project}

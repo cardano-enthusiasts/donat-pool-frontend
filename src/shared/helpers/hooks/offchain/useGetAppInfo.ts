@@ -3,7 +3,7 @@ import { type UserAndProtocolParams } from 'shared/types';
 import { useAppDispatch } from 'store/hooks';
 import {
   setError,
-  setStatus,
+  setRequesting,
   setProtocol,
   setUserInfo,
 } from 'store/slices/appInfo';
@@ -41,7 +41,6 @@ const useGetAppInfo = () => {
       }),
     );
     dispatch(setUserInfo(userInfo));
-    setStatus('success');
   };
 
   const handleError = (error) => {
@@ -53,7 +52,7 @@ const useGetAppInfo = () => {
     return () => {
       offchain?.getAppInfo(handleSuccess)(handleError)(protocol)(testnetNami)();
       checkWalletStatus();
-      dispatch(setStatus('requesting'));
+      dispatch(setRequesting());
     };
   }
   return getOffchainError;

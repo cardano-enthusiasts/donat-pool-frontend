@@ -3,7 +3,7 @@ import { type BackendProjects } from 'shared/types';
 import { useAppDispatch } from 'store/hooks';
 import {
   setError,
-  setStatus,
+  setRequesting,
   setAllFundraisings,
 } from 'store/slices/allFundraisings';
 import { setWalletMode } from 'store/slices/wallet';
@@ -35,7 +35,7 @@ const useGetAllFundraisings = () => {
         testnetNami,
       )();
       checkWalletStatus();
-      dispatch(setStatus('requesting'));
+      dispatch(setRequesting());
     };
   }
   return getOffchainError;
