@@ -3,7 +3,7 @@ import {
   setError,
   setStatus,
   setCreatedPath,
-} from 'core/slices/fundraisingCreating';
+} from 'core/slices/fundraisingCreation';
 import { setWalletMode } from 'core/slices/wallet';
 import { testnetNami } from 'shared/constants/wallet';
 import {

@@ -5,7 +5,7 @@ import { type RequestStatus } from 'shared/types';
 import { initialState } from './constants';
 
 export const slice = createSlice({
-  name: 'fundraisingCreating',
+  name: 'fundraisingCreation',
   initialState,
   reducers: {
     setCreatedPath: (state, action: PayloadAction<string>) => {

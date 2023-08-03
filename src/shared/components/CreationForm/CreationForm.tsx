@@ -5,7 +5,7 @@ import { useAppDispatch, useAppSelector } from 'core/hooks';
 import {
   setError as setCreateError,
   setStatus,
-} from 'core/slices/fundraisingCreating';
+} from 'core/slices/fundraisingCreation';
 import { useCreateFundraising } from 'shared/helpers/hooks';
 
 import {
@@ -51,7 +51,7 @@ const CreationForm = ({ onClose, protocol }: Props) => {
     error: createError,
     status,
     path,
-  } = useAppSelector((state) => state.fundraisingsCreating);
+  } = useAppSelector((state) => state.fundraisingCreation);
 
   useEffect(() => {
     if (status === 'success' && path) {
