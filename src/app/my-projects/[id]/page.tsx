@@ -1,7 +1,7 @@
 'use client';
 
-import { useEffect, useState } from 'react';
 import { useParams, useRouter } from 'next/navigation';
+import { useEffect, useState } from 'react';
 
 import { Common, Project } from '@/layouts';
 import { PrivateProjectsActions, RaisedCounter } from '@/shared/components';

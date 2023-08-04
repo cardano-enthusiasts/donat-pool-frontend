@@ -1,7 +1,7 @@
 'use client';
 
-import { useEffect, useState } from 'react';
 import { useParams } from 'next/navigation';
+import { useEffect, useState } from 'react';
 
 import { Common } from '@/layouts';
 import {
@@ -85,8 +85,7 @@ const PublicProject = () => {
     }
   }, [fundraisings, params.id]);
 
-
-  return  currentProject ? (
+  return currentProject ? (
     <>
       <Common>
         <Wrapper>

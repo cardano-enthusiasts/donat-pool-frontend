@@ -1,4 +1,5 @@
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
+
 import { type WalletMode } from '@/shared/types';
 
 import { initialState } from './constants';

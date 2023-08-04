@@ -1,4 +1,5 @@
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
+
 import { type Fundraisings } from '@/shared/types';
 
 import { initialState } from './constants';
