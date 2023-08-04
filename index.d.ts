@@ -6,7 +6,7 @@ declare global {
   }
 
   interface Window {
-    donatPool: {
+    donatPool: Promise<{
       connectWallet: any;
       closeProtocol: any;
       createFundraising: any;
@@ -17,7 +17,7 @@ declare global {
       startProtocol: any;
       updateProtocol: any;
       receiveFunds: any;
-    };
+    }>;
     cardano: {
       nami: any;
     };
