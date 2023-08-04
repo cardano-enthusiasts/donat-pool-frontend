@@ -17,9 +17,9 @@ export const slice = createSlice({
       state.status = 'default';
     },
     setRequesting: (state) => {
-      state.mode = 'default'
-      state.status = 'requesting'
-    }
+      state.mode = 'default';
+      state.status = 'requesting';
+    },
   },
 });
 

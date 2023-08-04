@@ -5,9 +5,9 @@ import { ThemeProvider } from 'styled-components';
 
 import { Base } from 'layouts';
 import { GlobalStyles } from 'shared/styles/global';
+import { theme } from 'shared/styles/theme';
 import store from 'store';
 
-import { theme } from './shared/styles/theme';
 import 'shared/styles/fonts.scss';
 
 const root = ReactDOM.createRoot(
