@@ -1,14 +1,13 @@
-import { useEffect, useState } from 'react';
+import { useState, useEffect } from 'react';
 
 const useOffchain = () => {
-  const [offchain, setOffchain] = useState<Window['offchain']>();
+  const [donatPool, setDonatPool] = useState<Awaited<Window['donatPool']>>();
+
   useEffect(() => {
-    if (window.offchain) {
-      window.offchain.then(setOffchain);
-    }
+    window.donatPool.then(setDonatPool, console.log);
   }, []);
 
-  return offchain;
+  return donatPool;
 };
 
 export { useOffchain };
