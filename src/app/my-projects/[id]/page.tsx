@@ -72,7 +72,7 @@ const PrivateProject = () => {
           onPreviousPageClick={() => {
             router.push('/my-projects');
           }}
-          title={currentProject.description}
+          title={currentProject.title}
         >
           <Inner>
             <DeadlineAndStatus>

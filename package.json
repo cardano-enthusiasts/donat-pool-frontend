@@ -13,7 +13,8 @@
   "dependencies": {
     "html-react-parser": "4.2.0",
     "next": "13.4.12",
-    "offchain": "git+ssh://git@github.com:fullstack-development/donat-pool-offchain.git#cb823e6fce4fc696da088ecde4d8e790db85ffe1",
+    "offchain": "git+ssh://git@github.com:fullstack-development/donat-pool-offchain.git#d8b7cca7521e81842e2bcfb5a8e3447a472c28b4",
+    "@reduxjs/toolkit": "1.9.5",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-redux": "8.1.2",
@@ -30,7 +31,7 @@
     "@types/react-dom": "18.2.7",
     "@typescript-eslint/eslint-plugin": "5.62.0",
     "autoprefixer": "10.4.14",
-    "copy-webpack-plugin": "^11.0.0",
+    "copy-webpack-plugin": "11.0.0",
     "eslint": "8.46.0",
     "eslint-config-prettier": "8.10.0",
     "eslint-config-standard-with-typescript": "37.0.0",

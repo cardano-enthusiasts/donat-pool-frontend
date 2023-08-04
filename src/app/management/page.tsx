@@ -33,14 +33,18 @@ const Management = () => {
     if (isManager === false) {
       router.push('/all-projects');
     }
-  }, [isManager]);
+  }, [userInfo]);
 
-  return !isRequesting ? (
+  return status !== 'requesting' ? (
     <Common>
       <Title>Management contract</Title>
       <Wrapper>
-        <ManagerEditor config={config} />
-        <ManagementParams config={config} />
+        {protocol && (
+          <>
+            <ManagerEditor config={protocol} />
+            <ManagementParams config={protocol} />
+          </>
+        )}
       </Wrapper>
     </Common>
   ) : (

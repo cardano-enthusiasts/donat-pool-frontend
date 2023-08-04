@@ -1,19 +1,16 @@
 import { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
 
-import { CommonError, Footer, Header } from '@/shared/components';
-import { errors, missingCollateral } from '@/shared/constants';
-import { useGetAppInfo, useOffchain } from '@/shared/helpers/hooks';
-import { type AppReduxState } from '@/shared/types';
+import { CommonError, Footer, Header } from 'shared/components';
+import { errors, missingCollateral } from 'shared/constants';
+import { useGetAppInfo, useOffchain } from 'shared/helpers/hooks';
+import { useAppSelector } from 'store/hooks';
 
 import { Inner, Main } from './Common.styled';
 import { type Props } from './types';
 
 const Common = ({ children }: Props) => {
   const [currentPage, setCurrentPage] = useState('');
-  const { walletStatus } = useSelector(
-    (state: AppReduxState) => state.info.data,
-  );
+  const walletStatus = useAppSelector((state) => state.wallet.mode);
 
   const getAppInfo = useGetAppInfo();
   const offchain = useOffchain();

@@ -1,32 +1,31 @@
-import { useDispatch } from 'react-redux';
-
-import { setWalletStatusSuccess } from '@/features/info/redux/actionCreators';
 import {
   errors,
   missingCollateral,
   walletDisconnect,
   walletIsNotAvailable,
-} from '@/shared/constants';
+} from 'shared/constants';
+import { useAppDispatch } from 'store/hooks';
+import { setWalletMode } from 'store/slices/wallet';
 
 const useHandleError = () => {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
-  return (backendError: string) => {
+  return (backendError: string): string => {
     switch (backendError) {
       case walletDisconnect:
-        dispatch(setWalletStatusSuccess('declined'));
+        dispatch(setWalletMode('declined'));
         setTimeout(() => {
           console.error(errors[walletDisconnect]);
         }, 500);
-        break;
+        return errors[walletDisconnect];
       case walletIsNotAvailable:
-        dispatch(setWalletStatusSuccess('notAvailable'));
-        break;
+        dispatch(setWalletMode('notAvailable'));
+        return errors[walletIsNotAvailable];
       case missingCollateral:
-        dispatch(setWalletStatusSuccess('missingCollateral'));
-        break;
+        dispatch(setWalletMode('missingCollateral'));
+        return errors[missingCollateral];
       default:
-        console.log(errors[backendError]);
+        return errors[backendError];
     }
   };
 };

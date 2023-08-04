@@ -1,12 +1,12 @@
 export { useOffchain } from './offchain/useOffchain';
-export { useGetAllFundraisings } from './offchain/info/useGetAllFundraisings';
-export { useGetUserFundraisings } from './offchain/info/useGetUserFundraisings';
-export { useCreateFundraising } from './offchain/fundraising/useCreateFundraising';
-export { useDonate } from './offchain/fundraising/useDonate';
-export { useGetAppInfo } from './offchain/shared/useGetAppInfo';
-export { useUpdateProtocol } from './offchain/protocol/useUpdateProtocol';
-export { useReceiveFunds } from './offchain/fundraising/useReceiveFunds';
-export { useStartProtocol } from './offchain/protocol/useStartProtocol';
+export { useGetAllFundraisings } from './offchain/useGetAllFundraisings';
+export { useGetUserFundraisings } from './offchain/useGetUserFundraisings';
+export { useCreateFundraising } from './offchain/useCreateFundraising';
+export { useDonate } from './offchain/useDonate';
+export { useGetAppInfo } from './offchain/useGetAppInfo';
+export { useUpdateProtocol } from './offchain/useUpdateProtocol';
+export { useReceiveFunds } from './offchain/useReceiveFunds';
+
 export { useConnectWallet } from './offchain/useConnectWallet';
 export { useCheckWalletStatus } from './offchain/useCheckWalletStatus';
 export { useHandleError } from './common/useHandleError';

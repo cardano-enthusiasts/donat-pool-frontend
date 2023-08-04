@@ -35,6 +35,7 @@ const PublicProject = () => {
   const params = useParams();
   const router = useRouter();
   const offchain = useOffchain();
+  const dispatch = useAppDispatch();
   const getAllFundraisings = useGetAllFundraisings();
   const [currentProject, setCurrentProject] = useState<Fundraising | null>(
     null,
@@ -66,11 +67,21 @@ const PublicProject = () => {
   } = useSelector((state: AppReduxState) => state.info);
 
   useEffect(() => {
+    const isRequesting = status === 'requesting';
     setIsModalLoadingOpen(isRequesting);
-    if (isRequesting) {
+
+    const isSuccessfully = status === 'success';
+    const isError = status === 'error';
+    if (isRequesting || isSuccessfully || isError) {
       setIsModalOpen(false);
     }
-  }, [isRequesting]);
+    if (isSuccessfully) {
+      setIsModalSuccessOpen(true);
+    }
+    if (isError) {
+      setIsModalErrorOpen(true);
+    }
+  }, [status]);
 
   useEffect(() => {
     if (offchain) {
@@ -102,7 +113,7 @@ const PublicProject = () => {
     <>
       <Common>
         <Wrapper>
-          <Title>{currentProject.description}</Title>
+          <Title>{currentProject.title}</Title>
           <Duration>Until {getDate(currentProject.deadline)} </Duration>
           <CounterWrapper>
             <RaisedCounter
@@ -140,6 +151,7 @@ const PublicProject = () => {
         errorText={error}
         onClose={() => {
           setIsModalErrorOpen(false);
+          dispatch(reset());
         }}
       />
       <ModalLoading
@@ -151,6 +163,7 @@ const PublicProject = () => {
         description="Congratulations! Your donut is ready!"
         onClose={() => {
           setIsModalSuccessOpen(false);
+          dispatch(reset());
         }}
       />
     </>

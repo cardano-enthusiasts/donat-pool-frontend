@@ -27,21 +27,15 @@ const AllProjects = () => {
   const connectWallet = useConnectWallet();
   const getAllFundraisings = useGetAllFundraisings();
   const {
-    data: { allFundraisings, walletStatus },
-    communication: {
-      setWalletStatus: { isRequesting },
-    },
-  } = useSelector((state: AppReduxState) => state.info);
+    allFundraisings: { fundraisings },
+    wallet: { mode: walletMode, status },
+  } = useAppSelector((state) => state);
 
   useEffect(() => {
-    connectWallet();
-  }, []);
-
-  useEffect(() => {
-    if (offchain && walletStatus === 'connected') {
+    if (offchain && walletMode === 'connected') {
       getAllFundraisings();
     }
-  }, [offchain, walletStatus]);
+  }, [offchain, walletMode]);
 
   useEffect(() => {
     document.title = 'All projects';
@@ -55,7 +49,7 @@ const AllProjects = () => {
   }, [walletStatus, window]);
 
   const sortAndFilterFundraising = (fundraisings: Fundraisings) => {
-    return fundraisings
+    return [...fundraisings]
       .sort(
         (fundraising1, fundraising2) =>
           fundraising1.deadline - fundraising2.deadline,
@@ -84,12 +78,12 @@ const AllProjects = () => {
       </TitleAndButton>
 
       <CardsWrapper>
-        {allFundraisings ? (
-          sortAndFilterFundraising(allFundraisings).map((project) => {
+        {fundraisings ? (
+          sortAndFilterFundraising(fundraisings).map((project) => {
             return (
               <ProjectCard
                 data={project}
-                key={project.threadTokenCurrency.toString()}
+                key={project.threadTokenCurrency}
                 linkSection="all-projects"
               />
             );

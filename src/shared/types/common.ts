@@ -7,26 +7,25 @@ interface Config {
 }
 
 interface Fundraising {
-  creator: object;
+  creator: string;
   deadline: number;
-  description: string;
+  title: string;
   goal: number;
   raisedAmount: number;
-  threadTokenCurrency: Uint8Array;
-  threadTokenName: Uint8Array;
-  path: string;
+  threadTokenCurrency: string;
+  threadTokenName: string;
   isCompleted: boolean;
 }
 
 type Fundraisings = Fundraising[];
 
 interface FundraisingData {
-  frThreadTokenCurrency: Uint8Array;
-  frThreadTokenName: Uint8Array;
+  frThreadTokenCurrency: string;
+  frThreadTokenName: string;
 }
 
 interface CreateFundraisingParams {
-  description: string;
+  title: string;
   amount: number;
   duration: {
     days: number;
@@ -35,7 +34,7 @@ interface CreateFundraisingParams {
   };
 }
 
-type WalletStatus =
+type WalletMode =
   | 'default'
   | 'connected'
   | 'declined'
@@ -55,13 +54,16 @@ type LandingSection =
   | 'roadmap'
   | 'contact-us';
 
+type RequestStatus = 'default' | 'success' | 'error' | 'requesting';
+
 export type {
   Config,
   Fundraisings,
   Fundraising,
   FundraisingData,
   CreateFundraisingParams,
-  WalletStatus,
+  WalletMode,
   UserInfo,
   LandingSection,
+  RequestStatus,
 };

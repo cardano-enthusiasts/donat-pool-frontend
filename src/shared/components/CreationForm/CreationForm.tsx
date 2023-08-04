@@ -1,9 +1,9 @@
 import { useRouter } from 'next/navigation';
 import { type ChangeEvent, useState, useEffect } from 'react';
-import { useSelector } from 'react-redux';
 
-import { useCreateFundraising } from '@/shared/helpers/hooks';
-import { type AppReduxState } from '@/shared/types';
+import { useCreateFundraising } from 'shared/helpers/hooks';
+import { useAppDispatch, useAppSelector } from 'store/hooks';
+import { reset } from 'store/slices/fundraisingCreation';
 
 import {
   ButtonWrapper,
@@ -25,17 +25,13 @@ import {
   ModalProjectCreated,
 } from '..';
 
-const CreationForm = ({ onClose }: Props) => {
+const CreationForm = ({ onClose, protocol }: Props) => {
+  const { minAmountParam, maxAmountParam, minDurationParam, maxDurationParam } =
+    protocol;
+  const dispatch = useAppDispatch();
   const router = useRouter();
   const [createdPath, setCreatedPath] = useState('');
-  const handleSuccess = (path) => {
-    setCreatedPath(path);
-    setIsSuccessModalOpen(true);
-  };
-  const handleError = () => {
-    setIsErrorModalOpen(true);
-  };
-  const createFundraising = useCreateFundraising(handleSuccess, handleError);
+  const createFundraising = useCreateFundraising();
   const [isChecked, setIsChecked] = useState(false);
   const [isSuccessModalOpen, setIsSuccessModalOpen] = useState(false);
   const [isLoadingModalOpen, setIsLoadingModalOpen] = useState(false);
@@ -48,11 +44,22 @@ const CreationForm = ({ onClose }: Props) => {
     durationHours: '',
     durationMinutes: '',
   });
-  const { isRequesting, error: createError } = useSelector(
-    (state: AppReduxState) => state.fundraising.communication.create,
-  );
-  const { maxAmountParam, minAmountParam, maxDurationParam, minDurationParam } =
-    useSelector((state: AppReduxState) => state.protocol.data.config);
+  const {
+    error: createError,
+    status,
+    path,
+  } = useAppSelector((state) => state.fundraisingCreation);
+
+  useEffect(() => {
+    if (status === 'success' && path) {
+      setCreatedPath(path);
+      setIsSuccessModalOpen(true);
+    }
+    if (status === 'error') {
+      setIsErrorModalOpen(true);
+    }
+  }, [status, path]);
+
   const initialErrors = {
     title: null,
     duration: null,
@@ -97,8 +104,8 @@ const CreationForm = ({ onClose }: Props) => {
   };
 
   useEffect(() => {
-    setIsLoadingModalOpen(isRequesting);
-  }, [isRequesting]);
+    setIsLoadingModalOpen(status === 'requesting');
+  }, [status]);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -106,7 +113,7 @@ const CreationForm = ({ onClose }: Props) => {
       setErrorsToForm();
     } else {
       const createFundraisingParams = {
-        description: data.title,
+        title: data.title,
         amount: Number(data.goal),
         duration: {
           days: Number(data.durationDays),
@@ -114,7 +121,6 @@ const CreationForm = ({ onClose }: Props) => {
           minutes: Number(data.durationMinutes),
         },
       };
-
       createFundraising(createFundraisingParams);
     }
   };
@@ -143,7 +149,7 @@ const CreationForm = ({ onClose }: Props) => {
           onChange={(event) => {
             handleChange(event, 'title');
           }}
-          isDisabled={isRequesting}
+          isDisabled={status === 'requesting'}
           maxLength={29}
           placeholder="My project"
           error={error.title}
@@ -244,6 +250,7 @@ const CreationForm = ({ onClose }: Props) => {
         onClose={() => {
           setIsSuccessModalOpen(false);
           router.push('/my-projects');
+          dispatch(reset());
         }}
       />
       <ModalLoading isOpen={isLoadingModalOpen} />
@@ -253,6 +260,7 @@ const CreationForm = ({ onClose }: Props) => {
         errorText={createError}
         onClose={() => {
           setIsErrorModalOpen(false);
+          dispatch(reset());
         }}
       />
     </>
