@@ -1,13 +1,13 @@
-import { testnetNami } from 'shared/constants/wallet';
-import { type UserAndProtocolParams } from 'shared/types';
-import { useAppDispatch } from 'store/hooks';
+import { testnetNami } from '@/shared/constants/wallet';
+import { type UserAndProtocolParams } from '@/shared/types';
+import { useAppDispatch } from '@/store/hooks';
 import {
   setError,
   setRequesting,
   setProtocol,
   setUserInfo,
-} from 'store/slices/appInfo';
-import { setWalletMode } from 'store/slices/wallet';
+} from '@/store/slices/appInfo';
+import { setWalletMode } from '@/store/slices/wallet';
 
 import { useCheckWalletStatus, useHandleError, useOffchain } from '..';
 import { getOffchainError } from '../..';

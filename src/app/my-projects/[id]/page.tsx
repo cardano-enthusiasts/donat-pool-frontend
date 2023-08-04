@@ -1,18 +1,14 @@
 'use client';
-import { useParams, useRouter } from 'next/navigation';
-import { useEffect, useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
 
-import { setWalletStatusSuccess } from '@/features/info/redux/actionCreators';
+import { useEffect, useState } from 'react';
+import { useParams, useRouter } from 'next/navigation';
+
 import { Common, Project } from '@/layouts';
-import {
-  NotAvailableError,
-  PrivateProjectsActions,
-  RaisedCounter,
-} from '@/shared/components';
+import { PrivateProjectsActions, RaisedCounter } from '@/shared/components';
 import { getDate } from '@/shared/helpers';
 import { useGetUserFundraisings, useOffchain } from '@/shared/helpers/hooks';
-import { type AppReduxState, type Fundraising } from '@/shared/types';
+import { type Fundraising } from '@/shared/types';
+import { useAppSelector } from '@/store/hooks';
 
 import {
   CounterWrapper,
@@ -23,7 +19,6 @@ import {
 } from './PrivateProject.styled';
 
 const PrivateProject = () => {
-  const dispatch = useDispatch();
   const params = useParams();
   const offchain = useOffchain();
   const router = useRouter();
@@ -31,12 +26,7 @@ const PrivateProject = () => {
   const [currentProject, setCurrentProject] = useState<Fundraising | null>(
     null,
   );
-  const { fundraisings } = useSelector(
-    (state: AppReduxState) => state.info.data.user,
-  );
-  const {
-    data: { walletStatus },
-  } = useSelector((state: AppReduxState) => state.info);
+  const { fundraisings } = useAppSelector((state) => state.userFundraisings);
 
   useEffect(() => {
     if (offchain) {
@@ -46,25 +36,18 @@ const PrivateProject = () => {
 
   useEffect(() => {
     if (fundraisings) {
-      const project = fundraisings.find(({ path }) => path === params?.id);
+      const project = fundraisings.find(
+        ({ threadTokenCurrency }) => threadTokenCurrency === params.id,
+      );
       if (project) {
         setCurrentProject(project);
       } else {
         setCurrentProject(null);
       }
     }
-  }, [fundraisings, params?.id]);
+  }, [fundraisings, params.id]);
 
-  useEffect(() => {
-    if (walletStatus === 'declined') {
-      router.push('/');
-      dispatch(setWalletStatusSuccess('default'));
-    }
-  }, [walletStatus, window]);
-
-  return walletStatus === 'notAvailable' || !window?.cardano?.nami ? (
-    <NotAvailableError />
-  ) : currentProject ? (
+  return currentProject ? (
     <>
       <Common>
         <Project

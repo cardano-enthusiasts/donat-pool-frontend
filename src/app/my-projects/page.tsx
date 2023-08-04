@@ -1,46 +1,32 @@
 'use client';
-import { useRouter } from 'next/navigation';
-import { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
 
-import { setWalletStatusSuccess } from '@/features/info/redux/actionCreators';
+import { useEffect } from 'react';
+import { useRouter } from 'next/navigation';
+
 import { Common } from '@/layouts';
-import { MyProjects, NotAvailableError } from '@/shared/components';
+import { MyProjects } from '@/shared/components';
 import { useGetUserFundraisings, useOffchain } from '@/shared/helpers/hooks';
-import { type AppReduxState } from '@/shared/types';
+import { useAppSelector } from '@/store/hooks';
 
 const PrivateProjects = () => {
-  const dispatch = useDispatch();
   const router = useRouter();
   const offchain = useOffchain();
   const getUserFundraisings = useGetUserFundraisings();
-  const {
-    communication: {
-      setWalletStatus: { isRequesting },
-    },
-    data: { walletStatus },
-  } = useSelector((state: AppReduxState) => state.info);
+  const { mode, status } = useAppSelector((state) => state.wallet);
 
   useEffect(() => {
     document.title = 'My projects';
   }, []);
 
   useEffect(() => {
-    if (offchain && walletStatus === 'connected') {
+    if (offchain && mode === 'connected') {
       getUserFundraisings();
     }
-  }, [offchain, walletStatus]);
+  }, [offchain, mode]);
 
-  useEffect(() => {
-    if (walletStatus === 'declined') {
-      router.push('/');
-      dispatch(setWalletStatusSuccess('default'));
-    }
-  }, [walletStatus, window]);
-
-  return walletStatus === 'notAvailable' || !window?.cardano?.nami ? (
-    <NotAvailableError />
-  ) : !isRequesting ? (
+  return status === 'requesting' ? (
+    <></>
+  ) : (
     <Common>
       <MyProjects
         onCreateAProjectClick={() => {
@@ -48,8 +34,6 @@ const PrivateProjects = () => {
         }}
       />
     </Common>
-  ) : (
-    <></>
   );
 };
 

@@ -1,7 +1,6 @@
 import { useState } from 'react';
-
-import { useConnectWallet } from 'shared/helpers/hooks';
-import { useAppSelector } from 'store/hooks';
+import { useConnectWallet } from '@/shared/helpers/hooks';
+import { useAppSelector } from '@/store/hooks';
 
 import { Address, ConnectButton, Wrapper } from './WalletButton.styled';
 

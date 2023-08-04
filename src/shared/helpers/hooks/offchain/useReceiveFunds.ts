@@ -1,12 +1,12 @@
-import { testnetNami } from 'shared/constants/wallet';
-import { type FundraisingData } from 'shared/types';
-import { useAppDispatch } from 'store/hooks';
+import { testnetNami } from '@/shared/constants/wallet';
+import { type FundraisingData } from '@/shared/types';
+import { useAppDispatch } from '@/store/hooks';
 import {
   setError,
   setSuccess,
   setRequesting,
-} from 'store/slices/fundsReceiving';
-import { setWalletMode } from 'store/slices/wallet';
+} from '@/store/slices/fundsReceiving';
+import { setWalletMode } from '@/store/slices/wallet';
 
 import {
   useCheckWalletStatus,

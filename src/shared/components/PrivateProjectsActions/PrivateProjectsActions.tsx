@@ -1,9 +1,8 @@
-import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
-
-import { useReceiveFunds } from 'shared/helpers/hooks';
-import { useAppDispatch, useAppSelector } from 'store/hooks';
-import { reset } from 'store/slices/fundsReceiving';
+import { useEffect, useState } from 'react';
+import { useReceiveFunds } from '@/shared/helpers/hooks';
+import { useAppDispatch, useAppSelector } from '@/store/hooks';
+import { reset } from '@/store/slices/fundsReceiving';
 
 import {
   ButtonWrapper,

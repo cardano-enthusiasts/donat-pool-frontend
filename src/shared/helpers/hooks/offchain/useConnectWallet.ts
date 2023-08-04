@@ -1,6 +1,6 @@
-import { testnetNami } from 'shared/constants/wallet';
-import { useAppDispatch } from 'store/hooks';
-import { setWalletMode } from 'store/slices/wallet';
+import { testnetNami } from '@/shared/constants/wallet';
+import { useAppDispatch } from '@/store/hooks';
+import { setWalletMode } from '@/store/slices/wallet';
 
 import { useGetAppInfo, useHandleError, useOffchain } from '..';
 import { getOffchainError } from '../..';

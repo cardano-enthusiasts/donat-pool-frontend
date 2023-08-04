@@ -1,15 +1,15 @@
-import { testnetNami } from 'shared/constants/wallet';
+import { testnetNami } from '@/shared/constants/wallet';
 import {
   type CreateFundraisingParams,
   type BackendProject,
-} from 'shared/types';
-import { useAppDispatch } from 'store/hooks';
+} from '@/shared/types';
+import { useAppDispatch } from '@/store/hooks';
 import {
   setError,
   setRequesting,
   setCreatedPath,
-} from 'store/slices/fundraisingCreation';
-import { setWalletMode } from 'store/slices/wallet';
+} from '@/store/slices/fundraisingCreation';
+import { setWalletMode } from '@/store/slices/wallet';
 
 import {
   useOffchain,

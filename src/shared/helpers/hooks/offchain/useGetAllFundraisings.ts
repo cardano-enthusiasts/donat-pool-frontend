@@ -1,12 +1,12 @@
-import { testnetNami } from 'shared/constants/wallet';
-import { type BackendProjects } from 'shared/types';
-import { useAppDispatch } from 'store/hooks';
+import { testnetNami } from '@/shared/constants/wallet';
+import { type BackendProjects } from '@/shared/types';
+import { useAppDispatch } from '@/store/hooks';
 import {
   setError,
   setRequesting,
   setAllFundraisings,
-} from 'store/slices/allFundraisings';
-import { setWalletMode } from 'store/slices/wallet';
+} from '@/store/slices/allFundraisings';
+import { setWalletMode } from '@/store/slices/wallet';
 
 import { useOffchain, useCheckWalletStatus, useHandleError } from '..';
 import { getOffchainError, transformProjects } from '../..';

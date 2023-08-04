@@ -1,28 +1,20 @@
 'use client';
-import { useRouter } from 'next/navigation';
+
 import { useEffect } from 'react';
-import { useSelector } from 'react-redux';
+import { useRouter } from 'next/navigation';
 
 import { Common } from '@/layouts';
 import { ManagementParams, ManagerEditor } from '@/shared/components';
-import { type AppReduxState } from '@/shared/types';
+import { useAppSelector } from '@/store/hooks';
 
 import { Title, Wrapper } from './Management.styled';
 
 const Management = () => {
   const {
-    protocol: {
-      data: { config },
-    },
-    info: {
-      communication: {
-        setWalletStatus: { isRequesting },
-      },
-      data: {
-        user: { isManager },
-      },
-    },
-  } = useSelector((state: AppReduxState) => state);
+    appInfo: { userInfo, protocol },
+    wallet: { status },
+  } = useAppSelector((state) => state);
+
   const router = useRouter();
 
   useEffect(() => {
@@ -30,7 +22,7 @@ const Management = () => {
   }, []);
 
   useEffect(() => {
-    if (isManager === false) {
+    if (userInfo && !userInfo.isManager) {
       router.push('/all-projects');
     }
   }, [userInfo]);

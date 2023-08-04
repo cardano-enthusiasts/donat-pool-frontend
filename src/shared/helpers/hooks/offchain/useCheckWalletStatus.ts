@@ -1,5 +1,5 @@
-import { useAppDispatch, useAppSelector } from 'store/hooks';
-import { setRequesting } from 'store/slices/wallet';
+import { useAppDispatch, useAppSelector } from '@/store/hooks';
+import { setRequesting } from '@/store/slices/wallet';
 
 const useCheckWalletStatus = () => {
   const walletStatus = useAppSelector((state) => state.wallet.mode);

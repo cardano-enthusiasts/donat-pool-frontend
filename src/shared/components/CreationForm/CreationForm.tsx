@@ -1,9 +1,9 @@
 import { useRouter } from 'next/navigation';
 import { type ChangeEvent, useState, useEffect } from 'react';
 
-import { useCreateFundraising } from 'shared/helpers/hooks';
-import { useAppDispatch, useAppSelector } from 'store/hooks';
-import { reset } from 'store/slices/fundraisingCreation';
+import { useCreateFundraising } from '@/shared/helpers/hooks';
+import { useAppDispatch, useAppSelector } from '@/store/hooks';
+import { reset } from '@/store/slices/fundraisingCreation';
 
 import {
   ButtonWrapper,

@@ -1,37 +1,25 @@
 'use client';
-import { useRouter } from 'next/navigation';
-import { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
 
-import { setWalletStatusSuccess } from '@/features/info/redux/actionCreators';
+import { useEffect } from 'react';
+import { useRouter } from 'next/navigation';
+
 import { Common } from '@/layouts';
-import { NotAvailableError, ProjectCreation } from '@/shared/components';
-import { type AppReduxState } from '@/shared/types';
+import { ProjectCreation } from '@/shared/components';
+import { useAppSelector } from '@/store/hooks';
 
 const NewProject = () => {
-  const dispatch = useDispatch();
   const router = useRouter();
-  const { isRequesting } = useSelector(
-    (state: AppReduxState) => state.info.communication.setWalletStatus,
-  );
-  const {
-    data: { walletStatus },
-  } = useSelector((state: AppReduxState) => state.info);
+
+  const isRequesting =
+    useAppSelector((state) => state.wallet.status) === 'requesting';
 
   useEffect(() => {
     document.title = 'New project';
   }, []);
 
-  useEffect(() => {
-    if (walletStatus === 'declined') {
-      router.push('/');
-      dispatch(setWalletStatusSuccess('default'));
-    }
-  }, [walletStatus, window]);
-
-  return walletStatus === 'notAvailable' || !window?.cardano?.nami ? (
-    <NotAvailableError />
-  ) : !isRequesting ? (
+  return isRequesting ? (
+    <></>
+  ) : (
     <Common>
       <ProjectCreation
         onClose={() => {
@@ -39,8 +27,6 @@ const NewProject = () => {
         }}
       />
     </Common>
-  ) : (
-    <></>
   );
 };
 

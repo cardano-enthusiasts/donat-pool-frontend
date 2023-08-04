@@ -1,4 +1,4 @@
-import { type RequestStatus, type Fundraisings } from 'shared/types';
+import { type RequestStatus, type Fundraisings } from '@/shared/types';
 
 interface State {
   fundraisings: Fundraisings;

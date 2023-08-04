@@ -1,11 +1,11 @@
-import { type Config } from 'shared/types';
-import { useAppDispatch } from 'store/hooks';
+import { type Config } from '@/shared/types';
+import { useAppDispatch } from '@/store/hooks';
 import {
   setError,
   setSuccess,
   setRequesting,
-} from 'store/slices/protocolUpdating';
-import { setWalletMode } from 'store/slices/wallet';
+} from '@/store/slices/protocolUpdating';
+import { setWalletMode } from '@/store/slices/wallet';
 
 import {
   useGetAppInfo,

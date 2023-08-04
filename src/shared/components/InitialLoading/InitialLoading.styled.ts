@@ -18,11 +18,11 @@ const Wrapper = styled.div<{
   }
 `;
 
-const InnerCircle = styled.div.attrs((props) => ({
+const InnerCircle = styled.div.attrs((props: any) => ({
   style: {
     transform: `scale(${props['data-window-scroll']})`,
   },
-}))<{ windowScroll; isAnimationActive }>`
+}))<{ windowScroll: any; isAnimationActive: any }>`
   position: absolute;
   width: 230px;
   height: 230px;
@@ -39,7 +39,7 @@ const InnerCircle = styled.div.attrs((props) => ({
   }
 `;
 
-const OuterCircle = styled.div<{ windowScroll; isAnimationActive }>`
+const OuterCircle = styled.div<{ windowScroll: any; isAnimationActive: any }>`
   position: absolute;
   width: 100%;
   height: 100%;
@@ -52,7 +52,7 @@ const OuterCircle = styled.div<{ windowScroll; isAnimationActive }>`
   }
 `;
 
-const CatImage = styled.img<{ isAnimationActive }>`
+const CatImage = styled.img<{ isAnimationActive: any }>`
   position: ${({ isAnimationActive }) =>
     isAnimationActive ? 'absolute' : 'static'};
   bottom: 0;

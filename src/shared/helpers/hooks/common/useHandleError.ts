@@ -3,9 +3,9 @@ import {
   missingCollateral,
   walletDisconnect,
   walletIsNotAvailable,
-} from 'shared/constants';
-import { useAppDispatch } from 'store/hooks';
-import { setWalletMode } from 'store/slices/wallet';
+} from '@/shared/constants';
+import { useAppDispatch } from '@/store/hooks';
+import { setWalletMode } from '@/store/slices/wallet';
 
 const useHandleError = () => {
   const dispatch = useAppDispatch();

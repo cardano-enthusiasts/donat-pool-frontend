@@ -1,16 +1,16 @@
-import { testnetNami } from 'shared/constants/wallet';
+import { testnetNami } from '@/shared/constants/wallet';
 import {
   useCheckWalletStatus,
   useOffchain,
   useHandleError,
-} from 'shared/helpers/hooks';
-import { useAppDispatch } from 'store/hooks';
+} from '@/shared/helpers/hooks';
+import { useAppDispatch } from '@/store/hooks';
 import {
   setError,
   setUserFundraisings,
   setRequesting,
-} from 'store/slices/userFundraisings';
-import { setWalletMode } from 'store/slices/wallet';
+} from '@/store/slices/userFundraisings';
+import { setWalletMode } from '@/store/slices/wallet';
 
 import { getOffchainError } from '../..';
 import { transformProjects } from '../../transformProjects';
