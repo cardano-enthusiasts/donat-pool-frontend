@@ -1,34 +1,30 @@
 import { useEffect } from 'react';
-import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
 import { Common } from 'layouts';
 import { MyProjects } from 'shared/components';
 import { useGetUserFundraisings, useOffchain } from 'shared/helpers/hooks';
-import { type AppReduxState } from 'shared/types';
+import { useAppSelector } from 'store/hooks';
 
 const PrivateProjects = () => {
   const navigate = useNavigate();
   const offchain = useOffchain();
   const getUserFundraisings = useGetUserFundraisings();
-  const {
-    communication: {
-      setWalletStatus: { isRequesting },
-    },
-    data: { walletStatus },
-  } = useSelector((state: AppReduxState) => state.info);
+  const { mode, status } = useAppSelector((state) => state.wallet);
 
   useEffect(() => {
     document.title = 'My projects';
   }, []);
 
   useEffect(() => {
-    if (offchain && walletStatus === 'connected') {
+    if (offchain && mode === 'connected') {
       getUserFundraisings();
     }
-  }, [offchain, walletStatus]);
+  }, [offchain, mode]);
 
-  return !isRequesting ? (
+  return status === 'requesting' ? (
+    <></>
+  ) : (
     <Common>
       <MyProjects
         onCreateAProjectClick={() => {
@@ -36,8 +32,6 @@ const PrivateProjects = () => {
         }}
       />
     </Common>
-  ) : (
-    <></>
   );
 };
 

@@ -1,12 +1,12 @@
 import { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
 
 import { Common, Project } from 'layouts';
 import { PrivateProjectsActions, RaisedCounter } from 'shared/components';
 import { getDate } from 'shared/helpers';
 import { useGetUserFundraisings, useOffchain } from 'shared/helpers/hooks';
-import { type AppReduxState, type Fundraising } from 'shared/types';
+import { type Fundraising } from 'shared/types';
+import { useAppSelector } from 'store/hooks';
 
 import {
   CounterWrapper,
@@ -24,9 +24,7 @@ const PrivateProject = () => {
   const [currentProject, setCurrentProject] = useState<Fundraising | null>(
     null,
   );
-  const { fundraisings } = useSelector(
-    (state: AppReduxState) => state.info.data.user,
-  );
+  const { fundraisings } = useAppSelector((state) => state.userFundraisings);
 
   useEffect(() => {
     if (offchain) {
@@ -36,7 +34,9 @@ const PrivateProject = () => {
 
   useEffect(() => {
     if (fundraisings) {
-      const project = fundraisings.find(({ path }) => path === params.id);
+      const project = fundraisings.find(
+        ({ threadTokenCurrency }) => threadTokenCurrency === params.id,
+      );
       if (project) {
         setCurrentProject(project);
       } else {
@@ -53,7 +53,7 @@ const PrivateProject = () => {
           onPreviousPageClick={() => {
             navigate('/my-projects');
           }}
-          title={currentProject.description}
+          title={currentProject.title}
         >
           <Inner>
             <DeadlineAndStatus>

@@ -1,28 +1,32 @@
-import { useSelector } from 'react-redux';
-
-import { type AppReduxState } from 'shared/types';
+import { useAppSelector } from 'store/hooks';
 
 import { Wrapper } from './PrecalculationFee.styled';
 import { type Props } from './types';
 
 const PrecalculationFee = ({ goal }: Props) => {
-  const { protocolFeeParam } = useSelector(
-    (state: AppReduxState) => state.protocol.data.config,
+  const protocolFeeParam = useAppSelector(
+    (state) => state.appInfo.protocol?.protocolFeeParam,
   );
   const minFee = 2;
-  const extraFee = Math.max(
-    Math.round(goal * (protocolFeeParam / 100) * Math.pow(10, 6)) /
-      Math.pow(10, 6),
-    minFee,
-  );
+  const getExtraFee = (protocolFeeParam: number) => {
+    return Math.max(
+      Math.round(goal * (protocolFeeParam / 100) * Math.pow(10, 6)) /
+        Math.pow(10, 6),
+      minFee,
+    );
+  };
 
   return (
-    <Wrapper>
-      Commission —{' '}
-      {extraFee !== 0
-        ? `${extraFee} ADA (${protocolFeeParam}%)`
-        : `${protocolFeeParam}%`}
-    </Wrapper>
+    protocolFeeParam && (
+      <Wrapper>
+        Commission —{' '}
+        {getExtraFee(protocolFeeParam) !== 0
+          ? `${getExtraFee(protocolFeeParam)} ADA (${String(
+              protocolFeeParam,
+            )}%)`
+          : `${String(protocolFeeParam)}%`}
+      </Wrapper>
+    )
   );
 };
 

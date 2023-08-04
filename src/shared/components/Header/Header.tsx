@@ -1,8 +1,7 @@
 import { useState } from 'react';
-import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-import { type AppReduxState } from 'shared/types';
+import { useAppSelector } from 'store/hooks';
 
 import {
   Inner,
@@ -23,9 +22,7 @@ const Header = ({ currentPage = null }: Props) => {
     { title: 'All Donation pools', href: '/all-projects', id: 'projects' },
   ];
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const { walletStatus } = useSelector(
-    (state: AppReduxState) => state.info.data,
-  );
+  const walletMode = useAppSelector((state) => state.wallet.mode);
 
   return (
     <>
@@ -36,7 +33,7 @@ const Header = ({ currentPage = null }: Props) => {
               <Logo />
             </LogoWrapper>
           )}
-          {walletStatus === 'connected' ? (
+          {walletMode === 'connected' ? (
             <LinksAndButton isMenuOpen={isMenuOpen}>
               <Links>
                 {links.map(({ title, href, id }) => (

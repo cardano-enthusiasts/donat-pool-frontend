@@ -5,23 +5,21 @@ const transformProjects = (projects: BackendProjects): Fundraisings => {
     ({
       creator,
       deadline,
-      description,
+      title,
       goal,
       raisedAmt,
       threadTokenCurrency,
       threadTokenName,
-      path,
       isCompleted,
     }) => {
       return {
         creator,
         deadline: Number(deadline.value),
-        description,
+        title,
         goal: Number(goal.value),
         raisedAmount: Number(raisedAmt.value),
         threadTokenCurrency,
         threadTokenName,
-        path,
         isCompleted,
       };
     },

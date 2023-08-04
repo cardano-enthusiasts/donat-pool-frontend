@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 
 import { Common } from 'layouts';
@@ -17,7 +16,9 @@ import {
   useGetAllFundraisings,
   useOffchain,
 } from 'shared/helpers/hooks';
-import { type AppReduxState, type Fundraising } from 'shared/types';
+import { type Fundraising } from 'shared/types';
+import { useAppDispatch, useAppSelector } from 'store/hooks';
+import { reset } from 'store/slices/donating';
 
 import {
   ButtonWrapper,
@@ -30,6 +31,7 @@ import {
 const PublicProject = () => {
   const params = useParams();
   const offchain = useOffchain();
+  const dispatch = useAppDispatch();
   const getAllFundraisings = useGetAllFundraisings();
   const [currentProject, setCurrentProject] = useState<Fundraising | null>(
     null,
@@ -38,31 +40,29 @@ const PublicProject = () => {
   const [isModalErrorOpen, setIsModalErrorOpen] = useState(false);
   const [isModalLoadingOpen, setIsModalLoadingOpen] = useState(false);
   const [isModalSuccessOpen, setIsModalSuccessOpen] = useState(false);
-  const handleDonateSuccess = () => {
-    setIsModalSuccessOpen(true);
-    setIsModalOpen(false);
-  };
-  const handleDonateError = () => {
-    setIsModalOpen(false);
-    setIsModalErrorOpen(true);
-  };
-  const donate = useDonate({
-    onSuccess: handleDonateSuccess,
-    onError: handleDonateError,
-  });
-  const { allFundraisings } = useSelector(
-    (state: AppReduxState) => state.info.data,
-  );
-  const { isRequesting, error } = useSelector(
-    (state: AppReduxState) => state.fundraising.communication.donate,
-  );
+  const donate = useDonate();
+
+  const {
+    donating: { error, status },
+    allFundraisings: { fundraisings },
+  } = useAppSelector((state) => state);
 
   useEffect(() => {
+    const isRequesting = status === 'requesting';
     setIsModalLoadingOpen(isRequesting);
-    if (isRequesting) {
+
+    const isSuccessfully = status === 'success';
+    const isError = status === 'error';
+    if (isRequesting || isSuccessfully || isError) {
       setIsModalOpen(false);
     }
-  }, [isRequesting]);
+    if (isSuccessfully) {
+      setIsModalSuccessOpen(true);
+    }
+    if (isError) {
+      setIsModalErrorOpen(true);
+    }
+  }, [status]);
 
   useEffect(() => {
     if (offchain) {
@@ -71,21 +71,23 @@ const PublicProject = () => {
   }, [offchain]);
 
   useEffect(() => {
-    if (allFundraisings) {
-      const project = allFundraisings.find(({ path }) => path === params.id);
+    if (fundraisings) {
+      const project = fundraisings.find(
+        ({ threadTokenCurrency }) => threadTokenCurrency === params.id,
+      );
       if (project) {
         setCurrentProject(project);
       } else {
         setCurrentProject(null);
       }
     }
-  }, [allFundraisings, params.id]);
+  }, [fundraisings, params.id]);
 
   return currentProject ? (
     <>
       <Common>
         <Wrapper>
-          <Title>{currentProject.description}</Title>
+          <Title>{currentProject.title}</Title>
           <Duration>Until {getDate(currentProject.deadline)} </Duration>
           <CounterWrapper>
             <RaisedCounter
@@ -123,6 +125,7 @@ const PublicProject = () => {
         errorText={error}
         onClose={() => {
           setIsModalErrorOpen(false);
+          dispatch(reset());
         }}
       />
       <ModalLoading
@@ -134,6 +137,7 @@ const PublicProject = () => {
         description="Congratulations! Your donut is ready!"
         onClose={() => {
           setIsModalSuccessOpen(false);
+          dispatch(reset());
         }}
       />
     </>

@@ -1,18 +1,18 @@
-import { useDispatch } from 'react-redux';
-
-import { setWalletStatusSuccess } from 'features/info/redux/actionCreators';
+import { testnetNami } from 'shared/constants/wallet';
+import { useAppDispatch } from 'store/hooks';
+import { setWalletMode } from 'store/slices/wallet';
 
 import { useGetAppInfo, useHandleError, useOffchain } from '..';
 import { getOffchainError } from '../..';
 
 const useConnectWallet = () => {
   const offchain = useOffchain();
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const handleCommonError = useHandleError();
   const getAppInfo = useGetAppInfo();
 
   const handleSuccess = () => {
-    dispatch(setWalletStatusSuccess('connected'));
+    dispatch(setWalletMode('connected'));
     getAppInfo();
   };
 
@@ -22,7 +22,7 @@ const useConnectWallet = () => {
 
   if (offchain) {
     return () => {
-      offchain.connectWallet(handleSuccess)(handleError)();
+      offchain.connectWallet(handleSuccess)(handleError)(testnetNami)();
     };
   }
   return () => getOffchainError;

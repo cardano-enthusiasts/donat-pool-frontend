@@ -1,35 +1,31 @@
-import { type SagaIterator } from '@redux-saga/types';
-import {
-  type Reducer,
-  type Dispatch,
-  type ActionCreator,
-  type Action,
-} from 'redux';
-
-import type * as features from 'features';
-
 import {
   type BackendProjects,
-  type BackendParams,
   type CreateFundraisingParams,
   type FundraisingData,
-  type Config,
   type UserAndProtocolParams,
-  type Fundraising,
+  type Config,
+  type BackendProject,
 } from './';
 
 type OnError = (error: string) => void;
 
+interface TestnetNami {
+  wallet: 'Nami';
+  isMainnet: false;
+}
+
 type ConnectWallet = (
   onSuccess: () => void,
-) => (onError: OnError) => () => void;
+) => (onError: OnError) => (walletParams: TestnetNami) => () => void;
 
 type CreateFundraising = (
-  onSuccess: (fundraisingData: Fundraising) => void,
+  onSuccess: (fundraisingData: BackendProject) => void,
 ) => (
   onError: OnError,
 ) => (
   fixedProtocol: string,
+) => (
+  walletParams: TestnetNami,
 ) => (createFundraisingParams: CreateFundraisingParams) => () => void;
 
 type Donate = (
@@ -38,31 +34,37 @@ type Donate = (
   onError: OnError,
 ) => (
   fixedProtocol: string,
+) => (
+  walletParams: TestnetNami,
 ) => (fundraisingData: FundraisingData) => (amount: number) => () => void;
 
 type GetFundraisings = (
   onSuccess: (projects: BackendProjects) => void,
-) => (onError: OnError) => (fixedProtocol: string) => () => void;
+) => (
+  onError: OnError,
+) => (fixedProtocol: string) => (walletParams: TestnetNami) => () => void;
 
 type GetAppInfo = (
   onSuccess: (params: UserAndProtocolParams) => void,
-) => (onError: OnError) => (fixedProtocol: string) => () => void;
-
-type StartProtocol = (
-  onSuccess: (params: BackendParams) => void,
-) => (onError: OnError) => (config: Config) => () => void;
+) => (
+  onError: OnError,
+) => (fixedProtocol: string) => (walletParams: TestnetNami) => () => void;
 
 type UpdateProtocol = (
   onSuccess: (config: Config) => void,
 ) => (
   onError: OnError,
-) => (fixedProtocol: string) => (config: Config) => () => void;
+) => (fixedProtocol: string) => (walletParams: TestnetNami) => () => void;
 
 type ReceiveFunds = (
   onSuccess: (something) => void,
 ) => (
   onError: OnError,
-) => (protocol: string) => (fundraisingData: FundraisingData) => () => void;
+) => (
+  protocol: string,
+) => (
+  walletParams: TestnetNami,
+) => (fundraisingData: FundraisingData) => () => void;
 declare global {
   interface Window {
     donatPool: Promise<{
@@ -73,8 +75,7 @@ declare global {
       getAllFundraisings: GetFundraisings;
       getAppInfo: GetAppInfo;
       getUserRelatedFundraisings: GetFundraisings;
-      startProtocol: StartProtocol;
-      updateProtocol: UpdateProtocol;
+      setProtocol: UpdateProtocol;
       receiveFunds: ReceiveFunds;
     }>;
     cardano: {
@@ -83,37 +84,4 @@ declare global {
   }
 }
 
-interface Dependencies {
-  getDispatch: () => Dispatch;
-  getState: () => AppReduxState;
-}
-
-type FeatureSaga = (deps: Dependencies) => SagaIterator;
-
-interface FeatureEntry {
-  actionCreators?: Record<string, ActionCreator<Action>>;
-  selectors?: any;
-  reducer?: Reducer;
-  saga?: FeatureSaga;
-}
-
-interface AppReduxState {
-  info: features.info.types.ReduxState;
-  protocol: features.protocol.types.ReduxState;
-  fundraising: features.fundraising.types.ReduxState;
-}
-
-type RootSaga = (deps: Dependencies) => () => SagaIterator;
-
-type ReducersMap<T> = {
-  [key in keyof T]: Reducer<T[key]>;
-};
-
-export type {
-  Dependencies,
-  FeatureSaga,
-  FeatureEntry,
-  AppReduxState,
-  RootSaga,
-  ReducersMap,
-};
+export type { TestnetNami };

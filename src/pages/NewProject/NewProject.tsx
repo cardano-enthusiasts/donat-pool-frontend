@@ -1,22 +1,23 @@
 import { useEffect } from 'react';
-import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
 import { Common } from 'layouts';
 import { ProjectCreation } from 'shared/components';
-import { type AppReduxState } from 'shared/types';
+import { useAppSelector } from 'store/hooks';
 
 const NewProject = () => {
   const navigate = useNavigate();
-  const { isRequesting } = useSelector(
-    (state: AppReduxState) => state.info.communication.setWalletStatus,
-  );
+
+  const isRequesting =
+    useAppSelector((state) => state.wallet.status) === 'requesting';
 
   useEffect(() => {
     document.title = 'New project';
   }, []);
 
-  return !isRequesting ? (
+  return isRequesting ? (
+    <></>
+  ) : (
     <Common>
       <ProjectCreation
         onClose={() => {
@@ -24,8 +25,6 @@ const NewProject = () => {
         }}
       />
     </Common>
-  ) : (
-    <></>
   );
 };
 

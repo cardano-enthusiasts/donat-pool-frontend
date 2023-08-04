@@ -9,16 +9,14 @@
     "eslint": "eslint ."
   },
   "dependencies": {
-    "offchain": "git+ssh://git@github.com:fullstack-development/donat-pool-offchain.git#d8b7cca7521e81842e2bcfb5a8e3447a472c28b4",
+    "@reduxjs/toolkit": "^1.9.5",
+    "offchain": "git+ssh://git@github.com:fullstack-development/donat-pool-offchain.git#a6e41e53add5082b1d15f6df54fc9f8b404ad9ce",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-redux": "8.1.2",
     "react-router-dom": "6.14.2",
     "react-router-hash-link": "2.4.3",
     "redux": "4.2.1",
-    "redux-devtools-extension": "2.13.9",
-    "redux-make-communication": "2.0.0",
-    "redux-saga": "1.2.2",
     "style-loader": "3.3.1",
     "styled-components": "5.3.6"
   },

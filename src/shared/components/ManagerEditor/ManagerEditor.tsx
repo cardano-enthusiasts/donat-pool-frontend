@@ -1,8 +1,8 @@
 import { type ChangeEvent, useState, useEffect } from 'react';
-import { useSelector } from 'react-redux';
 
 import { useUpdateProtocol } from 'shared/helpers/hooks';
-import { type AppReduxState } from 'shared/types';
+import { useAppDispatch, useAppSelector } from 'store/hooks';
+import { reset } from 'store/slices/protocolUpdating';
 
 import { defaultParams } from './data';
 import {
@@ -20,16 +20,10 @@ const ManagerEditor = ({ config }: Props) => {
   const [isModalSuccessOpen, setIsModalSuccessOpen] = useState(false);
   const [isModalErrorOpen, setIsModalErrorOpen] = useState(false);
   const [isModalLoadingOpen, setIsModalLoadingOpen] = useState(false);
-  const { isRequesting, error } = useSelector(
-    (state: AppReduxState) => state.protocol.communication.update,
-  );
-  const onSuccess = () => {
-    setIsModalSuccessOpen(true);
-  };
-  const onError = () => {
-    setIsModalErrorOpen(true);
-  };
-  const updateProtocol = useUpdateProtocol({ onSuccess, onError });
+  const dispatch = useAppDispatch();
+
+  const { error, status } = useAppSelector((state) => state.protocolUpdating);
+  const setProtocol = useUpdateProtocol();
 
   const filterInputValue = (value: string): '' | number => {
     if (Number(value) < 0) {
@@ -41,8 +35,17 @@ const ManagerEditor = ({ config }: Props) => {
   };
 
   useEffect(() => {
-    setIsModalLoadingOpen(isRequesting);
-  }, [isRequesting]);
+    if (status === 'success') {
+      setIsModalSuccessOpen(true);
+    }
+    if (status === 'error') {
+      setIsModalErrorOpen(true);
+    }
+  }, [status]);
+
+  useEffect(() => {
+    setIsModalLoadingOpen(status === 'requesting');
+  }, [status]);
 
   useEffect(() => {
     setParams(config);
@@ -60,7 +63,7 @@ const ManagerEditor = ({ config }: Props) => {
 
   const handleSubmit = (event: ChangeEvent<HTMLFormElement>) => {
     event.preventDefault();
-    updateProtocol(params);
+    setProtocol(params);
   };
 
   return (
@@ -105,6 +108,7 @@ const ManagerEditor = ({ config }: Props) => {
         errorText={error}
         onClose={() => {
           setIsModalErrorOpen(false);
+          dispatch(reset());
         }}
       />
       <ModalSuccess
@@ -112,6 +116,7 @@ const ManagerEditor = ({ config }: Props) => {
         description="All data saved"
         onClose={() => {
           setIsModalSuccessOpen(false);
+          dispatch(reset());
         }}
       />
     </>
