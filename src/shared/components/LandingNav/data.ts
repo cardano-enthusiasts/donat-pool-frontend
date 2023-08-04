@@ -19,7 +19,7 @@ const getSections = (
     id: 'why-choose-us',
   },
   {
-    title: 'About us',
+    title: 'Meet our team',
     isActive: currentSection === 'about-us',
     id: 'about-us',
   },
