@@ -4,7 +4,7 @@ import localFont from 'next/font/local';
 import Script from 'next/script';
 
 import store from '@/store';
-import StoreProvider from '@/StoreProvider';
+import StoreProvider from '@/store/Provider';
 import StyledComponentsProvider from '@/StyledComponentsProvider';
 
 import './globals.css';

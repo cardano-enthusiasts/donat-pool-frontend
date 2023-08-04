@@ -11,7 +11,7 @@ import {
   wallet,
 } from './slices';
 
-export default store = configureStore({
+const store = configureStore({
   reducer: {
     userFundraisings: userFundraisings.reducer,
     allFundraisings: allFundraisings.reducer,
@@ -23,5 +23,7 @@ export default store = configureStore({
     wallet: wallet.reducer,
   },
 });
+
+export default store;
 export type RootState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;
