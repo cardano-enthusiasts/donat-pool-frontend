@@ -10,14 +10,18 @@ export const slice = createSlice({
   reducers: {
     setProtocol: (state, action: PayloadAction<Config>) => {
       state.protocol = action.payload;
+      state.error = initialState.error;
       state.status = 'success';
     },
     setUserInfo: (state, action: PayloadAction<UserInfo>) => {
       state.userInfo = action.payload;
+      state.error = initialState.error;
       state.status = 'success';
     },
     setError: (state, action: PayloadAction<string>) => {
       state.error = action.payload;
+      state.userInfo = initialState.userInfo;
+      state.protocol = initialState.protocol;
       state.status = 'error';
     },
     setRequesting: (state) => {
@@ -29,6 +33,7 @@ export const slice = createSlice({
   },
 });
 
-export const { setProtocol, setUserInfo, setError, setRequesting } = slice.actions;
+export const { setProtocol, setUserInfo, setError, setRequesting } =
+  slice.actions;
 export const { reducer } = slice;
 export default slice;

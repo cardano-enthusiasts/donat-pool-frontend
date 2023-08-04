@@ -13,7 +13,7 @@ import {
 } from 'pages';
 import { NotAvailableError } from 'shared/components';
 import { useAppDispatch, useAppSelector } from 'store/hooks';
-import { setWalletMode } from 'store/slices/wallet';
+import { reset } from 'store/slices/wallet';
 
 const Base = () => {
   const location = useLocation();
@@ -76,7 +76,7 @@ const Base = () => {
   useEffect(() => {
     if (walletMode === 'declined') {
       navigate('/');
-      dispatch(setWalletMode('default'));
+      dispatch(reset());
     }
     if (walletIsNotAvailable) {
       navigate('/');

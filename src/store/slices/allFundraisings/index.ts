@@ -10,10 +10,12 @@ const slice = createSlice({
   reducers: {
     setAllFundraisings: (state, action: PayloadAction<Fundraisings>) => {
       state.fundraisings = action.payload;
+      state.error = initialState.error;
       state.status = 'success';
     },
     setError: (state, action: PayloadAction<string>) => {
       state.error = action.payload;
+      state.fundraisings = initialState.fundraisings;
       state.status = 'error';
     },
     setRequesting: (state) => {

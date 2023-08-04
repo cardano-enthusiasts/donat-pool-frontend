@@ -11,6 +11,7 @@ export const slice = createSlice({
       state.status = 'error';
     },
     setSuccess: (state) => {
+      state.error = initialState.error;
       state.status = 'success';
     },
     setRequesting: (state) => {
