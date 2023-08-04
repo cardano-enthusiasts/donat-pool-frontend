@@ -20,7 +20,6 @@ export const slice = createSlice({
     },
     setRequesting: (state) => {
       state.error = initialState.error;
-      state.fundraisings = initialState.fundraisings;
       state.status = 'requesting';
     },
   },

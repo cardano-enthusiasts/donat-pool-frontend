@@ -21,7 +21,6 @@ const slice = createSlice({
     setRequesting: (state) => {
       state.status = 'requesting';
       state.error = initialState.error;
-      state.fundraisings = initialState.fundraisings;
     },
   },
 });

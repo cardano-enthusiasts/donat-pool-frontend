@@ -25,18 +25,16 @@ const MyProjects = ({ onCreateAProjectClick }: Props) => {
     Fundraising[] | null
   >(null);
   const [filter, setFilter] = useState<ProjectStatus | null>(null);
-  const userFundraisings = useAppSelector(
-    (state) => state.userFundraisings.value,
-  );
+  const { fundraisings } = useAppSelector((state) => state.userFundraisings);
 
   useEffect(() => {
-    if (userFundraisings) {
-      setAllProjectsWithStatus(userFundraisings);
-      setFilteredProjects(userFundraisings);
+    if (fundraisings) {
+      setAllProjectsWithStatus(fundraisings);
+      setFilteredProjects(fundraisings);
     } else {
       setAllProjectsWithStatus(null);
     }
-  }, [userFundraisings]);
+  }, [fundraisings]);
 
   const handleFilterClick = (status: ProjectStatus, projects: Fundraisings) => {
     if (filter === status) {

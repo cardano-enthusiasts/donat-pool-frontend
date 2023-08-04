@@ -27,8 +27,6 @@ export const slice = createSlice({
     setRequesting: (state) => {
       state.status = 'requesting';
       state.error = initialState.error;
-      state.protocol = initialState.protocol;
-      state.userInfo = initialState.userInfo;
     },
   },
 });

@@ -24,7 +24,7 @@ const PrivateProject = () => {
   const [currentProject, setCurrentProject] = useState<Fundraising | null>(
     null,
   );
-  const fundraisings = useAppSelector((state) => state.userFundraisings.value);
+  const { fundraisings } = useAppSelector((state) => state.userFundraisings);
 
   useEffect(() => {
     if (offchain) {
