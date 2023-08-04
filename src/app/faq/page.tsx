@@ -52,13 +52,15 @@ const FAQ = () => {
             blockchain.
             <SubSection>
               <Subtitle>Low fees and Fast transactions</Subtitle>
-              The Cardano blockchain suggests low transaction fees and fast transaction speed.
+              The Cardano blockchain suggests low transaction fees and fast
+              transaction speed.
             </SubSection>
             <Line />
             <SubSection>
               <Subtitle>Secure transactions</Subtitle>
-              Cardano applications are based on smart contracts that allow to make secure transactions. Every transaction should pass the
-              set of validations before it is recognized as legal.
+              Cardano applications are based on smart contracts that allow to
+              make secure transactions. Every transaction should pass the set of
+              validations before it is recognized as legal.
             </SubSection>
             <Line />
             <SubSection>
@@ -121,8 +123,9 @@ const FAQ = () => {
               Technically creating a project means that you create a separate
               storage on the Donat.Pool script address for your project funds,
               so you have to put 4 ADA to this storage temporarily. You will get
-              these 4 ADA back along with the funds raised. These 4 ADA are taken from your wallet so be ready to
-              sign the transaction with Nami.
+              these 4 ADA back along with the funds raised. These 4 ADA are
+              taken from your wallet so be ready to sign the transaction with
+              Nami.
             </Alert>
             <Ul>
               <Li>

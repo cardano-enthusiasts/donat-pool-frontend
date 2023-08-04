@@ -58,8 +58,7 @@ const basicSection = [
       'As a donor, you can trace the raised funds using the Cardano observer. But Donat.Pool can&#39;t guarantee that funds will be spent in the way it was mentioned in the project description. You should donate only to reliable project owners, so that you can be confident that the resource where the donation link is shared is trustworthy.',
   },
   {
-    title:
-      'Do I have to provide a report on how the funds have been spent?',
+    title: 'Do I have to provide a report on how the funds have been spent?',
     description:
       'Donat.Pool doesn&#39;t require a report, but if you want to build trust with your community and plan to start more donation projects, you can provide reports on your resource (website, youtube channel, etc) which you used to share the donation link.',
   },

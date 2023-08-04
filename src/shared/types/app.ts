@@ -3,5 +3,4 @@ interface TestnetNami {
   isMainnet: false;
 }
 
-
 export type { TestnetNami };

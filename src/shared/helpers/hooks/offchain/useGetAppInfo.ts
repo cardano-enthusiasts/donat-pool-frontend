@@ -49,7 +49,9 @@ const useGetAppInfo = () => {
 
   if (offchain) {
     return () => {
-      offchain?.getAppInfo(handleSuccess)(handleError)(JSON.parse(process.env.NEXT_PUBLIC_PROTOCOL))(testnetNami)();
+      offchain?.getAppInfo(handleSuccess)(handleError)(
+        JSON.parse(process.env.NEXT_PUBLIC_PROTOCOL),
+      )(testnetNami)();
       checkWalletStatus();
       dispatch(setRequesting());
     };

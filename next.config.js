@@ -10,7 +10,7 @@ module.exports = {
       new CopyWebpackPlugin({
         patterns: [
           {
-            from: './node_modules/offchain/dist',
+            from: path.resolve(__dirname, 'node_modules/offchain/dist'),
             to: path.resolve(__dirname, 'public/offchain'),
           },
         ],
