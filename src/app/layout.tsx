@@ -3,9 +3,11 @@ import { Rammetto_One } from 'next/font/google';
 import localFont from 'next/font/local';
 import Script from 'next/script';
 
+import store from '@/store';
+import StoreProvider from '@/StoreProvider';
+import StyledComponentsProvider from '@/StyledComponentsProvider';
+
 import './globals.css';
-import StoreProvider from '@/store';
-import StyledComponentsProvider from '@/styled';
 
 const microsoftYaHeiFont = localFont({
   src: [
@@ -45,7 +47,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     >
       <body>
         <StyledComponentsProvider>
-          <StoreProvider>{children}</StoreProvider>
+          <StoreProvider store={store}>{children}</StoreProvider>
         </StyledComponentsProvider>
         <Script src="/offchain/index.js" />
       </body>
