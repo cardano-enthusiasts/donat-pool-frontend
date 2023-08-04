@@ -3,10 +3,7 @@ import { useNavigate } from 'react-router-dom';
 
 import { useCreateFundraising } from 'shared/helpers/hooks';
 import { useAppDispatch, useAppSelector } from 'store/hooks';
-import {
-  setError as setCreateError,
-  setStatus,
-} from 'store/slices/fundraisingCreation';
+import { reset } from 'store/slices/fundraisingCreation';
 
 import {
   ButtonWrapper,
@@ -253,7 +250,7 @@ const CreationForm = ({ onClose, protocol }: Props) => {
         onClose={() => {
           setIsSuccessModalOpen(false);
           navigate('/my-projects');
-          dispatch(setStatus('default'));
+          dispatch(reset());
         }}
       />
       <ModalLoading isOpen={isLoadingModalOpen} />
@@ -263,7 +260,7 @@ const CreationForm = ({ onClose, protocol }: Props) => {
         errorText={createError}
         onClose={() => {
           setIsErrorModalOpen(false);
-          dispatch(setCreateError(null));
+          dispatch(reset());
         }}
       />
     </>

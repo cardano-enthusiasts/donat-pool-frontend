@@ -1,6 +1,10 @@
 import { type Config } from 'shared/types';
 import { useAppDispatch } from 'store/hooks';
-import { setError, setStatus } from 'store/slices/protocolUpdating';
+import {
+  setError,
+  setSuccess,
+  setRequesting,
+} from 'store/slices/protocolUpdating';
 import { setWalletMode } from 'store/slices/wallet';
 
 import {
@@ -20,7 +24,7 @@ const useUpdateProtocol = () => {
   const protocol = JSON.parse(process.env.PROTOCOL);
 
   const handleSuccess = () => {
-    dispatch(setStatus('success'));
+    dispatch(setSuccess());
     dispatch(setWalletMode('connected'));
     getAppInfo();
   };
@@ -44,7 +48,7 @@ const useUpdateProtocol = () => {
         editConfig(config),
       )();
       checkWalletStatus();
-      dispatch(setStatus('requesting'));
+      dispatch(setRequesting());
     };
   }
   return () => getOffchainError;

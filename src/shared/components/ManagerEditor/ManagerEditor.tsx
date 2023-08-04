@@ -2,7 +2,7 @@ import { type ChangeEvent, useState, useEffect } from 'react';
 
 import { useUpdateProtocol } from 'shared/helpers/hooks';
 import { useAppDispatch, useAppSelector } from 'store/hooks';
-import { setError, setStatus } from 'store/slices/protocolUpdating';
+import { reset } from 'store/slices/protocolUpdating';
 
 import { defaultParams } from './data';
 import {
@@ -108,7 +108,7 @@ const ManagerEditor = ({ config }: Props) => {
         errorText={error}
         onClose={() => {
           setIsModalErrorOpen(false);
-          dispatch(setError(null));
+          dispatch(reset());
         }}
       />
       <ModalSuccess
@@ -116,7 +116,7 @@ const ManagerEditor = ({ config }: Props) => {
         description="All data saved"
         onClose={() => {
           setIsModalSuccessOpen(false);
-          dispatch(setStatus('default'));
+          dispatch(reset());
         }}
       />
     </>

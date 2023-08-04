@@ -6,7 +6,7 @@ import {
 import { useAppDispatch } from 'store/hooks';
 import {
   setError,
-  setStatus,
+  setRequesting,
   setCreatedPath,
 } from 'store/slices/fundraisingCreation';
 import { setWalletMode } from 'store/slices/wallet';
@@ -30,7 +30,6 @@ const useCreateFundraising = () => {
   const handleSuccess = (fundraisingData: BackendProject) => {
     dispatch(setCreatedPath(fundraisingData.threadTokenCurrency));
     dispatch(setWalletMode('connected'));
-    dispatch(setStatus('success'));
     getUserFundraisings();
   };
 
@@ -45,7 +44,7 @@ const useCreateFundraising = () => {
         testnetNami,
       )(createFundraisingParams)();
       checkWalletStatus();
-      dispatch(setStatus('requesting'));
+      dispatch(setRequesting());
     };
   }
   return () => getOffchainError;

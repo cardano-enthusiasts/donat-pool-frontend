@@ -8,7 +8,7 @@ import { useAppDispatch } from 'store/hooks';
 import {
   setError,
   setUserFundraisings,
-  setStatus,
+  setRequesting,
 } from 'store/slices/userFundraisings';
 import { setWalletMode } from 'store/slices/wallet';
 
@@ -26,7 +26,6 @@ const useGetUserFundraisings = () => {
     dispatch(setWalletMode('connected'));
     const transformedProjects = transformProjects(projects);
     dispatch(setUserFundraisings(transformedProjects));
-    dispatch(setStatus('success'));
   };
 
   const handleError = (error) => {
@@ -40,7 +39,7 @@ const useGetUserFundraisings = () => {
         testnetNami,
       )();
       checkWalletStatus();
-      dispatch(setStatus('requesting'));
+      dispatch(setRequesting());
     };
   }
   return getOffchainError;

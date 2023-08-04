@@ -1,7 +1,5 @@
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
 
-import { type RequestStatus } from 'shared/types';
-
 import { initialState } from './constants';
 
 export const slice = createSlice({
@@ -10,21 +8,27 @@ export const slice = createSlice({
   reducers: {
     setCreatedPath: (state, action: PayloadAction<string>) => {
       state.path = action.payload;
+      state.error = initialState.error;
       state.status = 'success';
     },
-    setError: (state, action: PayloadAction<string | null>) => {
+    setError: (state, action: PayloadAction<string>) => {
       state.error = action.payload;
+      state.path = initialState.path;
       state.status = 'error';
     },
-    setStatus: (state, action: PayloadAction<RequestStatus>) => {
-      state.status = action.payload;
-      if (action.payload === 'error') {
-        state.error = null;
-      }
+    setRequesting: (state) => {
+      state.error = initialState.error;
+      state.path = initialState.path;
+      state.status = 'requesting';
+    },
+    reset: (state) => {
+      state.error = initialState.error;
+      state.path = initialState.path;
+      state.status = 'default';
     },
   },
 });
 
-export const { setError, setStatus, setCreatedPath } = slice.actions;
+export const { setError, setRequesting, setCreatedPath, reset } = slice.actions;
 export const { reducer } = slice;
 export default slice;

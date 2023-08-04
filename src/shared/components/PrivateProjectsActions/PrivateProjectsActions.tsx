@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 
 import { useReceiveFunds } from 'shared/helpers/hooks';
 import { useAppDispatch, useAppSelector } from 'store/hooks';
-import { setError, setStatus } from 'store/slices/fundsReceiving';
+import { reset } from 'store/slices/fundsReceiving';
 
 import {
   ButtonWrapper,
@@ -36,7 +36,7 @@ const PrivateProjectsActions = ({ project }: Props) => {
     if (status === 'success') {
       setIsModalErrorOpen(true);
       navigate('/my-projects');
-      dispatch(setStatus('default'));
+      dispatch(reset());
     }
   }, [status, dispatch, navigate]);
 
@@ -91,7 +91,7 @@ const PrivateProjectsActions = ({ project }: Props) => {
         errorText={error}
         onClose={() => {
           setIsModalErrorOpen(false);
-          dispatch(setError(null));
+          dispatch(reset());
         }}
       />
     </>
@@ -116,6 +116,7 @@ const PrivateProjectsActions = ({ project }: Props) => {
         isOpen={isModalSuccessOpen}
         onClose={() => {
           setIsModalSuccessOpen(false);
+          dispatch(reset());
         }}
       />
     </>

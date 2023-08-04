@@ -1,7 +1,11 @@
 import { testnetNami } from 'shared/constants/wallet';
 import { type FundraisingData } from 'shared/types';
 import { useAppDispatch } from 'store/hooks';
-import { setError, setStatus } from 'store/slices/fundsReceiving';
+import {
+  setError,
+  setSuccess,
+  setRequesting,
+} from 'store/slices/fundsReceiving';
 import { setWalletMode } from 'store/slices/wallet';
 
 import {
@@ -21,7 +25,7 @@ const useReceiveFunds = () => {
   const protocol = JSON.parse(process.env.PROTOCOL);
 
   const handleSuccess = () => {
-    dispatch(setStatus('success'));
+    dispatch(setSuccess());
     dispatch(setWalletMode('connected'));
     getUserFundraisings();
   };
@@ -37,7 +41,7 @@ const useReceiveFunds = () => {
         fundraisingData,
       )();
       checkWalletStatus();
-      dispatch(setStatus('requesting'));
+      dispatch(setRequesting());
     };
   }
   return () => getOffchainError;

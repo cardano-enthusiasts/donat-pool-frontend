@@ -1,6 +1,6 @@
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
 
-import { type RequestStatus, type Fundraisings } from 'shared/types';
+import { type Fundraisings } from 'shared/types';
 
 import { initialState } from './constants';
 
@@ -9,22 +9,23 @@ export const slice = createSlice({
   initialState,
   reducers: {
     setUserFundraisings: (state, action: PayloadAction<Fundraisings>) => {
-      state.value = action.payload;
+      state.fundraisings = action.payload;
+      state.error = initialState.error;
       state.status = 'success';
     },
-    setError: (state, action: PayloadAction<string | null>) => {
+    setError: (state, action: PayloadAction<string>) => {
       state.error = action.payload;
+      state.fundraisings = initialState.fundraisings;
       state.status = 'error';
     },
-    setStatus: (state, action: PayloadAction<RequestStatus>) => {
-      state.status = action.payload;
-      if (action.payload === 'error') {
-        state.error = null;
-      }
+    setRequesting: (state) => {
+      state.error = initialState.error;
+      state.fundraisings = initialState.fundraisings;
+      state.status = 'requesting';
     },
   },
 });
 
-export const { setUserFundraisings, setError, setStatus } = slice.actions;
+export const { setUserFundraisings, setError, setRequesting } = slice.actions;
 export const { reducer } = slice;
 export default slice;
