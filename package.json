@@ -6,9 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "prepare": "husky install",
-    "eslint": "eslint .",
-    "type-check": "tsc"
+    "prepare": "husky install"
   },
   "dependencies": {
     "@reduxjs/toolkit": "1.9.5",
