@@ -25,6 +25,7 @@ const useGetAllFundraisings = () => {
   };
 
   const handleError = (error) => {
+    console.error('getAllFundraisings:', error);
     const filteredError = handleCommonError(error);
     dispatch(setError(filteredError));
   };

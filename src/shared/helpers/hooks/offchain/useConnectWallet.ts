@@ -17,6 +17,7 @@ const useConnectWallet = () => {
   };
 
   const handleError = (error) => {
+    console.error('connectWallet:', error);
     handleCommonError(error);
   };
 

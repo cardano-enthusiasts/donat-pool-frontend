@@ -29,6 +29,7 @@ const useGetUserFundraisings = () => {
   };
 
   const handleError = (error) => {
+    console.error('getUserRelatedFundraisings:', error);
     const filteredError = handleCommonError(error);
     dispatch(setError(filteredError));
   };

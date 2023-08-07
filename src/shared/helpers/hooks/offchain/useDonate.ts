@@ -27,6 +27,7 @@ const useDonate = () => {
   };
 
   const handleError = (error) => {
+    console.error('donate:', error);
     const filteredError = handleCommonError(error);
     dispatch(setError(filteredError));
   };
