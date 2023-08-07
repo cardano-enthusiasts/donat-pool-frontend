@@ -1,4 +1,5 @@
-import { type Config } from '@/shared/types';
+import { useDonatPool } from '@/shared/hooks';
+import { type Config } from '@/shared/types/common';
 import { useAppDispatch } from '@/store/hooks';
 import { setWalletStatus } from '@/store/slices/connectWallet';
 import {
@@ -7,7 +8,7 @@ import {
   setRequesting,
 } from '@/store/slices/protocolUpdating';
 
-import { useGetAppInfo, useDonatPool, useHandleError } from '..';
+import { useGetAppInfo, useHandleError } from '..';
 import { getOffchainError } from '../..';
 
 const useUpdateProtocol = () => {

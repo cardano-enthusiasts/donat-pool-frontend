@@ -1,5 +1,6 @@
 import { testnetNami } from '@/shared/constants/wallet';
-import { type UserAndProtocolParams } from '@/shared/types';
+import { useDonatPool } from '@/shared/hooks';
+import { type UserAndProtocolParams } from '@/shared/types/backend';
 import { useAppDispatch } from '@/store/hooks';
 import {
   setError,
@@ -9,7 +10,7 @@ import {
 } from '@/store/slices/appInfo';
 import { setWalletStatus } from '@/store/slices/connectWallet';
 
-import { useHandleError, useDonatPool } from '..';
+import { useHandleError } from '..';
 import { getOffchainError } from '../..';
 
 const useGetAppInfo = () => {

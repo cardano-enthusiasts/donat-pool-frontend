@@ -1,8 +1,9 @@
 import { testnetNami } from '@/shared/constants/wallet';
+import { useDonatPool } from '@/shared/hooks';
 import { useAppDispatch } from '@/store/hooks';
 import { setWalletStatus } from '@/store/slices/connectWallet';
 
-import { useGetAppInfo, useHandleError, useDonatPool } from '..';
+import { useGetAppInfo, useHandleError } from '..';
 import { getOffchainError } from '../..';
 
 const useConnectWallet = () => {

@@ -1,4 +1,5 @@
 import { testnetNami } from '@/shared/constants/wallet';
+import { useDonatPool } from '@/shared/hooks';
 import { type FundraisingData } from '@/shared/types';
 import { useAppDispatch } from '@/store/hooks';
 import { setWalletStatus } from '@/store/slices/connectWallet';
@@ -8,7 +9,7 @@ import {
   setRequesting,
 } from '@/store/slices/fundsReceiving';
 
-import { useGetUserFundraisings, useHandleError, useDonatPool } from '..';
+import { useGetUserFundraisings, useHandleError } from '..';
 import { getOffchainError } from '../..';
 
 const useReceiveFunds = () => {

@@ -32,7 +32,7 @@ declare global {
       getAppInfo: any;
       getUserRelatedFundraisings: any;
       startProtocol: any;
-      updateProtocol: any;
+      setProtocol: any;
       receiveFunds: any;
     }>;
     cardano: {

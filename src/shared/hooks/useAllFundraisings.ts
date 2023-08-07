@@ -1,36 +1,42 @@
-import { useEffect } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 
 import { testnetNami } from '@/shared/constants/wallet';
-import { useAppSelector, useAppDispatch } from '@/store/hooks';
-import {
-  setStatus,
-  setFundraisings,
-  setError,
-} from '@/store/slices/getAllFundraisings';
+import { type Fundraising } from '@/shared/types';
+import { useAppSelector } from '@/store/hooks';
 
 import useDonatPool from './useDonatPool';
 
 const useAllFundraisings = () => {
-  const donatlPool = useDonatPool();
+  const donatPool = useDonatPool();
+  const [areBeingFetched, setAreBeingFetched] = useState(false);
+  const [fundraisings, setFundraisings] = useState<Fundraising[]>([]);
   const {
     connectWallet: { status: connectWalletStatus },
-    getAllFundraisings: { fundraisings },
   } = useAppSelector((state) => state);
-  const dispatch = useAppDispatch();
+  const [fetchError, setFetchError] = useState<string | undefined>();
+
+  const fetchFundraisings = useCallback(() => {
+    setAreBeingFetched(true);
+
+    donatPool?.getAllFundraisings((fundraisings) => {
+      setFundraisings(fundraisings);
+    })((error) => {
+      setFetchError(error);
+    })(JSON.parse(process.env.NEXT_PUBLIC_PROTOCOL))(testnetNami)();
+  }, [donatPool]);
 
   useEffect(() => {
     if (connectWalletStatus === 'success') {
-      dispatch(setStatus('requesting'));
-
-      donatlPool?.getAllFundraisings((fundraisings) => {
-        dispatch(setFundraisings(fundraisings));
-      })((error) => {
-        dispatch(setError(error));
-      })(JSON.parse(process.env.NEXT_PUBLIC_PROTOCOL))(testnetNami)();
+      fetchFundraisings();
     }
-  }, [connectWalletStatus, dispatch, donatlPool]);
+  }, [connectWalletStatus, fetchFundraisings]);
 
-  return fundraisings;
+  return {
+    allFundraisingsAreBeingFetched: areBeingFetched,
+    allFundraisings: fundraisings,
+    fetchAllFundraisingsError: fetchError,
+    refetchAllFundraisings: fetchFundraisings,
+  };
 };
 
 export default useAllFundraisings;

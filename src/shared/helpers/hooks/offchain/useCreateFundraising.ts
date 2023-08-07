@@ -1,4 +1,5 @@
 import { testnetNami } from '@/shared/constants/wallet';
+import { useDonatPool } from '@/shared/hooks';
 import {
   type CreateFundraisingParams,
   type BackendProject,
@@ -11,7 +12,7 @@ import {
   setCreatedPath,
 } from '@/store/slices/fundraisingCreation';
 
-import { useDonatPool, useGetUserFundraisings, useHandleError } from '..';
+import { useGetUserFundraisings, useHandleError } from '..';
 import { getOffchainError } from '../..';
 
 const useCreateFundraising = () => {

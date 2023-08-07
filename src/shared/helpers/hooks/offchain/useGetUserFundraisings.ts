@@ -1,5 +1,6 @@
 import { testnetNami } from '@/shared/constants/wallet';
-import { useDonatPool, useHandleError } from '@/shared/helpers/hooks';
+import { useHandleError } from '@/shared/helpers/hooks';
+import { useDonatPool } from '@/shared/hooks';
 import { useAppDispatch } from '@/store/hooks';
 import { setWalletStatus } from '@/store/slices/connectWallet';
 import {

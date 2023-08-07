@@ -7,11 +7,11 @@ import { setStatus, setError } from '@/store/slices/connectWallet';
 import useDonatPool from './useDonatPool';
 
 const useAuthGuard = () => {
+  const donatPool = useDonatPool();
   const {
     connectWallet: { status },
   } = useAppSelector((state) => state);
   const dispatch = useAppDispatch();
-  const donatPool = useDonatPool();
 
   useEffect(() => {
     if (status !== 'success') {
