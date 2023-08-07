@@ -24,7 +24,7 @@ const useReceiveFunds = () => {
     refetchUserFundraisings();
   };
 
-  const handleError = (error) => {
+  const handleError = (error: string) => {
     console.error('receiveFunds:', error);
     const filteredError = handleCommonError(error);
     dispatch(setError(filteredError));

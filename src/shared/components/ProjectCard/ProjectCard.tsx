@@ -40,7 +40,7 @@ const ProjectCard = ({
         )}
         <Title>{title}</Title>
         <DateAndAmount>
-          <DateItem>{getDate(deadline)}</DateItem>
+          <DateItem>{getDate(Number(deadline.value))}</DateItem>
           <Amount>
             <RaisedAmount>
               {status === 'active' && (

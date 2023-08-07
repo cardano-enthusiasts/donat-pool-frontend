@@ -15,17 +15,23 @@ const useDonate = () => {
   const handleCommonError = useHandleError();
   const protocol = JSON.parse(process.env.NEXT_PUBLIC_PROTOCOL);
 
+  const handleSuccess = () => {
+    dispatch(setWalletStatus('connected'));
+    dispatch(setSuccess());
+    refetchAllFundraisings();
+  };
+
+  const handleError = (error: string) => {
+    console.error('donate:', error);
+    const filteredError = handleCommonError(error);
+    dispatch(setError(filteredError));
+  };
+
   if (offchain) {
     return (fundraisingData: FundraisingData, amount: number) => {
-      offchain.donate(() => {
-        dispatch(setWalletStatus('connected'));
-        dispatch(setSuccess());
-        refetchAllFundraisings();
-      })((error) => {
-        console.error('donate:', error);
-        const filteredError = handleCommonError(error);
-        dispatch(setError(filteredError));
-      })(protocol)(testnetNami)(fundraisingData)(amount)();
+      offchain.donate(handleSuccess)(handleError)(protocol)(testnetNami)(
+        fundraisingData,
+      )(amount)();
       dispatch(setRequesting());
     };
   }

@@ -7,7 +7,7 @@ const getStandardStyles = ({
   secondaryColor,
   size,
   fontColor,
-}) => css`
+}: any) => css`
   font-size: ${size === 's' ? '16px' : '20px'};
   padding: ${size === 's' ? '10px' : '12px'} 16px;
   font-weight: bold;
@@ -43,7 +43,7 @@ const getAccentStyles = ({
   secondaryColor,
   size,
   fontColor,
-}) => css`
+}: any) => css`
   position: absolute;
   font-size: 32px;
   width: 290px;
@@ -109,7 +109,11 @@ const getAccentStyles = ({
   }
 `;
 
-const getDoubleBorderedStyles = (primaryColor, tertiaryColor, size) => css`
+const getDoubleBorderedStyles = (
+  primaryColor: any,
+  tertiaryColor: any,
+  size: any,
+) => css`
   position: relative;
   font-size: ${size === 's' ? '16px' : '20px'};
   padding: ${size === 's' ? '10px 16px' : '10px 20px'};
@@ -162,7 +166,11 @@ const getDoubleBorderedStyles = (primaryColor, tertiaryColor, size) => css`
   }
 `;
 
-const getBorderedStyles = (primaryColor, isClickedTheme, size) => css`
+const getBorderedStyles = (
+  primaryColor: any,
+  isClickedTheme: any,
+  size: any,
+) => css`
   font-size: ${size === 's' ? '14px' : '16px'};
   padding: ${size === 's' ? '8px' : '10px'} 16px;
   font-weight: bold;
@@ -181,10 +189,10 @@ const getBorderedStyles = (primaryColor, isClickedTheme, size) => css`
 `;
 
 const getDashedStyles = (
-  primaryColor,
-  secondaryColor,
-  tertiaryColor,
-  size,
+  primaryColor: any,
+  secondaryColor: any,
+  tertiaryColor: any,
+  size: any,
 ) => css`
   position: relative;
   display: flex;
@@ -235,7 +243,7 @@ const getStyles = ({
   themeType,
   isClickedTheme,
   size,
-}) => css`
+}: any) => css`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -323,7 +331,7 @@ const LinkWrapper = styled.div<{
   }
 `;
 
-const getSecondaryWrapperStyles = (size) => css`
+const getSecondaryWrapperStyles = (size: any) => css`
   padding-left: 22px;
   padding-bottom: 22px;
   height: ${size === 's' ? '97px' : '150px'};

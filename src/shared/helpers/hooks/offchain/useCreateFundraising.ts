@@ -25,7 +25,7 @@ const useCreateFundraising = () => {
     refetchUserFundraisings();
   };
 
-  const handleError = (error) => {
+  const handleError = (error: string) => {
     console.error('createFundraising:', error);
     const filteredError = handleCommonError(error);
     dispatch(setError(filteredError));

@@ -55,7 +55,9 @@ const PrivateProject = () => {
               <Status isActive={!currentProject.isCompleted}>
                 {currentProject.isCompleted ? 'Completed' : 'Active'}
               </Status>
-              <Deadline>Until {getDate(currentProject.deadline)}</Deadline>
+              <Deadline>
+                Until {getDate(Number(currentProject.deadline.value))}
+              </Deadline>
             </DeadlineAndStatus>
             <CounterWrapper>
               <RaisedCounter

@@ -17,8 +17,8 @@ import {
 } from './RoadmapForReading.styled';
 
 const RoadmapForReading = () => {
-  const getSubLis = (item) => {
-    return item.subItems.map(({ id, title }) => (
+  const getSubLis = (item: any) => {
+    return item.subItems.map(({ id, title }: any) => (
       <SubLi key={id}>{title}</SubLi>
     ));
   };

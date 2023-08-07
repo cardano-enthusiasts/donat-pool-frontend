@@ -17,8 +17,8 @@ import { type Props } from './types';
 import { Button } from '../.';
 
 const Roadmap = ({ isActive }: Props) => {
-  const getSubLis = (item) => {
-    return item.subItems.map(({ id, title }) => (
+  const getSubLis = (item: any) => {
+    return item.subItems.map(({ id, title }: any) => (
       <SubLi key={id}>{title}</SubLi>
     ));
   };

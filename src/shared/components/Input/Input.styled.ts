@@ -1,7 +1,5 @@
 import styled, { css } from 'styled-components';
 
-import { type Theme } from '@/shared/styles/types';
-
 import { type Props } from './types';
 
 const getColor = (errorInfo: any, fontColor: any) => {
@@ -42,7 +40,7 @@ const Wrapper = styled.div`
 `;
 const InputContainer = styled.div<{ hint: string | null }>`
   position: relative;
-  ${({ theme, hint }: { theme: Theme; hint: string | null }) =>
+  ${({ theme, hint }: any) =>
     hint &&
     `
       &::after {
@@ -50,8 +48,8 @@ const InputContainer = styled.div<{ hint: string | null }>`
         top: 50%;
         transform: translateY(-50%);
         right: 16px;
-        content: "${hint}";
-        color: ${theme.colors.secondaryGray};
+        content: "${hint as string}";
+        color: ${theme.colors.secondaryGray as string};
       }`}
 `;
 

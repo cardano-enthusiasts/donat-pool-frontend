@@ -81,7 +81,9 @@ const PublicProject = () => {
       <Common>
         <Wrapper>
           <Title>{currentProject.title}</Title>
-          <Duration>Until {getDate(currentProject.deadline)} </Duration>
+          <Duration>
+            Until {getDate(Number(currentProject.deadline.value))}{' '}
+          </Duration>
           <CounterWrapper>
             <RaisedCounter
               raised={Number(currentProject.raisedAmt.value) / 1000000}

@@ -2,13 +2,14 @@ import styled from 'styled-components';
 
 import { type Props } from './types';
 
-const getColor = (status) => {
+const getColor = (status: Props['status']) => {
   const statusColors = {
     default: 'blue',
     active: 'red',
     completed: 'green',
   };
-  return ({ theme }) => theme.colors[statusColors[status]];
+
+  return ({ theme }: any) => theme.colors[statusColors[status ?? 'default']];
 };
 
 const Wrapper = styled.div<{

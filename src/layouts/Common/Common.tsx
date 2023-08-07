@@ -1,3 +1,4 @@
+import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
 import { Footer, Header } from '@/shared/components';
@@ -8,6 +9,7 @@ import { Inner, Main } from './Common.styled';
 import { type Props } from './types';
 
 const Common = ({ children }: Props) => {
+  const pathname = usePathname();
   const [currentPage, setCurrentPage] = useState('');
 
   const getAppInfo = useGetAppInfo();
@@ -21,8 +23,8 @@ const Common = ({ children }: Props) => {
   }, [offchain]);
 
   useEffect(() => {
-    setCurrentPage(location.pathname);
-  }, [location.pathname]);
+    setCurrentPage(pathname);
+  }, [pathname]);
 
   return (
     <div className="flex min-h-screen flex-col">

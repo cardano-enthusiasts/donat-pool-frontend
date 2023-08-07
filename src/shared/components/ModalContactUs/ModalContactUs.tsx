@@ -14,7 +14,7 @@ const ModalContactUs = ({ isOpen, onClose }: Props) => {
   const [data, setData] = useState(initialData);
 
   const handleInputChange = (
-    event,
+    event: any,
     fieldName: 'contact' | 'name' | 'message',
   ) => {
     const { value } = event.target as HTMLInputElement;
@@ -23,7 +23,7 @@ const ModalContactUs = ({ isOpen, onClose }: Props) => {
       [fieldName]: value,
     });
   };
-  const handleSubmit = (event) => {
+  const handleSubmit = (event: any) => {
     event.preventDefault();
   };
   const handleCancelClick = () => {

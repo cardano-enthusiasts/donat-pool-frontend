@@ -51,7 +51,7 @@ const ManagerEditor = ({ config }: Props) => {
     setParams(config);
   }, [config]);
 
-  const handleInputChange = (id, event) => {
+  const handleInputChange: (id: any, event: any) => void = (id, event) => {
     const { value } = event.target as HTMLInputElement;
     const dataType = String(event.target.getAttribute('data-type'));
 

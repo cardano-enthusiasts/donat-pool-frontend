@@ -3,12 +3,12 @@ import styled from 'styled-components';
 import { type LandingSection } from '@/shared/types/common';
 
 const Wrapper = styled.nav<{
-  windowScroll;
-  windowWidth;
-  isOpen;
-  mobileResolution;
-  currentSection;
-  isAnimationActive;
+  windowScroll: any;
+  windowWidth: any;
+  isOpen: any;
+  mobileResolution: any;
+  currentSection: any;
+  isAnimationActive: any;
 }>`
   position: fixed;
   left: ${({ windowWidth }) => (windowWidth - 1920) / 2 + 90}px;

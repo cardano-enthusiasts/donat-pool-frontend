@@ -32,7 +32,7 @@ const Stack = () => {
     }
   }, [windowScroll]);
 
-  const getLink = (title, href) => {
+  const getLink = (title: any, href: any) => {
     return (
       <>
         {' '}

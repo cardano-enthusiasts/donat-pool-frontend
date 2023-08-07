@@ -24,13 +24,13 @@ const useUpdateProtocol = () => {
     getAppInfo();
   };
 
-  const handleError = (error) => {
+  const handleError = (error: string) => {
     console.error('setProtocol:', error);
     const filteredError = handleCommonError(error);
     dispatch(setError(filteredError));
   };
 
-  const editConfig = (config) => {
+  const editConfig = (config: any) => {
     return {
       ...config,
       minAmountParam: config.minAmountParam * 1000000,

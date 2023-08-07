@@ -18,13 +18,11 @@ const Wrapper = styled.div<{
   }
 `;
 
-const InnerCircle = styled.div.attrs(
-  (props: { 'data-window-scroll': string }) => ({
-    style: {
-      transform: `scale(${props['data-window-scroll']})`,
-    },
-  }),
-)<{ windowScroll: any; isAnimationActive: any }>`
+const InnerCircle = styled.div.attrs((props: any) => ({
+  style: {
+    transform: `scale(${props['data-window-scroll'] as string})`,
+  },
+}))<{ windowScroll: any; isAnimationActive: any }>`
   position: absolute;
   width: 230px;
   height: 230px;

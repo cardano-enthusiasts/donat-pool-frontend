@@ -107,7 +107,7 @@ const CreationForm = ({ onClose, protocol }: Props) => {
     setIsLoadingModalOpen(status === 'requesting');
   }, [status]);
 
-  const handleSubmit = (event) => {
+  const handleSubmit = (event: any) => {
     event.preventDefault();
     if (isAnyError) {
       setErrorsToForm();
