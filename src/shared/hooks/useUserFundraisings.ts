@@ -23,6 +23,7 @@ const useUserFundraisings = () => {
     donatPool?.getUserRelatedFundraisings((fundraisings) => {
       setFundraisings(fundraisings);
     })((error) => {
+      console.error('getUserRelatedFundraisings:', error);
       setFetchError(error);
     })(JSON.parse(process.env.NEXT_PUBLIC_PROTOCOL))(testnetNami);
   }, [donatPool]);

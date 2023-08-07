@@ -25,6 +25,7 @@ const useUpdateProtocol = () => {
   };
 
   const handleError = (error) => {
+    console.error('setProtocol:', error);
     const filteredError = handleCommonError(error);
     dispatch(setError(filteredError));
   };

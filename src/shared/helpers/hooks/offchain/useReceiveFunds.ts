@@ -25,6 +25,7 @@ const useReceiveFunds = () => {
   };
 
   const handleError = (error) => {
+    console.error('receiveFunds:', error);
     const filteredError = handleCommonError(error);
     dispatch(setError(filteredError));
   };

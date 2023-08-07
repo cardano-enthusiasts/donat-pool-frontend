@@ -26,6 +26,7 @@ const useCreateFundraising = () => {
   };
 
   const handleError = (error) => {
+    console.error('createFundraising:', error);
     const filteredError = handleCommonError(error);
     dispatch(setError(filteredError));
   };

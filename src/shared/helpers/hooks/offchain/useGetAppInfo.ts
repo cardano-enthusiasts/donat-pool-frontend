@@ -43,6 +43,7 @@ const useGetAppInfo = () => {
   };
 
   const handleError = (error) => {
+    console.error('useGetAppInfo:', error);
     const filteredError = handleCommonError(error);
     dispatch(setError(filteredError));
   };

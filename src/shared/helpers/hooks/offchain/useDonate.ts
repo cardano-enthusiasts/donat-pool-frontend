@@ -22,6 +22,7 @@ const useDonate = () => {
         dispatch(setSuccess());
         refetchAllFundraisings();
       })((error) => {
+        console.error('donate:', error);
         const filteredError = handleCommonError(error);
         dispatch(setError(filteredError));
       })(protocol)(testnetNami)(fundraisingData)(amount);
