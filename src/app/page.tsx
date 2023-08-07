@@ -8,7 +8,7 @@ import {
   Waves,
 } from '@/shared/components';
 import { useWindowSize, useWindowScroll } from '@/shared/helpers/hooks';
-import { type LandingSection } from '@/shared/types';
+import { type LandingSection } from '@/shared/types/common';
 
 import { DonutsWrapper, WavesWrapper, Wrapper } from './Landing.styled';
 

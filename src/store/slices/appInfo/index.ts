@@ -1,6 +1,6 @@
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
 
-import { type UserInfo, type Config } from '@/shared/types';
+import { type UserInfo, type Config } from '@/shared/types/common';
 
 import { initialState } from './constants';
 

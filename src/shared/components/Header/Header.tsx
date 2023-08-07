@@ -22,7 +22,7 @@ const Header = ({ currentPage = null }: Props) => {
     { title: 'All Donation pools', href: '/all-projects', id: 'projects' },
   ];
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const walletMode = useAppSelector((state) => state.wallet.mode);
+  const walletMode = useAppSelector((state) => state.connectWallet.status);
 
   return (
     <>
@@ -33,7 +33,7 @@ const Header = ({ currentPage = null }: Props) => {
               <Logo />
             </LogoWrapper>
           )}
-          {walletMode === 'connected' ? (
+          {walletMode === 'success' ? (
             <LinksAndButton isMenuOpen={isMenuOpen}>
               <Links>
                 {links.map(({ title, href, id }) => (

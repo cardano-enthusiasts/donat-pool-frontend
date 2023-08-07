@@ -1,6 +1,6 @@
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
 
-import { type Fundraisings } from '@/shared/types';
+import { type Fundraising } from '@/shared/types';
 
 import { initialState } from './constants';
 
@@ -8,7 +8,7 @@ export const slice = createSlice({
   name: 'userFundraisings',
   initialState,
   reducers: {
-    setUserFundraisings: (state, action: PayloadAction<Fundraisings>) => {
+    setUserFundraisings: (state, action: PayloadAction<Fundraising[]>) => {
       state.fundraisings = action.payload;
       state.error = initialState.error;
       state.status = 'success';

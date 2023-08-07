@@ -19,7 +19,7 @@ const ProjectCard = ({
     deadline,
     title,
     goal,
-    raisedAmount,
+    raisedAmt,
     threadTokenName,
     threadTokenCurrency,
   },
@@ -45,12 +45,12 @@ const ProjectCard = ({
             <RaisedAmount>
               {status === 'active' && (
                 <>
-                  {raisedAmount / 1000000}
+                  {Number(raisedAmt.value) / 1000000}
                   <Line />
                 </>
               )}
             </RaisedAmount>
-            {goal / 1000000}
+            {Number(goal.value) / 1000000}
           </Amount>
         </DateAndAmount>
       </Wrapper>

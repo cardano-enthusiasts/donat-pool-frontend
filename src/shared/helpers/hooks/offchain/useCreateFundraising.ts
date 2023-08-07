@@ -1,9 +1,6 @@
 import { testnetNami } from '@/shared/constants/wallet';
 import { useDonatPool } from '@/shared/hooks';
-import {
-  type CreateFundraisingParams,
-  type BackendProject,
-} from '@/shared/types';
+import { type BackendProject } from '@/shared/types/backend';
 import { useAppDispatch } from '@/store/hooks';
 import { setWalletStatus } from '@/store/slices/connectWallet';
 import {
@@ -34,7 +31,7 @@ const useCreateFundraising = () => {
   };
 
   if (offchain) {
-    return (createFundraisingParams: CreateFundraisingParams) => {
+    return (createFundraisingParams: any) => {
       offchain.createFundraising(handleSuccess)(handleError)(protocol)(
         testnetNami,
       )(createFundraisingParams)();

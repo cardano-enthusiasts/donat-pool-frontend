@@ -13,11 +13,8 @@ import {
   RaisedCounter,
 } from '@/shared/components';
 import { getDate } from '@/shared/helpers';
-import {
-  useDonate,
-  useGetAllFundraisings,
-  useDonatPool,
-} from '@/shared/helpers/hooks';
+import { useDonate } from '@/shared/helpers/hooks';
+import { useAllFundraisings } from '@/shared/hooks';
 import { type Fundraising } from '@/shared/types';
 import { useAppDispatch, useAppSelector } from '@/store/hooks';
 import { reset } from '@/store/slices/donating';
@@ -32,9 +29,8 @@ import {
 
 const PublicProject = () => {
   const params = useParams();
-  const offchain = useDonatPool();
   const dispatch = useAppDispatch();
-  const getAllFundraisings = useGetAllFundraisings();
+  const { allFundraisings } = useAllFundraisings();
   const [currentProject, setCurrentProject] = useState<Fundraising | null>(
     null,
   );
@@ -46,7 +42,6 @@ const PublicProject = () => {
 
   const {
     donating: { error, status },
-    allFundraisings: { fundraisings },
   } = useAppSelector((state) => state);
 
   useEffect(() => {
@@ -67,14 +62,8 @@ const PublicProject = () => {
   }, [status]);
 
   useEffect(() => {
-    if (offchain) {
-      getAllFundraisings();
-    }
-  }, [offchain]);
-
-  useEffect(() => {
-    if (fundraisings) {
-      const project = fundraisings.find(
+    if (allFundraisings) {
+      const project = allFundraisings.find(
         ({ threadTokenCurrency }) => threadTokenCurrency === params.id,
       );
       if (project) {
@@ -83,7 +72,7 @@ const PublicProject = () => {
         setCurrentProject(null);
       }
     }
-  }, [fundraisings, params.id]);
+  }, [allFundraisings, params.id]);
 
   return currentProject ? (
     <>
@@ -93,8 +82,8 @@ const PublicProject = () => {
           <Duration>Until {getDate(currentProject.deadline)} </Duration>
           <CounterWrapper>
             <RaisedCounter
-              raised={currentProject.raisedAmount / 1000000}
-              goal={currentProject.goal / 1000000}
+              raised={Number(currentProject.raisedAmt.value) / 1000000}
+              goal={Number(currentProject.goal.value) / 1000000}
             />
           </CounterWrapper>
 

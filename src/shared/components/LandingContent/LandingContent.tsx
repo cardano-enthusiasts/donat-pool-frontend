@@ -8,7 +8,7 @@ import {
   type MutableRefObject,
 } from 'react';
 
-import { type LandingSection } from '@/shared/types';
+import { type LandingSection } from '@/shared/types/common';
 
 import {
   AboutUsWrapper,

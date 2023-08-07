@@ -11,7 +11,7 @@ const NewProject = () => {
   const router = useRouter();
 
   const isRequesting =
-    useAppSelector((state) => state.wallet.status) === 'requesting';
+    useAppSelector((state) => state.connectWallet.status) === 'requesting';
 
   useEffect(() => {
     document.title = 'New project';

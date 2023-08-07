@@ -73,7 +73,7 @@ const PrivateProjectsActions = ({ project }: Props) => {
           }}
           fontColor="white"
         >
-          {project.raisedAmount >= project.goal
+          {project.raisedAmt.value >= project.goal.value
             ? 'You have reached the goal! Take money'
             : 'Project reached its deadline. Collect fund'}
         </Button>

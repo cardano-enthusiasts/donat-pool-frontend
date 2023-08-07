@@ -1,7 +1,7 @@
-import { type RequestStatus, type Fundraisings } from '@/shared/types';
+import { type RequestStatus, type Fundraising } from '@/shared/types';
 
 interface State {
-  fundraisings: Fundraisings;
+  fundraisings: Fundraising[];
   status: RequestStatus;
   error?: string;
 }

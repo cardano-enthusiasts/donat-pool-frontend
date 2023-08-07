@@ -1,4 +1,5 @@
-import { type FundraisingData, type Fundraising } from '@/shared/types';
+import { type Fundraising } from '@/shared/types';
+import { type FundraisingData } from '@/shared/types/common';
 
 export interface Props {
   donate: (fundraisingData: FundraisingData, amount: number) => void;

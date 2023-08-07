@@ -18,7 +18,7 @@ import {
 const Page = () => {
   useAuthGuard();
   const router = useRouter();
-  const allFundraisings = useAllFundraisings();
+  const { allFundraisings } = useAllFundraisings();
   const {
     connectWallet: { status: connectWalletStatus },
   } = useAppSelector((state) => state);

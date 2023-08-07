@@ -6,7 +6,8 @@ import { useEffect, useState } from 'react';
 import { Common, Project } from '@/layouts';
 import { PrivateProjectsActions, RaisedCounter } from '@/shared/components';
 import { getDate } from '@/shared/helpers';
-import { useGetUserFundraisings, useDonatPool } from '@/shared/helpers/hooks';
+import { useGetUserFundraisings } from '@/shared/helpers/hooks';
+import { useDonatPool } from '@/shared/hooks';
 import { type Fundraising } from '@/shared/types';
 import { useAppSelector } from '@/store/hooks';
 
@@ -66,8 +67,8 @@ const PrivateProject = () => {
             </DeadlineAndStatus>
             <CounterWrapper>
               <RaisedCounter
-                raised={currentProject.raisedAmount / 1000000}
-                goal={currentProject.goal / 1000000}
+                raised={Number(currentProject.raisedAmt.value) / 1000000}
+                goal={Number(currentProject.goal.value) / 1000000}
               />
             </CounterWrapper>
             <PrivateProjectsActions project={currentProject} />

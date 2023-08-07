@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-import { type Fundraisings, type Fundraising } from '@/shared/types';
+import { type Fundraising } from '@/shared/types';
 import { useAppSelector } from '@/store/hooks';
 
 import {
@@ -36,7 +36,10 @@ const MyProjects = ({ onCreateAProjectClick }: Props) => {
     }
   }, [fundraisings]);
 
-  const handleFilterClick = (status: ProjectStatus, projects: Fundraisings) => {
+  const handleFilterClick = (
+    status: ProjectStatus,
+    projects: Fundraising[],
+  ) => {
     if (filter === status) {
       setFilteredProjects(projects);
       setFilter(null);
