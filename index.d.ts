@@ -26,11 +26,17 @@ declare global {
       ) => (
         protocol: Record<string, unknown>,
       ) => (walletParameters: WalletParameters) => () => void;
+      getUserRelatedFundraisings: (
+        onSuccess: (fundraisings: Fundraising[]) => void,
+      ) => (
+        onError: (error: string) => void,
+      ) => (
+        protocol: Record<string, unknown>,
+      ) => (walletParameters: WalletParameters) => () => void;
       closeProtocol: any;
       createFundraising: any;
       donate: any;
       getAppInfo: any;
-      getUserRelatedFundraisings: any;
       startProtocol: any;
       setProtocol: any;
       receiveFunds: any;

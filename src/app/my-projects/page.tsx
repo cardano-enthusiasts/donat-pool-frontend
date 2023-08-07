@@ -5,27 +5,25 @@ import { useEffect } from 'react';
 
 import { Common } from '@/layouts';
 import { MyProjects } from '@/shared/components';
-import { useGetUserFundraisings } from '@/shared/helpers/hooks';
+import { useAuthGuard } from '@/shared/hooks';
 import { useAppSelector } from '@/store/hooks';
 
-const PrivateProjects = () => {
+const Page = () => {
+  useAuthGuard();
   const router = useRouter();
-  const getUserFundraisings = useGetUserFundraisings();
-  const { status } = useAppSelector((state) => state.connectWallet);
+  const {
+    connectWallet: { status: connectWalletStatus },
+  } = useAppSelector((state) => state);
 
   useEffect(() => {
     document.title = 'My projects';
   }, []);
 
-  useEffect(() => {
-    if (status === 'success') {
-      getUserFundraisings();
-    }
-  }, [status]);
+  if (connectWalletStatus !== 'success') {
+    return;
+  }
 
-  return status === 'requesting' ? (
-    <></>
-  ) : (
+  return (
     <Common>
       <MyProjects
         onCreateAProjectClick={() => {
@@ -36,4 +34,4 @@ const PrivateProjects = () => {
   );
 };
 
-export default PrivateProjects;
+export default Page;

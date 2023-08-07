@@ -5,9 +5,12 @@ import { useEffect } from 'react';
 
 import { Common } from '@/layouts';
 import { ProjectCreation } from '@/shared/components';
+import { useAuthGuard } from '@/shared/hooks';
 import { useAppSelector } from '@/store/hooks';
 
 const NewProject = () => {
+  useAuthGuard();
+
   const router = useRouter();
 
   const isRequesting =

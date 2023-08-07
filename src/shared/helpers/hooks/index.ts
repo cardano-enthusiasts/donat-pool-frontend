@@ -1,4 +1,3 @@
-export { useGetUserFundraisings } from './offchain/useGetUserFundraisings';
 export { useCreateFundraising } from './offchain/useCreateFundraising';
 export { useDonate } from './offchain/useDonate';
 export { useGetAppInfo } from './offchain/useGetAppInfo';

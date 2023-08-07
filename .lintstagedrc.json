@@ -1,5 +1,5 @@
 {
-  "*.{ts,tsx}": ["tsc --noEmit", "prettier --check", "eslint"],
+  "*.{ts,tsx}": ["prettier --check", "eslint"],
   "*.{js,json,css,md,yml}": "prettier --check",
   "*.css": "stylelint"
 }

@@ -1,5 +1,5 @@
 import { testnetNami } from '@/shared/constants/wallet';
-import { useDonatPool } from '@/shared/hooks';
+import { useDonatPool, useUserFundraisings } from '@/shared/hooks';
 import { useAppDispatch } from '@/store/hooks';
 import { setWalletStatus } from '@/store/slices/connectWallet';
 import {
@@ -8,20 +8,20 @@ import {
   setRequesting,
 } from '@/store/slices/fundsReceiving';
 
-import { useGetUserFundraisings, useHandleError } from '..';
+import { useHandleError } from '..';
 import { getOffchainError } from '../..';
 
 const useReceiveFunds = () => {
   const offchain = useDonatPool();
   const dispatch = useAppDispatch();
-  const getUserFundraisings = useGetUserFundraisings();
+  const { refetchUserFundraisings } = useUserFundraisings();
   const handleCommonError = useHandleError();
   const protocol = JSON.parse(process.env.NEXT_PUBLIC_PROTOCOL);
 
   const handleSuccess = () => {
     dispatch(setSuccess());
     dispatch(setWalletStatus('connected'));
-    getUserFundraisings();
+    refetchUserFundraisings();
   };
 
   const handleError = (error) => {

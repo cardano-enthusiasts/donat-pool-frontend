@@ -14,7 +14,7 @@ import {
 } from '@/shared/components';
 import { getDate } from '@/shared/helpers';
 import { useDonate } from '@/shared/helpers/hooks';
-import { useAllFundraisings } from '@/shared/hooks';
+import { useAllFundraisings, useAuthGuard } from '@/shared/hooks';
 import { type Fundraising } from '@/shared/types';
 import { useAppDispatch, useAppSelector } from '@/store/hooks';
 import { reset } from '@/store/slices/donating';
@@ -28,6 +28,8 @@ import {
 } from './PublicProject.styled';
 
 const PublicProject = () => {
+  useAuthGuard();
+
   const params = useParams();
   const dispatch = useAppDispatch();
   const { allFundraisings } = useAllFundraisings();

@@ -6,10 +6,8 @@ import { useEffect, useState } from 'react';
 import { Common, Project } from '@/layouts';
 import { PrivateProjectsActions, RaisedCounter } from '@/shared/components';
 import { getDate } from '@/shared/helpers';
-import { useGetUserFundraisings } from '@/shared/helpers/hooks';
-import { useDonatPool } from '@/shared/hooks';
+import { useAuthGuard, useUserFundraisings } from '@/shared/hooks';
 import { type Fundraising } from '@/shared/types';
-import { useAppSelector } from '@/store/hooks';
 
 import {
   CounterWrapper,
@@ -20,24 +18,18 @@ import {
 } from './PrivateProject.styled';
 
 const PrivateProject = () => {
+  useAuthGuard();
+
   const params = useParams();
-  const offchain = useDonatPool();
   const router = useRouter();
-  const getUserFundraisings = useGetUserFundraisings();
+  const { userFundraisings } = useUserFundraisings();
   const [currentProject, setCurrentProject] = useState<Fundraising | null>(
     null,
   );
-  const { fundraisings } = useAppSelector((state) => state.userFundraisings);
 
   useEffect(() => {
-    if (offchain) {
-      getUserFundraisings();
-    }
-  }, [offchain]);
-
-  useEffect(() => {
-    if (fundraisings) {
-      const project = fundraisings.find(
+    if (userFundraisings) {
+      const project = userFundraisings.find(
         ({ threadTokenCurrency }) => threadTokenCurrency === params.id,
       );
       if (project) {
@@ -46,7 +38,7 @@ const PrivateProject = () => {
         setCurrentProject(null);
       }
     }
-  }, [fundraisings, params.id]);
+  }, [userFundraisings, params.id]);
 
   return currentProject ? (
     <>
