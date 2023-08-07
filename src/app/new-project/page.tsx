@@ -10,19 +10,20 @@ import { useAppSelector } from '@/store/hooks';
 
 const NewProject = () => {
   useAuthGuard();
-
   const router = useRouter();
-
-  const isRequesting =
-    useAppSelector((state) => state.connectWallet.status) === 'requesting';
+  const connectWalletStatus = useAppSelector(
+    (state) => state.connectWallet.status,
+  );
 
   useEffect(() => {
     document.title = 'New project';
   }, []);
 
-  return isRequesting ? (
-    <></>
-  ) : (
+  if (connectWalletStatus !== 'success') {
+    return;
+  }
+
+  return (
     <Common>
       <ProjectCreation
         onClose={() => {

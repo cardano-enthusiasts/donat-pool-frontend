@@ -34,7 +34,7 @@ const useReceiveFunds = () => {
     return (fundraisingData: any) => {
       offchain.receiveFunds(handleSuccess)(handleError)(protocol)(testnetNami)(
         fundraisingData,
-      );
+      )();
       dispatch(setRequesting());
     };
   }

@@ -17,6 +17,8 @@ const Header = styled.div`
 const Title = styled.h2`
   color: #141414;
   margin: 0;
+  font-weight: bold;
+  font-size: 1.5rem;
   @media (max-width: 600px) {
     font-size: 20px;
   }

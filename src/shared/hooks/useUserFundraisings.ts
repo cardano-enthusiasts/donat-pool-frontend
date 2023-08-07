@@ -25,7 +25,7 @@ const useUserFundraisings = () => {
     })((error) => {
       console.error('getUserRelatedFundraisings:', error);
       setFetchError(error);
-    })(JSON.parse(process.env.NEXT_PUBLIC_PROTOCOL))(testnetNami);
+    })(JSON.parse(process.env.NEXT_PUBLIC_PROTOCOL))(testnetNami)();
   }, [donatPool]);
 
   useEffect(() => {

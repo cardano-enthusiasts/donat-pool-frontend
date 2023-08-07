@@ -35,7 +35,7 @@ const useCreateFundraising = () => {
     return (createFundraisingParams: any) => {
       offchain.createFundraising(handleSuccess)(handleError)(protocol)(
         testnetNami,
-      )(createFundraisingParams);
+      )(createFundraisingParams)();
       dispatch(setRequesting());
     };
   }

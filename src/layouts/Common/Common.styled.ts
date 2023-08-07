@@ -4,6 +4,8 @@ import { baseContainer, baseInner } from '@/shared/styles/mixins';
 
 const Main = styled.main`
   ${baseContainer}
+
+  flex-grow: 1;
 `;
 
 const Inner = styled.div`

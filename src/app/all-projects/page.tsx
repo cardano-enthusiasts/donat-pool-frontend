@@ -19,9 +19,9 @@ const Page = () => {
   useAuthGuard();
   const router = useRouter();
   const { allFundraisings } = useAllFundraisings();
-  const {
-    connectWallet: { status: connectWalletStatus },
-  } = useAppSelector((state) => state);
+  const connectWalletStatus = useAppSelector(
+    (state) => state.connectWallet.status,
+  );
 
   useEffect(() => {
     document.title = 'All projects';

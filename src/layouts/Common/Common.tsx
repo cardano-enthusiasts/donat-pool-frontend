@@ -15,6 +15,7 @@ const Common = ({ children }: Props) => {
 
   useEffect(() => {
     if (offchain) {
+      console.log(1);
       getAppInfo();
     }
   }, [offchain]);
@@ -24,13 +25,13 @@ const Common = ({ children }: Props) => {
   }, [location.pathname]);
 
   return (
-    <>
+    <div className="flex min-h-screen flex-col">
       <Header currentPage={currentPage} />
       <Main>
         <Inner>{children}</Inner>
       </Main>
       <Footer />
-    </>
+    </div>
   );
 };
 

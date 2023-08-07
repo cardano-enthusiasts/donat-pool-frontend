@@ -8,22 +8,22 @@ import useDonatPool from './useDonatPool';
 
 const useAuthGuard = () => {
   const donatPool = useDonatPool();
-  const {
-    connectWallet: { status },
-  } = useAppSelector((state) => state);
+  const connectWalletStatus = useAppSelector(
+    (state) => state.connectWallet.status,
+  );
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    if (status !== 'success') {
+    if (connectWalletStatus !== 'success') {
       dispatch(setStatus('requesting'));
 
       donatPool?.connectWallet(() => {
         dispatch(setStatus('success'));
       })((error) => {
         dispatch(setError(error));
-      })(testnetNami);
+      })(testnetNami)();
     }
-  }, [status, donatPool, dispatch]);
+  }, [connectWalletStatus, donatPool, dispatch]);
 };
 
 export default useAuthGuard;

@@ -6,6 +6,7 @@ import { type Props } from './types';
 
 const ProjectCreation = ({ onClose }: Props) => {
   const protocol = useAppSelector((state) => state.appInfo.protocol);
+
   return (
     <Project
       onPreviousPageClick={onClose}
