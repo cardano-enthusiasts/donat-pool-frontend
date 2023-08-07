@@ -6,19 +6,6 @@ interface Config {
   protocolFeeParam: number;
 }
 
-interface Fundraising {
-  creator: string;
-  deadline: number;
-  title: string;
-  goal: number;
-  raisedAmount: number;
-  threadTokenCurrency: string;
-  threadTokenName: string;
-  isCompleted: boolean;
-}
-
-type Fundraisings = Fundraising[];
-
 interface FundraisingData {
   frThreadTokenCurrency: string;
   frThreadTokenName: string;
@@ -34,13 +21,6 @@ interface CreateFundraisingParams {
   };
 }
 
-type WalletMode =
-  | 'default'
-  | 'connected'
-  | 'declined'
-  | 'notAvailable'
-  | 'missingCollateral';
-
 interface UserInfo {
   isManager: boolean;
   address: string;
@@ -54,16 +34,10 @@ type LandingSection =
   | 'roadmap'
   | 'contact-us';
 
-type RequestStatus = 'default' | 'success' | 'error' | 'requesting';
-
 export type {
   Config,
-  Fundraisings,
-  Fundraising,
   FundraisingData,
   CreateFundraisingParams,
-  WalletMode,
   UserInfo,
   LandingSection,
-  RequestStatus,
 };

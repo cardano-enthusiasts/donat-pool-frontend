@@ -5,8 +5,7 @@ import { useEffect } from 'react';
 
 import { Common } from '@/layouts';
 import { Button, ProjectCard } from '@/shared/components';
-import { useGetAllFundraisings, useOffchain } from '@/shared/helpers/hooks';
-import { type Fundraisings } from '@/shared/types';
+import { useAuthGuard, useAllFundraisings } from '@/shared/hooks';
 import { useAppSelector } from '@/store/hooks';
 
 import {
@@ -16,35 +15,23 @@ import {
   TitleAndButton,
 } from './AllProjects.styled';
 
-const AllProjects = () => {
-  const offchain = useOffchain();
+const Page = () => {
+  useAuthGuard();
   const router = useRouter();
-  const getAllFundraisings = useGetAllFundraisings();
+  const allFundraisings = useAllFundraisings();
   const {
-    allFundraisings: { fundraisings },
-    wallet: { mode: walletMode, status },
+    connectWallet: { status: connectWalletStatus },
   } = useAppSelector((state) => state);
-
-  useEffect(() => {
-    if (offchain && walletMode === 'connected') {
-      getAllFundraisings();
-    }
-  }, [offchain, walletMode]);
 
   useEffect(() => {
     document.title = 'All projects';
   }, []);
 
-  const sortAndFilterFundraising = (fundraisings: Fundraisings) => {
-    return [...fundraisings]
-      .sort(
-        (fundraising1, fundraising2) =>
-          fundraising1.deadline - fundraising2.deadline,
-      )
-      .filter(({ isCompleted }) => !isCompleted);
-  };
+  if (connectWalletStatus !== 'success') {
+    return;
+  }
 
-  return status !== 'requesting' ? (
+  return (
     <Common>
       <TitleAndButton>
         <Title>All Donation pools</Title>
@@ -61,26 +48,23 @@ const AllProjects = () => {
           </Button>
         </CreateButton>
       </TitleAndButton>
-
       <CardsWrapper>
-        {fundraisings ? (
-          sortAndFilterFundraising(fundraisings).map((project) => {
-            return (
-              <ProjectCard
-                data={project}
-                key={project.threadTokenCurrency}
-                linkSection="all-projects"
-              />
-            );
-          })
-        ) : (
-          <></>
-        )}
+        {allFundraisings
+          .filter(({ isCompleted }) => !isCompleted)
+          .sort(
+            (fundraising1, fundraising2) =>
+              Number(fundraising1.deadline) - Number(fundraising2.deadline),
+          )
+          .map((fundraising) => (
+            <ProjectCard
+              key={fundraising.threadTokenCurrency}
+              data={fundraising}
+              linkSection="all-projects"
+            />
+          ))}
       </CardsWrapper>
     </Common>
-  ) : (
-    <></>
   );
 };
 
-export default AllProjects;
+export default Page;

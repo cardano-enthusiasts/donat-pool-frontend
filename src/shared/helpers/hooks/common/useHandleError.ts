@@ -5,7 +5,7 @@ import {
   walletIsNotAvailable,
 } from '@/shared/constants';
 import { useAppDispatch } from '@/store/hooks';
-import { setWalletMode } from '@/store/slices/wallet';
+import { setWalletStatus } from '@/store/slices/connectWallet';
 
 const useHandleError = () => {
   const dispatch = useAppDispatch();
@@ -13,19 +13,19 @@ const useHandleError = () => {
   return (backendError: string): string => {
     switch (backendError) {
       case walletDisconnect:
-        dispatch(setWalletMode('declined'));
+        dispatch(setWalletStatus('declined'));
         setTimeout(() => {
           console.error(errors[walletDisconnect]);
         }, 500);
         return errors[walletDisconnect];
       case walletIsNotAvailable:
-        dispatch(setWalletMode('notAvailable'));
+        dispatch(setWalletStatus('notAvailable'));
         return errors[walletIsNotAvailable];
       case missingCollateral:
-        dispatch(setWalletMode('missingCollateral'));
+        dispatch(setWalletStatus('missingCollateral'));
         return errors[missingCollateral];
       default:
-        return errors[backendError];
+        return backendError;
     }
   };
 };

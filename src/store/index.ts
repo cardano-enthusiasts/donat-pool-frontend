@@ -1,26 +1,26 @@
 import { configureStore } from '@reduxjs/toolkit';
 
 import {
-  allFundraisings,
   userFundraisings,
   appInfo,
   donating,
   fundraisingCreation,
   fundsReceiving,
   protocolUpdating,
-  wallet,
+  connectWallet,
+  getAllFundraisings,
 } from './slices';
 
 const store = configureStore({
   reducer: {
     userFundraisings: userFundraisings.reducer,
-    allFundraisings: allFundraisings.reducer,
     appInfo: appInfo.reducer,
     donating: donating.reducer,
     fundraisingCreation: fundraisingCreation.reducer,
     fundsReceiving: fundsReceiving.reducer,
     protocolUpdating: protocolUpdating.reducer,
-    wallet: wallet.reducer,
+    connectWallet: connectWallet.reducer,
+    getAllFundraisings: getAllFundraisings.reducer,
   },
 });
 

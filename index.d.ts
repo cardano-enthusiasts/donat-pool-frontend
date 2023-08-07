@@ -1,3 +1,5 @@
+import { type Fundraising } from '@/shared/types';
+
 declare global {
   namespace NodeJS {
     interface ProcessEnv {
@@ -5,13 +7,28 @@ declare global {
     }
   }
 
+  interface WalletParameters {
+    wallet: 'Nami';
+    isMainnet: false;
+  }
+
   interface Window {
     donatPool: Promise<{
-      connectWallet: any;
+      connectWallet: (
+        onSuccess: () => void,
+      ) => (
+        onError: (error: string) => void,
+      ) => (walletParameters: WalletParameters) => () => void;
+      getAllFundraisings: (
+        onSuccess: (fundraisings: Fundraising[]) => void,
+      ) => (
+        onError: (error: string) => void,
+      ) => (
+        protocol: Record<string, unknown>,
+      ) => (walletParameters: WalletParameters) => () => void;
       closeProtocol: any;
       createFundraising: any;
       donate: any;
-      getAllFundraisings: any;
       getAppInfo: any;
       getUserRelatedFundraisings: any;
       startProtocol: any;

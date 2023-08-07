@@ -1,27 +1,21 @@
 import { testnetNami } from '@/shared/constants/wallet';
 import { type FundraisingData } from '@/shared/types';
 import { useAppDispatch } from '@/store/hooks';
+import { setWalletStatus } from '@/store/slices/connectWallet';
 import { setError, setRequesting, setSuccess } from '@/store/slices/donating';
-import { setWalletMode } from '@/store/slices/wallet';
 
-import {
-  useCheckWalletStatus,
-  useGetAllFundraisings,
-  useHandleError,
-  useOffchain,
-} from '..';
+import { useGetAllFundraisings, useHandleError, useDonatPool } from '..';
 import { getOffchainError } from '../..';
 
 const useDonate = () => {
-  const offchain = useOffchain();
+  const offchain = useDonatPool();
   const dispatch = useAppDispatch();
   const getAllFundraisings = useGetAllFundraisings();
   const handleCommonError = useHandleError();
-  const checkWalletStatus = useCheckWalletStatus();
-  const protocol = JSON.parse(process.env.PROTOCOL);
+  const protocol = JSON.parse(process.env.NEXT_PUBLIC_PROTOCOL);
 
   const handleSuccess = () => {
-    dispatch(setWalletMode('connected'));
+    dispatch(setWalletStatus('connected'));
     dispatch(setSuccess());
     getAllFundraisings();
   };
@@ -36,7 +30,6 @@ const useDonate = () => {
       offchain.donate(handleSuccess)(handleError)(protocol)(testnetNami)(
         fundraisingData,
       )(amount)();
-      checkWalletStatus();
       dispatch(setRequesting());
     };
   }

@@ -6,7 +6,7 @@ const walletIsNotAvailable =
   'Wallet is not available. Use `isWalletAvailable NamiWallet` before connecting.';
 const missingCollateral = 'Nami wallet missing collateral';
 
-let errors = {
+const errors = {
   [walletDisconnect]:
     'The request was refused due to lack of access - e.g. wallet disconnects.',
   [userDecline]: 'You declined to sign the transaction.',
@@ -16,14 +16,4 @@ let errors = {
     'Nami wallet missing collateral. Please add a collateral',
 };
 
-errors = new Proxy(errors, {
-  get(target, backendError) {
-    if (backendError in target) {
-      return target[backendError];
-    } else {
-      return backendError;
-    }
-  },
-});
-
-export { errors, walletDisconnect, walletIsNotAvailable, missingCollateral };
+export { walletDisconnect, walletIsNotAvailable, missingCollateral, errors };

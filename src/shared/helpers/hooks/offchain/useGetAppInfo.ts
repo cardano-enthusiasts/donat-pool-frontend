@@ -7,22 +7,21 @@ import {
   setProtocol,
   setUserInfo,
 } from '@/store/slices/appInfo';
-import { setWalletMode } from '@/store/slices/wallet';
+import { setWalletStatus } from '@/store/slices/connectWallet';
 
-import { useCheckWalletStatus, useHandleError, useOffchain } from '..';
+import { useHandleError, useDonatPool } from '..';
 import { getOffchainError } from '../..';
 
 const useGetAppInfo = () => {
-  const offchain = useOffchain();
+  const offchain = useDonatPool();
   const dispatch = useAppDispatch();
   const handleCommonError = useHandleError();
-  const checkWalletStatus = useCheckWalletStatus();
 
   const handleSuccess = ({
     protocolConfig,
     userInfo,
   }: UserAndProtocolParams) => {
-    dispatch(setWalletMode('connected'));
+    dispatch(setWalletStatus('connected'));
     const {
       minAmountParam,
       maxAmountParam,
@@ -52,7 +51,6 @@ const useGetAppInfo = () => {
       offchain?.getAppInfo(handleSuccess)(handleError)(
         JSON.parse(process.env.NEXT_PUBLIC_PROTOCOL),
       )(testnetNami)();
-      checkWalletStatus();
       dispatch(setRequesting());
     };
   }

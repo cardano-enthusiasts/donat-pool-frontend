@@ -16,7 +16,7 @@ import { getDate } from '@/shared/helpers';
 import {
   useDonate,
   useGetAllFundraisings,
-  useOffchain,
+  useDonatPool,
 } from '@/shared/helpers/hooks';
 import { type Fundraising } from '@/shared/types';
 import { useAppDispatch, useAppSelector } from '@/store/hooks';
@@ -32,7 +32,7 @@ import {
 
 const PublicProject = () => {
   const params = useParams();
-  const offchain = useOffchain();
+  const offchain = useDonatPool();
   const dispatch = useAppDispatch();
   const getAllFundraisings = useGetAllFundraisings();
   const [currentProject, setCurrentProject] = useState<Fundraising | null>(

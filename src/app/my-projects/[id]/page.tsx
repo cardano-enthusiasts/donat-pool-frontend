@@ -6,7 +6,7 @@ import { useEffect, useState } from 'react';
 import { Common, Project } from '@/layouts';
 import { PrivateProjectsActions, RaisedCounter } from '@/shared/components';
 import { getDate } from '@/shared/helpers';
-import { useGetUserFundraisings, useOffchain } from '@/shared/helpers/hooks';
+import { useGetUserFundraisings, useDonatPool } from '@/shared/helpers/hooks';
 import { type Fundraising } from '@/shared/types';
 import { useAppSelector } from '@/store/hooks';
 
@@ -20,7 +20,7 @@ import {
 
 const PrivateProject = () => {
   const params = useParams();
-  const offchain = useOffchain();
+  const offchain = useDonatPool();
   const router = useRouter();
   const getUserFundraisings = useGetUserFundraisings();
   const [currentProject, setCurrentProject] = useState<Fundraising | null>(

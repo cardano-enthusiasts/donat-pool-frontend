@@ -1,31 +1,25 @@
 import { type Config } from '@/shared/types';
 import { useAppDispatch } from '@/store/hooks';
+import { setWalletStatus } from '@/store/slices/connectWallet';
 import {
   setError,
   setSuccess,
   setRequesting,
 } from '@/store/slices/protocolUpdating';
-import { setWalletMode } from '@/store/slices/wallet';
 
-import {
-  useGetAppInfo,
-  useOffchain,
-  useCheckWalletStatus,
-  useHandleError,
-} from '..';
+import { useGetAppInfo, useDonatPool, useHandleError } from '..';
 import { getOffchainError } from '../..';
 
 const useUpdateProtocol = () => {
-  const offchain = useOffchain();
+  const offchain = useDonatPool();
   const dispatch = useAppDispatch();
   const getAppInfo = useGetAppInfo();
   const handleCommonError = useHandleError();
-  const checkWalletStatus = useCheckWalletStatus();
   const protocol = JSON.parse(process.env.NEXT_PUBLIC_PROTOCOL);
 
   const handleSuccess = () => {
     dispatch(setSuccess());
-    dispatch(setWalletMode('connected'));
+    dispatch(setWalletStatus('connected'));
     getAppInfo();
   };
 
@@ -47,7 +41,6 @@ const useUpdateProtocol = () => {
       offchain.setProtocol(handleSuccess)(handleError)(protocol)(
         editConfig(config),
       )();
-      checkWalletStatus();
       dispatch(setRequesting());
     };
   }

@@ -1,6 +1,7 @@
-import { type TestnetNami } from '@/shared/types';
-
-const testnetNami: TestnetNami = {
+const testnetNami: {
+  wallet: 'Nami';
+  isMainnet: false;
+} = {
   wallet: 'Nami',
   isMainnet: false,
 };

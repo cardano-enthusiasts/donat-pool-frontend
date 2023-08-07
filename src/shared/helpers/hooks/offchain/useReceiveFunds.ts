@@ -1,32 +1,26 @@
 import { testnetNami } from '@/shared/constants/wallet';
 import { type FundraisingData } from '@/shared/types';
 import { useAppDispatch } from '@/store/hooks';
+import { setWalletStatus } from '@/store/slices/connectWallet';
 import {
   setError,
   setSuccess,
   setRequesting,
 } from '@/store/slices/fundsReceiving';
-import { setWalletMode } from '@/store/slices/wallet';
 
-import {
-  useCheckWalletStatus,
-  useGetUserFundraisings,
-  useHandleError,
-  useOffchain,
-} from '..';
+import { useGetUserFundraisings, useHandleError, useDonatPool } from '..';
 import { getOffchainError } from '../..';
 
 const useReceiveFunds = () => {
-  const offchain = useOffchain();
+  const offchain = useDonatPool();
   const dispatch = useAppDispatch();
   const getUserFundraisings = useGetUserFundraisings();
   const handleCommonError = useHandleError();
-  const checkWalletStatus = useCheckWalletStatus();
   const protocol = JSON.parse(process.env.NEXT_PUBLIC_PROTOCOL);
 
   const handleSuccess = () => {
     dispatch(setSuccess());
-    dispatch(setWalletMode('connected'));
+    dispatch(setWalletStatus('connected'));
     getUserFundraisings();
   };
 
@@ -40,7 +34,6 @@ const useReceiveFunds = () => {
       offchain.receiveFunds(handleSuccess)(handleError)(protocol)(testnetNami)(
         fundraisingData,
       )();
-      checkWalletStatus();
       dispatch(setRequesting());
     };
   }
