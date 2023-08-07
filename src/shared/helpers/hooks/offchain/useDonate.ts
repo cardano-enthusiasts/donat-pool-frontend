@@ -24,7 +24,7 @@ const useDonate = () => {
       })((error) => {
         const filteredError = handleCommonError(error);
         dispatch(setError(filteredError));
-      })(protocol)(testnetNami)(fundraisingData)(amount)();
+      })(protocol)(testnetNami)(fundraisingData)(amount);
       dispatch(setRequesting());
     };
   }

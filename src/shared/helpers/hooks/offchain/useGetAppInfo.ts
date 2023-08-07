@@ -51,7 +51,7 @@ const useGetAppInfo = () => {
     return () => {
       offchain?.getAppInfo(handleSuccess)(handleError)(
         JSON.parse(process.env.NEXT_PUBLIC_PROTOCOL),
-      )(testnetNami)();
+      )(testnetNami);
       dispatch(setRequesting());
     };
   }

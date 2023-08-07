@@ -1,3 +1,5 @@
+'use client';
+
 import { useCallback, useEffect, useState } from 'react';
 
 import { testnetNami } from '@/shared/constants/wallet';
@@ -22,7 +24,7 @@ const useAllFundraisings = () => {
       setFundraisings(fundraisings);
     })((error) => {
       setFetchError(error);
-    })(JSON.parse(process.env.NEXT_PUBLIC_PROTOCOL))(testnetNami)();
+    })(JSON.parse(process.env.NEXT_PUBLIC_PROTOCOL))(testnetNami);
   }, [donatPool]);
 
   useEffect(() => {

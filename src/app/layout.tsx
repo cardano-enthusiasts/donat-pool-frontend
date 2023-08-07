@@ -3,7 +3,6 @@ import { Rammetto_One } from 'next/font/google';
 import localFont from 'next/font/local';
 import Script from 'next/script';
 
-import store from '@/store';
 import StoreProvider from '@/store/Provider';
 import StyledComponentsProvider from '@/StyledComponentsProvider';
 
@@ -47,7 +46,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     >
       <body>
         <StyledComponentsProvider>
-          <StoreProvider store={store}>{children}</StoreProvider>
+          <StoreProvider>{children}</StoreProvider>
         </StyledComponentsProvider>
         <Script src="/offchain/index.js" />
       </body>

@@ -3,8 +3,13 @@ import { useState, useEffect } from 'react';
 const useDonatPool = () => {
   const [donatPool, setDonatPool] = useState<Awaited<Window['donatPool']>>();
 
-  useEffect(() => {
-    window.donatPool.then(setDonatPool, console.log);
+  useEffect(function f() {
+    if (Object.hasOwn(window, 'donatPool')) {
+      window.donatPool.then(setDonatPool, console.log);
+      return;
+    }
+
+    setTimeout(f, 500);
   }, []);
 
   return donatPool;

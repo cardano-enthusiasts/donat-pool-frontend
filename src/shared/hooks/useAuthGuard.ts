@@ -21,7 +21,7 @@ const useAuthGuard = () => {
         dispatch(setStatus('success'));
       })((error) => {
         dispatch(setError(error));
-      })(testnetNami)();
+      })(testnetNami);
     }
   }, [status, donatPool, dispatch]);
 };

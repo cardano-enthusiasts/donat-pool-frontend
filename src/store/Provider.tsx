@@ -2,4 +2,12 @@
 
 import { Provider } from 'react-redux';
 
-export default Provider;
+import store from '.';
+
+export default function StoreProvider({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return <Provider store={store}>{children}</Provider>;
+}

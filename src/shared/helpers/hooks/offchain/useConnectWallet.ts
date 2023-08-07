@@ -23,7 +23,7 @@ const useConnectWallet = () => {
 
   if (offchain) {
     return () => {
-      offchain.connectWallet(handleSuccess)(handleError)(testnetNami)();
+      offchain.connectWallet(handleSuccess)(handleError)(testnetNami);
     };
   }
   return () => getOffchainError;

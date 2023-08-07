@@ -33,7 +33,7 @@ const useGetUserFundraisings = () => {
     return () => {
       offchain.getUserRelatedFundraisings(handleSuccess)(handleError)(protocol)(
         testnetNami,
-      )();
+      );
       dispatch(setRequesting());
     };
   }

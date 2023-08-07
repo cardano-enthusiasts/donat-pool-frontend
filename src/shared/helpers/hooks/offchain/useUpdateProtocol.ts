@@ -41,7 +41,7 @@ const useUpdateProtocol = () => {
     return (config: Config) => {
       offchain.setProtocol(handleSuccess)(handleError)(protocol)(
         editConfig(config),
-      )();
+      );
       dispatch(setRequesting());
     };
   }

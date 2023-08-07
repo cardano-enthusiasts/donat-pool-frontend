@@ -1,4 +1,5 @@
 'use client';
+
 import HTMLReactParser from 'html-react-parser';
 import Link from 'next/link';
 import { useEffect } from 'react';
