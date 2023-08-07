@@ -1,7 +1,7 @@
-import { type LandingSection } from '@/shared/types';
+import { type LandingSection } from '@/shared/types/common';
 
 const getSections = (
-  currentSection,
+  currentSection: string,
 ): Array<{
   title: string;
   isActive: boolean;

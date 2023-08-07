@@ -42,11 +42,7 @@ const LandingNav = forwardRef(function LandingNav(
             onClick={handleIconClick}
           />
           <WavesWrapper>
-            <Waves
-              isUpsideDown={true}
-              useClassName="fill-red"
-              isMoving={false}
-            />
+            <Waves isUpsideDown={true} color="red" isMoving={false} />
           </WavesWrapper>
         </>
       )}
