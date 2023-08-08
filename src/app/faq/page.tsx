@@ -21,10 +21,11 @@ import {
   SectionWrapper,
 } from './FAQ.styled';
 
-const FAQ = () => {
+const Page = () => {
   useEffect(() => {
     document.title = 'FAQ';
   }, []);
+
   return (
     <Service>
       <Title>
@@ -152,4 +153,4 @@ const FAQ = () => {
   );
 };
 
-export default FAQ;
+export default Page;

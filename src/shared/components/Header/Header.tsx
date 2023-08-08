@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { useState } from 'react';
 
+import { ROUTES } from '@/shared/constants';
 import { useAppSelector } from '@/store/hooks';
 
 import {
@@ -18,8 +19,12 @@ import { Button, Logo, WalletButton } from '..';
 
 const Header = ({ currentPage = null }: Props) => {
   const links = [
-    { title: 'My projects', href: '/my-projects', id: 'my-projects' },
-    { title: 'All Donation pools', href: '/all-projects', id: 'projects' },
+    { title: 'My projects', href: ROUTES.userFundraisings, id: 'my-projects' },
+    {
+      title: 'All Donation pools',
+      href: ROUTES.allFundraisings,
+      id: 'projects',
+    },
   ];
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const walletMode = useAppSelector((state) => state.connectWallet.status);
@@ -50,7 +55,7 @@ const Header = ({ currentPage = null }: Props) => {
             </LinksAndButton>
           ) : (
             <Button
-              href="/new-project"
+              href={ROUTES.newFundraising}
               primaryColor="yellow"
               secondaryColor="blue"
               fontColor="black"

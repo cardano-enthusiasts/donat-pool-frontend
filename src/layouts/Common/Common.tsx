@@ -1,5 +1,5 @@
 import { usePathname } from 'next/navigation';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 
 import { Footer, Header } from '@/shared/components';
 import { useGetAppInfo } from '@/shared/helpers/hooks';
@@ -10,25 +10,19 @@ import { type Props } from './types';
 
 const Common = ({ children }: Props) => {
   const pathname = usePathname();
-  const [currentPage, setCurrentPage] = useState('');
 
   const getAppInfo = useGetAppInfo();
   const offchain = useDonatPool();
 
   useEffect(() => {
     if (offchain) {
-      console.log(1);
       getAppInfo();
     }
   }, [offchain]);
 
-  useEffect(() => {
-    setCurrentPage(pathname);
-  }, [pathname]);
-
   return (
     <div className="flex min-h-screen flex-col">
-      <Header currentPage={currentPage} />
+      <Header currentPage={pathname} />
       <Main>
         <Inner>{children}</Inner>
       </Main>

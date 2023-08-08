@@ -5,11 +5,12 @@ import { useEffect } from 'react';
 
 import { Common } from '@/layouts';
 import { ManagementParams, ManagerEditor } from '@/shared/components';
+import { ROUTES } from '@/shared/constants';
 import { useAppSelector } from '@/store/hooks';
 
 import { Title, Wrapper } from './Management.styled';
 
-const Management = () => {
+const Page = () => {
   const {
     appInfo: { userInfo, protocol },
     connectWallet: { status },
@@ -23,7 +24,7 @@ const Management = () => {
 
   useEffect(() => {
     if (userInfo && !userInfo.isManager) {
-      router.push('/all-projects');
+      router.push(ROUTES.allFundraisings);
     }
   }, [userInfo]);
 
@@ -43,4 +44,4 @@ const Management = () => {
     <></>
   );
 };
-export default Management;
+export default Page;

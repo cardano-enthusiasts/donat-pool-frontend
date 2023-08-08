@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 
-import { testnetNami } from '@/shared/constants/wallet';
+import { testnetNami } from '@/shared/constants';
 import { useAppSelector, useAppDispatch } from '@/store/hooks';
 import { setStatus, setError } from '@/store/slices/connectWallet';
 

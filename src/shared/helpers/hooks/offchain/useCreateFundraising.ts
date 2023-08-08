@@ -1,4 +1,4 @@
-import { testnetNami } from '@/shared/constants/wallet';
+import { testnetNami } from '@/shared/constants';
 import { useDonatPool, useUserFundraisings } from '@/shared/hooks';
 import { type BackendProject } from '@/shared/types/backend';
 import { useAppDispatch } from '@/store/hooks';

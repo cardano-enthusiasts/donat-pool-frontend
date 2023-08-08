@@ -5,10 +5,11 @@ import { useEffect } from 'react';
 
 import { Common } from '@/layouts';
 import { ProjectCreation } from '@/shared/components';
+import { ROUTES } from '@/shared/constants';
 import { useAuthGuard } from '@/shared/hooks';
 import { useAppSelector } from '@/store/hooks';
 
-const NewProject = () => {
+const Page = () => {
   useAuthGuard();
   const router = useRouter();
   const connectWalletStatus = useAppSelector(
@@ -27,11 +28,11 @@ const NewProject = () => {
     <Common>
       <ProjectCreation
         onClose={() => {
-          router.push('/my-projects');
+          router.push(ROUTES.userFundraisings);
         }}
       />
     </Common>
   );
 };
 
-export default NewProject;
+export default Page;

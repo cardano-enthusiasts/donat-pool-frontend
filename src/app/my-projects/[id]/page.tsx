@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react';
 
 import { Common, Project } from '@/layouts';
 import { PrivateProjectsActions, RaisedCounter } from '@/shared/components';
+import { ROUTES } from '@/shared/constants';
 import { getDate } from '@/shared/helpers';
 import { useAuthGuard, useUserFundraisings } from '@/shared/hooks';
 import { type Fundraising } from '@/shared/types';
@@ -17,9 +18,8 @@ import {
   Status,
 } from './PrivateProject.styled';
 
-const PrivateProject = () => {
+const Page = () => {
   useAuthGuard();
-
   const params = useParams();
   const router = useRouter();
   const { userFundraisings } = useUserFundraisings();
@@ -46,7 +46,7 @@ const PrivateProject = () => {
         <Project
           previousPageTitle="My projects"
           onPreviousPageClick={() => {
-            router.push('/my-projects');
+            router.push(ROUTES.userFundraisings);
           }}
           title={currentProject.title}
         >
@@ -75,4 +75,4 @@ const PrivateProject = () => {
   );
 };
 
-export default PrivateProject;
+export default Page;

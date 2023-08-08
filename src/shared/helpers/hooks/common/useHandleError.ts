@@ -3,7 +3,7 @@ import {
   missingCollateral,
   walletDisconnect,
   walletIsNotAvailable,
-} from '@/shared/constants';
+} from '@/shared/constants/errors';
 import { useAppDispatch } from '@/store/hooks';
 import { setWalletStatus } from '@/store/slices/connectWallet';
 

@@ -27,9 +27,8 @@ import {
   Wrapper,
 } from './PublicProject.styled';
 
-const PublicProject = () => {
+const Page = () => {
   useAuthGuard();
-
   const params = useParams();
   const dispatch = useAppDispatch();
   const { allFundraisings } = useAllFundraisings();
@@ -141,4 +140,4 @@ const PublicProject = () => {
   );
 };
 
-export default PublicProject;
+export default Page;

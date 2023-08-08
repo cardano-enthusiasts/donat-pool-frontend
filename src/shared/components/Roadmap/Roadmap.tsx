@@ -1,7 +1,8 @@
 import HTMLReactParser from 'html-react-parser';
 import { Fragment } from 'react';
 
-import { roadmapText } from '@/shared/constants';
+import { ROUTES } from '@/shared/constants';
+import { roadmapText } from '@/shared/data';
 
 import {
   Inner,
@@ -49,7 +50,7 @@ const Roadmap = ({ isActive }: Props) => {
           primaryColor="blue"
           secondaryColor="green"
           size="s"
-          href="/roadmap"
+          href={ROUTES.roadmap}
         >
           All phases
         </Button>

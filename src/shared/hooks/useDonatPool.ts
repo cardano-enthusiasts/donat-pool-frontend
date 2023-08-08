@@ -5,7 +5,7 @@ const useDonatPool = () => {
 
   useEffect(function f() {
     if (Object.hasOwn(window, 'donatPool')) {
-      window.donatPool.then(setDonatPool, console.log);
+      window.donatPool.then(setDonatPool, console.error);
       return;
     }
 

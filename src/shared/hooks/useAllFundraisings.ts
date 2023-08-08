@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useState } from 'react';
 
-import { testnetNami } from '@/shared/constants/wallet';
+import { testnetNami } from '@/shared/constants';
 import { type Fundraising } from '@/shared/types';
 import { useAppSelector } from '@/store/hooks';
 

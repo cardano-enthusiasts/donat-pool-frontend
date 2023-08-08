@@ -5,6 +5,7 @@ import { useEffect } from 'react';
 
 import { Common } from '@/layouts';
 import { Button, ProjectCard } from '@/shared/components';
+import { ROUTES } from '@/shared/constants';
 import { useAuthGuard, useAllFundraisings } from '@/shared/hooks';
 import { useAppSelector } from '@/store/hooks';
 
@@ -41,7 +42,7 @@ const Page = () => {
             secondaryColor="blue"
             fontColor="white"
             onClick={() => {
-              router.push('/new-project');
+              router.push(ROUTES.newFundraising);
             }}
           >
             Create a new project

@@ -3,7 +3,7 @@
 import HTMLReactParser from 'html-react-parser';
 
 import { Service } from '@/layouts';
-import { roadmapText } from '@/shared/constants';
+import { roadmapText } from '@/shared/data';
 
 import {
   ColorTitle,
@@ -16,7 +16,7 @@ import {
   Ul,
 } from './RoadmapForReading.styled';
 
-const RoadmapForReading = () => {
+const Page = () => {
   const getSubLis = (item: any) => {
     return item.subItems.map(({ id, title }: any) => (
       <SubLi key={id}>{title}</SubLi>
@@ -48,4 +48,4 @@ const RoadmapForReading = () => {
   );
 };
 
-export default RoadmapForReading;
+export default Page;

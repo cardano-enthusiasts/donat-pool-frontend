@@ -5,6 +5,7 @@ import { useEffect } from 'react';
 
 import { Common } from '@/layouts';
 import { MyProjects } from '@/shared/components';
+import { ROUTES } from '@/shared/constants';
 import { useAuthGuard } from '@/shared/hooks';
 import { useAppSelector } from '@/store/hooks';
 
@@ -27,7 +28,7 @@ const Page = () => {
     <Common>
       <MyProjects
         onCreateAProjectClick={() => {
-          router.push('/new-project');
+          router.push(ROUTES.newFundraising);
         }}
       />
     </Common>

@@ -1,6 +1,7 @@
 import { useRouter } from 'next/navigation';
 import { type ChangeEvent, useState, useEffect } from 'react';
 
+import { ROUTES } from '@/shared/constants';
 import { useCreateFundraising } from '@/shared/helpers/hooks';
 import { useAppDispatch, useAppSelector } from '@/store/hooks';
 import { reset } from '@/store/slices/fundraisingCreation';
@@ -249,7 +250,7 @@ const CreationForm = ({ onClose, protocol }: Props) => {
         isOpen={isSuccessModalOpen}
         onClose={() => {
           setIsSuccessModalOpen(false);
-          router.push('/my-projects');
+          router.push(ROUTES.userFundraisings);
           dispatch(reset());
         }}
       />
