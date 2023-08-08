@@ -14,7 +14,7 @@ const ModalError = ({ isOpen, title, errorText = '', onClose }: Props) => {
           primaryColor="blue"
           width="100%"
           onClick={onClose}
-          tertiaryColor="white"
+          backgroundColor="white"
         >
           Close button
         </Button>

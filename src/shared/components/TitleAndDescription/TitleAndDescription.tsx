@@ -18,7 +18,14 @@ const TitleAndDescription = ({ isActive }: Props) => {
         <DescriptionPart2>help a lot</DescriptionPart2>
       </Description>
       <ButtonWrapper>
-        <Button themeType="accent" href="/all-projects">
+        <Button
+          themeType="accent"
+          primaryColor="yellow"
+          secondaryColor="red"
+          fontColor="red"
+          href="/all-projects"
+          isAnimation={true}
+        >
           Start
           <br />
           using

@@ -48,6 +48,7 @@ const AllProjects = () => {
         <Title>All Donation pools</Title>
         <CreateButton>
           <Button
+            themeType="standard"
             primaryColor="red"
             secondaryColor="blue"
             fontColor="white"

@@ -13,7 +13,7 @@ const ModalSuccess = ({ description, isOpen, onClose }: Props) => {
           <Button
             themeType="double-bordered"
             primaryColor="blue"
-            tertiaryColor="white"
+            backgroundColor="white"
             width="100%"
             onClick={onClose}
           >

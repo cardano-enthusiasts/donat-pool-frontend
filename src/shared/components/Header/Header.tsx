@@ -50,6 +50,7 @@ const Header = ({ currentPage = null }: Props) => {
             </LinksAndButton>
           ) : (
             <Button
+              themeType="standard"
               href="/new-project"
               primaryColor="yellow"
               secondaryColor="blue"

@@ -22,6 +22,8 @@ const Tutorial = () => {
       <Button
         themeType="dashed"
         primaryColor="blue"
+        secondaryColor="red"
+        backgroundColor="green"
         onClick={() => {
           setIsOpen(!isOpen);
         }}

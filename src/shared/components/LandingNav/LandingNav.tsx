@@ -64,10 +64,12 @@ const LandingNav = forwardRef(function LandingNav(
           ))}
           {section !== 'home' && (
             <Button
+              themeType="standard"
               primaryColor="red"
               secondaryColor="blue"
               fontColor="white"
               href="/new-project"
+              isAnimation={true}
             >
               Start a fundraiser
             </Button>

@@ -22,7 +22,7 @@ const NotAvailableError = () => {
             href="https://namiwallet.io/"
             themeType="double-bordered"
             primaryColor="blue"
-            tertiaryColor="red"
+            backgroundColor="red"
             width="100%"
           >
             Download App

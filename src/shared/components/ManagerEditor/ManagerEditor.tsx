@@ -87,6 +87,7 @@ const ManagerEditor = ({ config }: Props) => {
         </InputWrapper>
         <ButtonWrapper>
           <Button
+            themeType="standard"
             type="submit"
             width="100%"
             primaryColor="red"

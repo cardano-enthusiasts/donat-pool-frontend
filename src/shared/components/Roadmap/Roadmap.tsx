@@ -50,6 +50,8 @@ const Roadmap = ({ isActive }: Props) => {
           secondaryColor="green"
           size="s"
           href="/roadmap"
+          isAnimation={true}
+          fontColor="green"
         >
           All phases
         </Button>

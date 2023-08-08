@@ -227,12 +227,13 @@ const CreationForm = ({ onClose, protocol }: Props) => {
             onClick={onClose}
             themeType="double-bordered"
             primaryColor="blue"
-            tertiaryColor="white"
+            backgroundColor="white"
             size="m"
           >
             Cancel
           </Button>
           <Button
+            themeType="standard"
             type="submit"
             isDisabled={!isChecked}
             primaryColor="red"
