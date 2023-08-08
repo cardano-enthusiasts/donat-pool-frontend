@@ -177,6 +177,6 @@ const roadmapText = {
       ],
     },
   ],
-} as const;
+};
 
 export { roadmapText };

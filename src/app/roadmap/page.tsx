@@ -34,7 +34,7 @@ const Page = () => {
             <PhaseTitle>{HTMLReactParser(title)}</PhaseTitle>
             <Ul>
               {items.map((item) => {
-                return item.title ? (
+                return Object.hasOwn(item, 'title') ? (
                   <Li key={item.id}>{item.title}</Li>
                 ) : (
                   getSubLis(item)
