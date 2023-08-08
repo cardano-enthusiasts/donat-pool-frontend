@@ -1,5 +1,6 @@
 import { testnetNami } from '@/shared/constants';
 import { useDonatPool, useUserFundraisings } from '@/shared/hooks';
+import { type FundraisingData } from '@/shared/types/common';
 import { useAppDispatch } from '@/store/hooks';
 import { setWalletStatus } from '@/store/slices/connectWallet';
 import {
@@ -31,7 +32,7 @@ const useReceiveFunds = () => {
   };
 
   if (offchain) {
-    return (fundraisingData: any) => {
+    return (fundraisingData: FundraisingData) => {
       offchain.receiveFunds(handleSuccess)(handleError)(protocol)(testnetNami)(
         fundraisingData,
       )();

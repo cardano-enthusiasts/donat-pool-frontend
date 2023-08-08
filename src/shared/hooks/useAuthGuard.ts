@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useCallback, useEffect } from 'react';
 
 import { testnetNami } from '@/shared/constants';
 import { useAppSelector, useAppDispatch } from '@/store/hooks';
@@ -13,17 +13,33 @@ const useAuthGuard = () => {
   );
   const dispatch = useAppDispatch();
 
+  const handleFetchSuccess = useCallback(() => {
+    dispatch(setStatus('success'));
+  }, [dispatch]);
+
+  const handleFetchError = useCallback(
+    (error: string) => {
+      console.error('connectWallet:', error);
+      dispatch(setError(error));
+    },
+    [dispatch],
+  );
+
   useEffect(() => {
     if (connectWalletStatus !== 'success') {
       dispatch(setStatus('requesting'));
 
-      donatPool?.connectWallet(() => {
-        dispatch(setStatus('success'));
-      })((error) => {
-        dispatch(setError(error));
-      })(testnetNami)();
+      donatPool?.connectWallet(handleFetchSuccess)(handleFetchError)(
+        testnetNami,
+      )();
     }
-  }, [connectWalletStatus, donatPool, dispatch]);
+  }, [
+    connectWalletStatus,
+    dispatch,
+    donatPool,
+    handleFetchSuccess,
+    handleFetchError,
+  ]);
 };
 
 export default useAuthGuard;

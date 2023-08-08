@@ -27,7 +27,9 @@ const Header = ({ currentPage = null }: Props) => {
     },
   ];
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const walletMode = useAppSelector((state) => state.connectWallet.status);
+  const connectWalletStatus = useAppSelector(
+    (state) => state.connectWallet.status,
+  );
 
   return (
     <>
@@ -38,7 +40,7 @@ const Header = ({ currentPage = null }: Props) => {
               <Logo />
             </LogoWrapper>
           )}
-          {walletMode === 'success' ? (
+          {connectWalletStatus === 'success' ? (
             <LinksAndButton isMenuOpen={isMenuOpen}>
               <Links>
                 {links.map(({ title, href, id }) => (

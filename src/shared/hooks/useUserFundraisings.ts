@@ -17,16 +17,22 @@ const useUserFundraisings = () => {
   } = useAppSelector((state) => state);
   const [fetchError, setFetchError] = useState<string | undefined>();
 
+  const handleFetchSuccess = useCallback((fundraisings: Fundraising[]) => {
+    setFundraisings(fundraisings);
+  }, []);
+
+  const handleFetchError = useCallback((error: string) => {
+    console.error('getUserRelatedFundraisings:', error);
+    setFetchError(error);
+  }, []);
+
   const fetchFundraisings = useCallback(() => {
     setAreBeingFetched(true);
 
-    donatPool?.getUserRelatedFundraisings((fundraisings) => {
-      setFundraisings(fundraisings);
-    })((error) => {
-      console.error('getUserRelatedFundraisings:', error);
-      setFetchError(error);
-    })(JSON.parse(process.env.NEXT_PUBLIC_PROTOCOL))(testnetNami)();
-  }, [donatPool]);
+    donatPool?.getUserRelatedFundraisings(handleFetchSuccess)(handleFetchError)(
+      JSON.parse(process.env.NEXT_PUBLIC_PROTOCOL),
+    )(testnetNami)();
+  }, [donatPool, handleFetchSuccess, handleFetchError]);
 
   useEffect(() => {
     if (connectWalletStatus === 'success') {
