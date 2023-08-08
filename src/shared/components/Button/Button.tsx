@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 
 import {
   ArrowWrapper,
@@ -36,8 +36,7 @@ const Button = ({
         primaryColor={primaryColor}
       >
         <Link
-          to={href}
-          reloadDocument={isLinkExternal}
+          href={href}
           target={isLinkExternal ? '_blank' : '_self'}
           rel={isLinkExternal ? 'noopener noreferrer' : undefined}
         >

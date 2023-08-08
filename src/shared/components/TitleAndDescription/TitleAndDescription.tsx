@@ -1,3 +1,5 @@
+import { ROUTES } from '@/shared/constants';
+
 import {
   ButtonWrapper,
   Description,
@@ -23,9 +25,9 @@ const TitleAndDescription = ({ isActive }: Props) => {
           primaryColor="yellow"
           secondaryColor="red"
           fontColor="red"
-          href="/all-projects"
+          href={ROUTES.allFundraisings} 
           isAnimation={true}
-        >
+        > 
           Start
           <br />
           using

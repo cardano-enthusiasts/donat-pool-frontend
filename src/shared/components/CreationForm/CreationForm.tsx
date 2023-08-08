@@ -1,9 +1,10 @@
+import { useRouter } from 'next/navigation';
 import { type ChangeEvent, useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
 
-import { useCreateFundraising } from 'shared/helpers/hooks';
-import { useAppDispatch, useAppSelector } from 'store/hooks';
-import { reset } from 'store/slices/fundraisingCreation';
+import { ROUTES } from '@/shared/constants';
+import { useCreateFundraising } from '@/shared/helpers/hooks';
+import { useAppDispatch, useAppSelector } from '@/store/hooks';
+import { reset } from '@/store/slices/fundraisingCreation';
 
 import {
   ButtonWrapper,
@@ -29,7 +30,7 @@ const CreationForm = ({ onClose, protocol }: Props) => {
   const { minAmountParam, maxAmountParam, minDurationParam, maxDurationParam } =
     protocol;
   const dispatch = useAppDispatch();
-  const navigate = useNavigate();
+  const router = useRouter();
   const [createdPath, setCreatedPath] = useState('');
   const createFundraising = useCreateFundraising();
   const [isChecked, setIsChecked] = useState(false);
@@ -107,7 +108,7 @@ const CreationForm = ({ onClose, protocol }: Props) => {
     setIsLoadingModalOpen(status === 'requesting');
   }, [status]);
 
-  const handleSubmit = (event) => {
+  const handleSubmit = (event: any) => {
     event.preventDefault();
     if (isAnyError) {
       setErrorsToForm();
@@ -250,7 +251,7 @@ const CreationForm = ({ onClose, protocol }: Props) => {
         isOpen={isSuccessModalOpen}
         onClose={() => {
           setIsSuccessModalOpen(false);
-          navigate('/my-projects');
+          router.push(ROUTES.userFundraisings);
           dispatch(reset());
         }}
       />

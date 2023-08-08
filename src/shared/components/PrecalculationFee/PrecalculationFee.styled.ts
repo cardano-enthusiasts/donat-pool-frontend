@@ -5,7 +5,7 @@ const Wrapper = styled.div`
   font-size: 12px;
   line-height: 117%;
 
-  color: ${({ theme }) => theme.colors.red};
+  color: #ff6b95;
 `;
 
 export { Wrapper };

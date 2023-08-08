@@ -15,7 +15,7 @@ const StyledInput = styled.input`
   -webkit-appearance: none;
   margin: 0;
   border-radius: 2px;
-  border: 2px solid ${({ theme }) => theme.colors.blue};
+  border: 2px solid #4757e6;
   flex-shrink: 0;
 
   &::before {
@@ -25,14 +25,14 @@ const StyledInput = styled.input`
   &:checked::before {
     width: 100%;
     height: 100%;
-    background-color: ${({ theme }) => theme.colors.blue};
+    background-color: #4757e6;
   }
 `;
 const Title = styled.span`
   width: 100%;
   min-width: 180px;
   margin-left: 10px;
-  color: ${({ theme }) => theme.colors.black};
+  color: #141414;
   user-select: none;
 `;
 

@@ -1,7 +1,8 @@
+import Link from 'next/link';
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
 
-import { useAppSelector } from 'store/hooks';
+import { ROUTES } from '@/shared/constants';
+import { useAppSelector } from '@/store/hooks';
 
 import {
   Inner,
@@ -18,11 +19,15 @@ import { Button, Logo, WalletButton } from '..';
 
 const Header = ({ currentPage = null }: Props) => {
   const links = [
-    { title: 'My projects', href: '/my-projects', id: 'my-projects' },
-    { title: 'All Donation pools', href: '/all-projects', id: 'projects' },
+    { title: 'My projects', href: ROUTES.userFundraisings, id: 'my-projects' },
+    {
+      title: 'All Donation pools',
+      href: ROUTES.allFundraisings,
+      id: 'projects',
+    },
   ];
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const walletMode = useAppSelector((state) => state.wallet.mode);
+  const walletMode = useAppSelector((state) => state.connectWallet.status);
 
   return (
     <>
@@ -33,7 +38,7 @@ const Header = ({ currentPage = null }: Props) => {
               <Logo />
             </LogoWrapper>
           )}
-          {walletMode === 'connected' ? (
+          {walletMode === 'success' ? (
             <LinksAndButton isMenuOpen={isMenuOpen}>
               <Links>
                 {links.map(({ title, href, id }) => (
@@ -41,7 +46,7 @@ const Header = ({ currentPage = null }: Props) => {
                     key={id}
                     {...(currentPage ? { isActive: href === currentPage } : {})}
                   >
-                    <Link to={href}>{title}</Link>
+                    <Link href={href}>{title}</Link>
                   </LinkWrapper>
                 ))}
               </Links>
@@ -51,7 +56,7 @@ const Header = ({ currentPage = null }: Props) => {
           ) : (
             <Button
               themeType="standard"
-              href="/new-project"
+              href={ROUTES.newFundraising}
               primaryColor="yellow"
               secondaryColor="blue"
               fontColor="black"

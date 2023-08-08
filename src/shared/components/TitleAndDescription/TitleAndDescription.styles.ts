@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const Wrapper = styled.div<{ isActive: boolean }>`
-  font-family: 'Rammetto One', Arial, sans-serif;
+  font-family: var(--rammetto-one-font);
   display: flex;
   flex-direction: column;
   > * {
@@ -29,7 +29,7 @@ const Description = styled.div`
   flex-direction: column;
   font-size: 96px;
   line-height: 100%;
-  color: ${({ theme }) => theme.colors.green};
+  color: #29dea8;
   max-width: 1000px;
   width: 100%;
   margin-bottom: 40px;

@@ -17,7 +17,7 @@ const ConnectButton = styled.button`
   font-size: 12px;
   line-height: 133%;
   font-weight: bold;
-  color: ${({ theme }) => theme.colors.white};
+  color: #fff;
   cursor: pointer;
   padding: 0;
   &:before {
@@ -30,10 +30,10 @@ const Address = styled.div`
   position: absolute;
   right: 0;
   margin-top: 4px;
-  background: ${({ theme }) => theme.colors.white};
+  background: #fff;
   border-radius: 6px;
   padding: 12px;
-  color: ${({ theme }) => theme.colors.secondaryGray};
+  color: #828587;
   filter: drop-shadow(0px 2px 15px rgba(71, 87, 230, 0.4));
 
   &:before {

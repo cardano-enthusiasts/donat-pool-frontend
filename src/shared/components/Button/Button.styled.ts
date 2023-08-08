@@ -25,7 +25,7 @@ const getStandardStyles = ({
   size,
   fontColor,
   isAnimation,
-}) => css`
+}: any) => css`
   font-size: ${size === 's' ? '16px' : '20px'};
   padding: ${size === 's' ? '10px' : '12px'} 16px;
   font-weight: bold;
@@ -57,8 +57,8 @@ const getStandardStyles = ({
       transform: none;
     }
     cursor: default;
-    background-color: ${({ theme }) => theme.colors.purple};
-    box-shadow: -4px 4px 0px ${({ theme }) => theme.colors.black};
+    background-color: #ffc5cf;
+    box-shadow: -4px 4px 0px #141414;
   }
 `;
 
@@ -68,12 +68,12 @@ const getAccentStyles = ({
   size,
   fontColor,
   isAnimation,
-}) => css`
+}: any) => css`
   position: absolute;
   font-size: 32px;
   width: 290px;
   height: ${size === 's' ? '97px' : '127px'};
-  font-family: 'Rammetto One', Arial, sans-serif;
+  font-family: var(--rammetto-one-font);
   color: ${({ theme }) => theme.colors[fontColor]};
   background-color: ${({ theme }) => theme.colors[primaryColor]};
 
@@ -174,6 +174,10 @@ const getDoubleBorderedStyles = ({
   primaryColor,
   backgroundColor,
   size,
+}: {
+  primaryColor: any,
+  backgroundColor: any,
+  size: any,
 }) => css`
   position: relative;
   font-size: ${size === 's' ? '16px' : '20px'};
@@ -200,11 +204,11 @@ const getDoubleBorderedStyles = ({
     user-select: none;
   }
   &:disabled {
-    color: ${({ theme }) => theme.colors.secondaryGray};
-    border: 2px solid ${({ theme }) => theme.colors.secondaryGray};
+    color: #828587;
+    border: 2px solid #828587;
     pointer-events: none;
     &:before {
-      border: 2px solid ${({ theme }) => theme.colors.secondaryGray};
+      border: 2px solid #828587;
     }
   }
 `;
@@ -213,6 +217,10 @@ const getBorderedStyles = ({
   primaryColor,
   isClickedTheme,
   size,
+}: {
+  primaryColor: any,
+  isClickedTheme: any,
+  size: any,
 }) => css`
   font-size: ${size === 's' ? '14px' : '16px'};
   padding: ${size === 's' ? '8px' : '10px'} 16px;
@@ -232,6 +240,11 @@ const getDashedStyles = ({
   secondaryColor,
   backgroundColor,
   size,
+}: {
+primaryColor: any,
+secondaryColor: any,
+backgroundColor: any,
+size: any,
 }) => css`
   position: relative;
   display: flex;
@@ -261,11 +274,11 @@ const getDashedStyles = ({
     user-select: none;
   }
   &:disabled {
-    color: ${({ theme }) => theme.colors.secondaryGray};
-    border: 2px solid ${({ theme }) => theme.colors.secondaryGray};
+    color: #828587;
+    border: 2px solid #828587;
     pointer-events: none;
     &:before {
-      border: 2px solid ${({ theme }) => theme.colors.secondaryGray};
+      border: 2px solid #828587;
     }
   }
 `;
@@ -396,7 +409,7 @@ const LinkWrapper = styled.div<{
   }
 `;
 
-const getSecondaryWrapperStyles = (size) => css`
+const getSecondaryWrapperStyles = (size: any) => css`
   padding-left: 22px;
   padding-bottom: 22px;
   height: ${size === 's' ? '97px' : '150px'};

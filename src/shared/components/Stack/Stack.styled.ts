@@ -10,7 +10,7 @@ const Wrapper = styled.div`
 const Title = styled.div`
   font-weight: bold;
   font-size: 24px;
-  color: ${({ theme }) => theme.colors.primaryGray};
+  color: #333;
 `;
 
 const Img = styled.img<{ isActive: boolean }>`
@@ -57,7 +57,7 @@ const Part1 = styled.div`
 `;
 
 const Link = styled.a`
-  color: ${({ theme }) => theme.colors.red};
+  color: #ff6b95;
   text-decoration: underline;
 `;
 

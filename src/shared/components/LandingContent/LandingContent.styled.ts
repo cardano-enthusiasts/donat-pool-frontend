@@ -4,7 +4,7 @@ import {
   getLargeLayoutPadding,
   getMediumLayoutPadding,
   getSmallLayoutPadding,
-} from 'shared/styles/mixins';
+} from '@/shared/styles/mixins';
 
 const paddings = css`
   ${() => getLargeLayoutPadding()}

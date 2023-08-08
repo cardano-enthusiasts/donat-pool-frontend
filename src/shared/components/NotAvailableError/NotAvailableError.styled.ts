@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { h1 } from 'shared/styles/mixins';
+import { h1 } from '@/shared/styles/mixins';
 
 const Container = styled.form`
   display: flex;
@@ -9,7 +9,7 @@ const Container = styled.form`
   width: 100%;
   height: 100vh;
   min-height: 670px;
-  background: ${({ theme }) => theme.colors.red};
+  background: #ff6b95;
 
   margin: 0 auto;
 `;
@@ -31,7 +31,7 @@ const Content = styled.div`
 
 const Title = styled.h1`
   ${h1};
-  color: ${({ theme }) => theme.colors.white};
+  color: #fff;
   margin-bottom: 24px;
   text-align: center;
 `;
@@ -42,7 +42,7 @@ const Img = styled.img`
 `;
 
 const Description = styled.div`
-  color: ${({ theme }) => theme.colors.black};
+  color: #141414;
   text-align: center;
   margin-bottom: 32px;
 `;

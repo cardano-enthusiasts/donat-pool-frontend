@@ -14,11 +14,10 @@ RUN mkdir -p /code
 WORKDIR /code
 # Install app dependencies
 COPY package.json /code
-RUN npm install
+RUN npm i
 # Remove key 
 RUN rm /root/.ssh/id_rsa
 # Bundle app source
 COPY . /code
 RUN npm run build
-EXPOSE 4008
-CMD ["npm", "run", "prod"]
+CMD ["npm", "run", "start"]

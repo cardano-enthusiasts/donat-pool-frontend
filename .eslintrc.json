@@ -1,4 +1,5 @@
 {
+  "root": true,
   "env": {
     "browser": true,
     "es2022": true
@@ -20,6 +21,7 @@
         "plugin:react/jsx-runtime",
         "plugin:react-hooks/recommended",
         "plugin:jsx-a11y/recommended",
+        "plugin:@next/next/recommended",
         "prettier"
       ],
       "parserOptions": {

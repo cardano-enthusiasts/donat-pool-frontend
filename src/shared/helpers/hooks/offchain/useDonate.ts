@@ -1,32 +1,28 @@
-import { testnetNami } from 'shared/constants/wallet';
-import { type FundraisingData } from 'shared/types';
-import { useAppDispatch } from 'store/hooks';
-import { setError, setRequesting, setSuccess } from 'store/slices/donating';
-import { setWalletMode } from 'store/slices/wallet';
+import { testnetNami } from '@/shared/constants';
+import { useAllFundraisings, useDonatPool } from '@/shared/hooks';
+import { type FundraisingData } from '@/shared/types/common';
+import { useAppDispatch } from '@/store/hooks';
+import { setWalletStatus } from '@/store/slices/connectWallet';
+import { setError, setRequesting, setSuccess } from '@/store/slices/donating';
 
-import {
-  useCheckWalletStatus,
-  useGetAllFundraisings,
-  useHandleError,
-  useOffchain,
-} from '..';
+import { useHandleError } from '..';
 import { getOffchainError } from '../..';
 
 const useDonate = () => {
-  const offchain = useOffchain();
+  const offchain = useDonatPool();
   const dispatch = useAppDispatch();
-  const getAllFundraisings = useGetAllFundraisings();
+  const { refetchAllFundraisings } = useAllFundraisings();
   const handleCommonError = useHandleError();
-  const checkWalletStatus = useCheckWalletStatus();
-  const protocol = JSON.parse(process.env.PROTOCOL);
+  const protocol = JSON.parse(process.env.NEXT_PUBLIC_PROTOCOL);
 
   const handleSuccess = () => {
-    dispatch(setWalletMode('connected'));
+    dispatch(setWalletStatus('connected'));
     dispatch(setSuccess());
-    getAllFundraisings();
+    refetchAllFundraisings();
   };
 
-  const handleError = (error) => {
+  const handleError = (error: string) => {
+    console.error('donate:', error);
     const filteredError = handleCommonError(error);
     dispatch(setError(filteredError));
   };
@@ -36,7 +32,6 @@ const useDonate = () => {
       offchain.donate(handleSuccess)(handleError)(protocol)(testnetNami)(
         fundraisingData,
       )(amount)();
-      checkWalletStatus();
       dispatch(setRequesting());
     };
   }

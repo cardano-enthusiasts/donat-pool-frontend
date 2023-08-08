@@ -1,5 +1,7 @@
+import Link from 'next/link';
 import { useState } from 'react';
-import { HashLink } from 'react-router-hash-link';
+
+import { ROUTES } from '@/shared/constants';
 
 import { Button, Socials, ModalContactUs } from './..';
 import {
@@ -13,10 +15,10 @@ import { type Props } from './types';
 
 const Footer = ({ backgroundColor = 'blue' }: Props) => {
   const links = [
-    { title: 'Home', href: '/' },
-    { title: 'About us on MetaLamp', href: '/mock-address' },
-    { title: 'Terms of use', href: '/mock-address' },
-    { title: 'FAQ', href: '/faq' },
+    { title: 'Home', href: ROUTES.root },
+    { title: 'About us on MetaLamp', href: ROUTES.mock },
+    { title: 'Terms of use', href: ROUTES.mock },
+    { title: 'FAQ', href: ROUTES.faq },
   ];
   const [isModalContactUsOpen, setIsModalContactUsOpen] = useState(false);
 
@@ -30,9 +32,9 @@ const Footer = ({ backgroundColor = 'blue' }: Props) => {
               {links.map(({ title, href }) => {
                 return (
                   <LinkWrapper key={title}>
-                    <HashLink to={`${href}${href !== '/' ? '#top' : ''}`}>
+                    <Link href={`${href}${href !== ROUTES.root ? '#top' : ''}`}>
                       {title}
-                    </HashLink>
+                    </Link>
                   </LinkWrapper>
                 );
               })}

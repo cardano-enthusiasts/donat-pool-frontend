@@ -1,29 +1,28 @@
-import { testnetNami } from 'shared/constants/wallet';
-import { type UserAndProtocolParams } from 'shared/types';
-import { useAppDispatch } from 'store/hooks';
+import { testnetNami } from '@/shared/constants';
+import { useDonatPool } from '@/shared/hooks';
+import { type UserAndProtocolParams } from '@/shared/types/backend';
+import { useAppDispatch } from '@/store/hooks';
 import {
   setError,
   setRequesting,
   setProtocol,
   setUserInfo,
-} from 'store/slices/appInfo';
-import { setWalletMode } from 'store/slices/wallet';
+} from '@/store/slices/appInfo';
+import { setWalletStatus } from '@/store/slices/connectWallet';
 
-import { useCheckWalletStatus, useHandleError, useOffchain } from '..';
+import { useHandleError } from '..';
 import { getOffchainError } from '../..';
 
 const useGetAppInfo = () => {
-  const offchain = useOffchain();
+  const offchain = useDonatPool();
   const dispatch = useAppDispatch();
   const handleCommonError = useHandleError();
-  const checkWalletStatus = useCheckWalletStatus();
-  const protocol = JSON.parse(process.env.PROTOCOL);
 
   const handleSuccess = ({
     protocolConfig,
     userInfo,
   }: UserAndProtocolParams) => {
-    dispatch(setWalletMode('connected'));
+    dispatch(setWalletStatus('connected'));
     const {
       minAmountParam,
       maxAmountParam,
@@ -43,15 +42,17 @@ const useGetAppInfo = () => {
     dispatch(setUserInfo(userInfo));
   };
 
-  const handleError = (error) => {
+  const handleError = (error: string) => {
+    console.error('useGetAppInfo:', error);
     const filteredError = handleCommonError(error);
     dispatch(setError(filteredError));
   };
 
   if (offchain) {
     return () => {
-      offchain?.getAppInfo(handleSuccess)(handleError)(protocol)(testnetNami)();
-      checkWalletStatus();
+      offchain?.getAppInfo(handleSuccess)(handleError)(
+        JSON.parse(process.env.NEXT_PUBLIC_PROTOCOL),
+      )(testnetNami)();
       dispatch(setRequesting());
     };
   }

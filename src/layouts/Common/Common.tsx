@@ -1,19 +1,18 @@
-import { useEffect, useState } from 'react';
+import { usePathname } from 'next/navigation';
+import { useEffect } from 'react';
 
-import { CommonError, Footer, Header } from 'shared/components';
-import { errors, missingCollateral } from 'shared/constants';
-import { useGetAppInfo, useOffchain } from 'shared/helpers/hooks';
-import { useAppSelector } from 'store/hooks';
+import { Footer, Header } from '@/shared/components';
+import { useGetAppInfo } from '@/shared/helpers/hooks';
+import { useDonatPool } from '@/shared/hooks';
 
 import { Inner, Main } from './Common.styled';
 import { type Props } from './types';
 
 const Common = ({ children }: Props) => {
-  const [currentPage, setCurrentPage] = useState('');
-  const walletStatus = useAppSelector((state) => state.wallet.mode);
+  const pathname = usePathname();
 
   const getAppInfo = useGetAppInfo();
-  const offchain = useOffchain();
+  const offchain = useDonatPool();
 
   useEffect(() => {
     if (offchain) {
@@ -21,21 +20,14 @@ const Common = ({ children }: Props) => {
     }
   }, [offchain]);
 
-  useEffect(() => {
-    setCurrentPage(location.pathname);
-  }, [location.pathname]);
-
   return (
-    <>
-      <Header currentPage={currentPage} />
-      {walletStatus === 'missingCollateral' && (
-        <CommonError>{errors[missingCollateral]}</CommonError>
-      )}
+    <div className="flex min-h-screen flex-col">
+      <Header currentPage={pathname} />
       <Main>
         <Inner>{children}</Inner>
       </Main>
       <Footer />
-    </>
+    </div>
   );
 };
 

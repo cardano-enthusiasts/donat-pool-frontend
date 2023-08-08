@@ -1,9 +1,10 @@
+import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 
-import { useReceiveFunds } from 'shared/helpers/hooks';
-import { useAppDispatch, useAppSelector } from 'store/hooks';
-import { reset } from 'store/slices/fundsReceiving';
+import { ROUTES } from '@/shared/constants';
+import { useReceiveFunds } from '@/shared/helpers/hooks';
+import { useAppDispatch, useAppSelector } from '@/store/hooks';
+import { reset } from '@/store/slices/fundsReceiving';
 
 import {
   ButtonWrapper,
@@ -18,7 +19,7 @@ const PrivateProjectsActions = ({ project }: Props) => {
   const [isModalSuccessOpen, setIsModalSuccessOpen] = useState(false);
   const [isModalErrorOpen, setIsModalErrorOpen] = useState(false);
   const dispatch = useAppDispatch();
-  const navigate = useNavigate();
+  const router = useRouter();
   const receiveFunds = useReceiveFunds();
 
   const {
@@ -35,10 +36,10 @@ const PrivateProjectsActions = ({ project }: Props) => {
   useEffect(() => {
     if (status === 'success') {
       setIsModalErrorOpen(true);
-      navigate('/my-projects');
+      router.push(ROUTES.userFundraisings);
       dispatch(reset());
     }
-  }, [status, dispatch, navigate]);
+  }, [status, dispatch, router]);
 
   const link = window.location.href;
 
@@ -74,7 +75,7 @@ const PrivateProjectsActions = ({ project }: Props) => {
           }}
           fontColor="white"
         >
-          {project.raisedAmount >= project.goal
+          {project.raisedAmt.value >= project.goal.value
             ? 'You have reached the goal! Take money'
             : 'Project reached its deadline. Collect fund'}
         </Button>

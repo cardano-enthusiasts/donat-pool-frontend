@@ -17,7 +17,7 @@ const Title = styled.h3`
 `;
 
 const Line = styled.div`
-  border: 1px solid ${({ theme }) => theme.colors.black};
+  border: 1px solid #141414;
 `;
 
 const Item = styled.div`
@@ -29,7 +29,7 @@ const Item = styled.div`
 const ItemTitle = styled.div``;
 
 const Label = styled.span`
-  color: ${({ theme }) => theme.colors.secondaryGray};
+  color: #828587;
   margin-left: 8px;
 `;
 

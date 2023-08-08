@@ -1,6 +1,6 @@
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 
-import { getDate } from 'shared/helpers';
+import { getDate } from '@/shared/helpers';
 
 import {
   DateItem,
@@ -19,7 +19,7 @@ const ProjectCard = ({
     deadline,
     title,
     goal,
-    raisedAmount,
+    raisedAmt,
     threadTokenName,
     threadTokenCurrency,
   },
@@ -33,24 +33,24 @@ const ProjectCard = ({
   };
 
   return (
-    <Link to={`/${linkSection}/${threadTokenCurrency}`}>
+    <Link href={`/${linkSection}/${threadTokenCurrency}`}>
       <Wrapper status={status} paddingSize={paddingSize}>
         {status !== 'default' && (
           <Status status={status}>{statusTitles[status]}</Status>
         )}
         <Title>{title}</Title>
         <DateAndAmount>
-          <DateItem>{getDate(deadline)}</DateItem>
+          <DateItem>{getDate(Number(deadline.value))}</DateItem>
           <Amount>
             <RaisedAmount>
               {status === 'active' && (
                 <>
-                  {raisedAmount / 1000000}
+                  {Number(raisedAmt.value) / 1000000}
                   <Line />
                 </>
               )}
             </RaisedAmount>
-            {goal / 1000000}
+            {Number(goal.value) / 1000000}
           </Amount>
         </DateAndAmount>
       </Wrapper>

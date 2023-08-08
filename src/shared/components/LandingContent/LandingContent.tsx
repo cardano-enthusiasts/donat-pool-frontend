@@ -8,7 +8,7 @@ import {
   type MutableRefObject,
 } from 'react';
 
-import { type LandingSection } from 'shared/types';
+import { type LandingSection } from '@/shared/types/common';
 
 import {
   AboutUsWrapper,
@@ -94,14 +94,14 @@ const LandingContent = forwardRef(function LandingContent(
       );
       const navMiddle = (navBottom - navTop) / 2 + navTop;
 
-      const refsWithoutContactUs = {
+      const refsWithoutContactUs: any = {
         home: homeRef,
         'how-it-works': howItWorksRef,
         'why-choose-us': whyChooseUsRef,
         'about-us': aboutUsRef,
       };
 
-      let prop: LandingSection;
+      let prop: any;
       for (prop in refsWithoutContactUs) {
         if (
           refsWithoutContactUs[prop].current.getBoundingClientRect().bottom >

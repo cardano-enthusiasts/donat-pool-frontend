@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 
-import { useWindowScroll } from 'shared/helpers/hooks';
+import { useWindowScroll } from '@/shared/helpers/hooks';
 
 import {
   Description,
@@ -32,7 +32,7 @@ const Stack = () => {
     }
   }, [windowScroll]);
 
-  const getLink = (title, href) => {
+  const getLink = (title: any, href: any) => {
     return (
       <>
         {' '}

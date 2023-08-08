@@ -1,7 +1,8 @@
 import HTMLReactParser from 'html-react-parser';
 import { Fragment } from 'react';
 
-import { roadmapText } from 'shared/constants';
+import { ROUTES } from '@/shared/constants';
+import { roadmapText } from '@/shared/data';
 
 import {
   Inner,
@@ -17,8 +18,8 @@ import { type Props } from './types';
 import { Button } from '../.';
 
 const Roadmap = ({ isActive }: Props) => {
-  const getSubLis = (item) => {
-    return item.subItems.map(({ id, title }) => (
+  const getSubLis = (item: any) => {
+    return item.subItems.map(({ id, title }: any) => (
       <SubLi key={id}>{title}</SubLi>
     ));
   };
@@ -49,7 +50,7 @@ const Roadmap = ({ isActive }: Props) => {
           primaryColor="blue"
           secondaryColor="green"
           size="s"
-          href="/roadmap"
+          href={ROUTES.roadmap}
           isAnimation={true}
           fontColor="green"
         >

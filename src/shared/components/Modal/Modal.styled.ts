@@ -9,7 +9,7 @@ const Wrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  background: ${({ theme }) => theme.colors.blue}66;
+  background: #4757e666;
   overflow-y: auto;
   z-index: 101;
 `;
@@ -26,11 +26,11 @@ const Content = styled.section`
   z-index: 101;
   width: 600px;
   height: max-content;
-  background: ${({ theme }) => theme.colors.white};
+  background: #fff;
   border-radius: 6px;
   padding: 40px 40px 60px 40px;
   margin: 100px 0;
-  box-shadow: 0px 15px 40px ${({ theme }) => theme.colors.blue};
+  box-shadow: 0px 15px 40px #4757e6;
   @media (max-width: 800px) {
     width: 90%;
     padding: 20px;

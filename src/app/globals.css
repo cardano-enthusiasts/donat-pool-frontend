@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  ::-webkit-scrollbar {
+    @apply w-[5px];
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-purple;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-red;
+  }
+}

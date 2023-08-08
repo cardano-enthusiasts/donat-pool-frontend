@@ -1,40 +1,36 @@
-import { type Config } from 'shared/types';
-import { useAppDispatch } from 'store/hooks';
+import { useDonatPool } from '@/shared/hooks';
+import { type Config } from '@/shared/types/common';
+import { useAppDispatch } from '@/store/hooks';
+import { setWalletStatus } from '@/store/slices/connectWallet';
 import {
   setError,
   setSuccess,
   setRequesting,
-} from 'store/slices/protocolUpdating';
-import { setWalletMode } from 'store/slices/wallet';
+} from '@/store/slices/protocolUpdating';
 
-import {
-  useGetAppInfo,
-  useOffchain,
-  useCheckWalletStatus,
-  useHandleError,
-} from '..';
+import { useGetAppInfo, useHandleError } from '..';
 import { getOffchainError } from '../..';
 
 const useUpdateProtocol = () => {
-  const offchain = useOffchain();
+  const offchain = useDonatPool();
   const dispatch = useAppDispatch();
   const getAppInfo = useGetAppInfo();
   const handleCommonError = useHandleError();
-  const checkWalletStatus = useCheckWalletStatus();
-  const protocol = JSON.parse(process.env.PROTOCOL);
+  const protocol = JSON.parse(process.env.NEXT_PUBLIC_PROTOCOL);
 
   const handleSuccess = () => {
     dispatch(setSuccess());
-    dispatch(setWalletMode('connected'));
+    dispatch(setWalletStatus('connected'));
     getAppInfo();
   };
 
-  const handleError = (error) => {
+  const handleError = (error: string) => {
+    console.error('setProtocol:', error);
     const filteredError = handleCommonError(error);
     dispatch(setError(filteredError));
   };
 
-  const editConfig = (config) => {
+  const editConfig = (config: any) => {
     return {
       ...config,
       minAmountParam: config.minAmountParam * 1000000,
@@ -47,7 +43,6 @@ const useUpdateProtocol = () => {
       offchain.setProtocol(handleSuccess)(handleError)(protocol)(
         editConfig(config),
       )();
-      checkWalletStatus();
       dispatch(setRequesting());
     };
   }

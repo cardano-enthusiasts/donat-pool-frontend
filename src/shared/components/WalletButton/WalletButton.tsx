@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
-import { useConnectWallet } from 'shared/helpers/hooks';
-import { useAppSelector } from 'store/hooks';
+import { useConnectWallet } from '@/shared/helpers/hooks';
+import { useAppSelector } from '@/store/hooks';
 
 import { Address, ConnectButton, Wrapper } from './WalletButton.styled';
 
@@ -10,7 +10,7 @@ const WalletButton = () => {
   const connectWallet = useConnectWallet();
   const {
     appInfo: { userInfo },
-    wallet: { mode },
+    connectWallet: { status },
   } = useAppSelector((state) => state);
 
   return (
@@ -27,9 +27,7 @@ const WalletButton = () => {
           connectWallet();
         }}
       >
-        {mode === 'connected' || mode === 'missingCollateral'
-          ? 'Wallet connected'
-          : 'Connect wallet'}
+        {status === 'success' ? 'Wallet connected' : 'Connect wallet'}
       </ConnectButton>
       {userInfo?.address && isAddressShown && (
         <Address>{`${String(userInfo.address.substring(0, 6))} ... ${String(

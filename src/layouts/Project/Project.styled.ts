@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { h1 } from 'shared/styles/mixins';
+import { h1 } from '@/shared/styles/mixins';
 
 const Wrapper = styled.div`
   display: flex;
@@ -22,7 +22,7 @@ const PreviousPage = styled.div`
   font-weight: bold;
   font-size: 20px;
   line-height: 280%;
-  color: ${({ theme }) => theme.colors.blue};
+  color: #4757e6;
   cursor: pointer;
   &:before {
     display: block;

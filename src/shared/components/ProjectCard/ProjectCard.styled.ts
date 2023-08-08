@@ -2,20 +2,21 @@ import styled from 'styled-components';
 
 import { type Props } from './types';
 
-const getColor = (status) => {
+const getColor = (status: Props['status']) => {
   const statusColors = {
     default: 'blue',
     active: 'red',
     completed: 'green',
   };
-  return ({ theme }) => theme.colors[statusColors[status]];
+
+  return ({ theme }: any) => theme.colors[statusColors[status ?? 'default']];
 };
 
 const Wrapper = styled.div<{
   status: Props['status'];
   paddingSize: NonNullable<Props['paddingSize']>;
 }>`
-  background: ${({ theme }) => theme.colors.white};
+  background: #fff;
   padding: ${({ paddingSize }) =>
     paddingSize === 's' ? '10px 16px 24px' : '28px 16px 24px'};
 
@@ -40,7 +41,7 @@ const DateAndAmount = styled.div`
   display: flex;
   justify-content: space-between;
   padding-top: 16px;
-  border-top: 2px solid ${({ theme }) => theme.colors.black};
+  border-top: 2px solid #141414;
   width: 100%;
 `;
 const DateItem = styled.div`
@@ -62,7 +63,7 @@ const Title = styled.h3`
   font-size: 20px;
   line-height: 130%;
 
-  color: ${({ theme }) => theme.colors.blue};
+  color: #4757e6;
 
   margin: 0 0 43px 0;
   text-overflow: ellipsis;
@@ -83,14 +84,14 @@ const Status = styled.div<{ status: Props['status'] }>`
 
 const RaisedAmount = styled.div`
   display: flex;
-  color: ${({ theme }) => theme.colors.red};
+  color: #ff6b95;
 `;
 
 const Line = styled.div`
   width: 2px;
   border-radius: 5px;
   margin: 0 8px;
-  background-color: ${({ theme }) => theme.colors.red};
+  background-color: #ff6b95;
 `;
 
 export {

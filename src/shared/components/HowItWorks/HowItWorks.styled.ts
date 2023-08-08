@@ -39,7 +39,7 @@ const Main = styled.div`
   font-weight: bold;
   font-size: 48px;
   line-height: 130%;
-  color: ${({ theme }) => theme.colors.black};
+  color: #141414;
   transition: transform 0.5s linear;
   transition-delay: 0.1s;
   height: 66px;
@@ -67,10 +67,10 @@ const Secondary = styled.div`
   transition: transform 0.5s linear;
   transition-delay: 0.1s;
   padding: 0 40px;
-  color: ${({ theme }) => theme.colors.white};
+  color: #fff;
   font-weight: bold;
   font-size: 20px;
-  background-color: ${({ theme }) => theme.colors.red};
+  background-color: #ff6b95;
   @media (max-width: 1200px) {
     padding: 0 20px;
   }
@@ -79,16 +79,16 @@ const Secondary = styled.div`
     background-color: transparent;
     padding: 0;
     height: auto;
-    color: ${({ theme }) => theme.colors.black};
+    color: #141414;
   }
 `;
 
 const Tertiary = styled.div`
-  color: ${({ theme }) => theme.colors.yellow};
+  color: #fed900;
   font-size: 16px;
   font-weight: normal;
   @media (max-width: 730px) {
-    color: ${({ theme }) => theme.colors.black};
+    color: #141414;
   }
 `;
 

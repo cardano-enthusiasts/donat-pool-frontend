@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 
-import { type Fundraisings, type Fundraising } from 'shared/types';
-import { useAppSelector } from 'store/hooks';
+import { useUserFundraisings } from '@/shared/hooks';
+import { type Fundraising } from '@/shared/types';
 
 import {
   CardsWrapper,
@@ -25,18 +25,21 @@ const MyProjects = ({ onCreateAProjectClick }: Props) => {
     Fundraising[] | null
   >(null);
   const [filter, setFilter] = useState<ProjectStatus | null>(null);
-  const { fundraisings } = useAppSelector((state) => state.userFundraisings);
+  const { userFundraisings } = useUserFundraisings();
 
   useEffect(() => {
-    if (fundraisings) {
-      setAllProjectsWithStatus(fundraisings);
-      setFilteredProjects(fundraisings);
+    if (userFundraisings) {
+      setAllProjectsWithStatus(userFundraisings);
+      setFilteredProjects(userFundraisings);
     } else {
       setAllProjectsWithStatus(null);
     }
-  }, [fundraisings]);
+  }, [userFundraisings]);
 
-  const handleFilterClick = (status: ProjectStatus, projects: Fundraisings) => {
+  const handleFilterClick = (
+    status: ProjectStatus,
+    projects: Fundraising[],
+  ) => {
     if (filter === status) {
       setFilteredProjects(projects);
       setFilter(null);

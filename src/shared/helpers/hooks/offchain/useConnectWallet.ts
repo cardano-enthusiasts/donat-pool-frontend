@@ -1,22 +1,24 @@
-import { testnetNami } from 'shared/constants/wallet';
-import { useAppDispatch } from 'store/hooks';
-import { setWalletMode } from 'store/slices/wallet';
+import { testnetNami } from '@/shared/constants';
+import { useDonatPool } from '@/shared/hooks';
+import { useAppDispatch } from '@/store/hooks';
+import { setWalletStatus } from '@/store/slices/connectWallet';
 
-import { useGetAppInfo, useHandleError, useOffchain } from '..';
+import { useGetAppInfo, useHandleError } from '..';
 import { getOffchainError } from '../..';
 
 const useConnectWallet = () => {
-  const offchain = useOffchain();
+  const offchain = useDonatPool();
   const dispatch = useAppDispatch();
   const handleCommonError = useHandleError();
   const getAppInfo = useGetAppInfo();
 
   const handleSuccess = () => {
-    dispatch(setWalletMode('connected'));
+    dispatch(setWalletStatus('connected'));
     getAppInfo();
   };
 
-  const handleError = (error) => {
+  const handleError = (error: string) => {
+    console.error('connectWallet:', error);
     handleCommonError(error);
   };
 

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { h1 } from 'shared/styles/mixins';
+import { h1 } from '@/shared/styles/mixins';
 
 const Title = styled.h1`
   ${h1}
@@ -28,7 +28,7 @@ const ProjectLink = styled.a`
   font-size: 20px;
   line-height: 130%;
   margin-bottom: 24px;
-  color: ${({ theme }) => theme.colors.blue};
+  color: #4757e6;
   overflow-wrap: anywhere;
   text-align: center;
 `;

@@ -25,13 +25,13 @@ const ModalDonate = ({
     onClose();
   };
 
-  const handleChange = (event) => {
+  const handleChange = (event: any) => {
     const currentValue =
       event.target.value === '' ? '' : Number(event.target.value);
     setValue(currentValue);
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = (event: any) => {
     event.preventDefault();
     if (value !== '') {
       donate(fundraisingData, value);

@@ -1,49 +1,41 @@
-import { testnetNami } from 'shared/constants/wallet';
-import {
-  type CreateFundraisingParams,
-  type BackendProject,
-} from 'shared/types';
-import { useAppDispatch } from 'store/hooks';
+import { testnetNami } from '@/shared/constants';
+import { useDonatPool, useUserFundraisings } from '@/shared/hooks';
+import { type BackendProject } from '@/shared/types/backend';
+import { useAppDispatch } from '@/store/hooks';
+import { setWalletStatus } from '@/store/slices/connectWallet';
 import {
   setError,
   setRequesting,
   setCreatedPath,
-} from 'store/slices/fundraisingCreation';
-import { setWalletMode } from 'store/slices/wallet';
+} from '@/store/slices/fundraisingCreation';
 
-import {
-  useOffchain,
-  useGetUserFundraisings,
-  useHandleError,
-  useCheckWalletStatus,
-} from '..';
+import { useHandleError } from '..';
 import { getOffchainError } from '../..';
 
 const useCreateFundraising = () => {
-  const offchain = useOffchain();
+  const offchain = useDonatPool();
   const dispatch = useAppDispatch();
-  const getUserFundraisings = useGetUserFundraisings();
+  const { refetchUserFundraisings } = useUserFundraisings();
   const handleCommonError = useHandleError();
-  const checkWalletStatus = useCheckWalletStatus();
-  const protocol = JSON.parse(process.env.PROTOCOL);
+  const protocol = JSON.parse(process.env.NEXT_PUBLIC_PROTOCOL);
 
   const handleSuccess = (fundraisingData: BackendProject) => {
     dispatch(setCreatedPath(fundraisingData.threadTokenCurrency));
-    dispatch(setWalletMode('connected'));
-    getUserFundraisings();
+    dispatch(setWalletStatus('connected'));
+    refetchUserFundraisings();
   };
 
-  const handleError = (error) => {
+  const handleError = (error: string) => {
+    console.error('createFundraising:', error);
     const filteredError = handleCommonError(error);
     dispatch(setError(filteredError));
   };
 
   if (offchain) {
-    return (createFundraisingParams: CreateFundraisingParams) => {
+    return (createFundraisingParams: any) => {
       offchain.createFundraising(handleSuccess)(handleError)(protocol)(
         testnetNami,
       )(createFundraisingParams)();
-      checkWalletStatus();
       dispatch(setRequesting());
     };
   }

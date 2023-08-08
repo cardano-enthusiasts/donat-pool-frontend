@@ -1,5 +1,7 @@
 import { type ForwardedRef, forwardRef } from 'react';
 
+import { ROUTES } from '@/shared/constants';
+
 import { getSections } from './data';
 import { Icon, Inner, Link, WavesWrapper, Wrapper } from './LandingNav.styled';
 import { type Props } from './types';
@@ -68,7 +70,7 @@ const LandingNav = forwardRef(function LandingNav(
               primaryColor="red"
               secondaryColor="blue"
               fontColor="white"
-              href="/new-project"
+              href={ROUTES.newFundraising}
               isAnimation={true}
             >
               Start a fundraiser
