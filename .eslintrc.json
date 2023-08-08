@@ -11,6 +11,7 @@
   "extends": [
     "alloy",
     "alloy/react",
+    "plugin:react-hooks/recommended",
     "plugin:@next/next/recommended",
     "alloy/typescript"
   ],
