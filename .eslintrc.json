@@ -12,6 +12,7 @@
       "typescript": true
     }
   },
+  "eslint.workingDirectories": [{ "mode": "auto" }],
   "overrides": [
     {
       "files": ["*.ts", "*.tsx"],
