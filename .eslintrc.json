@@ -1,5 +1,8 @@
 {
   "settings": {
+    "react": {
+      "version": "detect"
+    },
     "import/resolver": {
       "typescript": true,
       "node": true
@@ -8,11 +11,13 @@
   "extends": [
     "alloy",
     "alloy/react",
-    "plugin:react/jsx-runtime",
     "plugin:@next/next/recommended",
     "alloy/typescript"
   ],
   "plugins": ["import"],
+  "globals": {
+    "React": "readonly"
+  },
   "rules": {
     // "@typescript-eslint/explicit-function-return-type": 0,
     // "@typescript-eslint/strict-boolean-expressions": 0,
