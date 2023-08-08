@@ -10,7 +10,9 @@ import {
   type StyledButtonTheme,
 } from './types';
 
-const getAnimation = (name) => {
+const getAnimation = (
+  name: 'push' | 'push-before' | 'push-after' | 'standard' | 'standard-pseudo',
+) => {
   return css`
     animation-name: ${name};
     animation-duration: 3s;
@@ -26,6 +28,7 @@ const getStandardStyles = ({
   fontColor,
   isAnimation,
 }: any) => css`
+  position: relative;
   font-size: ${size === 's' ? '16px' : '20px'};
   padding: ${size === 's' ? '10px' : '12px'} 16px;
   font-weight: bold;
@@ -34,31 +37,56 @@ const getStandardStyles = ({
   color: ${({ theme }) => theme.colors[fontColor]};
   border-radius: 6px;
   background: ${({ theme }) => theme.colors[primaryColor]};
-  box-shadow: -4px 4px 0px ${({ theme }) => theme.colors[secondaryColor]};
+
+  transition: all 0.5s;
+  transform-style: preserve-3d;
+
   ${isAnimation && getAnimation('standard')}
-  
-  @keyframes standard {
+  @keyframes standard 
+  {
     90% {
-      transform: none;
-      box-shadow: -4px 4px 0px ${({ theme }) => theme.colors[secondaryColor]};
+      left: 0;
+      top: 0;
     }
 
     100% {
-      transform: translate(-4px, 4px);
-      box-shadow: none;
+      left: -4px;
+      top: 4px;
     }
   }
-  &:active {
-    transform: translate(-4px, 4px);
-    box-shadow: none;
+
+  &::before {
+    position: absolute;
+    content: '';
+    bottom: -4px;
+    height: 100%;
+    width: 100%;
+    left: -4px;
+    border-radius: 6px;
+    background-color: ${({ theme }) => theme.colors[secondaryColor]};
+    transform: translateZ(-1px);
+    transition: all 0.5s;
+
+    ${isAnimation && getAnimation('standard-pseudo')}
+    @keyframes standard-pseudo {
+      90% {
+        bottom: -4px;
+        left: -4px;
+      }
+
+      100% {
+        bottom: 0;
+        left: 0;
+      }
+    }
   }
+
   &:disabled {
-    &:active {
-      transform: none;
-    }
     cursor: default;
     background-color: #ffc5cf;
-    box-shadow: -4px 4px 0px #141414;
+    &:before {
+      background-color: #141414;
+    }
   }
 `;
 
@@ -78,6 +106,17 @@ const getAccentStyles = ({
   background-color: ${({ theme }) => theme.colors[primaryColor]};
 
   ${isAnimation && getAnimation('push')}
+  @keyframes push {
+    90% {
+      margin-left: 0;
+      margin-top: 0;
+    }
+
+    100% {
+      margin-left: -15px;
+      margin-top: 15px;
+    }
+  }
 
   &::before {
     position: absolute;
@@ -91,6 +130,19 @@ const getAccentStyles = ({
     background-color: ${({ theme }) => theme.colors[secondaryColor]};
 
     ${isAnimation && getAnimation('push-before')}
+    @keyframes push-before {
+      90% {
+        bottom: -21.8px;
+        height: 22px;
+        left: -11.3px;
+      }
+
+      100% {
+        bottom: -7px;
+        height: 7px;
+        left: -4px;
+      }
+    }
   }
 
   &::after {
@@ -105,47 +157,21 @@ const getAccentStyles = ({
     background-color: ${({ theme }) => theme.colors[secondaryColor]};
 
     ${isAnimation && getAnimation('push-after')}
-  }
+    @keyframes push-after {
+      90% {
+        left: -22px;
+        width: 22px;
+        bottom: -11.3px;
+      }
 
-  @keyframes push {
-    90% {
-      margin-left: 0;
-      margin-top: 0;
-    }
-
-    100% {
-      margin-left: -15px;
-      margin-top: 15px;
-    }
-  }
-
-  @keyframes push-before {
-    90% {
-      bottom: -21.8px;
-      height: 22px;
-      left: -11.3px;
-    }
-
-    100% {
-      bottom: -7px;
-      height: 7px;
-      left: -4px;
+      100% {
+        left: -7px;
+        width: 7px;
+        bottom: -4px;
+      }
     }
   }
 
-  @keyframes push-after {
-    90% {
-      left: -22px;
-      width: 22px;
-      bottom: -11.3px;
-    }
-
-    100% {
-      left: -7px;
-      width: 7px;
-      bottom: -4px;
-    }
-  }
   &:active {
     margin-left: -15px;
     margin-top: 15px;
@@ -174,11 +200,7 @@ const getDoubleBorderedStyles = ({
   primaryColor,
   backgroundColor,
   size,
-}: {
-  primaryColor: any,
-  backgroundColor: any,
-  size: any,
-}) => css`
+}: any) => css`
   position: relative;
   font-size: ${size === 's' ? '16px' : '20px'};
   padding: ${size === 's' ? '10px 16px' : '10px 20px'};
@@ -213,15 +235,7 @@ const getDoubleBorderedStyles = ({
   }
 `;
 
-const getBorderedStyles = ({
-  primaryColor,
-  isClickedTheme,
-  size,
-}: {
-  primaryColor: any,
-  isClickedTheme: any,
-  size: any,
-}) => css`
+const getBorderedStyles = ({ primaryColor, isClickedTheme, size }: any) => css`
   font-size: ${size === 's' ? '14px' : '16px'};
   padding: ${size === 's' ? '8px' : '10px'} 16px;
   font-weight: bold;
@@ -240,12 +254,7 @@ const getDashedStyles = ({
   secondaryColor,
   backgroundColor,
   size,
-}: {
-primaryColor: any,
-secondaryColor: any,
-backgroundColor: any,
-size: any,
-}) => css`
+}: any) => css`
   position: relative;
   display: flex;
   gap: 6px;
@@ -409,12 +418,14 @@ const LinkWrapper = styled.div<{
   }
 `;
 
-const getSecondaryWrapperStyles = (size: any) => css`
+const getAccentWrapperStyles = (size: any) => css`
+  width: 290px;
   padding-left: 22px;
   padding-bottom: 22px;
   height: ${size === 's' ? '97px' : '150px'};
   @media (max-width: 1100px) {
     height: 120px;
+    width: 200px;
   }
 `;
 
@@ -423,19 +434,9 @@ const Wrapper = styled.div<{
   width: Props['width'];
   size: Props['size'];
 }>`
-  width: ${({ themeType, width }) =>
-    themeType === 'accent' ? '290px' : width};
-
+  ${({ themeType, width, size }) =>
+    themeType === 'accent' ? getAccentWrapperStyles(size) : `width: ${width}`};
   transition: all 0.5s;
-  ${({ themeType }) =>
-    themeType === 'double-bordered' &&
-    '&:active {transform: translate(-4px, 4px);}'};
-  ${({ themeType, size }) =>
-    themeType === 'accent' && getSecondaryWrapperStyles(size)};
-
-  @media (max-width: 1100px) {
-    width: ${({ themeType }) => themeType === 'accent' && '200px'};
-  }
 `;
 
 const ArrowWrapper = styled.div`
