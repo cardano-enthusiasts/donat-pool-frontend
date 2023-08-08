@@ -42,8 +42,7 @@ const getStandardStyles = ({
   transform-style: preserve-3d;
 
   ${isAnimation && getAnimation('standard')}
-  @keyframes standard 
-  {
+  @keyframes standard {
     90% {
       left: 0;
       top: 0;
