@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 
 import { Buttons, InputWrapper, Title } from './ModalDonate.styled';
-import { type Props } from './types';
+import type { Props } from './types';
 import { Button, Input, Modal } from '../.';
 
 const ModalDonate = ({

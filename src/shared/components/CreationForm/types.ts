@@ -1,4 +1,4 @@
-import { type Config } from '@/shared/types/common';
+import type { Config } from '@/shared/types/common';
 
 export interface Props {
   onClose: () => void;

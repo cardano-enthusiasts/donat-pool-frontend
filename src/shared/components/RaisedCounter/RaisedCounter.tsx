@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 
 import { Goal, Img, Line, Raised, Wrapper } from './RaisedCounter.styled';
-import { type Props } from './types';
+import type { Props } from './types';
 
 const RaisedCounter = ({ raised, goal }: Props) => {
   const [imgTitle, setImgTitle] = useState('donut-0');

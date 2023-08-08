@@ -8,7 +8,7 @@ import { PrivateProjectsActions, RaisedCounter } from '@/shared/components';
 import { ROUTES } from '@/shared/constants';
 import { getDate } from '@/shared/helpers';
 import { useAuthGuard, useUserFundraisings } from '@/shared/hooks';
-import { type Fundraising } from '@/shared/types';
+import type { Fundraising } from '@/shared/types';
 
 import {
   CounterWrapper,
@@ -40,8 +40,8 @@ const Page = () => {
     }
   }, [userFundraisings, params.id]);
 
-  return currentProject ? (
-    <>
+  return (
+    currentProject && (
       <Common>
         <Project
           previousPageTitle="My projects"
@@ -69,9 +69,7 @@ const Page = () => {
           </Inner>
         </Project>
       </Common>
-    </>
-  ) : (
-    <></>
+    )
   );
 };
 

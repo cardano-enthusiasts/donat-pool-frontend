@@ -7,7 +7,7 @@ import {
   Title,
   Wrapper,
 } from './Project.styled';
-import { type Props } from './types';
+import type { Props } from './types';
 
 const Project = ({
   onPreviousPageClick,

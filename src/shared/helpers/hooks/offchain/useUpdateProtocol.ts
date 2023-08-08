@@ -1,5 +1,5 @@
 import { useDonatPool } from '@/shared/hooks';
-import { type Config } from '@/shared/types/common';
+import type { Config } from '@/shared/types/common';
 import { useAppDispatch } from '@/store/hooks';
 import { setWalletStatus } from '@/store/slices/connectWallet';
 import {

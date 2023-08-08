@@ -1,6 +1,6 @@
 import { testnetNami } from '@/shared/constants';
 import { useDonatPool } from '@/shared/hooks';
-import { type UserAndProtocolParams } from '@/shared/types/backend';
+import type { UserAndProtocolParams } from '@/shared/types/backend';
 import { useAppDispatch } from '@/store/hooks';
 import {
   setError,

@@ -1,7 +1,7 @@
 import { useAppSelector } from '@/store/hooks';
 
 import { Wrapper } from './PrecalculationFee.styled';
-import { type Props } from './types';
+import type { Props } from './types';
 
 const PrecalculationFee = ({ goal }: Props) => {
   const protocolFeeParam = useAppSelector(

@@ -1,6 +1,7 @@
+/* eslint-disable max-params */
 import styled, { css } from 'styled-components';
 
-import { type Props } from './types';
+import type { Props } from './types';
 
 const getStandardStyles = ({
   primaryColor,

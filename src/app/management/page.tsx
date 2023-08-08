@@ -28,20 +28,20 @@ const Page = () => {
     }
   }, [userInfo]);
 
-  return status !== 'requesting' ? (
-    <Common>
-      <Title>Management contract</Title>
-      <Wrapper>
-        {protocol && (
-          <>
-            <ManagerEditor config={protocol} />
-            <ManagementParams config={protocol} />
-          </>
-        )}
-      </Wrapper>
-    </Common>
-  ) : (
-    <></>
+  return (
+    status !== 'requesting' && (
+      <Common>
+        <Title>Management contract</Title>
+        <Wrapper>
+          {protocol && (
+            <>
+              <ManagerEditor config={protocol} />
+              <ManagementParams config={protocol} />
+            </>
+          )}
+        </Wrapper>
+      </Common>
+    )
   );
 };
 export default Page;

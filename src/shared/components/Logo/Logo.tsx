@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Link from 'next/link';
 
 import { ROUTES } from '@/shared/constants';
@@ -8,7 +9,7 @@ const Logo = () => {
   return (
     <LogoWrapper>
       <Link href={ROUTES.root}>
-        <img src="/img/logo.svg" alt="logo" />
+        <Image src="/img/logo.svg" alt="logo" />
       </Link>
     </LogoWrapper>
   );

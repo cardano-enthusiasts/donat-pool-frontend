@@ -11,7 +11,7 @@ import {
   Inner,
   IconAndLinks,
 } from './Footer.styled';
-import { type Props } from './types';
+import type { Props } from './types';
 
 const Footer = ({ backgroundColor = 'blue' }: Props) => {
   const links = [

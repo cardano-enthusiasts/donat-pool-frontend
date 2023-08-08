@@ -6,7 +6,7 @@ import { useGetAppInfo } from '@/shared/helpers/hooks';
 import { useDonatPool } from '@/shared/hooks';
 
 import { Inner, Main } from './Common.styled';
-import { type Props } from './types';
+import type { Props } from './types';
 
 const Common = ({ children }: Props) => {
   const pathname = usePathname();

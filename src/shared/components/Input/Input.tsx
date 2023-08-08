@@ -6,7 +6,7 @@ import {
   Title,
   Wrapper,
 } from './Input.styled';
-import { type Props } from './types';
+import type { Props } from './types';
 
 const Input = ({
   value,

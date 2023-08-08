@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 
 import { Description, Img, Inner, Title } from './ModalLoading.styled';
-import { type Props } from './types';
+import type { Props } from './types';
 import { Modal } from '../.';
 
 const ModalLoading = ({

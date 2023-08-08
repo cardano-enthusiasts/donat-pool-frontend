@@ -12,7 +12,7 @@ import {
   InputWrapper,
   Hint,
 } from './ManagerEditor.styled';
-import { type Props } from './types';
+import type { Props } from './types';
 import { Button, Input, ModalError, ModalLoading, ModalSuccess } from '..';
 
 const ManagerEditor = ({ config }: Props) => {

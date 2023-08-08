@@ -6,7 +6,7 @@ import {
   Inner,
   ButtonsWrapper,
 } from './ModalContactUs.styled';
-import { type Props } from './types';
+import type { Props } from './types';
 import { Button, Input, Modal } from '../.';
 
 const ModalContactUs = ({ isOpen, onClose }: Props) => {

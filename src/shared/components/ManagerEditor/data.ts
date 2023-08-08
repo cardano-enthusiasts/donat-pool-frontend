@@ -1,4 +1,4 @@
-import { type Props } from './types';
+import type { Props } from './types';
 
 const defaultParams: Array<{
   title: string;

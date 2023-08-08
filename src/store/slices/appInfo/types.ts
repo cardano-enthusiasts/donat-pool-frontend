@@ -1,5 +1,5 @@
-import { type RequestStatus } from '@/shared/types';
-import { type Config, type UserInfo } from '@/shared/types/common';
+import type { RequestStatus } from '@/shared/types';
+import type { Config, UserInfo } from '@/shared/types/common';
 
 interface State {
   protocol: Config | null;

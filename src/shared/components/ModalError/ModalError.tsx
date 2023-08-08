@@ -1,5 +1,5 @@
 import { ErrorText, Img, Inner, Title } from './ModalError.styled';
-import { type Props } from './types';
+import type { Props } from './types';
 import { Button, Modal } from '../.';
 
 const ModalError = ({ isOpen, title, errorText = '', onClose }: Props) => {

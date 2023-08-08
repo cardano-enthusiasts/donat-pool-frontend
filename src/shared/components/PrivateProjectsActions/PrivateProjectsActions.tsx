@@ -12,7 +12,7 @@ import {
   LinkWrapper,
   WithdrawSection,
 } from './PrivateProjectsActions.styled';
-import { type Props } from './types';
+import type { Props } from './types';
 import { Button, ModalError, ModalLoading, ModalSuccess } from '../.';
 
 const PrivateProjectsActions = ({ project }: Props) => {

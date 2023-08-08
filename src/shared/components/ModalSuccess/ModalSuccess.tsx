@@ -1,5 +1,5 @@
 import { Description, Img, Inner, Title, Wrapper } from './ModalSuccess.styled';
-import { type Props } from './types';
+import type { Props } from './types';
 import { Button, Modal } from '../.';
 
 const ModalSuccess = ({ description, isOpen, onClose }: Props) => {

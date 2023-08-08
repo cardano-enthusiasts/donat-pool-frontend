@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-no-useless-fragment */
 'use client';
 
 // TODO: delete file after all code that uses styled components is removed

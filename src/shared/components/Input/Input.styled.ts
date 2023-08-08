@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 
-import { type Props } from './types';
+import type { Props } from './types';
 
 const getColor = (errorInfo: any, fontColor: any) => {
   if (errorInfo || errorInfo === '') {

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { type Props } from './types';
+import type { Props } from './types';
 
 const getColor = (status: Props['status']) => {
   const statusColors = {

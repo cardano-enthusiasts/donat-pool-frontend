@@ -6,7 +6,7 @@ import {
   StyledButton,
   Wrapper,
 } from './Button.styled';
-import { type Props } from './types';
+import type { Props } from './types';
 import { Arrow } from '..';
 
 const Button = ({

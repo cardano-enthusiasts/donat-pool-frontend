@@ -3,7 +3,7 @@
 import { useCallback, useEffect, useState } from 'react';
 
 import { testnetNami } from '@/shared/constants';
-import { type Fundraising } from '@/shared/types';
+import type { Fundraising } from '@/shared/types';
 import { useAppSelector } from '@/store/hooks';
 
 import useDonatPool from './useDonatPool';

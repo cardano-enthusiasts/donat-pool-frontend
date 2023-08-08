@@ -12,7 +12,7 @@ import {
   RaisedAmount,
   Line,
 } from './ProjectCard.styled';
-import { type Props } from './types';
+import type { Props } from './types';
 
 const ProjectCard = ({
   data: {

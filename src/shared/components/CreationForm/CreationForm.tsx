@@ -15,7 +15,7 @@ import {
   FundingGoal,
   LabelHint,
 } from './CreationForm.styled';
-import { type FormError, type Props } from './types';
+import type { FormError, Props } from './types';
 import {
   Button,
   Checkbox,
