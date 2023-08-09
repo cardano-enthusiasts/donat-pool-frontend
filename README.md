@@ -29,11 +29,11 @@ docker compose up -d
 npm run dev
 ```
 
-3. Open [http://localhost:4008](http://localhost:4008) with your browser
+3. Open [project](http://localhost:3000) in a browser
 
 ## Start in docker
 
 ```
 docker build --build-arg SSH_PRIVATE_KEY="$(cat <path to id_rsa>)" . -t donat-pool
-docker run -p 4008:4008 --network host --name donat-pool donat-pool
+docker run -p 3000:3000 --network host --name donat-pool donat-pool
 ```
