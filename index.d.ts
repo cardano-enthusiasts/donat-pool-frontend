@@ -1,5 +1,5 @@
-import { type Fundraising } from '@/shared/types';
-import { type FundraisingData } from '@/shared/types/common';
+import type { Fundraising } from '@/shared/types';
+import type { FundraisingData } from '@/shared/types/common';
 
 interface WalletParameters {
   wallet: 'Nami';
