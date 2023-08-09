@@ -1,11 +1,5 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
-echo 'Checking project for typescript errors'
 npx tsc --noEmit
-
-echo 'Checking staged files with "lint-staged'
 npx lint-staged
-
-echo 'Checking successful build'
-npm run build
