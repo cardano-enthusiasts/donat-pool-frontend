@@ -2,7 +2,7 @@ import { usePathname } from 'next/navigation';
 import { useEffect } from 'react';
 
 import { Footer, Header } from '@/shared/components';
-import { useGetAppInfo } from '@/shared/helpers/hooks';
+import { useGetAppInfo } from '@/shared/hooks';
 import { useDonatPool } from '@/shared/hooks';
 
 import { Inner, Main } from './Common.styled';

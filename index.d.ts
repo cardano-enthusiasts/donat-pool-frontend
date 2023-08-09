@@ -107,9 +107,6 @@ declare global {
         walletParameters: WalletParameters,
       ) => (fundraisingData: FundraisingData) => () => void;
     }>;
-    cardano: {
-      nami: any;
-    };
   }
 }
 

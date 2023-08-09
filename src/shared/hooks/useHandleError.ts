@@ -31,4 +31,5 @@ const useHandleError = () => {
     }
   };
 };
-export { useHandleError };
+
+export default useHandleError;

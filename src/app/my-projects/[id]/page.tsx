@@ -6,7 +6,7 @@ import { useEffect, useState } from 'react';
 import { Common, Project } from '@/layouts';
 import { PrivateProjectsActions, RaisedCounter } from '@/shared/components';
 import { ROUTES } from '@/shared/constants';
-import { getDate } from '@/shared/helpers';
+import { formatDate } from '@/shared/helpers';
 import { useAuthGuard, useUserFundraisings } from '@/shared/hooks';
 import type { Fundraising } from '@/shared/types';
 
@@ -56,7 +56,7 @@ const Page = () => {
                 {currentProject.isCompleted ? 'Completed' : 'Active'}
               </Status>
               <Deadline>
-                Until {getDate(Number(currentProject.deadline.value))}
+                Until {formatDate(Number(currentProject.deadline.value))}
               </Deadline>
             </DeadlineAndStatus>
             <CounterWrapper>

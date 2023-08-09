@@ -1,4 +1,5 @@
 import { testnetNami } from '@/shared/constants';
+import { logOffchainError } from '@/shared/helpers';
 import { useDonatPool } from '@/shared/hooks';
 import type { UserAndProtocolParams } from '@/shared/types/backend';
 import { useAppDispatch } from '@/store/hooks';
@@ -10,8 +11,7 @@ import {
 } from '@/store/slices/appInfo';
 import { setWalletStatus } from '@/store/slices/connectWallet';
 
-import { useHandleError } from '..';
-import { getOffchainError } from '../..';
+import useHandleError from './useHandleError';
 
 const useGetAppInfo = () => {
   const offchain = useDonatPool();
@@ -56,7 +56,8 @@ const useGetAppInfo = () => {
       dispatch(setRequesting());
     };
   }
-  return getOffchainError;
+
+  return logOffchainError;
 };
 
-export { useGetAppInfo };
+export default useGetAppInfo;

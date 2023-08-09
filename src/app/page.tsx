@@ -7,7 +7,7 @@ import {
   LandingNav,
   Waves,
 } from '@/shared/components';
-import { useWindowSize, useWindowScroll } from '@/shared/helpers/hooks';
+import { useWindowSize, useWindowScroll } from '@/shared/hooks';
 import type { LandingSection } from '@/shared/types/common';
 
 import { DonutsWrapper, WavesWrapper, Wrapper } from './Landing.styled';
@@ -40,12 +40,10 @@ const Landing = () => {
           windowScroll={windowScroll}
           isAnimationActive={isAnimationActive}
         />
-
         <WavesWrapper>
           <Waves />
         </WavesWrapper>
       </DonutsWrapper>
-
       <LandingContent
         windowScroll={windowScroll}
         currentSection={currentSection}
@@ -53,7 +51,6 @@ const Landing = () => {
         setIsAnimationActive={setIsAnimationActive}
         ref={navRef}
       />
-
       <LandingNav
         currentSection={currentSection}
         windowScroll={windowScroll}

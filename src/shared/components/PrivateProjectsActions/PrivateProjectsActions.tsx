@@ -2,7 +2,7 @@ import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
 import { ROUTES } from '@/shared/constants';
-import { useReceiveFunds } from '@/shared/helpers/hooks';
+import { useReceiveFunds } from '@/shared/hooks';
 import { useAppDispatch, useAppSelector } from '@/store/hooks';
 import { reset } from '@/store/slices/fundsReceiving';
 

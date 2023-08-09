@@ -1,7 +1,7 @@
+// TODO: delete file after all code that uses styled components is removed
 /* eslint-disable react/jsx-no-useless-fragment */
 'use client';
 
-// TODO: delete file after all code that uses styled components is removed
 import { useServerInsertedHTML } from 'next/navigation';
 import { useState } from 'react';
 import {

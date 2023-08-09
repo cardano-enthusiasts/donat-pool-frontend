@@ -12,9 +12,9 @@ import {
   ModalSuccess,
   RaisedCounter,
 } from '@/shared/components';
-import { getDate } from '@/shared/helpers';
-import { useDonate } from '@/shared/helpers/hooks';
+import { formatDate } from '@/shared/helpers';
 import { useAllFundraisings, useAuthGuard } from '@/shared/hooks';
+import { useDonate } from '@/shared/hooks';
 import type { Fundraising } from '@/shared/types';
 import { useAppDispatch, useAppSelector } from '@/store/hooks';
 import { reset } from '@/store/slices/donating';
@@ -82,7 +82,7 @@ const Page = () => {
           <Wrapper>
             <Title>{currentProject.title}</Title>
             <Duration>
-              Until {getDate(Number(currentProject.deadline.value))}{' '}
+              Until {formatDate(Number(currentProject.deadline.value))}{' '}
             </Duration>
             <CounterWrapper>
               <RaisedCounter

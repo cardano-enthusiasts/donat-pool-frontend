@@ -1,4 +1,4 @@
-import { useWindowSize } from '@/shared/helpers/hooks';
+import { useWindowSize } from '@/shared/hooks';
 import { theme } from '@/shared/styles/theme';
 
 import type { Props } from './types';

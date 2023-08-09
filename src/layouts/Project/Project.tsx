@@ -1,4 +1,4 @@
-import { useWindowSize } from '@/shared/helpers/hooks';
+import { useWindowSize } from '@/shared/hooks';
 
 import {
   Inner,

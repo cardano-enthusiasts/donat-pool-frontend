@@ -1,6 +1,6 @@
 import Link from 'next/link';
 
-import { getDate } from '@/shared/helpers';
+import { formatDate } from '@/shared/helpers';
 
 import {
   DateItem,
@@ -40,7 +40,7 @@ const ProjectCard = ({
         )}
         <Title>{title}</Title>
         <DateAndAmount>
-          <DateItem>{getDate(Number(deadline.value))}</DateItem>
+          <DateItem>{formatDate(Number(deadline.value))}</DateItem>
           <Amount>
             <RaisedAmount>
               {status === 'active' && (

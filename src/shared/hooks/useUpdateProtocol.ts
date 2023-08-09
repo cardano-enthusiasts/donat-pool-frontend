@@ -1,3 +1,4 @@
+import { logOffchainError } from '@/shared/helpers';
 import { useDonatPool } from '@/shared/hooks';
 import type { Config } from '@/shared/types/common';
 import { useAppDispatch } from '@/store/hooks';
@@ -8,8 +9,8 @@ import {
   setRequesting,
 } from '@/store/slices/protocolUpdating';
 
-import { useGetAppInfo, useHandleError } from '..';
-import { getOffchainError } from '../..';
+import useGetAppInfo from './useGetAppInfo';
+import useHandleError from './useHandleError';
 
 const useUpdateProtocol = () => {
   const offchain = useDonatPool();
@@ -46,7 +47,8 @@ const useUpdateProtocol = () => {
       dispatch(setRequesting());
     };
   }
-  return () => getOffchainError;
+
+  return () => logOffchainError;
 };
 
-export { useUpdateProtocol };
+export default useUpdateProtocol;
