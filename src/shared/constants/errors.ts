@@ -16,4 +16,10 @@ const errors = {
     'Nami wallet missing collateral. Please add a collateral',
 };
 
-export { walletDisconnect, walletIsNotAvailable, missingCollateral, errors };
+export {
+  walletDisconnect,
+  userDecline,
+  walletIsNotAvailable,
+  missingCollateral,
+  errors,
+};
