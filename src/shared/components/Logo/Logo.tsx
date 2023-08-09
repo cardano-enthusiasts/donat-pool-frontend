@@ -9,7 +9,7 @@ const Logo = () => {
   return (
     <LogoWrapper>
       <Link href={ROUTES.root}>
-        <Image src="/img/logo.svg" alt="logo" />
+        <Image src="/img/logo.svg" width={283} height={40} alt="logo" />
       </Link>
     </LogoWrapper>
   );

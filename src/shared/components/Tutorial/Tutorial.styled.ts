@@ -45,6 +45,7 @@ const GifAndDescription = styled.div`
 const Description = styled.ul`
   margin: 0;
   padding-left: 20px;
+  list-style-type: disc;
 
   a {
     color: #4757e6;

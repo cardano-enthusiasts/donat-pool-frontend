@@ -37,6 +37,7 @@ const Ul = styled.ul`
   padding-left: 25px;
   font-size: 16px;
   line-height: 150%;
+  list-style-type: disc;
 `;
 
 const Li = styled.li``;

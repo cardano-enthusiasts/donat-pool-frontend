@@ -49,6 +49,7 @@ const Title = styled.div`
 
 const Ul = styled.ul`
   padding-left: 50px;
+  list-style-type: disc;
 `;
 
 const Li = styled.li``;
