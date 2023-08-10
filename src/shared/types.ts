@@ -10,6 +10,7 @@ interface FetchedFundraising {
   threadTokenName: string;
   title: string;
 }
+
 interface Fundraising {
   creator: string;
   deadline: string;
