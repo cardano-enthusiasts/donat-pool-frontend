@@ -1,15 +1,8 @@
 import { configureStore } from '@reduxjs/toolkit';
 
-import {
-  appInfo,
-  donating,
-  fundraisingCreation,
-  fundsReceiving,
-  protocolUpdating,
-  connectWallet,
-} from './slices';
+import { appInfo, donating, fundraisingCreation, fundsReceiving, protocolUpdating, connectWallet } from './slices';
 
-const store = configureStore({
+export default configureStore({
   reducer: {
     appInfo: appInfo.reducer,
     donating: donating.reducer,
@@ -19,7 +12,3 @@ const store = configureStore({
     connectWallet: connectWallet.reducer,
   },
 });
-
-export default store;
-export type RootState = ReturnType<typeof store.getState>;
-export type AppDispatch = typeof store.dispatch;
