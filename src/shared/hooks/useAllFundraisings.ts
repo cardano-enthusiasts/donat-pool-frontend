@@ -18,6 +18,7 @@ const useAllFundraisings = () => {
   const handleFetchSuccess = useCallback((fundraisings: Fundraising[]) => {
     setAreBeingFetched(false);
     setFundraisings(fundraisings);
+    console.log('useAllFundraisings');
   }, []);
 
   const handleFetchFailure = useCallback((error: string) => {

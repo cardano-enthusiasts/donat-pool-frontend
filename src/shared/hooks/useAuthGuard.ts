@@ -17,16 +17,15 @@ const useAuthGuard = () => {
 
   const handleFetchFailure = useCallback(
     (error: string) => {
-      console.error('connectWallet:', error);
       dispatch(setError(error));
     },
     [dispatch],
   );
 
   useEffect(() => {
-    if (connectWalletStatus !== 'success' && donatPool) {
+    if (connectWalletStatus === 'default' && donatPool) {
       dispatch(setStatus('requesting'));
-      donatPool.connectWallet(handleFetchSuccess)(handleFetchFailure)(testnetNami)();
+      donatPool.connectWallet(handleFetchSuccess)(setError)(testnetNami)();
     }
   }, [connectWalletStatus, donatPool, dispatch, handleFetchSuccess, handleFetchFailure]);
 };

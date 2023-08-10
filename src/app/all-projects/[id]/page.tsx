@@ -26,16 +26,15 @@ const Page = () => {
   const [isModalSuccessOpen, setIsModalSuccessOpen] = useState(false);
   const donate = useDonate();
 
-  const {
-    donating: { error, status },
-  } = useAppSelector((state) => state);
+  const donateStatus = useAppSelector((state) => state.donating.status);
+  const donateError = useAppSelector((state) => state.donating.error);
 
   useEffect(() => {
-    const isRequesting = status === 'requesting';
+    const isRequesting = donateStatus === 'requesting';
     setIsModalLoadingOpen(isRequesting);
 
-    const isSuccessfully = status === 'success';
-    const isError = status === 'error';
+    const isSuccessfully = donateStatus === 'success';
+    const isError = donateStatus === 'error';
     if (isRequesting || isSuccessfully || isError) {
       setIsModalOpen(false);
     }
@@ -45,7 +44,7 @@ const Page = () => {
     if (isError) {
       setIsModalErrorOpen(true);
     }
-  }, [status]);
+  }, [donateStatus]);
 
   useEffect(() => {
     if (fundraisings) {
@@ -98,7 +97,7 @@ const Page = () => {
         <ModalError
           isOpen={isModalErrorOpen}
           title="How many ADA would you like to donate?"
-          errorText={error}
+          errorText={donateError}
           onClose={() => {
             setIsModalErrorOpen(false);
             dispatch(reset());
