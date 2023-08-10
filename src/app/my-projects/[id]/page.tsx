@@ -10,35 +10,25 @@ import { formatDate } from '@/shared/helpers';
 import { useAuthGuard, useUserFundraisings } from '@/shared/hooks';
 import type { Fundraising } from '@/shared/types';
 
-import {
-  CounterWrapper,
-  Deadline,
-  DeadlineAndStatus,
-  Inner,
-  Status,
-} from './PrivateProject.styled';
+import { CounterWrapper, Deadline, DeadlineAndStatus, Inner, Status } from './PrivateProject.styled';
 
 const Page = () => {
   useAuthGuard();
   const params = useParams();
   const router = useRouter();
-  const { userFundraisings } = useUserFundraisings();
-  const [currentProject, setCurrentProject] = useState<Fundraising | null>(
-    null,
-  );
+  const { fundraisings } = useUserFundraisings();
+  const [currentProject, setCurrentProject] = useState<Fundraising | null>(null);
 
   useEffect(() => {
-    if (userFundraisings) {
-      const project = userFundraisings.find(
-        ({ threadTokenCurrency }) => threadTokenCurrency === params.id,
-      );
+    if (fundraisings) {
+      const project = fundraisings.find(({ threadTokenCurrency }) => threadTokenCurrency === params.id);
       if (project) {
         setCurrentProject(project);
       } else {
         setCurrentProject(null);
       }
     }
-  }, [userFundraisings, params.id]);
+  }, [fundraisings, params.id]);
 
   return (
     currentProject && (
@@ -55,9 +45,7 @@ const Page = () => {
               <Status isActive={!currentProject.isCompleted}>
                 {currentProject.isCompleted ? 'Completed' : 'Active'}
               </Status>
-              <Deadline>
-                Until {formatDate(Number(currentProject.deadline.value))}
-              </Deadline>
+              <Deadline>Until {formatDate(Number(currentProject.deadline.value))}</Deadline>
             </DeadlineAndStatus>
             <CounterWrapper>
               <RaisedCounter

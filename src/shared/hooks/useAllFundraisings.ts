@@ -10,29 +10,29 @@ import useDonatPool from './useDonatPool';
 
 const useAllFundraisings = () => {
   const donatPool = useDonatPool();
+  const connectWalletStatus = useAppSelector((state) => state.connectWallet.status);
   const [areBeingFetched, setAreBeingFetched] = useState(false);
-  const [fundraisings, setFundraisings] = useState<Fundraising[]>([]);
-  const {
-    connectWallet: { status: connectWalletStatus },
-  } = useAppSelector((state) => state);
+  const [fundraisings, setFundraisings] = useState<Fundraising[] | undefined>();
   const [fetchError, setFetchError] = useState<string | undefined>();
 
   const handleFetchSuccess = useCallback((fundraisings: Fundraising[]) => {
+    setAreBeingFetched(false);
     setFundraisings(fundraisings);
   }, []);
 
-  const handleFetchError = useCallback((error: string) => {
-    console.error('getAllFundraisings:', error);
+  const handleFetchFailure = useCallback((error: string) => {
+    setAreBeingFetched(false);
     setFetchError(error);
   }, []);
 
   const fetchFundraisings = useCallback(() => {
-    setAreBeingFetched(true);
-
-    donatPool?.getAllFundraisings(handleFetchSuccess)(handleFetchError)(
-      JSON.parse(process.env.NEXT_PUBLIC_PROTOCOL),
-    )(testnetNami)();
-  }, [donatPool, handleFetchSuccess, handleFetchError]);
+    if (donatPool) {
+      setAreBeingFetched(true);
+      donatPool.getAllFundraisings(handleFetchSuccess)(handleFetchFailure)(
+        JSON.parse(process.env.NEXT_PUBLIC_PROTOCOL),
+      )(testnetNami)();
+    }
+  }, [donatPool, handleFetchSuccess, handleFetchFailure]);
 
   useEffect(() => {
     if (connectWalletStatus === 'success') {
@@ -41,10 +41,10 @@ const useAllFundraisings = () => {
   }, [connectWalletStatus, fetchFundraisings]);
 
   return {
-    allFundraisingsAreBeingFetched: areBeingFetched,
-    allFundraisings: fundraisings,
-    fetchAllFundraisingsError: fetchError,
-    refetchAllFundraisings: fetchFundraisings,
+    areBeingFetched,
+    fundraisings,
+    fetchError,
+    refetchFundraisings: fetchFundraisings,
   };
 };
 

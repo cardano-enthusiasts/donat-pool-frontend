@@ -9,20 +9,17 @@ import { ROUTES } from '@/shared/constants';
 import { useAuthGuard, useAllFundraisings } from '@/shared/hooks';
 import { useAppSelector } from '@/store/hooks';
 
-import {
-  CardsWrapper,
-  CreateButton,
-  Title,
-  TitleAndButton,
-} from './AllProjects.styled';
+import { CardsWrapper, CreateButton, Title, TitleAndButton } from './AllProjects.styled';
 
 const Page = () => {
   useAuthGuard();
   const router = useRouter();
-  const { allFundraisings } = useAllFundraisings();
-  const connectWalletStatus = useAppSelector(
-    (state) => state.connectWallet.status,
-  );
+  const {
+    areBeingFetched: fundraisingsAreBeingFetched,
+    fundraisings,
+    fetchError: fetchFundraisingsError,
+  } = useAllFundraisings();
+  const connectWalletStatus = useAppSelector((state) => state.connectWallet.status);
 
   useEffect(() => {
     document.title = 'All projects';
@@ -50,21 +47,18 @@ const Page = () => {
           </Button>
         </CreateButton>
       </TitleAndButton>
-      <CardsWrapper>
-        {allFundraisings
-          .filter(({ isCompleted }) => !isCompleted)
-          .sort(
-            (fundraising1, fundraising2) =>
-              Number(fundraising1.deadline) - Number(fundraising2.deadline),
-          )
-          .map((fundraising) => (
-            <ProjectCard
-              key={fundraising.threadTokenCurrency}
-              data={fundraising}
-              linkSection="all-projects"
-            />
-          ))}
-      </CardsWrapper>
+      {fundraisingsAreBeingFetched && <div>fundraisings are being fetched</div>}
+      {fundraisings && (
+        <CardsWrapper>
+          {fundraisings
+            .filter(({ isCompleted }) => !isCompleted)
+            .sort((fundraising1, fundraising2) => Number(fundraising1.deadline) - Number(fundraising2.deadline))
+            .map((fundraising) => (
+              <ProjectCard key={fundraising.threadTokenCurrency} data={fundraising} linkSection="all-projects" />
+            ))}
+        </CardsWrapper>
+      )}
+      {fetchFundraisingsError && <div className="text-error">{fetchFundraisingsError}</div>}
     </Common>
   );
 };

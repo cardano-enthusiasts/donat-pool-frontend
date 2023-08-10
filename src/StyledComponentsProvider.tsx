@@ -4,11 +4,7 @@
 
 import { useServerInsertedHTML } from 'next/navigation';
 import { useState } from 'react';
-import {
-  ServerStyleSheet,
-  StyleSheetManager,
-  ThemeProvider,
-} from 'styled-components';
+import { ServerStyleSheet, StyleSheetManager, ThemeProvider } from 'styled-components';
 
 import { theme } from '@/shared/styles/theme';
 
@@ -25,18 +21,10 @@ function StyledComponentsRegistry({ children }: { children: React.ReactNode }) {
 
   if (typeof window !== 'undefined') return <>{children}</>;
 
-  return (
-    <StyleSheetManager sheet={styledComponentsStyleSheet.instance}>
-      {children}
-    </StyleSheetManager>
-  );
+  return <StyleSheetManager sheet={styledComponentsStyleSheet.instance}>{children}</StyleSheetManager>;
 }
 
-export default function StyledComponentsProvider({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function StyledComponentsProvider({ children }: { children: React.ReactNode }) {
   return (
     <StyledComponentsRegistry>
       <ThemeProvider theme={theme}>{children}</ThemeProvider>
