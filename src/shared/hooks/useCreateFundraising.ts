@@ -4,25 +4,21 @@ import { useDonatPool, useUserFundraisings } from '@/shared/hooks';
 import type { BackendProject } from '@/shared/types/backend';
 import { useAppDispatch } from '@/store/hooks';
 import { setWalletStatus } from '@/store/slices/connectWallet';
-import {
-  setError,
-  setRequesting,
-  setCreatedPath,
-} from '@/store/slices/fundraisingCreation';
+import { setError, setRequesting, setCreatedPath } from '@/store/slices/fundraisingCreation';
 
 import useHandleError from './useHandleError';
 
 const useCreateFundraising = () => {
   const offchain = useDonatPool();
   const dispatch = useAppDispatch();
-  const { refetchUserFundraisings } = useUserFundraisings();
+  const { refetchFundraisings: fetchUserFundraisings } = useUserFundraisings();
   const handleCommonError = useHandleError();
   const protocol = JSON.parse(process.env.NEXT_PUBLIC_PROTOCOL);
 
   const handleSuccess = (fundraisingData: BackendProject) => {
     dispatch(setCreatedPath(fundraisingData.threadTokenCurrency));
     dispatch(setWalletStatus('connected'));
-    refetchUserFundraisings();
+    fetchUserFundraisings();
   };
 
   const handleError = (error: string) => {
@@ -33,9 +29,7 @@ const useCreateFundraising = () => {
 
   if (offchain) {
     return (createFundraisingParams: any) => {
-      offchain.createFundraising(handleSuccess)(handleError)(protocol)(
-        testnetNami,
-      )(createFundraisingParams)();
+      offchain.createFundraising(handleSuccess)(handleError)(protocol)(testnetNami)(createFundraisingParams)();
       dispatch(setRequesting());
     };
   }

@@ -11,14 +11,14 @@ import useHandleError from './useHandleError';
 const useDonate = () => {
   const offchain = useDonatPool();
   const dispatch = useAppDispatch();
-  const { refetchAllFundraisings } = useAllFundraisings();
+  const { refetchFundraisings: fetchAllFundraisings } = useAllFundraisings();
   const handleCommonError = useHandleError();
   const protocol = JSON.parse(process.env.NEXT_PUBLIC_PROTOCOL);
 
   const handleSuccess = () => {
     dispatch(setWalletStatus('connected'));
     dispatch(setSuccess());
-    refetchAllFundraisings();
+    fetchAllFundraisings();
   };
 
   const handleError = (error: string) => {
@@ -29,9 +29,7 @@ const useDonate = () => {
 
   if (offchain) {
     return (fundraisingData: FundraisingData, amount: number) => {
-      offchain.donate(handleSuccess)(handleError)(protocol)(testnetNami)(
-        fundraisingData,
-      )(amount)();
+      offchain.donate(handleSuccess)(handleError)(protocol)(testnetNami)(fundraisingData)(amount)();
       dispatch(setRequesting());
     };
   }

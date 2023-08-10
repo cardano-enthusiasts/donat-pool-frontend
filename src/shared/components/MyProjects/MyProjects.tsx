@@ -18,36 +18,27 @@ import type { ProjectStatus, Props } from './types';
 import { Button, ProjectCard } from '../.';
 
 const MyProjects = ({ onCreateAProjectClick }: Props) => {
-  const [allProjectsWithStatus, setAllProjectsWithStatus] = useState<
-    Fundraising[] | null
-  >(null);
-  const [filteredProjects, setFilteredProjects] = useState<
-    Fundraising[] | null
-  >(null);
+  const [allProjectsWithStatus, setAllProjectsWithStatus] = useState<Fundraising[] | null>(null);
+  const [filteredProjects, setFilteredProjects] = useState<Fundraising[] | null>(null);
   const [filter, setFilter] = useState<ProjectStatus | null>(null);
-  const { userFundraisings } = useUserFundraisings();
+  const { fundraisings } = useUserFundraisings();
 
   useEffect(() => {
-    if (userFundraisings) {
-      setAllProjectsWithStatus(userFundraisings);
-      setFilteredProjects(userFundraisings);
+    if (fundraisings) {
+      setAllProjectsWithStatus(fundraisings);
+      setFilteredProjects(fundraisings);
     } else {
       setAllProjectsWithStatus(null);
     }
-  }, [userFundraisings]);
+  }, [fundraisings]);
 
-  const handleFilterClick = (
-    status: ProjectStatus,
-    projects: Fundraising[],
-  ) => {
+  const handleFilterClick = (status: ProjectStatus, projects: Fundraising[]) => {
     if (filter === status) {
       setFilteredProjects(projects);
       setFilter(null);
     } else {
       const isCompleted = status === 'completed';
-      setFilteredProjects(
-        projects.filter((item) => item.isCompleted === isCompleted),
-      );
+      setFilteredProjects(projects.filter((item) => item.isCompleted === isCompleted));
       setFilter(status);
     }
   };
@@ -86,12 +77,7 @@ const MyProjects = ({ onCreateAProjectClick }: Props) => {
         </TitleAndButtons>
 
         <CreateButton>
-          <Button
-            primaryColor="red"
-            secondaryColor="blue"
-            onClick={onCreateAProjectClick}
-            fontColor="white"
-          >
+          <Button primaryColor="red" secondaryColor="blue" onClick={onCreateAProjectClick} fontColor="white">
             Create a new project
           </Button>
         </CreateButton>
@@ -112,8 +98,7 @@ const MyProjects = ({ onCreateAProjectClick }: Props) => {
           </CardsWrapper>
         ) : (
           <NoProject>
-            You don&apos;t have any projects yet. Create a project to start
-            receiving donations.
+            You don&apos;t have any projects yet. Create a project to start receiving donations.
             <SadCat src="/img/sad-cat.svg" alt="sad cat image" />
           </NoProject>
         )}

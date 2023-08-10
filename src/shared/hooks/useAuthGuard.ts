@@ -8,16 +8,14 @@ import useDonatPool from './useDonatPool';
 
 const useAuthGuard = () => {
   const donatPool = useDonatPool();
-  const connectWalletStatus = useAppSelector(
-    (state) => state.connectWallet.status,
-  );
+  const connectWalletStatus = useAppSelector((state) => state.connectWallet.status);
   const dispatch = useAppDispatch();
 
   const handleFetchSuccess = useCallback(() => {
     dispatch(setStatus('success'));
   }, [dispatch]);
 
-  const handleFetchError = useCallback(
+  const handleFetchFailure = useCallback(
     (error: string) => {
       console.error('connectWallet:', error);
       dispatch(setError(error));
@@ -26,20 +24,11 @@ const useAuthGuard = () => {
   );
 
   useEffect(() => {
-    if (connectWalletStatus !== 'success') {
+    if (connectWalletStatus !== 'success' && donatPool) {
       dispatch(setStatus('requesting'));
-
-      donatPool?.connectWallet(handleFetchSuccess)(handleFetchError)(
-        testnetNami,
-      )();
+      donatPool.connectWallet(handleFetchSuccess)(handleFetchFailure)(testnetNami)();
     }
-  }, [
-    connectWalletStatus,
-    dispatch,
-    donatPool,
-    handleFetchSuccess,
-    handleFetchError,
-  ]);
+  }, [connectWalletStatus, donatPool, dispatch, handleFetchSuccess, handleFetchFailure]);
 };
 
 export default useAuthGuard;
