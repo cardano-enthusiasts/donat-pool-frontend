@@ -46,7 +46,7 @@ const Page = () => {
           </Button>
         </CreateButton>
       </TitleAndButton>
-      {fundraisingsAreBeingFetched && <div>loading</div>}
+      {fundraisingsAreBeingFetched && <div>fundraisings are being fetched</div>}
       {fundraisings && (
         <CardsWrapper>
           {fundraisings
@@ -57,7 +57,7 @@ const Page = () => {
             ))}
         </CardsWrapper>
       )}
-      {fetchFundraisingsError && <div>error</div>}
+      {fetchFundraisingsError && <div className="text-error">{fetchFundraisingsError}</div>}
     </Common>
   );
 };
