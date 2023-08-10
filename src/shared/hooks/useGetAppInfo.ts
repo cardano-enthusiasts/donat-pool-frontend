@@ -3,12 +3,7 @@ import { logOffchainError } from '@/shared/helpers';
 import { useDonatPool } from '@/shared/hooks';
 import type { UserAndProtocolParams } from '@/shared/types/backend';
 import { useAppDispatch } from '@/store/hooks';
-import {
-  setError,
-  setRequesting,
-  setProtocol,
-  setUserInfo,
-} from '@/store/slices/appInfo';
+import { setError, setRequesting, setProtocol, setUserInfo } from '@/store/slices/appInfo';
 import { setWalletStatus } from '@/store/slices/connectWallet';
 
 import useHandleError from './useHandleError';
@@ -18,18 +13,9 @@ const useGetAppInfo = () => {
   const dispatch = useAppDispatch();
   const handleCommonError = useHandleError();
 
-  const handleSuccess = ({
-    protocolConfig,
-    userInfo,
-  }: UserAndProtocolParams) => {
+  const handleSuccess = ({ protocolConfig, userInfo }: UserAndProtocolParams) => {
     dispatch(setWalletStatus('connected'));
-    const {
-      minAmountParam,
-      maxAmountParam,
-      minDurationParam,
-      maxDurationParam,
-      protocolFeeParam,
-    } = protocolConfig;
+    const { minAmountParam, maxAmountParam, minDurationParam, maxDurationParam, protocolFeeParam } = protocolConfig;
     dispatch(
       setProtocol({
         minAmountParam: Number(minAmountParam.value) / 1000000,
@@ -50,9 +36,7 @@ const useGetAppInfo = () => {
 
   if (offchain) {
     return () => {
-      offchain?.getAppInfo(handleSuccess)(handleError)(
-        JSON.parse(process.env.NEXT_PUBLIC_PROTOCOL),
-      )(testnetNami)();
+      offchain?.getAppInfo(handleSuccess)(handleError)(JSON.parse(process.env.NEXT_PUBLIC_PROTOCOL))(testnetNami)();
       dispatch(setRequesting());
     };
   }

@@ -12,9 +12,7 @@ const getColor = (errorInfo: any, fontColor: any) => {
 const getFieldStyles = ({ errorInfo, fontColor }: any) => css`
   width: 100%;
   min-width: 150px;
-  border: 2px solid
-    ${({ theme }) =>
-      errorInfo || errorInfo === '' ? theme.colors.error : theme.colors.black};
+  border: 2px solid ${({ theme }) => (errorInfo || errorInfo === '' ? theme.colors.error : theme.colors.black)};
   color: ${getColor(errorInfo, fontColor)};
   border-radius: 6px;
   width: 100%;

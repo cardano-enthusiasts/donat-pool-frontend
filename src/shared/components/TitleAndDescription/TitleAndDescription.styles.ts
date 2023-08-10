@@ -6,8 +6,7 @@ const Wrapper = styled.div<{ isActive: boolean }>`
   flex-direction: column;
   > * {
     transition: transform 1s ease 0s;
-    transform: ${({ isActive }) =>
-      isActive ? 'translateY(0%)' : 'translateY(50%)'};
+    transform: ${({ isActive }) => (isActive ? 'translateY(0%)' : 'translateY(50%)')};
   }
   @media (max-width: 1100px) {
     align-items: center;
@@ -63,11 +62,4 @@ const ButtonWrapper = styled.div`
   }
 `;
 
-export {
-  Wrapper,
-  MainLogo,
-  Description,
-  DescriptionPart1,
-  DescriptionPart2,
-  ButtonWrapper,
-};
+export { Wrapper, MainLogo, Description, DescriptionPart1, DescriptionPart2, ButtonWrapper };

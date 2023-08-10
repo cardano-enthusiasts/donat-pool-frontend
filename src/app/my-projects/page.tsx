@@ -12,9 +12,7 @@ import { useAppSelector } from '@/store/hooks';
 const Page = () => {
   useAuthGuard();
   const router = useRouter();
-  const {
-    connectWallet: { status: connectWalletStatus },
-  } = useAppSelector((state) => state);
+  const connectWalletStatus = useAppSelector((state) => state.connectWallet.requestStatus);
 
   useEffect(() => {
     document.title = 'My projects';

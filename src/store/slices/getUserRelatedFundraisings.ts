@@ -1,25 +1,25 @@
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
 
-import type { RequestStatus } from '@/shared/types';
+import type { RequestStatus, Fundraising } from '@/shared/types';
 
 const initialState: {
   requestStatus: RequestStatus;
-  walletStatus: 'default' | 'connected' | 'declined' | 'notAvailable' | 'missingCollateral';
+  fundraisings?: Fundraising[];
   error?: string;
 } = {
   requestStatus: 'default',
-  walletStatus: 'default',
 };
 
 const slice = createSlice({
-  name: 'connectWallet',
+  name: 'getUserRelatedFundraisings',
   initialState,
   reducers: {
     setRequestStatus: (state, action: PayloadAction<RequestStatus>) => {
       state.requestStatus = action.payload;
     },
-    setWalletStatus: (state, action: PayloadAction<(typeof initialState)['walletStatus']>) => {
-      state.walletStatus = action.payload;
+    setFundraisings: (state, action: PayloadAction<Fundraising[]>) => {
+      state.requestStatus = 'success';
+      state.fundraisings = action.payload;
     },
     setError: (state, action: PayloadAction<string>) => {
       state.requestStatus = 'error';
@@ -30,4 +30,4 @@ const slice = createSlice({
 
 export default slice;
 export const { reducer } = slice;
-export const { setRequestStatus, setWalletStatus, setError } = slice.actions;
+export const { setRequestStatus, setFundraisings, setError } = slice.actions;

@@ -15,11 +15,9 @@ const Wrapper = styled.nav<{
   top: 90px;
   overflow-wrap: break-word;
 
-  z-index: ${({ currentSection }) =>
-    currentSection === 'contact-us' ? '-1' : '3'};
+  z-index: ${({ currentSection }) => (currentSection === 'contact-us' ? '-1' : '3')};
 
-  display: ${({ windowScroll, isAnimationActive }) =>
-    windowScroll > 50 || !isAnimationActive ? 'block' : 'none'};
+  display: ${({ windowScroll, isAnimationActive }) => (windowScroll > 50 || !isAnimationActive ? 'block' : 'none')};
 
   @media (max-width: 1920px) {
     left: 90px;

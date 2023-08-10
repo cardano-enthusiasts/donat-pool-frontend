@@ -4,7 +4,7 @@ import { testnetNami } from '@/shared/constants';
 import { useDonatPool } from '@/shared/hooks';
 import { useAppSelector, useAppDispatch } from '@/store/hooks';
 import {
-  setStatus as setConnectWalletStatus,
+  setRequestStatus as setConnectWalletStatus,
   setError as setConnectWalletError,
 } from '@/store/slices/connectWallet';
 
@@ -13,9 +13,7 @@ import { Address, ConnectButton, Wrapper } from './WalletButton.styled';
 const WalletButton = () => {
   const donatPool = useDonatPool();
   const userInfo = useAppSelector((state) => state.appInfo.userInfo);
-  const connectWalletStatus = useAppSelector(
-    (state) => state.connectWallet.status,
-  );
+  const connectWalletStatus = useAppSelector((state) => state.connectWallet.requestStatus);
   const dispatch = useAppDispatch();
   const [isAddressShown, setIsAddressShown] = useState(false);
   const walletConnected = connectWalletStatus === 'success';
@@ -41,9 +39,7 @@ const WalletButton = () => {
       <ConnectButton
         onClick={() => {
           if (!walletConnected) {
-            donatPool?.connectWallet(handleWalletConnectSuccess)(
-              handleWalletConnectFailure,
-            )(testnetNami)();
+            donatPool?.connectWallet(handleWalletConnectSuccess)(handleWalletConnectFailure)(testnetNami)();
           }
         }}
       >

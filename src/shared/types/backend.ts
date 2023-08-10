@@ -29,9 +29,4 @@ interface UserAndProtocolParams {
   userInfo: UserInfo;
 }
 
-export type {
-  BackendProjects,
-  BackendProject,
-  BackendParams,
-  UserAndProtocolParams,
-};
+export type { BackendProjects, BackendProject, BackendParams, UserAndProtocolParams };

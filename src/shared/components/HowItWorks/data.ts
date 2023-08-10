@@ -7,8 +7,7 @@ const items = [
   },
   {
     title: 'Create a project',
-    description:
-      'Create a project and share a link to the project page with your followers/contributors',
+    description: 'Create a project and share a link to the project page with your followers/contributors',
     id: 1,
   },
   {

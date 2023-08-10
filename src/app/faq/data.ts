@@ -1,7 +1,6 @@
 const basicSection = [
   {
-    title:
-      'Is it possible to edit a project title or other information after creating a project?',
+    title: 'Is it possible to edit a project title or other information after creating a project?',
     description:
       'Project title, amount to raise, project duration and creator&#39;s wallet are immutable parameters that are stored on the Cardano blockchain, so it&#39;s impossible to edit these parameters.',
   },
@@ -36,20 +35,17 @@ const basicSection = [
   },
   {
     title: 'Is the partial withdrawal possible? ',
-    description:
-      'No, a project owner can withdraw only the full amount at once.',
+    description: 'No, a project owner can withdraw only the full amount at once.',
   },
   {
-    title:
-      'Does the service guarantee that the information provided by project owners is trustworthy?',
+    title: 'Does the service guarantee that the information provided by project owners is trustworthy?',
     description:
       'No, donors should be careful and support projects only if they get a project link from a reliable person (or service).',
   },
 
   {
     title: 'How many projects can I do on Donat.Pool?',
-    description:
-      'There are no restrictions on the number of projects you can create',
+    description: 'There are no restrictions on the number of projects you can create',
   },
   {
     title:
@@ -63,8 +59,7 @@ const basicSection = [
       'Donat.Pool doesn&#39;t require a report, but if you want to build trust with your community and plan to start more donation projects, you can provide reports on your resource (website, youtube channel, etc) which you used to share the donation link.',
   },
   {
-    title:
-      'What are the minimum and maximum fundraising periods? What maximum amount can I claim?',
+    title: 'What are the minimum and maximum fundraising periods? What maximum amount can I claim?',
     description:
       'Min and max periods, min and max amount, and a Donat.Pool fee are dynamically changing parameters. They are regulated by governance token owners through a decentralized voting process.<br> Changes can affect only new projects. When you create a project you agree with the current parameters (Min and max periods, min and max amount, and a Donat.Pool fee) and they will be fixed for this project and can&#39;t be changed.',
   },

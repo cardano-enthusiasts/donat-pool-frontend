@@ -1,12 +1,6 @@
 import { useState } from 'react';
 
-import {
-  Arrow,
-  Content,
-  Header,
-  Title,
-  Wrapper,
-} from './DropdownSection.styled';
+import { Arrow, Content, Header, Title, Wrapper } from './DropdownSection.styled';
 import type { Props } from './types';
 
 const DropdownSection = ({ title = '', children }: Props) => {

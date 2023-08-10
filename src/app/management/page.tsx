@@ -13,7 +13,7 @@ import { Title, Wrapper } from './Management.styled';
 const Page = () => {
   const {
     appInfo: { userInfo, protocol },
-    connectWallet: { status },
+    connectWallet: { requestStatus: status },
   } = useAppSelector((state) => state);
 
   const router = useRouter();

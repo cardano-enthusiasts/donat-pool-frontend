@@ -2,17 +2,17 @@ import { useCallback, useEffect } from 'react';
 
 import { testnetNami } from '@/shared/constants';
 import { useAppSelector, useAppDispatch } from '@/store/hooks';
-import { setStatus, setError } from '@/store/slices/connectWallet';
+import { setRequestStatus, setError } from '@/store/slices/connectWallet';
 
 import useDonatPool from './useDonatPool';
 
 const useAuthGuard = () => {
   const donatPool = useDonatPool();
-  const connectWalletStatus = useAppSelector((state) => state.connectWallet.status);
+  const connectWalletStatus = useAppSelector((state) => state.connectWallet.requestStatus);
   const dispatch = useAppDispatch();
 
   const handleFetchSuccess = useCallback(() => {
-    dispatch(setStatus('success'));
+    dispatch(setRequestStatus('success'));
   }, [dispatch]);
 
   const handleFetchFailure = useCallback(
@@ -24,8 +24,8 @@ const useAuthGuard = () => {
 
   useEffect(() => {
     if (connectWalletStatus === 'default' && donatPool) {
-      dispatch(setStatus('requesting'));
-      donatPool.connectWallet(handleFetchSuccess)(setError)(testnetNami)();
+      dispatch(setRequestStatus('requesting'));
+      donatPool.connectWallet(handleFetchSuccess)(handleFetchFailure)(testnetNami)();
     }
   }, [connectWalletStatus, donatPool, dispatch, handleFetchSuccess, handleFetchFailure]);
 };

@@ -59,12 +59,4 @@ const getSmallLayoutPadding = () => css`
   padding-right: 20px;
 `;
 
-export {
-  baseContainer,
-  baseInner,
-  link,
-  h1,
-  getLargeLayoutPadding,
-  getMediumLayoutPadding,
-  getSmallLayoutPadding,
-};
+export { baseContainer, baseInner, link, h1, getLargeLayoutPadding, getMediumLayoutPadding, getSmallLayoutPadding };

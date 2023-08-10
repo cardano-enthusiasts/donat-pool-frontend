@@ -3,27 +3,17 @@ import styled, { css } from 'styled-components';
 
 import type { Props } from './types';
 
-const getStandardStyles = ({
-  primaryColor,
-  secondaryColor,
-  size,
-  fontColor,
-}: any) => css`
+const getStandardStyles = ({ primaryColor, secondaryColor, size, fontColor }: any) => css`
   font-size: ${size === 's' ? '16px' : '20px'};
   padding: ${size === 's' ? '10px' : '12px'} 16px;
   font-weight: bold;
   line-height: 133%;
 
-  color: ${({ theme }) =>
-    fontColor ? theme.colors[fontColor] : theme.colors.white};
+  color: ${({ theme }) => (fontColor ? theme.colors[fontColor] : theme.colors.white)};
   border-radius: 6px;
-  background: ${({ theme }) =>
-    theme.colors[primaryColor] ? theme.colors[primaryColor] : theme.colors.red};
+  background: ${({ theme }) => (theme.colors[primaryColor] ? theme.colors[primaryColor] : theme.colors.red)};
   box-shadow: -4px 4px 0px
-    ${({ theme }) =>
-      theme.colors[secondaryColor]
-        ? theme.colors[secondaryColor]
-        : theme.colors.red};
+    ${({ theme }) => (theme.colors[secondaryColor] ? theme.colors[secondaryColor] : theme.colors.red)};
 
   &:active {
     transform: translate(-4px, 4px);
@@ -39,22 +29,14 @@ const getStandardStyles = ({
   }
 `;
 
-const getAccentStyles = ({
-  primaryColor,
-  secondaryColor,
-  size,
-  fontColor,
-}: any) => css`
+const getAccentStyles = ({ primaryColor, secondaryColor, size, fontColor }: any) => css`
   position: absolute;
   font-size: 32px;
   width: 290px;
   height: ${size === 's' ? '97px' : '127px'};
   font-family: var(--rammetto-one-font);
   color: ${({ theme }) => theme.colors[fontColor]};
-  background-color: ${({ theme }) =>
-    theme.colors[primaryColor]
-      ? theme.colors[primaryColor]
-      : theme.colors.yellow};
+  background-color: ${({ theme }) => (theme.colors[primaryColor] ? theme.colors[primaryColor] : theme.colors.yellow)};
 
   &::before {
     position: absolute;
@@ -65,10 +47,7 @@ const getAccentStyles = ({
     width: 100%;
     left: -11.3px;
     transform: skewX(-45deg);
-    background-color: ${({ theme }) =>
-      theme.colors[primaryColor]
-        ? theme.colors[secondaryColor]
-        : theme.colors.red};
+    background-color: ${({ theme }) => (theme.colors[primaryColor] ? theme.colors[secondaryColor] : theme.colors.red)};
   }
 
   &::after {
@@ -80,10 +59,7 @@ const getAccentStyles = ({
     width: 22px;
     bottom: -11.3px;
     transform: skewY(-45deg);
-    background-color: ${({ theme }) =>
-      theme.colors[primaryColor]
-        ? theme.colors[secondaryColor]
-        : theme.colors.red};
+    background-color: ${({ theme }) => (theme.colors[primaryColor] ? theme.colors[secondaryColor] : theme.colors.red)};
   }
 
   &:active {
@@ -110,11 +86,7 @@ const getAccentStyles = ({
   }
 `;
 
-const getDoubleBorderedStyles = (
-  primaryColor: any,
-  tertiaryColor: any,
-  size: any,
-) => css`
+const getDoubleBorderedStyles = (primaryColor: any, tertiaryColor: any, size: any) => css`
   position: relative;
   font-size: ${size === 's' ? '16px' : '20px'};
   padding: ${size === 's' ? '10px 16px' : '10px 20px'};
@@ -122,15 +94,8 @@ const getDoubleBorderedStyles = (
   line-height: 133%;
 
   background-color: ${({ theme }) => theme.colors[tertiaryColor]};
-  color: ${({ theme }) =>
-    theme.colors[primaryColor]
-      ? theme.colors[primaryColor]
-      : theme.colors.blue};
-  border: 2px solid
-    ${({ theme }) =>
-      theme.colors[primaryColor]
-        ? theme.colors[primaryColor]
-        : theme.colors.blue};
+  color: ${({ theme }) => (theme.colors[primaryColor] ? theme.colors[primaryColor] : theme.colors.blue)};
+  border: 2px solid ${({ theme }) => (theme.colors[primaryColor] ? theme.colors[primaryColor] : theme.colors.blue)};
   border-radius: 6px;
   transform-style: preserve-3d;
 
@@ -141,11 +106,7 @@ const getDoubleBorderedStyles = (
     height: calc(100% + 4px);
     left: -6px;
     bottom: -6px;
-    border: 2px solid
-      ${({ theme }) =>
-        theme.colors[primaryColor]
-          ? theme.colors[primaryColor]
-          : theme.colors.blue};
+    border: 2px solid ${({ theme }) => (theme.colors[primaryColor] ? theme.colors[primaryColor] : theme.colors.blue)};
     border-radius: 6px;
     transform: translateZ(-1px);
     user-select: none;
@@ -167,34 +128,19 @@ const getDoubleBorderedStyles = (
   }
 `;
 
-const getBorderedStyles = (
-  primaryColor: any,
-  isClickedTheme: any,
-  size: any,
-) => css`
+const getBorderedStyles = (primaryColor: any, isClickedTheme: any, size: any) => css`
   font-size: ${size === 's' ? '14px' : '16px'};
   padding: ${size === 's' ? '8px' : '10px'} 16px;
   font-weight: bold;
   line-height: 133%;
 
-  background-color: ${({ theme }) =>
-    isClickedTheme ? theme.colors[primaryColor] : theme.colors.white};
-  color: ${({ theme }) =>
-    isClickedTheme ? theme.colors.white : theme.colors[primaryColor]};
-  border: 2px solid
-    ${({ theme }) =>
-      theme.colors[primaryColor]
-        ? theme.colors[primaryColor]
-        : theme.colors.blue};
+  background-color: ${({ theme }) => (isClickedTheme ? theme.colors[primaryColor] : theme.colors.white)};
+  color: ${({ theme }) => (isClickedTheme ? theme.colors.white : theme.colors[primaryColor])};
+  border: 2px solid ${({ theme }) => (theme.colors[primaryColor] ? theme.colors[primaryColor] : theme.colors.blue)};
   border-radius: 6px;
 `;
 
-const getDashedStyles = (
-  primaryColor: any,
-  secondaryColor: any,
-  tertiaryColor: any,
-  size: any,
-) => css`
+const getDashedStyles = (primaryColor: any, secondaryColor: any, tertiaryColor: any, size: any) => css`
   position: relative;
   display: flex;
   gap: 6px;
@@ -204,10 +150,7 @@ const getDashedStyles = (
   line-height: 133%;
 
   background-color: ${({ theme }) => theme.colors[tertiaryColor]};
-  color: ${({ theme }) =>
-    theme.colors[primaryColor]
-      ? theme.colors[primaryColor]
-      : theme.colors.blue};
+  color: ${({ theme }) => (theme.colors[primaryColor] ? theme.colors[primaryColor] : theme.colors.blue)};
   border: 2px dashed ${({ theme }) => theme.colors[primaryColor]};
   border-radius: 6px;
   transform-style: preserve-3d;
@@ -275,16 +218,7 @@ const StyledButton = styled.button<{
   isClickedTheme: boolean;
   size: NonNullable<Props['size']>;
 }>`
-  ${({
-    primaryColor,
-    secondaryColor,
-    tertiaryColor,
-    fontColor,
-    width,
-    themeType,
-    isClickedTheme,
-    size,
-  }) =>
+  ${({ primaryColor, secondaryColor, tertiaryColor, fontColor, width, themeType, isClickedTheme, size }) =>
     getStyles({
       primaryColor,
       secondaryColor,
@@ -309,16 +243,7 @@ const LinkWrapper = styled.div<{
   size: NonNullable<Props['size']>;
 }>`
   a {
-    ${({
-      primaryColor,
-      secondaryColor,
-      tertiaryColor,
-      fontColor,
-      width,
-      themeType,
-      isClickedTheme,
-      size,
-    }) =>
+    ${({ primaryColor, secondaryColor, tertiaryColor, fontColor, width, themeType, isClickedTheme, size }) =>
       getStyles({
         primaryColor,
         secondaryColor,
@@ -346,15 +271,11 @@ const Wrapper = styled.div<{
   width: Props['width'];
   size: Props['size'];
 }>`
-  width: ${({ themeType, width }) =>
-    themeType === 'accent' ? '290px' : width};
+  width: ${({ themeType, width }) => (themeType === 'accent' ? '290px' : width)};
 
   transition: all 0.5s;
-  ${({ themeType }) =>
-    themeType === 'double-bordered' &&
-    '&:active {transform: translate(-4px, 4px);}'};
-  ${({ themeType, size }) =>
-    themeType === 'accent' && getSecondaryWrapperStyles(size)};
+  ${({ themeType }) => themeType === 'double-bordered' && '&:active {transform: translate(-4px, 4px);}'};
+  ${({ themeType, size }) => themeType === 'accent' && getSecondaryWrapperStyles(size)};
 
   @media (max-width: 1100px) {
     width: ${({ themeType }) => themeType === 'accent' && '200px'};

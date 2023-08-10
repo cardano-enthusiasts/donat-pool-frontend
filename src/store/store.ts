@@ -1,6 +1,15 @@
 import { configureStore } from '@reduxjs/toolkit';
 
-import { appInfo, donating, fundraisingCreation, fundsReceiving, protocolUpdating, connectWallet } from './slices';
+import {
+  appInfo,
+  donating,
+  fundraisingCreation,
+  fundsReceiving,
+  protocolUpdating,
+  connectWallet,
+  getAllFundraisings,
+  getUserRelatedFundraisings,
+} from './slices';
 
 export default configureStore({
   reducer: {
@@ -10,5 +19,7 @@ export default configureStore({
     fundsReceiving: fundsReceiving.reducer,
     protocolUpdating: protocolUpdating.reducer,
     connectWallet: connectWallet.reducer,
+    getAllFundraisings: getAllFundraisings.reducer,
+    getUserRelatedFundraisings: getUserRelatedFundraisings.reducer,
   },
 });

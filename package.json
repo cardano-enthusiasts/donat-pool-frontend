@@ -6,6 +6,13 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "tsc:check": "tsc --noEmit",
+    "prettier:check": "prettier . --check",
+    "prettier:fix": "prettier . --write",
+    "eslint:check": "eslint ./src --ext .ts,.tsx",
+    "eslint:fix": "eslint ./src --ext .ts,.tsx --fix",
+    "stylelint:check": "stylelint \"./src/**/*.css\"",
+    "stylelint:fix": "stylelint \"./src/**/*.css\" --fix",
     "prepare": "husky install"
   },
   "dependencies": {
@@ -34,7 +41,6 @@
     "eslint-plugin-react": "7.33.1",
     "eslint-plugin-react-hooks": "4.6.0",
     "husky": "8.0.3",
-    "lint-staged": "13.2.3",
     "postcss": "8.4.27",
     "prettier": "3.0.1",
     "prettier-plugin-tailwindcss": "0.4.1",

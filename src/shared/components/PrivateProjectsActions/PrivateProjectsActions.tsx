@@ -6,12 +6,7 @@ import { useReceiveFunds } from '@/shared/hooks';
 import { useAppDispatch, useAppSelector } from '@/store/hooks';
 import { reset } from '@/store/slices/fundsReceiving';
 
-import {
-  ButtonWrapper,
-  Commission,
-  LinkWrapper,
-  WithdrawSection,
-} from './PrivateProjectsActions.styled';
+import { ButtonWrapper, Commission, LinkWrapper, WithdrawSection } from './PrivateProjectsActions.styled';
 import type { Props } from './types';
 import { Button, ModalError, ModalLoading, ModalSuccess } from '../.';
 
@@ -74,14 +69,12 @@ const PrivateProjectsActions = ({ project }: Props) => {
           }}
           fontColor="white"
         >
-          {project.raisedAmt.value >= project.goal.value
+          {Number(project.raisedAmt) >= Number(project.goal)
             ? 'You have reached the goal! Take money'
             : 'Project reached its deadline. Collect fund'}
         </Button>
         {protocol?.protocolFeeParam && (
-          <Commission>
-            We remind you that our commission is {protocol.protocolFeeParam}%
-          </Commission>
+          <Commission>We remind you that our commission is {protocol.protocolFeeParam}%</Commission>
         )}
       </WithdrawSection>
 

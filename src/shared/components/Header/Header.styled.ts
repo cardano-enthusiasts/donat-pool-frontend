@@ -47,8 +47,7 @@ const LinkWrapper = styled.div<{ isActive?: boolean }>`
   ${link};
   flex-shrink: 0;
   a {
-    color: ${({ isActive, theme }) =>
-      isActive ? theme.colors.yellow : theme.colors.white};
+    color: ${({ isActive, theme }) => (isActive ? theme.colors.yellow : theme.colors.white)};
   }
 `;
 
@@ -89,13 +88,4 @@ const Line = styled.div`
   }
 `;
 
-export {
-  Wrapper,
-  Inner,
-  Links,
-  LinkWrapper,
-  Icon,
-  LogoWrapper,
-  LinksAndButton,
-  Line,
-};
+export { Wrapper, Inner, Links, LinkWrapper, Icon, LogoWrapper, LinksAndButton, Line };

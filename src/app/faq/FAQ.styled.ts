@@ -62,15 +62,4 @@ const Line = styled.div`
   background: #dfdfdf;
 `;
 
-export {
-  Wrapper,
-  SectionWrapper,
-  Title,
-  ColorTitle,
-  Ul,
-  Li,
-  Alert,
-  SubSection,
-  Subtitle,
-  Line,
-};
+export { Wrapper, SectionWrapper, Title, ColorTitle, Ul, Li, Alert, SubSection, Subtitle, Line };

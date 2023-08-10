@@ -31,9 +31,7 @@ const InnerCircle = styled.div.attrs((props: any) => ({
   z-index: 4;
   border-radius: 100%;
   ${({ windowScroll, isAnimationActive }) =>
-    windowScroll < 50 && isAnimationActive
-      ? 'display: block'
-      : 'display: none'};
+    windowScroll < 50 && isAnimationActive ? 'display: block' : 'display: none'};
   @media (max-width: 1100px) {
     display: none;
   }
@@ -53,15 +51,12 @@ const OuterCircle = styled.div<{ windowScroll: any; isAnimationActive: any }>`
 `;
 
 const CatImage = styled.img<{ isAnimationActive: any }>`
-  position: ${({ isAnimationActive }) =>
-    isAnimationActive ? 'absolute' : 'static'};
+  position: ${({ isAnimationActive }) => (isAnimationActive ? 'absolute' : 'static')};
   bottom: 0;
   z-index: 2;
-  max-width: ${({ isAnimationActive }) =>
-    isAnimationActive ? '770px' : '90vw'};
+  max-width: ${({ isAnimationActive }) => (isAnimationActive ? '770px' : '90vw')};
 
-  ${({ isAnimationActive }) =>
-    !isAnimationActive && 'padding: 150px 20px 20px;'};
+  ${({ isAnimationActive }) => !isAnimationActive && 'padding: 150px 20px 20px;'};
 
   @media (max-width: 1100px) {
     position: static;

@@ -11,14 +11,14 @@ import useHandleError from './useHandleError';
 const useReceiveFunds = () => {
   const offchain = useDonatPool();
   const dispatch = useAppDispatch();
-  const { refetchFundraisings: fetchUserFundraisings } = useUserFundraisings();
+  const { refetchFundraisings: refetchUserFundraisings } = useUserFundraisings();
   const handleCommonError = useHandleError();
   const protocol = JSON.parse(process.env.NEXT_PUBLIC_PROTOCOL);
 
   const handleSuccess = () => {
     dispatch(setSuccess());
     dispatch(setWalletStatus('connected'));
-    fetchUserFundraisings();
+    refetchUserFundraisings();
   };
 
   const handleError = (error: string) => {

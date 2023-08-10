@@ -63,11 +63,11 @@ const Page = () => {
         <Common>
           <Wrapper>
             <Title>{currentProject.title}</Title>
-            <Duration>Until {formatDate(Number(currentProject.deadline.value))} </Duration>
+            <Duration>Until {formatDate(Number(currentProject.deadline))} </Duration>
             <CounterWrapper>
               <RaisedCounter
-                raised={Number(currentProject.raisedAmt.value) / 1000000}
-                goal={Number(currentProject.goal.value) / 1000000}
+                raised={Number(currentProject.raisedAmt) / 1000000}
+                goal={Number(currentProject.goal) / 1000000}
               />
             </CounterWrapper>
 

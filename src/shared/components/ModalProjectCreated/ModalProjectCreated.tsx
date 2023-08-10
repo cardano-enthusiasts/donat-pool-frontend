@@ -1,12 +1,6 @@
 import { useState } from 'react';
 
-import {
-  Description,
-  Img,
-  Inner,
-  ProjectLink,
-  Title,
-} from './ModalProjectCreated.styled';
+import { Description, Img, Inner, ProjectLink, Title } from './ModalProjectCreated.styled';
 import type { Props } from './types';
 import { Button, Modal } from '../.';
 

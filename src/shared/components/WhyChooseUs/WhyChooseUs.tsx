@@ -46,18 +46,13 @@ const WhyChooseUs = () => {
         </ButtonWrapper>
 
         <MinorDescription>
-          We made the code of our smart contracts publicly available so that you
-          can be sure the system is secure.
+          We made the code of our smart contracts publicly available so that you can be sure the system is secure.
         </MinorDescription>
       </ButtonAndInfo>
       <Title>Donate with ease</Title>
       <MinorInfoSection>
-        <Description>
-          {HTMLReactParser(secondaryInfoSections.description1)}
-        </Description>
-        <Description>
-          {HTMLReactParser(secondaryInfoSections.description2)}
-        </Description>
+        <Description>{HTMLReactParser(secondaryInfoSections.description1)}</Description>
+        <Description>{HTMLReactParser(secondaryInfoSections.description2)}</Description>
       </MinorInfoSection>
     </Wrapper>
   );

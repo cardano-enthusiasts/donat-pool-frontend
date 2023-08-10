@@ -21,8 +21,7 @@ const Wrapper = styled.div<{ isAnimationActive: boolean }>`
   z-index: 1;
 
   display: flex;
-  position: ${({ isAnimationActive }) =>
-    isAnimationActive ? 'static' : 'absolute'};
+  position: ${({ isAnimationActive }) => (isAnimationActive ? 'static' : 'absolute')};
   @media (max-width: 1100px) {
     position: absolute;
   }

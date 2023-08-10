@@ -17,9 +17,9 @@ const Page = () => {
   const {
     areBeingFetched: fundraisingsAreBeingFetched,
     fundraisings,
-    fetchError: fetchFundraisingsError,
+    error: fetchFundraisingsError,
   } = useAllFundraisings();
-  const connectWalletStatus = useAppSelector((state) => state.connectWallet.status);
+  const connectWalletStatus = useAppSelector((state) => state.connectWallet.requestStatus);
 
   useEffect(() => {
     document.title = 'All projects';

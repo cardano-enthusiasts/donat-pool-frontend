@@ -3,11 +3,7 @@ import { useDonatPool } from '@/shared/hooks';
 import type { Config } from '@/shared/types/common';
 import { useAppDispatch } from '@/store/hooks';
 import { setWalletStatus } from '@/store/slices/connectWallet';
-import {
-  setError,
-  setSuccess,
-  setRequesting,
-} from '@/store/slices/protocolUpdating';
+import { setError, setSuccess, setRequesting } from '@/store/slices/protocolUpdating';
 
 import useGetAppInfo from './useGetAppInfo';
 import useHandleError from './useHandleError';
@@ -41,9 +37,7 @@ const useUpdateProtocol = () => {
 
   if (offchain) {
     return (config: Config) => {
-      offchain.setProtocol(handleSuccess)(handleError)(protocol)(
-        editConfig(config),
-      )();
+      offchain.setProtocol(handleSuccess)(handleError)(protocol)(editConfig(config))();
       dispatch(setRequesting());
     };
   }

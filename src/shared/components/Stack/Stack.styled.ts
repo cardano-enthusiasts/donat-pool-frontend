@@ -16,8 +16,7 @@ const Title = styled.div`
 const Img = styled.img<{ isActive: boolean }>`
   max-width: 100%;
   transition: transform 1s ease 0s;
-  transform: ${({ isActive }) =>
-    isActive ? 'translateY(0%)' : 'translateY(100%)'};
+  transform: ${({ isActive }) => (isActive ? 'translateY(0%)' : 'translateY(100%)')};
   &:not(:first-child) {
     margin-top: -30px;
     @media (max-width: 850px) {

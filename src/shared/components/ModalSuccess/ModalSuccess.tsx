@@ -10,13 +10,7 @@ const ModalSuccess = ({ description, isOpen, onClose }: Props) => {
         <Inner>
           <Img src="/img/happy-cat.svg" alt="happy cat" />
           <Description>{description}</Description>
-          <Button
-            themeType="double-bordered"
-            primaryColor="blue"
-            tertiaryColor="white"
-            width="100%"
-            onClick={onClose}
-          >
+          <Button themeType="double-bordered" primaryColor="blue" tertiaryColor="white" width="100%" onClick={onClose}>
             Close button
           </Button>
         </Inner>

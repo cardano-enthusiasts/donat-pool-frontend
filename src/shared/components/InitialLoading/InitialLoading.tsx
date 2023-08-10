@@ -1,9 +1,4 @@
-import {
-  CatImage,
-  InnerCircle,
-  OuterCircle,
-  Wrapper,
-} from './InitialLoading.styled';
+import { CatImage, InnerCircle, OuterCircle, Wrapper } from './InitialLoading.styled';
 import type { Props } from './types';
 import { ActionDonuts, ScrollHelper } from '../.';
 
@@ -15,10 +10,7 @@ const InitialLoading = ({ windowScroll, isAnimationActive }: Props) => {
         windowScroll={windowScroll / 10}
         isAnimationActive={isAnimationActive}
       />
-      <OuterCircle
-        windowScroll={windowScroll / 10}
-        isAnimationActive={isAnimationActive}
-      >
+      <OuterCircle windowScroll={windowScroll / 10} isAnimationActive={isAnimationActive}>
         <ScrollHelper />
       </OuterCircle>
       <ActionDonuts isAnimationActive={isAnimationActive} />

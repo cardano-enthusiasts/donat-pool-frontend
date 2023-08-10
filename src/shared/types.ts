@@ -1,14 +1,24 @@
 type RequestStatus = 'default' | 'requesting' | 'success' | 'error';
 
-interface Fundraising {
+interface FetchedFundraising {
   creator: string;
   deadline: { value: bigint };
-  title: string;
   goal: { value: bigint };
+  isCompleted: boolean;
   raisedAmt: { value: bigint };
   threadTokenCurrency: string;
   threadTokenName: string;
+  title: string;
+}
+interface Fundraising {
+  creator: string;
+  deadline: string;
+  goal: string;
   isCompleted: boolean;
+  raisedAmt: string;
+  threadTokenCurrency: string;
+  threadTokenName: string;
+  title: string;
 }
 
-export type { RequestStatus, Fundraising };
+export type { RequestStatus, FetchedFundraising, Fundraising };

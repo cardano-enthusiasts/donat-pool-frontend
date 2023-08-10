@@ -45,12 +45,12 @@ const Page = () => {
               <Status isActive={!currentProject.isCompleted}>
                 {currentProject.isCompleted ? 'Completed' : 'Active'}
               </Status>
-              <Deadline>Until {formatDate(Number(currentProject.deadline.value))}</Deadline>
+              <Deadline>Until {formatDate(Number(currentProject.deadline))}</Deadline>
             </DeadlineAndStatus>
             <CounterWrapper>
               <RaisedCounter
-                raised={Number(currentProject.raisedAmt.value) / 1000000}
-                goal={Number(currentProject.goal.value) / 1000000}
+                raised={Number(currentProject.raisedAmt) / 1000000}
+                goal={Number(currentProject.goal) / 1000000}
               />
             </CounterWrapper>
             <PrivateProjectsActions project={currentProject} />

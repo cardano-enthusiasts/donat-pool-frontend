@@ -55,13 +55,4 @@ const MinorInfoSection = styled.div`
   }
 `;
 
-export {
-  Wrapper,
-  Title,
-  Description,
-  InfoSection,
-  ButtonAndInfo,
-  MinorDescription,
-  MinorInfoSection,
-  ButtonWrapper,
-};
+export { Wrapper, Title, Description, InfoSection, ButtonAndInfo, MinorDescription, MinorInfoSection, ButtonWrapper };

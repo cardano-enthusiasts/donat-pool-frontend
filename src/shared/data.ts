@@ -54,14 +54,12 @@ const roadmapText = {
       title: 'Phase 3',
       items: [
         {
-          title:
-            'Add more information about projects (category, image, detailed description)',
+          title: 'Add more information about projects (category, image, detailed description)',
           id: '3.0',
         },
 
         {
-          title:
-            'Governance: minting DAO tokens and implementing the governance services:',
+          title: 'Governance: minting DAO tokens and implementing the governance services:',
           id: '3.1',
         },
         {
@@ -87,8 +85,7 @@ const roadmapText = {
           id: '3.4',
         },
         {
-          title:
-            'Add the possibility to see projects without connecting a wallet',
+          title: 'Add the possibility to see projects without connecting a wallet',
           id: '3.5',
         },
         {

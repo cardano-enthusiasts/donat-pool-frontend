@@ -37,12 +37,4 @@ const LabelHint = styled.span`
   color: #828587;
 `;
 
-export {
-  Form,
-  ButtonWrapper,
-  DurationContainer,
-  DurationTitle,
-  DurationInputContainer,
-  FundingGoal,
-  LabelHint,
-};
+export { Form, ButtonWrapper, DurationContainer, DurationTitle, DurationInputContainer, FundingGoal, LabelHint };

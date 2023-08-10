@@ -1,12 +1,4 @@
-import {
-  Fragment,
-  forwardRef,
-  useEffect,
-  useRef,
-  useState,
-  type ForwardedRef,
-  type MutableRefObject,
-} from 'react';
+import { Fragment, forwardRef, useEffect, useRef, useState, type ForwardedRef, type MutableRefObject } from 'react';
 
 import type { LandingSection } from '@/shared/types/common';
 
@@ -20,24 +12,11 @@ import {
   WhyChooseUsWrapper,
 } from './LandingContent.styled';
 import type { Props, Content } from './types';
-import {
-  AboutUs,
-  Footer,
-  HowItWorks,
-  Roadmap,
-  TitleAndDescription,
-  Waves,
-  WhyChooseUs,
-} from '..';
+import { AboutUs, Footer, HowItWorks, Roadmap, TitleAndDescription, Waves, WhyChooseUs } from '..';
 
 const LandingContent = forwardRef(
   (
-    {
-      windowScroll,
-      setIsAnimationActive,
-      currentSection,
-      setCurrentSection,
-    }: Props,
+    { windowScroll, setIsAnimationActive, currentSection, setCurrentSection }: Props,
     navRef: ForwardedRef<HTMLElement> | null,
   ) => {
     const homeRef = useRef<HTMLDivElement>(null);
@@ -47,14 +26,10 @@ const LandingContent = forwardRef(
     const contactUsRef = useRef<HTMLDivElement>(null);
 
     const [isHomeAnimationActive, setIsHomeAnimationActive] = useState(false);
-    const [isRoadmapAnimationActive, setIsRoadmapAnimationActive] =
-      useState(false);
+    const [isRoadmapAnimationActive, setIsRoadmapAnimationActive] = useState(false);
 
     useEffect(() => {
-      if (
-        homeRef.current &&
-        windowScroll > homeRef.current.getBoundingClientRect().top
-      ) {
+      if (homeRef.current && windowScroll > homeRef.current.getBoundingClientRect().top) {
         setIsAnimationActive(false);
       }
     }, [windowScroll, homeRef.current]);
@@ -67,10 +42,7 @@ const LandingContent = forwardRef(
 
     useEffect(() => {
       if (homeRef.current) {
-        setIsHomeAnimationActive(
-          window.innerHeight - 400 >
-            homeRef.current.getBoundingClientRect().top,
-        );
+        setIsHomeAnimationActive(window.innerHeight - 400 > homeRef.current.getBoundingClientRect().top);
       }
     }, [windowScroll]);
 
@@ -84,16 +56,8 @@ const LandingContent = forwardRef(
         contactUsRef.current;
 
       if (areRefsDefined) {
-        const navTop = Math.round(
-          (
-            navRef as MutableRefObject<HTMLElement>
-          )?.current.getBoundingClientRect().top,
-        );
-        const navBottom = Math.round(
-          (
-            navRef as MutableRefObject<HTMLElement>
-          )?.current.getBoundingClientRect().bottom,
-        );
+        const navTop = Math.round((navRef as MutableRefObject<HTMLElement>)?.current.getBoundingClientRect().top);
+        const navBottom = Math.round((navRef as MutableRefObject<HTMLElement>)?.current.getBoundingClientRect().bottom);
         const navMiddle = (navBottom - navTop) / 2 + navTop;
 
         const refsWithoutContactUs: any = {
@@ -105,17 +69,12 @@ const LandingContent = forwardRef(
 
         let prop: any;
         for (prop in refsWithoutContactUs) {
-          if (
-            refsWithoutContactUs[prop].current.getBoundingClientRect().bottom >
-            navMiddle
-          ) {
+          if (refsWithoutContactUs[prop].current.getBoundingClientRect().bottom > navMiddle) {
             return prop;
           }
         }
 
-        const contactUsTop = Math.round(
-          contactUsRef.current.getBoundingClientRect().top,
-        );
+        const contactUsTop = Math.round(contactUsRef.current.getBoundingClientRect().top);
         if (contactUsTop - 100 > navBottom) {
           return 'roadmap';
         }
@@ -208,9 +167,7 @@ const LandingContent = forwardRef(
               <MainWrapper backgroundColor={backgroundColor}>
                 <MainInner>{element}</MainInner>
               </MainWrapper>
-              {waves && (
-                <Waves color={waves.color} backgroundColor={backgroundColor} />
-              )}
+              {waves && <Waves color={waves.color} backgroundColor={backgroundColor} />}
             </Fragment>
           );
         })}
