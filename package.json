@@ -12,7 +12,7 @@
     "@reduxjs/toolkit": "1.9.5",
     "html-react-parser": "4.2.1",
     "next": "13.4.13",
-    "offchain": "git+ssh://git@github.com:fullstack-development/donat-pool-offchain.git#51077fa6eb9876cb0a82f259800bcd92fe419f94",
+    "offchain": "git+ssh://git@github.com:fullstack-development/donat-pool-offchain.git#f0532215cb23851becb078d11bd7134caf87f8e5",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-redux": "8.1.2",
