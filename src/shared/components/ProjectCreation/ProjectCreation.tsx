@@ -2,7 +2,7 @@ import { Project } from '@/layouts';
 import { CreationForm } from '@/shared/components';
 import { useAppSelector } from '@/store/hooks';
 
-import { type Props } from './types';
+import type { Props } from './types';
 
 const ProjectCreation = ({ onClose }: Props) => {
   const protocol = useAppSelector((state) => state.appInfo.protocol);

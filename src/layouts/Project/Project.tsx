@@ -1,4 +1,4 @@
-import { useWindowSize } from '@/shared/helpers/hooks';
+import { useWindowSize } from '@/shared/hooks';
 
 import {
   Inner,
@@ -7,7 +7,7 @@ import {
   Title,
   Wrapper,
 } from './Project.styled';
-import { type Props } from './types';
+import type { Props } from './types';
 
 const Project = ({
   onPreviousPageClick,

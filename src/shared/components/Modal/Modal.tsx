@@ -1,7 +1,7 @@
-import { type FC } from 'react';
+import type { FC } from 'react';
 
 import { Background, Content, Wrapper } from './Modal.styled';
-import { type Props } from './types';
+import type { Props } from './types';
 
 const Modal: FC<Props> = ({ isOpen, children }) => {
   const content = (
@@ -11,7 +11,7 @@ const Modal: FC<Props> = ({ isOpen, children }) => {
     </Wrapper>
   );
 
-  return isOpen ? content : <></>;
+  return isOpen && content;
 };
 
 export { Modal };

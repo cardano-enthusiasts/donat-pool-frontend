@@ -3,7 +3,7 @@
 import { useCallback, useEffect, useState } from 'react';
 
 import { testnetNami } from '@/shared/constants';
-import { type Fundraising } from '@/shared/types';
+import type { Fundraising } from '@/shared/types';
 import { useAppSelector } from '@/store/hooks';
 
 import useDonatPool from './useDonatPool';
@@ -17,16 +17,22 @@ const useAllFundraisings = () => {
   } = useAppSelector((state) => state);
   const [fetchError, setFetchError] = useState<string | undefined>();
 
+  const handleFetchSuccess = useCallback((fundraisings: Fundraising[]) => {
+    setFundraisings(fundraisings);
+  }, []);
+
+  const handleFetchError = useCallback((error: string) => {
+    console.error('getAllFundraisings:', error);
+    setFetchError(error);
+  }, []);
+
   const fetchFundraisings = useCallback(() => {
     setAreBeingFetched(true);
 
-    donatPool?.getAllFundraisings((fundraisings) => {
-      setFundraisings(fundraisings);
-    })((error) => {
-      console.error('getAllFundraisings:', error);
-      setFetchError(error);
-    })(JSON.parse(process.env.NEXT_PUBLIC_PROTOCOL))(testnetNami)();
-  }, [donatPool]);
+    donatPool?.getAllFundraisings(handleFetchSuccess)(handleFetchError)(
+      JSON.parse(process.env.NEXT_PUBLIC_PROTOCOL),
+    )(testnetNami)();
+  }, [donatPool, handleFetchSuccess, handleFetchError]);
 
   useEffect(() => {
     if (connectWalletStatus === 'success') {

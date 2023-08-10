@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 
 import { useUserFundraisings } from '@/shared/hooks';
-import { type Fundraising } from '@/shared/types';
+import type { Fundraising } from '@/shared/types';
 
 import {
   CardsWrapper,
@@ -14,7 +14,7 @@ import {
   Title,
   TitleAndButtons,
 } from './MyProjects.styled';
-import { type ProjectStatus, type Props } from './types';
+import type { ProjectStatus, Props } from './types';
 import { Button, ProjectCard } from '../.';
 
 const MyProjects = ({ onCreateAProjectClick }: Props) => {

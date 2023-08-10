@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 
-import { useWindowScroll } from '@/shared/helpers/hooks';
+import { useWindowScroll } from '@/shared/hooks';
 
 import {
   Description,

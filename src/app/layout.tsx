@@ -6,7 +6,7 @@ import Script from 'next/script';
 import StoreProvider from '@/store/Provider';
 import StyledComponentsProvider from '@/StyledComponentsProvider';
 
-import './globals.css';
+import './global.css';
 
 const microsoftYaHeiFont = localFont({
   src: [

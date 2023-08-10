@@ -2,7 +2,7 @@ import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
 import { ROUTES } from '@/shared/constants';
-import { useReceiveFunds } from '@/shared/helpers/hooks';
+import { useReceiveFunds } from '@/shared/hooks';
 import { useAppDispatch, useAppSelector } from '@/store/hooks';
 import { reset } from '@/store/slices/fundsReceiving';
 
@@ -12,7 +12,7 @@ import {
   LinkWrapper,
   WithdrawSection,
 } from './PrivateProjectsActions.styled';
-import { type Props } from './types';
+import type { Props } from './types';
 import { Button, ModalError, ModalLoading, ModalSuccess } from '../.';
 
 const PrivateProjectsActions = ({ project }: Props) => {

@@ -16,4 +16,4 @@ const useWindowScroll = () => {
   return windowScroll;
 };
 
-export { useWindowScroll };
+export default useWindowScroll;

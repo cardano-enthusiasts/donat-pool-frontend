@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 import { baseContainer, baseInner, link } from '@/shared/styles/mixins';
 
-import { type Props } from './types';
+import type { Props } from './types';
 
 const Wrapper = styled.footer<{
   backgroundColor: NonNullable<Props['backgroundColor']>;

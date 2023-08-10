@@ -8,7 +8,7 @@ import {
   Label,
   Img,
 } from './ManagementParams.styled';
-import { type Props } from './types';
+import type { Props } from './types';
 
 const ManagementParams = ({
   config: {

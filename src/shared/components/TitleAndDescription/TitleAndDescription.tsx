@@ -8,7 +8,7 @@ import {
   MainLogo,
   Wrapper,
 } from './TitleAndDescription.styles';
-import { type Props } from './types';
+import type { Props } from './types';
 import { Button } from '../Button/Button';
 
 const TitleAndDescription = ({ isActive }: Props) => {

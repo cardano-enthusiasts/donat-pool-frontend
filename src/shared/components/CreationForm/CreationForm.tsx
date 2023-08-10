@@ -2,7 +2,7 @@ import { useRouter } from 'next/navigation';
 import { type ChangeEvent, useState, useEffect } from 'react';
 
 import { ROUTES } from '@/shared/constants';
-import { useCreateFundraising } from '@/shared/helpers/hooks';
+import { useCreateFundraising } from '@/shared/hooks';
 import { useAppDispatch, useAppSelector } from '@/store/hooks';
 import { reset } from '@/store/slices/fundraisingCreation';
 
@@ -15,7 +15,7 @@ import {
   FundingGoal,
   LabelHint,
 } from './CreationForm.styled';
-import { type FormError, type Props } from './types';
+import type { FormError, Props } from './types';
 import {
   Button,
   Checkbox,

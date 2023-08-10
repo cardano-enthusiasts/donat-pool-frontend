@@ -1,3 +1,4 @@
+/* eslint-disable max-params */
 import styled, { css } from 'styled-components';
 
 import {

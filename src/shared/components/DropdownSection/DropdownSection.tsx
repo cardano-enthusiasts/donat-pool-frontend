@@ -7,7 +7,7 @@ import {
   Title,
   Wrapper,
 } from './DropdownSection.styled';
-import { type Props } from './types';
+import type { Props } from './types';
 
 const DropdownSection = ({ title = '', children }: Props) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -19,7 +19,7 @@ const DropdownSection = ({ title = '', children }: Props) => {
         }}
       >
         <Title>{title}</Title>
-        <Arrow src="/icons/red-arrow.svg" isOpen={isOpen}></Arrow>
+        <Arrow src="/icons/red-arrow.svg" isOpen={isOpen} />
       </Header>
       {isOpen && <Content>{children}</Content>}
     </Wrapper>

@@ -4,7 +4,7 @@ import {
   OuterCircle,
   Wrapper,
 } from './InitialLoading.styled';
-import { type Props } from './types';
+import type { Props } from './types';
 import { ActionDonuts, ScrollHelper } from '../.';
 
 const InitialLoading = ({ windowScroll, isAnimationActive }: Props) => {

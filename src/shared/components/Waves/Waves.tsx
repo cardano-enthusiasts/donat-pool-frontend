@@ -1,8 +1,8 @@
-import { useWindowSize } from '@/shared/helpers/hooks';
+import { useWindowSize } from '@/shared/hooks';
 import { theme } from '@/shared/styles/theme';
 
-import { type Props } from './types';
-import { G, SVG, Wrapper } from './Waves.styled';
+import type { Props } from './types';
+import { G, Svg, Wrapper } from './Waves.styled';
 
 const Waves = ({
   color = 'blue',
@@ -21,7 +21,7 @@ const Waves = ({
 
   return (
     <Wrapper backgroundColor={backgroundColor}>
-      <SVG
+      <Svg
         viewBox={`200 0 ${getWidthForViewBox()} 100`}
         width="100%"
         fill="none"
@@ -45,7 +45,7 @@ const Waves = ({
             fill={theme.colors[color] ? theme.colors[color] : color}
           />
         </G>
-      </SVG>
+      </Svg>
     </Wrapper>
   );
 };

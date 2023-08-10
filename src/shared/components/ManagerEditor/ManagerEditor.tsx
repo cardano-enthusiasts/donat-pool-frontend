@@ -1,6 +1,6 @@
 import { type ChangeEvent, useState, useEffect } from 'react';
 
-import { useUpdateProtocol } from '@/shared/helpers/hooks';
+import { useUpdateProtocol } from '@/shared/hooks';
 import { useAppDispatch, useAppSelector } from '@/store/hooks';
 import { reset } from '@/store/slices/protocolUpdating';
 
@@ -12,7 +12,7 @@ import {
   InputWrapper,
   Hint,
 } from './ManagerEditor.styled';
-import { type Props } from './types';
+import type { Props } from './types';
 import { Button, Input, ModalError, ModalLoading, ModalSuccess } from '..';
 
 const ManagerEditor = ({ config }: Props) => {

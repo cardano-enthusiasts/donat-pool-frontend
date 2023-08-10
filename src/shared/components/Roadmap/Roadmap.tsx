@@ -14,7 +14,7 @@ import {
   WrapperAndButton,
   ButtonWrapper,
 } from './Roadmap.styled';
-import { type Props } from './types';
+import type { Props } from './types';
 import { Button } from '../.';
 
 const Roadmap = ({ isActive }: Props) => {

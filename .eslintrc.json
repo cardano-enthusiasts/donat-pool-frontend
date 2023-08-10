@@ -1,58 +1,40 @@
 {
-  "root": true,
-  "env": {
-    "browser": true,
-    "es2022": true
-  },
   "settings": {
     "react": {
       "version": "detect"
     },
     "import/resolver": {
-      "typescript": true
+      "typescript": true,
+      "node": true
     }
   },
   "eslint.workingDirectories": [{ "mode": "auto" }],
-  "overrides": [
-    {
-      "files": ["*.ts", "*.tsx"],
-      "extends": [
-        "standard-with-typescript",
-        "plugin:react/recommended",
-        "plugin:react/jsx-runtime",
-        "plugin:react-hooks/recommended",
-        "plugin:jsx-a11y/recommended",
-        "plugin:@next/next/recommended",
-        "prettier"
-      ],
-      "parserOptions": {
-        "ecmaVersion": 2022,
-        "ecmaFeatures": {
-          "jsx": true
-        },
-        "sourceType": "module",
-        "project": "./tsconfig.json"
-      },
-      "rules": {
-        "@typescript-eslint/explicit-function-return-type": 0,
-        "@typescript-eslint/strict-boolean-expressions": 0,
-
-        "import/order": [
-          "error",
-          {
-            "groups": [
-              ["builtin", "external"],
-              ["internal"],
-              ["parent", "sibling", "index"]
-            ],
-            "newlines-between": "always",
-            "alphabetize": {
-              "order": "asc",
-              "caseInsensitive": true
-            }
-          }
-        ]
+  "extends": [
+    "alloy",
+    "alloy/react",
+    "plugin:react-hooks/recommended",
+    "plugin:@next/next/recommended",
+    "alloy/typescript"
+  ],
+  "plugins": ["import"],
+  "globals": {
+    "React": "readonly"
+  },
+  "rules": {
+    "import/order": [
+      "error",
+      {
+        "groups": [
+          ["builtin", "external"],
+          ["internal"],
+          ["parent", "sibling", "index"]
+        ],
+        "newlines-between": "always",
+        "alphabetize": {
+          "order": "asc",
+          "caseInsensitive": true
+        }
       }
-    }
-  ]
+    ]
+  }
 }

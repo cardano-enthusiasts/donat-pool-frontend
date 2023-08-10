@@ -7,7 +7,7 @@ import {
   ProjectLink,
   Title,
 } from './ModalProjectCreated.styled';
-import { type Props } from './types';
+import type { Props } from './types';
 import { Button, Modal } from '../.';
 
 const ModalProjectCreated = ({ isOpen, onClose, path }: Props) => {

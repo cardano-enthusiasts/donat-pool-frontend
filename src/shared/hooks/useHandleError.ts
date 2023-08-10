@@ -1,6 +1,7 @@
 import {
   errors,
   missingCollateral,
+  userDecline,
   walletDisconnect,
   walletIsNotAvailable,
 } from '@/shared/constants/errors';
@@ -19,8 +20,9 @@ const useHandleError = () => {
         }, 500);
         return errors[walletDisconnect];
       case walletIsNotAvailable:
-        dispatch(setWalletStatus('notAvailable'));
         return errors[walletIsNotAvailable];
+      case userDecline:
+        return errors[userDecline];
       case missingCollateral:
         dispatch(setWalletStatus('missingCollateral'));
         return errors[missingCollateral];
@@ -29,4 +31,5 @@ const useHandleError = () => {
     }
   };
 };
-export { useHandleError };
+
+export default useHandleError;

@@ -1,5 +1,5 @@
 import { StyledInput, StyledLabel, Title } from './Checkbox.styled';
-import { type Props } from './types';
+import type { Props } from './types';
 
 const Checkbox = ({ isChecked, onChange, children }: Props) => {
   return (

@@ -12,10 +12,10 @@ import {
   ModalSuccess,
   RaisedCounter,
 } from '@/shared/components';
-import { getDate } from '@/shared/helpers';
-import { useDonate } from '@/shared/helpers/hooks';
+import { formatDate } from '@/shared/helpers';
 import { useAllFundraisings, useAuthGuard } from '@/shared/hooks';
-import { type Fundraising } from '@/shared/types';
+import { useDonate } from '@/shared/hooks';
+import type { Fundraising } from '@/shared/types';
 import { useAppDispatch, useAppSelector } from '@/store/hooks';
 import { reset } from '@/store/slices/donating';
 
@@ -75,71 +75,71 @@ const Page = () => {
     }
   }, [allFundraisings, params.id]);
 
-  return currentProject ? (
-    <>
-      <Common>
-        <Wrapper>
-          <Title>{currentProject.title}</Title>
-          <Duration>
-            Until {getDate(Number(currentProject.deadline.value))}{' '}
-          </Duration>
-          <CounterWrapper>
-            <RaisedCounter
-              raised={Number(currentProject.raisedAmt.value) / 1000000}
-              goal={Number(currentProject.goal.value) / 1000000}
-            />
-          </CounterWrapper>
+  return (
+    currentProject && (
+      <>
+        <Common>
+          <Wrapper>
+            <Title>{currentProject.title}</Title>
+            <Duration>
+              Until {formatDate(Number(currentProject.deadline.value))}{' '}
+            </Duration>
+            <CounterWrapper>
+              <RaisedCounter
+                raised={Number(currentProject.raisedAmt.value) / 1000000}
+                goal={Number(currentProject.goal.value) / 1000000}
+              />
+            </CounterWrapper>
 
-          <ButtonWrapper>
-            <Button
-              themeType="accent"
-              onClick={() => {
-                setIsModalOpen(true);
-              }}
-              primaryColor="yellow"
-              secondaryColor="red"
-              fontColor="red"
-            >
-              Donate
-            </Button>
-          </ButtonWrapper>
-        </Wrapper>
-      </Common>
-      <ModalDonate
-        isOpen={isModalOpen}
-        onClose={() => {
-          setIsModalOpen(false);
-        }}
-        data={{
-          threadTokenCurrency: currentProject.threadTokenCurrency,
-          threadTokenName: currentProject.threadTokenName,
-        }}
-        donate={donate}
-      />
-      <ModalError
-        isOpen={isModalErrorOpen}
-        title="How many ADA would you like to donate?"
-        errorText={error}
-        onClose={() => {
-          setIsModalErrorOpen(false);
-          dispatch(reset());
-        }}
-      />
-      <ModalLoading
-        isOpen={isModalLoadingOpen}
-        title="How many ADA would you like to donate?"
-      />
-      <ModalSuccess
-        isOpen={isModalSuccessOpen}
-        description="Congratulations! Your donut is ready!"
-        onClose={() => {
-          setIsModalSuccessOpen(false);
-          dispatch(reset());
-        }}
-      />
-    </>
-  ) : (
-    <></>
+            <ButtonWrapper>
+              <Button
+                themeType="accent"
+                onClick={() => {
+                  setIsModalOpen(true);
+                }}
+                primaryColor="yellow"
+                secondaryColor="red"
+                fontColor="red"
+              >
+                Donate
+              </Button>
+            </ButtonWrapper>
+          </Wrapper>
+        </Common>
+        <ModalDonate
+          isOpen={isModalOpen}
+          onClose={() => {
+            setIsModalOpen(false);
+          }}
+          data={{
+            threadTokenCurrency: currentProject.threadTokenCurrency,
+            threadTokenName: currentProject.threadTokenName,
+          }}
+          donate={donate}
+        />
+        <ModalError
+          isOpen={isModalErrorOpen}
+          title="How many ADA would you like to donate?"
+          errorText={error}
+          onClose={() => {
+            setIsModalErrorOpen(false);
+            dispatch(reset());
+          }}
+        />
+        <ModalLoading
+          isOpen={isModalLoadingOpen}
+          title="How many ADA would you like to donate?"
+        />
+        <ModalSuccess
+          isOpen={isModalSuccessOpen}
+          description="Congratulations! Your donut is ready!"
+          onClose={() => {
+            setIsModalSuccessOpen(false);
+            dispatch(reset());
+          }}
+        />
+      </>
+    )
   );
 };
 

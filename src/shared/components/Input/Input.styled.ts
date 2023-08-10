@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 
-import { type Props } from './types';
+import type { Props } from './types';
 
 const getColor = (errorInfo: any, fontColor: any) => {
   if (errorInfo || errorInfo === '') {
@@ -32,6 +32,16 @@ const getFieldStyles = ({ errorInfo, fontColor }: any) => css`
   &:disabled {
     cursor: not-allowed;
     color: #828587;
+  }
+
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  &[type='number'] {
+    -moz-appearance: textfield;
   }
 `;
 

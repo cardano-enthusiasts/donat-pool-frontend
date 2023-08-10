@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { type LandingSection } from '@/shared/types/common';
+import type { LandingSection } from '@/shared/types/common';
 
 const Wrapper = styled.nav<{
   windowScroll: any;
