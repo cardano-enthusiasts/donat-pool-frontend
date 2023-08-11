@@ -64,7 +64,7 @@ const Page = () => {
             <h1 className="mb-6 overflow-hidden text-ellipsis whitespace-nowrap text-center">
               {currentProject.title}
             </h1>
-            <div className="border-b-2 border-t-2 border-black py-6 text-center text-5 font-bold">
+            <div className="border-b-2 border-t-2 border-black py-6 text-center text-xl font-bold">
               Until {formatDate(Number(currentProject.deadline.value))}{' '}
             </div>
             <div className="mx-0 mb-10 mt-6">

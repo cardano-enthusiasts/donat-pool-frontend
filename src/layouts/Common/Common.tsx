@@ -5,7 +5,6 @@ import { Footer, Header } from '@/shared/components';
 import { useGetAppInfo } from '@/shared/hooks';
 import { useDonatPool } from '@/shared/hooks';
 
-import { Inner, Main } from './Common.styled';
 import type { Props } from './types';
 
 const Common = ({ children }: Props) => {
@@ -23,9 +22,9 @@ const Common = ({ children }: Props) => {
   return (
     <div className="flex min-h-screen flex-col">
       <Header currentPage={pathname} />
-      <Main>
-        <Inner>{children}</Inner>
-      </Main>
+      <main className="base-wrapper grow">
+        <div className="base-inner mx-0 mb-40 mt-20 max-sm:mx-0 max-sm:mb-[60px] max-sm:mt-10">{children}</div>
+      </main>
       <Footer />
     </div>
   );

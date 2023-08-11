@@ -1,34 +1,25 @@
+import classNames from 'classnames';
+
 import { useWindowSize } from '@/shared/hooks';
 
-import {
-  Inner,
-  PageHeader,
-  PreviousPage,
-  Title,
-  Wrapper,
-} from './Project.styled';
+import styles from './Project.module.scss';
 import type { Props } from './types';
 
-const Project = ({
-  onPreviousPageClick,
-  previousPageTitle,
-  title,
-  children,
-}: Props) => {
+const Project = ({ onPreviousPageClick, previousPageTitle, title, children }: Props) => {
   const { width } = useWindowSize();
 
   return (
-    <Wrapper>
-      <Inner>
-        <PageHeader>
-          <PreviousPage onClick={onPreviousPageClick}>
+    <div className="relative flex justify-center">
+      <div className="w-full max-w-[620px]">
+        <div className="mb-[60px] flex justify-between max-xl:justify-start max-lg:mb-8">
+          <div className={classNames(styles.previous, 'text-blue')} onClick={onPreviousPageClick}>
             {width > 1200 ? previousPageTitle : ''}
-          </PreviousPage>
-          <Title>{title}</Title>
-        </PageHeader>
+          </div>
+          <h1 className="overflow-hidden text-ellipsis">{title}</h1>
+        </div>
         {children}
-      </Inner>
-    </Wrapper>
+      </div>
+    </div>
   );
 };
 
