@@ -18,7 +18,7 @@ const useAuthGuard = () => {
   }, [dispatch]);
 
   const handleFetchFailure = useCallback(() => {
-    router.push(ROUTES.root);
+    router.push(ROUTES.home);
   }, [router]);
 
   useEffect(() => {
