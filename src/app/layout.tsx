@@ -41,7 +41,7 @@ export const metadata: Metadata = {
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <html
-      className={`${microsoftYaHeiFont.variable} ${microsoftYaHeiFont.className} ${rammettoOneFont.variable} bg-white text-[16px] text-black`}
+      className={`${microsoftYaHeiFont.variable} ${microsoftYaHeiFont.className} ${rammettoOneFont.variable} bg-white text-4 text-black`}
       lang="en"
     >
       <body>

@@ -3,6 +3,10 @@
 @tailwind utilities;
 
 @layer base {
+  h1 {
+    @apply font-rammetto-one text-[54px] text-red max-[900px]:text-[36px] max-[400px]:text-[36px];
+  }
+
   ::-webkit-scrollbar {
     @apply w-[5px];
   }

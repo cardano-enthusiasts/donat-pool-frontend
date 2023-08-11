@@ -4,13 +4,11 @@ import { useParams, useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
 import { Common, Project } from '@/layouts';
-import { PrivateProjectsActions, RaisedCounter } from '@/shared/components';
+import { PrivateProjectsActions, RaisedCounter, Status } from '@/shared/components';
 import { ROUTES } from '@/shared/constants';
 import { formatDate } from '@/shared/helpers';
 import { useAuthGuard, useUserFundraisings } from '@/shared/hooks';
 import type { Fundraising } from '@/shared/types';
-
-import { CounterWrapper, Deadline, DeadlineAndStatus, Inner, Status } from './PrivateProject.styled';
 
 const Page = () => {
   useAuthGuard();
@@ -40,21 +38,19 @@ const Page = () => {
           }}
           title={currentProject.title}
         >
-          <Inner>
-            <DeadlineAndStatus>
-              <Status isActive={!currentProject.isCompleted}>
-                {currentProject.isCompleted ? 'Completed' : 'Active'}
-              </Status>
-              <Deadline>Until {formatDate(Number(currentProject.deadline.value))}</Deadline>
-            </DeadlineAndStatus>
-            <CounterWrapper>
+          <div className="max-w-[600px]">
+            <div className="flex items-center justify-between border-b-2 border-t-2 border-black py-7">
+              <Status isActive={!currentProject.isCompleted} />
+              <div className="text-xl font-bold">Until {formatDate(Number(currentProject.deadline.value))}</div>
+            </div>
+            <div className="flex border-b-2 border-black py-6">
               <RaisedCounter
                 raised={Number(currentProject.raisedAmt.value) / 1000000}
                 goal={Number(currentProject.goal.value) / 1000000}
               />
-            </CounterWrapper>
+            </div>
             <PrivateProjectsActions project={currentProject} />
-          </Inner>
+          </div>
         </Project>
       </Common>
     )

@@ -9,8 +9,6 @@ import { ROUTES } from '@/shared/constants';
 import { useAuthGuard, useAllFundraisings } from '@/shared/hooks';
 import { useAppSelector } from '@/store/hooks';
 
-import { CardsWrapper, CreateButton, Title, TitleAndButton } from './AllProjects.styled';
-
 const Page = () => {
   useAuthGuard();
   const router = useRouter();
@@ -31,9 +29,9 @@ const Page = () => {
 
   return (
     <Common>
-      <TitleAndButton>
-        <Title>All Donation pools</Title>
-        <CreateButton>
+      <div className="justify-between items-center mb-14 flex gap-14 text-center max-md:mb-8 max-md:flex-col max-md:gap-5">
+        <h1>All Donation pools</h1>
+        <div className="max-md:fixed max-md:bottom-[60px] max-md:right-8">
           <Button
             primaryColor="red"
             secondaryColor="blue"
@@ -44,18 +42,18 @@ const Page = () => {
           >
             Create a new project
           </Button>
-        </CreateButton>
-      </TitleAndButton>
+        </div>
+      </div>
       {fundraisingsAreBeingFetched && <div>fundraisings are being fetched</div>}
       {fundraisings && (
-        <CardsWrapper>
+        <div className="grid grid-cols-projects gap-10 max-sm:grid-cols-1 max-sm:gap-8">
           {fundraisings
             .filter(({ isCompleted }) => !isCompleted)
             .sort((fundraising1, fundraising2) => Number(fundraising1.deadline) - Number(fundraising2.deadline))
             .map((fundraising) => (
               <ProjectCard key={fundraising.threadTokenCurrency} data={fundraising} linkSection="all-projects" />
             ))}
-        </CardsWrapper>
+        </div>
       )}
       {fetchFundraisingsError && <div className="text-error">{fetchFundraisingsError}</div>}
     </Common>

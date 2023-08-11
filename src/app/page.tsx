@@ -1,16 +1,9 @@
 'use client';
 import { useEffect, useRef, useState } from 'react';
 
-import {
-  InitialLoading,
-  LandingContent,
-  LandingNav,
-  Waves,
-} from '@/shared/components';
+import { InitialLoading, LandingContent, LandingNav, Waves } from '@/shared/components';
 import { useWindowSize, useWindowScroll } from '@/shared/hooks';
 import type { LandingSection } from '@/shared/types/common';
-
-import { DonutsWrapper, WavesWrapper, Wrapper } from './Landing.styled';
 
 const Landing = () => {
   const windowScroll = useWindowScroll();
@@ -34,16 +27,13 @@ const Landing = () => {
   };
 
   return (
-    <Wrapper>
-      <DonutsWrapper>
-        <InitialLoading
-          windowScroll={windowScroll}
-          isAnimationActive={isAnimationActive}
-        />
-        <WavesWrapper>
+    <div className="flex flex-col">
+      <div className="relative">
+        <InitialLoading windowScroll={windowScroll} isAnimationActive={isAnimationActive} />
+        <div className='absolute bottom-0 w-full'>
           <Waves />
-        </WavesWrapper>
-      </DonutsWrapper>
+        </div>
+      </div>
       <LandingContent
         windowScroll={windowScroll}
         currentSection={currentSection}
@@ -61,7 +51,7 @@ const Landing = () => {
         ref={navRef}
         isAnimationActive={isAnimationActive}
       />
-    </Wrapper>
+    </div>
   );
 };
 

@@ -12,8 +12,6 @@ import type { Fundraising } from '@/shared/types';
 import { useAppDispatch, useAppSelector } from '@/store/hooks';
 import { reset } from '@/store/slices/donating';
 
-import { ButtonWrapper, CounterWrapper, Duration, Title, Wrapper } from './PublicProject.styled';
-
 const Page = () => {
   useAuthGuard();
   const params = useParams();
@@ -62,17 +60,21 @@ const Page = () => {
     currentProject && (
       <>
         <Common>
-          <Wrapper>
-            <Title>{currentProject.title}</Title>
-            <Duration>Until {formatDate(Number(currentProject.deadline.value))} </Duration>
-            <CounterWrapper>
+          <div className="pb-40 pt-20">
+            <h1 className="mb-6 overflow-hidden text-ellipsis whitespace-nowrap text-center">
+              {currentProject.title}
+            </h1>
+            <div className="border-b-2 border-t-2 border-black py-6 text-center text-5 font-bold">
+              Until {formatDate(Number(currentProject.deadline.value))}{' '}
+            </div>
+            <div className="mx-0 mb-10 mt-6">
               <RaisedCounter
                 raised={Number(currentProject.raisedAmt.value) / 1000000}
                 goal={Number(currentProject.goal.value) / 1000000}
               />
-            </CounterWrapper>
+            </div>
 
-            <ButtonWrapper>
+            <div className="flex justify-center">
               <Button
                 themeType="accent"
                 onClick={() => {
@@ -81,8 +83,8 @@ const Page = () => {
               >
                 Donate
               </Button>
-            </ButtonWrapper>
-          </Wrapper>
+            </div>
+          </div>
         </Common>
         <ModalDonate
           isOpen={isModalOpen}
