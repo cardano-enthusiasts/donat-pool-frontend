@@ -1,12 +1,14 @@
+import { useRouter } from 'next/navigation';
 import { useCallback, useEffect } from 'react';
 
 import { useAppSelector, useAppDispatch } from '@/redux/hooks';
-import { setRequestStatus, setError } from '@/redux/slices/connectWallet';
-import { testnetNami } from '@/shared/constants';
+import { setRequestStatus } from '@/redux/slices/connectWallet';
+import { ROUTES, testnetNami } from '@/shared/constants';
 
 import useDonatPool from './useDonatPool';
 
 const useAuthGuard = () => {
+  const router = useRouter();
   const donatPool = useDonatPool();
   const connectWalletStatus = useAppSelector((state) => state.connectWallet.requestStatus);
   const dispatch = useAppDispatch();
@@ -15,13 +17,9 @@ const useAuthGuard = () => {
     dispatch(setRequestStatus('success'));
   }, [dispatch]);
 
-  const handleFetchFailure = useCallback(
-    (error: string) => {
-      console.error(`connectWallet: ${error}`);
-      dispatch(setError(error));
-    },
-    [dispatch],
-  );
+  const handleFetchFailure = useCallback(() => {
+    router.push(ROUTES.root);
+  }, [router]);
 
   useEffect(() => {
     if (connectWalletStatus === 'default' && donatPool) {
