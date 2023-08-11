@@ -4,18 +4,17 @@ import { useParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
 import { Common } from '@/layouts';
+import { useAppDispatch, useAppSelector } from '@/redux/hooks';
+import { reset } from '@/redux/slices/donating';
 import { Button, ModalDonate, ModalError, ModalLoading, ModalSuccess, RaisedCounter } from '@/shared/components';
 import { formatDate } from '@/shared/helpers';
-import { useAllFundraisings, useAuthGuard } from '@/shared/hooks';
+import { useAllFundraisings } from '@/shared/hooks';
 import { useDonate } from '@/shared/hooks';
 import type { Fundraising } from '@/shared/types';
-import { useAppDispatch, useAppSelector } from '@/store/hooks';
-import { reset } from '@/store/slices/donating';
 
 import { ButtonWrapper, CounterWrapper, Duration, Title, Wrapper } from './PublicProject.styled';
 
 const Page = () => {
-  useAuthGuard();
   const params = useParams();
   const dispatch = useAppDispatch();
   const { fundraisings } = useAllFundraisings();

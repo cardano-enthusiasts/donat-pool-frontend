@@ -1,10 +1,10 @@
+import { useAppDispatch } from '@/redux/hooks';
+import { setError, setRequesting, setProtocol, setUserInfo } from '@/redux/slices/appInfo';
+import { setWalletStatus } from '@/redux/slices/connectWallet';
 import { testnetNami } from '@/shared/constants';
 import { logOffchainError } from '@/shared/helpers';
 import { useDonatPool } from '@/shared/hooks';
 import type { UserAndProtocolParams } from '@/shared/types/backend';
-import { useAppDispatch } from '@/store/hooks';
-import { setError, setRequesting, setProtocol, setUserInfo } from '@/store/slices/appInfo';
-import { setWalletStatus } from '@/store/slices/connectWallet';
 
 import useHandleError from './useHandleError';
 

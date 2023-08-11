@@ -4,9 +4,9 @@ import { useRouter } from 'next/navigation';
 import { useEffect } from 'react';
 
 import { Common } from '@/layouts';
+import { useAppSelector } from '@/redux/hooks';
 import { ManagementParams, ManagerEditor } from '@/shared/components';
 import { ROUTES } from '@/shared/constants';
-import { useAppSelector } from '@/store/hooks';
 
 import { Title, Wrapper } from './Management.styled';
 

@@ -1,8 +1,8 @@
 import { useCallback, useEffect } from 'react';
 
+import { useAppSelector, useAppDispatch } from '@/redux/hooks';
+import { setRequestStatus, setError } from '@/redux/slices/connectWallet';
 import { testnetNami } from '@/shared/constants';
-import { useAppSelector, useAppDispatch } from '@/store/hooks';
-import { setRequestStatus, setError } from '@/store/slices/connectWallet';
 
 import useDonatPool from './useDonatPool';
 

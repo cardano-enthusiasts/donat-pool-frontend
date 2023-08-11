@@ -1,12 +1,12 @@
 import { useState } from 'react';
 
-import { testnetNami } from '@/shared/constants';
-import { useDonatPool } from '@/shared/hooks';
-import { useAppSelector, useAppDispatch } from '@/store/hooks';
+import { useAppSelector, useAppDispatch } from '@/redux/hooks';
 import {
   setRequestStatus as setConnectWalletStatus,
   setError as setConnectWalletError,
-} from '@/store/slices/connectWallet';
+} from '@/redux/slices/connectWallet';
+import { testnetNami } from '@/shared/constants';
+import { useDonatPool } from '@/shared/hooks';
 
 import { Address, ConnectButton, Wrapper } from './WalletButton.styled';
 

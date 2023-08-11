@@ -1,10 +1,10 @@
 import { useCallback, useEffect } from 'react';
 
+import { useAppSelector, useAppDispatch } from '@/redux/hooks';
+import { setRequestStatus, setFundraisings, setError } from '@/redux/slices/getUserRelatedFundraisings';
 import { testnetNami } from '@/shared/constants';
 import { transformFundraisings } from '@/shared/helpers';
 import type { FetchedFundraising } from '@/shared/types';
-import { useAppSelector, useAppDispatch } from '@/store/hooks';
-import { setRequestStatus, setFundraisings, setError } from '@/store/slices/getUserRelatedFundraisings';
 
 import useDonatPool from './useDonatPool';
 

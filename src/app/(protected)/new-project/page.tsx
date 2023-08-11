@@ -4,18 +4,16 @@ import { useRouter } from 'next/navigation';
 import { useEffect } from 'react';
 
 import { Common } from '@/layouts';
-import { MyProjects } from '@/shared/components';
+import { useAppSelector } from '@/redux/hooks';
+import { ProjectCreation } from '@/shared/components';
 import { ROUTES } from '@/shared/constants';
-import { useAuthGuard } from '@/shared/hooks';
-import { useAppSelector } from '@/store/hooks';
 
 const Page = () => {
-  useAuthGuard();
   const router = useRouter();
   const connectWalletStatus = useAppSelector((state) => state.connectWallet.requestStatus);
 
   useEffect(() => {
-    document.title = 'My projects';
+    document.title = 'New project';
   }, []);
 
   if (connectWalletStatus !== 'success') {
@@ -24,9 +22,9 @@ const Page = () => {
 
   return (
     <Common>
-      <MyProjects
-        onCreateAProjectClick={() => {
-          router.push(ROUTES.newFundraising);
+      <ProjectCreation
+        onClose={() => {
+          router.push(ROUTES.userFundraisings);
         }}
       />
     </Common>

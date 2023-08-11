@@ -4,15 +4,14 @@ import { useRouter } from 'next/navigation';
 import { useEffect } from 'react';
 
 import { Common } from '@/layouts';
+import { useAppSelector } from '@/redux/hooks';
 import { Button, ProjectCard } from '@/shared/components';
 import { ROUTES } from '@/shared/constants';
-import { useAuthGuard, useAllFundraisings } from '@/shared/hooks';
-import { useAppSelector } from '@/store/hooks';
+import { useAllFundraisings } from '@/shared/hooks';
 
 import { CardsWrapper, CreateButton, Title, TitleAndButton } from './AllProjects.styled';
 
 const Page = () => {
-  useAuthGuard();
   const router = useRouter();
   const {
     areBeingFetched: fundraisingsAreBeingFetched,

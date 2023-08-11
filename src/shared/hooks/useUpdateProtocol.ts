@@ -1,9 +1,9 @@
+import { useAppDispatch } from '@/redux/hooks';
+import { setWalletStatus } from '@/redux/slices/connectWallet';
+import { setError, setSuccess, setRequesting } from '@/redux/slices/protocolUpdating';
 import { logOffchainError } from '@/shared/helpers';
 import { useDonatPool } from '@/shared/hooks';
 import type { Config } from '@/shared/types/common';
-import { useAppDispatch } from '@/store/hooks';
-import { setWalletStatus } from '@/store/slices/connectWallet';
-import { setError, setSuccess, setRequesting } from '@/store/slices/protocolUpdating';
 
 import useGetAppInfo from './useGetAppInfo';
 import useHandleError from './useHandleError';

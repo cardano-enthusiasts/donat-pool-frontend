@@ -1,4 +1,4 @@
-import { useAppSelector } from '@/store/hooks';
+import { useAppSelector } from '@/redux/hooks';
 
 import { Wrapper } from './PrecalculationFee.styled';
 import type { Props } from './types';

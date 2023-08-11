@@ -1,8 +1,8 @@
 import Link from 'next/link';
 import { useState } from 'react';
 
+import { useAppSelector } from '@/redux/hooks';
 import { ROUTES } from '@/shared/constants';
-import { useAppSelector } from '@/store/hooks';
 
 import { Inner, Links, Wrapper, LinkWrapper, Icon, LogoWrapper, LinksAndButton, Line } from './Header.styled';
 import type { Props } from './types';

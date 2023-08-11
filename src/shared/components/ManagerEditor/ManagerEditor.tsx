@@ -1,8 +1,8 @@
 import { type ChangeEvent, useState, useEffect } from 'react';
 
+import { useAppDispatch, useAppSelector } from '@/redux/hooks';
+import { reset } from '@/redux/slices/protocolUpdating';
 import { useUpdateProtocol } from '@/shared/hooks';
-import { useAppDispatch, useAppSelector } from '@/store/hooks';
-import { reset } from '@/store/slices/protocolUpdating';
 
 import { defaultParams } from './data';
 import { ButtonWrapper, Line, Form, InputWrapper, Hint } from './ManagerEditor.styled';

@@ -1,10 +1,10 @@
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
+import { useAppDispatch, useAppSelector } from '@/redux/hooks';
+import { reset } from '@/redux/slices/fundsReceiving';
 import { ROUTES } from '@/shared/constants';
 import { useReceiveFunds } from '@/shared/hooks';
-import { useAppDispatch, useAppSelector } from '@/store/hooks';
-import { reset } from '@/store/slices/fundsReceiving';
 
 import { ButtonWrapper, Commission, LinkWrapper, WithdrawSection } from './PrivateProjectsActions.styled';
 import type { Props } from './types';

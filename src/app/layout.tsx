@@ -3,7 +3,7 @@ import { Rammetto_One } from 'next/font/google';
 import localFont from 'next/font/local';
 import Script from 'next/script';
 
-import StoreProvider from '@/store/Provider';
+import StoreProvider from '@/redux/Provider';
 import StyledComponentsProvider from '@/StyledComponentsProvider';
 
 import './global.css';

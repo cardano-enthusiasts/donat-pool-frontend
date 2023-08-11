@@ -7,13 +7,12 @@ import { Common, Project } from '@/layouts';
 import { PrivateProjectsActions, RaisedCounter } from '@/shared/components';
 import { ROUTES } from '@/shared/constants';
 import { formatDate } from '@/shared/helpers';
-import { useAuthGuard, useUserFundraisings } from '@/shared/hooks';
+import { useUserFundraisings } from '@/shared/hooks';
 import type { Fundraising } from '@/shared/types';
 
 import { CounterWrapper, Deadline, DeadlineAndStatus, Inner, Status } from './PrivateProject.styled';
 
 const Page = () => {
-  useAuthGuard();
   const params = useParams();
   const router = useRouter();
   const { fundraisings } = useUserFundraisings();

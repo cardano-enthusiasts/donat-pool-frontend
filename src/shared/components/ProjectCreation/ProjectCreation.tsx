@@ -1,6 +1,6 @@
 import { Project } from '@/layouts';
+import { useAppSelector } from '@/redux/hooks';
 import { CreationForm } from '@/shared/components';
-import { useAppSelector } from '@/store/hooks';
 
 import type { Props } from './types';
 

@@ -1,10 +1,10 @@
+import { useAppDispatch } from '@/redux/hooks';
+import { setWalletStatus } from '@/redux/slices/connectWallet';
+import { setError, setRequesting, setCreatedPath } from '@/redux/slices/fundraisingCreation';
 import { testnetNami } from '@/shared/constants';
 import { logOffchainError } from '@/shared/helpers';
 import { useDonatPool, useUserFundraisings } from '@/shared/hooks';
 import type { BackendProject } from '@/shared/types/backend';
-import { useAppDispatch } from '@/store/hooks';
-import { setWalletStatus } from '@/store/slices/connectWallet';
-import { setError, setRequesting, setCreatedPath } from '@/store/slices/fundraisingCreation';
 
 import useHandleError from './useHandleError';
 

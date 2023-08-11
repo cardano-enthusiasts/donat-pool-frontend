@@ -1,10 +1,10 @@
 import { useRouter } from 'next/navigation';
 import { type ChangeEvent, useState, useEffect } from 'react';
 
+import { useAppDispatch, useAppSelector } from '@/redux/hooks';
+import { reset } from '@/redux/slices/fundraisingCreation';
 import { ROUTES } from '@/shared/constants';
 import { useCreateFundraising } from '@/shared/hooks';
-import { useAppDispatch, useAppSelector } from '@/store/hooks';
-import { reset } from '@/store/slices/fundraisingCreation';
 
 import {
   ButtonWrapper,
