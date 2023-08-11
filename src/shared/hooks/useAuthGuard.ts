@@ -17,6 +17,7 @@ const useAuthGuard = () => {
 
   const handleFetchFailure = useCallback(
     (error: string) => {
+      console.error(`connectWallet: ${error}`);
       dispatch(setError(error));
     },
     [dispatch],

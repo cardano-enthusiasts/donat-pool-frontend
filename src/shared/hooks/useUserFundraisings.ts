@@ -23,6 +23,7 @@ const useUserFundraisings = () => {
 
   const handleFetchFailure = useCallback(
     (error: string) => {
+      console.error(`getUserRelatedFundraisings: ${error}`);
       dispatch(setError(error));
     },
     [dispatch],
