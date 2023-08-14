@@ -19,5 +19,5 @@ RUN npm i
 RUN rm /root/.ssh/id_rsa
 # Bundle app source
 COPY . /code
-RUN npm run build
-CMD ["npm", "run", "start"]
+# RUN npm run build
+CMD ["npm", "run", "dev"]
