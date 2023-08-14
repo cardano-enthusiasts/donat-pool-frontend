@@ -8,7 +8,6 @@
       "node": true
     }
   },
-  "workingDirectories": [{ "mode": "auto" }],
   "extends": [
     "alloy",
     "alloy/react",

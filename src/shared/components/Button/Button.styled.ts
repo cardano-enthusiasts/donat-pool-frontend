@@ -1,15 +1,7 @@
 /* eslint-disable max-params */
 import styled, { css } from 'styled-components';
 
-import {
-  type Standard,
-  type Props,
-  type Accent,
-  type Dashed,
-  type DoubleBordered,
-  type Bordered,
-  type StyledButtonTheme,
-} from './types';
+import type { Standard, Props, Accent, Dashed, DoubleBordered, Bordered, StyledButtonTheme } from './types';
 
 const getAnimation = (name: 'push' | 'push-before' | 'push-after' | 'standard' | 'standard-pseudo') => {
   return css`
