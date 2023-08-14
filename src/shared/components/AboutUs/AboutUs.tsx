@@ -15,7 +15,14 @@ const AboutUs = () => {
       : photos.filter(({ isFirstRow }) => !isFirstRow);
 
     return filteredPhotos.map(({ title, className, alt, width, height }) => (
-      <Image className={className} src={`/img/${title}.png`} alt={alt} width={width} height={height} key={title} />
+      <Image
+        className={className}
+        src={`/img/${title}.png`}
+        alt={alt}
+        width={width}
+        height={height}
+        key={title}
+      />
     ));
   };
 
@@ -24,7 +31,11 @@ const AboutUs = () => {
       <div className="relative flex flex-col items-center">
         <div className={styles.team}>
           {getPhotos(true)}
-          {windowWidth > 1430 ? getPhotos(false) : <div className={styles.second}>{getPhotos(false)}</div>}
+          {windowWidth > 1430 ? (
+            getPhotos(false)
+          ) : (
+            <div className={styles.second}>{getPhotos(false)}</div>
+          )}
         </div>
         <div className={styles.dots} />
       </div>
