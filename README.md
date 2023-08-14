@@ -24,10 +24,3 @@ npm run dev
 ```
 
 2. Open [project](http://localhost:3000) in a browser
-
-## Start in docker
-
-```
-docker build --build-arg SSH_PRIVATE_KEY="$(cat <path to id_rsa>)" . -t donat-pool
-docker run -p 3000:3000 --network host --name donat-pool donat-pool
-```
