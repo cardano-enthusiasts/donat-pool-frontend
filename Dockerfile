@@ -13,8 +13,8 @@ RUN npm pkg delete scripts.prepare
 RUN npm i --omit=dev
 # Remove key 
 RUN rm /root/.ssh/id_rsa
-COPY ["public/fonts", "public/gif", "public/icons", "public/img", "./public/"]
-COPY ["src", ".env", './']
+COPY ["./public/fonts", "./public/gif", "./public/icons", "./public/img", "./public/"]
+COPY ["./src", "./.env", './']
 RUN npm run build
 
 FROM node:18.17.1
