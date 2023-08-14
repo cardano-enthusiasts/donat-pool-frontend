@@ -8,7 +8,7 @@ RUN chmod 600 /root/.ssh/id_rsa
 RUN touch /root/.ssh/known_hosts
 RUN ssh-keyscan github.com >> /root/.ssh/known_hosts
 WORKDIR /app
-COPY ["package.json", ".env", "."]
+COPY ["package.json", ".env", "./"]
 COPY ["public/fonts", "public/gif", "public/icons", "public/img", "./public"]
 RUN npm pkg delete scripts.prepare
 RUN npm i --omit=dev
