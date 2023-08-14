@@ -18,7 +18,6 @@ RUN npm run build
 
 FROM node:18.17.1
 WORKDIR /app
-COPY --from=builder ./app/.env ./.env
 COPY --from=builder ./app/public ./public
 COPY --from=builder ./app/.next ./.next
 CMD ["npm", "run", "start"]
