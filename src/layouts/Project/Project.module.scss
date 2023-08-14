@@ -18,7 +18,7 @@
     content: url('/icons/arrow.svg');
   }
 
-  @media (width <= 1200px) {
+  @media (max-width: 1200px) {
     position: static;
   }
 }
