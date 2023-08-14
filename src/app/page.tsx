@@ -30,7 +30,7 @@ const Landing = () => {
     <div className="flex flex-col">
       <div className="relative">
         <InitialLoading windowScroll={windowScroll} isAnimationActive={isAnimationActive} />
-        <div className='absolute bottom-0 w-full'>
+        <div className="absolute bottom-0 w-full">
           <Waves />
         </div>
       </div>

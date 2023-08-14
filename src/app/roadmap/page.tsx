@@ -7,7 +7,6 @@ import { Service } from '@/layouts';
 import { roadmapText } from '@/shared/data';
 
 const Page = () => {
-
   useEffect(() => {
     document.title = 'Roadmap';
   }, []);

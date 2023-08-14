@@ -27,11 +27,11 @@ module.exports = {
         error: '#c820f2',
       },
       gridTemplateColumns: {
-        'projects': 'repeat(auto-fill, minmax(325px, 1fr))',
+        projects: 'repeat(auto-fill, minmax(325px, 1fr))',
       },
       boxShadow: {
-        'xl': '0px 15px 15px 0px rgba(186, 186, 186, 0.4)',
-      }
+        xl: '0px 15px 15px 0px rgba(186, 186, 186, 0.4)',
+      },
     },
   },
 };

@@ -28,7 +28,7 @@ const Page = () => {
 
   return (
     <Common>
-      <div className="justify-between items-center mb-14 flex gap-14 text-center max-md:mb-8 max-md:flex-col max-md:gap-5">
+      <div className="mb-14 flex items-center justify-between gap-14 text-center max-md:mb-8 max-md:flex-col max-md:gap-5">
         <h1>All Donation pools</h1>
         <div className="max-md:fixed max-md:bottom-[60px] max-md:right-8">
           <Button
