@@ -1,10 +1,6 @@
 import styled, { css } from 'styled-components';
 
-import {
-  getLargeLayoutPadding,
-  getMediumLayoutPadding,
-  getSmallLayoutPadding,
-} from 'shared/styles/mixins';
+import { getLargeLayoutPadding, getMediumLayoutPadding, getSmallLayoutPadding } from '@/shared/styles/mixins';
 
 const paddings = css`
   ${() => getLargeLayoutPadding()}
@@ -27,9 +23,7 @@ const MainWrapper = styled.div<{
 }>`
   width: 100%;
   background: ${({ theme, backgroundColor }) =>
-    theme.colors[backgroundColor]
-      ? theme.colors[backgroundColor]
-      : theme.colors.green};
+    theme.colors[backgroundColor] ? theme.colors[backgroundColor] : theme.colors.green};
 `;
 
 const MainInner = styled.div`

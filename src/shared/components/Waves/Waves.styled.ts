@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { type Props } from './types';
+import type { Props } from './types';
 
 const Wrapper = styled.div<{
   backgroundColor: NonNullable<Props['backgroundColor']>;
@@ -21,7 +21,7 @@ const Wrapper = styled.div<{
   height: 100px;
 `;
 
-const SVG = styled.svg<{ isUpsideDown: boolean }>`
+const Svg = styled.svg<{ isUpsideDown: boolean }>`
   position: relative;
   max-width: 100%;
   height: 100px;
@@ -48,4 +48,4 @@ const G = styled.g<{ isMoving: boolean }>`
   }`}
 `;
 
-export { SVG, G, Wrapper };
+export { Svg, G, Wrapper };

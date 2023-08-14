@@ -1,17 +1,31 @@
 import { useState } from 'react';
 
-import { useConnectWallet } from 'shared/helpers/hooks';
-import { useAppSelector } from 'store/hooks';
+import { useAppSelector, useAppDispatch } from '@/redux/hooks';
+import {
+  setRequestStatus as setConnectWalletStatus,
+  setError as setConnectWalletError,
+} from '@/redux/slices/connectWallet';
+import { testnetNami } from '@/shared/constants';
+import { useDonatPool } from '@/shared/hooks';
 
 import { Address, ConnectButton, Wrapper } from './WalletButton.styled';
 
 const WalletButton = () => {
+  const donatPool = useDonatPool();
+  const userInfo = useAppSelector((state) => state.appInfo.userInfo);
+  const connectWalletStatus = useAppSelector((state) => state.connectWallet.requestStatus);
+  const dispatch = useAppDispatch();
   const [isAddressShown, setIsAddressShown] = useState(false);
-  const connectWallet = useConnectWallet();
-  const {
-    appInfo: { userInfo },
-    wallet: { mode },
-  } = useAppSelector((state) => state);
+  const walletConnected = connectWalletStatus === 'success';
+
+  const handleWalletConnectSuccess = () => {
+    dispatch(setConnectWalletStatus('success'));
+  };
+
+  const handleWalletConnectFailure = (error: string) => {
+    console.error('connectWallet:', error);
+    dispatch(setConnectWalletError(error));
+  };
 
   return (
     <Wrapper
@@ -24,12 +38,12 @@ const WalletButton = () => {
     >
       <ConnectButton
         onClick={() => {
-          connectWallet();
+          if (!walletConnected) {
+            donatPool?.connectWallet(handleWalletConnectSuccess)(handleWalletConnectFailure)(testnetNami)();
+          }
         }}
       >
-        {mode === 'connected' || mode === 'missingCollateral'
-          ? 'Wallet connected'
-          : 'Connect wallet'}
+        {walletConnected ? 'Wallet connected' : 'Connect wallet'}
       </ConnectButton>
       {userInfo?.address && isAddressShown && (
         <Address>{`${String(userInfo.address.substring(0, 6))} ... ${String(

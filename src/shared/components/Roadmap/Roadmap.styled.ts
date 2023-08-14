@@ -31,7 +31,7 @@ const Inner = styled.div<{ isActive: boolean }>`
   top: 100%;
   ${({ isActive }) => isActive && 'animation: scroll 60s linear infinite;'};
   animation-delay: -5s;
-  color: ${({ theme }) => theme.colors.yellow};
+  color: #fed900;
   @keyframes scroll {
     0% {
       top: 100%;
@@ -43,12 +43,13 @@ const Inner = styled.div<{ isActive: boolean }>`
 `;
 
 const Title = styled.div`
-  color: ${({ theme }) => theme.colors.red};
+  color: #ff6b95;
   font-weight: bold;
 `;
 
 const Ul = styled.ul`
   padding-left: 50px;
+  list-style-type: disc;
 `;
 
 const Li = styled.li``;
@@ -78,13 +79,4 @@ const ButtonWrapper = styled.div`
   }
 `;
 
-export {
-  WrapperAndButton,
-  Wrapper,
-  Inner,
-  Title,
-  Ul,
-  Li,
-  SubLi,
-  ButtonWrapper,
-};
+export { WrapperAndButton, Wrapper, Inner, Title, Ul, Li, SubLi, ButtonWrapper };

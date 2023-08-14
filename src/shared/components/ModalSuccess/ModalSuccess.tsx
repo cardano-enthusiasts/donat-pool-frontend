@@ -1,5 +1,5 @@
 import { Description, Img, Inner, Title, Wrapper } from './ModalSuccess.styled';
-import { type Props } from './types';
+import type { Props } from './types';
 import { Button, Modal } from '../.';
 
 const ModalSuccess = ({ description, isOpen, onClose }: Props) => {
@@ -10,13 +10,7 @@ const ModalSuccess = ({ description, isOpen, onClose }: Props) => {
         <Inner>
           <Img src="/img/happy-cat.svg" alt="happy cat" />
           <Description>{description}</Description>
-          <Button
-            themeType="double-bordered"
-            primaryColor="blue"
-            tertiaryColor="white"
-            width="100%"
-            onClick={onClose}
-          >
+          <Button themeType="double-bordered" primaryColor="blue" tertiaryColor="white" width="100%" onClick={onClose}>
             Close button
           </Button>
         </Inner>

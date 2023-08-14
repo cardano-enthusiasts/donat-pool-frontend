@@ -1,23 +1,8 @@
-import {
-  Amount,
-  ItemTitle,
-  Line,
-  Wrapper,
-  Title,
-  Item,
-  Label,
-  Img,
-} from './ManagementParams.styled';
-import { type Props } from './types';
+import { Amount, ItemTitle, Line, Wrapper, Title, Item, Label, Img } from './ManagementParams.styled';
+import type { Props } from './types';
 
 const ManagementParams = ({
-  config: {
-    minAmountParam,
-    maxAmountParam,
-    minDurationParam,
-    maxDurationParam,
-    protocolFeeParam,
-  },
+  config: { minAmountParam, maxAmountParam, minDurationParam, maxDurationParam, protocolFeeParam },
 }: Props) => {
   const params = [
     {
@@ -60,13 +45,7 @@ const ManagementParams = ({
         <Item key={id}>
           <ItemTitle>
             {title}
-            <Label>
-              {label === 'ADA' ? (
-                <Img src="/icons/ADA-gray.svg" alt="ada symbol" />
-              ) : (
-                label
-              )}
-            </Label>
+            <Label>{label === 'ADA' ? <Img src="/icons/ADA-gray.svg" alt="ada symbol" /> : label}</Label>
           </ItemTitle>
           <Amount>{amount}</Amount>
         </Item>

@@ -1,12 +1,7 @@
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 
-import {
-  ArrowWrapper,
-  LinkWrapper,
-  StyledButton,
-  Wrapper,
-} from './Button.styled';
-import { type Props } from './types';
+import { ArrowWrapper, LinkWrapper, StyledButton, Wrapper } from './Button.styled';
+import type { Props } from './types';
 import { Arrow } from '..';
 
 const Button = ({
@@ -24,9 +19,7 @@ const Button = ({
   isClickedTheme = false,
   size = 'm',
 }: Props) => {
-  const isLinkExternal = Boolean(
-    href && (href.indexOf('http://') !== 0 || href.indexOf('https://') !== 0),
-  );
+  const isLinkExternal = Boolean(href && (href.indexOf('http://') !== 0 || href.indexOf('https://') !== 0));
   const attributes = {
     primaryColor,
     secondaryColor,
@@ -42,8 +35,7 @@ const Button = ({
     <Wrapper themeType={themeType} width={width} size={size}>
       <LinkWrapper {...attributes} isDisabled={isDisabled}>
         <Link
-          to={href}
-          reloadDocument={isLinkExternal}
+          href={href}
           target={isLinkExternal ? '_blank' : '_self'}
           rel={isLinkExternal ? 'noopener noreferrer' : undefined}
         >
@@ -53,19 +45,11 @@ const Button = ({
     </Wrapper>
   ) : (
     <Wrapper themeType={themeType} width={width} size={size}>
-      <StyledButton
-        onClick={onClick}
-        {...attributes}
-        disabled={isDisabled}
-        type={type}
-      >
+      <StyledButton onClick={onClick} {...attributes} disabled={isDisabled} type={type}>
         {children}
         {themeType === 'dashed' && (
           <ArrowWrapper>
-            <Arrow
-              isUp={!isClickedTheme}
-              color={primaryColor === 'blue' ? 'blue' : 'red'}
-            />
+            <Arrow isUp={!isClickedTheme} color={primaryColor === 'blue' ? 'blue' : 'red'} />
           </ArrowWrapper>
         )}
       </StyledButton>

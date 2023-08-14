@@ -1,22 +1,18 @@
 import styled, { css } from 'styled-components';
 
-import { type Theme } from 'shared/styles/types';
+import type { Props } from './types';
 
-import { type Props } from './types';
-
-const getColor = (errorInfo, fontColor) => {
+const getColor = (errorInfo: any, fontColor: any) => {
   if (errorInfo || errorInfo === '') {
-    return ({ theme }) => theme.colors.error;
+    return ({ theme }: any) => theme.colors.error;
   }
-  return ({ theme }) => theme.colors[fontColor];
+  return ({ theme }: any) => theme.colors[fontColor];
 };
 
-const getFieldStyles = ({ errorInfo, fontColor }) => css`
+const getFieldStyles = ({ errorInfo, fontColor }: any) => css`
   width: 100%;
   min-width: 150px;
-  border: 2px solid
-    ${({ theme }) =>
-      errorInfo || errorInfo === '' ? theme.colors.error : theme.colors.black};
+  border: 2px solid ${({ theme }) => (errorInfo || errorInfo === '' ? theme.colors.error : theme.colors.black)};
   color: ${getColor(errorInfo, fontColor)};
   border-radius: 6px;
   width: 100%;
@@ -26,14 +22,24 @@ const getFieldStyles = ({ errorInfo, fontColor }) => css`
   font-size: 20px;
 
   &::placeholder {
-    font-family: 'Microsoft YaHei', Arial, sans-serif;
+    font-family: var(--microsoft-ya-hei-font);
     font-size: 20px;
-    color: ${({ theme }) => theme.colors.green};
+    color: #29dea8;
   }
 
   &:disabled {
     cursor: not-allowed;
-    color: ${({ theme }) => theme.colors.secondaryGray};
+    color: #828587;
+  }
+
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  &[type='number'] {
+    -moz-appearance: textfield;
   }
 `;
 
@@ -42,7 +48,7 @@ const Wrapper = styled.div`
 `;
 const InputContainer = styled.div<{ hint: string | null }>`
   position: relative;
-  ${({ theme, hint }: { theme: Theme; hint: string | null }) =>
+  ${({ theme, hint }: any) =>
     hint &&
     `
       &::after {
@@ -50,8 +56,8 @@ const InputContainer = styled.div<{ hint: string | null }>`
         top: 50%;
         transform: translateY(-50%);
         right: 16px;
-        content: "${hint}";
-        color: ${theme.colors.secondaryGray};
+        content: "${hint as string}";
+        color: ${theme.colors.secondaryGray as string};
       }`}
 `;
 
@@ -80,8 +86,8 @@ const Message = styled.div`
   width: 244px;
   margin-left: 6px;
   padding: 12px;
-  background: ${({ theme }) => theme.colors.error};
-  color: ${({ theme }) => theme.colors.white};
+  background: #c820f2;
+  color: #fff;
   border-radius: 0px 6px 6px 6px;
   &:after {
     position: absolute;

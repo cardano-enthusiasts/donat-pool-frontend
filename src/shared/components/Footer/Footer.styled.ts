@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
-import { baseContainer, baseInner, link } from 'shared/styles/mixins';
+import { baseContainer, baseInner, link } from '@/shared/styles/mixins';
 
-import { type Props } from './types';
+import type { Props } from './types';
 
 const Wrapper = styled.footer<{
   backgroundColor: NonNullable<Props['backgroundColor']>;
@@ -30,10 +30,10 @@ const Inner = styled.div`
 const Links = styled.div`
   display: flex;
   gap: 80px;
-  font-family: 'Rammetto One', Arial, Helvetica, sans-serif;
+  font-family: var(--rammetto-one-font);
   font-size: 15px;
   line-height: 107%;
-  color: ${({ theme }) => theme.colors.white};
+  color: #fff;
   @media (max-width: 1200px) {
     flex-direction: column;
     gap: 15px;

@@ -10,14 +10,13 @@ const Wrapper = styled.div`
 const Title = styled.div`
   font-weight: bold;
   font-size: 24px;
-  color: ${({ theme }) => theme.colors.primaryGray};
+  color: #333;
 `;
 
 const Img = styled.img<{ isActive: boolean }>`
   max-width: 100%;
   transition: transform 1s ease 0s;
-  transform: ${({ isActive }) =>
-    isActive ? 'translateY(0%)' : 'translateY(100%)'};
+  transform: ${({ isActive }) => (isActive ? 'translateY(0%)' : 'translateY(100%)')};
   &:not(:first-child) {
     margin-top: -30px;
     @media (max-width: 850px) {
@@ -57,7 +56,7 @@ const Part1 = styled.div`
 `;
 
 const Link = styled.a`
-  color: ${({ theme }) => theme.colors.red};
+  color: #ff6b95;
   text-decoration: underline;
 `;
 

@@ -1,15 +1,10 @@
 import { useEffect, useState } from 'react';
 
 import { Buttons, InputWrapper, Title } from './ModalDonate.styled';
-import { type Props } from './types';
+import type { Props } from './types';
 import { Button, Input, Modal } from '../.';
 
-const ModalDonate = ({
-  isOpen,
-  onClose,
-  data: { threadTokenCurrency, threadTokenName },
-  donate,
-}: Props) => {
+const ModalDonate = ({ isOpen, onClose, data: { threadTokenCurrency, threadTokenName }, donate }: Props) => {
   const [value, setValue] = useState<'' | number>('');
 
   const fundraisingData = {
@@ -25,13 +20,12 @@ const ModalDonate = ({
     onClose();
   };
 
-  const handleChange = (event) => {
-    const currentValue =
-      event.target.value === '' ? '' : Number(event.target.value);
+  const handleChange = (event: any) => {
+    const currentValue = event.target.value === '' ? '' : Number(event.target.value);
     setValue(currentValue);
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = (event: any) => {
     event.preventDefault();
     if (value !== '') {
       donate(fundraisingData, value);
@@ -56,13 +50,7 @@ const ModalDonate = ({
           >
             Cancel
           </Button>
-          <Button
-            primaryColor="red"
-            secondaryColor="blue"
-            width="100%"
-            type="submit"
-            fontColor="white"
-          >
+          <Button primaryColor="red" secondaryColor="blue" width="100%" type="submit" fontColor="white">
             Donate
           </Button>
         </Buttons>

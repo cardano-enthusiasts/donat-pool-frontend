@@ -1,24 +1,20 @@
+import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 
-import { useReceiveFunds } from 'shared/helpers/hooks';
-import { useAppDispatch, useAppSelector } from 'store/hooks';
-import { reset } from 'store/slices/fundsReceiving';
+import { useAppDispatch, useAppSelector } from '@/redux/hooks';
+import { reset } from '@/redux/slices/fundsReceiving';
+import { ROUTES } from '@/shared/constants';
+import { useReceiveFunds } from '@/shared/hooks';
 
-import {
-  ButtonWrapper,
-  Commission,
-  LinkWrapper,
-  WithdrawSection,
-} from './PrivateProjectsActions.styled';
-import { type Props } from './types';
+import { ButtonWrapper, Commission, LinkWrapper, WithdrawSection } from './PrivateProjectsActions.styled';
+import type { Props } from './types';
 import { Button, ModalError, ModalLoading, ModalSuccess } from '../.';
 
 const PrivateProjectsActions = ({ project }: Props) => {
   const [isModalSuccessOpen, setIsModalSuccessOpen] = useState(false);
   const [isModalErrorOpen, setIsModalErrorOpen] = useState(false);
   const dispatch = useAppDispatch();
-  const navigate = useNavigate();
+  const router = useRouter();
   const receiveFunds = useReceiveFunds();
 
   const {
@@ -35,10 +31,10 @@ const PrivateProjectsActions = ({ project }: Props) => {
   useEffect(() => {
     if (status === 'success') {
       setIsModalErrorOpen(true);
-      navigate('/my-projects');
+      router.push(ROUTES.userFundraisings);
       dispatch(reset());
     }
-  }, [status, dispatch, navigate]);
+  }, [status, dispatch, router]);
 
   const link = window.location.href;
 
@@ -73,14 +69,12 @@ const PrivateProjectsActions = ({ project }: Props) => {
           }}
           fontColor="white"
         >
-          {project.raisedAmount >= project.goal
+          {Number(project.raisedAmt) >= Number(project.goal)
             ? 'You have reached the goal! Take money'
             : 'Project reached its deadline. Collect fund'}
         </Button>
         {protocol?.protocolFeeParam && (
-          <Commission>
-            We remind you that our commission is {protocol.protocolFeeParam}%
-          </Commission>
+          <Commission>We remind you that our commission is {protocol.protocolFeeParam}%</Commission>
         )}
       </WithdrawSection>
 

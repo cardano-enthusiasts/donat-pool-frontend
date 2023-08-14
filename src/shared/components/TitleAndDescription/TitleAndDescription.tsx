@@ -1,3 +1,5 @@
+import { ROUTES } from '@/shared/constants';
+
 import {
   ButtonWrapper,
   Description,
@@ -6,7 +8,7 @@ import {
   MainLogo,
   Wrapper,
 } from './TitleAndDescription.styles';
-import { type Props } from './types';
+import type { Props } from './types';
 import { Button } from '../Button/Button';
 
 const TitleAndDescription = ({ isActive }: Props) => {
@@ -18,7 +20,7 @@ const TitleAndDescription = ({ isActive }: Props) => {
         <DescriptionPart2>help a lot</DescriptionPart2>
       </Description>
       <ButtonWrapper>
-        <Button themeType="accent" href="/all-projects">
+        <Button themeType="accent" href={ROUTES.allFundraisings}>
           Start
           <br />
           using

@@ -1,26 +1,16 @@
 import HTMLReactParser from 'html-react-parser';
 import { Fragment } from 'react';
 
-import { roadmapText } from 'shared/constants';
+import { ROUTES } from '@/shared/constants';
+import { roadmapText } from '@/shared/data';
 
-import {
-  Inner,
-  Li,
-  Title,
-  Ul,
-  Wrapper,
-  SubLi,
-  WrapperAndButton,
-  ButtonWrapper,
-} from './Roadmap.styled';
-import { type Props } from './types';
+import { Inner, Li, Title, Ul, Wrapper, SubLi, WrapperAndButton, ButtonWrapper } from './Roadmap.styled';
+import type { Props } from './types';
 import { Button } from '../.';
 
 const Roadmap = ({ isActive }: Props) => {
-  const getSubLis = (item) => {
-    return item.subItems.map(({ id, title }) => (
-      <SubLi key={id}>{title}</SubLi>
-    ));
+  const getSubLis = (item: any) => {
+    return item.subItems.map(({ id, title }: any) => <SubLi key={id}>{title}</SubLi>);
   };
 
   return (
@@ -32,11 +22,7 @@ const Roadmap = ({ isActive }: Props) => {
               <Title>{HTMLReactParser(title)}</Title>
               <Ul>
                 {items.map((item) => {
-                  return item.title ? (
-                    <Li key={item.id}>{item.title}</Li>
-                  ) : (
-                    getSubLis(item)
-                  );
+                  return item.title ? <Li key={item.id}>{item.title}</Li> : getSubLis(item);
                 })}
               </Ul>
             </Fragment>
@@ -44,13 +30,7 @@ const Roadmap = ({ isActive }: Props) => {
         </Inner>
       </Wrapper>
       <ButtonWrapper>
-        <Button
-          themeType="accent"
-          primaryColor="blue"
-          secondaryColor="green"
-          size="s"
-          href="/roadmap"
-        >
+        <Button themeType="accent" primaryColor="blue" secondaryColor="green" size="s" href={ROUTES.roadmap}>
           All phases
         </Button>
       </ButtonWrapper>

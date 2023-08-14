@@ -1,23 +1,13 @@
+import Link from 'next/link';
 import { useState } from 'react';
-import { HashLink } from 'react-router-hash-link';
 
-import { Button, Socials, ModalContactUs } from './..';
-import {
-  Links,
-  Wrapper,
-  LinkWrapper,
-  Inner,
-  IconAndLinks,
-} from './Footer.styled';
-import { type Props } from './types';
+import { Button, Socials, ModalContactUs } from '@/shared/components';
+
+import { LINKS } from './constants';
+import { Links, Wrapper, LinkWrapper, Inner, IconAndLinks } from './Footer.styled';
+import type { Props } from './types';
 
 const Footer = ({ backgroundColor = 'blue' }: Props) => {
-  const links = [
-    { title: 'Home', href: '/' },
-    { title: 'About us on MetaLamp', href: '/mock-address' },
-    { title: 'Terms of use', href: '/mock-address' },
-    { title: 'FAQ', href: '/faq' },
-  ];
   const [isModalContactUsOpen, setIsModalContactUsOpen] = useState(false);
 
   return (
@@ -27,15 +17,13 @@ const Footer = ({ backgroundColor = 'blue' }: Props) => {
           <IconAndLinks>
             <Socials />
             <Links>
-              {links.map(({ title, href }) => {
-                return (
-                  <LinkWrapper key={title}>
-                    <HashLink to={`${href}${href !== '/' ? '#top' : ''}`}>
-                      {title}
-                    </HashLink>
-                  </LinkWrapper>
-                );
-              })}
+              {LINKS.map(({ title, href, target }) => (
+                <LinkWrapper key={title}>
+                  <Link href={href} target={target}>
+                    {title}
+                  </Link>
+                </LinkWrapper>
+              ))}
             </Links>
           </IconAndLinks>
           <Button

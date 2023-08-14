@@ -1,11 +1,11 @@
 import { Fragment } from 'react';
 
 import { Column1, Column2, Wrapper } from './ActionDonuts.styled';
-import { type Props } from './types';
+import type { Props } from './types';
 
 const ActionDonuts = ({ isAnimationActive }: Props) => {
   const getColumns = () => {
-    const donuts: JSX.Element[] = [];
+    const donuts: React.ReactNode[] = [];
     for (let i = 0; i < 6; i++) {
       donuts.push(
         <Fragment key={i}>

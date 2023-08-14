@@ -1,12 +1,5 @@
-import {
-  InputContainer,
-  Message,
-  StyledInput,
-  StyledTextArea,
-  Title,
-  Wrapper,
-} from './Input.styled';
-import { type Props } from './types';
+import { InputContainer, Message, StyledInput, StyledTextArea, Title, Wrapper } from './Input.styled';
+import type { Props } from './types';
 
 const Input = ({
   value,
@@ -39,11 +32,7 @@ const Input = ({
       <Title>{children}</Title>
       <InputContainer hint={hint}>
         {multiline ? (
-          <StyledTextArea
-            {...attributes}
-            {...{ 'data-type': dataAttr }}
-            rows={rows}
-          />
+          <StyledTextArea {...attributes} {...{ 'data-type': dataAttr }} rows={rows} />
         ) : (
           <StyledInput
             type={type}

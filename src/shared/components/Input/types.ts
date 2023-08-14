@@ -1,4 +1,4 @@
-import { type ReactNode, type ChangeEvent } from 'react';
+import type { ReactNode, ChangeEvent } from 'react';
 
 export interface Props {
   value: string | number;

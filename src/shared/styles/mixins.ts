@@ -30,11 +30,11 @@ const link = css`
 `;
 
 const h1 = css`
-  font-family: 'Rammetto One', Arial, Helvetica, sans-serif;
+  font-family: var(--rammetto-one-font);
   font-weight: normal;
   font-size: 54px;
   line-height: 104%;
-  color: ${({ theme }) => theme.colors.red};
+  color: #ff6b95;
   margin: 0;
 
   @media (max-width: 900px) {
@@ -59,12 +59,4 @@ const getSmallLayoutPadding = () => css`
   padding-right: 20px;
 `;
 
-export {
-  baseContainer,
-  baseInner,
-  link,
-  h1,
-  getLargeLayoutPadding,
-  getMediumLayoutPadding,
-  getSmallLayoutPadding,
-};
+export { baseContainer, baseInner, link, h1, getLargeLayoutPadding, getMediumLayoutPadding, getSmallLayoutPadding };

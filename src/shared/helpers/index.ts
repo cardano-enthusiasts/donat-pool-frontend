@@ -1,3 +1,3 @@
-export { transformProjects } from './transformProjects';
-export { getOffchainError } from './getOffchainError';
-export { getDate } from './getDate';
+export { default as formatDate } from './formatDate';
+export { default as logOffchainError } from './logOffchainError';
+export { default as transformFundraisings } from './transformFundraisings';

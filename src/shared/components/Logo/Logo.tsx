@@ -1,12 +1,15 @@
-import { Link } from 'react-router-dom';
+import Image from 'next/image';
+import Link from 'next/link';
+
+import { ROUTES } from '@/shared/constants';
 
 import { LogoWrapper } from './Logo.styled';
 
 const Logo = () => {
   return (
     <LogoWrapper>
-      <Link to="/">
-        <img src="/img/logo.svg" alt="logo" />
+      <Link href={ROUTES.home}>
+        <Image src="/img/logo.svg" width={283} height={40} alt="logo" />
       </Link>
     </LogoWrapper>
   );

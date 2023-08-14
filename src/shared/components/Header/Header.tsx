@@ -1,75 +1,61 @@
+import Link from 'next/link';
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
 
-import { useAppSelector } from 'store/hooks';
+import { useAppSelector } from '@/redux/hooks';
+import { ROUTES } from '@/shared/constants';
 
-import {
-  Inner,
-  Links,
-  Wrapper,
-  LinkWrapper,
-  Icon,
-  LogoWrapper,
-  LinksAndButton,
-  Line,
-} from './Header.styled';
-import { type Props } from './types';
+import { Inner, Links, Wrapper, LinkWrapper, Icon, LogoWrapper, LinksAndButton, Line } from './Header.styled';
+import type { Props } from './types';
 import { Button, Logo, WalletButton } from '..';
 
 const Header = ({ currentPage = null }: Props) => {
   const links = [
-    { title: 'My projects', href: '/my-projects', id: 'my-projects' },
-    { title: 'All Donation pools', href: '/all-projects', id: 'projects' },
+    { title: 'My projects', href: ROUTES.userFundraisings, id: 'my-projects' },
+    {
+      title: 'All Donation pools',
+      href: ROUTES.allFundraisings,
+      id: 'projects',
+    },
   ];
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const walletMode = useAppSelector((state) => state.wallet.mode);
+  const connectWalletStatus = useAppSelector((state) => state.connectWallet.requestStatus);
 
   return (
-    <>
-      <Wrapper isMenuOpen={isMenuOpen}>
-        <Inner isMenuOpen={isMenuOpen}>
-          {!isMenuOpen && (
-            <LogoWrapper>
-              <Logo />
-            </LogoWrapper>
-          )}
-          {walletMode === 'connected' ? (
-            <LinksAndButton isMenuOpen={isMenuOpen}>
-              <Links>
-                {links.map(({ title, href, id }) => (
-                  <LinkWrapper
-                    key={id}
-                    {...(currentPage ? { isActive: href === currentPage } : {})}
-                  >
-                    <Link to={href}>{title}</Link>
-                  </LinkWrapper>
-                ))}
-              </Links>
-              <Line />
-              <WalletButton />
-            </LinksAndButton>
-          ) : (
-            <Button
-              href="/new-project"
-              primaryColor="yellow"
-              secondaryColor="blue"
-              fontColor="black"
-            >
-              Start a fundraiser
-            </Button>
-          )}
-        </Inner>
+    <Wrapper isMenuOpen={isMenuOpen}>
+      <Inner isMenuOpen={isMenuOpen}>
+        {!isMenuOpen && (
+          <LogoWrapper>
+            <Logo />
+          </LogoWrapper>
+        )}
+        {connectWalletStatus === 'success' ? (
+          <LinksAndButton isMenuOpen={isMenuOpen}>
+            <Links>
+              {links.map(({ title, href, id }) => (
+                <LinkWrapper key={id} {...(currentPage ? { isActive: href === currentPage } : {})}>
+                  <Link href={href}>{title}</Link>
+                </LinkWrapper>
+              ))}
+            </Links>
+            <Line />
+            <WalletButton />
+          </LinksAndButton>
+        ) : (
+          <Button href={ROUTES.newFundraising} primaryColor="yellow" secondaryColor="blue" fontColor="black">
+            Start a fundraiser
+          </Button>
+        )}
+      </Inner>
 
-        <Icon
-          onClick={() => {
-            setIsMenuOpen(!isMenuOpen);
-          }}
-          isMenuOpen={isMenuOpen}
-          src={`/icons/${isMenuOpen ? 'close' : 'menu'}.svg`}
-          alt="close icon"
-        />
-      </Wrapper>
-    </>
+      <Icon
+        onClick={() => {
+          setIsMenuOpen(!isMenuOpen);
+        }}
+        isMenuOpen={isMenuOpen}
+        src={`/icons/${isMenuOpen ? 'close' : 'menu'}.svg`}
+        alt="close icon"
+      />
+    </Wrapper>
   );
 };
 

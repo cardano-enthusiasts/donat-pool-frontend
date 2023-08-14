@@ -8,7 +8,7 @@ const Wrapper = styled.div<{
   width: 100%;
   height: ${({ windowScroll, isAnimationActive }) =>
     windowScroll < 535 && isAnimationActive ? 1500 - windowScroll : 965}px;
-  background: ${({ theme }) => theme.colors.red};
+  background: #ff6b95;
   display: flex;
   justify-content: center;
   align-items: start;
@@ -18,34 +18,30 @@ const Wrapper = styled.div<{
   }
 `;
 
-const InnerCircle = styled.div.attrs(
-  (props: { 'data-window-scroll': number }) => ({
-    style: {
-      transform: `scale(${props['data-window-scroll']})`,
-    },
-  }),
-)<{ windowScroll; isAnimationActive }>`
+const InnerCircle = styled.div.attrs((props: any) => ({
+  style: {
+    transform: `scale(${props['data-window-scroll'] as string})`,
+  },
+}))<{ windowScroll: any; isAnimationActive: any }>`
   position: absolute;
   width: 230px;
   height: 230px;
-  border: 90px solid ${({ theme }) => theme.colors.yellow};
+  border: 90px solid #fed900;
   margin-top: 45vh;
   z-index: 4;
   border-radius: 100%;
   ${({ windowScroll, isAnimationActive }) =>
-    windowScroll < 50 && isAnimationActive
-      ? 'display: block'
-      : 'display: none'};
+    windowScroll < 50 && isAnimationActive ? 'display: block' : 'display: none'};
   @media (max-width: 1100px) {
     display: none;
   }
 `;
 
-const OuterCircle = styled.div<{ windowScroll; isAnimationActive }>`
+const OuterCircle = styled.div<{ windowScroll: any; isAnimationActive: any }>`
   position: absolute;
   width: 100%;
   height: 100%;
-  background-color: ${({ theme }) => theme.colors.red};
+  background-color: #ff6b95;
   z-index: 3;
   ${({ windowScroll, isAnimationActive }) =>
     windowScroll < 4 && isAnimationActive ? 'display: block' : 'display: none'};
@@ -54,16 +50,13 @@ const OuterCircle = styled.div<{ windowScroll; isAnimationActive }>`
   }
 `;
 
-const CatImage = styled.img<{ isAnimationActive }>`
-  position: ${({ isAnimationActive }) =>
-    isAnimationActive ? 'absolute' : 'static'};
+const CatImage = styled.img<{ isAnimationActive: any }>`
+  position: ${({ isAnimationActive }) => (isAnimationActive ? 'absolute' : 'static')};
   bottom: 0;
   z-index: 2;
-  max-width: ${({ isAnimationActive }) =>
-    isAnimationActive ? '770px' : '90vw'};
+  max-width: ${({ isAnimationActive }) => (isAnimationActive ? '770px' : '90vw')};
 
-  ${({ isAnimationActive }) =>
-    !isAnimationActive && 'padding: 150px 20px 20px;'};
+  ${({ isAnimationActive }) => !isAnimationActive && 'padding: 150px 20px 20px;'};
 
   @media (max-width: 1100px) {
     position: static;

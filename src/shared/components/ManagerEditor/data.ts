@@ -1,4 +1,11 @@
-const defaultParams = [
+import type { Props } from './types';
+
+const defaultParams: Array<{
+  title: string;
+  id: keyof Props['config'];
+  amount: number;
+  hint: string;
+}> = [
   {
     title: 'Min amount',
     id: 'minAmountParam',

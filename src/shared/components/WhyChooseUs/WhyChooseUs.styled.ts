@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
-  color: ${({ theme }) => theme.colors.black};
+  color: #141414;
 `;
 
 const Title = styled.h3`
@@ -55,13 +55,4 @@ const MinorInfoSection = styled.div`
   }
 `;
 
-export {
-  Wrapper,
-  Title,
-  Description,
-  InfoSection,
-  ButtonAndInfo,
-  MinorDescription,
-  MinorInfoSection,
-  ButtonWrapper,
-};
+export { Wrapper, Title, Description, InfoSection, ButtonAndInfo, MinorDescription, MinorInfoSection, ButtonWrapper };

@@ -34,15 +34,7 @@ const FundingGoal = styled.div`
 `;
 
 const LabelHint = styled.span`
-  color: ${({ theme }) => theme.colors.secondaryGray};
+  color: #828587;
 `;
 
-export {
-  Form,
-  ButtonWrapper,
-  DurationContainer,
-  DurationTitle,
-  DurationInputContainer,
-  FundingGoal,
-  LabelHint,
-};
+export { Form, ButtonWrapper, DurationContainer, DurationTitle, DurationInputContainer, FundingGoal, LabelHint };

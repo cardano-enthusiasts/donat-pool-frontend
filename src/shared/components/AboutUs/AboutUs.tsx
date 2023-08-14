@@ -1,4 +1,4 @@
-import { useWindowSize } from 'shared/helpers/hooks';
+import { useWindowSize } from '@/shared/hooks';
 
 import {
   Wrapper,
@@ -31,11 +31,7 @@ const AboutUs = () => {
           <KatePhoto src="/img/kate.png" />
           <OksanaPhoto src="/img/oksana.png" />
           <OlgaPhoto src="/img/olga.png" />
-          {width > 1430 ? (
-            svetaAndMariyaPhotos
-          ) : (
-            <SvetlanaAndMariya>{svetaAndMariyaPhotos}</SvetlanaAndMariya>
-          )}
+          {width > 1430 ? svetaAndMariyaPhotos : <SvetlanaAndMariya>{svetaAndMariyaPhotos}</SvetlanaAndMariya>}
         </TeamInner>
         <WhiteDots />
       </TeamWrapper>

@@ -1,25 +1,23 @@
 import styled from 'styled-components';
 
-import { type LandingSection } from 'shared/types';
+import type { LandingSection } from '@/shared/types/common';
 
 const Wrapper = styled.nav<{
-  windowScroll;
-  windowWidth;
-  isOpen;
-  mobileResolution;
-  currentSection;
-  isAnimationActive;
+  windowScroll: any;
+  windowWidth: any;
+  isOpen: any;
+  mobileResolution: any;
+  currentSection: any;
+  isAnimationActive: any;
 }>`
   position: fixed;
   left: ${({ windowWidth }) => (windowWidth - 1920) / 2 + 90}px;
   top: 90px;
   overflow-wrap: break-word;
 
-  z-index: ${({ currentSection }) =>
-    currentSection === 'contact-us' ? '-1' : '3'};
+  z-index: ${({ currentSection }) => (currentSection === 'contact-us' ? '-1' : '3')};
 
-  display: ${({ windowScroll, isAnimationActive }) =>
-    windowScroll > 50 || !isAnimationActive ? 'block' : 'none'};
+  display: ${({ windowScroll, isAnimationActive }) => (windowScroll > 50 || !isAnimationActive ? 'block' : 'none')};
 
   @media (max-width: 1920px) {
     left: 90px;
@@ -68,7 +66,7 @@ const Inner = styled.div<{
   display: flex;
   flex-direction: column;
   gap: 24px;
-  color: ${({ theme }) => theme.colors.white};
+  color: #fff;
   max-width: 245px;
 
   @media (max-width: ${({ mobileResolution }) => mobileResolution}px) {
@@ -82,7 +80,7 @@ const Link = styled.a<{
   currentSection: LandingSection;
   mobileResolution: number;
 }>`
-  font-family: 'Rammetto One', Arial, Helvetica, sans-serif, sans-serif;
+  font-family: var(--rammetto-one-font);
   font-size: ${({ isActive }) => (isActive ? '54px' : '15px')};
   line-height: 104%;
   cursor: pointer;

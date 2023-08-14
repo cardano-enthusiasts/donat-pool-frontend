@@ -1,13 +1,12 @@
 import styled from 'styled-components';
 
 const Wrapper = styled.div<{ isActive: boolean }>`
-  font-family: 'Rammetto One', Arial, sans-serif;
+  font-family: var(--rammetto-one-font);
   display: flex;
   flex-direction: column;
   > * {
     transition: transform 1s ease 0s;
-    transform: ${({ isActive }) =>
-      isActive ? 'translateY(0%)' : 'translateY(50%)'};
+    transform: ${({ isActive }) => (isActive ? 'translateY(0%)' : 'translateY(50%)')};
   }
   @media (max-width: 1100px) {
     align-items: center;
@@ -29,7 +28,7 @@ const Description = styled.div`
   flex-direction: column;
   font-size: 96px;
   line-height: 100%;
-  color: ${({ theme }) => theme.colors.green};
+  color: #29dea8;
   max-width: 1000px;
   width: 100%;
   margin-bottom: 40px;
@@ -63,11 +62,4 @@ const ButtonWrapper = styled.div`
   }
 `;
 
-export {
-  Wrapper,
-  MainLogo,
-  Description,
-  DescriptionPart1,
-  DescriptionPart2,
-  ButtonWrapper,
-};
+export { Wrapper, MainLogo, Description, DescriptionPart1, DescriptionPart2, ButtonWrapper };

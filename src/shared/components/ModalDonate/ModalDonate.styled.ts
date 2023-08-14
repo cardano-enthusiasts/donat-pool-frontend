@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 
 const Title = styled.h2`
-  font-family: 'Rammetto One', Arial, Helvetica, sans-serif;
+  font-family: var(--rammetto-one-font);
   font-size: 36px;
   line-height: 111%;
-  color: ${({ theme }) => theme.colors.red};
+  color: #ff6b95;
   text-align: center;
   margin: 0 0 40px 0;
 `;

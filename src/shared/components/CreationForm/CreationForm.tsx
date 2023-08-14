@@ -1,9 +1,10 @@
+import { useRouter } from 'next/navigation';
 import { type ChangeEvent, useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
 
-import { useCreateFundraising } from 'shared/helpers/hooks';
-import { useAppDispatch, useAppSelector } from 'store/hooks';
-import { reset } from 'store/slices/fundraisingCreation';
+import { useAppDispatch, useAppSelector } from '@/redux/hooks';
+import { reset } from '@/redux/slices/fundraisingCreation';
+import { ROUTES } from '@/shared/constants';
+import { useCreateFundraising } from '@/shared/hooks';
 
 import {
   ButtonWrapper,
@@ -14,22 +15,13 @@ import {
   FundingGoal,
   LabelHint,
 } from './CreationForm.styled';
-import { type FormError, type Props } from './types';
-import {
-  Button,
-  Checkbox,
-  Input,
-  ModalError,
-  ModalLoading,
-  PrecalculationFee,
-  ModalProjectCreated,
-} from '..';
+import type { FormError, Props } from './types';
+import { Button, Checkbox, Input, ModalError, ModalLoading, PrecalculationFee, ModalProjectCreated } from '..';
 
 const CreationForm = ({ onClose, protocol }: Props) => {
-  const { minAmountParam, maxAmountParam, minDurationParam, maxDurationParam } =
-    protocol;
+  const { minAmountParam, maxAmountParam, minDurationParam, maxDurationParam } = protocol;
   const dispatch = useAppDispatch();
-  const navigate = useNavigate();
+  const router = useRouter();
   const [createdPath, setCreatedPath] = useState('');
   const createFundraising = useCreateFundraising();
   const [isChecked, setIsChecked] = useState(false);
@@ -44,11 +36,7 @@ const CreationForm = ({ onClose, protocol }: Props) => {
     durationHours: '',
     durationMinutes: '',
   });
-  const {
-    error: createError,
-    status,
-    path,
-  } = useAppSelector((state) => state.fundraisingCreation);
+  const { error: createError, status, path } = useAppSelector((state) => state.fundraisingCreation);
 
   useEffect(() => {
     if (status === 'success' && path) {
@@ -71,17 +59,11 @@ const CreationForm = ({ onClose, protocol }: Props) => {
   const isGoalLessThanMin = Number(data.goal) < minAmountParam;
   const isGoalMoreThanMax = Number(data.goal) > maxAmountParam;
   const durationMinutes =
-    Number(data.durationDays) * 1440 +
-    Number(data.durationHours) * 60 +
-    Number(data.durationMinutes);
+    Number(data.durationDays) * 1440 + Number(data.durationHours) * 60 + Number(data.durationMinutes);
   const isDurationLessThanMin = durationMinutes < minDurationParam;
   const isDurationMoreThanMax = durationMinutes > maxDurationParam;
   const isAnyError =
-    isTitleEmpty ||
-    isGoalLessThanMin ||
-    isGoalMoreThanMax ||
-    isDurationLessThanMin ||
-    isDurationMoreThanMax;
+    isTitleEmpty || isGoalLessThanMin || isGoalMoreThanMax || isDurationLessThanMin || isDurationMoreThanMax;
 
   const setErrorsToForm = () => {
     const title = isTitleEmpty ? 'Please fill in the title field' : null;
@@ -107,7 +89,7 @@ const CreationForm = ({ onClose, protocol }: Props) => {
     setIsLoadingModalOpen(status === 'requesting');
   }, [status]);
 
-  const handleSubmit = (event) => {
+  const handleSubmit = (event: any) => {
     event.preventDefault();
     if (isAnyError) {
       setErrorsToForm();
@@ -127,12 +109,7 @@ const CreationForm = ({ onClose, protocol }: Props) => {
 
   const handleChange = (
     event: ChangeEvent,
-    type:
-      | 'title'
-      | 'goal'
-      | 'durationDays'
-      | 'durationHours'
-      | 'durationMinutes',
+    type: 'title' | 'goal' | 'durationDays' | 'durationHours' | 'durationMinutes',
   ) => {
     event.preventDefault();
     setError(initialErrors);
@@ -159,10 +136,7 @@ const CreationForm = ({ onClose, protocol }: Props) => {
         <DurationContainer>
           <DurationTitle>
             Project duration
-            <LabelHint>
-              {' '}
-              / Max: {Math.floor(maxDurationParam / 1440)} days
-            </LabelHint>
+            <LabelHint> / Max: {Math.floor(maxDurationParam / 1440)} days</LabelHint>
           </DurationTitle>
           <DurationInputContainer>
             <Input
@@ -249,7 +223,7 @@ const CreationForm = ({ onClose, protocol }: Props) => {
         isOpen={isSuccessModalOpen}
         onClose={() => {
           setIsSuccessModalOpen(false);
-          navigate('/my-projects');
+          router.push(ROUTES.userFundraisings);
           dispatch(reset());
         }}
       />

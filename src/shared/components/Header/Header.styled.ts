@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 
-import { baseContainer, baseInner, link } from 'shared/styles/mixins';
+import { baseContainer, baseInner, link } from '@/shared/styles/mixins';
 
 const Wrapper = styled.header<{ isMenuOpen: boolean }>`
   ${baseContainer};
-  background: ${({ theme }) => theme.colors.red};
+  background: #ff6b95;
 
   @media (max-width: 860px) {
     position: relative;
@@ -47,8 +47,7 @@ const LinkWrapper = styled.div<{ isActive?: boolean }>`
   ${link};
   flex-shrink: 0;
   a {
-    color: ${({ isActive, theme }) =>
-      isActive ? theme.colors.yellow : theme.colors.white};
+    color: ${({ isActive, theme }) => (isActive ? theme.colors.yellow : theme.colors.white)};
   }
 `;
 
@@ -80,7 +79,7 @@ const LinksAndButton = styled.div<{ isMenuOpen: boolean }>`
 `;
 
 const Line = styled.div`
-  background-color: ${({ theme }) => theme.colors.purple};
+  background-color: #ffc5cf;
   width: 2px;
   margin-right: 40px;
   @media (max-width: 860px) {
@@ -89,13 +88,4 @@ const Line = styled.div`
   }
 `;
 
-export {
-  Wrapper,
-  Inner,
-  Links,
-  LinkWrapper,
-  Icon,
-  LogoWrapper,
-  LinksAndButton,
-  Line,
-};
+export { Wrapper, Inner, Links, LinkWrapper, Icon, LogoWrapper, LinksAndButton, Line };

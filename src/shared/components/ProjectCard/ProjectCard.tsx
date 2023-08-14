@@ -1,28 +1,12 @@
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 
-import { getDate } from 'shared/helpers';
+import { formatDate } from '@/shared/helpers';
 
-import {
-  DateItem,
-  Title,
-  DateAndAmount,
-  Amount,
-  Wrapper,
-  Status,
-  RaisedAmount,
-  Line,
-} from './ProjectCard.styled';
-import { type Props } from './types';
+import { DateItem, Title, DateAndAmount, Amount, Wrapper, Status, RaisedAmount, Line } from './ProjectCard.styled';
+import type { Props } from './types';
 
 const ProjectCard = ({
-  data: {
-    deadline,
-    title,
-    goal,
-    raisedAmount,
-    threadTokenName,
-    threadTokenCurrency,
-  },
+  data: { deadline, title, goal, raisedAmt, threadTokenCurrency },
   linkSection,
   status = 'default',
   paddingSize = 'm',
@@ -33,24 +17,22 @@ const ProjectCard = ({
   };
 
   return (
-    <Link to={`/${linkSection}/${threadTokenCurrency}`}>
+    <Link href={`/${linkSection}/${threadTokenCurrency}`}>
       <Wrapper status={status} paddingSize={paddingSize}>
-        {status !== 'default' && (
-          <Status status={status}>{statusTitles[status]}</Status>
-        )}
+        {status !== 'default' && <Status status={status}>{statusTitles[status]}</Status>}
         <Title>{title}</Title>
         <DateAndAmount>
-          <DateItem>{getDate(deadline)}</DateItem>
+          <DateItem>{formatDate(Number(deadline))}</DateItem>
           <Amount>
             <RaisedAmount>
               {status === 'active' && (
                 <>
-                  {raisedAmount / 1000000}
+                  {Number(raisedAmt) / 1000000}
                   <Line />
                 </>
               )}
             </RaisedAmount>
-            {goal / 1000000}
+            {Number(goal) / 1000000}
           </Amount>
         </DateAndAmount>
       </Wrapper>

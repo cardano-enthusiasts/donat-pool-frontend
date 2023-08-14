@@ -1,4 +1,4 @@
-import { type UserInfo } from './common';
+import type { UserInfo } from './common';
 
 interface BackendProject {
   creator: string;
@@ -29,9 +29,4 @@ interface UserAndProtocolParams {
   userInfo: UserInfo;
 }
 
-export type {
-  BackendProjects,
-  BackendProject,
-  BackendParams,
-  UserAndProtocolParams,
-};
+export type { BackendProjects, BackendProject, BackendParams, UserAndProtocolParams };
