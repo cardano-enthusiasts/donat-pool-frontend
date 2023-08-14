@@ -9,7 +9,7 @@ RUN touch /root/.ssh/known_hosts
 RUN ssh-keyscan github.com >> /root/.ssh/known_hosts
 WORKDIR /app
 COPY ["package.json", ".env", "./"]
-COPY ["public/fonts", "public/gif", "public/icons", "public/img", "./public"]
+COPY ["public/fonts/", "public/gif/", "public/icons/", "public/img/", "./public/"]
 RUN npm pkg delete scripts.prepare
 RUN npm i --omit=dev
 # Remove key 
@@ -18,6 +18,6 @@ RUN npm run build
 
 FROM node:18.17.1
 WORKDIR /app
-COPY --from=builder ./app/public ./public
-COPY --from=builder ./app/.next ./.next
+COPY --from=builder ./app/public/ ./public/
+COPY --from=builder ./app/.next/ ./.next/
 CMD ["npm", "run", "start"]
