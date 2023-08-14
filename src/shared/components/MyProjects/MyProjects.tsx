@@ -77,7 +77,13 @@ const MyProjects = ({ onCreateAProjectClick }: Props) => {
         </TitleAndButtons>
 
         <CreateButton>
-          <Button primaryColor="red" secondaryColor="blue" onClick={onCreateAProjectClick} fontColor="white">
+          <Button
+            themeType="standard"
+            primaryColor="red"
+            secondaryColor="blue"
+            onClick={onCreateAProjectClick}
+            fontColor="white"
+          >
             Create a new project
           </Button>
         </CreateButton>

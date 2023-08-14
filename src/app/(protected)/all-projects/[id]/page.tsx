@@ -76,6 +76,9 @@ const Page = () => {
                 onClick={() => {
                   setIsModalOpen(true);
                 }}
+                primaryColor="yellow"
+                secondaryColor="red"
+                fontColor="red"
               >
                 Donate
               </Button>

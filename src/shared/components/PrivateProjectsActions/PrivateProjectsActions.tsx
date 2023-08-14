@@ -58,6 +58,7 @@ const PrivateProjectsActions = ({ project }: Props) => {
     <>
       <WithdrawSection>
         <Button
+          themeType="standard"
           primaryColor="red"
           secondaryColor="blue"
           width="100%"
@@ -96,7 +97,7 @@ const PrivateProjectsActions = ({ project }: Props) => {
         <ButtonWrapper>
           <Button
             themeType="double-bordered"
-            tertiaryColor="white"
+            backgroundColor="white"
             size="s"
             primaryColor="blue"
             onClick={handleCopyLinkClick}

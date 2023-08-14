@@ -61,10 +61,17 @@ const ModalContactUs = ({ isOpen, onClose }: Props) => {
         </Inner>
 
         <ButtonsWrapper>
-          <Button onClick={handleCancelClick} primaryColor="blue" themeType="double-bordered" tertiaryColor="white">
+          <Button onClick={handleCancelClick} primaryColor="blue" themeType="double-bordered" backgroundColor="white">
             Cancel
           </Button>
-          <Button type="submit" primaryColor="red" secondaryColor="blue" fontColor="white" width="100%">
+          <Button
+            themeType="standard"
+            type="submit"
+            primaryColor="red"
+            secondaryColor="blue"
+            fontColor="white"
+            width="100%"
+          >
             Send
           </Button>
         </ButtonsWrapper>

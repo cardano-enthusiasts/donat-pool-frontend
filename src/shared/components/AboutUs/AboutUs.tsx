@@ -30,7 +30,7 @@ const AboutUs = () => {
       </div>
 
       <div className="mb-[140px] flex self-start max-xl:mb-12 max-xl:justify-center">
-        <Button themeType="accent" primaryColor="blue" secondaryColor="red">
+        <Button themeType="accent" primaryColor="blue" secondaryColor="red" fontColor="red" isAnimation={true}>
           Donate
           <br /> To Us
         </Button>

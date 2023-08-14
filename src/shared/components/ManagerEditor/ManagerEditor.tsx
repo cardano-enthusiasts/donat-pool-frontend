@@ -80,7 +80,14 @@ const ManagerEditor = ({ config }: Props) => {
           ))}
         </InputWrapper>
         <ButtonWrapper>
-          <Button type="submit" width="100%" primaryColor="red" secondaryColor="blue" fontColor="white">
+          <Button
+            themeType="standard"
+            type="submit"
+            width="100%"
+            primaryColor="red"
+            secondaryColor="blue"
+            fontColor="white"
+          >
             Save
           </Button>
         </ButtonWrapper>

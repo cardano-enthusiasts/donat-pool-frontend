@@ -27,6 +27,7 @@ const Footer = ({ backgroundColor = 'blue' }: Props) => {
             </Links>
           </IconAndLinks>
           <Button
+            themeType="standard"
             primaryColor="red"
             secondaryColor="green"
             size="s"

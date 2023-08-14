@@ -30,7 +30,15 @@ const Roadmap = ({ isActive }: Props) => {
         </Inner>
       </Wrapper>
       <ButtonWrapper>
-        <Button themeType="accent" primaryColor="blue" secondaryColor="green" size="s" href={ROUTES.roadmap}>
+        <Button
+          themeType="accent"
+          primaryColor="blue"
+          secondaryColor="green"
+          size="s"
+          href={ROUTES.roadmap}
+          isAnimation={true}
+          fontColor="green"
+        >
           All phases
         </Button>
       </ButtonWrapper>

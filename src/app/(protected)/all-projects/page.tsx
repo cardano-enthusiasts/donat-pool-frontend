@@ -32,6 +32,7 @@ const Page = () => {
         <h1>All Donation pools</h1>
         <div className="max-md:fixed max-md:bottom-[60px] max-md:right-8">
           <Button
+            themeType="standard"
             primaryColor="red"
             secondaryColor="blue"
             fontColor="white"

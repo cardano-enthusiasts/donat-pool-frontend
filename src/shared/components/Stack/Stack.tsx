@@ -46,8 +46,7 @@ const Stack = () => {
         themeType="dashed"
         primaryColor="red"
         secondaryColor="blue"
-        tertiaryColor="yellow"
-        fontColor="white"
+        backgroundColor="yellow"
         onClick={() => {
           setIsOpen(!isOpen);
         }}

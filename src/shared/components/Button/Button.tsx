@@ -7,33 +7,27 @@ import { Arrow } from '..';
 const Button = ({
   onClick,
   children,
-  primaryColor = 'yellow',
-  secondaryColor = 'red',
-  tertiaryColor = 'green',
-  fontColor = secondaryColor,
-  themeType = 'standard',
+  themeType,
+  primaryColor,
   type = 'button',
   href = null,
-  isDisabled = false,
   width = 'auto',
-  isClickedTheme = false,
   size = 'm',
+  isDisabled = false,
+  ...props
 }: Props) => {
   const isLinkExternal = Boolean(href && (href.indexOf('http://') !== 0 || href.indexOf('https://') !== 0));
-  const attributes = {
-    primaryColor,
-    secondaryColor,
-    tertiaryColor,
-    fontColor,
-    themeType,
-    isClickedTheme,
-    width,
-    size,
-  };
 
   return href !== null ? (
     <Wrapper themeType={themeType} width={width} size={size}>
-      <LinkWrapper {...attributes} isDisabled={isDisabled}>
+      <LinkWrapper
+        {...props}
+        themeType={themeType}
+        width={width}
+        size={size}
+        isDisabled={isDisabled}
+        primaryColor={primaryColor}
+      >
         <Link
           href={href}
           target={isLinkExternal ? '_blank' : '_self'}
@@ -45,11 +39,23 @@ const Button = ({
     </Wrapper>
   ) : (
     <Wrapper themeType={themeType} width={width} size={size}>
-      <StyledButton onClick={onClick} {...attributes} disabled={isDisabled} type={type}>
+      <StyledButton
+        {...props}
+        primaryColor={primaryColor}
+        onClick={onClick}
+        themeType={themeType}
+        width={width}
+        size={size}
+        disabled={isDisabled}
+        type={type}
+      >
         {children}
         {themeType === 'dashed' && (
           <ArrowWrapper>
-            <Arrow isUp={!isClickedTheme} color={primaryColor === 'blue' ? 'blue' : 'red'} />
+            <Arrow
+              isUp={'isClickedTheme' in props ? !props.isClickedTheme : false}
+              color={primaryColor === 'blue' ? 'blue' : 'red'}
+            />
           </ArrowWrapper>
         )}
       </StyledButton>

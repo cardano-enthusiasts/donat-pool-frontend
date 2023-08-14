@@ -42,7 +42,7 @@ const ModalDonate = ({ isOpen, onClose, data: { threadTokenCurrency, threadToken
         <Buttons>
           <Button
             themeType="double-bordered"
-            tertiaryColor="white"
+            backgroundColor="white"
             onClick={() => {
               handleClose();
             }}
@@ -50,7 +50,14 @@ const ModalDonate = ({ isOpen, onClose, data: { threadTokenCurrency, threadToken
           >
             Cancel
           </Button>
-          <Button primaryColor="red" secondaryColor="blue" width="100%" type="submit" fontColor="white">
+          <Button
+            themeType="standard"
+            primaryColor="red"
+            secondaryColor="blue"
+            width="100%"
+            type="submit"
+            fontColor="white"
+          >
             Donate
           </Button>
         </Buttons>

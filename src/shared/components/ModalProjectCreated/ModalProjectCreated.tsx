@@ -40,7 +40,7 @@ const ModalProjectCreated = ({ isOpen, onClose, path }: Props) => {
             <Description>Link copied to clipboard.</Description>
             <Button
               themeType="double-bordered"
-              tertiaryColor="white"
+              backgroundColor="white"
               primaryColor="blue"
               width="100%"
               onClick={onClose}
@@ -52,6 +52,7 @@ const ModalProjectCreated = ({ isOpen, onClose, path }: Props) => {
           <>
             <ProjectLink>{link}</ProjectLink>
             <Button
+              themeType="standard"
               primaryColor="red"
               secondaryColor="blue"
               width="100%"

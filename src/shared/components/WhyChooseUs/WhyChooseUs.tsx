@@ -25,10 +25,12 @@ const WhyChooseUs = () => {
       <ButtonAndInfo>
         <ButtonWrapper>
           <Button
+            themeType="standard"
             primaryColor="blue"
             secondaryColor="green"
             fontColor="white"
             href="https://github.com/fullstack-development/donat-pool-onchain"
+            isAnimation={true}
           >
             On-chain code
           </Button>
@@ -36,10 +38,12 @@ const WhyChooseUs = () => {
 
         <ButtonWrapper>
           <Button
+            themeType="standard"
             primaryColor="green"
             secondaryColor="blue"
             fontColor="black"
             href="https://github.com/fullstack-development/donat-pool-offchain"
+            isAnimation={true}
           >
             Off-chain code
           </Button>

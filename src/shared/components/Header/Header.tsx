@@ -41,7 +41,13 @@ const Header = ({ currentPage = null }: Props) => {
             <WalletButton />
           </LinksAndButton>
         ) : (
-          <Button href={ROUTES.newFundraising} primaryColor="yellow" secondaryColor="blue" fontColor="black">
+          <Button
+            themeType="standard"
+            href={ROUTES.newFundraising}
+            primaryColor="yellow"
+            secondaryColor="blue"
+            fontColor="black"
+          >
             Start a fundraiser
           </Button>
         )}

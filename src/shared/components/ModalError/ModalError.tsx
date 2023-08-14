@@ -9,7 +9,7 @@ const ModalError = ({ isOpen, title, errorText = '', onClose }: Props) => {
       <Inner>
         <Img src="/img/bitten-donut.svg" alt="bitten donut" />
         <ErrorText>{errorText}</ErrorText>
-        <Button themeType="double-bordered" primaryColor="blue" width="100%" onClick={onClose} tertiaryColor="white">
+        <Button themeType="double-bordered" primaryColor="blue" width="100%" onClick={onClose} backgroundColor="white">
           Close button
         </Button>
       </Inner>
