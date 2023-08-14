@@ -17,8 +17,7 @@ const Wrapper = styled.div<{
   paddingSize: NonNullable<Props['paddingSize']>;
 }>`
   background: #fff;
-  padding: ${({ paddingSize }) =>
-    paddingSize === 's' ? '10px 16px 24px' : '28px 16px 24px'};
+  padding: ${({ paddingSize }) => (paddingSize === 's' ? '10px 16px 24px' : '28px 16px 24px')};
 
   border-radius: 6px;
 
@@ -94,13 +93,4 @@ const Line = styled.div`
   background-color: #ff6b95;
 `;
 
-export {
-  Wrapper,
-  DateItem,
-  Amount,
-  DateAndAmount,
-  Title,
-  Status,
-  RaisedAmount,
-  Line,
-};
+export { Wrapper, DateItem, Amount, DateAndAmount, Title, Status, RaisedAmount, Line };

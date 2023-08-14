@@ -1,49 +1,53 @@
-'use client';
+import { useCallback, useEffect } from 'react';
 
-import { useCallback, useEffect, useState } from 'react';
-
+import { useAppSelector, useAppDispatch } from '@/redux/hooks';
+import { setRequestStatus, setFundraisings, setError } from '@/redux/slices/getAllFundraisings';
 import { testnetNami } from '@/shared/constants';
-import type { Fundraising } from '@/shared/types';
-import { useAppSelector } from '@/store/hooks';
+import { transformFundraisings } from '@/shared/helpers';
+import type { FetchedFundraising } from '@/shared/types';
 
 import useDonatPool from './useDonatPool';
 
 const useAllFundraisings = () => {
   const donatPool = useDonatPool();
-  const connectWalletStatus = useAppSelector((state) => state.connectWallet.status);
-  const [areBeingFetched, setAreBeingFetched] = useState(false);
-  const [fundraisings, setFundraisings] = useState<Fundraising[] | undefined>();
-  const [fetchError, setFetchError] = useState<string | undefined>();
+  const connectWalletStatus = useAppSelector((state) => state.connectWallet.requestStatus);
+  const { requestStatus, fundraisings, error } = useAppSelector((state) => state.getAllFundraisings);
+  const dispatch = useAppDispatch();
 
-  const handleFetchSuccess = useCallback((fundraisings: Fundraising[]) => {
-    setAreBeingFetched(false);
-    setFundraisings(fundraisings);
-  }, []);
+  const handleFetchSuccess = useCallback(
+    (fundraisings: FetchedFundraising[]) => {
+      dispatch(setFundraisings(transformFundraisings(fundraisings)));
+    },
+    [dispatch],
+  );
 
-  const handleFetchFailure = useCallback((error: string) => {
-    setAreBeingFetched(false);
-    setFetchError(error);
-  }, []);
+  const handleFetchFailure = useCallback(
+    (error: string) => {
+      console.error(`getAllFundraisings: ${error}`);
+      dispatch(setError(error));
+    },
+    [dispatch],
+  );
 
   const fetchFundraisings = useCallback(() => {
-    if (donatPool) {
-      setAreBeingFetched(true);
+    if (connectWalletStatus === 'success' && donatPool) {
+      dispatch(setRequestStatus('requesting'));
       donatPool.getAllFundraisings(handleFetchSuccess)(handleFetchFailure)(
         JSON.parse(process.env.NEXT_PUBLIC_PROTOCOL),
       )(testnetNami)();
     }
-  }, [donatPool, handleFetchSuccess, handleFetchFailure]);
+  }, [connectWalletStatus, donatPool, dispatch, handleFetchSuccess, handleFetchFailure]);
 
   useEffect(() => {
-    if (connectWalletStatus === 'success') {
+    if (requestStatus === 'default') {
       fetchFundraisings();
     }
-  }, [connectWalletStatus, fetchFundraisings]);
+  }, [connectWalletStatus, requestStatus, fetchFundraisings, dispatch]);
 
   return {
-    areBeingFetched,
+    areBeingFetched: requestStatus === 'requesting',
     fundraisings,
-    fetchError,
+    error,
     refetchFundraisings: fetchFundraisings,
   };
 };

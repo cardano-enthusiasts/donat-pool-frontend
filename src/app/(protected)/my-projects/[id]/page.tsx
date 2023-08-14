@@ -7,11 +7,10 @@ import { Common, Project } from '@/layouts';
 import { PrivateProjectsActions, RaisedCounter, Status } from '@/shared/components';
 import { ROUTES } from '@/shared/constants';
 import { formatDate } from '@/shared/helpers';
-import { useAuthGuard, useUserFundraisings } from '@/shared/hooks';
+import { useUserFundraisings } from '@/shared/hooks';
 import type { Fundraising } from '@/shared/types';
 
 const Page = () => {
-  useAuthGuard();
   const params = useParams();
   const router = useRouter();
   const { fundraisings } = useUserFundraisings();
@@ -41,12 +40,12 @@ const Page = () => {
           <div className="max-w-[600px]">
             <div className="flex items-center justify-between border-b-2 border-t-2 border-black py-7">
               <Status isActive={!currentProject.isCompleted} />
-              <div className="text-xl font-bold">Until {formatDate(Number(currentProject.deadline.value))}</div>
+              <div className="text-xl font-bold">Until {formatDate(Number(currentProject.deadline))}</div>
             </div>
             <div className="flex border-b-2 border-black py-6">
               <RaisedCounter
-                raised={Number(currentProject.raisedAmt.value) / 1000000}
-                goal={Number(currentProject.goal.value) / 1000000}
+                raised={Number(currentProject.raisedAmt) / 1000000}
+                goal={Number(currentProject.goal) / 1000000}
               />
             </div>
             <PrivateProjectsActions project={currentProject} />

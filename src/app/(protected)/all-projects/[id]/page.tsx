@@ -4,16 +4,15 @@ import { useParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
 import { Common } from '@/layouts';
+import { useAppDispatch, useAppSelector } from '@/redux/hooks';
+import { reset } from '@/redux/slices/donating';
 import { Button, ModalDonate, ModalError, ModalLoading, ModalSuccess, RaisedCounter } from '@/shared/components';
 import { formatDate } from '@/shared/helpers';
-import { useAllFundraisings, useAuthGuard } from '@/shared/hooks';
+import { useAllFundraisings } from '@/shared/hooks';
 import { useDonate } from '@/shared/hooks';
 import type { Fundraising } from '@/shared/types';
-import { useAppDispatch, useAppSelector } from '@/store/hooks';
-import { reset } from '@/store/slices/donating';
 
 const Page = () => {
-  useAuthGuard();
   const params = useParams();
   const dispatch = useAppDispatch();
   const { fundraisings } = useAllFundraisings();
@@ -24,16 +23,15 @@ const Page = () => {
   const [isModalSuccessOpen, setIsModalSuccessOpen] = useState(false);
   const donate = useDonate();
 
-  const {
-    donating: { error, status },
-  } = useAppSelector((state) => state);
+  const donateStatus = useAppSelector((state) => state.donating.status);
+  const donateError = useAppSelector((state) => state.donating.error);
 
   useEffect(() => {
-    const isRequesting = status === 'requesting';
+    const isRequesting = donateStatus === 'requesting';
     setIsModalLoadingOpen(isRequesting);
 
-    const isSuccessfully = status === 'success';
-    const isError = status === 'error';
+    const isSuccessfully = donateStatus === 'success';
+    const isError = donateStatus === 'error';
     if (isRequesting || isSuccessfully || isError) {
       setIsModalOpen(false);
     }
@@ -43,7 +41,7 @@ const Page = () => {
     if (isError) {
       setIsModalErrorOpen(true);
     }
-  }, [status]);
+  }, [donateStatus]);
 
   useEffect(() => {
     if (fundraisings) {
@@ -65,12 +63,12 @@ const Page = () => {
               {currentProject.title}
             </h1>
             <div className="border-b-2 border-t-2 border-black py-6 text-center text-xl font-bold">
-              Until {formatDate(Number(currentProject.deadline.value))}{' '}
+              Until {formatDate(Number(currentProject.deadline))}
             </div>
             <div className="mx-0 mb-10 mt-6">
               <RaisedCounter
-                raised={Number(currentProject.raisedAmt.value) / 1000000}
-                goal={Number(currentProject.goal.value) / 1000000}
+                raised={Number(currentProject.raisedAmt) / 1000000}
+                goal={Number(currentProject.goal) / 1000000}
               />
             </div>
 
@@ -100,7 +98,7 @@ const Page = () => {
         <ModalError
           isOpen={isModalErrorOpen}
           title="How many ADA would you like to donate?"
-          errorText={error}
+          errorText={donateError}
           onClose={() => {
             setIsModalErrorOpen(false);
             dispatch(reset());

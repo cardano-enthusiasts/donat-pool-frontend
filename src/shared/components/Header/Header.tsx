@@ -1,19 +1,10 @@
 import Link from 'next/link';
 import { useState } from 'react';
 
+import { useAppSelector } from '@/redux/hooks';
 import { ROUTES } from '@/shared/constants';
-import { useAppSelector } from '@/store/hooks';
 
-import {
-  Inner,
-  Links,
-  Wrapper,
-  LinkWrapper,
-  Icon,
-  LogoWrapper,
-  LinksAndButton,
-  Line,
-} from './Header.styled';
+import { Inner, Links, Wrapper, LinkWrapper, Icon, LogoWrapper, LinksAndButton, Line } from './Header.styled';
 import type { Props } from './types';
 import { Button, Logo, WalletButton } from '..';
 
@@ -27,9 +18,7 @@ const Header = ({ currentPage = null }: Props) => {
     },
   ];
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const connectWalletStatus = useAppSelector(
-    (state) => state.connectWallet.status,
-  );
+  const connectWalletStatus = useAppSelector((state) => state.connectWallet.requestStatus);
 
   return (
     <Wrapper isMenuOpen={isMenuOpen}>
@@ -43,10 +32,7 @@ const Header = ({ currentPage = null }: Props) => {
           <LinksAndButton isMenuOpen={isMenuOpen}>
             <Links>
               {links.map(({ title, href, id }) => (
-                <LinkWrapper
-                  key={id}
-                  {...(currentPage ? { isActive: href === currentPage } : {})}
-                >
+                <LinkWrapper key={id} {...(currentPage ? { isActive: href === currentPage } : {})}>
                   <Link href={href}>{title}</Link>
                 </LinkWrapper>
               ))}
@@ -55,12 +41,7 @@ const Header = ({ currentPage = null }: Props) => {
             <WalletButton />
           </LinksAndButton>
         ) : (
-          <Button
-            href={ROUTES.newFundraising}
-            primaryColor="yellow"
-            secondaryColor="blue"
-            fontColor="black"
-          >
+          <Button href={ROUTES.newFundraising} primaryColor="yellow" secondaryColor="blue" fontColor="black">
             Start a fundraiser
           </Button>
         )}

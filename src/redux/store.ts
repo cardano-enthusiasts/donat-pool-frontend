@@ -7,9 +7,11 @@ import {
   fundsReceiving,
   protocolUpdating,
   connectWallet,
+  getAllFundraisings,
+  getUserRelatedFundraisings,
 } from './slices';
 
-const store = configureStore({
+export default configureStore({
   reducer: {
     appInfo: appInfo.reducer,
     donating: donating.reducer,
@@ -17,9 +19,7 @@ const store = configureStore({
     fundsReceiving: fundsReceiving.reducer,
     protocolUpdating: protocolUpdating.reducer,
     connectWallet: connectWallet.reducer,
+    getAllFundraisings: getAllFundraisings.reducer,
+    getUserRelatedFundraisings: getUserRelatedFundraisings.reducer,
   },
 });
-
-export default store;
-export type RootState = ReturnType<typeof store.getState>;
-export type AppDispatch = typeof store.dispatch;

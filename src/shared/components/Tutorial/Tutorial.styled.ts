@@ -58,13 +58,4 @@ const DescriptionItem = styled.li`
   font-size: 14px;
 `;
 
-export {
-  Items,
-  Item,
-  Order,
-  Title,
-  Gif,
-  GifAndDescription,
-  Description,
-  DescriptionItem,
-};
+export { Items, Item, Order, Title, Gif, GifAndDescription, Description, DescriptionItem };

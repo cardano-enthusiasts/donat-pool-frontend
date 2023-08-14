@@ -26,18 +26,6 @@ interface UserInfo {
   address: string;
 }
 
-type LandingSection =
-  | 'home'
-  | 'how-it-works'
-  | 'why-choose-us'
-  | 'about-us'
-  | 'roadmap'
-  | 'contact-us';
+type LandingSection = 'home' | 'how-it-works' | 'why-choose-us' | 'about-us' | 'roadmap' | 'contact-us';
 
-export type {
-  Config,
-  FundraisingData,
-  CreateFundraisingParams,
-  UserInfo,
-  LandingSection,
-};
+export type { Config, FundraisingData, CreateFundraisingParams, UserInfo, LandingSection };

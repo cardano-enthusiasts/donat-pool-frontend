@@ -79,13 +79,4 @@ const ButtonWrapper = styled.div`
   }
 `;
 
-export {
-  WrapperAndButton,
-  Wrapper,
-  Inner,
-  Title,
-  Ul,
-  Li,
-  SubLi,
-  ButtonWrapper,
-};
+export { WrapperAndButton, Wrapper, Inner, Title, Ul, Li, SubLi, ButtonWrapper };

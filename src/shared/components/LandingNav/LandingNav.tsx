@@ -22,10 +22,7 @@ const LandingNav = forwardRef(
   ) => {
     const mobileResolution = 1100;
     const isContentShown = windowWidth > mobileResolution ? true : isOpen;
-    const section =
-      windowWidth > mobileResolution || currentSection !== 'contact-us'
-        ? currentSection
-        : 'roadmap';
+    const section = windowWidth > mobileResolution || currentSection !== 'contact-us' ? currentSection : 'roadmap';
 
     return (
       <Wrapper
@@ -39,11 +36,7 @@ const LandingNav = forwardRef(
       >
         {windowWidth < mobileResolution && (
           <>
-            <Icon
-              src={`/icons/${isOpen ? 'close' : 'menu'}.svg`}
-              alt="icon"
-              onClick={handleIconClick}
-            />
+            <Icon src={`/icons/${isOpen ? 'close' : 'menu'}.svg`} alt="icon" onClick={handleIconClick} />
             <WavesWrapper>
               <Waves isUpsideDown={true} color="red" isMoving={false} />
             </WavesWrapper>
@@ -66,12 +59,7 @@ const LandingNav = forwardRef(
               </Link>
             ))}
             {section !== 'home' && (
-              <Button
-                primaryColor="red"
-                secondaryColor="blue"
-                fontColor="white"
-                href={ROUTES.newFundraising}
-              >
+              <Button primaryColor="red" secondaryColor="blue" fontColor="white" href={ROUTES.newFundraising}>
                 Start a fundraiser
               </Button>
             )}

@@ -4,17 +4,13 @@ import { useRouter } from 'next/navigation';
 import { useEffect } from 'react';
 
 import { Common } from '@/layouts';
+import { useAppSelector } from '@/redux/hooks';
 import { ProjectCreation } from '@/shared/components';
 import { ROUTES } from '@/shared/constants';
-import { useAuthGuard } from '@/shared/hooks';
-import { useAppSelector } from '@/store/hooks';
 
 const Page = () => {
-  useAuthGuard();
   const router = useRouter();
-  const connectWalletStatus = useAppSelector(
-    (state) => state.connectWallet.status,
-  );
+  const connectWalletStatus = useAppSelector((state) => state.connectWallet.requestStatus);
 
   useEffect(() => {
     document.title = 'New project';

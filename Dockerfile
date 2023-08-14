@@ -1,4 +1,4 @@
-FROM node:19
+FROM node:18.17.1
 
 # Add ssh key for private repository (donat-pool-offchain)
 ARG SSH_PRIVATE_KEY
@@ -19,5 +19,5 @@ RUN npm i
 RUN rm /root/.ssh/id_rsa
 # Bundle app source
 COPY . /code
-RUN npm run build
-CMD ["npm", "run", "start"]
+# RUN npm run build
+CMD ["npm", "run", "dev"]

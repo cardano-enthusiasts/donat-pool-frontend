@@ -24,7 +24,7 @@ function StyledComponentsRegistry({ children }: { children: React.ReactNode }) {
   return <StyleSheetManager sheet={styledComponentsStyleSheet.instance}>{children}</StyleSheetManager>;
 }
 
-export default function StyledComponentsProvider({ children }: { children: React.ReactNode }) {
+export default function Provider({ children }: { children: React.ReactNode }) {
   return (
     <StyledComponentsRegistry>
       <ThemeProvider theme={theme}>{children}</ThemeProvider>

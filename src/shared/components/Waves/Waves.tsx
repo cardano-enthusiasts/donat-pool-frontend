@@ -4,12 +4,7 @@ import { theme } from '@/shared/styles/theme';
 import type { Props } from './types';
 import { G, Svg, Wrapper } from './Waves.styled';
 
-const Waves = ({
-  color = 'blue',
-  backgroundColor = 'transparent',
-  isUpsideDown = false,
-  isMoving = true,
-}: Props) => {
+const Waves = ({ color = 'blue', backgroundColor = 'transparent', isUpsideDown = false, isMoving = true }: Props) => {
   const size = useWindowSize();
 
   const getWidthForViewBox = () => {
@@ -38,12 +33,7 @@ const Waves = ({
         </defs>
 
         <G isMoving={isMoving}>
-          <use
-            xlinkHref="#gentle-wave"
-            x="48"
-            y="0"
-            fill={theme.colors[color] ? theme.colors[color] : color}
-          />
+          <use xlinkHref="#gentle-wave" x="48" y="0" fill={theme.colors[color] ? theme.colors[color] : color} />
         </G>
       </Svg>
     </Wrapper>

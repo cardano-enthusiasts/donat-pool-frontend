@@ -159,13 +159,4 @@ const ArrowRight = styled.div`
   }
 `;
 
-export {
-  Circle1,
-  Circle2,
-  Circle3,
-  Circle4,
-  Wrapper,
-  VerticalLine,
-  ArrowLeft,
-  ArrowRight,
-};
+export { Circle1, Circle2, Circle3, Circle4, Wrapper, VerticalLine, ArrowLeft, ArrowRight };

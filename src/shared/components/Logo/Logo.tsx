@@ -8,7 +8,7 @@ import { LogoWrapper } from './Logo.styled';
 const Logo = () => {
   return (
     <LogoWrapper>
-      <Link href={ROUTES.root}>
+      <Link href={ROUTES.home}>
         <Image src="/img/logo.svg" width={283} height={40} alt="logo" />
       </Link>
     </LogoWrapper>

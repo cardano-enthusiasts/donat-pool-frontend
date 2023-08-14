@@ -1,5 +1,5 @@
 const ROUTES = {
-  root: '/',
+  home: '/',
   allFundraisings: '/all-projects',
   userFundraisings: '/my-projects',
   newFundraising: '/new-project',

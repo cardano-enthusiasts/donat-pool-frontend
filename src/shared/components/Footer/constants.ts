@@ -5,7 +5,7 @@ const LINKS: Array<{
   href: string;
   target?: React.HTMLAttributeAnchorTarget;
 }> = [
-  { title: 'Home', href: ROUTES.root },
+  { title: 'Home', href: ROUTES.home },
   { title: 'About us on MetaLamp', href: ROUTES.mock },
   { title: 'Terms of use', href: ROUTES.mock },
   { title: 'FAQ', href: ROUTES.faq, target: '_blank' },

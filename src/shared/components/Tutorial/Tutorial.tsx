@@ -2,16 +2,7 @@ import HTMLReactParser from 'html-react-parser';
 import { useState } from 'react';
 
 import { data } from './data';
-import {
-  Description,
-  DescriptionItem,
-  Gif,
-  GifAndDescription,
-  Item,
-  Items,
-  Order,
-  Title,
-} from './Tutorial.styled';
+import { Description, DescriptionItem, Gif, GifAndDescription, Item, Items, Order, Title } from './Tutorial.styled';
 import { Button } from '..';
 
 const Tutorial = () => {
@@ -40,9 +31,7 @@ const Tutorial = () => {
                   <Gif src={`/gif/${src}`} alt="tutorial step" />
                   <Description>
                     {description.map((item, index) => (
-                      <DescriptionItem key={index}>
-                        {HTMLReactParser(item)}
-                      </DescriptionItem>
+                      <DescriptionItem key={index}>{HTMLReactParser(item)}</DescriptionItem>
                     ))}
                   </Description>
                 </GifAndDescription>

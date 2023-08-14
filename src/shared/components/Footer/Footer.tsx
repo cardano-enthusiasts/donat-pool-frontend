@@ -4,13 +4,7 @@ import { useState } from 'react';
 import { Button, Socials, ModalContactUs } from '@/shared/components';
 
 import { LINKS } from './constants';
-import {
-  Links,
-  Wrapper,
-  LinkWrapper,
-  Inner,
-  IconAndLinks,
-} from './Footer.styled';
+import { Links, Wrapper, LinkWrapper, Inner, IconAndLinks } from './Footer.styled';
 import type { Props } from './types';
 
 const Footer = ({ backgroundColor = 'blue' }: Props) => {

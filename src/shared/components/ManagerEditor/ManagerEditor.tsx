@@ -1,17 +1,11 @@
 import { type ChangeEvent, useState, useEffect } from 'react';
 
+import { useAppDispatch, useAppSelector } from '@/redux/hooks';
+import { reset } from '@/redux/slices/protocolUpdating';
 import { useUpdateProtocol } from '@/shared/hooks';
-import { useAppDispatch, useAppSelector } from '@/store/hooks';
-import { reset } from '@/store/slices/protocolUpdating';
 
 import { defaultParams } from './data';
-import {
-  ButtonWrapper,
-  Line,
-  Form,
-  InputWrapper,
-  Hint,
-} from './ManagerEditor.styled';
+import { ButtonWrapper, Line, Form, InputWrapper, Hint } from './ManagerEditor.styled';
 import type { Props } from './types';
 import { Button, Input, ModalError, ModalLoading, ModalSuccess } from '..';
 
@@ -86,22 +80,12 @@ const ManagerEditor = ({ config }: Props) => {
           ))}
         </InputWrapper>
         <ButtonWrapper>
-          <Button
-            type="submit"
-            width="100%"
-            primaryColor="red"
-            secondaryColor="blue"
-            fontColor="white"
-          >
+          <Button type="submit" width="100%" primaryColor="red" secondaryColor="blue" fontColor="white">
             Save
           </Button>
         </ButtonWrapper>
       </Form>
-      <ModalLoading
-        isOpen={isModalLoadingOpen}
-        title="Data saving"
-        description="Please wait a bit"
-      />
+      <ModalLoading isOpen={isModalLoadingOpen} title="Data saving" description="Please wait a bit" />
       <ModalError
         isOpen={isModalErrorOpen}
         title="Management contract"
