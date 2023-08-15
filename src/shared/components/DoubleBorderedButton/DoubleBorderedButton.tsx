@@ -18,8 +18,8 @@ const DoubleBorderedButton = ({
   const variants = {
     primary: { blue: 'bg-blue text-blue border-blue before:border-blue' },
     background: {
-      white: 'bg-yellow',
-      red: 'bg-green',
+      white: 'bg-white',
+      red: 'bg-red',
     },
     size: {
       s: 'text-base px-4 py-2.5',
@@ -36,7 +36,7 @@ const DoubleBorderedButton = ({
   );
 
   return (
-    <div className="transition-all duration-500">
+    <div className={classNames('transition-all duration-500', { 'w-full': isFullWidth })}>
       {href !== null ? (
         <Link
           href={href}

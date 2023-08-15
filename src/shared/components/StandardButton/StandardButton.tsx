@@ -33,7 +33,7 @@ const StandardButton = ({
   );
 
   return (
-    <div className="transition-all duration-500">
+    <div className={classNames('transition-all duration-500', { 'w-full': isFullWidth })}>
       {href !== null ? (
         <Link
           href={href}

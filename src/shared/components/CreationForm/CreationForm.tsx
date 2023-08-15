@@ -196,7 +196,7 @@ const CreationForm = ({ onClose, protocol }: Props) => {
           The commission will be debited after the end of the donation pool.
         </Checkbox>
         <div className="flex gap-6">
-          <DoubleBorderedButton onClick={onClose} primaryColor="blue" backgroundColor="white" size="m">
+          <DoubleBorderedButton onClick={onClose} primaryColor="blue" backgroundColor="white">
             Cancel
           </DoubleBorderedButton>
           <StandardButton
