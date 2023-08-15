@@ -6,15 +6,6 @@ import { reset } from '@/redux/slices/fundraisingCreation';
 import { ROUTES } from '@/shared/constants';
 import { useCreateFundraising } from '@/shared/hooks';
 
-import {
-  ButtonWrapper,
-  DurationContainer,
-  DurationInputContainer,
-  DurationTitle,
-  Form,
-  FundingGoal,
-  LabelHint,
-} from './CreationForm.styled';
 import type { FormError, Props } from './types';
 import {
   Checkbox,
@@ -129,7 +120,7 @@ const CreationForm = ({ onClose, protocol }: Props) => {
 
   return (
     <>
-      <Form onSubmit={handleSubmit}>
+      <form className="grid w-full max-w-[600px] grid-cols-1 gap-y-6" onSubmit={handleSubmit}>
         <Input
           value={data.title}
           onChange={(event) => {
@@ -142,12 +133,12 @@ const CreationForm = ({ onClose, protocol }: Props) => {
         >
           The title of the project
         </Input>
-        <DurationContainer>
-          <DurationTitle>
+        <div>
+          <div className="mb-0">
             Project duration
-            <LabelHint> / Max: {Math.floor(maxDurationParam / 1440)} days</LabelHint>
-          </DurationTitle>
-          <DurationInputContainer>
+            <span className="text-gray"> / Max: {Math.floor(maxDurationParam / 1440)} days</span>
+          </div>
+          <div className="flex gap-2.5 max-sm:flex-col">
             <Input
               value={data.durationDays}
               onChange={(event) => {
@@ -175,9 +166,9 @@ const CreationForm = ({ onClose, protocol }: Props) => {
               placeholder="mm"
               error={error.duration}
             />
-          </DurationInputContainer>
-        </DurationContainer>
-        <FundingGoal>
+          </div>
+        </div>
+        <div className="flex flex-col gap-2">
           <Input
             value={data.goal}
             onChange={(event) => {
@@ -189,10 +180,10 @@ const CreationForm = ({ onClose, protocol }: Props) => {
             error={error.goal}
           >
             Amount
-            <LabelHint> / ADA</LabelHint>
+            <span className="text-gray"> / ADA</span>
           </Input>
           <PrecalculationFee goal={Number(data.goal)} />
-        </FundingGoal>
+        </div>
 
         <Checkbox
           isChecked={isChecked}
@@ -204,7 +195,7 @@ const CreationForm = ({ onClose, protocol }: Props) => {
           <br />
           The commission will be debited after the end of the donation pool.
         </Checkbox>
-        <ButtonWrapper>
+        <div className="flex gap-6">
           <DoubleBorderedButton onClick={onClose} primaryColor="blue" backgroundColor="white" size="m">
             Cancel
           </DoubleBorderedButton>
@@ -218,8 +209,8 @@ const CreationForm = ({ onClose, protocol }: Props) => {
           >
             Confirm
           </StandardButton>
-        </ButtonWrapper>
-      </Form>
+        </div>
+      </form>
       <ModalProjectCreated
         path={createdPath}
         isOpen={isSuccessModalOpen}

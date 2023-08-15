@@ -1,8 +1,7 @@
-import { Wrapper } from './CommonError.styled';
-import type { Props } from './types';
+import { Props } from './types';
 
 const CommonError = ({ children }: Props) => {
-  return <Wrapper>{children}</Wrapper>;
+  return <div className="base-wrapper bg-error py-5 text-center font-bold text-white">{children}</div>;
 };
 
 export { CommonError };
