@@ -1,3 +1,7 @@
+interface PropsWithChildren {
+  children: React.ReactNode;
+}
+
 type RequestStatus = 'default' | 'requesting' | 'success' | 'error';
 
 interface FetchedFundraising {
@@ -22,4 +26,4 @@ interface Fundraising {
   title: string;
 }
 
-export type { RequestStatus, FetchedFundraising, Fundraising };
+export type { PropsWithChildren, RequestStatus, FetchedFundraising, Fundraising };

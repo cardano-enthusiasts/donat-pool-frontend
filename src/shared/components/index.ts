@@ -39,3 +39,4 @@ export { Tutorial } from './Tutorial/Tutorial';
 export { TitleAndDescription } from './TitleAndDescription/TitleAndDescription';
 export { LandingContent } from './LandingContent/LandingContent';
 export { DropdownSection } from './DropdownSection/DropdownSection';
+export { default as Layout } from './Layout';

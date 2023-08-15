@@ -5,6 +5,7 @@ const ROUTES = {
   newFundraising: '/new-project',
   roadmap: '/roadmap',
   faq: '/faq',
+  termsOfUse: 'terms-of-use',
   mock: '/mock-address',
 } as const;
 
