@@ -7,7 +7,7 @@ import { ROUTES, testnetNami } from '@/shared/constants';
 
 import useDonatPool from './useDonatPool';
 
-const useAuthGuard = () => {
+export default () => {
   const router = useRouter();
   const donatPool = useDonatPool();
   const connectWalletStatus = useAppSelector((state) => state.connectWallet.requestStatus);
@@ -34,5 +34,3 @@ const useAuthGuard = () => {
 
   return connectWalletStatus === 'success';
 };
-
-export default useAuthGuard;

@@ -1,13 +1,15 @@
-'use client';
+import type { Metadata } from 'next';
 
-import { Layout } from '@/shared/components';
+import Layout from '@/shared/components/Layout';
 
-const Page = () => {
+export const metadata: Metadata = {
+  title: 'Terms of use',
+};
+
+export default () => {
   return (
     <Layout>
       <div>asdasd</div>
     </Layout>
   );
 };
-
-export default Page;

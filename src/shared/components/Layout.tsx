@@ -1,6 +1,6 @@
 import type { PropsWithChildren } from '@/shared/types';
 
-import { Footer } from './Footer/Footer';
+import Footer from './Footer/Footer';
 import { Header } from './Header/Header';
 
 const Layout = ({ children }: PropsWithChildren) => {

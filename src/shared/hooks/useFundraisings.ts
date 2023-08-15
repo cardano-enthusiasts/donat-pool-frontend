@@ -8,7 +8,7 @@ import type { FetchedFundraising } from '@/shared/types';
 
 import useDonatPool from './useDonatPool';
 
-const useFundraisings = () => {
+export default () => {
   const donatPool = useDonatPool();
   const { requestStatus, fundraisings, error } = useAppSelector((state) => state.getAllFundraisings);
   const dispatch = useAppDispatch();
@@ -50,5 +50,3 @@ const useFundraisings = () => {
     refetchFundraisings: fetchFundraisings,
   };
 };
-
-export default useFundraisings;

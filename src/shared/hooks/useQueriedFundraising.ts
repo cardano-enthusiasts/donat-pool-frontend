@@ -3,7 +3,7 @@ import { useMemo } from 'react';
 
 import useFundraisings from './useFundraisings';
 
-const useQueriedFundraising = () => {
+export default () => {
   const router = useRouter();
   const {
     areBeingFetched: allFundraisingsAreBeingFetched,
@@ -21,5 +21,3 @@ const useQueriedFundraising = () => {
     error: fetchAllFundraisingsError,
   };
 };
-
-export default useQueriedFundraising;
