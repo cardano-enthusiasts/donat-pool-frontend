@@ -1,10 +1,10 @@
+import classNames from 'classnames';
 import Link from 'next/link';
 import { useState } from 'react';
 
 import { Socials, ModalContactUs, StandardButton } from '@/shared/components';
 
 import { LINKS } from './constants';
-import { Links, Wrapper, LinkWrapper, Inner, IconAndLinks } from './Footer.styled';
 import type { Props } from './types';
 
 const Footer = ({ backgroundColor = 'blue' }: Props) => {
@@ -12,20 +12,23 @@ const Footer = ({ backgroundColor = 'blue' }: Props) => {
 
   return (
     <>
-      <Wrapper backgroundColor={backgroundColor}>
-        <Inner>
-          <IconAndLinks>
+      <footer
+        className={classNames('base-wrapper', {
+          'bg-blue': backgroundColor === 'blue',
+          'bg-black': backgroundColor === 'black',
+        })}
+      >
+        <div className="base-inner flex w-full items-center justify-between py-10 max-md:flex-col max-md:gap-10">
+          <div className="flex items-center gap-32 max-md:flex-col max-md:gap-10">
             <Socials />
-            <Links>
+            <div className="flex gap-20 font-rammetto-one text-white max-lg:flex-col max-lg:gap-4 max-sm:items-center">
               {LINKS.map(({ title, href, target }) => (
-                <LinkWrapper key={title}>
-                  <Link href={href} target={target}>
-                    {title}
-                  </Link>
-                </LinkWrapper>
+                <Link href={href} target={target} key={title}>
+                  {title}
+                </Link>
               ))}
-            </Links>
-          </IconAndLinks>
+            </div>
+          </div>
           <StandardButton
             primaryColor="red"
             secondaryColor="green"
@@ -37,8 +40,8 @@ const Footer = ({ backgroundColor = 'blue' }: Props) => {
           >
             Contact us
           </StandardButton>
-        </Inner>
-      </Wrapper>
+        </div>
+      </footer>
       <ModalContactUs
         isOpen={isModalContactUsOpen}
         onClose={() => {

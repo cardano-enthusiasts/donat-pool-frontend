@@ -1,6 +1,5 @@
 import { useState } from 'react';
 
-import { Description, Title, Inner, ButtonsWrapper } from './ModalContactUs.styled';
 import type { Props } from './types';
 import { DoubleBorderedButton, Input, Modal, StandardButton } from '../.';
 
@@ -26,9 +25,9 @@ const ModalContactUs = ({ isOpen, onClose }: Props) => {
   return (
     <Modal isOpen={isOpen}>
       <form onSubmit={handleSubmit}>
-        <Inner>
-          <Title>Contact us</Title>
-          <Description>You can report about an error or write to us how we can help you.</Description>
+        <div className="flex flex-col items-center gap-6">
+          <h1>Contact us</h1>
+          <div>You can report about an error or write to us how we can help you.</div>
           <Input
             value={data.contact}
             onChange={(event) => {
@@ -58,16 +57,16 @@ const ModalContactUs = ({ isOpen, onClose }: Props) => {
           >
             Your Message
           </Input>
-        </Inner>
+        </div>
 
-        <ButtonsWrapper>
+        <div className="mt-10 flex w-full gap-6">
           <DoubleBorderedButton onClick={handleCancelClick} primaryColor="blue" backgroundColor="white">
             Cancel
           </DoubleBorderedButton>
           <StandardButton type="submit" primaryColor="red" secondaryColor="blue" fontColor="white" isFullWidth={true}>
             Send
           </StandardButton>
-        </ButtonsWrapper>
+        </div>
       </form>
     </Modal>
   );
