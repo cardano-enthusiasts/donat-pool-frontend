@@ -15,7 +15,7 @@ import {
   TitleAndButtons,
 } from './MyProjects.styled';
 import type { ProjectStatus, Props } from './types';
-import { Button, ProjectCard } from '../.';
+import { BorderedButton, ProjectCard, StandardButton } from '../.';
 
 const MyProjects = ({ onCreateAProjectClick }: Props) => {
   const [allProjectsWithStatus, setAllProjectsWithStatus] = useState<Fundraising[] | null>(null);
@@ -50,42 +50,32 @@ const MyProjects = ({ onCreateAProjectClick }: Props) => {
           <Title>My projects</Title>
           {allProjectsWithStatus !== null && (
             <FilterButtons>
-              <Button
-                themeType="bordered"
-                primaryColor="red"
+              <BorderedButton
+                color="red"
                 onClick={() => {
                   handleFilterClick('active', allProjectsWithStatus);
                 }}
                 isClickedTheme={filter === 'active'}
-                size="s"
               >
                 Active
-              </Button>
-              <Button
-                themeType="bordered"
-                primaryColor="green"
+              </BorderedButton>
+              <BorderedButton
+                color="green"
                 onClick={() => {
                   handleFilterClick('completed', allProjectsWithStatus);
                 }}
                 isClickedTheme={filter === 'completed'}
-                size="s"
               >
                 Completed
-              </Button>
+              </BorderedButton>
             </FilterButtons>
           )}
         </TitleAndButtons>
 
         <CreateButton>
-          <Button
-            themeType="standard"
-            primaryColor="red"
-            secondaryColor="blue"
-            onClick={onCreateAProjectClick}
-            fontColor="white"
-          >
+          <StandardButton primaryColor="red" secondaryColor="blue" onClick={onCreateAProjectClick} fontColor="white">
             Create a new project
-          </Button>
+          </StandardButton>
         </CreateButton>
       </PageHeader>
 

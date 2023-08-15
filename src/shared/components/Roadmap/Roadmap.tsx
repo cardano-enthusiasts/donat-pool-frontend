@@ -6,7 +6,7 @@ import { roadmapText } from '@/shared/data';
 
 import { Inner, Li, Title, Ul, Wrapper, SubLi, WrapperAndButton, ButtonWrapper } from './Roadmap.styled';
 import type { Props } from './types';
-import { Button } from '../.';
+import { AccentButton } from '../.';
 
 const Roadmap = ({ isActive }: Props) => {
   const getSubLis = (item: any) => {
@@ -30,8 +30,7 @@ const Roadmap = ({ isActive }: Props) => {
         </Inner>
       </Wrapper>
       <ButtonWrapper>
-        <Button
-          themeType="accent"
+        <AccentButton
           primaryColor="blue"
           secondaryColor="green"
           size="s"
@@ -40,7 +39,7 @@ const Roadmap = ({ isActive }: Props) => {
           fontColor="green"
         >
           All phases
-        </Button>
+        </AccentButton>
       </ButtonWrapper>
     </WrapperAndButton>
   );

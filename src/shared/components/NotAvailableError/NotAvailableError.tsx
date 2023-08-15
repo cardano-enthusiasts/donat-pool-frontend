@@ -1,5 +1,5 @@
 import { Container, Content, Description, Img, Inner, Title } from './NotAvailableError.styled';
-import { Button, Waves } from '..';
+import { DoubleBorderedButton, Waves } from '..';
 
 const NotAvailableError = () => {
   return (
@@ -9,15 +9,14 @@ const NotAvailableError = () => {
           <Title>Wallet is not available </Title>
           <Img src="/img/sad-cat-with-purple-border.svg" />
           <Description>Please install Nami wallet in a suitable browser (Chrome, Brave)</Description>
-          <Button
+          <DoubleBorderedButton
             href="https://namiwallet.io/"
-            themeType="double-bordered"
             primaryColor="blue"
             backgroundColor="red"
-            width="100%"
+            isFullWidth={true}
           >
             Download App
-          </Button>
+          </DoubleBorderedButton>
         </Content>
       </Inner>
 

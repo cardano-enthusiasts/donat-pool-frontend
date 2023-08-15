@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 
 import { Buttons, InputWrapper, Title } from './ModalDonate.styled';
 import type { Props } from './types';
-import { Button, Input, Modal } from '../.';
+import { DoubleBorderedButton, Input, Modal, StandardButton } from '../.';
 
 const ModalDonate = ({ isOpen, onClose, data: { threadTokenCurrency, threadTokenName }, donate }: Props) => {
   const [value, setValue] = useState<'' | number>('');
@@ -40,8 +40,7 @@ const ModalDonate = ({ isOpen, onClose, data: { threadTokenCurrency, threadToken
           <Input value={value} onChange={handleChange} type="number" />
         </InputWrapper>
         <Buttons>
-          <Button
-            themeType="double-bordered"
+          <DoubleBorderedButton
             backgroundColor="white"
             onClick={() => {
               handleClose();
@@ -49,17 +48,10 @@ const ModalDonate = ({ isOpen, onClose, data: { threadTokenCurrency, threadToken
             primaryColor="blue"
           >
             Cancel
-          </Button>
-          <Button
-            themeType="standard"
-            primaryColor="red"
-            secondaryColor="blue"
-            width="100%"
-            type="submit"
-            fontColor="white"
-          >
+          </DoubleBorderedButton>
+          <StandardButton primaryColor="red" secondaryColor="blue" isFullWidth={true} type="submit" fontColor="white">
             Donate
-          </Button>
+          </StandardButton>
         </Buttons>
       </form>
     </Modal>

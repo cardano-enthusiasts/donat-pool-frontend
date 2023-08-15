@@ -9,7 +9,7 @@ import {
   Wrapper,
 } from './TitleAndDescription.styles';
 import type { Props } from './types';
-import { Button } from '../Button/Button';
+import { AccentButton } from '../.';
 
 const TitleAndDescription = ({ isActive }: Props) => {
   return (
@@ -20,8 +20,7 @@ const TitleAndDescription = ({ isActive }: Props) => {
         <DescriptionPart2>help a lot</DescriptionPart2>
       </Description>
       <ButtonWrapper>
-        <Button
-          themeType="accent"
+        <AccentButton
           primaryColor="yellow"
           secondaryColor="red"
           fontColor="red"
@@ -31,7 +30,7 @@ const TitleAndDescription = ({ isActive }: Props) => {
           Start
           <br />
           using
-        </Button>
+        </AccentButton>
       </ButtonWrapper>
     </Wrapper>
   );

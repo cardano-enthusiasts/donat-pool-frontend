@@ -4,7 +4,7 @@ import { useWindowSize } from '@/shared/hooks';
 
 import styles from './AboutUs.module.scss';
 import { photos } from './constants';
-import { Button, Stack } from '../.';
+import { AccentButton, Stack } from '../.';
 
 const AboutUs = () => {
   const { width: windowWidth } = useWindowSize();
@@ -30,10 +30,10 @@ const AboutUs = () => {
       </div>
 
       <div className="mb-[140px] flex self-start max-xl:mb-12 max-xl:justify-center">
-        <Button themeType="accent" primaryColor="blue" secondaryColor="red" fontColor="red" isAnimation={true}>
+        <AccentButton primaryColor="blue" secondaryColor="red" fontColor="red" isAnimation={true}>
           Donate
           <br /> To Us
-        </Button>
+        </AccentButton>
       </div>
       <div className="mb-10">
         <Stack />

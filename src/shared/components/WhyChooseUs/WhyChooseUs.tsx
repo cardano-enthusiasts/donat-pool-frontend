@@ -11,7 +11,7 @@ import {
   MinorInfoSection,
   ButtonWrapper,
 } from './WhyChooseUs.styled';
-import { Button } from '../Button/Button';
+import { StandardButton } from '..';
 
 const WhyChooseUs = () => {
   return (
@@ -24,8 +24,7 @@ const WhyChooseUs = () => {
       ))}
       <ButtonAndInfo>
         <ButtonWrapper>
-          <Button
-            themeType="standard"
+          <StandardButton
             primaryColor="blue"
             secondaryColor="green"
             fontColor="white"
@@ -33,12 +32,11 @@ const WhyChooseUs = () => {
             isAnimation={true}
           >
             On-chain code
-          </Button>
+          </StandardButton>
         </ButtonWrapper>
 
         <ButtonWrapper>
-          <Button
-            themeType="standard"
+          <StandardButton
             primaryColor="green"
             secondaryColor="blue"
             fontColor="black"
@@ -46,7 +44,7 @@ const WhyChooseUs = () => {
             isAnimation={true}
           >
             Off-chain code
-          </Button>
+          </StandardButton>
         </ButtonWrapper>
 
         <MinorDescription>

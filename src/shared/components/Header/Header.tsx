@@ -6,7 +6,7 @@ import { ROUTES } from '@/shared/constants';
 
 import { Inner, Links, Wrapper, LinkWrapper, Icon, LogoWrapper, LinksAndButton, Line } from './Header.styled';
 import type { Props } from './types';
-import { Button, Logo, WalletButton } from '..';
+import { Logo, StandardButton, WalletButton } from '..';
 
 const Header = ({ currentPage = null }: Props) => {
   const links = [
@@ -41,15 +41,9 @@ const Header = ({ currentPage = null }: Props) => {
             <WalletButton />
           </LinksAndButton>
         ) : (
-          <Button
-            themeType="standard"
-            href={ROUTES.newFundraising}
-            primaryColor="yellow"
-            secondaryColor="blue"
-            fontColor="black"
-          >
+          <StandardButton href={ROUTES.newFundraising} primaryColor="yellow" secondaryColor="blue" fontColor="black">
             Start a fundraiser
-          </Button>
+          </StandardButton>
         )}
       </Inner>
 

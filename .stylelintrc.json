@@ -2,6 +2,7 @@
   "extends": ["stylelint-config-standard", "stylelint-config-recess-order", "stylelint-config-tailwindcss"],
   "rules": {
     "media-feature-range-notation": "prefix",
-    "at-rule-no-unknown": null
+    "at-rule-no-unknown": null,
+    "selector-class-pattern": null
   }
 }

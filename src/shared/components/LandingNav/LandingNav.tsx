@@ -5,7 +5,7 @@ import { ROUTES } from '@/shared/constants';
 import { getSections } from './data';
 import { Icon, Inner, Link, WavesWrapper, Wrapper } from './LandingNav.styled';
 import type { Props } from './types';
-import { Button, Waves } from '../.';
+import { StandardButton, Waves } from '../.';
 
 const LandingNav = forwardRef(
   (
@@ -59,8 +59,7 @@ const LandingNav = forwardRef(
               </Link>
             ))}
             {section !== 'home' && (
-              <Button
-                themeType="standard"
+              <StandardButton
                 primaryColor="red"
                 secondaryColor="blue"
                 fontColor="white"
@@ -68,7 +67,7 @@ const LandingNav = forwardRef(
                 isAnimation={true}
               >
                 Start a fundraiser
-              </Button>
+              </StandardButton>
             )}
           </Inner>
         )}

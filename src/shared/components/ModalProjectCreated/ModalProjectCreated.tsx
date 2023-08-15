@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 import { Description, Img, Inner, ProjectLink, Title } from './ModalProjectCreated.styled';
 import type { Props } from './types';
-import { Button, Modal } from '../.';
+import { DoubleBorderedButton, Modal, StandardButton } from '../.';
 
 const ModalProjectCreated = ({ isOpen, onClose, path }: Props) => {
   const link = `${location.origin}/my-projects/${path}`;
@@ -38,29 +38,22 @@ const ModalProjectCreated = ({ isOpen, onClose, path }: Props) => {
         {isSuccessfullyCopied ? (
           <>
             <Description>Link copied to clipboard.</Description>
-            <Button
-              themeType="double-bordered"
-              backgroundColor="white"
-              primaryColor="blue"
-              width="100%"
-              onClick={onClose}
-            >
+            <DoubleBorderedButton backgroundColor="white" primaryColor="blue" isFullWidth={true} onClick={onClose}>
               Close the window
-            </Button>
+            </DoubleBorderedButton>
           </>
         ) : (
           <>
             <ProjectLink>{link}</ProjectLink>
-            <Button
-              themeType="standard"
+            <StandardButton
               primaryColor="red"
               secondaryColor="blue"
-              width="100%"
+              isFullWidth={true}
               onClick={handleCopyLinkClick}
               fontColor="white"
             >
               Copy link
-            </Button>
+            </StandardButton>
           </>
         )}
       </Inner>

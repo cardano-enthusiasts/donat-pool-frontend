@@ -8,7 +8,7 @@ import { useReceiveFunds } from '@/shared/hooks';
 
 import { ButtonWrapper, Commission, LinkWrapper, WithdrawSection } from './PrivateProjectsActions.styled';
 import type { Props } from './types';
-import { Button, ModalError, ModalLoading, ModalSuccess } from '../.';
+import { DoubleBorderedButton, ModalError, ModalLoading, ModalSuccess, StandardButton } from '../.';
 
 const PrivateProjectsActions = ({ project }: Props) => {
   const [isModalSuccessOpen, setIsModalSuccessOpen] = useState(false);
@@ -57,11 +57,10 @@ const PrivateProjectsActions = ({ project }: Props) => {
   return project.isCompleted ? (
     <>
       <WithdrawSection>
-        <Button
-          themeType="standard"
+        <StandardButton
           primaryColor="red"
           secondaryColor="blue"
-          width="100%"
+          isFullWidth={true}
           onClick={() => {
             receiveFunds({
               frThreadTokenCurrency: project.threadTokenCurrency,
@@ -73,7 +72,7 @@ const PrivateProjectsActions = ({ project }: Props) => {
           {Number(project.raisedAmt) >= Number(project.goal)
             ? 'You have reached the goal! Take money'
             : 'Project reached its deadline. Collect fund'}
-        </Button>
+        </StandardButton>
         {protocol?.protocolFeeParam && (
           <Commission>We remind you that our commission is {protocol.protocolFeeParam}%</Commission>
         )}
@@ -95,15 +94,9 @@ const PrivateProjectsActions = ({ project }: Props) => {
       <LinkWrapper>
         {link}
         <ButtonWrapper>
-          <Button
-            themeType="double-bordered"
-            backgroundColor="white"
-            size="s"
-            primaryColor="blue"
-            onClick={handleCopyLinkClick}
-          >
+          <DoubleBorderedButton backgroundColor="white" size="s" primaryColor="blue" onClick={handleCopyLinkClick}>
             Copy link
-          </Button>
+          </DoubleBorderedButton>
         </ButtonWrapper>
       </LinkWrapper>
       <ModalSuccess

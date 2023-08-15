@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 import { Description, Title, Inner, ButtonsWrapper } from './ModalContactUs.styled';
 import type { Props } from './types';
-import { Button, Input, Modal } from '../.';
+import { DoubleBorderedButton, Input, Modal, StandardButton } from '../.';
 
 const ModalContactUs = ({ isOpen, onClose }: Props) => {
   const initialData = { contact: '', name: '', message: '' };
@@ -61,19 +61,12 @@ const ModalContactUs = ({ isOpen, onClose }: Props) => {
         </Inner>
 
         <ButtonsWrapper>
-          <Button onClick={handleCancelClick} primaryColor="blue" themeType="double-bordered" backgroundColor="white">
+          <DoubleBorderedButton onClick={handleCancelClick} primaryColor="blue" backgroundColor="white">
             Cancel
-          </Button>
-          <Button
-            themeType="standard"
-            type="submit"
-            primaryColor="red"
-            secondaryColor="blue"
-            fontColor="white"
-            width="100%"
-          >
+          </DoubleBorderedButton>
+          <StandardButton type="submit" primaryColor="red" secondaryColor="blue" fontColor="white" isFullWidth={true}>
             Send
-          </Button>
+          </StandardButton>
         </ButtonsWrapper>
       </form>
     </Modal>

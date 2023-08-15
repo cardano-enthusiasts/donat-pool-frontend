@@ -3,15 +3,14 @@ import { useState } from 'react';
 
 import { data } from './data';
 import { Description, DescriptionItem, Gif, GifAndDescription, Item, Items, Order, Title } from './Tutorial.styled';
-import { Button } from '..';
+import { DashedButton } from '..';
 
 const Tutorial = () => {
   const [isOpen, setIsOpen] = useState(true);
 
   return (
     <div id="tutorial">
-      <Button
-        themeType="dashed"
+      <DashedButton
         primaryColor="blue"
         secondaryColor="red"
         backgroundColor="green"
@@ -21,7 +20,7 @@ const Tutorial = () => {
         isClickedTheme={isOpen}
       >
         Watch the tutorial
-      </Button>
+      </DashedButton>
       {isOpen && (
         <Items>
           {data.map(({ order, title, src, description }) => {

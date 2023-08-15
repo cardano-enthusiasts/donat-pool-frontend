@@ -7,7 +7,7 @@ import { useUpdateProtocol } from '@/shared/hooks';
 import { defaultParams } from './data';
 import { ButtonWrapper, Line, Form, InputWrapper, Hint } from './ManagerEditor.styled';
 import type { Props } from './types';
-import { Button, Input, ModalError, ModalLoading, ModalSuccess } from '..';
+import { Input, ModalError, ModalLoading, ModalSuccess, StandardButton } from '..';
 
 const ManagerEditor = ({ config }: Props) => {
   const [params, setParams] = useState(config);
@@ -80,16 +80,9 @@ const ManagerEditor = ({ config }: Props) => {
           ))}
         </InputWrapper>
         <ButtonWrapper>
-          <Button
-            themeType="standard"
-            type="submit"
-            width="100%"
-            primaryColor="red"
-            secondaryColor="blue"
-            fontColor="white"
-          >
+          <StandardButton type="submit" isFullWidth={true} primaryColor="red" secondaryColor="blue" fontColor="white">
             Save
-          </Button>
+          </StandardButton>
         </ButtonWrapper>
       </Form>
       <ModalLoading isOpen={isModalLoadingOpen} title="Data saving" description="Please wait a bit" />

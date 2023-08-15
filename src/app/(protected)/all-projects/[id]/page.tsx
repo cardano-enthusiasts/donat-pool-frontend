@@ -6,7 +6,7 @@ import { useEffect, useState } from 'react';
 import { Common } from '@/layouts';
 import { useAppDispatch, useAppSelector } from '@/redux/hooks';
 import { reset } from '@/redux/slices/donating';
-import { Button, ModalDonate, ModalError, ModalLoading, ModalSuccess, RaisedCounter } from '@/shared/components';
+import { ModalDonate, ModalError, ModalLoading, ModalSuccess, RaisedCounter, AccentButton } from '@/shared/components';
 import { formatDate } from '@/shared/helpers';
 import { useAllFundraisings } from '@/shared/hooks';
 import { useDonate } from '@/shared/hooks';
@@ -71,8 +71,7 @@ const Page = () => {
             </div>
 
             <div className="flex justify-center">
-              <Button
-                themeType="accent"
+              <AccentButton
                 onClick={() => {
                   setIsModalOpen(true);
                 }}
@@ -81,7 +80,7 @@ const Page = () => {
                 fontColor="red"
               >
                 Donate
-              </Button>
+              </AccentButton>
             </div>
           </div>
         </Common>

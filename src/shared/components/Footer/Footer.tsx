@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { useState } from 'react';
 
-import { Button, Socials, ModalContactUs } from '@/shared/components';
+import { Socials, ModalContactUs, StandardButton } from '@/shared/components';
 
 import { LINKS } from './constants';
 import { Links, Wrapper, LinkWrapper, Inner, IconAndLinks } from './Footer.styled';
@@ -26,8 +26,7 @@ const Footer = ({ backgroundColor = 'blue' }: Props) => {
               ))}
             </Links>
           </IconAndLinks>
-          <Button
-            themeType="standard"
+          <StandardButton
             primaryColor="red"
             secondaryColor="green"
             size="s"
@@ -37,7 +36,7 @@ const Footer = ({ backgroundColor = 'blue' }: Props) => {
             fontColor="white"
           >
             Contact us
-          </Button>
+          </StandardButton>
         </Inner>
       </Wrapper>
       <ModalContactUs

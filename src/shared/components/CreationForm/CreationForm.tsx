@@ -16,7 +16,16 @@ import {
   LabelHint,
 } from './CreationForm.styled';
 import type { FormError, Props } from './types';
-import { Button, Checkbox, Input, ModalError, ModalLoading, PrecalculationFee, ModalProjectCreated } from '..';
+import {
+  Checkbox,
+  Input,
+  ModalError,
+  ModalLoading,
+  PrecalculationFee,
+  ModalProjectCreated,
+  StandardButton,
+  DoubleBorderedButton,
+} from '..';
 
 const CreationForm = ({ onClose, protocol }: Props) => {
   const { minAmountParam, maxAmountParam, minDurationParam, maxDurationParam } = protocol;
@@ -196,27 +205,19 @@ const CreationForm = ({ onClose, protocol }: Props) => {
           The commission will be debited after the end of the donation pool.
         </Checkbox>
         <ButtonWrapper>
-          <Button
-            type="button"
-            onClick={onClose}
-            themeType="double-bordered"
-            primaryColor="blue"
-            backgroundColor="white"
-            size="m"
-          >
+          <DoubleBorderedButton onClick={onClose} primaryColor="blue" backgroundColor="white" size="m">
             Cancel
-          </Button>
-          <Button
-            themeType="standard"
+          </DoubleBorderedButton>
+          <StandardButton
             type="submit"
             isDisabled={!isChecked}
             primaryColor="red"
             secondaryColor="blue"
-            width="100%"
+            isFullWidth={true}
             fontColor="white"
           >
             Confirm
-          </Button>
+          </StandardButton>
         </ButtonWrapper>
       </Form>
       <ModalProjectCreated

@@ -5,7 +5,7 @@ import { useEffect } from 'react';
 
 import { Common } from '@/layouts';
 import { useAppSelector } from '@/redux/hooks';
-import { Button, ProjectCard } from '@/shared/components';
+import { ProjectCard, StandardButton } from '@/shared/components';
 import { ROUTES } from '@/shared/constants';
 import { useAllFundraisings } from '@/shared/hooks';
 
@@ -31,8 +31,7 @@ const Page = () => {
       <div className="mb-14 flex items-center justify-between gap-14 text-center max-md:mb-8 max-md:flex-col max-md:gap-5">
         <h1>All Donation pools</h1>
         <div className="max-md:fixed max-md:bottom-[60px] max-md:right-8">
-          <Button
-            themeType="standard"
+          <StandardButton
             primaryColor="red"
             secondaryColor="blue"
             fontColor="white"
@@ -41,7 +40,7 @@ const Page = () => {
             }}
           >
             Create a new project
-          </Button>
+          </StandardButton>
         </div>
       </div>
       {fundraisingsAreBeingFetched && <div>fundraisings are being fetched</div>}

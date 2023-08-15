@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from 'react';
 import { useWindowScroll } from '@/shared/hooks';
 
 import { Description, Img, Items, Link, Part1, Title, Wrapper } from './Stack.styled';
-import { Button } from '../.';
+import { DashedButton } from '../.';
 
 const Stack = () => {
   const ref = useRef<HTMLDivElement>(null);
@@ -42,8 +42,7 @@ const Stack = () => {
         ))}
       </Items>
 
-      <Button
-        themeType="dashed"
+      <DashedButton
         primaryColor="red"
         secondaryColor="blue"
         backgroundColor="yellow"
@@ -51,10 +50,10 @@ const Stack = () => {
           setIsOpen(!isOpen);
         }}
         isClickedTheme={isOpen}
-        width="180px"
+        isFixedWidth={true}
       >
         Read {isOpen ? 'less' : 'more'}
-      </Button>
+      </DashedButton>
       {isOpen && (
         <Description>
           <Part1>
