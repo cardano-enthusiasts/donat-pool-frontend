@@ -19,13 +19,15 @@ export default () => {
         <p className="mb-8">
           Your access and use of the Donat.Pool Services constitutes your agreement to be bound by these Terms.
         </p>
-        <ol className={`${styles.list} space-y-3`}>
+        <ol className={`${styles.list} list-inside space-y-3`}>
           {terms.map(({ term, subTerms }) => (
-            <li key={term}>
-              <h2 className="mb-1 text-2xl">{term}</h2>
-              <ol className="pl-5">
+            <li key={term} className="text-2xl">
+              {term}
+              <ol className="mt-1 list-inside space-y-1 pl-5">
                 {subTerms.map((subTerm) => (
-                  <li key={subTerm}>{subTerm}</li>
+                  <li key={subTerm} className="text-base">
+                    {subTerm}
+                  </li>
                 ))}
               </ol>
             </li>
