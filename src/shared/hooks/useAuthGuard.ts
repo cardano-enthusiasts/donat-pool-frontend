@@ -17,9 +17,13 @@ const useAuthGuard = () => {
     dispatch(setRequestStatus('success'));
   }, [dispatch]);
 
-  const handleFetchFailure = useCallback(() => {
-    router.push(ROUTES.home);
-  }, [router]);
+  const handleFetchFailure = useCallback(
+    (error: string) => {
+      console.error(error);
+      router.push(ROUTES.home);
+    },
+    [router],
+  );
 
   useEffect(() => {
     if (connectWalletStatus === 'default' && donatPool) {
@@ -27,6 +31,8 @@ const useAuthGuard = () => {
       donatPool.connectWallet(handleFetchSuccess)(handleFetchFailure)(testnetNami)();
     }
   }, [connectWalletStatus, donatPool, dispatch, handleFetchSuccess, handleFetchFailure]);
+
+  return connectWalletStatus === 'success';
 };
 
 export default useAuthGuard;

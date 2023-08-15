@@ -3,7 +3,11 @@
 import { useAuthGuard } from '@/shared/hooks';
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
-  useAuthGuard();
+  const walletConnected = useAuthGuard();
+
+  if (!walletConnected) {
+    return;
+  }
 
   return children;
 };
