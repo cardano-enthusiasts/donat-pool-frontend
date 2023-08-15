@@ -3,7 +3,7 @@
 import { useAuthGuard } from '@/shared/hooks';
 import type { PropsWithChildren } from '@/shared/types';
 
-const Layout = ({ children }: PropsWithChildren) => {
+export default ({ children }: PropsWithChildren) => {
   const walletConnected = useAuthGuard();
 
   if (!walletConnected) {
@@ -12,5 +12,3 @@ const Layout = ({ children }: PropsWithChildren) => {
 
   return children;
 };
-
-export default Layout;

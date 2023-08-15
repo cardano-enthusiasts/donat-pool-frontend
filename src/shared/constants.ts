@@ -1,4 +1,4 @@
-const ROUTES = {
+export const ROUTES = {
   home: '/',
   allFundraisings: '/all-projects',
   userFundraisings: '/my-projects',
@@ -9,9 +9,7 @@ const ROUTES = {
   mock: '/mock-address',
 } as const;
 
-const testnetNami = {
+export const testnetNami = {
   wallet: 'Nami',
   isMainnet: false,
 } as const;
-
-export { ROUTES, testnetNami };

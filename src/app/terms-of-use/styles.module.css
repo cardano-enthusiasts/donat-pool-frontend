@@ -1,0 +1,7 @@
+.list li::marker {
+  content: counters(list-item, '.') '. ';
+}
+
+.list > li::marker {
+  @apply text-2xl;
+}

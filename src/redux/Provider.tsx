@@ -6,6 +6,6 @@ import type { PropsWithChildren } from '@/shared/types';
 
 import store from './store';
 
-export default function Provider({ children }: PropsWithChildren) {
+export default function ({ children }: PropsWithChildren) {
   return <ReduxProvider store={store}>{children}</ReduxProvider>;
 }

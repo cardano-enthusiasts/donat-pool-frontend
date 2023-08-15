@@ -25,7 +25,7 @@ function StyledComponentsRegistry({ children }: PropsWithChildren) {
   return <StyleSheetManager sheet={styledComponentsStyleSheet.instance}>{children}</StyleSheetManager>;
 }
 
-export default function Provider({ children }: PropsWithChildren) {
+export default function ({ children }: PropsWithChildren) {
   return (
     <StyledComponentsRegistry>
       <ThemeProvider theme={theme}>{children}</ThemeProvider>
