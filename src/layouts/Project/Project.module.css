@@ -9,16 +9,16 @@
   line-height: 280%;
   cursor: pointer;
 
-  &::before {
-    display: block;
-    width: 40px;
-    height: 40px;
-    margin-right: 23px;
-    text-align: center;
-    content: url('/icons/arrow.svg');
-  }
-
   @media (max-width: 1200px) {
     position: static;
   }
+}
+
+.previous::before {
+  display: block;
+  width: 40px;
+  height: 40px;
+  margin-right: 23px;
+  text-align: center;
+  content: url('/icons/arrow.svg');
 }

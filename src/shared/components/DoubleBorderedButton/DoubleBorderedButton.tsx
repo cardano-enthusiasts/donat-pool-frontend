@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 import { isLinkExternal } from '@/shared/helpers';
 
-import styles from './DoubleBorderedButton.module.scss';
+import styles from './DoubleBorderedButton.module.css';
 import { Props } from './types';
 
 const DoubleBorderedButton = ({

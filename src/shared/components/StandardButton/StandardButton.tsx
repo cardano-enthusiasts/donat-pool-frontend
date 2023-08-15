@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { isLinkExternal } from '@/shared/helpers';
 
 import variants from './constants';
-import styles from './StandardButton.module.scss';
+import styles from './StandardButton.module.css';
 import { Props } from './types';
 
 const StandardButton = ({

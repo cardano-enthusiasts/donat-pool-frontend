@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 
-import styles from './DashedButton.module.scss';
+import styles from './DashedButton.module.css';
 import { Props } from './types';
 import { Arrow } from '..';
 

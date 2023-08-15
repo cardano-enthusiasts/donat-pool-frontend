@@ -2,7 +2,7 @@ import Image from 'next/image';
 
 import { useWindowSize } from '@/shared/hooks';
 
-import styles from './AboutUs.module.scss';
+import styles from './AboutUs.module.css';
 import { photos } from './constants';
 import { AccentButton, Stack } from '../.';
 

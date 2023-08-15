@@ -12,7 +12,7 @@
   }
 }
 
-@mixin column-styles {
+.column1 {
   display: flex;
   flex-shrink: 0;
   width: 150px;
@@ -21,36 +21,37 @@
   background-image: url('/img/mini-donut.svg');
   background-repeat: repeat-y;
   background-position: 20px 20px;
+  animation: marquee1 50s infinite linear;
 }
 
-.column1 {
-  @include column-styles();
+@keyframes marquee1 {
+  0% {
+    background-position: 50% 0%;
+  }
 
-  animation: marquee1 50s infinite linear;
-
-  @keyframes marquee1 {
-    0% {
-      background-position: 50% 0%;
-    }
-
-    100% {
-      background-position: 50% -100%;
-    }
+  100% {
+    background-position: 50% -100%;
   }
 }
 
 .column2 {
-  @include column-styles();
-
+  display: flex;
+  flex-shrink: 0;
+  width: 150px;
+  height: 100%;
+  overflow: hidden;
+  background-image: url('/img/mini-donut.svg');
+  background-repeat: repeat-y;
+  background-position: 20px 20px;
   animation: marquee2 50s infinite linear;
+}
 
-  @keyframes marquee2 {
-    0% {
-      background-position: 50% -100%;
-    }
+@keyframes marquee2 {
+  0% {
+    background-position: 50% -100%;
+  }
 
-    100% {
-      background-position: 50% 0%;
-    }
+  100% {
+    background-position: 50% 0%;
   }
 }

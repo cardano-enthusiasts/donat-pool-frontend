@@ -2,7 +2,7 @@ import classNames from 'classnames';
 
 import { useWindowSize } from '@/shared/hooks';
 
-import styles from './Project.module.scss';
+import styles from './Project.module.css';
 import type { Props } from './types';
 
 const Project = ({ onPreviousPageClick, previousPageTitle, title, children }: Props) => {

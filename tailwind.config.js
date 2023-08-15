@@ -59,6 +59,7 @@ module.exports = {
         accentPushBefore: 'accentPushBefore 3s alternate infinite',
         accentPushAfter: 'accentPushAfter 3s alternate infinite',
         standardPush: 'standardPush 3s alternate infinite',
+        standardPushBefore: 'standardPushBefore 3s alternate infinite',
       },
     },
   },

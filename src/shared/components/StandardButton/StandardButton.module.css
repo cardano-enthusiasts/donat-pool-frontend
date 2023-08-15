@@ -10,20 +10,20 @@
   border-radius: 6px;
   transition: all 0.5s;
   transform-style: preserve-3d;
+}
 
-  &::before {
-    position: absolute;
-    bottom: -4px;
-    left: -4px;
-    width: 100%;
-    height: 100%;
-    content: '';
-    border-radius: 6px;
-    transition: all 0.5s;
-    transform: translateZ(-1px);
-  }
+.common::before {
+  position: absolute;
+  bottom: -4px;
+  left: -4px;
+  width: 100%;
+  height: 100%;
+  content: '';
+  border-radius: 6px;
+  transition: all 0.5s;
+  transform: translateZ(-1px);
+}
 
-  &:disabled {
-    cursor: default;
-  }
+.common:disabled {
+  cursor: default;
 }

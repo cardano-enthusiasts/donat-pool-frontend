@@ -1,4 +1,4 @@
-import styles from './AboutUs.module.scss';
+import styles from './AboutUs.module.css';
 import { Photo } from './types';
 
 const photos: Array<Photo> = [

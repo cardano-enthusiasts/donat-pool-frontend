@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 import { Fragment } from 'react';
 
-import styles from './ActionDonuts.module.scss';
+import styles from './ActionDonuts.module.css';
 import type { Props } from './types';
 
 const ActionDonuts = ({ isAnimationActive }: Props) => {

@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 import { isLinkExternal } from '@/shared/helpers';
 
-import styles from './AccentButton.module.scss';
+import styles from './AccentButton.module.css';
 import variants from './constants';
 import { Props } from './types';
 
