@@ -18,12 +18,12 @@ const Footer = ({ backgroundColor = 'blue' }: Props) => {
           'bg-black': backgroundColor === 'black',
         })}
       >
-        <div className="base-inner flex w-full items-center justify-between py-10 max-md:flex-col max-md:gap-10">
+        <div className="base-inner flex w-full items-center justify-between pb-20 pt-10 max-md:flex-col max-md:gap-10">
           <div className="flex items-center gap-32 max-md:flex-col max-md:gap-10">
             <Socials />
-            <div className="flex gap-20 font-rammetto-one text-white max-lg:flex-col max-lg:gap-4 max-sm:items-center">
+            <div className=" flex gap-20 font-rammetto-one text-white max-lg:flex-col max-lg:gap-4 max-sm:items-center">
               {LINKS.map(({ title, href, target }) => (
-                <Link href={href} target={target} key={title}>
+                <Link href={href} target={target} key={title} className="text-[15px] leading-snug">
                   {title}
                 </Link>
               ))}

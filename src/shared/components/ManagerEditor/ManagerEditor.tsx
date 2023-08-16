@@ -5,7 +5,6 @@ import { reset } from '@/redux/slices/protocolUpdating';
 import { useUpdateProtocol } from '@/shared/hooks';
 
 import { defaultParams } from './data';
-import { ButtonWrapper, Line, Form, InputWrapper, Hint } from './ManagerEditor.styled';
 import type { Props } from './types';
 import { Input, ModalError, ModalLoading, ModalSuccess, StandardButton } from '..';
 
@@ -62,10 +61,10 @@ const ManagerEditor = ({ config }: Props) => {
 
   return (
     <>
-      <Form onSubmit={handleSubmit}>
-        <InputWrapper>
+      <form className="w-full max-w-[840px]" onSubmit={handleSubmit}>
+        <div className="grid grid-cols-2 gap-5 max-md:grid-cols-1">
           {defaultParams.map(({ title, id, hint }) => (
-            <Line key={id}>
+            <div className="flex w-full items-center justify-between" key={id}>
               <Input
                 onChange={(event) => {
                   handleInputChange(id, event);
@@ -74,17 +73,17 @@ const ManagerEditor = ({ config }: Props) => {
                 value={params[id]}
                 type="number"
               >
-                {title} / <Hint>{hint}</Hint>
+                {title} / <span className="text-gray">{hint}</span>
               </Input>
-            </Line>
+            </div>
           ))}
-        </InputWrapper>
-        <ButtonWrapper>
+        </div>
+        <div className="mt-5 flex w-full content-center">
           <StandardButton type="submit" isFullWidth={true} primaryColor="red" secondaryColor="blue" fontColor="white">
             Save
           </StandardButton>
-        </ButtonWrapper>
-      </Form>
+        </div>
+      </form>
       <ModalLoading isOpen={isModalLoadingOpen} title="Data saving" description="Please wait a bit" />
       <ModalError
         isOpen={isModalErrorOpen}

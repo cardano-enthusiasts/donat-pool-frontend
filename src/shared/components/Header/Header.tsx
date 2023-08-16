@@ -34,13 +34,16 @@ const Header = ({ currentPage = null }: Props) => {
       >
         {!isMenuOpen && <Logo />}
         {connectWalletStatus === 'success' ? (
-          <div className={classNames('flex max-lg:flex-col max-lg:gap-10', { hidden: !isMenuOpen })}>
+          <div className={classNames('flex max-lg:flex-col max-lg:gap-10', { 'max-lg:hidden': !isMenuOpen })}>
             <div className="mx-10 flex gap-7 text-lg font-bold max-lg:flex-col max-lg:items-center">
               {links.map(({ title, href, id }) => (
                 <div className="shrink-0" key={id}>
                   <Link
                     href={href}
-                    className={classNames({ 'text-yellow': href === currentPage, 'text-white': href !== currentPage })}
+                    className={classNames({
+                      'text-yellow': href === currentPage,
+                      'text-white': href !== currentPage,
+                    })}
                   >
                     {title}
                   </Link>
@@ -64,6 +67,8 @@ const Header = ({ currentPage = null }: Props) => {
         }}
         src={`/icons/${isMenuOpen ? 'close' : 'menu'}.svg`}
         alt="close icon"
+        width={50}
+        height={50}
       />
     </header>
   );
