@@ -26,6 +26,10 @@ module.exports = {
         },
         error: '#c820f2',
       },
+      spacing: {
+        15: '3.75rem',
+        25: '6.25rem',
+      },
     },
   },
 };

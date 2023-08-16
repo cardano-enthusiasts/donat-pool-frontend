@@ -1,9 +1,7 @@
-import type { PropsWithChildren } from '@/shared/types';
-
 import Footer from './Footer/Footer';
 import { Header } from './Header/Header';
 
-export default ({ children }: PropsWithChildren) => {
+export default ({ children }: React.PropsWithChildren) => {
   return (
     <div className="flex min-h-screen flex-col">
       <Header />

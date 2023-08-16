@@ -4,7 +4,7 @@ import { Button, Modal } from '../.';
 
 const ModalError = ({ isOpen, title, errorText = '', onClose }: Props) => {
   return (
-    <Modal isOpen={isOpen}>
+    <Modal open={isOpen}>
       <Title>{title}</Title>
       <Inner>
         <Img src="/img/bitten-donut.svg" alt="bitten donut" />

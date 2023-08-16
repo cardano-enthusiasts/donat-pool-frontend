@@ -20,7 +20,7 @@ export { AboutUs } from './AboutUs/AboutUs';
 export { Roadmap } from './Roadmap/Roadmap';
 export { HowItWorks } from './HowItWorks/HowItWorks';
 export { Socials } from './Socials/Socials';
-export { Modal } from './Modal/Modal';
+export { default as Modal } from './Modal';
 export { ModalDonate } from './ModalDonate/ModalDonate';
 export { ProjectCreation } from './ProjectCreation/ProjectCreation';
 export { MyProjects } from './MyProjects/MyProjects';

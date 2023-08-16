@@ -1,7 +1,3 @@
-export interface PropsWithChildren {
-  children: React.ReactNode;
-}
-
 export type RequestStatus = 'default' | 'requesting' | 'success' | 'error';
 
 export interface FetchedFundraising {

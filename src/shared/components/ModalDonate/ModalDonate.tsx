@@ -33,7 +33,7 @@ const ModalDonate = ({ isOpen, onClose, data: { threadTokenCurrency, threadToken
   };
 
   return (
-    <Modal isOpen={isOpen}>
+    <Modal open={isOpen}>
       <Title>How many ADA would you like to donate?</Title>
       <form onSubmit={handleSubmit}>
         <InputWrapper>

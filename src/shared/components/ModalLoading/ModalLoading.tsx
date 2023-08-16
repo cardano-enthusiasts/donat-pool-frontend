@@ -27,7 +27,7 @@ const ModalLoading = ({
     };
   }, []);
   return (
-    <Modal isOpen={isOpen}>
+    <Modal open={isOpen}>
       <Inner>
         <Title>{title}</Title>
         <Img src={`/img/donut-${index}.svg`} />
