@@ -22,6 +22,12 @@ declare global {
   }
 
   interface Window {
+    cardano?: {
+      nami?: {
+        name: 'Nami';
+        isEnabled: () => Promise<boolean>;
+      };
+    };
     donatPool: Promise<{
       connectWallet: (
         onSuccess: () => void,

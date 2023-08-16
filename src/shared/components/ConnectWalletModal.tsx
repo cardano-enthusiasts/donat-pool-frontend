@@ -1,9 +1,9 @@
 import Modal from './Modal';
 
-export default function ({ open }: { open: boolean }) {
+export default function () {
   return (
-    <Modal open={open}>
-      <div>asdsd</div>
+    <Modal open title="Connect wallet" titleAs="h1">
+      <div>wallet connection logic</div>
     </Modal>
   );
 }

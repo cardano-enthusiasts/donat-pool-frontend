@@ -4,9 +4,9 @@ import { useRouter } from 'next/navigation';
 import { useEffect } from 'react';
 
 import { Common } from '@/layouts';
-import { useAppSelector } from '@/redux/hooks';
 import { MyProjects } from '@/shared/components';
 import { ROUTES } from '@/shared/constants';
+import { useAppSelector } from '@/shared/hooks';
 
 const Page = () => {
   const router = useRouter();

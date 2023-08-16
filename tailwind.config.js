@@ -8,6 +8,9 @@ module.exports = {
         'microsoft-ya-hei': 'var(--microsoft-ya-hei-font)',
         'rammetto-one': 'var(--rammetto-one-font)',
       },
+      fontSize: {
+        'menu-active': ['3.375rem', '3.5rem'],
+      },
       colors: {
         purple: '#ffc5cf',
         blue: {

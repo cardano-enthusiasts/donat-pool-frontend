@@ -1,9 +1,9 @@
 import { useCallback, useEffect } from 'react';
 
-import { useAppSelector, useAppDispatch } from '@/redux/hooks';
 import { setRequestStatus, setFundraisings, setError } from '@/redux/slices/getAllFundraisings';
 import { testnetNami } from '@/shared/constants';
 import { transformFundraisings } from '@/shared/helpers';
+import { useAppSelector, useAppDispatch } from '@/shared/hooks';
 import type { FetchedFundraising } from '@/shared/types';
 
 import useDonatPool from './useDonatPool';

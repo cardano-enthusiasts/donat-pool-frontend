@@ -1,9 +1,9 @@
 import { useRouter } from 'next/navigation';
 import { useCallback, useEffect } from 'react';
 
-import { useAppSelector, useAppDispatch } from '@/redux/hooks';
 import { setRequestStatus } from '@/redux/slices/connectWallet';
 import { ROUTES, testnetNami } from '@/shared/constants';
+import { useAppSelector, useAppDispatch } from '@/shared/hooks';
 
 import useDonatPool from './useDonatPool';
 

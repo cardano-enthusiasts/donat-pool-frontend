@@ -11,12 +11,12 @@ import './global.css';
 const microsoftYaHeiFont = localFont({
   src: [
     {
-      path: '../../public/fonts/microsoft-ya-hei-400.woff2',
+      path: './microsoft-ya-hei-400.woff2',
       weight: '400',
       style: 'normal',
     },
     {
-      path: '../../public/fonts/microsoft-ya-hei-700.woff2',
+      path: './microsoft-ya-hei-700.woff2',
       weight: '700',
       style: 'normal',
     },
@@ -48,7 +48,7 @@ export default function Layout({ children }: React.PropsWithChildren) {
         <StyledComponentsProvider>
           <StoreProvider>{children}</StoreProvider>
         </StyledComponentsProvider>
-        <Script src="/offchain/index.js" />
+        <Script src="/offchain/index.js" strategy="beforeInteractive" />
       </body>
     </html>
   );

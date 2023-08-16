@@ -1,8 +1,8 @@
-import { useAppDispatch } from '@/redux/hooks';
 import { setWalletStatus } from '@/redux/slices/connectWallet';
 import { setError, setRequesting, setSuccess } from '@/redux/slices/donating';
 import { testnetNami } from '@/shared/constants';
 import { logOffchainError } from '@/shared/helpers';
+import { useAppDispatch } from '@/shared/hooks';
 import { useFundraisings, useDonatPool } from '@/shared/hooks';
 import type { FundraisingData } from '@/shared/types/common';
 

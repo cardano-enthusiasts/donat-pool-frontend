@@ -1,9 +1,9 @@
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
-import { useAppDispatch, useAppSelector } from '@/redux/hooks';
 import { reset } from '@/redux/slices/fundsReceiving';
 import { ROUTES } from '@/shared/constants';
+import { useAppDispatch, useAppSelector } from '@/shared/hooks';
 import { useReceiveFunds } from '@/shared/hooks';
 
 import { ButtonWrapper, Commission, LinkWrapper, WithdrawSection } from './PrivateProjectsActions.styled';

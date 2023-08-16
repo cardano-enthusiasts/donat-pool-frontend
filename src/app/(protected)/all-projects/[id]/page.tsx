@@ -3,10 +3,10 @@
 import { useEffect, useState } from 'react';
 
 import { Common } from '@/layouts';
-import { useAppDispatch, useAppSelector } from '@/redux/hooks';
 import { reset } from '@/redux/slices/donating';
 import { Button, ModalDonate, ModalError, ModalLoading, ModalSuccess, RaisedCounter } from '@/shared/components';
 import { formatDate } from '@/shared/helpers';
+import { useAppDispatch, useAppSelector } from '@/shared/hooks';
 import { useQueriedFundraising } from '@/shared/hooks';
 import { useDonate } from '@/shared/hooks';
 
