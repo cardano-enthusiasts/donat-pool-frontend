@@ -45,4 +45,4 @@ export const terms = [
       'Users agree that they are solely responsible for their interactions with any other user in connection with our Services and Donat.Pool will have no liability or responsibility with respect thereto. Donat.Pool reserves the right, but no obligation, to become involved in any way with disputes between users of the Services.',
     ],
   },
-];
+] as const;
