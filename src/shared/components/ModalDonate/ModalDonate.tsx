@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 
-import { Buttons, InputWrapper, Title } from './ModalDonate.styled';
 import type { Props } from './types';
 import { DoubleBorderedButton, Input, Modal, StandardButton } from '../.';
 
@@ -34,12 +33,12 @@ const ModalDonate = ({ isOpen, onClose, data: { threadTokenCurrency, threadToken
 
   return (
     <Modal isOpen={isOpen}>
-      <Title>How many ADA would you like to donate?</Title>
+      <h2 className="mb-10 text-center font-rammetto-one text-4xl text-red">How many ADA would you like to donate?</h2>
       <form onSubmit={handleSubmit}>
-        <InputWrapper>
+        <div className="mb-8">
           <Input value={value} onChange={handleChange} type="number" />
-        </InputWrapper>
-        <Buttons>
+        </div>
+        <div className="flex gap-6">
           <DoubleBorderedButton
             backgroundColor="white"
             onClick={() => {
@@ -52,7 +51,7 @@ const ModalDonate = ({ isOpen, onClose, data: { threadTokenCurrency, threadToken
           <StandardButton primaryColor="red" secondaryColor="blue" isFullWidth={true} type="submit" fontColor="white">
             Donate
           </StandardButton>
-        </Buttons>
+        </div>
       </form>
     </Modal>
   );

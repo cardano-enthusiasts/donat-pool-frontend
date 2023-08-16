@@ -178,6 +178,7 @@ const CreationForm = ({ onClose, protocol }: Props) => {
             placeholder={`${minAmountParam}`}
             hint={`MAX: ${maxAmountParam}`}
             error={error.goal}
+            data-hint={`MAX: ${maxAmountParam}`}
           >
             Amount
             <span className="text-gray"> / ADA</span>

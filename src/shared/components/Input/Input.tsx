@@ -1,4 +1,6 @@
-import { InputContainer, Message, StyledInput, StyledTextArea, Title, Wrapper } from './Input.styled';
+import classNames from 'classnames';
+
+import styles from './Input.module.css';
 import type { Props } from './types';
 
 const Input = ({
@@ -27,14 +29,31 @@ const Input = ({
     fontColor,
     disabled: isDisabled,
   };
+
+  const inputClasses = classNames(styles.input, 'border-2', {
+    'border-error text-error': error || error === '',
+    'border-black text-green': !(error || error === '') && fontColor === 'green',
+    'border-black text-yellow': !(error || error === '') && fontColor === 'yellow',
+    'border-black text-black': !(error || error === '') && fontColor === 'black',
+  });
   return (
-    <Wrapper>
-      <Title>{children}</Title>
-      <InputContainer hint={hint}>
+    <div className="w-full">
+      <div className="mb-2">{children}</div>
+      <div
+        data-hint={hint}
+        className={classNames(
+          'relative',
+          {
+            'after:absolute after:right-4 after:top-1/2 after:translate-y-[-50%] after:text-gray-secondary':
+              Boolean(hint),
+          },
+          'after:content-[attr(data-hint)]',
+        )}
+      >
         {multiline ? (
-          <StyledTextArea {...attributes} {...{ 'data-type': dataAttr }} rows={rows} />
+          <textarea {...attributes} {...{ 'data-type': dataAttr }} rows={rows} className={inputClasses} />
         ) : (
-          <StyledInput
+          <input
             type={type}
             {...attributes}
             {...{ 'data-type': dataAttr }}
@@ -43,11 +62,14 @@ const Input = ({
             }}
             min={type === 'number' ? min : undefined}
             step={type === 'number' ? step : undefined}
+            className={inputClasses}
           />
         )}
-        {error !== '' && error !== null && <Message>{error}</Message>}
-      </InputContainer>
-    </Wrapper>
+        {error !== '' && error !== null && (
+          <div className={classNames(styles.message, 'bg-error text-white')}>{error}</div>
+        )}
+      </div>
+    </div>
   );
 };
 export { Input };

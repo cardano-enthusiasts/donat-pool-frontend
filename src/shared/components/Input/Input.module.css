@@ -1,0 +1,49 @@
+.input {
+  width: 100%;
+  min-width: 150px;
+  padding: 13px 16px;
+  font-size: 20px;
+  background-color: transparent;
+  border-radius: 6px;
+  outline: none;
+}
+
+.input::placeholder {
+  font-family: var(--microsoft-ya-hei-font);
+  font-size: 20px;
+  color: #29dea8;
+}
+
+.input:disabled {
+  color: #828587;
+  cursor: not-allowed;
+}
+
+.input::-webkit-outer-spin-button,
+.input::-webkit-inner-spin-button {
+  margin: 0;
+  appearance: none;
+}
+
+.input[type='number'] {
+  appearance: textfield;
+}
+
+.message {
+  position: absolute;
+  top: 0;
+  right: -250px;
+  width: 244px;
+  padding: 12px;
+  margin-left: 6px;
+  border-radius: 0 6px 6px;
+}
+
+.message::after {
+  position: absolute;
+  top: -12px;
+  left: -6px;
+  width: 6px;
+  height: 6px;
+  content: url('/icons/tooltip.svg');
+}

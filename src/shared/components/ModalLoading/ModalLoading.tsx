@@ -1,6 +1,6 @@
+import Image from 'next/image';
 import { useEffect, useState } from 'react';
 
-import { Description, Img, Inner, Title } from './ModalLoading.styled';
 import type { Props } from './types';
 import { Modal } from '../.';
 
@@ -28,11 +28,11 @@ const ModalLoading = ({
   }, []);
   return (
     <Modal isOpen={isOpen}>
-      <Inner>
-        <Title>{title}</Title>
-        <Img src={`/img/donut-${index}.svg`} />
-        <Description>{description}</Description>
-      </Inner>
+      <div className="flex flex-col items-center">
+        <h1 className="mb-6 text-center text-4xl">{title}</h1>
+        <Image src={`/img/donut-${index}.svg`} alt="donut" width={115} height={115} className="mb-10 max-w-[140px]" />
+        <div className="text-center">{description}</div>
+      </div>
     </Modal>
   );
 };

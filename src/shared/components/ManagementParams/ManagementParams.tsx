@@ -1,4 +1,5 @@
-import { Amount, ItemTitle, Line, Wrapper, Title, Item, Label, Img } from './ManagementParams.styled';
+import Image from 'next/image';
+
 import type { Props } from './types';
 
 const ManagementParams = ({
@@ -38,19 +39,21 @@ const ManagementParams = ({
   ];
 
   return (
-    <Wrapper>
-      <Title>Current protocol parameters</Title>
-      <Line />
+    <div className="flex max-w-[324px] shrink-0 flex-col gap-6 p-6 shadow-xl">
+      <h3 className="m-0 text-xl font-bold">Current protocol parameters</h3>
+      <div className="border-1 border-black" />
       {params.map(({ title, id, amount, label }) => (
-        <Item key={id}>
-          <ItemTitle>
+        <div className="flex justify-between gap-[30px]" key={id}>
+          <div>
             {title}
-            <Label>{label === 'ADA' ? <Img src="/icons/ADA-gray.svg" alt="ada symbol" /> : label}</Label>
-          </ItemTitle>
-          <Amount>{amount}</Amount>
-        </Item>
+            <span className="text-gray ml-2">
+              {label === 'ADA' ? <Image src="/icons/ADA-gray.svg" alt="ada symbol" /> : label}
+            </span>
+          </div>
+          <div className="font-bold">{amount}</div>
+        </div>
       ))}
-    </Wrapper>
+    </div>
   );
 };
 

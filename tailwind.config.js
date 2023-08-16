@@ -61,6 +61,15 @@ module.exports = {
         standardPush: 'standardPush 3s alternate infinite',
         standardPushBefore: 'standardPushBefore 3s alternate infinite',
       },
+      backgroundImage: {
+        'section-cat': "url('/img/section-cat.svg')",
+      },
+      backgroundSize: {
+        '100%': '100%',
+      },
+      backgroundPosition: {
+        '0-100%': '0 100%',
+      },
     },
   },
 };
