@@ -32,6 +32,8 @@ module.exports = {
       boxShadow: {
         xl: '0px 15px 15px 0px rgba(186, 186, 186, 0.4)',
         modal: '0px 15px 40px #4757e6',
+        card: '-4px 4px 0px',
+        gif: '4px 4px 0px 0px #ff6b95',
       },
       keyframes: {
         accentPush: {
@@ -54,6 +56,91 @@ module.exports = {
           '90%': { left: '-4px', bottom: '-4px' },
           '100%': { left: '0', bottom: '0' },
         },
+        roadmap: {
+          '0%': {
+            top: '100%',
+          },
+          '100%': {
+            top: '-340%',
+          },
+        },
+        circle2: {
+          '0%': {
+            top: '0',
+          },
+          '25%': {
+            top: '18px',
+          },
+          '100%': {
+            top: '18px',
+          },
+        },
+        circle3: {
+          '0%': {
+            top: 0,
+          },
+          '50%': {
+            top: '36px',
+          },
+          '100%': {
+            top: '36px',
+          },
+        },
+        circle4: {
+          '50%': {
+            opacity: '0',
+          },
+          '55%': {
+            opacity: '1',
+          },
+        },
+        line: {
+          '49%': {
+            opacity: '0',
+          },
+          '50%': {
+            height: '10px',
+            opacity: '1',
+          },
+          '75%': {
+            height: '28px',
+            opacity: '1',
+          },
+          '100%': {
+            height: '28px',
+            opacity: '1',
+          },
+        },
+        arrowLeft: {
+          '74%': {
+            opacity: '0',
+          },
+          '75%': {
+            height: '10px',
+            opacity: '1',
+            right: '16px',
+          },
+          '100%': {
+            height: '30px',
+            opacity: '1',
+            right: '23.5px',
+          },
+        },
+        arrowRight: {
+          '74%': {
+            opacity: 0,
+          },
+          '75%': {
+            height: '10px',
+            opacity: 1,
+            left: '16px',
+          },
+          '100%': {
+            height: '30px',
+            opacity: 1,
+            left: '23.5px',
+          },
+        },
       },
       animation: {
         accentPush: 'accentPush 3s infinite alternate',
@@ -61,6 +148,13 @@ module.exports = {
         accentPushAfter: 'accentPushAfter 3s alternate infinite',
         standardPush: 'standardPush 3s alternate infinite',
         standardPushBefore: 'standardPushBefore 3s alternate infinite',
+        roadmap: 'roadmap 60s linear infinite',
+        circle2: 'circle2 1s forwards linear infinite',
+        circle3: 'circle3 1s forwards linear infinite',
+        circle4: 'circle3 1s forwards linear infinite',
+        line: 'line 1s forwards linear infinite',
+        arrowLeft: 'arrowLeft 1s forwards linear infinite',
+        arrowRight: 'arrowRight 1s forwards linear infinite',
       },
       backgroundImage: {
         'section-cat': "url('/img/section-cat.svg')",
@@ -73,6 +167,17 @@ module.exports = {
       },
       screens: {
         mobile: '1100px',
+      },
+      content: {
+        ada: 'url("/icons/ADA.svg")',
+        clip: 'url("/icons/paper-clip.svg")',
+        tooltip: 'url("/icons/tooltip-symmetric.svg")',
+      },
+      transform: {
+        roadmap: 'perspective(800px) rotateX(30deg)',
+      },
+      dropShadow: {
+        wallet: '0px 2px 15px rgba(71, 87, 230, 0.4)',
       },
     },
   },

@@ -1,0 +1,34 @@
+.img {
+  max-width: 100%;
+  transition: transform 1s ease 0s;
+}
+
+.img:first-child {
+  @media (max-width: 850px) {
+    max-width: 65%;
+  }
+}
+
+.img:nth-child(2) {
+  transition-delay: 250ms;
+}
+
+.img:nth-child(3) {
+  transition-delay: 500ms;
+
+  @media (max-width: 850px) {
+    max-width: 50%;
+  }
+}
+
+.img:not(:first-child) {
+  margin-top: -30px;
+
+  @media (max-width: 850px) {
+    margin-top: -20px;
+  }
+
+  @media (max-width: 850px) {
+    margin-top: -10px;
+  }
+}

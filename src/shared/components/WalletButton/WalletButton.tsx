@@ -8,8 +8,6 @@ import {
 import { testnetNami } from '@/shared/constants';
 import { useDonatPool } from '@/shared/hooks';
 
-import { Address, ConnectButton, Wrapper } from './WalletButton.styled';
-
 const WalletButton = () => {
   const donatPool = useDonatPool();
   const userInfo = useAppSelector((state) => state.appInfo.userInfo);
@@ -28,7 +26,8 @@ const WalletButton = () => {
   };
 
   return (
-    <Wrapper
+    <div
+      className="relative max-md:flex max-md:justify-center"
       onMouseEnter={() => {
         setIsAddressShown(true);
       }}
@@ -36,7 +35,8 @@ const WalletButton = () => {
         setIsAddressShown(false);
       }}
     >
-      <ConnectButton
+      <button
+        className="flex cursor-pointer items-center gap-[6px] bg-transparent text-[12px] leading-3 text-white before:h-[22px] before:content-clip"
         onClick={() => {
           if (!walletConnected) {
             donatPool?.connectWallet(handleWalletConnectSuccess)(handleWalletConnectFailure)(testnetNami)();
@@ -44,13 +44,13 @@ const WalletButton = () => {
         }}
       >
         {walletConnected ? 'Wallet connected' : 'Connect wallet'}
-      </ConnectButton>
+      </button>
       {userInfo?.address && isAddressShown && (
-        <Address>{`${String(userInfo.address.substring(0, 6))} ... ${String(
-          userInfo.address.substring(userInfo.address.length - 4),
-        )}`}</Address>
+        <div className="text-gray absolute right-0 mt-1 rounded-[6px] bg-white p-4 drop-shadow-wallet before:absolute  before:left-0  before:right-0 before:top-[-16px] before:w-4 before:content-tooltip max-md:left-0  max-md:right-0  max-md:top-[30px] max-md:mx-auto max-md:my-0 max-md:text-center">{`${String(
+          userInfo.address.substring(0, 6),
+        )} ... ${String(userInfo.address.substring(userInfo.address.length - 4))}`}</div>
       )}
-    </Wrapper>
+    </div>
   );
 };
 

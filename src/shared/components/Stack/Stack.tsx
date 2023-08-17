@@ -1,8 +1,9 @@
+import classNames from 'classnames';
 import { useEffect, useRef, useState } from 'react';
 
 import { useWindowScroll } from '@/shared/hooks';
 
-import { Description, Img, Items, Link, Part1, Title, Wrapper } from './Stack.styled';
+import styles from './Stack.module.css';
 import { DashedButton } from '../.';
 
 const Stack = () => {
@@ -26,21 +27,23 @@ const Stack = () => {
     return (
       <>
         {' '}
-        <Link target="_blank" rel="noreferrer" href={href}>
+        <a className="text-red underline" target="_blank" rel="noreferrer" href={href}>
           {title}
-        </Link>{' '}
+        </a>{' '}
       </>
     );
   };
 
   return (
-    <Wrapper>
-      <Title>Our stack</Title>
-      <Items ref={ref}>
+    <div className="max-w-200 flex flex-col gap-10">
+      <div className="text-bold text-gray text-2xl">Our stack</div>
+      <div ref={ref}>
         {stack.map(({ id, src }) => (
-          <Img key={id} src={src} alt={id} isActive={isActive} />
+          // eslint-disable-next-line @next/next/no-img-element
+          <img className={classNames(styles.img, { 'translate-y-full': !isActive })} key={id} src={src} alt={id} />
         ))}
-      </Items>
+        f
+      </div>
 
       <DashedButton
         primaryColor="red"
@@ -55,22 +58,22 @@ const Stack = () => {
         Read {isOpen ? 'less' : 'more'}
       </DashedButton>
       {isOpen && (
-        <Description>
-          <Part1>
+        <div className="text-2xl max-md:text-lg">
+          <div className="mb-10">
             We use strongly typed Haskell and
             {getLink('Plutarch', 'https://github.com/Plutonomicon/plutarch-plutus')}
             to build reliable and efficient smart contracts for the Cardano blockchain. For the off-chain part we use
             {getLink('cardano-transaction-lib', 'https://github.com/Plutonomicon/cardano-transaction-lib')}
             and{getLink('React.', 'https://react.dev/')}
-          </Part1>
+          </div>
           As part of the
           {getLink('MetaLamp team', 'https://www.metalamp.io/')}
           with years of experience in developing blockchain (Cardano, Ethereum) and traditional services (dashboards,
           logistics, banking, etc) we know exactly what we do and we are eager to write our code in the best way
           possible.
-        </Description>
+        </div>
       )}
-    </Wrapper>
+    </div>
   );
 };
 

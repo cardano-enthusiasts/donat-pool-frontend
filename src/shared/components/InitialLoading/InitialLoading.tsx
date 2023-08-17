@@ -36,9 +36,6 @@ const InitialLoading = ({ windowScroll, isAnimationActive }: Props) => {
           'absolute z-[4] mt-[45vh] h-[230px] w-[230px] rounded-full border-[90px] border-yellow max-lg:hidden',
           { hidden: !(windowScroll < 500 && isAnimationActive) },
         )}
-        // data-window-scroll={windowScroll / 10}
-        // windowScroll={windowScroll / 10}
-        // isAnimationActive={isAnimationActive}
       />
       <div
         className={classNames('absolute z-[3] h-full w-full bg-red max-lg:hidden', {
