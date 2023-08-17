@@ -5,11 +5,11 @@ import Layout from '@/shared/components/Layout';
 import { terms } from './data';
 import styles from './styles.module.css';
 
-export const metadata: Metadata = {
+const metadata: Metadata = {
   title: 'Terms of use',
 };
 
-export default () => {
+const Page = () => {
   return (
     <Layout>
       <div className="mx-auto max-w-[52.25rem]">
@@ -37,3 +37,5 @@ export default () => {
     </Layout>
   );
 };
+
+export { Page as default, metadata };

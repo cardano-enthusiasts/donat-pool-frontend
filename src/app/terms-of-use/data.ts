@@ -1,4 +1,4 @@
-export const terms = [
+const terms = [
   {
     term: 'Access',
     subTerms: [
@@ -46,3 +46,5 @@ export const terms = [
     ],
   },
 ] as const;
+
+export { terms };

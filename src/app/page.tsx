@@ -8,7 +8,7 @@ import type { LandingSection } from '@/shared/types/common';
 
 import { DonutsWrapper, WavesWrapper, Wrapper } from './Landing.styled';
 
-const Landing = () => {
+const Page = () => {
   const windowScroll = useWindowScroll();
   const { width: windowWidth } = useWindowSize();
   const [currentSection, setCurrentSection] = useState<LandingSection>('home');
@@ -58,4 +58,4 @@ const Landing = () => {
   );
 };
 
-export default Landing;
+export default Page;

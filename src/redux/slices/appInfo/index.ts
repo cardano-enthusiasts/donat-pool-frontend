@@ -4,7 +4,7 @@ import type { UserInfo, Config } from '@/shared/types/common';
 
 import { initialState } from './constants';
 
-export const slice = createSlice({
+const slice = createSlice({
   name: 'appInfo',
   initialState,
   reducers: {
@@ -31,6 +31,6 @@ export const slice = createSlice({
   },
 });
 
-export const { setProtocol, setUserInfo, setError, setRequesting } = slice.actions;
-export const { reducer } = slice;
 export default slice;
+export const { reducer } = slice;
+export const { setProtocol, setUserInfo, setError, setRequesting } = slice.actions;

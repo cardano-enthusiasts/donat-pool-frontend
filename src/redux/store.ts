@@ -12,7 +12,7 @@ import {
   getUserRelatedFundraisings,
 } from './slices';
 
-export default configureStore({
+const store = configureStore({
   reducer: {
     appInfo: appInfo.reducer,
     donating: donating.reducer,
@@ -25,3 +25,5 @@ export default configureStore({
     getUserRelatedFundraisings: getUserRelatedFundraisings.reducer,
   },
 });
+
+export default store;

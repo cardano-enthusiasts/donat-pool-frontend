@@ -7,7 +7,7 @@ import { useAppSelector, useAppDispatch } from '@/shared/hooks';
 
 import useDonatPool from './useDonatPool';
 
-export default () => {
+const useAuthGuard = () => {
   const router = useRouter();
   const donatPool = useDonatPool();
   const connectWalletStatus = useAppSelector((state) => state.connectWallet.requestStatus);
@@ -34,3 +34,5 @@ export default () => {
 
   return connectWalletStatus === 'success';
 };
+
+export default useAuthGuard;

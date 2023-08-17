@@ -6,7 +6,7 @@ import { setName as setConnectedWalletName } from '@/redux/slices/connectedWalle
 import ConnectWalletModal from '@/shared/components/ConnectWalletModal';
 import { useAppSelector, useAppDispatch } from '@/shared/hooks';
 
-export default ({ children }: React.PropsWithChildren) => {
+const Layout = ({ children }: React.PropsWithChildren) => {
   const [cardanoInitialized, setCardanoInitialized] = useState(false);
   const connectedWalletName = useAppSelector((state) => state.connectedWallet.name);
   const dispatch = useAppDispatch();
@@ -31,3 +31,5 @@ export default ({ children }: React.PropsWithChildren) => {
     return connectedWalletName ? children : <ConnectWalletModal />;
   }
 };
+
+export default Layout;

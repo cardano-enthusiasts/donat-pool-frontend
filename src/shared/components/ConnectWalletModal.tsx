@@ -1,9 +1,11 @@
 import Modal from './Modal';
 
-export default function () {
+const ConnectWalletModal = () => {
   return (
     <Modal open title="Connect wallet" titleAs="h1">
       <div>wallet connection logic</div>
     </Modal>
   );
-}
+};
+
+export default ConnectWalletModal;

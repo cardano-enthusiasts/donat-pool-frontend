@@ -1,6 +1,6 @@
 import { Dialog } from '@headlessui/react';
 
-export default ({
+const Modal = ({
   open,
   title,
   titleAs,
@@ -23,3 +23,5 @@ export default ({
     </Dialog>
   );
 };
+
+export default Modal;
