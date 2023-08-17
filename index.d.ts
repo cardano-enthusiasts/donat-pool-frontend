@@ -5,6 +5,13 @@ interface WalletParameters {
   wallet: 'Nami';
   isMainnet: false;
 }
+interface InjectedProvider<Name> {
+  name: Name;
+  enable: () => Promise<unknown>;
+  isEnabled: () => Promise<boolean>;
+  icon: string;
+  apiVersion: string;
+}
 interface Protocol {
   protocolCurrency: string;
   protocolTokenName: string;
@@ -23,10 +30,9 @@ declare global {
 
   interface Window {
     cardano?: {
-      nami?: {
-        name: 'Nami';
-        isEnabled: () => Promise<boolean>;
-      };
+      nami?: InjectedProvider<'Nami'>;
+      flint?: InjectedProvider<'Flint wallet'>;
+      eternl?: InjectedProvider<'eternl'>;
     };
     donatPool: Promise<{
       connectWallet: (

@@ -6,7 +6,7 @@ import {
   fundraisingCreation,
   fundsReceiving,
   protocolUpdating,
-  connectedWallet,
+  cardano,
   connectWallet,
   getAllFundraisings,
   getUserRelatedFundraisings,
@@ -19,11 +19,12 @@ const store = configureStore({
     fundraisingCreation: fundraisingCreation.reducer,
     fundsReceiving: fundsReceiving.reducer,
     protocolUpdating: protocolUpdating.reducer,
-    connectedWallet: connectedWallet.reducer,
+    cardano: cardano.reducer,
     connectWallet: connectWallet.reducer,
     getAllFundraisings: getAllFundraisings.reducer,
     getUserRelatedFundraisings: getUserRelatedFundraisings.reducer,
   },
+  devTools: process.env.NODE_ENV === 'development',
 });
 
 export default store;
