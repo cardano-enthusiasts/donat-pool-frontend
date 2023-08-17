@@ -27,7 +27,7 @@ const WalletButton = () => {
 
   return (
     <div
-      className="relative max-md:flex max-md:justify-center"
+      className="relative flex items-center max-md:justify-center"
       onMouseEnter={() => {
         setIsAddressShown(true);
       }}
@@ -36,7 +36,7 @@ const WalletButton = () => {
       }}
     >
       <button
-        className="flex cursor-pointer items-center gap-[6px] bg-transparent text-[12px] leading-3 text-white before:h-[22px] before:content-clip"
+        className="flex cursor-pointer items-center gap-[6px] bg-transparent text-[12px] font-bold leading-3 text-white before:h-[22px] before:content-clip"
         onClick={() => {
           if (!walletConnected) {
             donatPool?.connectWallet(handleWalletConnectSuccess)(handleWalletConnectFailure)(testnetNami)();

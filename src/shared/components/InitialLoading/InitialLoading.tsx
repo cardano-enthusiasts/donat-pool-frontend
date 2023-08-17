@@ -17,8 +17,8 @@ const InitialLoading = ({ windowScroll, isAnimationActive }: Props) => {
 
   useEffect(() => {
     if (wrapperRef?.current) {
-      if (windowScroll < 5350 && isAnimationActive) {
-        wrapperRef.current.style.height = `${1500 - windowScroll / 10}px`;
+      if (isAnimationActive) {
+        wrapperRef.current.style.height = `${1500 - windowScroll}px`;
       } else {
         wrapperRef.current.style.height = '965px';
       }
@@ -27,7 +27,9 @@ const InitialLoading = ({ windowScroll, isAnimationActive }: Props) => {
 
   return (
     <div
-      className={classNames('relative flex w-full items-start justify-center overflow-hidden bg-red max-lg:h-auto')}
+      className={classNames(
+        'relative flex h-[965px] w-full items-start justify-center overflow-hidden bg-red max-lg:h-auto',
+      )}
       ref={wrapperRef}
     >
       <div
@@ -46,7 +48,7 @@ const InitialLoading = ({ windowScroll, isAnimationActive }: Props) => {
       </div>
       <ActionDonuts isAnimationActive={isAnimationActive} />
       <Image
-        className={classNames('bottom-0 z-[2] max-xl:static max-lg:px-5 max-lg:pb-5 max-lg:pt-[150px]', {
+        className={classNames('bottom-0 z-[2] flex shrink-0 max-xl:static max-lg:px-5 max-lg:pb-5 max-lg:pt-[150px]', {
           'absolute max-w-[770px]': isAnimationActive,
           'max-w-[90vw] px-5 pb-5 pt-[150px]': !isAnimationActive,
         })}

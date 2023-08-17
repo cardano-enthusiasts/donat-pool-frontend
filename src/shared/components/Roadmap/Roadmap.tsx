@@ -22,7 +22,7 @@ const Roadmap = ({ isActive }: Props) => {
     <div className="relative">
       <div
         className={classNames(
-          'text-bold relative h-[700px] w-[90%] rotate-[30deg] overflow-hidden text-4xl max-lg:left-0 max-lg:ml-0 max-sm:text-xl',
+          'leading-1.5 relative h-[700px] w-[90%] rotate-[30deg] overflow-hidden text-4xl font-bold max-lg:left-0 max-lg:ml-0 max-sm:text-xl',
           styles.wrapper,
         )}
       >

@@ -35,14 +35,13 @@ const Stack = () => {
   };
 
   return (
-    <div className="max-w-200 flex flex-col gap-10">
-      <div className="text-bold text-gray text-2xl">Our stack</div>
+    <div className="flex max-w-[800px] flex-col gap-10">
+      <div className="text-gray text-2xl font-bold">Our stack</div>
       <div ref={ref}>
         {stack.map(({ id, src }) => (
           // eslint-disable-next-line @next/next/no-img-element
           <img className={classNames(styles.img, { 'translate-y-full': !isActive })} key={id} src={src} alt={id} />
         ))}
-        f
       </div>
 
       <DashedButton

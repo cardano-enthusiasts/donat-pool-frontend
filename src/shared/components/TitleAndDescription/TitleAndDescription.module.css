@@ -1,6 +1,16 @@
-.wrapper > * {
+.wrapper * {
   transition: transform 1s ease 0s;
   transform: translateY(0%);
+
+  @media (max-width: 1024px) {
+    transition: none;
+    transform: translateY(0%);
+  }
+}
+
+.wrapperInactive * {
+  transition: transform 1s ease 0s;
+  transform: translateY(50%);
 
   @media (max-width: 1024px) {
     transition: none;
