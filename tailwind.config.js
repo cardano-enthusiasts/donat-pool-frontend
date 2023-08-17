@@ -71,6 +71,9 @@ module.exports = {
       backgroundPosition: {
         '0-100%': '0 100%',
       },
+      screens: {
+        mobile: '1100px',
+      },
     },
   },
 };
