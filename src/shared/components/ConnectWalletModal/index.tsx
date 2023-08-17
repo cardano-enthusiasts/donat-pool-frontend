@@ -32,11 +32,17 @@ const ConnectWalletModal = () => {
         </Link>
       </Checkbox>
       <ul className="mb-10 space-y-6">
-        {wallets?.map(({ cardanoKey, name, installed }) => {
+        {wallets?.map(({ cardanoKey, name, installed }, index, array) => {
           const canBeConnected = installed && termsOfUseAccepted && !someWalletIsBeingConnected;
+          const nextWalletIsNotInstalled = array.at(index + 1)?.installed === false;
 
           return (
-            <li className="flex items-center justify-between gap-x-3 text-gray-secondary" key={name}>
+            <li
+              className={cn('flex items-center justify-between gap-x-3 text-gray-secondary', {
+                'border-b border-b-gray-secondary/40 pb-6': installed && nextWalletIsNotInstalled,
+              })}
+              key={name}
+            >
               <button
                 className={cn('flex items-center gap-x-3', {
                   'cursor-default': !canBeConnected,
