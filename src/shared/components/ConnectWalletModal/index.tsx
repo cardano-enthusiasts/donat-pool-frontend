@@ -47,7 +47,7 @@ const ConnectWalletModal = () => {
                     setSomeWalletIsBeingConnected(true);
 
                     try {
-                      await window?.cardano?.[cardanoKey]?.enable();
+                      await window.cardano?.[cardanoKey]?.enable();
                       dispatch(setWalletConnectedByName(name));
                     } catch (error) {
                       console.error(error);
