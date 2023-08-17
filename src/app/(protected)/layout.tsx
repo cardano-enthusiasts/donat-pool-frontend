@@ -27,13 +27,17 @@ const Layout = ({ children }: React.PropsWithChildren) => {
           someWalletInstalled && Object.hasOwn(window.cardano as NonNullable<Window['cardano']>, providerName);
 
         dispatch(setProviderInstalledByName({ name: providerName, value: installed }));
+
+        if (installed) {
+          dispatch(setProviderIconByName({ name: providerName, value: window.cardano?.[providerName]?.icon as any }));
+        }
+
         dispatch(
           setProviderConnectedByName({
             name: providerName,
             value: installed && ((await window.cardano?.[providerName]?.isEnabled()) as any),
           }),
         );
-        dispatch(setProviderIconByName({ name: providerName, value: window.cardano?.[providerName]?.icon as any }));
       }
 
       dispatch(setInitialized(true));
