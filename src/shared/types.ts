@@ -1,6 +1,8 @@
-export type RequestStatus = 'default' | 'requesting' | 'success' | 'error';
+import store from '@/redux/store';
 
-export interface FetchedFundraising {
+type RequestStatus = 'default' | 'requesting' | 'success' | 'error';
+
+interface FetchedFundraising {
   creator: string;
   deadline: { value: bigint };
   goal: { value: bigint };
@@ -11,7 +13,7 @@ export interface FetchedFundraising {
   title: string;
 }
 
-export interface Fundraising {
+interface Fundraising {
   creator: string;
   deadline: string;
   goal: string;
@@ -21,3 +23,7 @@ export interface Fundraising {
   threadTokenName: string;
   title: string;
 }
+
+type RootState = ReturnType<typeof store.getState>;
+
+export type { RequestStatus, FetchedFundraising, Fundraising, RootState };

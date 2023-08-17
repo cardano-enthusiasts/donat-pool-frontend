@@ -3,15 +3,17 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
 
+import { setWalletConnectedByName } from '@/redux/slices/cardano';
 import { Modal, Checkbox } from '@/shared/components';
 import { ROUTES } from '@/shared/constants';
-import { useAppSelector } from '@/shared/hooks';
+import { useAppSelector, useAppDispatch } from '@/shared/hooks';
 
 import { WALLET_NAME_TO_IMAGE_SRC, WALLET_NAME_TO_WEBSITE } from './constants';
 import goToIcon from '../../../../public/icons/go-to.svg';
 
 const ConnectWalletModal = () => {
   const wallets = useAppSelector((state) => state.cardano.wallets);
+  const dispatch = useAppDispatch();
   const [termsOfUseAccepted, setTermsOfUseAccepted] = useState(false);
   const [someWalletIsBeingConnected, setSomeWalletIsBeingConnected] = useState(false);
 
@@ -46,7 +48,7 @@ const ConnectWalletModal = () => {
 
                     try {
                       await window?.cardano?.[cardanoKey]?.enable();
-                      location.reload();
+                      dispatch(setWalletConnectedByName(name));
                     } catch (error) {
                       console.error(error);
                     }

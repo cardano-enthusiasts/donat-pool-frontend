@@ -2,7 +2,7 @@
 
 import { useEffect } from 'react';
 
-import { setInitialized, setWallet } from '@/redux/slices/cardano';
+import { setInitialized as setCardanoInitialized, setWallet, selectConnectedWallet } from '@/redux/slices/cardano';
 import ConnectWalletModal from '@/shared/components/ConnectWalletModal';
 import { useAppSelector, useAppDispatch } from '@/shared/hooks';
 
@@ -10,10 +10,8 @@ import { WALLET_CARDANO_KEY_TO_WALLET_NAME } from './constants';
 
 const Layout = ({ children }: React.PropsWithChildren) => {
   const cardanoInitialized = useAppSelector((state) => state.cardano.initialized);
-  const wallets = useAppSelector((state) => state.cardano.wallets);
+  const connectedWallet = useAppSelector(selectConnectedWallet);
   const dispatch = useAppDispatch();
-
-  const someWalletConnected = Boolean(wallets?.some(({ connected }) => Boolean(connected)));
 
   useEffect(() => {
     async function initializeCardano() {
@@ -32,7 +30,7 @@ const Layout = ({ children }: React.PropsWithChildren) => {
         );
       }
 
-      dispatch(setInitialized(true));
+      dispatch(setCardanoInitialized(true));
     }
 
     if (!cardanoInitialized) {
@@ -41,7 +39,7 @@ const Layout = ({ children }: React.PropsWithChildren) => {
   }, [cardanoInitialized, dispatch]);
 
   if (cardanoInitialized) {
-    return someWalletConnected ? children : <ConnectWalletModal />;
+    return connectedWallet ? children : <ConnectWalletModal />;
   }
 };
 
