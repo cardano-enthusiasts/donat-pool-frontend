@@ -1,18 +1,17 @@
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
 
-interface Provider {
-  name: 'nami' | 'flint' | 'eternl';
-  installed?: boolean;
-  icon?: string;
-  connected?: boolean;
+interface Wallet {
+  cardanoKey: 'nami' | 'flint' | 'eternl';
+  name: 'Nami' | 'Flint' | 'Eternl';
+  installed: boolean;
+  connected: boolean;
 }
 
 const initialState: {
   initialized: boolean;
-  providers: Provider[];
+  wallets?: Wallet[];
 } = {
   initialized: false,
-  providers: [{ name: 'nami' }, { name: 'flint' }, { name: 'eternl' }],
 };
 
 const slice = createSlice({
@@ -22,34 +21,11 @@ const slice = createSlice({
     setInitialized: (state, action: PayloadAction<boolean>) => {
       state.initialized = action.payload;
     },
-    setProviderInstalledByName: (
-      state,
-      action: PayloadAction<{ name: Provider['name']; value: NonNullable<Provider['installed']> }>,
-    ) => {
-      const provider = state.providers.find(({ name }) => name === action.payload.name);
-
-      if (provider) {
-        provider.installed = action.payload.value;
-      }
-    },
-    setProviderIconByName: (
-      state,
-      action: PayloadAction<{ name: Provider['name']; value: NonNullable<Provider['icon']> }>,
-    ) => {
-      const provider = state.providers.find(({ name }) => name === action.payload.name);
-
-      if (provider) {
-        provider.icon = action.payload.value;
-      }
-    },
-    setProviderConnectedByName: (
-      state,
-      action: PayloadAction<{ name: Provider['name']; value: NonNullable<Provider['connected']> }>,
-    ) => {
-      const provider = state.providers.find(({ name }) => name === action.payload.name);
-
-      if (provider) {
-        provider.connected = action.payload.value;
+    setWallet: (state, action: PayloadAction<Wallet>) => {
+      if (Object.hasOwn(state, 'wallets')) {
+        (state.wallets as any).push(action.payload);
+      } else {
+        state.wallets = [action.payload];
       }
     },
   },
@@ -57,5 +33,4 @@ const slice = createSlice({
 
 export default slice;
 export const { reducer } = slice;
-export const { setInitialized, setProviderInstalledByName, setProviderIconByName, setProviderConnectedByName } =
-  slice.actions;
+export const { setInitialized, setWallet } = slice.actions;

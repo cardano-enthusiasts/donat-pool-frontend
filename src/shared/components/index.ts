@@ -1,6 +1,6 @@
-export { Checkbox } from './Checkbox/Checkbox';
-export { default as Footer } from './Footer/Footer';
-export { Header } from './Header/Header';
+export { default as Checkbox } from './Checkbox';
+export { default as Footer } from './Footer';
+export { default as Header } from './Header';
 export { Input } from './Input/Input';
 export { Logo } from './Logo/Logo';
 export { ManagementParams } from './ManagementParams/ManagementParams';

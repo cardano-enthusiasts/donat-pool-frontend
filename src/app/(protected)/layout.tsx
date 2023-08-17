@@ -2,40 +2,32 @@
 
 import { useEffect } from 'react';
 
-import {
-  setInitialized,
-  setProviderInstalledByName,
-  setProviderConnectedByName,
-  setProviderIconByName,
-} from '@/redux/slices/cardano';
+import { setInitialized, setWallet } from '@/redux/slices/cardano';
 import ConnectWalletModal from '@/shared/components/ConnectWalletModal';
 import { useAppSelector, useAppDispatch } from '@/shared/hooks';
 
+import { WALLET_CARDANO_KEY_TO_WALLET_NAME } from './constants';
+
 const Layout = ({ children }: React.PropsWithChildren) => {
   const cardanoInitialized = useAppSelector((state) => state.cardano.initialized);
-  const providers = useAppSelector((state) => state.cardano.providers);
+  const wallets = useAppSelector((state) => state.cardano.wallets);
   const dispatch = useAppDispatch();
 
-  const someProviderConnected = providers.some(({ connected }) => Boolean(connected));
+  const someWalletConnected = Boolean(wallets?.some(({ connected }) => Boolean(connected)));
 
   useEffect(() => {
     async function initializeCardano() {
       const someWalletInstalled = Object.hasOwn(window, 'cardano');
 
-      for (const providerName of ['nami', 'flint', 'eternl'] as const) {
-        const installed =
-          someWalletInstalled && Object.hasOwn(window.cardano as NonNullable<Window['cardano']>, providerName);
-
-        dispatch(setProviderInstalledByName({ name: providerName, value: installed }));
-
-        if (installed) {
-          dispatch(setProviderIconByName({ name: providerName, value: window.cardano?.[providerName]?.icon as any }));
-        }
+      for (const walletCardanoKey of ['nami', 'flint', 'eternl'] as const) {
+        const installed = someWalletInstalled && Object.hasOwn(window.cardano as any, walletCardanoKey);
 
         dispatch(
-          setProviderConnectedByName({
-            name: providerName,
-            value: installed && ((await window.cardano?.[providerName]?.isEnabled()) as any),
+          setWallet({
+            cardanoKey: walletCardanoKey,
+            name: WALLET_CARDANO_KEY_TO_WALLET_NAME[walletCardanoKey],
+            installed,
+            connected: installed && ((await window.cardano?.[walletCardanoKey]?.isEnabled()) as any),
           }),
         );
       }
@@ -49,7 +41,7 @@ const Layout = ({ children }: React.PropsWithChildren) => {
   }, [cardanoInitialized, dispatch]);
 
   if (cardanoInitialized) {
-    return someProviderConnected ? children : <ConnectWalletModal />;
+    return someWalletConnected ? children : <ConnectWalletModal />;
   }
 };
 

@@ -11,12 +11,12 @@ import './global.css';
 const microsoftYaHeiFont = localFont({
   src: [
     {
-      path: './microsoft-ya-hei-400.woff2',
+      path: '../../public/fonts/microsoft-ya-hei-400.woff2',
       weight: '400',
       style: 'normal',
     },
     {
-      path: './microsoft-ya-hei-700.woff2',
+      path: '../../public/fonts/microsoft-ya-hei-700.woff2',
       weight: '700',
       style: 'normal',
     },

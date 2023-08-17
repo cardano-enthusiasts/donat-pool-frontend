@@ -61,4 +61,4 @@ const Header = ({ currentPage = null }: Props) => {
   );
 };
 
-export { Header };
+export default Header;
