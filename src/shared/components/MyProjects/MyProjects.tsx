@@ -1,19 +1,9 @@
+import Image from 'next/image';
 import { useEffect, useState } from 'react';
 
 import { useUserFundraisings } from '@/shared/hooks';
 import type { Fundraising } from '@/shared/types';
 
-import {
-  CardsWrapper,
-  CreateButton,
-  FilterButtons,
-  NoProject,
-  PageHeader,
-  ProjectWrapper,
-  SadCat,
-  Title,
-  TitleAndButtons,
-} from './MyProjects.styled';
 import type { ProjectStatus, Props } from './types';
 import { BorderedButton, ProjectCard, StandardButton } from '../.';
 
@@ -45,11 +35,11 @@ const MyProjects = ({ onCreateAProjectClick }: Props) => {
 
   return (
     <>
-      <PageHeader>
-        <TitleAndButtons>
-          <Title>My projects</Title>
+      <div className="mb-[60px] flex justify-between max-lg:flex-col max-lg:gap-5 max-md:mb-8">
+        <div className="flex justify-center gap-10 max-md:items-start max-sm:flex-col max-sm:gap-5">
+          <h1>My projects</h1>
           {allProjectsWithStatus !== null && (
-            <FilterButtons>
+            <div className="flex gap-6">
               <BorderedButton
                 color="red"
                 onClick={() => {
@@ -68,20 +58,20 @@ const MyProjects = ({ onCreateAProjectClick }: Props) => {
               >
                 Completed
               </BorderedButton>
-            </FilterButtons>
+            </div>
           )}
-        </TitleAndButtons>
+        </div>
 
-        <CreateButton>
+        <div className="max-md:fixed max-md:bottom-[60px] max-md:right-[30px]">
           <StandardButton primaryColor="red" secondaryColor="blue" onClick={onCreateAProjectClick} fontColor="white">
             Create a new project
           </StandardButton>
-        </CreateButton>
-      </PageHeader>
+        </div>
+      </div>
 
-      <ProjectWrapper>
+      <div className="mx-auto w-full max-md:max-w-[90vw]">
         {filteredProjects && filteredProjects.length !== 0 ? (
-          <CardsWrapper>
+          <div className="grid grid-cols-projects gap-10 max-md:grid-cols-1">
             {filteredProjects.map((item) => (
               <ProjectCard
                 data={item}
@@ -91,14 +81,14 @@ const MyProjects = ({ onCreateAProjectClick }: Props) => {
                 paddingSize="s"
               />
             ))}
-          </CardsWrapper>
+          </div>
         ) : (
-          <NoProject>
+          <div className="flex flex-col items-center gap-6">
             You don&apos;t have any projects yet. Create a project to start receiving donations.
-            <SadCat src="/img/sad-cat.svg" alt="sad cat image" />
-          </NoProject>
+            <Image src="/img/sad-cat.svg" alt="sad cat image" width={140} height={140} className="max-w-full" />
+          </div>
         )}
-      </ProjectWrapper>
+      </div>
     </>
   );
 };

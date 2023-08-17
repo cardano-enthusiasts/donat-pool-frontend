@@ -31,6 +31,7 @@ module.exports = {
       },
       boxShadow: {
         xl: '0px 15px 15px 0px rgba(186, 186, 186, 0.4)',
+        modal: '0px 15px 40px #4757e6',
       },
       keyframes: {
         accentPush: {

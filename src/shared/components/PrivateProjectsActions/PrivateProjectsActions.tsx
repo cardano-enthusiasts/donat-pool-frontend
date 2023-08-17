@@ -1,3 +1,4 @@
+import classNames from 'classnames';
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
@@ -6,7 +7,7 @@ import { reset } from '@/redux/slices/fundsReceiving';
 import { ROUTES } from '@/shared/constants';
 import { useReceiveFunds } from '@/shared/hooks';
 
-import { ButtonWrapper, Commission, LinkWrapper, WithdrawSection } from './PrivateProjectsActions.styled';
+import styles from './PrivateProjectsActions.module.css';
 import type { Props } from './types';
 import { DoubleBorderedButton, ModalError, ModalLoading, ModalSuccess, StandardButton } from '../.';
 
@@ -56,7 +57,7 @@ const PrivateProjectsActions = ({ project }: Props) => {
 
   return project.isCompleted ? (
     <>
-      <WithdrawSection>
+      <div className="mt-6 flex flex-col items-center gap-4">
         <StandardButton
           primaryColor="red"
           secondaryColor="blue"
@@ -74,9 +75,9 @@ const PrivateProjectsActions = ({ project }: Props) => {
             : 'Project reached its deadline. Collect fund'}
         </StandardButton>
         {protocol?.protocolFeeParam && (
-          <Commission>We remind you that our commission is {protocol.protocolFeeParam}%</Commission>
+          <div className="text-red">We remind you that our commission is {protocol.protocolFeeParam}%</div>
         )}
-      </WithdrawSection>
+      </div>
 
       <ModalLoading isOpen={status === 'requesting'} />
       <ModalError
@@ -91,14 +92,16 @@ const PrivateProjectsActions = ({ project }: Props) => {
     </>
   ) : (
     <>
-      <LinkWrapper>
+      <div
+        className={classNames(styles.link, 'mt-6 flex items-center gap-6 text-xl font-bold text-blue max-xl:flex-col')}
+      >
         {link}
-        <ButtonWrapper>
+        <div className="shrink-0">
           <DoubleBorderedButton backgroundColor="white" size="s" primaryColor="blue" onClick={handleCopyLinkClick}>
             Copy link
           </DoubleBorderedButton>
-        </ButtonWrapper>
-      </LinkWrapper>
+        </div>
+      </div>
       <ModalSuccess
         description="Link copied to clipboard."
         isOpen={isModalSuccessOpen}
