@@ -24,7 +24,7 @@ const Page = () => {
 
   useEffect(() => {
     if (userInfo && !userInfo.isManager) {
-      router.push(ROUTES.allFundraisings);
+      router.push(ROUTES.fundraisings);
     }
   }, [userInfo]);
 

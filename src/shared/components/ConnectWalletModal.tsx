@@ -5,11 +5,10 @@ import { useState } from 'react';
 
 import { setWalletConnectedByName } from '@/redux/slices/cardano';
 import { Modal, Checkbox } from '@/shared/components';
-import { ROUTES } from '@/shared/constants';
+import { ROUTES, WALLET_NAME_TO_DATA } from '@/shared/constants';
 import { useAppSelector, useAppDispatch } from '@/shared/hooks';
 
-import { WALLET_NAME_TO_DATA } from './constants';
-import goToIcon from '../../../../public/icons/go-to.svg';
+import goToIcon from '../../../public/icons/go-to.svg';
 
 const ConnectWalletModal = () => {
   const wallets = useAppSelector((state) => state.cardano.wallets);

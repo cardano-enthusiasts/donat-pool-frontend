@@ -7,7 +7,6 @@ export { ManagementParams } from './ManagementParams/ManagementParams';
 export { ManagerEditor } from './ManagerEditor/ManagerEditor';
 export { ProjectCard } from './ProjectCard/ProjectCard';
 export { CreationForm } from './CreationForm/CreationForm';
-export { WalletButton } from './WalletButton/WalletButton';
 export { Button } from './Button/Button';
 export { NotAvailableError } from './NotAvailableError/NotAvailableError';
 export { PrecalculationFee } from './PrecalculationFee/PrecalculationFee';

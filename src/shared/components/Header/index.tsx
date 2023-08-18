@@ -1,26 +1,22 @@
 'use client';
 
+import Image from 'next/image';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { useState } from 'react';
 
-import { ROUTES } from '@/shared/constants';
+import { selectConnectedWallet } from '@/redux/slices/cardano';
+import { ROUTES, WALLET_NAME_TO_DATA } from '@/shared/constants';
 import { useAppSelector } from '@/shared/hooks';
 
+import { LINKS } from './constants';
 import { Inner, Links, Wrapper, LinkWrapper, Icon, LogoWrapper, LinksAndButton, Line } from './Header.styled';
-import type { Props } from './types';
-import { Button, Logo, WalletButton } from '..';
+import { Button, Logo } from '..';
 
-const Header = ({ currentPage = null }: Props) => {
-  const links = [
-    { title: 'My projects', href: ROUTES.userFundraisings, id: 'my-projects' },
-    {
-      title: 'All Donation pools',
-      href: ROUTES.allFundraisings,
-      id: 'projects',
-    },
-  ];
+const Header = () => {
+  const pathname = usePathname();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const connectWalletStatus = useAppSelector((state) => state.connectWallet.requestStatus);
+  const connectedWallet = useAppSelector(selectConnectedWallet);
 
   return (
     <Wrapper isMenuOpen={isMenuOpen}>
@@ -30,17 +26,21 @@ const Header = ({ currentPage = null }: Props) => {
             <Logo />
           </LogoWrapper>
         )}
-        {connectWalletStatus === 'success' ? (
+        {connectedWallet ? (
           <LinksAndButton isMenuOpen={isMenuOpen}>
             <Links>
-              {links.map(({ title, href, id }) => (
-                <LinkWrapper key={id} {...(currentPage ? { isActive: href === currentPage } : {})}>
+              {LINKS.map(({ title, href }) => (
+                <LinkWrapper key={href} isActive={pathname === href}>
                   <Link href={href}>{title}</Link>
                 </LinkWrapper>
               ))}
             </Links>
             <Line />
-            <WalletButton />
+            <Image
+              src={WALLET_NAME_TO_DATA[connectedWallet.name].imageSrc}
+              alt={`${connectedWallet.name}'s logo`}
+              role="img"
+            />
           </LinksAndButton>
         ) : (
           <Button href={ROUTES.newFundraising} primaryColor="yellow" secondaryColor="blue" fontColor="black">
@@ -48,7 +48,6 @@ const Header = ({ currentPage = null }: Props) => {
           </Button>
         )}
       </Inner>
-
       <Icon
         onClick={() => {
           setIsMenuOpen(!isMenuOpen);

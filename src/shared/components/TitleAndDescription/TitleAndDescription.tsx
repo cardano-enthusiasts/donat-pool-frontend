@@ -20,7 +20,7 @@ const TitleAndDescription = ({ isActive }: Props) => {
         <DescriptionPart2>help a lot</DescriptionPart2>
       </Description>
       <ButtonWrapper>
-        <Button themeType="accent" href={ROUTES.allFundraisings}>
+        <Button themeType="accent" href={ROUTES.fundraisings}>
           Start
           <br />
           using

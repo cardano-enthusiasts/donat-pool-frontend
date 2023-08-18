@@ -1,4 +1,3 @@
-import { usePathname } from 'next/navigation';
 import { useEffect } from 'react';
 
 import { Footer, Header } from '@/shared/components';
@@ -9,8 +8,6 @@ import { Inner, Main } from './Common.styled';
 import type { Props } from './types';
 
 const Common = ({ children }: Props) => {
-  const pathname = usePathname();
-
   const getAppInfo = useGetAppInfo();
   const offchain = useDonatPool();
 
@@ -22,7 +19,7 @@ const Common = ({ children }: Props) => {
 
   return (
     <div className="flex min-h-screen flex-col">
-      <Header currentPage={pathname} />
+      <Header />
       <Main>
         <Inner>{children}</Inner>
       </Main>
