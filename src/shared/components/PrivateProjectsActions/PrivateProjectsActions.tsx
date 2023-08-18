@@ -98,7 +98,7 @@ const PrivateProjectsActions = ({ project }: Props) => {
         {link}
         <div className="shrink-0">
           <DoubleBorderedButton backgroundColor="white" size="s" primaryColor="blue" onClick={handleCopyLinkClick}>
-            Copy link
+            Copy and share
           </DoubleBorderedButton>
         </div>
       </div>
