@@ -90,7 +90,7 @@ const LandingNav = forwardRef(
                   href={ROUTES.newFundraising}
                   isAnimation={true}
                 >
-                  Start a fundraiser
+                  Create Donat.Pool
                 </StandardButton>
               )}
             </div>
