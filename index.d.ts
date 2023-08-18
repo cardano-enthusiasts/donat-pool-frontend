@@ -1,13 +1,9 @@
-import type { FetchedFundraising } from '@/shared/types';
+import type { FetchedFundraising, WalletParameters } from '@/shared/types';
 import type { FundraisingData } from '@/shared/types/common';
 
-interface WalletParameters {
-  wallet: 'Nami';
-  isMainnet: false;
-}
-interface InjectedProvider<Name> {
+interface InjectedWallet<Name> {
   name: Name;
-  enable: () => Promise<unknown>;
+  enable: () => Promise<Record<string, unknown>>;
   isEnabled: () => Promise<boolean>;
   icon: string;
   apiVersion: string;
@@ -16,10 +12,10 @@ interface Protocol {
   protocolCurrency: string;
   protocolTokenName: string;
 }
-type handleError = (error: string) => void;
+type HandleError = (error: string) => void;
 type FetchFundraisings = (
   onSuccess: (fundraisings: FetchedFundraising[]) => void,
-) => (onError: handleError) => (protocol: Protocol) => (walletParameters: WalletParameters) => () => void;
+) => (onError: HandleError) => (protocol: Protocol) => (walletParameters: WalletParameters) => () => void;
 
 declare global {
   namespace NodeJS {
@@ -30,14 +26,11 @@ declare global {
 
   interface Window {
     cardano?: {
-      nami?: InjectedProvider<'Nami'>;
-      flint?: InjectedProvider<'Flint wallet'>;
-      eternl?: InjectedProvider<'eternl'>;
+      nami?: InjectedWallet<'Nami'>;
+      flint?: InjectedWallet<'Flint wallet'>;
+      eternl?: InjectedWallet<'eternl'>;
     };
     donatPool: Promise<{
-      connectWallet: (
-        onSuccess: () => void,
-      ) => (onError: handleError) => (walletParameters: WalletParameters) => () => void;
       getAppInfo: (
         onSuccess: (appInfo: {
           protocolConfig: {
@@ -62,8 +55,8 @@ declare global {
             isManager: boolean;
           };
         }) => void,
-      ) => (onError: handleError) => (protocol: Protocol) => (walletParameters: WalletParameters) => () => void;
-      createFundraising: (onSuccess: (createdFundraising: Fundraising) => void) => (onError: handleError) => (
+      ) => (onError: HandleError) => (protocol: Protocol) => (walletParameters: WalletParameters) => () => void;
+      createFundraising: (onSuccess: (createdFundraising: Fundraising) => void) => (onError: HandleError) => (
         protocol: Protocol,
       ) => (walletParameters: WalletParameters) => (data: {
         title: string;
@@ -79,7 +72,7 @@ declare global {
       donate: (
         onSuccess: () => void,
       ) => (
-        onError: handleError,
+        onError: HandleError,
       ) => (
         protocol: Protocol,
       ) => (walletParameters: WalletParameters) => (fundraisingData: FundraisingData) => (amount: number) => () => void;
@@ -91,12 +84,11 @@ declare global {
           maxDurationParam: number;
           protocolFeeParam: number;
         }) => void,
-      ) => (onError: handleError) => (protocol: Protocol) => (walletParameters: WalletParameters) => () => void;
-      closeProtocol: any;
+      ) => (onError: HandleError) => (protocol: Protocol) => (walletParameters: WalletParameters) => () => void;
       receiveFunds: (
         onSuccess: () => void,
       ) => (
-        onError: handleError,
+        onError: HandleError,
       ) => (
         protocol: Protocol,
       ) => (walletParameters: WalletParameters) => (fundraisingData: FundraisingData) => () => void;

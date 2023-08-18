@@ -1,23 +1,25 @@
+import { selectConnectedWallet } from '@/redux/slices/cardano';
 import { setWalletStatus } from '@/redux/slices/connectWallet';
 import { setError, setRequesting, setCreatedPath } from '@/redux/slices/fundraisingCreation';
-import { testnetNami } from '@/shared/constants';
-import { logOffchainError } from '@/shared/helpers';
-import { useAppDispatch } from '@/shared/hooks';
-import { useDonatPool, useUserFundraisings } from '@/shared/hooks';
+import { createWalletParameters, logOffchainError } from '@/shared/helpers';
+import { useAppSelector, useAppDispatch } from '@/shared/hooks';
+import { useDonatPool, useFundraisings, useUserFundraisings } from '@/shared/hooks';
 import type { BackendProject } from '@/shared/types/backend';
 
 import useHandleError from './useHandleError';
 
 const useCreateFundraising = () => {
   const offchain = useDonatPool();
+  const connectedWallet = useAppSelector(selectConnectedWallet);
   const dispatch = useAppDispatch();
+  const { refetchFundraisings } = useFundraisings();
   const { refetchFundraisings: refetchUserFundraisings } = useUserFundraisings();
   const handleCommonError = useHandleError();
-  const protocol = JSON.parse(process.env.NEXT_PUBLIC_PROTOCOL);
 
   const handleSuccess = (fundraisingData: BackendProject) => {
     dispatch(setCreatedPath(fundraisingData.threadTokenCurrency));
     dispatch(setWalletStatus('connected'));
+    refetchFundraisings();
     refetchUserFundraisings();
   };
 
@@ -27,12 +29,15 @@ const useCreateFundraising = () => {
     dispatch(setError(filteredError));
   };
 
-  if (offchain) {
+  if (offchain && connectedWallet) {
     return (createFundraisingParams: any) => {
-      offchain.createFundraising(handleSuccess)(handleError)(protocol)(testnetNami)(createFundraisingParams)();
+      offchain.createFundraising(handleSuccess)(handleError)(JSON.parse(process.env.NEXT_PUBLIC_PROTOCOL))(
+        createWalletParameters(connectedWallet.name),
+      )(createFundraisingParams)();
       dispatch(setRequesting());
     };
   }
+
   return () => logOffchainError;
 };
 

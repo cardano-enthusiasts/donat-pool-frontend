@@ -56,7 +56,7 @@ const ConnectWalletModal = () => {
               }}
             >
               <div className="w-8">
-                <Image className="mx-auto" src={WALLET_NAME_TO_DATA[name].imageSrc} alt={`${name}'s logo`} role="img" />
+                <Image className="mx-auto" src={WALLET_NAME_TO_DATA[name].logo} alt={`${name}'s logo`} role="img" />
               </div>
               <div className="text-xl font-bold">{WALLET_NAME_TO_DATA[name].title}</div>
             </button>

@@ -1,12 +1,6 @@
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
 
-import { RootState } from '@/shared/types';
-
-interface Wallet {
-  name: 'nami' | 'flint' | 'eternl';
-  installed: boolean;
-  connected: boolean;
-}
+import type { RootState, Wallet } from '@/shared/types';
 
 const initialState: {
   initialized: boolean;

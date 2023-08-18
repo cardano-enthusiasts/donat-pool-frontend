@@ -37,7 +37,7 @@ const Header = () => {
             </Links>
             <Line />
             <Image
-              src={WALLET_NAME_TO_DATA[connectedWallet.name].imageSrc}
+              src={WALLET_NAME_TO_DATA[connectedWallet.name].logo}
               alt={`${connectedWallet.name}'s logo`}
               role="img"
             />

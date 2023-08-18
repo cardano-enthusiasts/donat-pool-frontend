@@ -1,8 +1,8 @@
 import { setError, setRequesting, setProtocol, setUserInfo } from '@/redux/slices/appInfo';
+import { selectConnectedWallet } from '@/redux/slices/cardano';
 import { setWalletStatus } from '@/redux/slices/connectWallet';
-import { testnetNami } from '@/shared/constants';
-import { logOffchainError } from '@/shared/helpers';
-import { useAppDispatch } from '@/shared/hooks';
+import { createWalletParameters, logOffchainError } from '@/shared/helpers';
+import { useAppSelector, useAppDispatch } from '@/shared/hooks';
 import { useDonatPool } from '@/shared/hooks';
 import type { UserAndProtocolParams } from '@/shared/types/backend';
 
@@ -10,6 +10,7 @@ import useHandleError from './useHandleError';
 
 const useGetAppInfo = () => {
   const offchain = useDonatPool();
+  const connectedWallet = useAppSelector(selectConnectedWallet);
   const dispatch = useAppDispatch();
   const handleCommonError = useHandleError();
 
@@ -34,9 +35,11 @@ const useGetAppInfo = () => {
     dispatch(setError(filteredError));
   };
 
-  if (offchain) {
+  if (offchain && connectedWallet) {
     return () => {
-      offchain?.getAppInfo(handleSuccess)(handleError)(JSON.parse(process.env.NEXT_PUBLIC_PROTOCOL))(testnetNami)();
+      offchain?.getAppInfo(handleSuccess)(handleError)(JSON.parse(process.env.NEXT_PUBLIC_PROTOCOL))(
+        createWalletParameters(connectedWallet.name),
+      )();
       dispatch(setRequesting());
     };
   }

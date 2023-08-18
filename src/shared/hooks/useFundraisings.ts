@@ -1,8 +1,8 @@
 import { useCallback, useEffect } from 'react';
 
+import { selectConnectedWallet } from '@/redux/slices/cardano';
 import { setRequestStatus, setFundraisings, setError } from '@/redux/slices/getAllFundraisings';
-import { testnetNami } from '@/shared/constants';
-import { transformFundraisings } from '@/shared/helpers';
+import { createWalletParameters, transformFundraisings } from '@/shared/helpers';
 import { useAppSelector, useAppDispatch } from '@/shared/hooks';
 import type { FetchedFundraising } from '@/shared/types';
 
@@ -11,6 +11,7 @@ import useDonatPool from './useDonatPool';
 const useFundraisings = () => {
   const donatPool = useDonatPool();
   const { requestStatus, fundraisings, error } = useAppSelector((state) => state.getAllFundraisings);
+  const connectedWallet = useAppSelector(selectConnectedWallet);
   const dispatch = useAppDispatch();
 
   const handleFetchSuccess = useCallback(
@@ -22,20 +23,19 @@ const useFundraisings = () => {
 
   const handleFetchFailure = useCallback(
     (error: string) => {
-      console.error(`getAllFundraisings: ${error}`);
       dispatch(setError(error));
     },
     [dispatch],
   );
 
   const fetchFundraisings = useCallback(() => {
-    if (donatPool) {
+    if (donatPool && connectedWallet) {
       dispatch(setRequestStatus('requesting'));
       donatPool.getAllFundraisings(handleFetchSuccess)(handleFetchFailure)(
         JSON.parse(process.env.NEXT_PUBLIC_PROTOCOL),
-      )(testnetNami)();
+      )(createWalletParameters(connectedWallet.name))();
     }
-  }, [donatPool, dispatch, handleFetchSuccess, handleFetchFailure]);
+  }, [donatPool, connectedWallet, dispatch, handleFetchSuccess, handleFetchFailure]);
 
   useEffect(() => {
     if (requestStatus === 'default') {

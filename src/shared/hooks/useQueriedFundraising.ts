@@ -1,24 +1,24 @@
-import { useRouter } from 'next/router';
+import { useParams } from 'next/navigation';
 import { useMemo } from 'react';
 
 import useFundraisings from './useFundraisings';
 
 const useQueriedFundraising = () => {
-  const router = useRouter();
+  const params = useParams();
   const {
-    areBeingFetched: allFundraisingsAreBeingFetched,
-    fundraisings: allFundraisings,
-    error: fetchAllFundraisingsError,
+    areBeingFetched: fundraisingsAreBeingFetched,
+    fundraisings,
+    error: fetchFundraisingsError,
   } = useFundraisings();
   const fundraising = useMemo(
-    () => allFundraisings?.find(({ threadTokenCurrency }) => threadTokenCurrency === router.query.id),
-    [allFundraisings, router.query.id],
+    () => fundraisings?.find(({ threadTokenCurrency }) => threadTokenCurrency === params.id),
+    [fundraisings, params.id],
   );
 
   return {
-    isBeingFetched: allFundraisingsAreBeingFetched,
+    isBeingFetched: fundraisingsAreBeingFetched,
     fundraising,
-    error: fetchAllFundraisingsError,
+    error: fetchFundraisingsError,
   };
 };
 

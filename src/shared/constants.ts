@@ -13,27 +13,22 @@ const ROUTES = {
   mock: '/mock-address',
 } as const;
 
-const testnetNami = {
-  wallet: 'Nami',
-  isMainnet: false,
-} as const;
-
 const WALLET_NAME_TO_DATA = {
   nami: {
-    imageSrc: namiLogo,
+    logo: namiLogo,
     title: 'Nami',
     websiteUrl: 'https://namiwallet.io/',
   },
   flint: {
-    imageSrc: flintLogo,
+    logo: flintLogo,
     title: 'Flint',
     websiteUrl: 'https://flint-wallet.com/',
   },
   eternl: {
-    imageSrc: eternlLogo,
+    logo: eternlLogo,
     title: 'Eternl',
     websiteUrl: 'https://eternl.io/app/mainnet/welcome',
   },
-};
+} as const;
 
-export { ROUTES, testnetNami, WALLET_NAME_TO_DATA };
+export { ROUTES, WALLET_NAME_TO_DATA };
