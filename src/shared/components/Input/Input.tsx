@@ -29,11 +29,12 @@ const Input = ({
     disabled: isDisabled,
   };
 
+  const isError = error || error === '';
   const inputClasses = classNames(styles.input, 'border-2', {
-    'border-error text-error': error || error === '',
-    'border-black text-green': !(error || error === '') && fontColor === 'green',
-    'border-black text-yellow': !(error || error === '') && fontColor === 'yellow',
-    'border-black text-black': !(error || error === '') && fontColor === 'black',
+    'border-error text-error': isError,
+    'border-black text-green': !isError && fontColor === 'green',
+    'border-black text-yellow': !isError && fontColor === 'yellow',
+    'border-black text-black': !isError && fontColor === 'black',
   });
   return (
     <div className="w-full">
