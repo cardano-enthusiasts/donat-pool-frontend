@@ -3,8 +3,7 @@ import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
 import { RootState } from '@/shared/types';
 
 interface Wallet {
-  cardanoKey: 'nami' | 'flint' | 'eternl';
-  name: 'Nami' | 'Flint' | 'Eternl';
+  name: 'nami' | 'flint' | 'eternl';
   installed: boolean;
   connected: boolean;
 }
