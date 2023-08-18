@@ -35,8 +35,8 @@ const MyProjects = ({ onCreateAProjectClick }: Props) => {
 
   return (
     <>
-      <div className="mb-[60px] flex justify-between max-lg:flex-col max-lg:gap-5 max-md:mb-8">
-        <div className="flex justify-center gap-10 max-md:items-start max-sm:flex-col max-sm:gap-5">
+      <div className="mb-[60px] flex justify-between max-lg:flex-col max-lg:items-center max-lg:gap-5 max-md:mb-8">
+        <div className="flex items-center justify-center gap-10 max-md:items-start max-sm:flex-col max-sm:gap-5">
           <h1>My projects</h1>
           {allProjectsWithStatus !== null && (
             <div className="flex gap-6">
@@ -62,7 +62,7 @@ const MyProjects = ({ onCreateAProjectClick }: Props) => {
           )}
         </div>
 
-        <div className="max-md:fixed max-md:bottom-[60px] max-md:right-[30px]">
+        <div className="max-md:fixed max-md:bottom-[60px] max-md:right-[30px] max-md:z-10">
           <StandardButton primaryColor="red" secondaryColor="blue" onClick={onCreateAProjectClick} fontColor="white">
             Create a new project
           </StandardButton>

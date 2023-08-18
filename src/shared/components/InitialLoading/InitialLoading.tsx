@@ -2,12 +2,15 @@ import classNames from 'classnames';
 import Image from 'next/image';
 import { useEffect, useRef } from 'react';
 
+import { useWindowSize } from '@/shared/hooks';
+
 import type { Props } from './types';
 import { ActionDonuts, ScrollHelper } from '../.';
 
 const InitialLoading = ({ windowScroll, isAnimationActive }: Props) => {
   const innerCircleRef = useRef<HTMLDivElement>(null);
   const wrapperRef = useRef<HTMLDivElement>(null);
+  const { width } = useWindowSize();
 
   useEffect(() => {
     if (innerCircleRef?.current) {
@@ -16,7 +19,7 @@ const InitialLoading = ({ windowScroll, isAnimationActive }: Props) => {
   }, [windowScroll, innerCircleRef]);
 
   useEffect(() => {
-    if (wrapperRef?.current) {
+    if (wrapperRef?.current && width > 1024) {
       if (isAnimationActive) {
         wrapperRef.current.style.height = `${1500 - windowScroll}px`;
       } else {
@@ -48,14 +51,18 @@ const InitialLoading = ({ windowScroll, isAnimationActive }: Props) => {
       </div>
       <ActionDonuts isAnimationActive={isAnimationActive} />
       <Image
-        className={classNames('bottom-0 z-[2] flex shrink-0 max-xl:static max-lg:px-5 max-lg:pb-5 max-lg:pt-[150px]', {
-          'absolute max-w-[770px]': isAnimationActive,
-          'max-w-[90vw] px-5 pb-5 pt-[150px]': !isAnimationActive,
-        })}
+        className={classNames(
+          'bottom-0 z-[2] flex shrink-0 max-xl:static max-lg:max-w-[90vw] max-lg:px-5 max-lg:pb-5 max-lg:pt-[150px]',
+          {
+            'absolute max-w-[770px]': isAnimationActive,
+            'max-w-[90vw] px-5 pb-5 pt-[150px]': !isAnimationActive,
+          },
+        )}
         src="/img/cat.svg"
         alt="cat"
         width={770}
         height={795}
+        priority={true}
       />
     </div>
   );

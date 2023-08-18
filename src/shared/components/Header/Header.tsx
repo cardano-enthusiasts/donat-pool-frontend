@@ -24,7 +24,7 @@ const Header = ({ currentPage = null }: Props) => {
   return (
     <header
       className={classNames('base-wrapper bg-red max-lg:relative max-lg:w-screen', {
-        'z-999 min-h-screen pt-36': isMenuOpen,
+        'z-[999] min-h-screen pt-36': isMenuOpen,
       })}
     >
       <div
@@ -54,9 +54,11 @@ const Header = ({ currentPage = null }: Props) => {
             <WalletButton />
           </div>
         ) : (
-          <StandardButton href={ROUTES.newFundraising} primaryColor="yellow" secondaryColor="blue" fontColor="black">
-            Start a fundraiser
-          </StandardButton>
+          <div className={classNames({ 'max-lg:hidden': !isMenuOpen })}>
+            <StandardButton href={ROUTES.newFundraising} primaryColor="yellow" secondaryColor="blue" fontColor="black">
+              Start a fundraiser
+            </StandardButton>
+          </div>
         )}
       </div>
 

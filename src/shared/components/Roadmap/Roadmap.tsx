@@ -12,7 +12,7 @@ import { AccentButton } from '../.';
 const Roadmap = ({ isActive }: Props) => {
   const getSubLis = (item: any) => {
     return item.subItems.map(({ id, title }: any) => (
-      <li className="ml-[70px] text-3xl max-xl:ml-[50px] max-sm:ml-6" key={id}>
+      <li className="ml-[70px] text-3xl max-xl:ml-[50px] max-xl:text-base max-sm:ml-6" key={id}>
         {title}
       </li>
     ));

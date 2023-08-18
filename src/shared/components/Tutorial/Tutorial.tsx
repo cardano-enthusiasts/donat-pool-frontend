@@ -30,7 +30,7 @@ const Tutorial = () => {
               <div className="mb-[86px] max-md:mb-10" key={order}>
                 <div className="mb-2 text-xl font-bold text-red">{order}</div>
                 <div className="mb-6 font-rammetto-one text-xl leading-[120%] text-black">{title}</div>
-                <div className="flex gap-[30px] max-xl:flex-col">
+                <div className="flex gap-[30px] max-2xl:flex-col">
                   <Image
                     className="w-full max-w-[650px] shrink-0 rounded-md border-[12px] border-yellow shadow-gif"
                     src={src}

@@ -31,7 +31,7 @@ const AccentButton = ({
 
   return (
     <div
-      className={classNames('max-lg:h-30 w-[290px] pb-[22px] pl-[22px] transition-all duration-500 max-lg:w-40', {
+      className={classNames('max-lg:h-30 w-[312px] pb-[22px] pl-[22px] transition-all duration-500 max-lg:w-[222px]', {
         'h-[97px]': size === 's',
         'h-[150px]': size === 'm',
       })}
