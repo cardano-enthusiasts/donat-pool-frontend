@@ -27,7 +27,7 @@ const TitleAndDescription = ({ isActive }: Props) => {
         <div>Give a little,</div>
         <div className="self-end">help a lot</div>
       </div>
-      <div className="mb-[90px] delay-500 max-lg:mb-12">
+      <div className="relative z-10 mb-[90px] delay-500 max-lg:mb-12">
         <AccentButton
           primaryColor="yellow"
           secondaryColor="red"
