@@ -19,14 +19,14 @@ const InitialLoading = ({ windowScroll, isAnimationActive }: Props) => {
   }, [windowScroll, innerCircleRef]);
 
   useEffect(() => {
-    if (wrapperRef?.current && width > 1024) {
+    if (wrapperRef?.current && (width > 1024 || width === 0)) {
       if (isAnimationActive) {
         wrapperRef.current.style.height = `${1500 - windowScroll}px`;
       } else {
         wrapperRef.current.style.height = '965px';
       }
     }
-  }, [wrapperRef, windowScroll, isAnimationActive]);
+  }, [wrapperRef, windowScroll, isAnimationActive, width]);
 
   return (
     <div
