@@ -56,7 +56,7 @@ const Header = ({ currentPage = null }: Props) => {
         ) : (
           <div className={classNames({ 'max-lg:hidden': !isMenuOpen })}>
             <StandardButton href={ROUTES.newFundraising} primaryColor="yellow" secondaryColor="blue" fontColor="black">
-              Start a fundraiser
+              Create Donat.Pool
             </StandardButton>
           </div>
         )}
