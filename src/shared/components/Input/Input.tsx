@@ -26,7 +26,6 @@ const Input = ({
     placeholder,
     maxLength,
     error,
-    fontColor,
     disabled: isDisabled,
   };
 
