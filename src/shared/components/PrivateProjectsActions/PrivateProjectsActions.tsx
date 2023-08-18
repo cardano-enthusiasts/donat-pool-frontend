@@ -95,7 +95,7 @@ const PrivateProjectsActions = ({ project }: Props) => {
       <div
         className={classNames(styles.link, 'mt-6 flex items-center gap-6 text-xl font-bold text-blue max-xl:flex-col')}
       >
-        {link}
+        {link.replace('my-projects', 'all-projects')}
         <div className="shrink-0">
           <DoubleBorderedButton backgroundColor="white" size="s" primaryColor="blue" onClick={handleCopyLinkClick}>
             Copy and share
