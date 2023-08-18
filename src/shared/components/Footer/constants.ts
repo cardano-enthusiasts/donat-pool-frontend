@@ -8,7 +8,7 @@ const LINKS: Array<{
   { title: 'Home', href: ROUTES.home },
   { title: 'About us on MetaLamp', href: ROUTES.mock },
   { title: 'Terms of use', href: ROUTES.mock },
-  { title: 'FAQ', href: ROUTES.faq, target: '_blank' },
+  { title: 'FAQ', href: ROUTES.faq },
 ];
 
 export { LINKS };
