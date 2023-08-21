@@ -4,7 +4,7 @@ import { setError, setRequesting, setProtocol, setUserInfo } from '@/redux/slice
 import { selectConnectedWallet } from '@/redux/slices/cardano';
 import { setWalletStatus } from '@/redux/slices/connectWallet';
 import { ROUTES } from '@/shared/constants';
-import { createWalletParameters, logOffchainError } from '@/shared/helpers';
+import { createConnectionParameters, logOffchainError } from '@/shared/helpers';
 import { useAppSelector, useAppDispatch } from '@/shared/hooks';
 import { useDonatPool } from '@/shared/hooks';
 import type { UserAndProtocolParams } from '@/shared/types/backend';
@@ -43,7 +43,7 @@ const useGetAppInfo = () => {
   if (offchain && connectedWallet) {
     return () => {
       offchain?.getAppInfo(handleSuccess)(handleError)(JSON.parse(process.env.NEXT_PUBLIC_PROTOCOL))(
-        createWalletParameters(connectedWallet.name),
+        createConnectionParameters(connectedWallet.name),
       )();
       dispatch(setRequesting());
     };

@@ -2,7 +2,7 @@ import { useCallback, useEffect } from 'react';
 
 import { selectConnectedWallet } from '@/redux/slices/cardano';
 import { setRequestStatus, setFundraisings, setError } from '@/redux/slices/getUserRelatedFundraisings';
-import { createWalletParameters, transformFundraisings } from '@/shared/helpers';
+import { createConnectionParameters, transformFundraisings } from '@/shared/helpers';
 import { useAppSelector, useAppDispatch } from '@/shared/hooks';
 import type { FetchedFundraising } from '@/shared/types';
 
@@ -34,7 +34,7 @@ const useUserFundraisings = () => {
       dispatch(setRequestStatus('requesting'));
       donatPool.getUserRelatedFundraisings(handleFetchSuccess)(handleFetchFailure)(
         JSON.parse(process.env.NEXT_PUBLIC_PROTOCOL),
-      )(createWalletParameters(connectedWallet.name))();
+      )(createConnectionParameters(connectedWallet.name))();
     }
   }, [donatPool, connectedWallet, dispatch, handleFetchSuccess, handleFetchFailure]);
 

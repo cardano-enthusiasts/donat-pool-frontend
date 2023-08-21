@@ -1,7 +1,7 @@
 import { selectConnectedWallet } from '@/redux/slices/cardano';
 import { setWalletStatus } from '@/redux/slices/connectWallet';
 import { setError, setRequesting, setSuccess } from '@/redux/slices/donating';
-import { createWalletParameters, logOffchainError } from '@/shared/helpers';
+import { createConnectionParameters, logOffchainError } from '@/shared/helpers';
 import { useAppSelector, useAppDispatch } from '@/shared/hooks';
 import { useFundraisings, useDonatPool } from '@/shared/hooks';
 import type { FundraisingData } from '@/shared/types/common';
@@ -30,7 +30,7 @@ const useDonate = () => {
   if (offchain && connectedWallet) {
     return (fundraisingData: FundraisingData, amount: number) => {
       offchain.donate(handleSuccess)(handleError)(JSON.parse(process.env.NEXT_PUBLIC_PROTOCOL))(
-        createWalletParameters(connectedWallet.name),
+        createConnectionParameters(connectedWallet.name),
       )(fundraisingData)(amount)();
       dispatch(setRequesting());
     };
