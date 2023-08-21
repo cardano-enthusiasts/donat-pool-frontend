@@ -4,7 +4,7 @@
 
 @layer base {
   h1 {
-    @apply font-rammetto-one text-[3.375rem] leading-[104%] text-red max-[900px]:text-[2.25rem] max-[400px]:text-[2.25rem];
+    @apply font-rammetto-one text-[3.375rem] leading-[104%] text-red max-lg:text-[36px] max-sm:text-[2.25rem];
   }
 
   ::-webkit-scrollbar {
@@ -36,26 +36,6 @@
     @media (width <= 768px) {
       padding-right: 1.875rem;
       padding-left: 1.875rem;
-    }
-  }
-
-  .base-inner {
-    width: 100%;
-    max-width: 120rem;
-  }
-
-  .landing-paddings {
-    padding-right: 5rem;
-    padding-left: 25rem;
-
-    @media (width <= 1100px) {
-      padding-right: 3.125rem;
-      padding-left: 3.125rem;
-    }
-
-    @media (width <= 500px) {
-      padding-right: 1.25rem;
-      padding-left: 1.25rem;
     }
   }
 }

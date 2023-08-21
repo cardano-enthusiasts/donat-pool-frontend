@@ -7,7 +7,7 @@ const Service = ({ children }: PropsWithChildren) => {
     <>
       <Header />
       <main className="base-wrapper">
-        <div className="base-inner mx-0 mb-40 mt-20 max-w-[49.375rem] max-sm:mb-15 max-sm:mt-10">{children}</div>
+        <div className=" mx-0 mb-40 mt-20 w-full max-w-[49.375rem] max-sm:mb-15 max-sm:mt-10">{children}</div>
       </main>
       <Footer />
     </>
