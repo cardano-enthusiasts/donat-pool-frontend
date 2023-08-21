@@ -4,7 +4,7 @@ import { PRIMARY_SECTIONS, SECONDARY_SECTIONS } from './data';
 import { StandardButton } from '..';
 
 const WhyChooseUs = () => {
-  const titleClasses = 'mb-6 text-5xl font-bold leading-normal max-lg:text-[32px] max-lg:leading-tight';
+  const titleClasses = 'mb-6 text-5xl font-bold leading-normal max-lg:text-[2rem] max-lg:leading-tight';
   const descriptionClasses = 'text-2xl max-md:text-lg';
   return (
     <div className="text-black">

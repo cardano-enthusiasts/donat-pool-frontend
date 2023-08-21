@@ -38,12 +38,12 @@ const LandingNav = forwardRef(
         ref={wrapperRef}
         className={cn(
           styles.wrapper,
-          'fixed top-[90px] max-[1920px]:left-[90px] max-mobile:fixed max-mobile:left-0 max-mobile:top-0 max-mobile:flex max-mobile:w-[100vw] max-mobile:items-center max-mobile:justify-center',
+          'fixed top-[5.625rem] max-[1920px]:left-[5.625rem] max-[1100px]:fixed max-[1100px]:left-0 max-[1100px]:top-0 max-[1100px]:flex max-[1100px]:w-[100vw] max-[1100px]:items-center max-[1100px]:justify-center',
           {
-            'z-[-1] max-mobile:z-[100]': currentSection === 'contact-us',
-            'z-[3] max-mobile:z-[100]': currentSection !== 'contact-us',
+            'z-[-1] max-[1100px]:z-[100]': currentSection === 'contact-us',
+            'z-[3] max-[1100px]:z-[100]': currentSection !== 'contact-us',
             hidden: windowScroll < 500 && isAnimationActive,
-            'max-mobile:h-[100vh] max-mobile:overflow-auto': isOpen,
+            'max-[1100px]:h-[100vh] max-[1100px]:overflow-auto': isOpen,
           },
           wrapperVariants[currentSection],
         )}
@@ -65,12 +65,15 @@ const LandingNav = forwardRef(
             </>
           )}
           {isContentShown && (
-            <div className="flex max-w-[245px] flex-col gap-6 max-mobile:max-w-[296px] max-mobile:items-center">
+            <div className="flex max-w-[15.3125rem] flex-col gap-6 max-[1100px]:max-w-[18.5rem] max-[1100px]:items-center">
               {getSections(currentSection).map(({ title, isActive, id }) => (
                 <a
                   className={cn(
-                    'cursor-pointer font-rammetto-one leading-[104%] max-mobile:text-center',
-                    { 'text-[54px] max-sm:text-3xl': isActive, 'text-[15px] text-white max-sm:text-xs': !isActive },
+                    'cursor-pointer font-rammetto-one leading-[104%] max-[1100px]:text-center',
+                    {
+                      'text-[3.375rem] max-sm:text-3xl': isActive,
+                      'text-[0.9375rem] text-white max-sm:text-xs': !isActive,
+                    },
                     isActive && linkVariants[currentSection],
                   )}
                   key={title}

@@ -9,8 +9,8 @@ const variants = {
     green: 'text-green',
   },
   size: {
-    s: 'h-[97px] max-lg:h-[70px]',
-    m: 'h-[127px] max-lg:h-[86px]',
+    s: 'h-[6.0625rem] max-lg:h-[4.375rem]',
+    m: 'h-[7.9375rem] max-lg:h-[5.375rem]',
   },
 };
 

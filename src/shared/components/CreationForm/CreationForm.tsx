@@ -120,7 +120,7 @@ const CreationForm = ({ onClose, protocol }: Props) => {
 
   return (
     <>
-      <form className="grid w-full max-w-[600px] grid-cols-1 gap-y-6" onSubmit={handleSubmit}>
+      <form className="grid w-full max-w-[37.5rem] grid-cols-1 gap-y-6" onSubmit={handleSubmit}>
         <Input
           value={data.title}
           onChange={(event) => {

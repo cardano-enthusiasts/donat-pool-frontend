@@ -23,20 +23,22 @@ const InitialLoading = ({ windowScroll, isAnimationActive }: Props) => {
       if (isAnimationActive) {
         wrapperRef.current.style.height = `${1500 - windowScroll}px`;
       } else {
-        wrapperRef.current.style.height = '965px';
+        wrapperRef.current.style.height = '60.3125rem';
       }
     }
   }, [wrapperRef, windowScroll, isAnimationActive, width]);
 
   return (
     <div
-      className={cn('relative flex h-[1500px] w-full items-start justify-center overflow-hidden bg-red max-xl:h-auto')}
+      className={cn(
+        'relative flex h-[93.75rem] w-full items-start justify-center overflow-hidden bg-red max-xl:h-auto',
+      )}
       ref={wrapperRef}
     >
       <div
         ref={innerCircleRef}
         className={cn(
-          'absolute z-[4] mt-[45vh] h-[230px] w-[230px] scale-0 rounded-full border-[90px] border-yellow max-xl:hidden',
+          'absolute z-[4] mt-[45vh] h-[14.375rem] w-[14.375rem] scale-0 rounded-full border-[5.625rem] border-yellow max-xl:hidden',
           { hidden: !(windowScroll < 500 && isAnimationActive) },
         )}
       />
@@ -50,10 +52,10 @@ const InitialLoading = ({ windowScroll, isAnimationActive }: Props) => {
       <ActionDonuts isAnimationActive={isAnimationActive} />
       <Image
         className={cn(
-          'bottom-0 z-[2] flex shrink-0 max-xl:static max-xl:max-w-[90vw] max-xl:px-5 max-xl:pb-5 max-xl:pt-[150px]',
+          'bottom-0 z-[2] flex shrink-0 max-xl:static max-xl:max-w-[90vw] max-xl:px-5 max-xl:pb-5 max-xl:pt-[9.375rem]',
           {
-            'absolute max-w-[770px]': isAnimationActive,
-            'max-w-[90vw] px-5 pb-5 pt-[150px]': !isAnimationActive,
+            'absolute max-w-[48.125rem]': isAnimationActive,
+            'max-w-[90vw] px-5 pb-5 pt-[9.375rem]': !isAnimationActive,
           },
         )}
         src="/img/cat.svg"

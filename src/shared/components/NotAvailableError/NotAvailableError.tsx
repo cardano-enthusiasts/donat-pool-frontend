@@ -4,9 +4,9 @@ import { DoubleBorderedButton, Waves } from '..';
 
 const NotAvailableError = () => {
   return (
-    <form className="mx-auto flex h-[100vh] min-h-[670px] w-full flex-col justify-between bg-red">
-      <div className="h-[calc(100% - 100px)] flex items-center justify-center">
-        <div className="flex max-w-[600px] flex-col items-center px-10 pb-[60px] pt-10">
+    <form className="mx-auto flex h-[100vh] min-h-[41.875rem] w-full flex-col justify-between bg-red">
+      <div className="h-[calc(100% - 6.25rem)] flex items-center justify-center">
+        <div className="flex max-w-[37.5rem] flex-col items-center px-10 pb-[3.75rem] pt-10">
           <h1 className="mb-6 text-center text-white">Wallet is not available </h1>
           <Image src="/img/sad-cat-with-purple-border.svg" alt="sad cat" width="140" height="140" />
           <div className="mb-8 text-center text-black">

@@ -12,7 +12,7 @@ import { AccentButton } from '../.';
 const Roadmap = ({ isActive }: Props) => {
   const getSubLis = (item: any) => {
     return item.subItems.map(({ id, title }: any) => (
-      <li className="ml-[70px] text-3xl max-xl:ml-[50px] max-xl:text-base max-sm:ml-6" key={id}>
+      <li className="ml-[4.375rem] text-3xl max-xl:ml-[3.125rem] max-xl:text-base max-sm:ml-6" key={id}>
         {title}
       </li>
     ));
@@ -22,7 +22,7 @@ const Roadmap = ({ isActive }: Props) => {
     <div className="relative">
       <div
         className={cn(
-          'leading-1.5 relative h-[700px] w-[90%] rotate-[30deg] overflow-hidden text-4xl font-bold max-lg:left-0 max-lg:ml-0 max-sm:text-xl',
+          'leading-1.5 relative h-[43.75rem] w-[90%] rotate-[30deg] overflow-hidden text-4xl font-bold max-lg:left-0 max-lg:ml-0 max-sm:text-xl',
           styles.wrapper,
         )}
       >
@@ -30,7 +30,7 @@ const Roadmap = ({ isActive }: Props) => {
           {roadmapText.phases.map(({ title, items }) => (
             <Fragment key={title}>
               <div className={cn('font-bold text-red')}>{HTMLReactParser(title)}</div>
-              <ul className="list-disc pl-[50px]">
+              <ul className="list-disc pl-[3.125rem]">
                 {items.map((item) => {
                   return item.title ? <li key={item.id}>{item.title}</li> : getSubLis(item);
                 })}
@@ -39,7 +39,7 @@ const Roadmap = ({ isActive }: Props) => {
           ))}
         </div>
       </div>
-      <div className="absolute right-20 top-0 max-md:left-0  max-md:right-0 max-md:mx-auto max-md:w-[222px]">
+      <div className="absolute right-20 top-0 max-md:left-0  max-md:right-0 max-md:mx-auto max-md:w-[13.875rem]">
         <AccentButton
           primaryColor="blue"
           secondaryColor="green"

@@ -30,7 +30,7 @@ const RaisedCounter = ({ raised, goal }: Props) => {
   }, [raised, goal]);
 
   return (
-    <div className="flex items-center justify-center gap-4 font-rammetto-one text-[54px] font-normal leading-[104%] max-sm:text-4xl">
+    <div className="flex items-center justify-center gap-4 font-rammetto-one text-[3.375rem] font-normal leading-[104%] max-sm:text-4xl">
       <Image
         src={`/img/${imgTitle}.svg`}
         alt="progress bar"
@@ -39,7 +39,7 @@ const RaisedCounter = ({ raised, goal }: Props) => {
         className="max-sm:hidden"
       />
       <div className="text-red">{raised}</div>
-      <div className="h-12 w-[5px] rounded-[5px] bg-red" />
+      <div className="h-12 w-[0.3125rem] rounded-[0.3125rem] bg-red" />
       <div className="text-yellow">{goal}</div>
     </div>
   );

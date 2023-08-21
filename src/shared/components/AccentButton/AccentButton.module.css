@@ -3,24 +3,24 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 290px;
-  font-size: 32px;
+  width: 18.125rem;
+  font-size: 2rem;
   line-height: 94%;
   transition: all 0.5s;
 
-  @media (width <= 1100px) {
-    max-width: 200px;
-    padding: 20px 50px;
-    font-size: 22px;
+  @media (width <= 68.75rem) {
+    max-width: 12.5rem;
+    padding: 1.25rem 3.125rem;
+    font-size: 1.375rem;
   }
 }
 
 .common::before {
   position: absolute;
-  bottom: -21.8px;
-  left: -11.3px;
+  bottom: -1.3625rem;
+  left: -0.7063rem;
   width: 100%;
-  height: 22px;
+  height: 1.375rem;
   content: '';
   transition: all 0.5s;
   transform: skewX(-45deg);
@@ -28,9 +28,9 @@
 
 .common::after {
   position: absolute;
-  bottom: -11.3px;
-  left: -22px;
-  width: 22px;
+  bottom: -0.7063rem;
+  left: -1.375rem;
+  width: 1.375rem;
   height: 100%;
   content: '';
   transition: all 0.5s;
@@ -38,18 +38,18 @@
 }
 
 .common:active {
-  margin-top: 15px;
-  margin-left: -15px;
+  margin-top: 0.9375rem;
+  margin-left: -0.9375rem;
 }
 
 .common:active::before {
-  bottom: -7px;
-  left: -4px;
-  height: 7px;
+  bottom: -0.4375rem;
+  left: -0.25rem;
+  height: 0.4375rem;
 }
 
 .common:active::after {
-  bottom: -4px;
-  left: -7px;
-  width: 7px;
+  bottom: -0.25rem;
+  left: -0.4375rem;
+  width: 0.4375rem;
 }

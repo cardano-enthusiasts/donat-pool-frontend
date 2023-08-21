@@ -4,7 +4,7 @@
 }
 
 .img:first-child {
-  @media (width <= 850px) {
+  @media (width <= 53.125rem) {
     max-width: 65%;
   }
 }
@@ -16,19 +16,19 @@
 .img:nth-child(3) {
   transition-delay: 500ms;
 
-  @media (width <= 850px) {
+  @media (width <= 53.125rem) {
     max-width: 50%;
   }
 }
 
 .img:not(:first-child) {
-  margin-top: -30px;
+  margin-top: -1.875rem;
 
-  @media (width <= 850px) {
-    margin-top: -20px;
+  @media (width <= 53.125rem) {
+    margin-top: -1.25rem;
   }
 
-  @media (width <= 850px) {
-    margin-top: -10px;
+  @media (width <= 53.125rem) {
+    margin-top: -0.625rem;
   }
 }

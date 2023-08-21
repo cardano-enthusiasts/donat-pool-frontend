@@ -11,7 +11,7 @@ const BorderedButton = ({ onClick, children, color, isClickedTheme }: Props) => 
           { 'border-green bg-white text-green': color === 'green' && !isClickedTheme },
           { 'border-red bg-red text-white': color === 'red' && isClickedTheme },
           { 'border-green bg-green text-white': color === 'green' && isClickedTheme },
-          'rounded-md border-2 px-4 py-2 text-[14px] font-bold leading-[19px] transition-all duration-500',
+          'rounded-md border-2 px-4 py-2 text-[0.875rem] font-bold leading-[1.1875rem] transition-all duration-500',
         )}
         type="button"
         onClick={onClick}

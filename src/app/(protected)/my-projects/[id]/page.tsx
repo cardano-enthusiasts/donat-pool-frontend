@@ -37,7 +37,7 @@ const Page = () => {
           }}
           title={currentProject.title}
         >
-          <div className="max-w-[600px]">
+          <div className="max-w-[37.5rem]">
             <div className="flex items-center justify-between border-b-2 border-t-2 border-black py-7">
               <Status isActive={!currentProject.isCompleted} />
               <div className="text-xl font-bold">Until {formatDate(Number(currentProject.deadline))}</div>

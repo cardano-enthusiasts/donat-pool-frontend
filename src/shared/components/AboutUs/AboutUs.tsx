@@ -29,7 +29,7 @@ const AboutUs = () => {
         <div className={styles.dots} />
       </div>
 
-      <div className="mb-[140px] flex self-start max-xl:mb-12 max-xl:justify-center">
+      <div className="mb-[8.75rem] flex self-start max-xl:mb-12 max-xl:justify-center">
         <AccentButton primaryColor="blue" secondaryColor="red" fontColor="red" isAnimation={true}>
           Donate
           <br /> To Us

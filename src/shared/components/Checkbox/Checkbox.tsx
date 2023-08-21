@@ -9,7 +9,7 @@ const Checkbox = ({ isChecked, onChange, children }: Props) => {
         checked={isChecked}
         onChange={onChange}
       />
-      <span className="ml-2.5 w-full min-w-[180px] select-none text-black">{children}</span>
+      <span className="ml-2.5 w-full min-w-[11.25rem] select-none text-black">{children}</span>
     </label>
   );
 };

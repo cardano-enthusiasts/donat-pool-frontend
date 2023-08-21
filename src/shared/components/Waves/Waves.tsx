@@ -26,9 +26,9 @@ const Waves = ({ color = 'blue', backgroundColor = 'transparent', isUpsideDown =
   };
 
   return (
-    <div className={cn('relative z-[1] h-[100px] text-center', colors[backgroundColor])}>
+    <div className={cn('relative z-[1] h-[6.25rem] text-center', colors[backgroundColor])}>
       <svg
-        className={cn('relative mb-[-7px] h-[100px] max-w-full', {
+        className={cn('relative mb-[-0.4375rem] h-[6.25rem] max-w-full', {
           'rotate-180': isUpsideDown,
         })}
         viewBox={`200 0 ${getWidthForViewBox()} 100`}

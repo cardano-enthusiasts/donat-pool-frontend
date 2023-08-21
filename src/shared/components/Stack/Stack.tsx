@@ -35,7 +35,7 @@ const Stack = () => {
   };
 
   return (
-    <div className="flex max-w-[800px] flex-col gap-10">
+    <div className="flex max-w-[50rem] flex-col gap-10">
       <div className="text-gray text-2xl font-bold">Our stack</div>
       <div ref={ref}>
         {stack.map(({ id, src }) => (

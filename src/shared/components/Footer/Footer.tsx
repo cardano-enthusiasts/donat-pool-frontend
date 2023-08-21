@@ -24,7 +24,7 @@ const Footer = ({ backgroundColor = 'blue' }: Props) => {
             <Socials />
             <div className=" flex gap-20 font-rammetto-one text-white max-xl:flex-col max-xl:gap-4 max-lg:items-center">
               {LINKS.map(({ title, href, target }) => (
-                <Link href={href} target={target} key={title} className="text-[15px] leading-snug">
+                <Link href={href} target={target} key={title} className="text-[0.9375rem] leading-snug">
                   {title}
                 </Link>
               ))}

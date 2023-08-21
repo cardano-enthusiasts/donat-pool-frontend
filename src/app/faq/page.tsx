@@ -17,7 +17,7 @@ const Page = () => {
 
   const line = <div className="h-px w-full bg-[#dfdfdf]" />;
 
-  const getSubtitle = (text: string) => <h3 className="mb-3 text-[20px] font-bold text-gray-tertiary">{text}</h3>;
+  const getSubtitle = (text: string) => <h3 className="mb-3 text-[1.25rem] font-bold text-gray-tertiary">{text}</h3>;
 
   const getSection = (children: ReactNode) => <div className="flex flex-col gap-6">{children}</div>;
 

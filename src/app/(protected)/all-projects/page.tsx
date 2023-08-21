@@ -24,7 +24,7 @@ const Page = () => {
     <Common>
       <div className="mb-14 flex items-center justify-between gap-14 text-center max-md:mb-8 max-md:flex-col max-md:gap-5">
         <h1>All Donation pools</h1>
-        <div className="max-md:fixed max-md:bottom-[60px] max-md:right-8 max-md:z-10">
+        <div className="max-md:fixed max-md:bottom-[3.75rem] max-md:right-8 max-md:z-10">
           <StandardButton
             primaryColor="red"
             secondaryColor="blue"

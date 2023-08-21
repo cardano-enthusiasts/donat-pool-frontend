@@ -61,7 +61,7 @@ const ManagerEditor = ({ config }: Props) => {
 
   return (
     <>
-      <form className="w-full max-w-[840px]" onSubmit={handleSubmit}>
+      <form className="w-full max-w-[52.5rem]" onSubmit={handleSubmit}>
         <div className="grid grid-cols-2 gap-5 max-md:grid-cols-1">
           {DEFAULT_PARAMS.map(({ title, id, hint }) => (
             <div className="flex w-full items-center justify-between" key={id}>

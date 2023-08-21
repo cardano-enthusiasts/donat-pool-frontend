@@ -169,7 +169,7 @@ const LandingContent = forwardRef(
                   'bg-blue': backgroundColor === 'blue',
                 })}
               >
-                <div className="mx-auto my-0 w-full max-w-[1920px]">{element}</div>
+                <div className="mx-auto my-0 w-full max-w-[120rem]">{element}</div>
               </div>
               {waves && <Waves color={waves.color} backgroundColor={backgroundColor} />}
             </Fragment>

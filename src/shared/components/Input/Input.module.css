@@ -1,16 +1,16 @@
 .input {
   width: 100%;
-  min-width: 150px;
-  padding: 13px 16px;
-  font-size: 20px;
+  min-width: 9.375rem;
+  padding: 0.8125rem 1rem;
+  font-size: 1.25rem;
   background-color: transparent;
-  border-radius: 6px;
+  border-radius: 0.375rem;
   outline: none;
 }
 
 .input::placeholder {
   font-family: var(--microsoft-ya-hei-font);
-  font-size: 20px;
+  font-size: 1.25rem;
   color: #29dea8;
 }
 
@@ -32,18 +32,18 @@
 .message {
   position: absolute;
   top: 0;
-  right: -250px;
-  width: 244px;
-  padding: 12px;
-  margin-left: 6px;
-  border-radius: 0 6px 6px;
+  right: -15.625rem;
+  width: 15.25rem;
+  padding: 0.75rem;
+  margin-left: 0.375rem;
+  border-radius: 0 0.375rem 0.375rem;
 }
 
 .message::after {
   position: absolute;
-  top: -12px;
-  left: -6px;
-  width: 6px;
-  height: 6px;
+  top: -0.75rem;
+  left: -0.375rem;
+  width: 0.375rem;
+  height: 0.375rem;
   content: url('/icons/tooltip.svg');
 }

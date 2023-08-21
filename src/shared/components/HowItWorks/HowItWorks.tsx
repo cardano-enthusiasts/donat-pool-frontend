@@ -7,7 +7,7 @@ import { Tutorial } from '..';
 const HowItWorks = () => {
   return (
     <>
-      <div className="mb-[60px] flex flex-col gap-[60px] max-xl:mb-[30px] max-xl:gap-[30px]">
+      <div className="mb-[3.75rem] flex flex-col gap-[3.75rem] max-xl:mb-[1.875rem] max-xl:gap-[1.875rem]">
         {ITEMS.map(({ title, description, descriptionMinor, id }) => (
           <div className={styles.item} key={id}>
             <div className={cn('text-black', styles.main)}>{title}</div>
