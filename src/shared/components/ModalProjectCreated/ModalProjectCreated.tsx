@@ -1,4 +1,4 @@
-import classNames from 'classnames';
+import cn from 'classnames';
 import Image from 'next/image';
 import { useState } from 'react';
 
@@ -46,7 +46,7 @@ const ModalProjectCreated = ({ isOpen, onClose, path }: Props) => {
           </>
         ) : (
           <>
-            <a className={classNames(styles.link, 'mb-6 text-center text-xl font-bold text-blue')}>{link}</a>
+            <a className={cn(styles.link, 'mb-6 text-center text-xl font-bold text-blue')}>{link}</a>
             <StandardButton
               primaryColor="red"
               secondaryColor="blue"

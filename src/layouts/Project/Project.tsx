@@ -1,4 +1,4 @@
-import classNames from 'classnames';
+import cn from 'classnames';
 
 import { useWindowSize } from '@/shared/hooks';
 
@@ -12,7 +12,7 @@ const Project = ({ onPreviousPageClick, previousPageTitle, title, children }: Pr
     <div className="relative flex justify-center">
       <div className="w-full max-w-[620px]">
         <div className="mb-[60px] flex justify-between max-xl:justify-start max-lg:mb-8">
-          <div className={classNames(styles.previous, 'text-blue')} onClick={onPreviousPageClick}>
+          <div className={cn(styles.previous, 'text-blue')} onClick={onPreviousPageClick}>
             {width > 1200 ? previousPageTitle : ''}
           </div>
           <h1 className="overflow-hidden text-ellipsis">{title}</h1>

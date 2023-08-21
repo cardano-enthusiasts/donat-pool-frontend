@@ -1,4 +1,4 @@
-import classNames from 'classnames';
+import cn from 'classnames';
 import Link from 'next/link';
 
 import { isLinkExternal } from '@/shared/helpers';
@@ -20,7 +20,7 @@ const StandardButton = ({
   isDisabled = false,
   isAnimation = false,
 }: Props) => {
-  const classes = classNames(
+  const classes = cn(
     styles.common,
     variants.size[size],
     variants.primary[primaryColor],
@@ -33,7 +33,7 @@ const StandardButton = ({
   );
 
   return (
-    <div className={classNames('transition-all duration-500', { 'w-full': isFullWidth })}>
+    <div className={cn('transition-all duration-500', { 'w-full': isFullWidth })}>
       {href !== null ? (
         <Link
           href={href}

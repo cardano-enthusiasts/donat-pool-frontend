@@ -1,4 +1,4 @@
-import classNames from 'classnames';
+import cn from 'classnames';
 import Link from 'next/link';
 
 import { isLinkExternal } from '@/shared/helpers';
@@ -19,7 +19,7 @@ const AccentButton = ({
   isDisabled = false,
   isAnimation = false,
 }: Props) => {
-  const classes = classNames(
+  const classes = cn(
     styles.common,
     'font-rammetto-one',
     variants.size[size],
@@ -31,7 +31,7 @@ const AccentButton = ({
 
   return (
     <div
-      className={classNames('max-lg:h-30 w-[312px] pb-[22px] pl-[22px] transition-all duration-500 max-lg:w-[222px]', {
+      className={cn('max-lg:h-30 w-[312px] pb-[22px] pl-[22px] transition-all duration-500 max-lg:w-[222px]', {
         'h-[97px]': size === 's',
         'h-[150px]': size === 'm',
       })}

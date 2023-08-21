@@ -1,4 +1,4 @@
-import classNames from 'classnames';
+import cn from 'classnames';
 import Link from 'next/link';
 
 import { isLinkExternal } from '@/shared/helpers';
@@ -26,7 +26,7 @@ const DoubleBorderedButton = ({
       m: 'text-xl px-5 py-2.5',
     },
   };
-  const classes = classNames(
+  const classes = cn(
     styles.common,
     variants.size[size],
     variants.primary[primaryColor],
@@ -36,7 +36,7 @@ const DoubleBorderedButton = ({
   );
 
   return (
-    <div className={classNames('transition-all duration-500', { 'w-full': isFullWidth })}>
+    <div className={cn('transition-all duration-500', { 'w-full': isFullWidth })}>
       {href !== null ? (
         <Link
           href={href}

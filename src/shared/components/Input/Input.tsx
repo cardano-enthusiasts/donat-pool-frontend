@@ -1,4 +1,4 @@
-import classNames from 'classnames';
+import cn from 'classnames';
 
 import styles from './Input.module.css';
 import type { Props } from './types';
@@ -30,7 +30,7 @@ const Input = ({
   };
 
   const isError = error || error === '';
-  const inputClasses = classNames(styles.input, 'border-2', {
+  const inputClasses = cn(styles.input, 'border-2', {
     'border-error text-error': isError,
     'border-black text-green': !isError && fontColor === 'green',
     'border-black text-yellow': !isError && fontColor === 'yellow',
@@ -41,7 +41,7 @@ const Input = ({
       <div className="mb-2">{children}</div>
       <div
         data-hint={hint}
-        className={classNames(
+        className={cn(
           'relative',
           {
             'after:absolute after:right-4 after:top-1/2 after:translate-y-[-50%] after:text-gray-secondary':
@@ -65,9 +65,7 @@ const Input = ({
             className={inputClasses}
           />
         )}
-        {error !== '' && error !== null && (
-          <div className={classNames(styles.message, 'bg-error text-white')}>{error}</div>
-        )}
+        {error !== '' && error !== null && <div className={cn(styles.message, 'bg-error text-white')}>{error}</div>}
       </div>
     </div>
   );

@@ -1,4 +1,4 @@
-import classNames from 'classnames';
+import cn from 'classnames';
 import Image from 'next/image';
 
 import { ROUTES } from '@/shared/constants';
@@ -10,11 +10,7 @@ import { AccentButton } from '../.';
 const TitleAndDescription = ({ isActive }: Props) => {
   return (
     <div
-      className={classNames(
-        'flex flex-col font-rammetto-one',
-        isActive && styles.wrapper,
-        !isActive && styles.wrapperInactive,
-      )}
+      className={cn('flex flex-col font-rammetto-one', isActive && styles.wrapper, !isActive && styles.wrapperInactive)}
     >
       <Image
         className="mb-[30px] w-full max-w-[770px]"

@@ -1,4 +1,4 @@
-import classNames from 'classnames';
+import cn from 'classnames';
 import HTMLReactParser from 'html-react-parser';
 import Image from 'next/image';
 import { useState } from 'react';
@@ -36,7 +36,7 @@ const Tutorial = () => {
                     src={src}
                     alt="tutorial step"
                   />
-                  <ul className={classNames(styles.description, 'm-0 list-disc pl-5')}>
+                  <ul className={cn(styles.description, 'm-0 list-disc pl-5')}>
                     {description.map((item, index) => (
                       <li className="mb-2.5 text-sm" key={index}>
                         {HTMLReactParser(item)}

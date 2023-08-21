@@ -1,4 +1,4 @@
-import classNames from 'classnames';
+import cn from 'classnames';
 import { useEffect, useRef, useState } from 'react';
 
 import { useWindowScroll } from '@/shared/hooks';
@@ -40,7 +40,7 @@ const Stack = () => {
       <div ref={ref}>
         {stack.map(({ id, src }) => (
           // eslint-disable-next-line @next/next/no-img-element
-          <img className={classNames(styles.img, { 'translate-y-full': !isActive })} key={id} src={src} alt={id} />
+          <img className={cn(styles.img, { 'translate-y-full': !isActive })} key={id} src={src} alt={id} />
         ))}
       </div>
 

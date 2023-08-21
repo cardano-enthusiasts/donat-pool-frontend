@@ -1,4 +1,4 @@
-import classNames from 'classnames';
+import cn from 'classnames';
 import Link from 'next/link';
 import { useState } from 'react';
 
@@ -13,7 +13,7 @@ const Footer = ({ backgroundColor = 'blue' }: Props) => {
   return (
     <>
       <footer
-        className={classNames('base-wrapper', {
+        className={cn('base-wrapper', {
           'bg-blue': backgroundColor === 'blue',
           'bg-black': backgroundColor === 'black',
         })}

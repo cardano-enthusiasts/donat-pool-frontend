@@ -1,4 +1,4 @@
-import classNames from 'classnames';
+import cn from 'classnames';
 import { Fragment, forwardRef, useEffect, useRef, useState, type ForwardedRef, type MutableRefObject } from 'react';
 
 import type { LandingSection } from '@/shared/types/common';
@@ -161,7 +161,7 @@ const LandingContent = forwardRef(
           return (
             <Fragment key={id}>
               <div
-                className={classNames('w-full', {
+                className={cn('w-full', {
                   'bg-green': backgroundColor === 'green',
                   'bg-red': backgroundColor === 'red',
                   'bg-black': backgroundColor === 'black',

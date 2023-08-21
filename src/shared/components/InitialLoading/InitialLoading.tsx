@@ -1,4 +1,4 @@
-import classNames from 'classnames';
+import cn from 'classnames';
 import Image from 'next/image';
 import { useEffect, useRef } from 'react';
 
@@ -30,20 +30,18 @@ const InitialLoading = ({ windowScroll, isAnimationActive }: Props) => {
 
   return (
     <div
-      className={classNames(
-        'relative flex h-[1500px] w-full items-start justify-center overflow-hidden bg-red max-xl:h-auto',
-      )}
+      className={cn('relative flex h-[1500px] w-full items-start justify-center overflow-hidden bg-red max-xl:h-auto')}
       ref={wrapperRef}
     >
       <div
         ref={innerCircleRef}
-        className={classNames(
+        className={cn(
           'absolute z-[4] mt-[45vh] h-[230px] w-[230px] scale-0 rounded-full border-[90px] border-yellow max-xl:hidden',
           { hidden: !(windowScroll < 500 && isAnimationActive) },
         )}
       />
       <div
-        className={classNames('absolute z-[3] h-full w-full bg-red max-xl:hidden', {
+        className={cn('absolute z-[3] h-full w-full bg-red max-xl:hidden', {
           hidden: !(windowScroll < 40 && isAnimationActive),
         })}
       >
@@ -51,7 +49,7 @@ const InitialLoading = ({ windowScroll, isAnimationActive }: Props) => {
       </div>
       <ActionDonuts isAnimationActive={isAnimationActive} />
       <Image
-        className={classNames(
+        className={cn(
           'bottom-0 z-[2] flex shrink-0 max-xl:static max-xl:max-w-[90vw] max-xl:px-5 max-xl:pb-5 max-xl:pt-[150px]',
           {
             'absolute max-w-[770px]': isAnimationActive,

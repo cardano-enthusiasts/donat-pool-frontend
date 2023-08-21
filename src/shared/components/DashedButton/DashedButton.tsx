@@ -1,4 +1,4 @@
-import classNames from 'classnames';
+import cn from 'classnames';
 
 import styles from './DashedButton.module.css';
 import { Props } from './types';
@@ -25,7 +25,7 @@ const DashedButton = ({
   return (
     <div className="transition-all duration-500">
       <button
-        className={classNames(
+        className={cn(
           styles.common,
           'border-2 border-dashed py-2.5 pl-5 pr-10 text-xl before:border-2 before:border-dashed',
           variants.primary[primaryColor],

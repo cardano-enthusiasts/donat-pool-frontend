@@ -1,4 +1,4 @@
-import classNames from 'classnames';
+import cn from 'classnames';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
@@ -23,24 +23,24 @@ const Header = ({ currentPage = null }: Props) => {
 
   return (
     <header
-      className={classNames('base-wrapper bg-red max-lg:relative max-lg:w-screen', {
+      className={cn('base-wrapper bg-red max-lg:relative max-lg:w-screen', {
         'z-[999] min-h-screen pt-36': isMenuOpen,
       })}
     >
       <div
-        className={classNames('base-inner flex items-center justify-between px-0 py-8 max-xl:flex-col max-xl:gap-7', {
+        className={cn('base-inner flex items-center justify-between px-0 py-8 max-xl:flex-col max-xl:gap-7', {
           'max-lg:items-start': !isMenuOpen,
         })}
       >
         {!isMenuOpen && <Logo />}
         {connectWalletStatus === 'success' ? (
-          <div className={classNames('flex max-lg:flex-col max-lg:gap-10', { 'max-lg:hidden': !isMenuOpen })}>
+          <div className={cn('flex max-lg:flex-col max-lg:gap-10', { 'max-lg:hidden': !isMenuOpen })}>
             <div className="mx-10 flex gap-7 text-lg font-bold max-lg:flex-col max-lg:items-center">
               {links.map(({ title, href, id }) => (
                 <div className="shrink-0" key={id}>
                   <Link
                     href={href}
-                    className={classNames({
+                    className={cn({
                       'text-yellow': href === currentPage,
                       'text-white': href !== currentPage,
                     })}
@@ -54,7 +54,7 @@ const Header = ({ currentPage = null }: Props) => {
             <WalletButton />
           </div>
         ) : (
-          <div className={classNames({ 'max-lg:hidden': !isMenuOpen })}>
+          <div className={cn({ 'max-lg:hidden': !isMenuOpen })}>
             <StandardButton href={ROUTES.newFundraising} primaryColor="yellow" secondaryColor="blue" fontColor="black">
               Start a fundraiser
             </StandardButton>

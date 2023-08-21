@@ -1,4 +1,4 @@
-import classNames from 'classnames';
+import cn from 'classnames';
 import Image from 'next/image';
 
 import styles from './ModalError.module.css';
@@ -11,7 +11,7 @@ const ModalError = ({ isOpen, title, errorText = '', onClose }: Props) => {
       <h1 className="mb-6 text-center text-4xl">{title}</h1>
       <div className="flex flex-col items-center">
         <Image className="mb-10" src="/img/bitten-donut.svg" alt="bitten donut" width={140} height={140} />
-        <div className={classNames('mb-6', styles.text)}>{errorText}</div>
+        <div className={cn('mb-6', styles.text)}>{errorText}</div>
         <DoubleBorderedButton primaryColor="blue" isFullWidth={true} onClick={onClose} backgroundColor="white">
           Close button
         </DoubleBorderedButton>

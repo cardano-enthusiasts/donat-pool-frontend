@@ -1,4 +1,4 @@
-import classNames from 'classnames';
+import cn from 'classnames';
 import Link from 'next/link';
 
 import { formatDate } from '@/shared/helpers';
@@ -19,7 +19,7 @@ const ProjectCard = ({
   return (
     <Link href={`/${linkSection}/${threadTokenCurrency}`}>
       <div
-        className={classNames(
+        className={cn(
           'flex w-full cursor-pointer flex-col rounded-md border-2 bg-white px-4 pb-6 shadow-card max-lg:p-5 max-sm:p-3',
           {
             'pt-2.5': paddingSize === 's',
@@ -32,7 +32,7 @@ const ProjectCard = ({
       >
         {status !== 'default' && (
           <div
-            className={classNames('mb-[18px] border-b-2 border-b-black pb-3 text-sm font-bold', {
+            className={cn('mb-[18px] border-b-2 border-b-black pb-3 text-sm font-bold', {
               'text-red': status === 'active',
               'text-green': status === 'completed',
             })}

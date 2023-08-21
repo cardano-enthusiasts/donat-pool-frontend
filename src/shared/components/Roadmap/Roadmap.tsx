@@ -1,4 +1,4 @@
-import classNames from 'classnames';
+import cn from 'classnames';
 import HTMLReactParser from 'html-react-parser';
 import { Fragment } from 'react';
 
@@ -21,15 +21,15 @@ const Roadmap = ({ isActive }: Props) => {
   return (
     <div className="relative">
       <div
-        className={classNames(
+        className={cn(
           'leading-1.5 relative h-[700px] w-[90%] rotate-[30deg] overflow-hidden text-4xl font-bold max-lg:left-0 max-lg:ml-0 max-sm:text-xl',
           styles.wrapper,
         )}
       >
-        <div className={classNames('absolute top-[100%] text-yellow', { 'animate-roadmap': isActive })}>
+        <div className={cn('absolute top-[100%] text-yellow', { 'animate-roadmap': isActive })}>
           {roadmapText.phases.map(({ title, items }) => (
             <Fragment key={title}>
-              <div className={classNames('font-bold text-red')}>{HTMLReactParser(title)}</div>
+              <div className={cn('font-bold text-red')}>{HTMLReactParser(title)}</div>
               <ul className="list-disc pl-[50px]">
                 {items.map((item) => {
                   return item.title ? <li key={item.id}>{item.title}</li> : getSubLis(item);

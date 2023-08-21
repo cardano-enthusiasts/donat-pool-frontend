@@ -1,4 +1,4 @@
-import classNames from 'classnames';
+import cn from 'classnames';
 
 import { Props } from './types';
 
@@ -6,7 +6,7 @@ const BorderedButton = ({ onClick, children, color, isClickedTheme }: Props) => 
   return (
     <div className="transition-all duration-500">
       <button
-        className={classNames(
+        className={cn(
           { 'border-red bg-white text-red': color === 'red' && !isClickedTheme },
           { 'border-green bg-white text-green': color === 'green' && !isClickedTheme },
           { 'border-red bg-red text-white': color === 'red' && isClickedTheme },
