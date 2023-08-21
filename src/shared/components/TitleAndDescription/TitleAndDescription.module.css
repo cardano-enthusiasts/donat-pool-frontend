@@ -2,7 +2,7 @@
   transition: transform 1s ease 0s;
   transform: translateY(0%);
 
-  @media (max-width: 1024px) {
+  @media (width <= 1024px) {
     transition: none;
     transform: translateY(0%);
   }
@@ -12,7 +12,7 @@
   transition: transform 1s ease 0s;
   transform: translateY(50%);
 
-  @media (max-width: 1024px) {
+  @media (width <= 1024px) {
     transition: none;
     transform: translateY(0%);
   }
