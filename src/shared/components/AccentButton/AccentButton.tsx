@@ -8,7 +8,6 @@ import variants from './constants';
 import { Props } from './types';
 
 const AccentButton = ({
-  onClick,
   children,
   primaryColor,
   secondaryColor,
@@ -18,6 +17,7 @@ const AccentButton = ({
   size = 'm',
   isDisabled = false,
   isAnimation = false,
+  onClick,
 }: Props) => {
   const classes = cn(
     styles.common,
@@ -46,7 +46,7 @@ const AccentButton = ({
           {children}
         </Link>
       ) : (
-        <button className={classes} onClick={onClick} disabled={isDisabled} type={type}>
+        <button className={classes} disabled={isDisabled} type={type} onClick={onClick}>
           {children}
         </button>
       )}

@@ -5,13 +5,13 @@ import { Props } from './types';
 import { Arrow } from '..';
 
 const DashedButton = ({
-  onClick,
   children,
   primaryColor,
   secondaryColor,
   backgroundColor,
   isClickedTheme,
   isFixedWidth = false,
+  onClick,
 }: Props) => {
   const variants = {
     primary: { red: 'text-red border-red', blue: 'text-blue border-blue' },
@@ -33,8 +33,8 @@ const DashedButton = ({
           variants.background[backgroundColor],
           { 'w-44': isFixedWidth },
         )}
-        onClick={onClick}
         type="button"
+        onClick={onClick}
       >
         {children}
 

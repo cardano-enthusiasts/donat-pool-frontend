@@ -62,13 +62,13 @@ const PrivateProjectsActions = ({ project }: Props) => {
           primaryColor="red"
           secondaryColor="blue"
           isFullWidth={true}
+          fontColor="white"
           onClick={() => {
             receiveFunds({
               frThreadTokenCurrency: project.threadTokenCurrency,
               frThreadTokenName: project.threadTokenName,
             });
           }}
-          fontColor="white"
         >
           {Number(project.raisedAmt) >= Number(project.goal)
             ? 'You have reached the goal! Take money'

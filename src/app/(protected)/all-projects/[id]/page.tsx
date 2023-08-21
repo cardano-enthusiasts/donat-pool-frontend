@@ -57,12 +57,12 @@ const Page = () => {
 
             <div className="flex justify-center">
               <AccentButton
-                onClick={() => {
-                  setIsModalOpen(true);
-                }}
                 primaryColor="yellow"
                 secondaryColor="red"
                 fontColor="red"
+                onClick={() => {
+                  setIsModalOpen(true);
+                }}
               >
                 Donate
               </AccentButton>

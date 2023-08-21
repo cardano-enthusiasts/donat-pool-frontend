@@ -34,10 +34,10 @@ const Footer = ({ backgroundColor = 'blue' }: Props) => {
             primaryColor="red"
             secondaryColor="green"
             size="s"
+            fontColor="white"
             onClick={() => {
               setIsModalContactUsOpen(true);
             }}
-            fontColor="white"
           >
             Contact us
           </StandardButton>

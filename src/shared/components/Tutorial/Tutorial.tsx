@@ -16,10 +16,10 @@ const Tutorial = () => {
         primaryColor="blue"
         secondaryColor="red"
         backgroundColor="green"
+        isClickedTheme={isOpen}
         onClick={() => {
           setIsOpen(!isOpen);
         }}
-        isClickedTheme={isOpen}
       >
         Watch the tutorial
       </DashedButton>

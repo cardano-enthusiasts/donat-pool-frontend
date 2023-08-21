@@ -46,11 +46,11 @@ const Landing = () => {
         currentSection={currentSection}
         windowScroll={windowScroll}
         windowWidth={windowWidth}
-        handleIconClick={handleMobileHeaderClick}
-        handleSectionClick={handleSectionClick}
         isOpen={isMobileHeaderOpen}
         ref={navRef}
         isAnimationActive={isAnimationActive}
+        handleIconClick={handleMobileHeaderClick}
+        handleSectionClick={handleSectionClick}
       />
     </div>
   );

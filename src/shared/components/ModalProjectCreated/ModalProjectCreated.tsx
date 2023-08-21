@@ -51,8 +51,8 @@ const ModalProjectCreated = ({ isOpen, onClose, path }: Props) => {
               primaryColor="red"
               secondaryColor="blue"
               isFullWidth={true}
-              onClick={handleCopyLinkClick}
               fontColor="white"
+              onClick={handleCopyLinkClick}
             >
               Copy link
             </StandardButton>

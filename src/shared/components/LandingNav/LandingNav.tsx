@@ -15,10 +15,10 @@ const LandingNav = forwardRef(
       currentSection,
       windowScroll,
       windowWidth,
-      handleIconClick,
-      handleSectionClick,
       isOpen,
       isAnimationActive,
+      handleIconClick,
+      handleSectionClick,
     }: Props,
     ref: ForwardedRef<HTMLDivElement>,
   ) => {
@@ -52,12 +52,12 @@ const LandingNav = forwardRef(
           {windowWidth < mobileResolution && (
             <>
               <Image
+                className="absolute right-5 top-5 h-10 w-10"
                 src={`/icons/${isOpen ? 'close' : 'menu'}.svg`}
                 alt="icon"
-                onClick={handleIconClick}
-                className="absolute right-5 top-5 h-10 w-10"
                 width="50"
                 height="50"
+                onClick={handleIconClick}
               />
               <div className="absolute left-0 right-0 top-0 z-[-1]">
                 <Waves isUpsideDown={true} color="red" isMoving={false} />

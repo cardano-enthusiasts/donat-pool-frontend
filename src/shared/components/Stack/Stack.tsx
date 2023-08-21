@@ -48,11 +48,11 @@ const Stack = () => {
         primaryColor="red"
         secondaryColor="blue"
         backgroundColor="yellow"
+        isClickedTheme={isOpen}
+        isFixedWidth={true}
         onClick={() => {
           setIsOpen(!isOpen);
         }}
-        isClickedTheme={isOpen}
-        isFixedWidth={true}
       >
         Read {isOpen ? 'less' : 'more'}
       </DashedButton>

@@ -1,7 +1,6 @@
 import { PropsWithChildren } from 'react';
 
 export interface Props extends PropsWithChildren {
-  onClick?: () => void;
   primaryColor: 'yellow' | 'blue';
   secondaryColor: 'red' | 'green';
   fontColor: 'red' | 'green';
@@ -10,4 +9,5 @@ export interface Props extends PropsWithChildren {
   href?: string | null;
   size?: 's' | 'm';
   isDisabled?: boolean;
+  onClick?: () => void;
 }

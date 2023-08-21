@@ -65,13 +65,13 @@ const Header = ({ currentPage = null }: Props) => {
 
       <Image
         className="hidden max-lg:absolute max-lg:right-[30px] max-lg:top-8 max-lg:block max-lg:h-10 max-lg:w-10"
-        onClick={() => {
-          setIsMenuOpen(!isMenuOpen);
-        }}
         src={`/icons/${isMenuOpen ? 'close' : 'menu'}.svg`}
         alt="close icon"
         width={50}
         height={50}
+        onClick={() => {
+          setIsMenuOpen(!isMenuOpen);
+        }}
       />
     </header>
   );

@@ -42,19 +42,19 @@ const MyProjects = ({ onCreateAProjectClick }: Props) => {
             <div className="flex gap-6">
               <BorderedButton
                 color="red"
+                isClickedTheme={filter === 'active'}
                 onClick={() => {
                   handleFilterClick('active', allProjectsWithStatus);
                 }}
-                isClickedTheme={filter === 'active'}
               >
                 Active
               </BorderedButton>
               <BorderedButton
                 color="green"
+                isClickedTheme={filter === 'completed'}
                 onClick={() => {
                   handleFilterClick('completed', allProjectsWithStatus);
                 }}
-                isClickedTheme={filter === 'completed'}
               >
                 Completed
               </BorderedButton>
@@ -63,7 +63,7 @@ const MyProjects = ({ onCreateAProjectClick }: Props) => {
         </div>
 
         <div className="max-md:fixed max-md:bottom-[60px] max-md:right-[30px] max-md:z-10">
-          <StandardButton primaryColor="red" secondaryColor="blue" onClick={onCreateAProjectClick} fontColor="white">
+          <StandardButton primaryColor="red" secondaryColor="blue" fontColor="white" onClick={onCreateAProjectClick}>
             Create a new project
           </StandardButton>
         </div>

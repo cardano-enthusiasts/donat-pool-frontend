@@ -41,10 +41,10 @@ const ModalDonate = ({ isOpen, onClose, data: { threadTokenCurrency, threadToken
         <div className="flex gap-6">
           <DoubleBorderedButton
             backgroundColor="white"
+            primaryColor="blue"
             onClick={() => {
               handleClose();
             }}
-            primaryColor="blue"
           >
             Cancel
           </DoubleBorderedButton>

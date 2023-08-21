@@ -8,7 +8,6 @@ import styles from './StandardButton.module.css';
 import { Props } from './types';
 
 const StandardButton = ({
-  onClick,
   children,
   primaryColor,
   secondaryColor,
@@ -19,6 +18,7 @@ const StandardButton = ({
   size = 'm',
   isDisabled = false,
   isAnimation = false,
+  onClick,
 }: Props) => {
   const classes = cn(
     styles.common,
@@ -44,7 +44,7 @@ const StandardButton = ({
           {children}
         </Link>
       ) : (
-        <button className={classes} onClick={onClick} disabled={isDisabled} type={type}>
+        <button className={classes} disabled={isDisabled} type={type} onClick={onClick}>
           {children}
         </button>
       )}

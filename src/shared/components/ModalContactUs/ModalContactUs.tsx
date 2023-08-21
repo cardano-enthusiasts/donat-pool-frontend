@@ -60,7 +60,7 @@ const ModalContactUs = ({ isOpen, onClose }: Props) => {
         </div>
 
         <div className="mt-10 flex w-full gap-6">
-          <DoubleBorderedButton onClick={handleCancelClick} primaryColor="blue" backgroundColor="white">
+          <DoubleBorderedButton primaryColor="blue" backgroundColor="white" onClick={handleCancelClick}>
             Cancel
           </DoubleBorderedButton>
           <StandardButton type="submit" primaryColor="red" secondaryColor="blue" fontColor="white" isFullWidth={true}>

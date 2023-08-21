@@ -7,13 +7,13 @@ import styles from './DoubleBorderedButton.module.css';
 import { Props } from './types';
 
 const DoubleBorderedButton = ({
-  onClick,
   children,
   primaryColor,
   backgroundColor,
   href = null,
   isFullWidth = false,
   size = 'm',
+  onClick,
 }: Props) => {
   const variants = {
     primary: { blue: 'bg-blue text-blue border-blue before:border-blue' },
@@ -47,7 +47,7 @@ const DoubleBorderedButton = ({
           {children}
         </Link>
       ) : (
-        <button className={classes} onClick={onClick} type="button">
+        <button className={classes} type="button" onClick={onClick}>
           {children}
         </button>
       )}
