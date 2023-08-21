@@ -38,7 +38,7 @@ const StandardButton = ({
         <Link
           href={href}
           target={isLinkExternal(href) ? '_blank' : '_self'}
-          rel={isLinkExternal(href) ? 'noopener noreferrer' : undefined}
+          rel={isLinkExternal(href) ? 'noreferrer' : undefined}
           className={classes}
         >
           {children}
