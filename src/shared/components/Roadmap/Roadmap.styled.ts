@@ -8,6 +8,7 @@ const Wrapper = styled.div`
   position: relative;
   height: 700px;
   width: 90%;
+  line-height: 1.5;
   font-size: 36px;
   font-weight: bold;
   text-align: justify;
