@@ -172,6 +172,7 @@ module.exports = {
         ada: 'url("/icons/ADA.svg")',
         clip: 'url("/icons/paper-clip.svg")',
         tooltip: 'url("/icons/tooltip-symmetric.svg")',
+        arrow: 'url("/icons/arrow.svg")',
       },
       transform: {
         roadmap: 'perspective(50) rotateX(30deg)',
