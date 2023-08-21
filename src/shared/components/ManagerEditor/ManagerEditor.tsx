@@ -4,7 +4,7 @@ import { useAppDispatch, useAppSelector } from '@/redux/hooks';
 import { reset } from '@/redux/slices/protocolUpdating';
 import { useUpdateProtocol } from '@/shared/hooks';
 
-import { defaultParams } from './data';
+import { DEFAULT_PARAMS } from './data';
 import type { Props } from './types';
 import { Input, ModalError, ModalLoading, ModalSuccess, StandardButton } from '..';
 
@@ -63,7 +63,7 @@ const ManagerEditor = ({ config }: Props) => {
     <>
       <form className="w-full max-w-[840px]" onSubmit={handleSubmit}>
         <div className="grid grid-cols-2 gap-5 max-md:grid-cols-1">
-          {defaultParams.map(({ title, id, hint }) => (
+          {DEFAULT_PARAMS.map(({ title, id, hint }) => (
             <div className="flex w-full items-center justify-between" key={id}>
               <Input
                 onChange={(event) => {

@@ -3,7 +3,7 @@ import HTMLReactParser from 'html-react-parser';
 import Image from 'next/image';
 import { useState } from 'react';
 
-import { data } from './data';
+import { DATA } from './data';
 import styles from './Tutorial.module.css';
 import { DashedButton } from '..';
 
@@ -25,7 +25,7 @@ const Tutorial = () => {
       </DashedButton>
       {isOpen && (
         <div className="mt-[60px]">
-          {data.map(({ order, title, src, description }) => {
+          {DATA.map(({ order, title, src, description }) => {
             return (
               <div className="mb-[86px] max-md:mb-10" key={order}>
                 <div className="mb-2 text-xl font-bold text-red">{order}</div>

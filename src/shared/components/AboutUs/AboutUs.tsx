@@ -3,7 +3,7 @@ import Image from 'next/image';
 import { useWindowSize } from '@/shared/hooks';
 
 import styles from './AboutUs.module.css';
-import { photos } from './constants';
+import { PHOTOS } from './constants';
 import { AccentButton, Stack } from '../.';
 
 const AboutUs = () => {
@@ -11,8 +11,8 @@ const AboutUs = () => {
 
   const getPhotos = (isFirstRow: boolean) => {
     const filteredPhotos = isFirstRow
-      ? photos.filter(({ isFirstRow }) => isFirstRow)
-      : photos.filter(({ isFirstRow }) => !isFirstRow);
+      ? PHOTOS.filter(({ isFirstRow }) => isFirstRow)
+      : PHOTOS.filter(({ isFirstRow }) => !isFirstRow);
 
     return filteredPhotos.map(({ title, className, alt, width, height }) => (
       <Image className={className} src={`/img/${title}.png`} alt={alt} width={width} height={height} key={title} />
