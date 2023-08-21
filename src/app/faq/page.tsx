@@ -6,6 +6,7 @@ import { ReactNode, useEffect } from 'react';
 
 import { Service } from '@/layouts';
 import { AlertNote, DropdownSection } from '@/shared/components';
+import { ROUTES } from '@/shared/constants';
 
 import { basicSection } from './data';
 
@@ -22,9 +23,9 @@ const Page = () => {
 
   const getUl = (liTexts: Array<string>) => {
     return (
-      <ul className="pl-5">
-        {liTexts.map((liText) => (
-          <li className="mb-6 list-disc last:mb-0" key={liText.slice(0, 8)}>
+      <ul className="list-disc pl-5">
+        {liTexts.map((liText, index) => (
+          <li className="mb-6 last:mb-0" key={index}>
             {HTMLReactParser(liText)}
           </li>
         ))}
@@ -97,7 +98,7 @@ const Page = () => {
               <AlertNote>
                 <>
                   How to enable Nami wallet to work with any smart contract you can find{' '}
-                  <Link href="/#tutorial">here.</Link>
+                  <Link href={ROUTES.landingTutorial}>here.</Link>
                 </>
               </AlertNote>
             </>,
