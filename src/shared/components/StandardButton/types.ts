@@ -1,8 +1,7 @@
-import { ReactNode } from 'react';
+import { PropsWithChildren } from 'react';
 
-export interface Props {
+export interface Props extends PropsWithChildren {
   onClick?: () => void;
-  children: string | ReactNode;
   primaryColor: 'red' | 'blue' | 'green' | 'yellow';
   secondaryColor: 'blue' | 'green';
   fontColor: 'white' | 'black';

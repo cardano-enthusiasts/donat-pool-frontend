@@ -1,6 +1,6 @@
-import { Props } from './types';
+import { PropsWithChildren } from 'react';
 
-const CommonError = ({ children }: Props) => {
+const CommonError = ({ children }: PropsWithChildren) => {
   return <div className="base-wrapper bg-error py-5 text-center font-bold text-white">{children}</div>;
 };
 

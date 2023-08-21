@@ -1,13 +1,11 @@
 import { usePathname } from 'next/navigation';
-import { useEffect } from 'react';
+import { PropsWithChildren, useEffect } from 'react';
 
 import { Footer, Header } from '@/shared/components';
 import { useGetAppInfo } from '@/shared/hooks';
 import { useDonatPool } from '@/shared/hooks';
 
-import type { Props } from './types';
-
-const Common = ({ children }: Props) => {
+const Common = ({ children }: PropsWithChildren) => {
   const pathname = usePathname();
 
   const getAppInfo = useGetAppInfo();

@@ -1,8 +1,8 @@
+import { PropsWithChildren } from 'react';
+
 import { Footer, Header } from '@/shared/components';
 
-import type { Props } from './types';
-
-const Service = ({ children }: Props) => {
+const Service = ({ children }: PropsWithChildren) => {
   return (
     <>
       <Header />
