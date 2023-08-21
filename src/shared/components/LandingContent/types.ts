@@ -2,14 +2,14 @@ import type { ReactElement } from 'react';
 
 import type { LandingSection } from '@/shared/types/common';
 
-export interface Props {
+interface Props {
   windowScroll: number;
   setIsAnimationActive: (isAnimationActive: boolean) => void;
   currentSection: LandingSection;
   setCurrentSection: (landingSecton: LandingSection) => void;
 }
 
-export type Content = Array<{
+type Content = Array<{
   element: ReactElement;
   id: string;
   backgroundColor: 'blue' | 'green' | 'red' | 'black' | 'yellow';
@@ -17,3 +17,5 @@ export type Content = Array<{
     color: 'green' | 'red' | 'black';
   } | null;
 }>;
+
+export type { Props, Content };

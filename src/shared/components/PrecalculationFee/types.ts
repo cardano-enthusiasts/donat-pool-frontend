@@ -1,3 +1,5 @@
-export interface Props {
+interface Props {
   goal: number;
 }
+
+export type { Props };

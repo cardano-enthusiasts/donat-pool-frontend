@@ -1,5 +1,7 @@
 import { PropsWithChildren } from 'react';
 
-export interface Props extends PropsWithChildren {
+interface Props extends PropsWithChildren {
   isOpen: boolean;
 }
+
+export type { Props };

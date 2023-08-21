@@ -1,6 +1,8 @@
 import type { PropsWithChildren } from 'react';
 
-export interface Props extends PropsWithChildren {
+interface Props extends PropsWithChildren {
   isChecked: boolean;
   onChange: () => void;
 }
+
+export type { Props };

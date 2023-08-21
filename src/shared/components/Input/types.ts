@@ -1,6 +1,6 @@
 import type { ReactNode, ChangeEvent } from 'react';
 
-export interface Props {
+interface Props {
   value: string | number;
   onChange: (event: ChangeEvent) => void;
   dataAttr?: string;
@@ -17,3 +17,5 @@ export interface Props {
   min?: number;
   step?: number;
 }
+
+export type { Props };

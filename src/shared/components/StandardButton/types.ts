@@ -1,6 +1,6 @@
 import { PropsWithChildren } from 'react';
 
-export interface Props extends PropsWithChildren {
+interface Props extends PropsWithChildren {
   primaryColor: 'red' | 'blue' | 'green' | 'yellow';
   secondaryColor: 'blue' | 'green';
   fontColor: 'white' | 'black';
@@ -13,3 +13,5 @@ export interface Props extends PropsWithChildren {
   isDisabled?: boolean;
   onClick?: () => void;
 }
+
+export type { Props };

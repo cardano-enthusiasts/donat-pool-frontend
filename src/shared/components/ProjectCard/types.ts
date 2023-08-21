@@ -1,8 +1,10 @@
 import type { Fundraising } from '@/shared/types';
 
-export interface Props {
+interface Props {
   data: Omit<Fundraising, 'creator'>;
   status?: 'default' | 'active' | 'completed';
   linkSection: 'all-projects' | 'my-projects';
   paddingSize?: 's' | 'm';
 }
+
+export type { Props };
