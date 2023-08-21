@@ -8,6 +8,7 @@ export interface Props extends PropsWithChildren {
   isAnimation?: boolean;
   type?: 'submit' | 'button';
   href?: string | null;
+  isExternal?: boolean;
   size?: 's' | 'm';
   isDisabled?: boolean;
   onClick?: () => void;

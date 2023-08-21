@@ -1,8 +1,6 @@
 import cn from 'classnames';
 import Link from 'next/link';
 
-import { isLinkExternal } from '@/shared/helpers';
-
 import styles from './AccentButton.module.css';
 import variants from './constants';
 import { Props } from './types';
@@ -14,6 +12,7 @@ const AccentButton = ({
   fontColor,
   type = 'button',
   href = null,
+  isExternal = false,
   size = 'm',
   isDisabled = false,
   isAnimation = false,
@@ -42,8 +41,8 @@ const AccentButton = ({
       {href !== null ? (
         <Link
           href={href}
-          target={isLinkExternal(href) ? '_blank' : '_self'}
-          rel={isLinkExternal(href) ? 'noreferrer' : undefined}
+          target={isExternal ? '_blank' : '_self'}
+          rel={isExternal ? 'noreferrer' : undefined}
           className={classes}
         >
           {children}

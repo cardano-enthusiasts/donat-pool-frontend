@@ -1,8 +1,6 @@
 import cn from 'classnames';
 import Link from 'next/link';
 
-import { isLinkExternal } from '@/shared/helpers';
-
 import styles from './DoubleBorderedButton.module.css';
 import { Props } from './types';
 
@@ -11,6 +9,7 @@ const DoubleBorderedButton = ({
   primaryColor,
   backgroundColor,
   href = null,
+  isExternal = false,
   isFullWidth = false,
   size = 'm',
   onClick,
@@ -40,8 +39,8 @@ const DoubleBorderedButton = ({
       {href !== null ? (
         <Link
           href={href}
-          target={isLinkExternal(href) ? '_blank' : '_self'}
-          rel={isLinkExternal(href) ? 'noreferrer' : undefined}
+          target={isExternal ? '_blank' : '_self'}
+          rel={isExternal ? 'noreferrer' : undefined}
           className={classes}
         >
           {children}
