@@ -1,9 +1,6 @@
-import { useRouter } from 'next/navigation';
-
 import { setError, setRequesting, setProtocol, setUserInfo } from '@/redux/slices/appInfo';
 import { selectConnectedWallet } from '@/redux/slices/cardano';
 import { setWalletStatus } from '@/redux/slices/connectWallet';
-import { ROUTES } from '@/shared/constants';
 import { createConnectionParameters, logOffchainError } from '@/shared/helpers';
 import { useAppSelector, useAppDispatch } from '@/shared/hooks';
 import { useDonatPool } from '@/shared/hooks';
@@ -12,7 +9,6 @@ import type { UserAndProtocolParams } from '@/shared/types/backend';
 import useHandleError from './useHandleError';
 
 const useGetAppInfo = () => {
-  const router = useRouter();
   const offchain = useDonatPool();
   const connectedWallet = useAppSelector(selectConnectedWallet);
   const dispatch = useAppDispatch();
@@ -37,7 +33,6 @@ const useGetAppInfo = () => {
     console.error('useGetAppInfo:', error);
     const filteredError = handleCommonError(error);
     dispatch(setError(filteredError));
-    router.push(ROUTES.home);
   };
 
   if (offchain && connectedWallet) {
