@@ -24,7 +24,7 @@ const ModalContactUs = ({ isOpen, onClose }: Props) => {
   };
 
   return (
-    <Modal open={isOpen}>
+    <Modal isOpen={isOpen}>
       <form onSubmit={handleSubmit}>
         <Inner>
           <Title>Contact us</Title>

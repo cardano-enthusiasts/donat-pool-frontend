@@ -3,18 +3,18 @@ import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
 import type { RootState, Wallet } from '@/shared/types';
 
 const initialState: {
-  initialized: boolean;
+  isInitialized: boolean;
   wallets?: Wallet[];
 } = {
-  initialized: false,
+  isInitialized: false,
 };
 
 const slice = createSlice({
   name: 'cardano',
   initialState,
   reducers: {
-    setInitialized: (state, action: PayloadAction<boolean>) => {
-      state.initialized = action.payload;
+    setIsInitialized: (state, action: PayloadAction<boolean>) => {
+      state.isInitialized = action.payload;
     },
     setWallet: (state, action: PayloadAction<Wallet>) => {
       if (Object.hasOwn(state, 'wallets')) {
@@ -27,16 +27,16 @@ const slice = createSlice({
       const wallet = state.wallets?.find(({ name }) => name === action.payload);
 
       if (wallet) {
-        wallet.connected = true;
+        wallet.isConnected = true;
       }
     },
   },
 });
 
 const selectConnectedWallet = (state: RootState) => {
-  return state.cardano.wallets?.find(({ connected }) => Boolean(connected));
+  return state.cardano.wallets?.find(({ isConnected }) => Boolean(isConnected));
 };
 
 export { slice as default, selectConnectedWallet };
 export const { reducer } = slice;
-export const { setInitialized, setWallet, setWalletConnectedByName } = slice.actions;
+export const { setIsInitialized, setWallet, setWalletConnectedByName } = slice.actions;

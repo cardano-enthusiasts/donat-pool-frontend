@@ -4,7 +4,7 @@ import { Button, Modal } from '../.';
 
 const ModalSuccess = ({ description, isOpen, onClose }: Props) => {
   return (
-    <Modal open={isOpen}>
+    <Modal isOpen={isOpen}>
       <Wrapper>
         <Title>Well done!</Title>
         <Inner>

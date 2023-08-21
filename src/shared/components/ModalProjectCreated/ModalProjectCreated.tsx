@@ -26,7 +26,7 @@ const ModalProjectCreated = ({ isOpen, onClose, path }: Props) => {
   };
 
   return (
-    <Modal open={isOpen}>
+    <Modal isOpen={isOpen}>
       <Inner>
         <Title>Well done!</Title>
         <Img src="/img/happy-cat.svg" alt="happy cat" />

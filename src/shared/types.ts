@@ -28,8 +28,8 @@ type RootState = ReturnType<typeof store.getState>;
 
 interface Wallet {
   name: 'nami' | 'lode' | 'flint' | 'eternl';
-  installed: boolean;
-  connected: boolean;
+  isInstalled: boolean;
+  isConnected: boolean;
 }
 
 export type { RequestStatus, FetchedFundraising, Fundraising, RootState, Wallet };
