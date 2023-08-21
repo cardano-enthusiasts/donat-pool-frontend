@@ -45,3 +45,6 @@ export { StandardButton } from './StandardButton/StandardButton';
 export { DashedButton } from './DashedButton/DashedButton';
 export { DoubleBorderedButton } from './DoubleBorderedButton/DoubleBorderedButton';
 export { BorderedButton } from './BorderedButton/BorderedButton';
+export { Line } from './Line/Line';
+export { Subtitle } from './Subtitle/Subtitle';
+export { Ul } from './Ul/Ul';

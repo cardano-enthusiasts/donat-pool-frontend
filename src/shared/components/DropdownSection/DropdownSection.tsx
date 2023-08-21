@@ -17,7 +17,7 @@ const DropdownSection = ({ title = '', children }: Props) => {
         <h2 className="text-2xl font-bold max-sm:text-xl">{title}</h2>
         <Image className={cn({ 'rotate-180': isOpen })} src="/icons/red-arrow.svg" alt="arrow" width={32} height={32} />
       </div>
-      {isOpen && <div className="mt-6">{children}</div>}
+      {isOpen && <div className="mt-6 flex flex-col gap-6">{children}</div>}
     </div>
   );
 };
