@@ -7,7 +7,7 @@ const Project = ({ onPreviousPageClick, previousPageTitle, title, children }: Pr
   return (
     <div className="relative flex justify-center">
       <div className="w-full max-w-[38.75rem]">
-        <div className="mb-[3.75rem] flex justify-between max-xl:justify-start max-lg:mb-8">
+        <div className="mb-15 flex justify-between max-xl:justify-start max-lg:mb-8">
           <div className={cn(styles.previous, 'text-blue')} onClick={onPreviousPageClick}>
             <div className="max-xl:hidden">{previousPageTitle}</div>
           </div>

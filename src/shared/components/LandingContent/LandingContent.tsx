@@ -95,7 +95,7 @@ const LandingContent = forwardRef(
 
       {
         element: (
-          <div className="landing-paddings max-lg:pb-15 pb-20" id="how-it-works" ref={howItWorksRef}>
+          <div className="landing-paddings pb-20 max-lg:pb-15" id="how-it-works" ref={howItWorksRef}>
             <HowItWorks />
           </div>
         ),

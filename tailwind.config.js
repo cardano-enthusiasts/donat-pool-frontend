@@ -4,6 +4,9 @@ module.exports = {
   content: ['./src/**/*.{ts,tsx}'],
   theme: {
     extend: {
+      spacing: {
+        15: '3.75rem',
+      },
       fontFamily: {
         'microsoft-ya-hei': 'var(--microsoft-ya-hei-font)',
         'rammetto-one': 'var(--rammetto-one-font)',

@@ -24,7 +24,7 @@ const Tutorial = () => {
         Watch the tutorial
       </DashedButton>
       {isOpen && (
-        <div className="mt-[3.75rem]">
+        <div className="mt-15">
           {DATA.map(({ order, title, src, description }) => {
             return (
               <div className="mb-[5.375rem] max-md:mb-10" key={order}>
