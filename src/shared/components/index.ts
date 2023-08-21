@@ -1,5 +1,5 @@
 export { Checkbox } from './Checkbox/Checkbox';
-export { Footer } from './Footer/Footer';
+export { default as Footer } from './Footer/Footer';
 export { Header } from './Header/Header';
 export { Input } from './Input/Input';
 export { Logo } from './Logo/Logo';

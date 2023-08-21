@@ -8,6 +8,9 @@
       "node": true
     }
   },
+  "globals": {
+    "React": "readonly"
+  },
   "extends": [
     "alloy",
     "alloy/react",
@@ -16,9 +19,6 @@
     "alloy/typescript"
   ],
   "plugins": ["import"],
-  "globals": {
-    "React": "readonly"
-  },
   "rules": {
     "import/order": [
       "error",

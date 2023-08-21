@@ -1,3 +1,4 @@
+'use client';
 import cn from 'classnames';
 import Link from 'next/link';
 import { useState } from 'react';
@@ -52,4 +53,4 @@ const Footer = ({ backgroundColor = 'blue' }: Props) => {
   );
 };
 
-export { Footer };
+export default Footer;

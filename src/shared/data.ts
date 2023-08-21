@@ -1,4 +1,4 @@
-const roadmapText = {
+export const roadmapText = {
   phases: [
     {
       title: 'Phase 1 <span>(finished)</span>',
@@ -175,5 +175,3 @@ const roadmapText = {
     },
   ],
 };
-
-export { roadmapText };
