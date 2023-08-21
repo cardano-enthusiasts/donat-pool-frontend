@@ -8,9 +8,8 @@ import type { FetchedFundraising } from '@/shared/types';
 
 import useDonatPool from './useDonatPool';
 
-const useAllFundraisings = () => {
+export default () => {
   const donatPool = useDonatPool();
-  const connectWalletStatus = useAppSelector((state) => state.connectWallet.requestStatus);
   const { requestStatus, fundraisings, error } = useAppSelector((state) => state.getAllFundraisings);
   const dispatch = useAppDispatch();
 
@@ -30,19 +29,19 @@ const useAllFundraisings = () => {
   );
 
   const fetchFundraisings = useCallback(() => {
-    if (connectWalletStatus === 'success' && donatPool) {
+    if (donatPool) {
       dispatch(setRequestStatus('requesting'));
       donatPool.getAllFundraisings(handleFetchSuccess)(handleFetchFailure)(
         JSON.parse(process.env.NEXT_PUBLIC_PROTOCOL),
       )(testnetNami)();
     }
-  }, [connectWalletStatus, donatPool, dispatch, handleFetchSuccess, handleFetchFailure]);
+  }, [donatPool, dispatch, handleFetchSuccess, handleFetchFailure]);
 
   useEffect(() => {
     if (requestStatus === 'default') {
       fetchFundraisings();
     }
-  }, [connectWalletStatus, requestStatus, fetchFundraisings, dispatch]);
+  }, [requestStatus, fetchFundraisings, dispatch]);
 
   return {
     areBeingFetched: requestStatus === 'requesting',
@@ -51,5 +50,3 @@ const useAllFundraisings = () => {
     refetchFundraisings: fetchFundraisings,
   };
 };
-
-export default useAllFundraisings;

@@ -1,0 +1,3 @@
+.list li::marker {
+  content: counters(list-item, '.') '. ';
+}

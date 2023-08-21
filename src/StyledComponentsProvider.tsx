@@ -7,8 +7,9 @@ import { useState } from 'react';
 import { ServerStyleSheet, StyleSheetManager, ThemeProvider } from 'styled-components';
 
 import { theme } from '@/shared/styles/theme';
+import type { PropsWithChildren } from '@/shared/types';
 
-function StyledComponentsRegistry({ children }: { children: React.ReactNode }) {
+function StyledComponentsRegistry({ children }: PropsWithChildren) {
   // Only create stylesheet once with lazy initial state
   // x-ref: https://reactjs.org/docs/hooks-reference.html#lazy-initial-state
   const [styledComponentsStyleSheet] = useState(() => new ServerStyleSheet());
@@ -24,7 +25,7 @@ function StyledComponentsRegistry({ children }: { children: React.ReactNode }) {
   return <StyleSheetManager sheet={styledComponentsStyleSheet.instance}>{children}</StyleSheetManager>;
 }
 
-export default function Provider({ children }: { children: React.ReactNode }) {
+export default function ({ children }: PropsWithChildren) {
   return (
     <StyledComponentsRegistry>
       <ThemeProvider theme={theme}>{children}</ThemeProvider>

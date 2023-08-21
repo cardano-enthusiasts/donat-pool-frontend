@@ -7,7 +7,7 @@ import { ROUTES, testnetNami } from '@/shared/constants';
 
 import useDonatPool from './useDonatPool';
 
-const useAuthGuard = () => {
+export default () => {
   const router = useRouter();
   const donatPool = useDonatPool();
   const connectWalletStatus = useAppSelector((state) => state.connectWallet.requestStatus);
@@ -17,9 +17,13 @@ const useAuthGuard = () => {
     dispatch(setRequestStatus('success'));
   }, [dispatch]);
 
-  const handleFetchFailure = useCallback(() => {
-    router.push(ROUTES.home);
-  }, [router]);
+  const handleFetchFailure = useCallback(
+    (error: string) => {
+      console.error(error);
+      router.push(ROUTES.home);
+    },
+    [router],
+  );
 
   useEffect(() => {
     if (connectWalletStatus === 'default' && donatPool) {
@@ -27,6 +31,6 @@ const useAuthGuard = () => {
       donatPool.connectWallet(handleFetchSuccess)(handleFetchFailure)(testnetNami)();
     }
   }, [connectWalletStatus, donatPool, dispatch, handleFetchSuccess, handleFetchFailure]);
-};
 
-export default useAuthGuard;
+  return connectWalletStatus === 'success';
+};

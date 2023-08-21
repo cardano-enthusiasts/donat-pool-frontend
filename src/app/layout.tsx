@@ -4,6 +4,7 @@ import localFont from 'next/font/local';
 import Script from 'next/script';
 
 import StoreProvider from '@/redux/Provider';
+import type { PropsWithChildren } from '@/shared/types';
 import StyledComponentsProvider from '@/StyledComponentsProvider';
 
 import './global.css';
@@ -38,10 +39,10 @@ export const metadata: Metadata = {
   },
 };
 
-export default function Layout({ children }: { children: React.ReactNode }) {
+export default function Layout({ children }: PropsWithChildren) {
   return (
     <html
-      className={`${microsoftYaHeiFont.variable} ${microsoftYaHeiFont.className} ${rammettoOneFont.variable} bg-white text-[16px] text-black`}
+      className={`${microsoftYaHeiFont.variable} ${rammettoOneFont.variable} bg-white font-microsoft-ya-hei text-[16px] leading-6 text-black`}
       lang="en"
     >
       <body>

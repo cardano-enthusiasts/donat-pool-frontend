@@ -4,10 +4,9 @@ import { useRouter } from 'next/navigation';
 import { useEffect } from 'react';
 
 import { Common } from '@/layouts';
-import { useAppSelector } from '@/redux/hooks';
 import { Button, ProjectCard } from '@/shared/components';
 import { ROUTES } from '@/shared/constants';
-import { useAllFundraisings } from '@/shared/hooks';
+import { useFundraisings } from '@/shared/hooks';
 
 import { CardsWrapper, CreateButton, Title, TitleAndButton } from './AllProjects.styled';
 
@@ -17,16 +16,11 @@ const Page = () => {
     areBeingFetched: fundraisingsAreBeingFetched,
     fundraisings,
     error: fetchFundraisingsError,
-  } = useAllFundraisings();
-  const connectWalletStatus = useAppSelector((state) => state.connectWallet.requestStatus);
+  } = useFundraisings();
 
   useEffect(() => {
     document.title = 'All projects';
   }, []);
-
-  if (connectWalletStatus !== 'success') {
-    return;
-  }
 
   return (
     <Common>
