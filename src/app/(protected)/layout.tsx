@@ -6,6 +6,8 @@ import { setInitialized as setCardanoInitialized, setWallet, selectConnectedWall
 import ConnectWalletModal from '@/shared/components/ConnectWalletModal';
 import { useAppSelector, useAppDispatch } from '@/shared/hooks';
 
+import { WALLET_CARDANO_KEY_TO_WALLET_NAME } from './constants';
+
 const Layout = ({ children }: React.PropsWithChildren) => {
   const cardanoInitialized = useAppSelector((state) => state.cardano.initialized);
   const connectedWallet = useAppSelector(selectConnectedWallet);
@@ -15,14 +17,14 @@ const Layout = ({ children }: React.PropsWithChildren) => {
     async function initializeCardano() {
       const someWalletInstalled = Object.hasOwn(window, 'cardano');
 
-      for (const walletName of ['nami', 'flint', 'eternl'] as const) {
-        const installed = someWalletInstalled && Object.hasOwn(window.cardano as any, walletName);
+      for (const walletCardanoKey of ['nami', 'LodeWallet', 'flint', 'eternl'] as const) {
+        const installed = someWalletInstalled && Object.hasOwn(window.cardano as any, walletCardanoKey);
 
         dispatch(
           setWallet({
-            name: walletName,
+            name: WALLET_CARDANO_KEY_TO_WALLET_NAME[walletCardanoKey],
             installed,
-            connected: installed && ((await window.cardano?.[walletName]?.isEnabled()) as any),
+            connected: installed && ((await window.cardano?.[walletCardanoKey]?.isEnabled()) as any),
           }),
         );
       }

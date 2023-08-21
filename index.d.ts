@@ -1,12 +1,16 @@
-import type { FetchedFundraising, WalletParameters } from '@/shared/types';
+import type { FetchedFundraising } from '@/shared/types';
 import type { FundraisingData } from '@/shared/types/common';
 
+interface ConnectionParameters {
+  wallet: 'Nami' | 'Lode' | 'Flint' | 'Eternl';
+  isMainnet: false;
+}
 interface InjectedWallet<Name> {
   name: Name;
+  apiVersion: string;
+  icon: string;
   enable: () => Promise<Record<string, unknown>>;
   isEnabled: () => Promise<boolean>;
-  icon: string;
-  apiVersion: string;
 }
 interface Protocol {
   protocolCurrency: string;
@@ -15,7 +19,7 @@ interface Protocol {
 type HandleError = (error: string) => void;
 type FetchFundraisings = (
   onSuccess: (fundraisings: FetchedFundraising[]) => void,
-) => (onError: HandleError) => (protocol: Protocol) => (walletParameters: WalletParameters) => () => void;
+) => (onError: HandleError) => (protocol: Protocol) => (connectionParameters: ConnectionParameters) => () => void;
 
 declare global {
   namespace NodeJS {
@@ -27,6 +31,7 @@ declare global {
   interface Window {
     cardano?: {
       nami?: InjectedWallet<'Nami'>;
+      LodeWallet?: InjectedWallet<'LodeWallet'>;
       flint?: InjectedWallet<'Flint wallet'>;
       eternl?: InjectedWallet<'eternl'>;
     };
@@ -55,10 +60,10 @@ declare global {
             isManager: boolean;
           };
         }) => void,
-      ) => (onError: HandleError) => (protocol: Protocol) => (walletParameters: WalletParameters) => () => void;
+      ) => (onError: HandleError) => (protocol: Protocol) => (connectionParameters: ConnectionParameters) => () => void;
       createFundraising: (onSuccess: (createdFundraising: Fundraising) => void) => (onError: HandleError) => (
         protocol: Protocol,
-      ) => (walletParameters: WalletParameters) => (data: {
+      ) => (connectionParameters: ConnectionParameters) => (data: {
         title: string;
         amount: number;
         duration: {
@@ -75,7 +80,9 @@ declare global {
         onError: HandleError,
       ) => (
         protocol: Protocol,
-      ) => (walletParameters: WalletParameters) => (fundraisingData: FundraisingData) => (amount: number) => () => void;
+      ) => (
+        connectionParameters: ConnectionParameters,
+      ) => (fundraisingData: FundraisingData) => (amount: number) => () => void;
       setProtocol: (
         onSuccess: (config: {
           minAmountParam: number;
@@ -84,14 +91,14 @@ declare global {
           maxDurationParam: number;
           protocolFeeParam: number;
         }) => void,
-      ) => (onError: HandleError) => (protocol: Protocol) => (walletParameters: WalletParameters) => () => void;
+      ) => (onError: HandleError) => (protocol: Protocol) => (connectionParameters: ConnectionParameters) => () => void;
       receiveFunds: (
         onSuccess: () => void,
       ) => (
         onError: HandleError,
       ) => (
         protocol: Protocol,
-      ) => (walletParameters: WalletParameters) => (fundraisingData: FundraisingData) => () => void;
+      ) => (connectionParameters: ConnectionParameters) => (fundraisingData: FundraisingData) => () => void;
     }>;
   }
 }

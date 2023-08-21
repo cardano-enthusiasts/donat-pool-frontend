@@ -27,14 +27,9 @@ interface Fundraising {
 type RootState = ReturnType<typeof store.getState>;
 
 interface Wallet {
-  name: 'nami' | 'flint' | 'eternl';
+  name: 'nami' | 'lode' | 'flint' | 'eternl';
   installed: boolean;
   connected: boolean;
 }
 
-interface WalletParameters {
-  wallet: 'Nami' | 'Flint' | 'Eternl';
-  isMainnet: false;
-}
-
-export type { RequestStatus, FetchedFundraising, Fundraising, RootState, Wallet, WalletParameters };
+export type { RequestStatus, FetchedFundraising, Fundraising, RootState, Wallet };

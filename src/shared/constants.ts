@@ -1,5 +1,6 @@
 import eternlLogo from '../../public/icons/eternl.png';
 import flintLogo from '../../public/icons/flint.svg';
+import lodeLogo from '../../public/icons/lode.svg';
 import namiLogo from '../../public/icons/nami.svg';
 
 const ROUTES = {
@@ -15,18 +16,31 @@ const ROUTES = {
 
 const WALLET_NAME_TO_DATA = {
   nami: {
-    logo: namiLogo,
+    cardanoKey: 'nami',
+    offchainName: 'Nami',
     title: 'Nami',
+    logo: namiLogo,
     websiteUrl: 'https://namiwallet.io/',
   },
+  lode: {
+    cardanoKey: 'LodeWallet',
+    offchainName: 'Lode',
+    title: 'LodeWallet',
+    logo: lodeLogo,
+    websiteUrl: 'https://lodewallet.io/',
+  },
   flint: {
-    logo: flintLogo,
+    cardanoKey: 'flint',
+    offchainName: 'Flint',
     title: 'Flint',
+    logo: flintLogo,
     websiteUrl: 'https://flint-wallet.com/',
   },
   eternl: {
-    logo: eternlLogo,
+    cardanoKey: 'eternl',
+    offchainName: 'Eternl',
     title: 'Eternl',
+    logo: eternlLogo,
     websiteUrl: 'https://eternl.io/app/mainnet/welcome',
   },
 } as const;

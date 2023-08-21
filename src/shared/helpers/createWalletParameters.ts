@@ -1,11 +1,11 @@
 import { WALLET_NAME_TO_DATA } from '@/shared/constants';
-import type { Wallet, WalletParameters } from '@/shared/types';
+import type { Wallet } from '@/shared/types';
 
-const createWalletParameters = (walletName: Wallet['name']): WalletParameters => {
+const createWalletParameters = (walletName: Wallet['name']) => {
   return {
-    wallet: WALLET_NAME_TO_DATA[walletName].title,
+    wallet: WALLET_NAME_TO_DATA[walletName].offchainName,
     isMainnet: false,
-  };
+  } as const;
 };
 
 export default createWalletParameters;
