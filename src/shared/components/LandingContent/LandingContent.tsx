@@ -79,7 +79,7 @@ const LandingContent = forwardRef(
       setCurrentSection(getRefSection());
     }, [windowScroll]);
 
-    const paddingClasses = 'pl-[400px] pr-20 max-xl:pl-[50px] max-xl:pr-[50px] max-sm:pl-5 max-sm:pr-5';
+    const paddingClasses = 'pl-[25rem] pr-20 max-xl:pl-[3.125rem] max-xl:pr-[3.125rem] max-sm:pl-5 max-sm:pr-5';
 
     const content: Content = [
       {
