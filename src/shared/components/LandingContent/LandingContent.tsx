@@ -111,7 +111,7 @@ const LandingContent = forwardRef(
       {
         element: (
           <div
-            className={cn(paddingClasses, 'bg-section-cat bg-100% bg-0-100% bg-no-repeat pb-40 pt-0')}
+            className={cn(paddingClasses, 'bg-[url("/img/section-cat.svg")] bg-100% bg-0-100% bg-no-repeat pb-40 pt-0')}
             id="why-choose-us"
             ref={whyChooseUsRef}
           >

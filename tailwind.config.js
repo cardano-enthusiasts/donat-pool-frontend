@@ -163,26 +163,14 @@ module.exports = {
         arrowLeft: 'arrowLeft 1s forwards linear infinite',
         arrowRight: 'arrowRight 1s forwards linear infinite',
       },
-      backgroundImage: {
-        'section-cat': "url('/img/section-cat.svg')",
-      },
       backgroundSize: {
         '100%': '100%',
       },
       backgroundPosition: {
         '0-100%': '0 100%',
       },
-      content: {
-        ada: 'url("/icons/ADA.svg")',
-        clip: 'url("/icons/paper-clip.svg")',
-        tooltip: 'url("/icons/tooltip-symmetric.svg")',
-        arrow: 'url("/icons/arrow.svg")',
-      },
       transform: {
         roadmap: 'perspective(50) rotateX(30deg)',
-      },
-      dropShadow: {
-        wallet: '0 0.125rem 0.9375rem rgba(71, 87, 230, 0.4)',
       },
     },
   },
