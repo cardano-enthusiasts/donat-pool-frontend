@@ -1,8 +1,8 @@
 'use client';
 
 import HTMLReactParser from 'html-react-parser';
-import { Metadata } from 'next';
 import Link from 'next/link';
+import { useEffect } from 'react';
 
 import { Service } from '@/layouts';
 import { AlertNote, DropdownSection, Line, Subtitle, Ul } from '@/shared/components';
@@ -10,11 +10,10 @@ import { ROUTES } from '@/shared/constants';
 
 import { basicSection } from './data';
 
-const metadata: Metadata = {
-  title: 'FAQ',
-};
-
 const Page = () => {
+  useEffect(() => {
+    document.title = 'FAQ';
+  }, []);
   return (
     <Service>
       <h1 className="mb-8 font-rammetto-one text-[3.375rem] leading-[104%] text-red max-lg:text-[36px] max-sm:text-[2.25rem]">
@@ -115,4 +114,4 @@ const Page = () => {
   );
 };
 
-export { Page as default, metadata };
+export default Page;
