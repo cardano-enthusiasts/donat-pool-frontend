@@ -10,7 +10,7 @@ const Waves = ({ color = 'blue', backgroundColor = 'transparent', isUpsideDown =
   const size = useWindowSize();
 
   const getWidthForViewBox = () => {
-    if (size.width < 1100) {
+    if (size.width < 1280) {
       return 600;
     }
     return 1000;
