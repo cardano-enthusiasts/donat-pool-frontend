@@ -17,7 +17,7 @@ const metadata: Metadata = {
 const Page = () => {
   return (
     <Service>
-      <h1 className="mb-8">
+      <h1 className="mb-8 font-rammetto-one text-[3.375rem] leading-[104%] text-red max-lg:text-[36px] max-sm:text-[2.25rem]">
         Donat.Pool <span className="text-green">FAQ</span>
       </h1>
       <div className="grid gap-8">

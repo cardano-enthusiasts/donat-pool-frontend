@@ -11,7 +11,9 @@ const Project = ({ onPreviousPageClick, previousPageTitle, title, children }: Pr
           >
             <div className="max-xl:hidden">{previousPageTitle}</div>
           </div>
-          <h1 className="overflow-hidden text-ellipsis">{title}</h1>
+          <h1 className="overflow-hidden text-ellipsis font-rammetto-one text-[3.375rem] leading-[104%] text-red max-lg:text-[36px] max-sm:text-[2.25rem]">
+            {title}
+          </h1>
         </div>
         {children}
       </div>
