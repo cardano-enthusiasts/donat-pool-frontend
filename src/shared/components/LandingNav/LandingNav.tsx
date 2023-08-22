@@ -38,7 +38,7 @@ const LandingNav = forwardRef(
         ref={wrapperRef}
         className={cn(
           styles.wrapper,
-          'fixed top-[5.625rem] max-[1920px]:left-[5.625rem] max-[1100px]:fixed max-[1100px]:left-0 max-[1100px]:top-0 max-[1100px]:flex max-[1100px]:w-[100vw] max-[1100px]:items-center max-[1100px]:justify-center',
+          'fixed top-[5.625rem] max-3xl:left-[5.625rem] max-[1100px]:fixed max-[1100px]:left-0 max-[1100px]:top-0 max-[1100px]:flex max-[1100px]:w-[100vw] max-[1100px]:items-center max-[1100px]:justify-center',
           {
             'z-[-1] max-[1100px]:z-[100]': currentSection === 'contact-us',
             'z-[3] max-[1100px]:z-[100]': currentSection !== 'contact-us',

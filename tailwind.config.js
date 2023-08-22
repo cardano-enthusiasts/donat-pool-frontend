@@ -6,6 +6,7 @@ module.exports = {
     extend: {
       spacing: {
         15: '3.75rem',
+        480: '120rem',
       },
       fontFamily: {
         'microsoft-ya-hei': 'var(--microsoft-ya-hei-font)',
@@ -32,12 +33,15 @@ module.exports = {
       gridTemplateColumns: {
         projects: 'repeat(auto-fill, minmax(20.3125rem, 1fr))',
       },
-      boxShadow: {
-        xl: '0 0.9375rem 0.9375rem 0 rgba(186, 186, 186, 0.4)',
-        modal: '0 0.9375rem 2.5rem #4757e6',
-        card: '-0.25rem 0.25rem 0',
-        gif: '0.25rem 0.25rem 0 0 #ff6b95',
+      screens: {
+        '3xl': '1920px',
       },
+      boxShadow: ({ theme }) => ({
+        xl: '0 0.9375rem 0.9375rem 0 rgba(186, 186, 186, 0.4)',
+        modal: `0 0.9375rem 2.5rem ${theme('colors.blue')}`,
+        card: '-0.25rem 0.25rem 0',
+        gif: `0.25rem 0.25rem 0 0 ${theme('colors.red')}`,
+      }),
       keyframes: {
         accentPush: {
           '90%': { 'margin-left': 0, 'margin-top': 0 },

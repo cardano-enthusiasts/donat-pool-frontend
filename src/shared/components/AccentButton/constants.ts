@@ -1,4 +1,4 @@
-const variants = {
+const VARIANTS = {
   primary: { yellow: 'bg-yellow', blue: 'bg-blue' },
   secondary: {
     red: 'before:bg-red after:bg-red',
@@ -14,4 +14,4 @@ const variants = {
   },
 };
 
-export default variants;
+export default VARIANTS;

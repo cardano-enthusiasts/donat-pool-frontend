@@ -31,21 +31,21 @@ const getSections = (
 ];
 
 const wrapperVariants: { [key in LandingSection]: string } = {
-  home: 'max-[68.75rem]:bg-blue',
-  'how-it-works': 'max-[68.75rem]:bg-green',
-  'why-choose-us': 'max-[68.75rem]:bg-red',
-  'about-us': 'max-[68.75rem]:bg-yellow',
-  roadmap: 'max-[68.75rem]:bg-black',
-  'contact-us': 'max-[68.75rem]:bg-black',
+  home: 'max-[1100px]:bg-blue',
+  'how-it-works': 'max-[1100px]:bg-green',
+  'why-choose-us': 'max-[1100px]:bg-red',
+  'about-us': 'max-[1100px]:bg-yellow',
+  roadmap: 'max-[1100px]:bg-black',
+  'contact-us': 'max-[1100px]:bg-black',
 };
 
 const linkVariants: { [key in LandingSection]: string } = {
-  home: 'text-green max-[68.75rem]:text-white',
-  'how-it-works': 'text-red max-[68.75rem]:text-yellow',
-  'why-choose-us': 'text-yellow max-[68.75rem]:text-blue',
-  'about-us': 'text-green max-[68.75rem]:text-red',
-  roadmap: 'text-blue max-[68.75rem]:text-green',
-  'contact-us': 'text-blue max-[68.75rem]:text-green',
+  home: 'text-green max-[1100px]:text-white',
+  'how-it-works': 'text-red max-[1100px]:text-yellow',
+  'why-choose-us': 'text-yellow max-[1100px]:text-blue',
+  'about-us': 'text-green max-[1100px]:text-red',
+  roadmap: 'text-blue max-[1100px]:text-green',
+  'contact-us': 'text-blue max-[1100px]:text-green',
 };
 
 export { getSections, wrapperVariants, linkVariants };

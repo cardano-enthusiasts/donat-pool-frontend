@@ -1,6 +1,7 @@
 import cn from 'classnames';
 import Link from 'next/link';
 
+import VARIANTS from './constants';
 import styles from './DoubleBorderedButton.module.css';
 import { Props } from './types';
 
@@ -14,22 +15,11 @@ const DoubleBorderedButton = ({
   size = 'm',
   onClick,
 }: Props) => {
-  const variants = {
-    primary: { blue: 'bg-blue text-blue border-blue before:border-blue' },
-    background: {
-      white: 'bg-white',
-      red: 'bg-red',
-    },
-    size: {
-      s: 'text-base px-4 py-2.5',
-      m: 'text-xl px-5 py-2.5',
-    },
-  };
   const classes = cn(
     styles.common,
-    variants.size[size],
-    variants.primary[primaryColor],
-    variants.background[backgroundColor],
+    VARIANTS.size[size],
+    VARIANTS.primary[primaryColor],
+    VARIANTS.background[backgroundColor],
     { 'w-full': isFullWidth },
     'border-2 before:border-2',
   );

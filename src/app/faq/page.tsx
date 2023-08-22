@@ -72,10 +72,8 @@ const Page = () => {
               wallet extension.
             </AlertNote>
             <AlertNote>
-              <>
-                How to enable Nami wallet to work with any smart contract you can find{' '}
-                <Link href={ROUTES.landingTutorial}>here.</Link>
-              </>
+              How to enable Nami wallet to work with any smart contract you can find{' '}
+              <Link href={ROUTES.landingTutorial}>here.</Link>
             </AlertNote>
           </>
         </DropdownSection>

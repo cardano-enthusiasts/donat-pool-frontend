@@ -29,12 +29,9 @@ const Header = ({ currentPage = null }: Props) => {
       })}
     >
       <div
-        className={cn(
-          ' flex w-full max-w-[1920px] items-center justify-between px-0 py-8 max-xl:flex-col max-xl:gap-7',
-          {
-            'max-lg:items-start': !isMenuOpen,
-          },
-        )}
+        className={cn('max-w-480 flex w-full items-center justify-between px-0 py-8 max-xl:flex-col max-xl:gap-7', {
+          'max-lg:items-start': !isMenuOpen,
+        })}
       >
         {!isMenuOpen && <Logo />}
         {connectWalletStatus === 'success' ? (

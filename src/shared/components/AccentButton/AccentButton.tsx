@@ -2,7 +2,7 @@ import cn from 'classnames';
 import Link from 'next/link';
 
 import styles from './AccentButton.module.css';
-import variants from './constants';
+import VARIANTS from './constants';
 import { Props } from './types';
 
 const AccentButton = ({
@@ -21,10 +21,10 @@ const AccentButton = ({
   const classes = cn(
     styles.common,
     'font-rammetto-one',
-    variants.size[size],
-    variants.primary[primaryColor],
-    variants.secondary[secondaryColor],
-    variants.font[fontColor],
+    VARIANTS.size[size],
+    VARIANTS.primary[primaryColor],
+    VARIANTS.secondary[secondaryColor],
+    VARIANTS.font[fontColor],
     { 'animate-accentPush before:animate-accentPushBefore after:animate-accentPushAfter': isAnimation },
   );
 

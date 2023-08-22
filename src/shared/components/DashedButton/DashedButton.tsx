@@ -1,5 +1,6 @@
 import cn from 'classnames';
 
+import VARIANTS from './constants';
 import styles from './DashedButton.module.css';
 import { Props } from './types';
 import { Arrow } from '..';
@@ -13,24 +14,15 @@ const DashedButton = ({
   isFixedWidth = false,
   onClick,
 }: Props) => {
-  const variants = {
-    primary: { red: 'text-red border-red', blue: 'text-blue border-blue' },
-    secondary: { red: 'before:border-red', blue: 'before:border-blue' },
-    background: {
-      yellow: 'bg-yellow',
-      green: 'bg-green',
-    },
-  };
-
   return (
     <div className="transition-all duration-500">
       <button
         className={cn(
           styles.common,
           'border-2 border-dashed py-2.5 pl-5 pr-10 text-xl before:border-2 before:border-dashed',
-          variants.primary[primaryColor],
-          variants.secondary[secondaryColor],
-          variants.background[backgroundColor],
+          VARIANTS.primary[primaryColor],
+          VARIANTS.secondary[secondaryColor],
+          VARIANTS.background[backgroundColor],
           { 'w-44': isFixedWidth },
         )}
         type="button"

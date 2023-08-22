@@ -1,8 +1,8 @@
 import cn from 'classnames';
 
 import { useWindowSize } from '@/shared/hooks';
-import { theme } from '@/shared/styles/theme';
 
+import VARIANTS from './constants';
 import type { Props } from './types';
 import styles from './Waves.module.css';
 
@@ -46,7 +46,7 @@ const Waves = ({ color = 'blue', backgroundColor = 'transparent', isUpsideDown =
         </defs>
 
         <g className={cn(isMoving && styles.g)}>
-          <use xlinkHref="#gentle-wave" x="48" y="0" fill={theme.colors[color] ? theme.colors[color] : color} />
+          <use className={cn(VARIANTS[color])} xlinkHref="#gentle-wave" x="48" y="0" />
         </g>
       </svg>
     </div>

@@ -1,7 +1,7 @@
 import cn from 'classnames';
 import Link from 'next/link';
 
-import variants from './constants';
+import VARIANTS from './constants';
 import styles from './StandardButton.module.css';
 import { Props } from './types';
 
@@ -21,10 +21,10 @@ const StandardButton = ({
 }: Props) => {
   const classes = cn(
     styles.common,
-    variants.size[size],
-    variants.primary[primaryColor],
-    variants.secondary[secondaryColor],
-    variants.font[fontColor],
+    VARIANTS.size[size],
+    VARIANTS.primary[primaryColor],
+    VARIANTS.secondary[secondaryColor],
+    VARIANTS.font[fontColor],
     { 'animate-standardPush before:animate-standardPushBefore': isAnimation },
     'disabled:bg-purple',
     'disabled:before:bg-black',
