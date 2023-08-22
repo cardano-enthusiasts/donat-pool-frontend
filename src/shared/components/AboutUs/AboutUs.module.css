@@ -2,149 +2,149 @@
   position: relative;
   display: flex;
   width: 100%;
-  max-width: 1090px;
-  height: 600px;
-  margin-top: 60px;
-  margin-bottom: 140px;
+  max-width: 68.125rem;
+  height: 37.5rem;
+  margin-top: 3.75rem;
+  margin-bottom: 8.75rem;
 
-  @media (max-width: 1430px) {
-    max-width: 812px;
-    height: 1200px;
+  @media (width <= 89.375rem) {
+    max-width: 50.75rem;
+    height: 75rem;
   }
 
-  @media (max-width: 1200px) {
-    max-width: 624px;
-    height: 1000px;
+  @media (width <= 75rem) {
+    max-width: 39rem;
+    height: 62.5rem;
   }
 
-  @media (max-width: 1100px) {
-    margin-top: 30px;
-    margin-bottom: 50px;
+  @media (width <= 68.75rem) {
+    margin-top: 1.875rem;
+    margin-bottom: 3.125rem;
   }
 
-  @media (max-width: 700px) {
-    max-width: 403px;
-    height: 700px;
+  @media (width <= 43.75rem) {
+    max-width: 25.1875rem;
+    height: 43.75rem;
   }
 }
 
 .kate {
   position: absolute;
-  top: 82px;
+  top: 5.125rem;
   left: -8%;
   z-index: 2;
   flex-shrink: 0;
-  width: 350px;
+  width: 21.875rem;
   height: auto;
 
-  @media (max-width: 1430px) {
+  @media (width <= 89.375rem) {
     left: 0;
   }
 
-  @media (max-width: 1200px) {
-    top: 91px;
-    width: 263px;
+  @media (width <= 75rem) {
+    top: 5.6875rem;
+    width: 16.4375rem;
   }
 
-  @media (max-width: 700px) {
-    top: 97px;
-    width: 175px;
+  @media (width <= 43.75rem) {
+    top: 6.0625rem;
+    width: 10.9375rem;
   }
 }
 
 .oksana {
   position: absolute;
-  top: -22px;
+  top: -1.375rem;
   left: 8%;
   z-index: 1;
   flex-shrink: 0;
-  width: 420px;
+  width: 26.25rem;
   height: auto;
 
-  @media (max-width: 1430px) {
+  @media (width <= 89.375rem) {
     right: 0;
     left: 0;
     margin-right: auto;
     margin-left: auto;
   }
 
-  @media (max-width: 1200px) {
-    top: 13px;
-    width: 315px;
+  @media (width <= 75rem) {
+    top: 0.8125rem;
+    width: 19.6875rem;
   }
 
-  @media (max-width: 700px) {
-    top: 45px;
-    width: 210px;
+  @media (width <= 43.75rem) {
+    top: 2.8125rem;
+    width: 13.125rem;
   }
 
-  @media (max-width: 380px) {
-    top: -220px;
+  @media (width <= 23.75rem) {
+    top: -13.75rem;
   }
 }
 
 .olga {
   position: absolute;
-  top: 111px;
+  top: 6.9375rem;
   left: 26%;
   z-index: 1;
   flex-shrink: 0;
-  width: 370px;
+  width: 23.125rem;
   height: auto;
 
-  @media (max-width: 1430px) {
+  @media (width <= 89.375rem) {
     right: 0;
     left: auto;
   }
 
-  @media (max-width: 1200px) {
-    width: 278px;
+  @media (width <= 75rem) {
+    width: 17.375rem;
   }
 
-  @media (max-width: 700px) {
-    width: 185px;
+  @media (width <= 43.75rem) {
+    width: 11.5625rem;
   }
 }
 
 .second {
   position: relative;
   width: 100%;
-  max-width: 630px;
-  height: 1200px;
+  max-width: 39.375rem;
+  height: 75rem;
   margin: 0 auto;
 
-  @media (max-width: 1200px) {
-    max-width: 470px;
-    height: 1000px;
+  @media (width <= 75rem) {
+    max-width: 29.375rem;
+    height: 62.5rem;
   }
 
-  @media (max-width: 700px) {
-    max-width: 315px;
-    height: 700px;
+  @media (width <= 43.75rem) {
+    max-width: 19.6875rem;
+    height: 43.75rem;
   }
 }
 
 .svetlana {
   position: absolute;
-  top: 129px;
+  top: 8.0625rem;
   left: 50%;
   z-index: 3;
   flex-shrink: 0;
-  width: 350px;
+  width: 21.875rem;
   height: auto;
 
-  @media (max-width: 1430px) {
+  @media (width <= 89.375rem) {
     top: auto;
     bottom: 0;
     left: 0;
   }
 
-  @media (max-width: 1200px) {
-    width: 263px;
+  @media (width <= 75rem) {
+    width: 16.4375rem;
   }
 
-  @media (max-width: 700px) {
-    width: 175px;
+  @media (width <= 43.75rem) {
+    width: 10.9375rem;
   }
 }
 
@@ -153,35 +153,35 @@
   right: -8%;
   z-index: 1;
   flex-shrink: 0;
-  width: 400px;
+  width: 25rem;
   height: auto;
 
-  @media (max-width: 1430px) {
+  @media (width <= 89.375rem) {
     right: 0;
-    bottom: 48px;
+    bottom: 3rem;
   }
 
-  @media (max-width: 1200px) {
-    bottom: 36px;
-    width: 300px;
+  @media (width <= 75rem) {
+    bottom: 2.25rem;
+    width: 18.75rem;
   }
 
-  @media (max-width: 700px) {
-    bottom: 24px;
-    width: 200px;
+  @media (width <= 43.75rem) {
+    bottom: 1.5rem;
+    width: 12.5rem;
   }
 }
 
 .dots {
   position: absolute;
-  right: -50px;
+  right: -3.125rem;
   bottom: -25%;
-  width: 1330px;
-  height: 500px;
+  width: 83.125rem;
+  height: 31.25rem;
   background-image: url('/img/white-dots.svg');
   background-repeat: no-repeat;
 
-  @media (max-width: 1430px) {
+  @media (width <= 89.375rem) {
     display: none;
   }
 }

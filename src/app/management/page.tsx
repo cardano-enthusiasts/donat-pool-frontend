@@ -29,7 +29,9 @@ const Page = () => {
   return (
     status !== 'requesting' && (
       <Common>
-        <h1 className="mb-15 mt-20 max-md:mb-8 max-md:mt-14 max-sm:mb-4">Management contract</h1>
+        <h1 className="mb-15 mt-20 font-rammetto-one text-[3.375rem] leading-[104%] text-red max-lg:text-[2.25rem] max-md:mb-8 max-md:mt-14 max-sm:mb-4 max-sm:text-[2.25rem]">
+          Management contract
+        </h1>
         <div className="mb-40 flex justify-between gap-10 max-md:mb-14 max-md:flex-col">
           {protocol && (
             <>

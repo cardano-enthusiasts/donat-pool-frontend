@@ -1,4 +1,4 @@
-export interface Props {
+interface Props {
   config: {
     minAmountParam: number;
     maxAmountParam: number;
@@ -7,3 +7,5 @@ export interface Props {
     protocolFeeParam: number;
   };
 }
+
+export type { Props };

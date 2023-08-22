@@ -1,4 +1,4 @@
-import classNames from 'classnames';
+import cn from 'classnames';
 import Image from 'next/image';
 import { useState } from 'react';
 
@@ -30,7 +30,9 @@ const ModalProjectCreated = ({ isOpen, onClose, path }: Props) => {
   return (
     <Modal isOpen={isOpen}>
       <div className="flex flex-col items-center">
-        <h1 className="mb-6 text-center">Well done!</h1>
+        <h1 className="mb-6 text-center font-rammetto-one text-[3.375rem] leading-[104%] text-red max-lg:text-[2.25rem] max-sm:text-[2.25rem]">
+          Well done!
+        </h1>
         <Image className="mb-10" src="/img/happy-cat.svg" alt="happy cat" width={140} height={140} />
         <div className="mb-8 text-center">
           The project has been successfully published.
@@ -46,13 +48,13 @@ const ModalProjectCreated = ({ isOpen, onClose, path }: Props) => {
           </>
         ) : (
           <>
-            <a className={classNames(styles.link, 'mb-6 text-center text-xl font-bold text-blue')}>{link}</a>
+            <a className={cn(styles.link, 'mb-6 text-center text-xl font-bold text-blue')}>{link}</a>
             <StandardButton
               primaryColor="red"
               secondaryColor="blue"
               isFullWidth={true}
-              onClick={handleCopyLinkClick}
               fontColor="white"
+              onClick={handleCopyLinkClick}
             >
               Copy link and share
             </StandardButton>

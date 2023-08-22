@@ -10,7 +10,6 @@ const Page = () => {
   useEffect(() => {
     document.title = 'Roadmap';
   }, []);
-
   const getSubLis = (item: any) => {
     return item.subItems.map(({ id, title }: any) => (
       <li className="ml-6" key={id}>
@@ -21,7 +20,7 @@ const Page = () => {
 
   return (
     <Service>
-      <h1 className="mb-8">
+      <h1 className="mb-8 font-rammetto-one text-[3.375rem] leading-[104%] text-red max-lg:text-[2.25rem] max-sm:text-[2.25rem]">
         Donat.Pool <span className="text-green">roadmap</span>
       </h1>
       <div className="grid gap-8">

@@ -1,3 +1,5 @@
-export interface Props {
+interface Props {
   currentPage?: string | null;
 }
+
+export type { Props };

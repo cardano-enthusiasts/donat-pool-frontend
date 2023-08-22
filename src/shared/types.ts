@@ -1,6 +1,10 @@
-type RequestStatus = 'default' | 'requesting' | 'success' | 'error';
+export interface PropsWithChildren {
+  children: React.ReactNode;
+}
 
-interface FetchedFundraising {
+export type RequestStatus = 'default' | 'requesting' | 'success' | 'error';
+
+export interface FetchedFundraising {
   creator: string;
   deadline: { value: bigint };
   goal: { value: bigint };
@@ -11,7 +15,7 @@ interface FetchedFundraising {
   title: string;
 }
 
-interface Fundraising {
+export interface Fundraising {
   creator: string;
   deadline: string;
   goal: string;
@@ -21,5 +25,3 @@ interface Fundraising {
   threadTokenName: string;
   title: string;
 }
-
-export type { RequestStatus, FetchedFundraising, Fundraising };

@@ -1,5 +1,7 @@
-export interface Props {
+interface Props {
   onCreateAProjectClick: () => void;
 }
 
-export type ProjectStatus = 'active' | 'completed';
+type ProjectStatus = 'active' | 'completed';
+
+export type { Props, ProjectStatus };

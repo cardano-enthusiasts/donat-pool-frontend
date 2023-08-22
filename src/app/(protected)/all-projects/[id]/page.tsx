@@ -1,22 +1,21 @@
 'use client';
 
-import { useParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
 import { Common } from '@/layouts';
 import { useAppDispatch, useAppSelector } from '@/redux/hooks';
 import { reset } from '@/redux/slices/donating';
-import { ModalDonate, ModalError, ModalLoading, ModalSuccess, RaisedCounter, AccentButton } from '@/shared/components';
+import { ModalDonate, ModalError, ModalLoading, ModalSuccess, AccentButton } from '@/shared/components';
 import { formatDate } from '@/shared/helpers';
-import { useAllFundraisings } from '@/shared/hooks';
-import { useDonate } from '@/shared/hooks';
-import type { Fundraising } from '@/shared/types';
+import { useQueriedFundraising, useDonate } from '@/shared/hooks';
 
 const Page = () => {
-  const params = useParams();
   const dispatch = useAppDispatch();
-  const { fundraisings } = useAllFundraisings();
-  const [currentProject, setCurrentProject] = useState<Fundraising | null>(null);
+  const {
+    isBeingFetched: fundraisingIsBeingFetched,
+    fundraising,
+    error: fetchFundraisingError,
+  } = useQueriedFundraising();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isModalErrorOpen, setIsModalErrorOpen] = useState(false);
   const [isModalLoadingOpen, setIsModalLoadingOpen] = useState(false);
@@ -43,78 +42,68 @@ const Page = () => {
     }
   }, [donateStatus]);
 
-  useEffect(() => {
-    if (fundraisings) {
-      const project = fundraisings.find(({ threadTokenCurrency }) => threadTokenCurrency === params.id);
-      if (project) {
-        setCurrentProject(project);
-      } else {
-        setCurrentProject(null);
-      }
-    }
-  }, [fundraisings, params.id]);
-
   return (
-    currentProject && (
-      <>
-        <Common>
+    <>
+      <Common>
+        {fundraisingIsBeingFetched && <div>fundraising is being fetched</div>}
+        {fundraising && (
           <div className="pb-40 pt-20">
-            <h1 className="mb-6 overflow-hidden text-ellipsis whitespace-nowrap text-center">{currentProject.title}</h1>
+            <h1 className="mb-6 overflow-hidden text-ellipsis whitespace-nowrap text-center font-rammetto-one text-[3.375rem] leading-[104%] text-red max-lg:text-[2.25rem] max-sm:text-[2.25rem]">
+              {fundraising.title}
+            </h1>
             <div className="border-b-2 border-t-2 border-black py-6 text-center text-xl font-bold">
-              Until {formatDate(Number(currentProject.deadline))}
+              Until {formatDate(Number(fundraising.deadline))}
             </div>
-            <div className="mx-0 mb-10 mt-6">
-              <RaisedCounter
-                raised={Number(currentProject.raisedAmt) / 1000000}
-                goal={Number(currentProject.goal) / 1000000}
-              />
-            </div>
+            <div className="mx-0 mb-10 mt-6" />
 
             <div className="flex justify-center">
               <AccentButton
-                onClick={() => {
-                  setIsModalOpen(true);
-                }}
                 primaryColor="yellow"
                 secondaryColor="red"
                 fontColor="red"
+                onClick={() => {
+                  setIsModalOpen(true);
+                }}
               >
                 Donate
               </AccentButton>
             </div>
           </div>
-        </Common>
+        )}
+        {fetchFundraisingError && <div className="text-error">An error happened while fetching the fundraising</div>}
+      </Common>
+      {fundraising && (
         <ModalDonate
           isOpen={isModalOpen}
           onClose={() => {
             setIsModalOpen(false);
           }}
           data={{
-            threadTokenCurrency: currentProject.threadTokenCurrency,
-            threadTokenName: currentProject.threadTokenName,
+            threadTokenCurrency: fundraising.threadTokenCurrency,
+            threadTokenName: fundraising.threadTokenName,
           }}
           donate={donate}
         />
-        <ModalError
-          isOpen={isModalErrorOpen}
-          title="How many ADA would you like to donate?"
-          errorText={donateError}
-          onClose={() => {
-            setIsModalErrorOpen(false);
-            dispatch(reset());
-          }}
-        />
-        <ModalLoading isOpen={isModalLoadingOpen} title="How many ADA would you like to donate?" />
-        <ModalSuccess
-          isOpen={isModalSuccessOpen}
-          description="Congratulations! Your donut is ready!"
-          onClose={() => {
-            setIsModalSuccessOpen(false);
-            dispatch(reset());
-          }}
-        />
-      </>
-    )
+      )}
+      <ModalError
+        isOpen={isModalErrorOpen}
+        title="How many ADA would you like to donate?"
+        errorText={donateError}
+        onClose={() => {
+          setIsModalErrorOpen(false);
+          dispatch(reset());
+        }}
+      />
+      <ModalLoading isOpen={isModalLoadingOpen} title="How many ADA would you like to donate?" />
+      <ModalSuccess
+        isOpen={isModalSuccessOpen}
+        description="Congratulations! Your donut is ready!"
+        onClose={() => {
+          setIsModalSuccessOpen(false);
+          dispatch(reset());
+        }}
+      />
+    </>
   );
 };
 

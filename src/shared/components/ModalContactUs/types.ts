@@ -1,4 +1,6 @@
-export interface Props {
+interface Props {
   isOpen: boolean;
   onClose: () => void;
 }
+
+export type { Props };

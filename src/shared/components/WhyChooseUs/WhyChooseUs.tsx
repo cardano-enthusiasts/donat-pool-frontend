@@ -1,14 +1,14 @@
 import HTMLReactParser from 'html-react-parser';
 
-import { primaryInfoSections, secondaryInfoSections } from './data';
+import { PRIMARY_SECTIONS, SECONDARY_SECTIONS } from './data';
 import { StandardButton } from '..';
 
 const WhyChooseUs = () => {
-  const titleClasses = 'mb-6 text-5xl font-bold leading-normal max-lg:text-[32px] max-lg:leading-tight';
+  const titleClasses = 'mb-6 text-5xl font-bold leading-normal max-lg:text-[2rem] max-lg:leading-tight';
   const descriptionClasses = 'text-2xl max-md:text-lg';
   return (
     <div className="text-black">
-      {primaryInfoSections.map(({ title, description }) => (
+      {PRIMARY_SECTIONS.map(({ title, description }) => (
         <div className="mb-10" key={title}>
           <h3 className={titleClasses}>{title}</h3>
           <div className={descriptionClasses}>{HTMLReactParser(description)}</div>
@@ -45,8 +45,8 @@ const WhyChooseUs = () => {
       </div>
       <h3 className={titleClasses}>Donate with ease</h3>
       <div className="flex gap-10 max-sm:flex-col">
-        <div className={descriptionClasses}>{HTMLReactParser(secondaryInfoSections.description1)}</div>
-        <div className={descriptionClasses}>{HTMLReactParser(secondaryInfoSections.description2)}</div>
+        <div className={descriptionClasses}>{HTMLReactParser(SECONDARY_SECTIONS.description1)}</div>
+        <div className={descriptionClasses}>{HTMLReactParser(SECONDARY_SECTIONS.description2)}</div>
       </div>
     </div>
   );

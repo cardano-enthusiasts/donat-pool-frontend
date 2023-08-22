@@ -4,6 +4,10 @@ module.exports = {
   content: ['./src/**/*.{ts,tsx}'],
   theme: {
     extend: {
+      spacing: {
+        15: '3.75rem',
+        480: '120rem',
+      },
       fontFamily: {
         'microsoft-ya-hei': 'var(--microsoft-ya-hei-font)',
         'rammetto-one': 'var(--rammetto-one-font)',
@@ -27,33 +31,36 @@ module.exports = {
         error: '#c820f2',
       },
       gridTemplateColumns: {
-        projects: 'repeat(auto-fill, minmax(325px, 1fr))',
+        projects: 'repeat(auto-fill, minmax(20.3125rem, 1fr))',
       },
-      boxShadow: {
-        xl: '0px 15px 15px 0px rgba(186, 186, 186, 0.4)',
-        modal: '0px 15px 40px #4757e6',
-        card: '-4px 4px 0px',
-        gif: '4px 4px 0px 0px #ff6b95',
+      screens: {
+        '3xl': '1920px',
       },
+      boxShadow: ({ theme }) => ({
+        xl: '0 0.9375rem 0.9375rem 0 rgba(186, 186, 186, 0.4)',
+        modal: `0 0.9375rem 2.5rem ${theme('colors.blue')}`,
+        card: '-0.25rem 0.25rem 0',
+        gif: `0.25rem 0.25rem 0 0 ${theme('colors.red')}`,
+      }),
       keyframes: {
         accentPush: {
           '90%': { 'margin-left': 0, 'margin-top': 0 },
-          '100%': { 'margin-left': '-16px', 'margin-top': '16px' },
+          '100%': { 'margin-left': '-1rem', 'margin-top': '1rem' },
         },
         accentPushBefore: {
-          '90%': { bottom: '-21.8px', height: '22px', left: '-11.3px' },
-          '100%': { bottom: '-7px', height: '7px', left: '-4px' },
+          '90%': { bottom: '-1.3625rem', height: '1.375rem', left: '-0.7063rem' },
+          '100%': { bottom: '-0.4375rem', height: '0.4375rem', left: '-0.25rem' },
         },
         accentPushAfter: {
-          '90%': { left: '-22px', width: '22px', bottom: '-11.3px' },
-          '100%': { left: '-7px', width: '7px', bottom: '-4px' },
+          '90%': { left: '-1.375rem', width: '1.375rem', bottom: '-0.7063rem' },
+          '100%': { left: '-0.4375rem', width: '0.4375rem', bottom: '-0.25rem' },
         },
         standardPush: {
           '90%': { left: '0', top: '0' },
-          '100%': { left: '-4px', top: '4px' },
+          '100%': { left: '-0.25rem', top: '0.25rem' },
         },
         standardPushBefore: {
-          '90%': { left: '-4px', bottom: '-4px' },
+          '90%': { left: '-0.25rem', bottom: '-0.25rem' },
           '100%': { left: '0', bottom: '0' },
         },
         roadmap: {
@@ -69,10 +76,10 @@ module.exports = {
             top: '0',
           },
           '25%': {
-            top: '18px',
+            top: '1.125rem',
           },
           '100%': {
-            top: '18px',
+            top: '1.125rem',
           },
         },
         circle3: {
@@ -80,10 +87,10 @@ module.exports = {
             top: 0,
           },
           '50%': {
-            top: '36px',
+            top: '2.25rem',
           },
           '100%': {
-            top: '36px',
+            top: '2.25rem',
           },
         },
         circle4: {
@@ -99,15 +106,15 @@ module.exports = {
             opacity: '0',
           },
           '50%': {
-            height: '10px',
+            height: '0.625rem',
             opacity: '1',
           },
           '75%': {
-            height: '28px',
+            height: '1.75rem',
             opacity: '1',
           },
           '100%': {
-            height: '28px',
+            height: '1.75rem',
             opacity: '1',
           },
         },
@@ -116,14 +123,14 @@ module.exports = {
             opacity: '0',
           },
           '75%': {
-            height: '10px',
+            height: '0.625rem',
             opacity: '1',
-            right: '16px',
+            right: '1rem',
           },
           '100%': {
-            height: '30px',
+            height: '1.875rem',
             opacity: '1',
-            right: '23.5px',
+            right: '1.4688rem',
           },
         },
         arrowRight: {
@@ -131,14 +138,14 @@ module.exports = {
             opacity: 0,
           },
           '75%': {
-            height: '10px',
+            height: '0.625rem',
             opacity: 1,
-            left: '16px',
+            left: '1rem',
           },
           '100%': {
-            height: '30px',
+            height: '1.875rem',
             opacity: 1,
-            left: '23.5px',
+            left: '1.4688rem',
           },
         },
       },
@@ -156,28 +163,14 @@ module.exports = {
         arrowLeft: 'arrowLeft 1s forwards linear infinite',
         arrowRight: 'arrowRight 1s forwards linear infinite',
       },
-      backgroundImage: {
-        'section-cat': "url('/img/section-cat.svg')",
-      },
       backgroundSize: {
         '100%': '100%',
       },
       backgroundPosition: {
         '0-100%': '0 100%',
       },
-      screens: {
-        mobile: '1100px',
-      },
-      content: {
-        ada: 'url("/icons/ADA.svg")',
-        clip: 'url("/icons/paper-clip.svg")',
-        tooltip: 'url("/icons/tooltip-symmetric.svg")',
-      },
       transform: {
-        roadmap: 'perspective(800px) rotateX(30deg)',
-      },
-      dropShadow: {
-        wallet: '0px 2px 15px rgba(71, 87, 230, 0.4)',
+        roadmap: 'perspective(50) rotateX(30deg)',
       },
     },
   },

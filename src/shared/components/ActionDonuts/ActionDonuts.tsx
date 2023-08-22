@@ -1,4 +1,4 @@
-import classNames from 'classnames';
+import cn from 'classnames';
 import { Fragment } from 'react';
 
 import styles from './ActionDonuts.module.css';
@@ -20,7 +20,7 @@ const ActionDonuts = ({ isAnimationActive }: Props) => {
 
   return (
     <div
-      className={classNames(
+      className={cn(
         styles.wrapper,
         {
           absolute: isAnimationActive === false,

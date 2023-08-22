@@ -26,7 +26,9 @@ const ModalContactUs = ({ isOpen, onClose }: Props) => {
     <Modal isOpen={isOpen}>
       <form onSubmit={handleSubmit}>
         <div className="flex flex-col items-center gap-6">
-          <h1>Contact us</h1>
+          <h1 className="font-rammetto-one text-[3.375rem] leading-[104%] text-red max-lg:text-[2.25rem] max-sm:text-[2.25rem]">
+            Contact us
+          </h1>
           <div>You can report about an error or write to us how we can help you.</div>
           <Input
             value={data.contact}
@@ -60,7 +62,7 @@ const ModalContactUs = ({ isOpen, onClose }: Props) => {
         </div>
 
         <div className="mt-10 flex w-full gap-6">
-          <DoubleBorderedButton onClick={handleCancelClick} primaryColor="blue" backgroundColor="white">
+          <DoubleBorderedButton primaryColor="blue" backgroundColor="white" onClick={handleCancelClick}>
             Cancel
           </DoubleBorderedButton>
           <StandardButton type="submit" primaryColor="red" secondaryColor="blue" fontColor="white" isFullWidth={true}>

@@ -2,7 +2,7 @@ import tutorial1 from 'public/gif/tutorial-1.gif';
 import tutorial2 from 'public/gif/tutorial-2.gif';
 import tutorial3 from 'public/gif/tutorial-3.gif';
 
-const data = [
+const DATA = [
   {
     order: '01.',
     title: 'Wallet creation',
@@ -42,4 +42,4 @@ const data = [
   },
 ];
 
-export { data };
+export { DATA };

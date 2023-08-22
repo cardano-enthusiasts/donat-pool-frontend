@@ -1,5 +1,5 @@
 export { Checkbox } from './Checkbox/Checkbox';
-export { Footer } from './Footer/Footer';
+export { default as Footer } from './Footer/Footer';
 export { Header } from './Header/Header';
 export { Input } from './Input/Input';
 export { Logo } from './Logo/Logo';
@@ -45,3 +45,6 @@ export { StandardButton } from './StandardButton/StandardButton';
 export { DashedButton } from './DashedButton/DashedButton';
 export { DoubleBorderedButton } from './DoubleBorderedButton/DoubleBorderedButton';
 export { BorderedButton } from './BorderedButton/BorderedButton';
+export { Line } from './Line/Line';
+export { Subtitle } from './Subtitle/Subtitle';
+export { Ul } from './Ul/Ul';

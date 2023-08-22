@@ -4,10 +4,9 @@ import { useRouter } from 'next/navigation';
 import { useEffect } from 'react';
 
 import { Common } from '@/layouts';
-import { useAppSelector } from '@/redux/hooks';
 import { ProjectCard, StandardButton } from '@/shared/components';
 import { ROUTES } from '@/shared/constants';
-import { useAllFundraisings } from '@/shared/hooks';
+import { useFundraisings } from '@/shared/hooks';
 
 const Page = () => {
   const router = useRouter();
@@ -15,22 +14,19 @@ const Page = () => {
     areBeingFetched: fundraisingsAreBeingFetched,
     fundraisings,
     error: fetchFundraisingsError,
-  } = useAllFundraisings();
-  const connectWalletStatus = useAppSelector((state) => state.connectWallet.requestStatus);
+  } = useFundraisings();
 
   useEffect(() => {
     document.title = 'All projects';
   }, []);
 
-  if (connectWalletStatus !== 'success') {
-    return;
-  }
-
   return (
     <Common>
       <div className="mb-14 flex items-center justify-between gap-14 text-center max-md:mb-8 max-md:flex-col max-md:gap-5">
-        <h1>All Donation pools</h1>
-        <div className="max-md:fixed max-md:bottom-[60px] max-md:right-8 max-md:z-10">
+        <h1 className="font-rammetto-one text-[3.375rem] leading-[104%] text-red max-lg:text-[2.25rem] max-sm:text-[2.25rem]">
+          All Donation pools
+        </h1>
+        <div className="max-md:fixed max-md:bottom-15 max-md:right-8 max-md:z-10">
           <StandardButton
             primaryColor="red"
             secondaryColor="blue"

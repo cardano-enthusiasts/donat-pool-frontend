@@ -1,4 +1,5 @@
-import classNames from 'classnames';
+'use client';
+import cn from 'classnames';
 import Link from 'next/link';
 import { useState } from 'react';
 
@@ -13,17 +14,17 @@ const Footer = ({ backgroundColor = 'blue' }: Props) => {
   return (
     <>
       <footer
-        className={classNames('base-wrapper', {
+        className={cn('base-wrapper', {
           'bg-blue': backgroundColor === 'blue',
           'bg-black': backgroundColor === 'black',
         })}
       >
-        <div className="base-inner flex w-full items-center justify-between pb-20 pt-10 max-lg:flex-col max-lg:gap-10">
+        <div className="max-w-480 flex w-full items-center justify-between pb-20 pt-10 max-lg:flex-col max-lg:gap-10">
           <div className="flex items-center gap-32 max-lg:flex-col max-lg:gap-10">
             <Socials />
             <div className=" flex gap-20 font-rammetto-one text-white max-xl:flex-col max-xl:gap-4 max-lg:items-center">
               {LINKS.map(({ title, href, target }) => (
-                <Link href={href} target={target} key={title} className="text-[15px] leading-snug">
+                <Link href={href} target={target} key={title} className="text-[0.9375rem] leading-snug">
                   {title}
                 </Link>
               ))}
@@ -33,10 +34,10 @@ const Footer = ({ backgroundColor = 'blue' }: Props) => {
             primaryColor="red"
             secondaryColor="green"
             size="s"
+            fontColor="white"
             onClick={() => {
               setIsModalContactUsOpen(true);
             }}
-            fontColor="white"
           >
             Contact us
           </StandardButton>
@@ -52,4 +53,4 @@ const Footer = ({ backgroundColor = 'blue' }: Props) => {
   );
 };
 
-export { Footer };
+export default Footer;

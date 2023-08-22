@@ -1,4 +1,4 @@
-export interface Photo {
+interface Photo {
   title: string;
   className: string;
   alt: string;
@@ -6,3 +6,5 @@ export interface Photo {
   height: number;
   isFirstRow: boolean;
 }
+
+export type { Photo };

@@ -1,8 +1,6 @@
-import { ReactNode } from 'react';
+import { PropsWithChildren } from 'react';
 
-export interface Props {
-  onClick?: () => void;
-  children: string | ReactNode;
+interface Props extends PropsWithChildren {
   primaryColor: 'red' | 'blue' | 'green' | 'yellow';
   secondaryColor: 'blue' | 'green';
   fontColor: 'white' | 'black';
@@ -10,6 +8,10 @@ export interface Props {
   isAnimation?: boolean;
   type?: 'submit' | 'button';
   href?: string | null;
+  isExternal?: boolean;
   size?: 's' | 'm';
   isDisabled?: boolean;
+  onClick?: () => void;
 }
+
+export type { Props };

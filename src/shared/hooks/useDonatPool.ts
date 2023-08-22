@@ -9,7 +9,7 @@ const useDonatPool = () => {
       return;
     }
 
-    setTimeout(f, 500);
+    setTimeout(f);
   }, []);
 
   return donatPool;

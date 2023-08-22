@@ -3,7 +3,7 @@ import { setWalletStatus } from '@/redux/slices/connectWallet';
 import { setError, setRequesting, setSuccess } from '@/redux/slices/donating';
 import { testnetNami } from '@/shared/constants';
 import { logOffchainError } from '@/shared/helpers';
-import { useAllFundraisings, useDonatPool } from '@/shared/hooks';
+import { useFundraisings, useDonatPool } from '@/shared/hooks';
 import type { FundraisingData } from '@/shared/types/common';
 
 import useHandleError from './useHandleError';
@@ -11,14 +11,14 @@ import useHandleError from './useHandleError';
 const useDonate = () => {
   const offchain = useDonatPool();
   const dispatch = useAppDispatch();
-  const { refetchFundraisings: refetchAllFundraisings } = useAllFundraisings();
+  const { refetchFundraisings } = useFundraisings();
   const handleCommonError = useHandleError();
   const protocol = JSON.parse(process.env.NEXT_PUBLIC_PROTOCOL);
 
   const handleSuccess = () => {
     dispatch(setWalletStatus('connected'));
     dispatch(setSuccess());
-    refetchAllFundraisings();
+    refetchFundraisings();
   };
 
   const handleError = (error: string) => {

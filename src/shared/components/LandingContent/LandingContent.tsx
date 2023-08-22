@@ -1,4 +1,4 @@
-import classNames from 'classnames';
+import cn from 'classnames';
 import { Fragment, forwardRef, useEffect, useRef, useState, type ForwardedRef, type MutableRefObject } from 'react';
 
 import type { LandingSection } from '@/shared/types/common';
@@ -79,10 +79,12 @@ const LandingContent = forwardRef(
       setCurrentSection(getRefSection());
     }, [windowScroll]);
 
+    const paddingClasses = 'pl-[25rem] pr-20 max-xl:pl-[3.125rem] max-xl:pr-[3.125rem] max-sm:pl-5 max-sm:pr-5';
+
     const content: Content = [
       {
         element: (
-          <div className="landing-paddings" id="home" ref={homeRef}>
+          <div className={paddingClasses} id="home" ref={homeRef}>
             <TitleAndDescription isActive={isHomeAnimationActive} />
           </div>
         ),
@@ -95,7 +97,7 @@ const LandingContent = forwardRef(
 
       {
         element: (
-          <div className="landing-paddings max-lg:pb-15 pb-20" id="how-it-works" ref={howItWorksRef}>
+          <div className={cn(paddingClasses, 'pb-20 max-lg:pb-15')} id="how-it-works" ref={howItWorksRef}>
             <HowItWorks />
           </div>
         ),
@@ -109,7 +111,7 @@ const LandingContent = forwardRef(
       {
         element: (
           <div
-            className="landing-paddings bg-section-cat bg-100% bg-0-100% bg-no-repeat pb-40 pt-0"
+            className={cn(paddingClasses, 'bg-[url("/img/section-cat.svg")] bg-100% bg-0-100% bg-no-repeat pb-40 pt-0')}
             id="why-choose-us"
             ref={whyChooseUsRef}
           >
@@ -122,7 +124,7 @@ const LandingContent = forwardRef(
       },
       {
         element: (
-          <div className="landing-paddings pt-0 max-sm:pt-12" id="about-us" ref={aboutUsRef}>
+          <div className={cn(paddingClasses, 'pt-0 max-sm:pt-12')} id="about-us" ref={aboutUsRef}>
             <AboutUs />
           </div>
         ),
@@ -135,7 +137,7 @@ const LandingContent = forwardRef(
 
       {
         element: (
-          <div className="landing-paddings select-none overflow-hidden bg-black pt-0" id="roadmap">
+          <div className={cn(paddingClasses, 'select-none overflow-hidden bg-black pt-0')} id="roadmap">
             <Roadmap isActive={isRoadmapAnimationActive} />
           </div>
         ),
@@ -161,7 +163,7 @@ const LandingContent = forwardRef(
           return (
             <Fragment key={id}>
               <div
-                className={classNames('w-full', {
+                className={cn('w-full', {
                   'bg-green': backgroundColor === 'green',
                   'bg-red': backgroundColor === 'red',
                   'bg-black': backgroundColor === 'black',
@@ -169,7 +171,7 @@ const LandingContent = forwardRef(
                   'bg-blue': backgroundColor === 'blue',
                 })}
               >
-                <div className="mx-auto my-0 w-full max-w-[1920px]">{element}</div>
+                <div className="mx-auto my-0 w-full max-w-[120rem]">{element}</div>
               </div>
               {waves && <Waves color={waves.color} backgroundColor={backgroundColor} />}
             </Fragment>

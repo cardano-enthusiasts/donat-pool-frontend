@@ -6,10 +6,10 @@
 
 @keyframes move-forever {
   0% {
-    transform: translate3d(-90px, 0, 0);
+    transform: translate3d(-5.625rem, 0, 0);
   }
 
   100% {
-    transform: translate3d(105px, 0, 0);
+    transform: translate3d(6.5625rem, 0, 0);
   }
 }

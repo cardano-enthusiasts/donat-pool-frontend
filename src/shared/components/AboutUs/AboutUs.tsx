@@ -3,7 +3,7 @@ import Image from 'next/image';
 import { useWindowSize } from '@/shared/hooks';
 
 import styles from './AboutUs.module.css';
-import { photos } from './constants';
+import { PHOTOS } from './constants';
 import { AccentButton, Stack } from '../.';
 
 const AboutUs = () => {
@@ -11,8 +11,8 @@ const AboutUs = () => {
 
   const getPhotos = (isFirstRow: boolean) => {
     const filteredPhotos = isFirstRow
-      ? photos.filter(({ isFirstRow }) => isFirstRow)
-      : photos.filter(({ isFirstRow }) => !isFirstRow);
+      ? PHOTOS.filter(({ isFirstRow }) => isFirstRow)
+      : PHOTOS.filter(({ isFirstRow }) => !isFirstRow);
 
     return filteredPhotos.map(({ title, className, alt, width, height }) => (
       <Image className={className} src={`/img/${title}.png`} alt={alt} width={width} height={height} key={title} />
@@ -29,7 +29,7 @@ const AboutUs = () => {
         <div className={styles.dots} />
       </div>
 
-      <div className="mb-[140px] flex self-start max-xl:mb-12 max-xl:justify-center">
+      <div className="mb-[8.75rem] flex self-start max-xl:mb-12 max-xl:justify-center">
         <AccentButton primaryColor="blue" secondaryColor="red" fontColor="red" isAnimation={true}>
           Donate
           <br /> To Us

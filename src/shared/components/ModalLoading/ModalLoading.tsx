@@ -29,8 +29,10 @@ const ModalLoading = ({
   return (
     <Modal isOpen={isOpen}>
       <div className="flex flex-col items-center">
-        <h1 className="mb-6 text-center text-4xl">{title}</h1>
-        <Image src={`/img/donut-${index}.svg`} alt="donut" width={115} height={115} className="mb-10 max-w-[140px]" />
+        <h1 className="mb-6 text-center font-rammetto-one text-[2.25rem] leading-[104%] text-red max-sm:text-[2.25rem]">
+          {title}
+        </h1>
+        <Image src={`/img/donut-${index}.svg`} alt="donut" width={115} height={115} className="mb-10 max-w-[8.75rem]" />
         <div className="text-center">{description}</div>
       </div>
     </Modal>

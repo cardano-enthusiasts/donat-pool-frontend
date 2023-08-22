@@ -1,4 +1,4 @@
-import classNames from 'classnames';
+import cn from 'classnames';
 import { useEffect, useRef, useState } from 'react';
 
 import { useWindowScroll } from '@/shared/hooks';
@@ -35,12 +35,12 @@ const Stack = () => {
   };
 
   return (
-    <div className="flex max-w-[800px] flex-col gap-10">
+    <div className="flex max-w-[50rem] flex-col gap-10">
       <div className="text-gray text-2xl font-bold">Our stack</div>
       <div ref={ref}>
         {stack.map(({ id, src }) => (
           // eslint-disable-next-line @next/next/no-img-element
-          <img className={classNames(styles.img, { 'translate-y-full': !isActive })} key={id} src={src} alt={id} />
+          <img className={cn(styles.img, { 'translate-y-full': !isActive })} key={id} src={src} alt={id} />
         ))}
       </div>
 
@@ -48,11 +48,11 @@ const Stack = () => {
         primaryColor="red"
         secondaryColor="blue"
         backgroundColor="yellow"
+        isClickedTheme={isOpen}
+        isFixedWidth={true}
         onClick={() => {
           setIsOpen(!isOpen);
         }}
-        isClickedTheme={isOpen}
-        isFixedWidth={true}
       >
         Read {isOpen ? 'less' : 'more'}
       </DashedButton>

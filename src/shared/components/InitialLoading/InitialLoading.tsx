@@ -1,4 +1,4 @@
-import classNames from 'classnames';
+import cn from 'classnames';
 import Image from 'next/image';
 import { useEffect, useRef } from 'react';
 
@@ -19,31 +19,31 @@ const InitialLoading = ({ windowScroll, isAnimationActive }: Props) => {
   }, [windowScroll, innerCircleRef]);
 
   useEffect(() => {
-    if (wrapperRef?.current && width > 1024) {
+    if (wrapperRef?.current && width > 1280) {
       if (isAnimationActive) {
         wrapperRef.current.style.height = `${1500 - windowScroll}px`;
       } else {
-        wrapperRef.current.style.height = '965px';
+        wrapperRef.current.style.height = '60.3125rem';
       }
     }
-  }, [wrapperRef, windowScroll, isAnimationActive]);
+  }, [wrapperRef, windowScroll, isAnimationActive, width]);
 
   return (
     <div
-      className={classNames(
-        'relative flex h-[965px] w-full items-start justify-center overflow-hidden bg-red max-lg:h-auto',
+      className={cn(
+        'relative flex h-[93.75rem] w-full items-start justify-center overflow-hidden bg-red max-xl:h-auto',
       )}
       ref={wrapperRef}
     >
       <div
         ref={innerCircleRef}
-        className={classNames(
-          'absolute z-[4] mt-[45vh] h-[230px] w-[230px] rounded-full border-[90px] border-yellow max-lg:hidden',
+        className={cn(
+          'absolute z-[4] mt-[45vh] h-[14.375rem] w-[14.375rem] scale-0 rounded-full border-[5.625rem] border-yellow max-xl:hidden',
           { hidden: !(windowScroll < 500 && isAnimationActive) },
         )}
       />
       <div
-        className={classNames('absolute z-[3] h-full w-full bg-red max-lg:hidden', {
+        className={cn('absolute z-[3] h-full w-full bg-red max-xl:hidden', {
           hidden: !(windowScroll < 40 && isAnimationActive),
         })}
       >
@@ -51,11 +51,11 @@ const InitialLoading = ({ windowScroll, isAnimationActive }: Props) => {
       </div>
       <ActionDonuts isAnimationActive={isAnimationActive} />
       <Image
-        className={classNames(
-          'bottom-0 z-[2] flex shrink-0 max-xl:static max-lg:max-w-[90vw] max-lg:px-5 max-lg:pb-5 max-lg:pt-[150px]',
+        className={cn(
+          'bottom-0 z-[2] flex shrink-0 max-xl:static max-xl:max-w-[90vw] max-xl:px-5 max-xl:pb-5 max-xl:pt-[9.375rem]',
           {
-            'absolute max-w-[770px]': isAnimationActive,
-            'max-w-[90vw] px-5 pb-5 pt-[150px]': !isAnimationActive,
+            'absolute max-w-[48.125rem]': isAnimationActive,
+            'max-w-[90vw] px-5 pb-5 pt-[9.375rem]': !isAnimationActive,
           },
         )}
         src="/img/cat.svg"
