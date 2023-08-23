@@ -3,6 +3,7 @@ import { Fragment, forwardRef, useEffect, useRef, useState, type ForwardedRef, t
 
 import type { LandingSection } from '@/shared/types/common';
 
+import CLASSES from './constants';
 import type { Props, Content } from './types';
 import { AboutUs, Footer, HowItWorks, Roadmap, TitleAndDescription, Waves, WhyChooseUs } from '..';
 
@@ -79,12 +80,10 @@ const LandingContent = forwardRef(
       setCurrentSection(getRefSection());
     }, [windowScroll]);
 
-    const paddingClasses = 'pl-[25rem] pr-20 max-xl:pl-[3.125rem] max-xl:pr-[3.125rem] max-sm:pl-5 max-sm:pr-5';
-
     const content: Content = [
       {
         element: (
-          <div className={paddingClasses} id="home" ref={homeRef}>
+          <div className={CLASSES} id="home" ref={homeRef}>
             <TitleAndDescription isActive={isHomeAnimationActive} />
           </div>
         ),
@@ -97,7 +96,7 @@ const LandingContent = forwardRef(
 
       {
         element: (
-          <div className={cn(paddingClasses, 'pb-20 max-lg:pb-15')} id="how-it-works" ref={howItWorksRef}>
+          <div className={cn(CLASSES, 'pb-20 max-lg:pb-15')} id="how-it-works" ref={howItWorksRef}>
             <HowItWorks />
           </div>
         ),
@@ -111,7 +110,7 @@ const LandingContent = forwardRef(
       {
         element: (
           <div
-            className={cn(paddingClasses, 'bg-[url("/img/section-cat.svg")] bg-100% bg-0-100% bg-no-repeat pb-40 pt-0')}
+            className={cn(CLASSES, 'bg-[url("/img/section-cat.svg")] bg-100% bg-0-100% bg-no-repeat pb-40 pt-0')}
             id="why-choose-us"
             ref={whyChooseUsRef}
           >
@@ -124,7 +123,7 @@ const LandingContent = forwardRef(
       },
       {
         element: (
-          <div className={cn(paddingClasses, 'pt-0 max-sm:pt-12')} id="about-us" ref={aboutUsRef}>
+          <div className={cn(CLASSES, 'pt-0 max-sm:pt-12')} id="about-us" ref={aboutUsRef}>
             <AboutUs />
           </div>
         ),
@@ -137,7 +136,7 @@ const LandingContent = forwardRef(
 
       {
         element: (
-          <div className={cn(paddingClasses, 'select-none overflow-hidden bg-black pt-0')} id="roadmap">
+          <div className={cn(CLASSES, 'select-none overflow-hidden bg-black pt-0')} id="roadmap">
             <Roadmap isActive={isRoadmapAnimationActive} />
           </div>
         ),
