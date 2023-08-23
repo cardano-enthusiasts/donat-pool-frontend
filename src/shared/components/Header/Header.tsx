@@ -1,14 +1,14 @@
 'use client';
-
+import cn from 'classnames';
+import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
 
 import { useAppSelector } from '@/redux/hooks';
 import { ROUTES } from '@/shared/constants';
 
-import { Inner, Links, Wrapper, LinkWrapper, Icon, LogoWrapper, LinksAndButton, Line } from './Header.styled';
 import type { Props } from './types';
-import { Button, Logo, WalletButton } from '..';
+import { Logo, StandardButton, WalletButton } from '..';
 
 const Header = ({ currentPage = null }: Props) => {
   const links = [
@@ -23,41 +23,57 @@ const Header = ({ currentPage = null }: Props) => {
   const connectWalletStatus = useAppSelector((state) => state.connectWallet.requestStatus);
 
   return (
-    <Wrapper isMenuOpen={isMenuOpen}>
-      <Inner isMenuOpen={isMenuOpen}>
-        {!isMenuOpen && (
-          <LogoWrapper>
-            <Logo />
-          </LogoWrapper>
-        )}
+    <header
+      className={cn('base-wrapper bg-red max-lg:relative max-lg:w-screen', {
+        'z-[999] min-h-screen pt-36': isMenuOpen,
+      })}
+    >
+      <div
+        className={cn('max-w-480 flex w-full items-center justify-between px-0 py-8 max-xl:flex-col max-xl:gap-7', {
+          'max-lg:items-start': !isMenuOpen,
+        })}
+      >
+        {!isMenuOpen && <Logo />}
         {connectWalletStatus === 'success' ? (
-          <LinksAndButton isMenuOpen={isMenuOpen}>
-            <Links>
+          <div className={cn('flex max-lg:flex-col max-lg:gap-10', { 'max-lg:hidden': !isMenuOpen })}>
+            <div className="mx-10 flex gap-7 text-lg font-bold max-lg:flex-col max-lg:items-center">
               {links.map(({ title, href, id }) => (
-                <LinkWrapper key={id} {...(currentPage ? { isActive: href === currentPage } : {})}>
-                  <Link href={href}>{title}</Link>
-                </LinkWrapper>
+                <div className="shrink-0" key={id}>
+                  <Link
+                    href={href}
+                    className={cn({
+                      'text-yellow': href === currentPage,
+                      'text-white': href !== currentPage,
+                    })}
+                  >
+                    {title}
+                  </Link>
+                </div>
               ))}
-            </Links>
-            <Line />
+            </div>
+            <div className="mr-10 w-0.5 bg-purple max-lg:h-0.5 max-lg:w-full" />
             <WalletButton />
-          </LinksAndButton>
+          </div>
         ) : (
-          <Button href={ROUTES.newFundraising} primaryColor="yellow" secondaryColor="blue" fontColor="black">
-            Start a fundraiser
-          </Button>
+          <div className={cn({ 'max-lg:hidden': !isMenuOpen })}>
+            <StandardButton href={ROUTES.newFundraising} primaryColor="yellow" secondaryColor="blue" fontColor="black">
+              Start a fundraiser
+            </StandardButton>
+          </div>
         )}
-      </Inner>
+      </div>
 
-      <Icon
+      <Image
+        className="hidden max-lg:absolute max-lg:right-[1.875rem] max-lg:top-8 max-lg:block max-lg:h-10 max-lg:w-10"
+        src={`/icons/${isMenuOpen ? 'close' : 'menu'}.svg`}
+        alt="close icon"
+        width={50}
+        height={50}
         onClick={() => {
           setIsMenuOpen(!isMenuOpen);
         }}
-        isMenuOpen={isMenuOpen}
-        src={`/icons/${isMenuOpen ? 'close' : 'menu'}.svg`}
-        alt="close icon"
       />
-    </Wrapper>
+    </header>
   );
 };
 

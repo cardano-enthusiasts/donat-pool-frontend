@@ -1,6 +1,7 @@
-import type { ReactNode } from 'react';
+import { PropsWithChildren } from 'react';
 
-export interface Props {
+interface Props extends PropsWithChildren {
   isOpen: boolean;
-  children: ReactNode;
 }
+
+export type { Props };

@@ -1,4 +1,6 @@
-export interface Props {
+interface Props {
   windowScroll: number;
   isAnimationActive: boolean;
 }
+
+export type { Props };

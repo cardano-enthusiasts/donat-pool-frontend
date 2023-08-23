@@ -5,7 +5,6 @@ import Script from 'next/script';
 
 import StoreProvider from '@/redux/Provider';
 import type { PropsWithChildren } from '@/shared/types';
-import StyledComponentsProvider from '@/StyledComponentsProvider';
 
 import './global.css';
 
@@ -46,9 +45,7 @@ export default function Layout({ children }: PropsWithChildren) {
       lang="en"
     >
       <body>
-        <StyledComponentsProvider>
-          <StoreProvider>{children}</StoreProvider>
-        </StyledComponentsProvider>
+        <StoreProvider>{children}</StoreProvider>
         <Script src="/offchain/index.js" />
       </body>
     </html>

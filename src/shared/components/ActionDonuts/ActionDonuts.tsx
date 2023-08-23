@@ -1,6 +1,7 @@
+import cn from 'classnames';
 import { Fragment } from 'react';
 
-import { Column1, Column2, Wrapper } from './ActionDonuts.styled';
+import styles from './ActionDonuts.module.css';
 import type { Props } from './types';
 
 const ActionDonuts = ({ isAnimationActive }: Props) => {
@@ -9,8 +10,8 @@ const ActionDonuts = ({ isAnimationActive }: Props) => {
     for (let i = 0; i < 6; i++) {
       donuts.push(
         <Fragment key={i}>
-          <Column1 />
-          <Column2 />
+          <div className={styles.column1} />
+          <div className={styles.column2} />
         </Fragment>,
       );
     }
@@ -18,10 +19,18 @@ const ActionDonuts = ({ isAnimationActive }: Props) => {
   };
 
   return (
-    <Wrapper isAnimationActive={isAnimationActive}>
+    <div
+      className={cn(
+        styles.wrapper,
+        {
+          absolute: isAnimationActive === false,
+        },
+        'bg-red',
+      )}
+    >
       {getColumns()}
-      <Column1 />
-    </Wrapper>
+      <div className={styles.column1} />
+    </div>
   );
 };
 

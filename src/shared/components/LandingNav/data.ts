@@ -19,7 +19,7 @@ const getSections = (
     id: 'why-choose-us',
   },
   {
-    title: 'About us',
+    title: 'Meet our team',
     isActive: currentSection === 'about-us',
     id: 'about-us',
   },
@@ -30,4 +30,22 @@ const getSections = (
   },
 ];
 
-export { getSections };
+const wrapperVariants: { [key in LandingSection]: string } = {
+  home: 'max-xl:bg-blue',
+  'how-it-works': 'max-xl:bg-green',
+  'why-choose-us': 'max-xl:bg-red',
+  'about-us': 'max-xl:bg-yellow',
+  roadmap: 'max-xl:bg-black',
+  'contact-us': 'max-xl:bg-black',
+};
+
+const linkVariants: { [key in LandingSection]: string } = {
+  home: 'text-green max-xl:text-white',
+  'how-it-works': 'text-red max-xl:text-yellow',
+  'why-choose-us': 'text-yellow max-xl:text-blue',
+  'about-us': 'text-green max-xl:text-red',
+  roadmap: 'text-blue max-xl:text-green',
+  'contact-us': 'text-blue max-xl:text-green',
+};
+
+export { getSections, wrapperVariants, linkVariants };

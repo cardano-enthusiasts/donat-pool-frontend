@@ -1,15 +1,14 @@
+import { PropsWithChildren } from 'react';
+
 import { Footer, Header } from '@/shared/components';
 
-import { Inner, Main } from './Service.styled';
-import type { Props } from './types';
-
-const Service = ({ children }: Props) => {
+const Service = ({ children }: PropsWithChildren) => {
   return (
     <>
       <Header />
-      <Main>
-        <Inner>{children}</Inner>
-      </Main>
+      <main className="base-wrapper">
+        <div className=" mx-0 mb-40 mt-20 w-full max-w-[49.375rem] max-sm:mb-15 max-sm:mt-10">{children}</div>
+      </main>
       <Footer />
     </>
   );

@@ -5,6 +5,7 @@ export const ROUTES = {
   newFundraising: '/new-project',
   roadmap: '/roadmap',
   faq: '/faq',
+  landingTutorial: '/#tutorial',
   termsOfUse: 'terms-of-use',
   mock: '/mock-address',
 } as const;

@@ -1,44 +1,52 @@
 import HTMLReactParser from 'html-react-parser';
+import Image from 'next/image';
 import { useState } from 'react';
 
-import { data } from './data';
-import { Description, DescriptionItem, Gif, GifAndDescription, Item, Items, Order, Title } from './Tutorial.styled';
-import { Button } from '..';
+import { DATA } from './data';
+import styles from './Tutorial.module.css';
+import { DashedButton } from '..';
 
 const Tutorial = () => {
   const [isOpen, setIsOpen] = useState(true);
 
   return (
     <div id="tutorial">
-      <Button
-        themeType="dashed"
+      <DashedButton
         primaryColor="blue"
+        secondaryColor="red"
+        backgroundColor="green"
+        isClickedTheme={isOpen}
         onClick={() => {
           setIsOpen(!isOpen);
         }}
-        isClickedTheme={isOpen}
       >
         Watch the tutorial
-      </Button>
+      </DashedButton>
       {isOpen && (
-        <Items>
-          {data.map(({ order, title, src, description }) => {
+        <div className="mt-15">
+          {DATA.map(({ order, title, src, description }) => {
             return (
-              <Item key={order}>
-                <Order>{order}</Order>
-                <Title>{title}</Title>
-                <GifAndDescription>
-                  <Gif src={`/gif/${src}`} alt="tutorial step" />
-                  <Description>
+              <div className="mb-[5.375rem] max-md:mb-10" key={order}>
+                <div className="mb-2 text-xl font-bold text-red">{order}</div>
+                <div className="mb-6 font-rammetto-one text-xl leading-[120%] text-black">{title}</div>
+                <div className="flex gap-[1.875rem] max-2xl:flex-col">
+                  <Image
+                    className="w-full max-w-[40.625rem] shrink-0 rounded-md border-[0.75rem] border-yellow shadow-gif"
+                    src={src}
+                    alt="tutorial step"
+                  />
+                  <ul className={`${styles.description} m-0 list-disc pl-5`}>
                     {description.map((item, index) => (
-                      <DescriptionItem key={index}>{HTMLReactParser(item)}</DescriptionItem>
+                      <li className="mb-2.5 text-sm" key={index}>
+                        {HTMLReactParser(item)}
+                      </li>
                     ))}
-                  </Description>
-                </GifAndDescription>
-              </Item>
+                  </ul>
+                </div>
+              </div>
             );
           })}
-        </Items>
+        </div>
       )}
     </div>
   );

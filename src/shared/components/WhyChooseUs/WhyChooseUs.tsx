@@ -1,60 +1,54 @@
 import HTMLReactParser from 'html-react-parser';
 
-import { primaryInfoSections, secondaryInfoSections } from './data';
-import {
-  Wrapper,
-  Title,
-  Description,
-  InfoSection,
-  ButtonAndInfo,
-  MinorDescription,
-  MinorInfoSection,
-  ButtonWrapper,
-} from './WhyChooseUs.styled';
-import { Button } from '../Button/Button';
+import { PRIMARY_SECTIONS, SECONDARY_SECTIONS } from './data';
+import { StandardButton } from '..';
 
 const WhyChooseUs = () => {
+  const titleClasses = 'mb-6 text-5xl font-bold leading-normal max-lg:text-[2rem] max-lg:leading-tight';
+  const descriptionClasses = 'text-2xl max-md:text-lg';
   return (
-    <Wrapper>
-      {primaryInfoSections.map(({ title, description }) => (
-        <InfoSection key={title}>
-          <Title>{title}</Title>
-          <Description>{HTMLReactParser(description)}</Description>
-        </InfoSection>
+    <div className="text-black">
+      {PRIMARY_SECTIONS.map(({ title, description }) => (
+        <div className="mb-10" key={title}>
+          <h3 className={titleClasses}>{title}</h3>
+          <div className={descriptionClasses}>{HTMLReactParser(description)}</div>
+        </div>
       ))}
-      <ButtonAndInfo>
-        <ButtonWrapper>
-          <Button
+      <div className="mb-10 flex items-center gap-6 max-lg:flex-col max-lg:items-start">
+        <div className="shrink-0">
+          <StandardButton
             primaryColor="blue"
             secondaryColor="green"
             fontColor="white"
             href="https://github.com/fullstack-development/donat-pool-onchain"
+            isAnimation={true}
           >
             On-chain code
-          </Button>
-        </ButtonWrapper>
+          </StandardButton>
+        </div>
 
-        <ButtonWrapper>
-          <Button
+        <div className="shrink-0">
+          <StandardButton
             primaryColor="green"
             secondaryColor="blue"
             fontColor="black"
             href="https://github.com/fullstack-development/donat-pool-offchain"
+            isAnimation={true}
           >
             Off-chain code
-          </Button>
-        </ButtonWrapper>
+          </StandardButton>
+        </div>
 
-        <MinorDescription>
+        <div>
           We made the code of our smart contracts publicly available so that you can be sure the system is secure.
-        </MinorDescription>
-      </ButtonAndInfo>
-      <Title>Donate with ease</Title>
-      <MinorInfoSection>
-        <Description>{HTMLReactParser(secondaryInfoSections.description1)}</Description>
-        <Description>{HTMLReactParser(secondaryInfoSections.description2)}</Description>
-      </MinorInfoSection>
-    </Wrapper>
+        </div>
+      </div>
+      <h3 className={titleClasses}>Donate with ease</h3>
+      <div className="flex gap-10 max-sm:flex-col">
+        <div className={descriptionClasses}>{HTMLReactParser(SECONDARY_SECTIONS.description1)}</div>
+        <div className={descriptionClasses}>{HTMLReactParser(SECONDARY_SECTIONS.description2)}</div>
+      </div>
+    </div>
   );
 };
 

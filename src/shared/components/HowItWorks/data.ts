@@ -1,4 +1,4 @@
-const items = [
+const ITEMS = [
   {
     title: 'Easily register with a single click',
     description: 'Create your account by just connecting your wallet',
@@ -23,4 +23,4 @@ const items = [
   },
 ];
 
-export { items };
+export { ITEMS };

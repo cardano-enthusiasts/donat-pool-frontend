@@ -1,8 +1,12 @@
-const data = [
+import tutorial1 from 'public/gif/tutorial-1.gif';
+import tutorial2 from 'public/gif/tutorial-2.gif';
+import tutorial3 from 'public/gif/tutorial-3.gif';
+
+const DATA = [
   {
     order: '01.',
     title: 'Wallet creation',
-    src: 'tutorial-1.gif',
+    src: tutorial1,
     description: [
       'Open Google Chrome/Chromium/Brave/Edge browser.',
       'Install the Nami Wallet extension from <a href="https://namiwallet.io/" target="_blank" rel="noreferrer">https://namiwallet.io/.</a>',
@@ -16,7 +20,7 @@ const data = [
   {
     order: '02.',
     title: 'Replenishment via Faucet',
-    src: 'tutorial-2.gif',
+    src: tutorial2,
     description: [
       'After you&#39;ve created  the wallet, it has a zero balance.',
       'Click the account icon and go to Settings &#8594 Network. Choose Preprod here.',
@@ -29,7 +33,7 @@ const data = [
   {
     order: '03.',
     title: 'Adding collateral',
-    src: 'tutorial-3.gif',
+    src: tutorial3,
     description: [
       'To start spending TADA in transactions your wallet should have collateral.',
       'Click the account icon and go to &#34;Collateral&#34;. Enter your account password and click &#34;Confirm&#34; to lock 5 ADA as collateral.',
@@ -38,4 +42,4 @@ const data = [
   },
 ];
 
-export { data };
+export { DATA };

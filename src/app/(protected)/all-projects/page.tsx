@@ -4,11 +4,9 @@ import { useRouter } from 'next/navigation';
 import { useEffect } from 'react';
 
 import { Common } from '@/layouts';
-import { Button, ProjectCard } from '@/shared/components';
+import { ProjectCard, StandardButton } from '@/shared/components';
 import { ROUTES } from '@/shared/constants';
 import { useFundraisings } from '@/shared/hooks';
-
-import { CardsWrapper, CreateButton, Title, TitleAndButton } from './AllProjects.styled';
 
 const Page = () => {
   const router = useRouter();
@@ -24,10 +22,12 @@ const Page = () => {
 
   return (
     <Common>
-      <TitleAndButton>
-        <Title>All Donation pools</Title>
-        <CreateButton>
-          <Button
+      <div className="mb-14 flex items-center justify-between gap-14 text-center max-md:mb-8 max-md:flex-col max-md:gap-5">
+        <h1 className="font-rammetto-one text-[3.375rem] leading-[104%] text-red max-lg:text-[2.25rem] max-sm:text-[2.25rem]">
+          All Donation pools
+        </h1>
+        <div className="max-md:fixed max-md:bottom-15 max-md:right-8 max-md:z-10">
+          <StandardButton
             primaryColor="red"
             secondaryColor="blue"
             fontColor="white"
@@ -36,19 +36,19 @@ const Page = () => {
             }}
           >
             Create a new project
-          </Button>
-        </CreateButton>
-      </TitleAndButton>
+          </StandardButton>
+        </div>
+      </div>
       {fundraisingsAreBeingFetched && <div>fundraisings are being fetched</div>}
       {fundraisings && (
-        <CardsWrapper>
+        <div className="grid grid-cols-projects gap-10 max-sm:grid-cols-1 max-sm:gap-8">
           {fundraisings
             .filter(({ isCompleted }) => !isCompleted)
             .sort((fundraising1, fundraising2) => Number(fundraising1.deadline) - Number(fundraising2.deadline))
             .map((fundraising) => (
               <ProjectCard key={fundraising.threadTokenCurrency} data={fundraising} linkSection="all-projects" />
             ))}
-        </CardsWrapper>
+        </div>
       )}
       {fetchFundraisingsError && <div className="text-error">An error happened while fetching fundraisings</div>}
     </Common>

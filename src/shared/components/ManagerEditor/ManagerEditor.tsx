@@ -4,10 +4,9 @@ import { useAppDispatch, useAppSelector } from '@/redux/hooks';
 import { reset } from '@/redux/slices/protocolUpdating';
 import { useUpdateProtocol } from '@/shared/hooks';
 
-import { defaultParams } from './data';
-import { ButtonWrapper, Line, Form, InputWrapper, Hint } from './ManagerEditor.styled';
+import { DEFAULT_PARAMS } from './data';
 import type { Props } from './types';
-import { Button, Input, ModalError, ModalLoading, ModalSuccess } from '..';
+import { Input, ModalError, ModalLoading, ModalSuccess, StandardButton } from '..';
 
 const ManagerEditor = ({ config }: Props) => {
   const [params, setParams] = useState(config);
@@ -62,10 +61,10 @@ const ManagerEditor = ({ config }: Props) => {
 
   return (
     <>
-      <Form onSubmit={handleSubmit}>
-        <InputWrapper>
-          {defaultParams.map(({ title, id, hint }) => (
-            <Line key={id}>
+      <form className="w-full max-w-[52.5rem]" onSubmit={handleSubmit}>
+        <div className="grid grid-cols-2 gap-5 max-md:grid-cols-1">
+          {DEFAULT_PARAMS.map(({ title, id, hint }) => (
+            <div className="flex w-full items-center justify-between" key={id}>
               <Input
                 onChange={(event) => {
                   handleInputChange(id, event);
@@ -74,17 +73,17 @@ const ManagerEditor = ({ config }: Props) => {
                 value={params[id]}
                 type="number"
               >
-                {title} / <Hint>{hint}</Hint>
+                {title} / <span className="text-gray">{hint}</span>
               </Input>
-            </Line>
+            </div>
           ))}
-        </InputWrapper>
-        <ButtonWrapper>
-          <Button type="submit" width="100%" primaryColor="red" secondaryColor="blue" fontColor="white">
+        </div>
+        <div className="mt-5 flex w-full content-center">
+          <StandardButton type="submit" isFullWidth={true} primaryColor="red" secondaryColor="blue" fontColor="white">
             Save
-          </Button>
-        </ButtonWrapper>
-      </Form>
+          </StandardButton>
+        </div>
+      </form>
       <ModalLoading isOpen={isModalLoadingOpen} title="Data saving" description="Please wait a bit" />
       <ModalError
         isOpen={isModalErrorOpen}

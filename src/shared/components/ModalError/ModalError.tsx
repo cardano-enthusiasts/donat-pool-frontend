@@ -1,18 +1,22 @@
-import { ErrorText, Img, Inner, Title } from './ModalError.styled';
+import Image from 'next/image';
+
+import styles from './ModalError.module.css';
 import type { Props } from './types';
-import { Button, Modal } from '../.';
+import { DoubleBorderedButton, Modal } from '../.';
 
 const ModalError = ({ isOpen, title, errorText = '', onClose }: Props) => {
   return (
     <Modal isOpen={isOpen}>
-      <Title>{title}</Title>
-      <Inner>
-        <Img src="/img/bitten-donut.svg" alt="bitten donut" />
-        <ErrorText>{errorText}</ErrorText>
-        <Button themeType="double-bordered" primaryColor="blue" width="100%" onClick={onClose} tertiaryColor="white">
+      <h1 className="mb-6 text-center font-rammetto-one text-4xl leading-[104%] text-red max-lg:text-[2.25rem] max-sm:text-[2.25rem]">
+        {title}
+      </h1>
+      <div className="flex flex-col items-center">
+        <Image className="mb-10" src="/img/bitten-donut.svg" alt="bitten donut" width={140} height={140} />
+        <div className={styles.text}>{errorText}</div>
+        <DoubleBorderedButton primaryColor="blue" isFullWidth={true} backgroundColor="white" onClick={onClose}>
           Close button
-        </Button>
-      </Inner>
+        </DoubleBorderedButton>
+      </div>
     </Modal>
   );
 };
