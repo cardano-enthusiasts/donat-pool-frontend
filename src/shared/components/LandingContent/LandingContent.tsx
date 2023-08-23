@@ -96,7 +96,7 @@ const LandingContent = forwardRef(
 
       {
         element: (
-          <div className={cn(CLASSES, 'pb-20 max-lg:pb-15')} id="how-it-works" ref={howItWorksRef}>
+          <div className={`${CLASSES} pb-20 max-lg:pb-15`} id="how-it-works" ref={howItWorksRef}>
             <HowItWorks />
           </div>
         ),
@@ -110,7 +110,7 @@ const LandingContent = forwardRef(
       {
         element: (
           <div
-            className={cn(CLASSES, 'bg-[url("/img/section-cat.svg")] bg-100% bg-0-100% bg-no-repeat pb-40 pt-0')}
+            className={`${CLASSES} bg-[url("/img/section-cat.svg")] bg-100% bg-0-100% bg-no-repeat pb-40 pt-0`}
             id="why-choose-us"
             ref={whyChooseUsRef}
           >
@@ -136,7 +136,7 @@ const LandingContent = forwardRef(
 
       {
         element: (
-          <div className={cn(CLASSES, 'select-none overflow-hidden bg-black pt-0')} id="roadmap">
+          <div className={`${CLASSES} select-none overflow-hidden bg-black pt-0`} id="roadmap">
             <Roadmap isActive={isRoadmapAnimationActive} />
           </div>
         ),

@@ -30,9 +30,7 @@ const InitialLoading = ({ windowScroll, isAnimationActive }: Props) => {
 
   return (
     <div
-      className={cn(
-        'relative flex h-[93.75rem] w-full items-start justify-center overflow-hidden bg-red max-xl:h-auto',
-      )}
+      className="relative flex h-[93.75rem] w-full items-start justify-center overflow-hidden bg-red max-xl:h-auto"
       ref={wrapperRef}
     >
       <div

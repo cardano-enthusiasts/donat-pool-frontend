@@ -65,7 +65,7 @@ const Input = ({
             className={inputClasses}
           />
         )}
-        {error !== '' && error !== null && <div className={cn(styles.message, 'bg-error text-white')}>{error}</div>}
+        {error !== '' && error !== null && <div className={`${styles.message} bg-error text-white`}>{error}</div>}
       </div>
     </div>
   );
