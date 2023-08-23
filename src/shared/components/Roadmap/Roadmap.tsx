@@ -21,15 +21,12 @@ const Roadmap = ({ isActive }: Props) => {
   return (
     <div className="relative">
       <div
-        className={cn(
-          'leading-1.5 relative h-[43.75rem] w-[90%] rotate-[30deg] overflow-hidden text-4xl font-bold max-lg:left-0 max-lg:ml-0 max-sm:text-xl',
-          styles.wrapper,
-        )}
+        className={`${styles.wrapper} leading-1.5 relative h-[43.75rem] w-[90%] rotate-[30deg] overflow-hidden text-4xl font-bold max-lg:left-0 max-lg:ml-0 max-sm:text-xl`}
       >
         <div className={cn('absolute top-[100%] text-yellow', { 'animate-roadmap': isActive })}>
           {roadmapText.phases.map(({ title, items }) => (
             <Fragment key={title}>
-              <div className={cn('font-bold text-red')}>{HTMLReactParser(title)}</div>
+              <div className="font-bold text-red">{HTMLReactParser(title)}</div>
               <ul className="list-disc pl-[3.125rem]">
                 {items.map((item) => {
                   return item.title ? <li key={item.id}>{item.title}</li> : getSubLis(item);

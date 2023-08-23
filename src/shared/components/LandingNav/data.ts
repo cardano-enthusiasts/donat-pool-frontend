@@ -31,21 +31,21 @@ const getSections = (
 ];
 
 const wrapperVariants: { [key in LandingSection]: string } = {
-  home: 'max-[1100px]:bg-blue',
-  'how-it-works': 'max-[1100px]:bg-green',
-  'why-choose-us': 'max-[1100px]:bg-red',
-  'about-us': 'max-[1100px]:bg-yellow',
-  roadmap: 'max-[1100px]:bg-black',
-  'contact-us': 'max-[1100px]:bg-black',
+  home: 'max-xl:bg-blue',
+  'how-it-works': 'max-xl:bg-green',
+  'why-choose-us': 'max-xl:bg-red',
+  'about-us': 'max-xl:bg-yellow',
+  roadmap: 'max-xl:bg-black',
+  'contact-us': 'max-xl:bg-black',
 };
 
 const linkVariants: { [key in LandingSection]: string } = {
-  home: 'text-green max-[1100px]:text-white',
-  'how-it-works': 'text-red max-[1100px]:text-yellow',
-  'why-choose-us': 'text-yellow max-[1100px]:text-blue',
-  'about-us': 'text-green max-[1100px]:text-red',
-  roadmap: 'text-blue max-[1100px]:text-green',
-  'contact-us': 'text-blue max-[1100px]:text-green',
+  home: 'text-green max-xl:text-white',
+  'how-it-works': 'text-red max-xl:text-yellow',
+  'why-choose-us': 'text-yellow max-xl:text-blue',
+  'about-us': 'text-green max-xl:text-red',
+  roadmap: 'text-blue max-xl:text-green',
+  'contact-us': 'text-blue max-xl:text-green',
 };
 
 export { getSections, wrapperVariants, linkVariants };

@@ -1,14 +1,16 @@
 'use client';
-
+import cn from 'classnames';
 import { useParams, useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
 import { Common, Project } from '@/layouts';
-import { PrivateProjectsActions, RaisedCounter, Status } from '@/shared/components';
+import { PrivateProjectsActions, RaisedCounter } from '@/shared/components';
 import { ROUTES } from '@/shared/constants';
 import { formatDate } from '@/shared/helpers';
 import { useUserFundraisings } from '@/shared/hooks';
 import type { Fundraising } from '@/shared/types';
+
+import THEME from './constants';
 
 const Page = () => {
   const params = useParams();
@@ -27,6 +29,8 @@ const Page = () => {
     }
   }, [fundraisings, params.id]);
 
+  const getTheme = (isCompleted: boolean) => (isCompleted ? THEME.completed : THEME.active);
+
   return (
     currentProject && (
       <Common>
@@ -39,7 +43,13 @@ const Page = () => {
         >
           <div className="max-w-[37.5rem]">
             <div className="flex items-center justify-between border-b-2 border-t-2 border-black py-7">
-              <Status isActive={!currentProject.isCompleted} />
+              <div
+                className={cn(`font-bold ${getTheme(currentProject.isCompleted).classes} rounded-md border-2 px-3 py-2
+
+              text-sm`)}
+              >
+                {getTheme(currentProject.isCompleted).text}
+              </div>
               <div className="text-xl font-bold">Until {formatDate(Number(currentProject.deadline))}</div>
             </div>
             <div className="flex border-b-2 border-black py-6">

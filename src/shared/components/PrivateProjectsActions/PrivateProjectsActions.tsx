@@ -1,4 +1,3 @@
-import cn from 'classnames';
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
@@ -92,7 +91,7 @@ const PrivateProjectsActions = ({ project }: Props) => {
     </>
   ) : (
     <>
-      <div className={cn(styles.link, 'mt-6 flex items-center gap-6 text-xl font-bold text-blue max-xl:flex-col')}>
+      <div className={`${styles.link} text-blue`}>
         {link.replace('my-projects', 'all-projects')}
         <div className="shrink-0">
           <DoubleBorderedButton backgroundColor="white" size="s" primaryColor="blue" onClick={handleCopyLinkClick}>

@@ -22,7 +22,7 @@ const LandingNav = forwardRef(
     }: Props,
     ref: ForwardedRef<HTMLDivElement>,
   ) => {
-    const mobileResolution = 1100;
+    const mobileResolution = 1280;
     const isContentShown = windowWidth > mobileResolution ? true : isOpen;
     const section = windowWidth > mobileResolution || currentSection !== 'contact-us' ? currentSection : 'roadmap';
     const wrapperRef = useRef<HTMLDivElement>(null);
@@ -38,12 +38,12 @@ const LandingNav = forwardRef(
         ref={wrapperRef}
         className={cn(
           styles.wrapper,
-          'fixed top-[5.625rem] max-3xl:left-[5.625rem] max-[1100px]:fixed max-[1100px]:left-0 max-[1100px]:top-0 max-[1100px]:flex max-[1100px]:w-[100vw] max-[1100px]:items-center max-[1100px]:justify-center',
+          'fixed top-[5.625rem] max-3xl:left-[5.625rem] max-xl:fixed max-xl:left-0 max-xl:top-0 max-xl:flex max-xl:w-[100vw] max-xl:items-center max-xl:justify-center',
           {
-            'z-[-1] max-[1100px]:z-[100]': currentSection === 'contact-us',
-            'z-[3] max-[1100px]:z-[100]': currentSection !== 'contact-us',
+            'z-[-1] max-xl:z-[100]': currentSection === 'contact-us',
+            'z-[3] max-xl:z-[100]': currentSection !== 'contact-us',
             hidden: windowScroll < 500 && isAnimationActive,
-            'max-[1100px]:h-[100vh] max-[1100px]:overflow-auto': isOpen,
+            'max-xl:h-[100vh] max-xl:overflow-auto': isOpen,
           },
           wrapperVariants[currentSection],
         )}
@@ -65,11 +65,11 @@ const LandingNav = forwardRef(
             </>
           )}
           {isContentShown && (
-            <div className="flex max-w-[15.3125rem] flex-col gap-6 max-[1100px]:max-w-[18.5rem] max-[1100px]:items-center">
+            <div className="flex max-w-[15.3125rem] flex-col gap-6 max-xl:max-w-[18.5rem] max-xl:items-center">
               {getSections(currentSection).map(({ title, isActive, id }) => (
                 <a
                   className={cn(
-                    'cursor-pointer font-rammetto-one leading-[104%] max-[1100px]:text-center',
+                    'cursor-pointer font-rammetto-one leading-[104%] max-xl:text-center',
                     {
                       'text-[3.375rem] max-sm:text-3xl': isActive,
                       'text-[0.9375rem] text-white max-sm:text-xs': !isActive,

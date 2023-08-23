@@ -10,7 +10,7 @@ const Waves = ({ color = 'blue', backgroundColor = 'transparent', isUpsideDown =
   const size = useWindowSize();
 
   const getWidthForViewBox = () => {
-    if (size.width < 1100) {
+    if (size.width < 1280) {
       return 600;
     }
     return 1000;
@@ -26,7 +26,7 @@ const Waves = ({ color = 'blue', backgroundColor = 'transparent', isUpsideDown =
   };
 
   return (
-    <div className={cn('relative z-[1] h-[6.25rem] text-center', colors[backgroundColor])}>
+    <div className={`text-center' relative z-[1] h-[6.25rem] ${colors[backgroundColor]}`}>
       <svg
         className={cn('relative mb-[-0.4375rem] h-[6.25rem] max-w-full', {
           'rotate-180': isUpsideDown,
@@ -46,7 +46,7 @@ const Waves = ({ color = 'blue', backgroundColor = 'transparent', isUpsideDown =
         </defs>
 
         <g className={cn(isMoving && styles.g)}>
-          <use className={cn(VARIANTS[color])} xlinkHref="#gentle-wave" x="48" y="0" />
+          <use className={VARIANTS[color]} xlinkHref="#gentle-wave" x="48" y="0" />
         </g>
       </svg>
     </div>
