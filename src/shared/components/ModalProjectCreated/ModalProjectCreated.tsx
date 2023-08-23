@@ -47,7 +47,7 @@ const ModalProjectCreated = ({ isOpen, onClose, path }: Props) => {
           </>
         ) : (
           <>
-            <a className={`${styles.link} mb-6 text-center text-xl font-bold text-blue`}>{link}</a>
+            <a className={`${styles.link} text-blue`}>{link}</a>
             <StandardButton
               primaryColor="red"
               secondaryColor="blue"

@@ -19,7 +19,7 @@ const DashedButton = ({
       <button
         className={cn(
           styles.common,
-          'border-2 border-dashed py-2.5 pl-5 pr-10 text-xl before:border-2 before:border-dashed',
+          'border-2 border-dashed before:border-2 before:border-dashed',
           VARIANTS.primary[primaryColor],
           VARIANTS.secondary[secondaryColor],
           VARIANTS.background[backgroundColor],
