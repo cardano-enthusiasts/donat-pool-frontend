@@ -1,4 +1,4 @@
-const theme = {
+const THEME = {
   active: {
     text: 'Active',
     classes: 'border-red text-red',
@@ -6,4 +6,4 @@ const theme = {
   completed: { text: 'Completed', classes: 'border-green text-green' },
 };
 
-export default theme;
+export default THEME;

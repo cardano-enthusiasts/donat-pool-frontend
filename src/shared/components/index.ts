@@ -39,7 +39,6 @@ export { TitleAndDescription } from './TitleAndDescription/TitleAndDescription';
 export { LandingContent } from './LandingContent/LandingContent';
 export { DropdownSection } from './DropdownSection/DropdownSection';
 export { AlertNote } from './AlertNote/AlertNote';
-export { Status } from './Status/Status';
 export { AccentButton } from './AccentButton/AccentButton';
 export { StandardButton } from './StandardButton/StandardButton';
 export { DashedButton } from './DashedButton/DashedButton';
