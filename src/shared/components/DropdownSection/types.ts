@@ -1,6 +1,7 @@
-import type { ReactNode } from 'react';
+import type { PropsWithChildren } from 'react';
 
-export interface Props {
+interface Props extends PropsWithChildren {
   title: string;
-  children: ReactNode;
 }
+
+export type { Props };

@@ -1,20 +1,24 @@
-import { Description, Img, Inner, Title, Wrapper } from './ModalSuccess.styled';
+import Image from 'next/image';
+
 import type { Props } from './types';
-import { Button, Modal } from '../.';
+import { DoubleBorderedButton, Modal } from '../.';
 
 const ModalSuccess = ({ description, isOpen, onClose }: Props) => {
+  const containerClasses = 'flex w-full flex-col items-center';
   return (
     <Modal isOpen={isOpen}>
-      <Wrapper>
-        <Title>Well done!</Title>
-        <Inner>
-          <Img src="/img/happy-cat.svg" alt="happy cat" />
-          <Description>{description}</Description>
-          <Button themeType="double-bordered" primaryColor="blue" tertiaryColor="white" width="100%" onClick={onClose}>
+      <div className={containerClasses}>
+        <h1 className="mb-6 text-center font-rammetto-one text-[3.375rem] leading-[104%] text-red max-lg:text-[2.25rem] max-sm:text-[2.25rem]">
+          Well done!
+        </h1>
+        <div className={containerClasses}>
+          <Image className="mb-10" src="/img/happy-cat.svg" alt="happy cat" width={140} height={140} />
+          <div className="mb-6">{description}</div>
+          <DoubleBorderedButton primaryColor="blue" backgroundColor="white" isFullWidth={true} onClick={onClose}>
             Close button
-          </Button>
-        </Inner>
-      </Wrapper>
+          </DoubleBorderedButton>
+        </div>
+      </div>
     </Modal>
   );
 };

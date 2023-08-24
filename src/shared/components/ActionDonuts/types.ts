@@ -1,3 +1,5 @@
-export interface Props {
+interface Props {
   isAnimationActive: boolean;
 }
+
+export type { Props };

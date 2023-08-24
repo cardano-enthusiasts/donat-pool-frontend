@@ -1,8 +1,7 @@
 import { useState } from 'react';
 
-import { Description, Title, Inner, ButtonsWrapper } from './ModalContactUs.styled';
 import type { Props } from './types';
-import { Button, Input, Modal } from '../.';
+import { DoubleBorderedButton, Input, Modal, StandardButton } from '../.';
 
 const ModalContactUs = ({ isOpen, onClose }: Props) => {
   const initialData = { contact: '', name: '', message: '' };
@@ -26,9 +25,11 @@ const ModalContactUs = ({ isOpen, onClose }: Props) => {
   return (
     <Modal isOpen={isOpen}>
       <form onSubmit={handleSubmit}>
-        <Inner>
-          <Title>Contact us</Title>
-          <Description>You can report about an error or write to us how we can help you.</Description>
+        <div className="flex flex-col items-center gap-6">
+          <h1 className="font-rammetto-one text-[3.375rem] leading-[104%] text-red max-lg:text-[2.25rem] max-sm:text-[2.25rem]">
+            Contact us
+          </h1>
+          <div>You can report about an error or write to us how we can help you.</div>
           <Input
             value={data.contact}
             onChange={(event) => {
@@ -58,16 +59,16 @@ const ModalContactUs = ({ isOpen, onClose }: Props) => {
           >
             Your Message
           </Input>
-        </Inner>
+        </div>
 
-        <ButtonsWrapper>
-          <Button onClick={handleCancelClick} primaryColor="blue" themeType="double-bordered" tertiaryColor="white">
+        <div className="mt-10 flex w-full gap-6">
+          <DoubleBorderedButton primaryColor="blue" backgroundColor="white" onClick={handleCancelClick}>
             Cancel
-          </Button>
-          <Button type="submit" primaryColor="red" secondaryColor="blue" fontColor="white" width="100%">
+          </DoubleBorderedButton>
+          <StandardButton type="submit" primaryColor="red" secondaryColor="blue" fontColor="white" isFullWidth={true}>
             Send
-          </Button>
-        </ButtonsWrapper>
+          </StandardButton>
+        </div>
       </form>
     </Modal>
   );

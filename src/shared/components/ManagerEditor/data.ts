@@ -1,6 +1,6 @@
 import type { Props } from './types';
 
-const defaultParams: Array<{
+const DEFAULT_PARAMS: Array<{
   title: string;
   id: keyof Props['config'];
   amount: number;
@@ -38,4 +38,4 @@ const defaultParams: Array<{
   },
 ];
 
-export { defaultParams };
+export { DEFAULT_PARAMS };

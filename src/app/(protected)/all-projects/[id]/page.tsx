@@ -4,13 +4,10 @@ import { useEffect, useState } from 'react';
 
 import { Common } from '@/layouts';
 import { reset } from '@/redux/slices/donating';
-import { Button, ModalDonate, ModalError, ModalLoading, ModalSuccess, RaisedCounter } from '@/shared/components';
+import { ModalDonate, ModalError, ModalLoading, ModalSuccess, AccentButton } from '@/shared/components';
 import { formatDate } from '@/shared/helpers';
 import { useAppDispatch, useAppSelector } from '@/shared/hooks';
-import { useQueriedFundraising } from '@/shared/hooks';
-import { useDonate } from '@/shared/hooks';
-
-import { ButtonWrapper, CounterWrapper, Duration, Title, Wrapper } from './PublicProject.styled';
+import { useQueriedFundraising, useDonate } from '@/shared/hooks';
 
 const Page = () => {
   const dispatch = useAppDispatch();
@@ -50,27 +47,28 @@ const Page = () => {
       <Common>
         {fundraisingIsBeingFetched && <div>fundraising is being fetched</div>}
         {fundraising && (
-          <Wrapper>
-            <Title>{fundraising.title}</Title>
-            <Duration>Until {formatDate(Number(fundraising.deadline))} </Duration>
-            <CounterWrapper>
-              <RaisedCounter
-                raised={Number(fundraising.raisedAmt) / 1000000}
-                goal={Number(fundraising.goal) / 1000000}
-              />
-            </CounterWrapper>
+          <div className="pb-40 pt-20">
+            <h1 className="mb-6 overflow-hidden text-ellipsis whitespace-nowrap text-center font-rammetto-one text-[3.375rem] leading-[104%] text-red max-lg:text-[2.25rem] max-sm:text-[2.25rem]">
+              {fundraising.title}
+            </h1>
+            <div className="border-b-2 border-t-2 border-black py-6 text-center text-xl font-bold">
+              Until {formatDate(Number(fundraising.deadline))}
+            </div>
+            <div className="mx-0 mb-10 mt-6" />
 
-            <ButtonWrapper>
-              <Button
-                themeType="accent"
+            <div className="flex justify-center">
+              <AccentButton
+                primaryColor="yellow"
+                secondaryColor="red"
+                fontColor="red"
                 onClick={() => {
                   setIsModalOpen(true);
                 }}
               >
                 Donate
-              </Button>
-            </ButtonWrapper>
-          </Wrapper>
+              </AccentButton>
+            </div>
+          </div>
         )}
         {fetchFundraisingError && <div className="text-error">An error happened while fetching the fundraising</div>}
       </Common>

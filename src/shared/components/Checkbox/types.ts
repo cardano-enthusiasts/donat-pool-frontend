@@ -1,8 +1,6 @@
-import type { ReactNode } from 'react';
-
-export interface Props {
-  className?: string;
+interface Props extends React.PropsWithChildren {
   isChecked: boolean;
   onChange: () => void;
-  children: ReactNode;
 }
+
+export type { Props };

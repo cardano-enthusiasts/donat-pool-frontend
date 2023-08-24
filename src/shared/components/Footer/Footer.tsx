@@ -1,12 +1,11 @@
 'use client';
-
+import cn from 'classnames';
 import Link from 'next/link';
 import { useState } from 'react';
 
-import { Button, Socials, ModalContactUs } from '@/shared/components';
+import { Socials, ModalContactUs, StandardButton } from '@/shared/components';
 
 import { LINKS } from './constants';
-import { Links, Wrapper, LinkWrapper, Inner, IconAndLinks } from './Footer.styled';
 import type { Props } from './types';
 
 const Footer = ({ backgroundColor = 'blue' }: Props) => {
@@ -14,33 +13,36 @@ const Footer = ({ backgroundColor = 'blue' }: Props) => {
 
   return (
     <>
-      <Wrapper backgroundColor={backgroundColor}>
-        <Inner>
-          <IconAndLinks>
+      <footer
+        className={cn('base-wrapper', {
+          'bg-blue': backgroundColor === 'blue',
+          'bg-black': backgroundColor === 'black',
+        })}
+      >
+        <div className="max-w-480 flex w-full items-center justify-between pb-20 pt-10 max-lg:flex-col max-lg:gap-10">
+          <div className="flex items-center gap-32 max-lg:flex-col max-lg:gap-10">
             <Socials />
-            <Links>
+            <div className=" flex gap-20 font-rammetto-one text-white max-xl:flex-col max-xl:gap-4 max-lg:items-center">
               {LINKS.map(({ title, href, target }) => (
-                <LinkWrapper key={title}>
-                  <Link href={href} target={target}>
-                    {title}
-                  </Link>
-                </LinkWrapper>
+                <Link href={href} target={target} key={title} className="text-[0.9375rem] leading-snug">
+                  {title}
+                </Link>
               ))}
-            </Links>
-          </IconAndLinks>
-          <Button
+            </div>
+          </div>
+          <StandardButton
             primaryColor="red"
             secondaryColor="green"
             size="s"
+            fontColor="white"
             onClick={() => {
               setIsModalContactUsOpen(true);
             }}
-            fontColor="white"
           >
             Contact us
-          </Button>
-        </Inner>
-      </Wrapper>
+          </StandardButton>
+        </div>
+      </footer>
       <ModalContactUs
         isOpen={isModalContactUsOpen}
         onClose={() => {

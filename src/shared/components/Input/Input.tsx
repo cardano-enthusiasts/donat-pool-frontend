@@ -1,4 +1,6 @@
-import { InputContainer, Message, StyledInput, StyledTextArea, Title, Wrapper } from './Input.styled';
+import cn from 'classnames';
+
+import styles from './Input.module.css';
 import type { Props } from './types';
 
 const Input = ({
@@ -24,17 +26,34 @@ const Input = ({
     placeholder,
     maxLength,
     error,
-    fontColor,
     disabled: isDisabled,
   };
+
+  const isError = error || error === '';
+  const inputClasses = cn(styles.input, 'border-2', {
+    'border-error text-error': isError,
+    'border-black text-green': !isError && fontColor === 'green',
+    'border-black text-yellow': !isError && fontColor === 'yellow',
+    'border-black text-black': !isError && fontColor === 'black',
+  });
   return (
-    <Wrapper>
-      <Title>{children}</Title>
-      <InputContainer hint={hint}>
+    <div className="w-full">
+      <div className="mb-2">{children}</div>
+      <div
+        data-hint={hint}
+        className={cn(
+          'relative',
+          {
+            'after:absolute after:right-4 after:top-1/2 after:translate-y-[-50%] after:text-gray-secondary':
+              Boolean(hint),
+          },
+          'after:content-[attr(data-hint)]',
+        )}
+      >
         {multiline ? (
-          <StyledTextArea {...attributes} {...{ 'data-type': dataAttr }} rows={rows} />
+          <textarea {...attributes} {...{ 'data-type': dataAttr }} rows={rows} className={inputClasses} />
         ) : (
-          <StyledInput
+          <input
             type={type}
             {...attributes}
             {...{ 'data-type': dataAttr }}
@@ -43,11 +62,12 @@ const Input = ({
             }}
             min={type === 'number' ? min : undefined}
             step={type === 'number' ? step : undefined}
+            className={inputClasses}
           />
         )}
-        {error !== '' && error !== null && <Message>{error}</Message>}
-      </InputContainer>
-    </Wrapper>
+        {error !== '' && error !== null && <div className={`${styles.message} bg-error text-white`}>{error}</div>}
+      </div>
+    </div>
   );
 };
 export { Input };

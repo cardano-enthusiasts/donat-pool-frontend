@@ -1,6 +1,5 @@
 import { useAppSelector } from '@/shared/hooks';
 
-import { Wrapper } from './PrecalculationFee.styled';
 import type { Props } from './types';
 
 const PrecalculationFee = ({ goal }: Props) => {
@@ -12,12 +11,12 @@ const PrecalculationFee = ({ goal }: Props) => {
 
   return (
     protocolFeeParam && (
-      <Wrapper>
+      <div className="text-xs font-bold text-red">
         Commission —{' '}
         {getExtraFee(protocolFeeParam) !== 0
           ? `${getExtraFee(protocolFeeParam)} ADA (${String(protocolFeeParam)}%)`
           : `${String(protocolFeeParam)}%`}
-      </Wrapper>
+      </div>
     )
   );
 };

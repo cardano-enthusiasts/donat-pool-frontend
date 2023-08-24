@@ -39,7 +39,6 @@ const ConnectWalletModal = () => {
   return (
     <Modal isOpen title="Connect wallet" titleAs="h1">
       <Checkbox
-        className="mb-6"
         isChecked={termsOfUseAccepted}
         onChange={() => {
           setTermsOfUseAccepted((t) => !t);
@@ -50,7 +49,7 @@ const ConnectWalletModal = () => {
           Terms of use.
         </Link>
       </Checkbox>
-      <ul className="mb-10 space-y-6">
+      <ul className="mb-10 mt-6 space-y-6">
         {wallets?.map(({ name, isInstalled }, index, array) => (
           <li
             className={cn('flex items-center justify-between gap-x-3 text-gray-secondary', {

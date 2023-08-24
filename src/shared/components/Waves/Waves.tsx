@@ -1,29 +1,42 @@
-import { useWindowSize } from '@/shared/hooks';
-import { theme } from '@/shared/styles/theme';
+import cn from 'classnames';
 
+import { useWindowSize } from '@/shared/hooks';
+
+import VARIANTS from './constants';
 import type { Props } from './types';
-import { G, Svg, Wrapper } from './Waves.styled';
+import styles from './Waves.module.css';
 
 const Waves = ({ color = 'blue', backgroundColor = 'transparent', isUpsideDown = false, isMoving = true }: Props) => {
   const size = useWindowSize();
 
   const getWidthForViewBox = () => {
-    if (size.width < 1100) {
+    if (size.width < 1280) {
       return 600;
     }
     return 1000;
   };
 
+  const colors = {
+    transparent: 'bg-transparent',
+    blue: 'bg-blue',
+    green: 'bg-green',
+    red: 'bg-red',
+    black: 'bg-black',
+    yellow: 'bg-yellow',
+  };
+
   return (
-    <Wrapper backgroundColor={backgroundColor}>
-      <Svg
+    <div className={`text-center' relative z-[1] h-[6.25rem] ${colors[backgroundColor]}`}>
+      <svg
+        className={cn('relative mb-[-0.4375rem] h-[6.25rem] max-w-full', {
+          'rotate-180': isUpsideDown,
+        })}
         viewBox={`200 0 ${getWidthForViewBox()} 100`}
         width="100%"
         fill="none"
         xmlnsXlink="http://www.w3.org/2000/xlink"
         preserveAspectRatio="none"
-        shape-rendering="auto"
-        isUpsideDown={isUpsideDown}
+        shapeRendering="auto"
       >
         <defs>
           <path
@@ -32,11 +45,11 @@ const Waves = ({ color = 'blue', backgroundColor = 'transparent', isUpsideDown =
           />
         </defs>
 
-        <G isMoving={isMoving}>
-          <use xlinkHref="#gentle-wave" x="48" y="0" fill={theme.colors[color] ? theme.colors[color] : color} />
-        </G>
-      </Svg>
-    </Wrapper>
+        <g className={cn(isMoving && styles.g)}>
+          <use className={VARIANTS[color]} xlinkHref="#gentle-wave" x="48" y="0" />
+        </g>
+      </svg>
+    </div>
   );
 };
 

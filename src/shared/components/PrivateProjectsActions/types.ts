@@ -1,5 +1,7 @@
 import type { Fundraising } from '@/shared/types';
 
-export interface Props {
+interface Props {
   project: Fundraising;
 }
+
+export type { Props };

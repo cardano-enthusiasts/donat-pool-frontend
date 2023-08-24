@@ -1,34 +1,40 @@
 'use client';
 
 import HTMLReactParser from 'html-react-parser';
+import { useEffect } from 'react';
 
 import { Service } from '@/layouts';
 import { roadmapText } from '@/shared/data';
 
-import { ColorTitle, Li, Phase, PhaseTitle, Phases, SubLi, Title, Ul } from './RoadmapForReading.styled';
-
 const Page = () => {
+  useEffect(() => {
+    document.title = 'Roadmap';
+  }, []);
   const getSubLis = (item: any) => {
-    return item.subItems.map(({ id, title }: any) => <SubLi key={id}>{title}</SubLi>);
+    return item.subItems.map(({ id, title }: any) => (
+      <li className="ml-6" key={id}>
+        {title}
+      </li>
+    ));
   };
 
   return (
     <Service>
-      <Title>
-        Donat.Pool <ColorTitle>roadmap</ColorTitle>
-      </Title>
-      <Phases>
+      <h1 className="mb-8 font-rammetto-one text-[3.375rem] leading-[104%] text-red max-lg:text-[2.25rem] max-sm:text-[2.25rem]">
+        Donat.Pool <span className="text-green">roadmap</span>
+      </h1>
+      <div className="grid gap-8">
         {roadmapText.phases.map(({ title, items }) => (
-          <Phase key={title}>
-            <PhaseTitle>{HTMLReactParser(title)}</PhaseTitle>
-            <Ul>
+          <div className="rounded-md p-6 shadow-xl" key={title}>
+            <h2 className="text-2xl font-bold [&_span]:text-red">{HTMLReactParser(title)}</h2>
+            <ul className="mt-6 list-disc pl-6">
               {items.map((item) => {
-                return Object.hasOwn(item, 'title') ? <Li key={item.id}>{item.title}</Li> : getSubLis(item);
+                return Object.hasOwn(item, 'title') ? <li key={item.id}>{item.title}</li> : getSubLis(item);
               })}
-            </Ul>
-          </Phase>
+            </ul>
+          </div>
         ))}
-      </Phases>
+      </div>
     </Service>
   );
 };

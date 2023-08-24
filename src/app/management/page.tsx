@@ -8,8 +8,6 @@ import { ManagementParams, ManagerEditor } from '@/shared/components';
 import { ROUTES } from '@/shared/constants';
 import { useAppSelector } from '@/shared/hooks';
 
-import { Title, Wrapper } from './Management.styled';
-
 const Page = () => {
   const {
     appInfo: { userInfo, protocol },
@@ -31,15 +29,17 @@ const Page = () => {
   return (
     status !== 'requesting' && (
       <Common>
-        <Title>Management contract</Title>
-        <Wrapper>
+        <h1 className="mb-15 mt-20 font-rammetto-one text-[3.375rem] leading-[104%] text-red max-lg:text-[2.25rem] max-md:mb-8 max-md:mt-14 max-sm:mb-4 max-sm:text-[2.25rem]">
+          Management contract
+        </h1>
+        <div className="mb-40 flex justify-between gap-10 max-md:mb-14 max-md:flex-col">
           {protocol && (
             <>
               <ManagerEditor config={protocol} />
               <ManagementParams config={protocol} />
             </>
           )}
-        </Wrapper>
+        </div>
       </Common>
     )
   );

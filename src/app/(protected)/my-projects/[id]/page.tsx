@@ -1,5 +1,5 @@
 'use client';
-
+import cn from 'classnames';
 import { useParams, useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
@@ -10,7 +10,7 @@ import { formatDate } from '@/shared/helpers';
 import { useUserFundraisings } from '@/shared/hooks';
 import type { Fundraising } from '@/shared/types';
 
-import { CounterWrapper, Deadline, DeadlineAndStatus, Inner, Status } from './PrivateProject.styled';
+import THEME from './constants';
 
 const Page = () => {
   const params = useParams();
@@ -29,6 +29,8 @@ const Page = () => {
     }
   }, [fundraisings, params.id]);
 
+  const getTheme = (isCompleted: boolean) => (isCompleted ? THEME.completed : THEME.active);
+
   return (
     currentProject && (
       <Common>
@@ -39,21 +41,25 @@ const Page = () => {
           }}
           title={currentProject.title}
         >
-          <Inner>
-            <DeadlineAndStatus>
-              <Status isActive={!currentProject.isCompleted}>
-                {currentProject.isCompleted ? 'Completed' : 'Active'}
-              </Status>
-              <Deadline>Until {formatDate(Number(currentProject.deadline))}</Deadline>
-            </DeadlineAndStatus>
-            <CounterWrapper>
+          <div className="max-w-[37.5rem]">
+            <div className="flex items-center justify-between border-b-2 border-t-2 border-black py-7">
+              <div
+                className={cn(`font-bold ${getTheme(currentProject.isCompleted).classes} rounded-md border-2 px-3 py-2
+
+              text-sm`)}
+              >
+                {getTheme(currentProject.isCompleted).text}
+              </div>
+              <div className="text-xl font-bold">Until {formatDate(Number(currentProject.deadline))}</div>
+            </div>
+            <div className="flex border-b-2 border-black py-6">
               <RaisedCounter
                 raised={Number(currentProject.raisedAmt) / 1000000}
                 goal={Number(currentProject.goal) / 1000000}
               />
-            </CounterWrapper>
+            </div>
             <PrivateProjectsActions project={currentProject} />
-          </Inner>
+          </div>
         </Project>
       </Common>
     )

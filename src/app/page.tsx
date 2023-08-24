@@ -6,8 +6,6 @@ import { InitialLoading, LandingContent, LandingNav, Waves } from '@/shared/comp
 import { useWindowSize, useWindowScroll } from '@/shared/hooks';
 import type { LandingSection } from '@/shared/types/common';
 
-import { DonutsWrapper, WavesWrapper, Wrapper } from './Landing.styled';
-
 const Page = () => {
   const windowScroll = useWindowScroll();
   const { width: windowWidth } = useWindowSize();
@@ -30,13 +28,13 @@ const Page = () => {
   };
 
   return (
-    <Wrapper>
-      <DonutsWrapper>
+    <div className="flex flex-col">
+      <div className="relative">
         <InitialLoading windowScroll={windowScroll} isAnimationActive={isAnimationActive} />
-        <WavesWrapper>
+        <div className="absolute bottom-0 w-full">
           <Waves />
-        </WavesWrapper>
-      </DonutsWrapper>
+        </div>
+      </div>
       <LandingContent
         windowScroll={windowScroll}
         currentSection={currentSection}
@@ -48,13 +46,13 @@ const Page = () => {
         currentSection={currentSection}
         windowScroll={windowScroll}
         windowWidth={windowWidth}
-        handleIconClick={handleMobileHeaderClick}
-        handleSectionClick={handleSectionClick}
         isOpen={isMobileHeaderOpen}
         ref={navRef}
         isAnimationActive={isAnimationActive}
+        handleIconClick={handleMobileHeaderClick}
+        handleSectionClick={handleSectionClick}
       />
-    </Wrapper>
+    </div>
   );
 };
 

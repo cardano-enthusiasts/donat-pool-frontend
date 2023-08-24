@@ -1,8 +1,9 @@
+import Image from 'next/image';
 import { useState } from 'react';
 
-import { Description, Img, Inner, ProjectLink, Title } from './ModalProjectCreated.styled';
+import styles from './ModalProjectCreated.module.css';
 import type { Props } from './types';
-import { Button, Modal } from '../.';
+import { DoubleBorderedButton, Modal, StandardButton } from '../.';
 
 const ModalProjectCreated = ({ isOpen, onClose, path }: Props) => {
   const link = `${location.origin}/my-projects/${path}`;
@@ -27,42 +28,38 @@ const ModalProjectCreated = ({ isOpen, onClose, path }: Props) => {
 
   return (
     <Modal isOpen={isOpen}>
-      <Inner>
-        <Title>Well done!</Title>
-        <Img src="/img/happy-cat.svg" alt="happy cat" />
-        <Description>
+      <div className="flex flex-col items-center">
+        <h1 className="mb-6 text-center font-rammetto-one text-[3.375rem] leading-[104%] text-red max-lg:text-[2.25rem] max-sm:text-[2.25rem]">
+          Well done!
+        </h1>
+        <Image className="mb-10" src="/img/happy-cat.svg" alt="happy cat" width={140} height={140} />
+        <div className="mb-8 text-center">
           The project has been successfully published.
           <br />
           Copy the link to your project to share it and get donations.
-        </Description>
+        </div>
         {isSuccessfullyCopied ? (
           <>
-            <Description>Link copied to clipboard.</Description>
-            <Button
-              themeType="double-bordered"
-              tertiaryColor="white"
-              primaryColor="blue"
-              width="100%"
-              onClick={onClose}
-            >
+            <div className="mb-8 text-center">Link copied to clipboard.</div>
+            <DoubleBorderedButton backgroundColor="white" primaryColor="blue" isFullWidth={true} onClick={onClose}>
               Close the window
-            </Button>
+            </DoubleBorderedButton>
           </>
         ) : (
           <>
-            <ProjectLink>{link}</ProjectLink>
-            <Button
+            <a className={`${styles.link} text-blue`}>{link}</a>
+            <StandardButton
               primaryColor="red"
               secondaryColor="blue"
-              width="100%"
-              onClick={handleCopyLinkClick}
+              isFullWidth={true}
               fontColor="white"
+              onClick={handleCopyLinkClick}
             >
               Copy link
-            </Button>
+            </StandardButton>
           </>
         )}
-      </Inner>
+      </div>
     </Modal>
   );
 };

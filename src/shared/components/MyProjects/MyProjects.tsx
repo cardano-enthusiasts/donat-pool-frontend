@@ -1,21 +1,11 @@
+import Image from 'next/image';
 import { useEffect, useState } from 'react';
 
 import { useUserFundraisings } from '@/shared/hooks';
 import type { Fundraising } from '@/shared/types';
 
-import {
-  CardsWrapper,
-  CreateButton,
-  FilterButtons,
-  NoProject,
-  PageHeader,
-  ProjectWrapper,
-  SadCat,
-  Title,
-  TitleAndButtons,
-} from './MyProjects.styled';
 import type { ProjectStatus, Props } from './types';
-import { Button, ProjectCard } from '../.';
+import { BorderedButton, ProjectCard, StandardButton } from '../.';
 
 const MyProjects = ({ onCreateAProjectClick }: Props) => {
   const [allProjectsWithStatus, setAllProjectsWithStatus] = useState<Fundraising[] | null>(null);
@@ -45,47 +35,45 @@ const MyProjects = ({ onCreateAProjectClick }: Props) => {
 
   return (
     <>
-      <PageHeader>
-        <TitleAndButtons>
-          <Title>My projects</Title>
+      <div className="mb-15 flex justify-between max-lg:flex-col max-lg:items-center max-lg:gap-5 max-md:mb-8">
+        <div className="flex items-center justify-center gap-10 max-md:items-start max-sm:flex-col max-sm:gap-5">
+          <h1 className="font-rammetto-one text-[3.375rem] leading-[104%] text-red max-lg:text-[2.25rem] max-sm:text-[2.25rem]">
+            My projects
+          </h1>
           {allProjectsWithStatus !== null && (
-            <FilterButtons>
-              <Button
-                themeType="bordered"
-                primaryColor="red"
+            <div className="flex gap-6">
+              <BorderedButton
+                color="red"
+                isClickedTheme={filter === 'active'}
                 onClick={() => {
                   handleFilterClick('active', allProjectsWithStatus);
                 }}
-                isClickedTheme={filter === 'active'}
-                size="s"
               >
                 Active
-              </Button>
-              <Button
-                themeType="bordered"
-                primaryColor="green"
+              </BorderedButton>
+              <BorderedButton
+                color="green"
+                isClickedTheme={filter === 'completed'}
                 onClick={() => {
                   handleFilterClick('completed', allProjectsWithStatus);
                 }}
-                isClickedTheme={filter === 'completed'}
-                size="s"
               >
                 Completed
-              </Button>
-            </FilterButtons>
+              </BorderedButton>
+            </div>
           )}
-        </TitleAndButtons>
+        </div>
 
-        <CreateButton>
-          <Button primaryColor="red" secondaryColor="blue" onClick={onCreateAProjectClick} fontColor="white">
+        <div className="max-md:fixed max-md:bottom-15 max-md:right-[1.875rem] max-md:z-10">
+          <StandardButton primaryColor="red" secondaryColor="blue" fontColor="white" onClick={onCreateAProjectClick}>
             Create a new project
-          </Button>
-        </CreateButton>
-      </PageHeader>
+          </StandardButton>
+        </div>
+      </div>
 
-      <ProjectWrapper>
+      <div className="mx-auto w-full max-md:max-w-[90vw]">
         {filteredProjects && filteredProjects.length !== 0 ? (
-          <CardsWrapper>
+          <div className="grid grid-cols-projects gap-10 max-md:grid-cols-1">
             {filteredProjects.map((item) => (
               <ProjectCard
                 data={item}
@@ -95,14 +83,14 @@ const MyProjects = ({ onCreateAProjectClick }: Props) => {
                 paddingSize="s"
               />
             ))}
-          </CardsWrapper>
+          </div>
         ) : (
-          <NoProject>
+          <div className="flex flex-col items-center gap-6">
             You don&apos;t have any projects yet. Create a project to start receiving donations.
-            <SadCat src="/img/sad-cat.svg" alt="sad cat image" />
-          </NoProject>
+            <Image src="/img/sad-cat.svg" alt="sad cat image" width={140} height={140} className="max-w-full" />
+          </div>
         )}
-      </ProjectWrapper>
+      </div>
     </>
   );
 };

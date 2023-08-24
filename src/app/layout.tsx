@@ -4,7 +4,6 @@ import localFont from 'next/font/local';
 import Script from 'next/script';
 
 import StoreProvider from '@/redux/Provider';
-import StyledComponentsProvider from '@/StyledComponentsProvider';
 
 import './global.css';
 
@@ -45,9 +44,7 @@ const Layout = ({ children }: React.PropsWithChildren) => {
       lang="en"
     >
       <body>
-        <StyledComponentsProvider>
-          <StoreProvider>{children}</StoreProvider>
-        </StyledComponentsProvider>
+        <StoreProvider>{children}</StoreProvider>
         <Script src="/offchain/index.js" strategy="beforeInteractive" />
       </body>
     </html>

@@ -1,3 +1,5 @@
-export interface Props {
+interface Props {
   onClose: () => void;
 }
+
+export type { Props };

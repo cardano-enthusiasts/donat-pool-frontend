@@ -6,9 +6,9 @@ import { ROUTES } from '@/shared/constants';
 import { useAppDispatch, useAppSelector } from '@/shared/hooks';
 import { useReceiveFunds } from '@/shared/hooks';
 
-import { ButtonWrapper, Commission, LinkWrapper, WithdrawSection } from './PrivateProjectsActions.styled';
+import styles from './PrivateProjectsActions.module.css';
 import type { Props } from './types';
-import { Button, ModalError, ModalLoading, ModalSuccess } from '../.';
+import { DoubleBorderedButton, ModalError, ModalLoading, ModalSuccess, StandardButton } from '../.';
 
 const PrivateProjectsActions = ({ project }: Props) => {
   const [isModalSuccessOpen, setIsModalSuccessOpen] = useState(false);
@@ -56,27 +56,27 @@ const PrivateProjectsActions = ({ project }: Props) => {
 
   return project.isCompleted ? (
     <>
-      <WithdrawSection>
-        <Button
+      <div className="mt-6 flex flex-col items-center gap-4">
+        <StandardButton
           primaryColor="red"
           secondaryColor="blue"
-          width="100%"
+          isFullWidth={true}
+          fontColor="white"
           onClick={() => {
             receiveFunds({
               frThreadTokenCurrency: project.threadTokenCurrency,
               frThreadTokenName: project.threadTokenName,
             });
           }}
-          fontColor="white"
         >
           {Number(project.raisedAmt) >= Number(project.goal)
             ? 'You have reached the goal! Take money'
             : 'Project reached its deadline. Collect fund'}
-        </Button>
+        </StandardButton>
         {protocol?.protocolFeeParam && (
-          <Commission>We remind you that our commission is {protocol.protocolFeeParam}%</Commission>
+          <div className="text-red">We remind you that our commission is {protocol.protocolFeeParam}%</div>
         )}
-      </WithdrawSection>
+      </div>
 
       <ModalLoading isOpen={status === 'requesting'} />
       <ModalError
@@ -91,20 +91,14 @@ const PrivateProjectsActions = ({ project }: Props) => {
     </>
   ) : (
     <>
-      <LinkWrapper>
+      <div className={`${styles.link} text-blue`}>
         {link}
-        <ButtonWrapper>
-          <Button
-            themeType="double-bordered"
-            tertiaryColor="white"
-            size="s"
-            primaryColor="blue"
-            onClick={handleCopyLinkClick}
-          >
+        <div className="shrink-0">
+          <DoubleBorderedButton backgroundColor="white" size="s" primaryColor="blue" onClick={handleCopyLinkClick}>
             Copy link
-          </Button>
-        </ButtonWrapper>
-      </LinkWrapper>
+          </DoubleBorderedButton>
+        </div>
+      </div>
       <ModalSuccess
         description="Link copied to clipboard."
         isOpen={isModalSuccessOpen}

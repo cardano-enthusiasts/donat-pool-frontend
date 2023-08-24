@@ -1,16 +1,9 @@
+import cn from 'classnames';
 import { Fragment, forwardRef, useEffect, useRef, useState, type ForwardedRef, type MutableRefObject } from 'react';
 
 import type { LandingSection } from '@/shared/types/common';
 
-import {
-  AboutUsWrapper,
-  HowItWorksWrapper,
-  MainInner,
-  MainWrapper,
-  RoadmapWrapper,
-  TitleAndDescriptionWrapper,
-  WhyChooseUsWrapper,
-} from './LandingContent.styled';
+import CLASSES from './constants';
 import type { Props, Content } from './types';
 import { AboutUs, Footer, HowItWorks, Roadmap, TitleAndDescription, Waves, WhyChooseUs } from '..';
 
@@ -90,9 +83,9 @@ const LandingContent = forwardRef(
     const content: Content = [
       {
         element: (
-          <TitleAndDescriptionWrapper id="home" ref={homeRef}>
+          <div className={CLASSES} id="home" ref={homeRef}>
             <TitleAndDescription isActive={isHomeAnimationActive} />
-          </TitleAndDescriptionWrapper>
+          </div>
         ),
         id: 'home',
         backgroundColor: 'blue',
@@ -103,9 +96,9 @@ const LandingContent = forwardRef(
 
       {
         element: (
-          <HowItWorksWrapper id="how-it-works" ref={howItWorksRef}>
+          <div className={`${CLASSES} pb-20 max-lg:pb-15`} id="how-it-works" ref={howItWorksRef}>
             <HowItWorks />
-          </HowItWorksWrapper>
+          </div>
         ),
         id: 'how-it-works',
         backgroundColor: 'green',
@@ -116,9 +109,13 @@ const LandingContent = forwardRef(
 
       {
         element: (
-          <WhyChooseUsWrapper id="why-choose-us" ref={whyChooseUsRef}>
+          <div
+            className={`${CLASSES} bg-[url("/img/section-cat.svg")] bg-100% bg-0-100% bg-no-repeat pb-40 pt-0`}
+            id="why-choose-us"
+            ref={whyChooseUsRef}
+          >
             <WhyChooseUs />
-          </WhyChooseUsWrapper>
+          </div>
         ),
         id: 'why-choose-us',
         backgroundColor: 'red',
@@ -126,9 +123,9 @@ const LandingContent = forwardRef(
       },
       {
         element: (
-          <AboutUsWrapper id="about-us" ref={aboutUsRef}>
+          <div className={cn(CLASSES, 'pt-0 max-sm:pt-12')} id="about-us" ref={aboutUsRef}>
             <AboutUs />
-          </AboutUsWrapper>
+          </div>
         ),
         id: 'about-us',
         backgroundColor: 'yellow',
@@ -139,9 +136,9 @@ const LandingContent = forwardRef(
 
       {
         element: (
-          <RoadmapWrapper id="roadmap">
+          <div className={`${CLASSES} select-none overflow-hidden bg-black pt-0`} id="roadmap">
             <Roadmap isActive={isRoadmapAnimationActive} />
-          </RoadmapWrapper>
+          </div>
         ),
         id: 'roadmap',
         backgroundColor: 'black',
@@ -164,9 +161,17 @@ const LandingContent = forwardRef(
         {content.map(({ element, id, backgroundColor, waves }) => {
           return (
             <Fragment key={id}>
-              <MainWrapper backgroundColor={backgroundColor}>
-                <MainInner>{element}</MainInner>
-              </MainWrapper>
+              <div
+                className={cn('w-full', {
+                  'bg-green': backgroundColor === 'green',
+                  'bg-red': backgroundColor === 'red',
+                  'bg-black': backgroundColor === 'black',
+                  'bg-yellow': backgroundColor === 'yellow',
+                  'bg-blue': backgroundColor === 'blue',
+                })}
+              >
+                <div className="mx-auto my-0 w-full max-w-[120rem]">{element}</div>
+              </div>
               {waves && <Waves color={waves.color} backgroundColor={backgroundColor} />}
             </Fragment>
           );

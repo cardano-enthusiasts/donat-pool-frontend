@@ -1,15 +1,16 @@
-import { Img, Link, Wrapper } from './Socials.styled';
+import Image from 'next/image';
+import Link from 'next/link';
 
 const Socials = () => {
   return (
-    <Wrapper>
+    <div className="flex gap-10">
       <Link target="_blank" rel="noreferrer" href="https://github.com/fullstack-development">
-        <Img src="/icons/github.svg" />
+        <Image src="/icons/github.svg" alt="github" width={49} height={48} />
       </Link>
       <Link target="_blank" rel="noreferrer" href="https://twitter.com/DonatPool">
-        <Img src="/icons/twitter.svg" />
+        <Image src="/icons/twitter.svg" alt="twitter" width={49} height={48} />
       </Link>
-    </Wrapper>
+    </div>
   );
 };
 

@@ -1,0 +1,19 @@
+.wrapper * {
+  transition: transform 1s ease 0s;
+  transform: translateY(0%);
+
+  @media (width <= 64rem) {
+    transition: none;
+    transform: translateY(0%);
+  }
+}
+
+.wrapperInactive * {
+  transition: transform 1s ease 0s;
+  transform: translateY(50%);
+
+  @media (width <= 64rem) {
+    transition: none;
+    transform: translateY(0%);
+  }
+}
