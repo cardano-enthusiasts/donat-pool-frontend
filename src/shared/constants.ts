@@ -15,35 +15,11 @@ const ROUTES = {
   mock: '/mock-address',
 } as const;
 
-const WALLET_NAME_TO_DATA = {
-  nami: {
-    cardanoKey: 'nami',
-    offchainName: 'Nami',
-    title: 'Nami',
-    logo: namiLogo,
-    websiteUrl: 'https://namiwallet.io/',
-  },
-  lode: {
-    cardanoKey: 'LodeWallet',
-    offchainName: 'Lode',
-    title: 'LodeWallet',
-    logo: lodeLogo,
-    websiteUrl: 'https://lodewallet.io/',
-  },
-  flint: {
-    cardanoKey: 'flint',
-    offchainName: 'Flint',
-    title: 'Flint',
-    logo: flintLogo,
-    websiteUrl: 'https://flint-wallet.com/',
-  },
-  eternl: {
-    cardanoKey: 'eternl',
-    offchainName: 'Eternl',
-    title: 'Eternl',
-    logo: eternlLogo,
-    websiteUrl: 'https://eternl.io/app/mainnet/welcome',
-  },
+const WALLET_CARDANO_KEY_TO_LOGO = {
+  nami: namiLogo,
+  LodeWallet: lodeLogo,
+  flint: flintLogo,
+  eternl: eternlLogo,
 } as const;
 
-export { ROUTES, WALLET_NAME_TO_DATA };
+export { ROUTES, WALLET_CARDANO_KEY_TO_LOGO };

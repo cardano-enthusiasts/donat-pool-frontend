@@ -1,4 +1,3 @@
-import { selectConnectedWallet } from '@/redux/slices/cardano';
 import { setWalletStatus } from '@/redux/slices/connectWallet';
 import { setError, setRequesting, setCreatedPath } from '@/redux/slices/fundraisingCreation';
 import { createConnectionParameters, logOffchainError } from '@/shared/helpers';
@@ -10,7 +9,7 @@ import useHandleError from './useHandleError';
 
 const useCreateFundraising = () => {
   const offchain = useDonatPool();
-  const connectedWallet = useAppSelector(selectConnectedWallet);
+  const activeWalletCardanoKey = useAppSelector((state) => state.cardano.activeWalletCardanoKey);
   const dispatch = useAppDispatch();
   const { refetchFundraisings } = useFundraisings();
   const { refetchFundraisings: refetchUserFundraisings } = useUserFundraisings();
@@ -29,10 +28,10 @@ const useCreateFundraising = () => {
     dispatch(setError(filteredError));
   };
 
-  if (offchain && connectedWallet) {
+  if (offchain && activeWalletCardanoKey) {
     return (createFundraisingParams: any) => {
       offchain.createFundraising(handleSuccess)(handleError)(JSON.parse(process.env.NEXT_PUBLIC_PROTOCOL))(
-        createConnectionParameters(connectedWallet.name),
+        createConnectionParameters(activeWalletCardanoKey),
       )(createFundraisingParams)();
       dispatch(setRequesting());
     };

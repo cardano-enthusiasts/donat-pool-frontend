@@ -25,11 +25,6 @@ interface Fundraising {
 }
 
 type RootState = ReturnType<typeof store.getState>;
+type WalletCardanoKey = 'nami' | 'LodeWallet' | 'flint' | 'eternl';
 
-interface Wallet {
-  name: 'nami' | 'lode' | 'flint' | 'eternl';
-  isInstalled: boolean;
-  isConnected: boolean;
-}
-
-export type { RequestStatus, FetchedFundraising, Fundraising, RootState, Wallet };
+export type { RequestStatus, FetchedFundraising, Fundraising, RootState, WalletCardanoKey };

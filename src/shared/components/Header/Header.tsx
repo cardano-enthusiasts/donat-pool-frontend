@@ -6,9 +6,9 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useState } from 'react';
 
-import { selectConnectedWallet } from '@/redux/slices/cardano';
 import { Logo, StandardButton } from '@/shared/components';
-import { ROUTES, WALLET_NAME_TO_DATA } from '@/shared/constants';
+import { ROUTES } from '@/shared/constants';
+import { WALLET_CARDANO_KEY_TO_LOGO } from '@/shared/constants';
 import { useAppSelector } from '@/shared/hooks';
 
 import { LINKS } from './constants';
@@ -16,7 +16,7 @@ import { LINKS } from './constants';
 const Header = () => {
   const pathname = usePathname();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const connectedWallet = useAppSelector(selectConnectedWallet);
+  const activeWalletCardanoKey = useAppSelector((state) => state.cardano.activeWalletCardanoKey);
 
   return (
     <header
@@ -30,7 +30,7 @@ const Header = () => {
         })}
       >
         {!isMenuOpen && <Logo />}
-        {connectedWallet ? (
+        {activeWalletCardanoKey ? (
           <div className={cn('flex max-lg:flex-col max-lg:gap-10', { 'max-lg:hidden': !isMenuOpen })}>
             <div className="mx-10 flex gap-7 text-lg font-bold max-lg:flex-col max-lg:items-center">
               {LINKS.map(({ title, href }) => (
@@ -43,8 +43,8 @@ const Header = () => {
             </div>
             <div className="mr-10 w-0.5 bg-purple max-lg:h-0.5 max-lg:w-full" />
             <Image
-              src={WALLET_NAME_TO_DATA[connectedWallet.name].logo}
-              alt={`${connectedWallet.name}'s logo`}
+              src={WALLET_CARDANO_KEY_TO_LOGO[activeWalletCardanoKey]}
+              alt={`${activeWalletCardanoKey}'s logo`}
               role="img"
             />
           </div>

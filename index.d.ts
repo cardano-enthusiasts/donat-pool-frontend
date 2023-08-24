@@ -9,7 +9,7 @@ interface InjectedWallet<Name> {
   name: Name;
   apiVersion: string;
   icon: string;
-  enable: () => Promise<Record<string, unknown>>;
+  enable: () => Promise<Record<string, unknown> | undefined> | never;
   isEnabled: () => Promise<boolean>;
 }
 interface Protocol {
