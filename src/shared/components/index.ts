@@ -1,3 +1,5 @@
+'use client';
+
 export { Checkbox } from './Checkbox/Checkbox';
 export { default as Footer } from './Footer/Footer';
 export { Header } from './Header/Header';
@@ -21,8 +23,6 @@ export { HowItWorks } from './HowItWorks/HowItWorks';
 export { Socials } from './Socials/Socials';
 export { Modal } from './Modal/Modal';
 export { ModalDonate } from './ModalDonate/ModalDonate';
-export { ProjectCreation } from './ProjectCreation/ProjectCreation';
-export { MyProjects } from './MyProjects/MyProjects';
 export { ModalLoading } from './ModalLoading/ModalLoading';
 export { ModalError } from './ModalError/ModalError';
 export { ModalSuccess } from './ModalSuccess/ModalSuccess';

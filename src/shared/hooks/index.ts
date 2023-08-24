@@ -1,3 +1,5 @@
+'use client';
+
 export { default as useAuthGuard } from './useAuthGuard';
 export { default as useCreateFundraising } from './useCreateFundraising';
 export { default as useDonate } from './useDonate';

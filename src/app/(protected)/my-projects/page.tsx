@@ -1,34 +1,17 @@
-'use client';
+import { Metadata } from 'next';
 
-import { useRouter } from 'next/navigation';
-import { useEffect } from 'react';
+import { Common, MyProjects } from '@/layouts';
 
-import { Common } from '@/layouts';
-import { useAppSelector } from '@/redux/hooks';
-import { MyProjects } from '@/shared/components';
-import { ROUTES } from '@/shared/constants';
+const metadata: Metadata = {
+  title: 'My Donat.Pools',
+};
 
 const Page = () => {
-  const router = useRouter();
-  const connectWalletStatus = useAppSelector((state) => state.connectWallet.requestStatus);
-
-  useEffect(() => {
-    document.title = 'My projects';
-  }, []);
-
-  if (connectWalletStatus !== 'success') {
-    return;
-  }
-
   return (
     <Common>
-      <MyProjects
-        onCreateAProjectClick={() => {
-          router.push(ROUTES.newFundraising);
-        }}
-      />
+      <MyProjects />
     </Common>
   );
 };
 
-export default Page;
+export { Page as default, metadata };

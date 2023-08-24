@@ -30,6 +30,7 @@ const rammettoOneFont = Rammetto_One({
 });
 
 export const metadata: Metadata = {
+  title: 'Donat.Pool',
   themeColor: '#ff6b95',
   other: {
     'msapplication-TileColor': '#603cba',
