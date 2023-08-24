@@ -36,7 +36,7 @@ const PrivateProjectsActions = ({ project }: Props) => {
     }
   }, [status, dispatch, router]);
 
-  const link = window.location.href;
+  const link = window.location.href.replace(ROUTES.userFundraisings, ROUTES.allFundraisings);
 
   const copyContent = async () => {
     try {
@@ -92,7 +92,7 @@ const PrivateProjectsActions = ({ project }: Props) => {
   ) : (
     <>
       <div className={`${styles.link} text-blue`}>
-        {link.replace('my-projects', 'all-projects')}
+        {link}
         <div className="shrink-0">
           <DoubleBorderedButton backgroundColor="white" size="s" primaryColor="blue" onClick={handleCopyLinkClick}>
             Copy and share

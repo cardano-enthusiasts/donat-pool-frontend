@@ -1,12 +1,14 @@
 import Image from 'next/image';
 import { useState } from 'react';
 
+import { ROUTES } from '@/shared/constants';
+
 import styles from './ModalProjectCreated.module.css';
 import type { Props } from './types';
 import { DoubleBorderedButton, Modal, StandardButton } from '../.';
 
 const ModalProjectCreated = ({ isOpen, onClose, path }: Props) => {
-  const link = `${location.origin}/all-projects/${path}`;
+  const link = `${location.origin}${ROUTES.allFundraisings}/${path}`;
   const [isSuccessfullyCopied, setIsSuccessfullyCopied] = useState(false);
 
   const copyContent = async () => {

@@ -128,14 +128,14 @@ const CreationForm = ({ onClose, protocol }: Props) => {
           }}
           isDisabled={status === 'requesting'}
           maxLength={29}
-          placeholder="My project"
+          placeholder="My Donat.Pool"
           error={error.title}
         >
-          The title of the project
+          The title of the Donat.Pool
         </Input>
         <div>
           <div className="mb-0">
-            Project duration
+            Donat.Pool duration
             <span className="text-gray"> / Max: {Math.floor(maxDurationParam / 1440)} days</span>
           </div>
           <div className="flex gap-2.5 max-sm:flex-col">
@@ -224,7 +224,7 @@ const CreationForm = ({ onClose, protocol }: Props) => {
       <ModalLoading isOpen={isLoadingModalOpen} />
       <ModalError
         isOpen={isErrorModalOpen}
-        title="New project"
+        title="New Donat.Pool"
         errorText={createError}
         onClose={() => {
           setIsErrorModalOpen(false);

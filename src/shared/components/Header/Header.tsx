@@ -12,11 +12,10 @@ import { Logo, StandardButton, WalletButton } from '..';
 
 const Header = ({ currentPage = null }: Props) => {
   const links = [
-    { title: 'My projects', href: ROUTES.userFundraisings, id: 'my-projects' },
+    { title: 'My Donat.Pools', href: ROUTES.userFundraisings },
     {
-      title: 'All Donation pools',
+      title: 'All Donat.Pools',
       href: ROUTES.allFundraisings,
-      id: 'projects',
     },
   ];
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -37,8 +36,8 @@ const Header = ({ currentPage = null }: Props) => {
         {connectWalletStatus === 'success' ? (
           <div className={cn('flex max-lg:flex-col max-lg:gap-10', { 'max-lg:hidden': !isMenuOpen })}>
             <div className="mx-10 flex gap-7 text-lg font-bold max-lg:flex-col max-lg:items-center">
-              {links.map(({ title, href, id }) => (
-                <div className="shrink-0" key={id}>
+              {links.map(({ title, href }) => (
+                <div className="shrink-0" key={href}>
                   <Link
                     href={href}
                     className={cn({
