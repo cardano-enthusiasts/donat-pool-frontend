@@ -1,4 +1,3 @@
-'use client';
 import { default as AllProjects } from './AllProjects/AllProjects';
 import { Common } from './Common/Common';
 import { default as MyProjects } from './MyProjects/MyProjects';
