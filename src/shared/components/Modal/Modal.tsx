@@ -1,6 +1,7 @@
 import { Dialog } from '@headlessui/react';
 
 import { PANEL_THEME_TO_CLASS_NAME } from './constants';
+import { Props } from './types';
 
 function Modal({
   isOpen,
@@ -9,13 +10,7 @@ function Modal({
   titleAs,
   children,
   onClose = () => undefined,
-}: React.PropsWithChildren<{
-  isOpen: boolean;
-  panelTheme?: 'light' | 'dark';
-  title?: string;
-  titleAs?: React.ElementType;
-  onClose?: () => void;
-}>) {
+}: React.PropsWithChildren<Props>) {
   return (
     <Dialog className="fixed inset-0 flex items-center justify-center bg-blue/40 p-5" open={isOpen} onClose={onClose}>
       <Dialog.Panel

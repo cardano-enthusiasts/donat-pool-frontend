@@ -1,15 +1,8 @@
 import cn from 'classnames';
 
-function Checkbox({
-  isChecked,
-  textTheme,
-  children,
-  onChange,
-}: React.PropsWithChildren<{
-  isChecked: boolean;
-  textTheme?: 'light';
-  onChange: () => void;
-}>) {
+import { Props } from './types';
+
+function Checkbox({ isChecked, textTheme, children, onChange }: React.PropsWithChildren<Props>) {
   return (
     <label className="flex cursor-pointer items-center">
       <input
