@@ -3,10 +3,9 @@ import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
-import { useAppSelector } from '@/redux/hooks';
 import { BorderedButton, ProjectCard, StandardButton } from '@/shared/components';
 import { ROUTES } from '@/shared/constants';
-import { useUserFundraisings } from '@/shared/hooks';
+import { useAppSelector, useUserFundraisings } from '@/shared/hooks';
 import type { Fundraising } from '@/shared/types';
 
 import type ProjectStatus from './types';

@@ -4,14 +4,6 @@ module.exports = {
   content: ['./src/**/*.{ts,tsx}'],
   theme: {
     extend: {
-      spacing: {
-        15: '3.75rem',
-        480: '120rem',
-      },
-      fontFamily: {
-        'microsoft-ya-hei': 'var(--microsoft-ya-hei-font)',
-        'rammetto-one': 'var(--rammetto-one-font)',
-      },
       colors: {
         purple: '#ffc5cf',
         blue: {
@@ -24,11 +16,22 @@ module.exports = {
         white: '#fff',
         black: '#141414',
         gray: {
-          primary: '#333',
+          DEFAULT: '#333',
           secondary: '#828587',
           tertiary: '#5c5f60',
         },
         error: '#c820f2',
+      },
+      spacing: {
+        15: '3.75rem',
+        480: '120rem',
+      },
+      fontFamily: {
+        'microsoft-ya-hei': 'var(--microsoft-ya-hei-font)',
+        'rammetto-one': 'var(--rammetto-one-font)',
+      },
+      fontSize: {
+        'menu-active': ['3.375rem', '3.5rem'],
       },
       gridTemplateColumns: {
         projects: 'repeat(auto-fill, minmax(20.3125rem, 1fr))',
@@ -36,12 +39,9 @@ module.exports = {
       screens: {
         '3xl': '1920px',
       },
-      boxShadow: ({ theme }) => ({
+      boxShadow: {
         xl: '0 0.9375rem 0.9375rem 0 rgba(186, 186, 186, 0.4)',
-        modal: `0 0.9375rem 2.5rem ${theme('colors.blue')}`,
-        card: '-0.25rem 0.25rem 0',
-        gif: `0.25rem 0.25rem 0 0 ${theme('colors.red')}`,
-      }),
+      },
       keyframes: {
         accentPush: {
           '90%': { 'margin-left': 0, 'margin-top': 0 },
@@ -162,15 +162,6 @@ module.exports = {
         line: 'line 1s forwards linear infinite',
         arrowLeft: 'arrowLeft 1s forwards linear infinite',
         arrowRight: 'arrowRight 1s forwards linear infinite',
-      },
-      backgroundSize: {
-        '100%': '100%',
-      },
-      backgroundPosition: {
-        '0-100%': '0 100%',
-      },
-      transform: {
-        roadmap: 'perspective(50) rotateX(30deg)',
       },
     },
   },

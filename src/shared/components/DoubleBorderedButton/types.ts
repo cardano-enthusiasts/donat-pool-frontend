@@ -2,7 +2,7 @@ import { PropsWithChildren } from 'react';
 
 interface Props extends PropsWithChildren {
   primaryColor: 'blue';
-  backgroundColor: 'white' | 'red';
+  backgroundColor: 'white' | 'red' | 'blue' | 'black';
   href?: string | null;
   isExternal?: boolean;
   size?: 's' | 'm';

@@ -2,9 +2,9 @@
 import { useRouter } from 'next/navigation';
 
 import { Project } from '@/layouts';
-import { useAppSelector } from '@/redux/hooks';
 import { CreationForm } from '@/shared/components';
 import { ROUTES } from '@/shared/constants';
+import { useAppSelector } from '@/shared/hooks';
 
 const NewProject = () => {
   const router = useRouter();

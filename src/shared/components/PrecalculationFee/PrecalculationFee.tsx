@@ -1,4 +1,4 @@
-import { useAppSelector } from '@/redux/hooks';
+import { useAppSelector } from '@/shared/hooks';
 
 import type { Props } from './types';
 

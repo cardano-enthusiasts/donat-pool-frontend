@@ -1,9 +1,9 @@
 .link {
   display: flex;
-  gap: 24px;
+  gap: 1.5rem;
   justify-items: center;
-  margin-top: 24px;
-  font-size: 20px;
+  margin-top: 1.5rem;
+  font-size: 1.25rem;
   font-weight: bold;
   overflow-wrap: anywhere;
 

@@ -1,10 +1,10 @@
-export const terms = [
+const terms = [
   {
     term: 'Access',
     subTerms: [
       "You must be at least 14 years old to use the Services. If you are under 18 you must have your parent or legal guardian's permission to use the Services.",
       'It is forbidden to use the access credentials that do not belong to you.',
-      "It's forbidden to share your access credentials with anybody. You are responsible for all activities that occur using your credentials.",
+      'It is forbidden to share your access credentials with anybody. You are responsible for all activities that occur using your credentials.',
     ],
   },
   {
@@ -46,3 +46,5 @@ export const terms = [
     ],
   },
 ] as const;
+
+export { terms };

@@ -30,6 +30,7 @@
           "caseInsensitive": true
         }
       }
-    ]
+    ],
+    "import/exports-last": "error"
   }
 }

@@ -1,15 +1,12 @@
-'use client';
-
-export { Checkbox } from './Checkbox/Checkbox';
-export { default as Footer } from './Footer/Footer';
-export { Header } from './Header/Header';
+export { default as Checkbox } from './Checkbox';
+export { default as Footer } from './Footer';
+export { default as Header } from './Header';
 export { Input } from './Input/Input';
 export { Logo } from './Logo/Logo';
 export { ManagementParams } from './ManagementParams/ManagementParams';
 export { ManagerEditor } from './ManagerEditor/ManagerEditor';
 export { ProjectCard } from './ProjectCard/ProjectCard';
 export { CreationForm } from './CreationForm/CreationForm';
-export { WalletButton } from './WalletButton/WalletButton';
 export { NotAvailableError } from './NotAvailableError/NotAvailableError';
 export { PrecalculationFee } from './PrecalculationFee/PrecalculationFee';
 export { InitialLoading } from './InitialLoading/InitialLoading';
@@ -21,7 +18,7 @@ export { AboutUs } from './AboutUs/AboutUs';
 export { Roadmap } from './Roadmap/Roadmap';
 export { HowItWorks } from './HowItWorks/HowItWorks';
 export { Socials } from './Socials/Socials';
-export { Modal } from './Modal/Modal';
+export { default as Modal } from './Modal';
 export { ModalDonate } from './ModalDonate/ModalDonate';
 export { ModalLoading } from './ModalLoading/ModalLoading';
 export { ModalError } from './ModalError/ModalError';

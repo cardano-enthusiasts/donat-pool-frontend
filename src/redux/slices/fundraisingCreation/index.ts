@@ -2,7 +2,7 @@ import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
 
 import { initialState } from './constants';
 
-export const slice = createSlice({
+const slice = createSlice({
   name: 'fundraisingCreation',
   initialState,
   reducers: {
@@ -27,6 +27,6 @@ export const slice = createSlice({
   },
 });
 
-export const { setError, setRequesting, setCreatedPath, reset } = slice.actions;
-export const { reducer } = slice;
 export default slice;
+export const { reducer } = slice;
+export const { setError, setRequesting, setCreatedPath, reset } = slice.actions;

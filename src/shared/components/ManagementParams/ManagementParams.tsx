@@ -46,7 +46,7 @@ const ManagementParams = ({
         <div className="flex justify-between gap-[1.875rem]" key={id}>
           <div>
             {title}
-            <span className="text-gray ml-2">
+            <span className="ml-2 text-gray">
               {label === 'ADA' ? <Image src="/icons/ADA-gray.svg" alt="ada symbol" /> : label}
             </span>
           </div>

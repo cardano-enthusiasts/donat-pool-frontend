@@ -20,7 +20,7 @@ const ProjectCard = ({
     <Link href={`/${linkSection}/${threadTokenCurrency}`}>
       <div
         className={cn(
-          'flex w-full cursor-pointer flex-col rounded-md border-2 bg-white px-4 pb-6 shadow-card max-lg:p-5 max-sm:p-3',
+          'flex w-full cursor-pointer flex-col rounded-md border-2 bg-white px-4 pb-6 shadow-[-0.25rem_0.25rem_0] max-lg:p-5 max-sm:p-3',
           {
             'pt-2.5': paddingSize === 's',
             'pt-7': paddingSize === 'm',

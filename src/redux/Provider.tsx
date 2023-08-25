@@ -2,10 +2,10 @@
 
 import { Provider as ReduxProvider } from 'react-redux';
 
-import type { PropsWithChildren } from '@/shared/types';
-
 import store from './store';
 
-export default function ({ children }: PropsWithChildren) {
+const Provider = ({ children }: React.PropsWithChildren) => {
   return <ReduxProvider store={store}>{children}</ReduxProvider>;
-}
+};
+
+export default Provider;
