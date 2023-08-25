@@ -31,7 +31,7 @@ const Tutorial = () => {
                 <div className="mb-6 font-rammetto-one text-xl leading-[120%] text-black">{title}</div>
                 <div className="flex gap-[1.875rem] max-2xl:flex-col">
                   <Image
-                    className="w-full max-w-[40.625rem] shrink-0 rounded-md border-[0.75rem] border-yellow shadow-gif"
+                    className="shadow-[0.25rem_0.25rem_0_0_theme(colors.red.DEFAULT)}] w-full max-w-[40.625rem] shrink-0 rounded-md border-[0.75rem] border-yellow"
                     src={src}
                     alt="tutorial step"
                   />

@@ -5,15 +5,15 @@ import Layout from '@/shared/components/Layout';
 import { terms } from './data';
 import styles from './styles.module.css';
 
-export const metadata: Metadata = {
+const metadata: Metadata = {
   title: 'Terms of use',
 };
 
-export default () => {
+const Page = () => {
   return (
     <Layout>
       <div className="mx-auto max-w-[52.25rem]">
-        <h1 className="mb-8 font-rammetto-one text-[3.375rem] leading-[3.5rem] text-red">
+        <h1 className="mb-8 font-rammetto-one text-menu-active text-red">
           Donat.Pool <span className="text-green">Terms of Use</span>
         </h1>
         <p className="mb-8">
@@ -37,3 +37,5 @@ export default () => {
     </Layout>
   );
 };
+
+export { Page as default, metadata };
