@@ -5,7 +5,7 @@ import styles from './AccentButton.module.css';
 import VARIANTS from './constants';
 import { Props } from './types';
 
-const AccentButton = ({
+function AccentButton({
   children,
   primaryColor,
   secondaryColor,
@@ -17,7 +17,7 @@ const AccentButton = ({
   isDisabled = false,
   isAnimation = false,
   onClick,
-}: Props) => {
+}: Props) {
   const classes = cn(
     styles.common,
     'font-rammetto-one',
@@ -54,6 +54,6 @@ const AccentButton = ({
       )}
     </div>
   );
-};
+}
 
 export { AccentButton };

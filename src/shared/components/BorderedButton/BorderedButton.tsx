@@ -2,7 +2,7 @@ import cn from 'classnames';
 
 import { Props } from './types';
 
-const BorderedButton = ({ onClick, children, color, isClickedTheme }: Props) => {
+function BorderedButton({ onClick, children, color, isClickedTheme }: Props) {
   return (
     <div className="transition-all duration-500">
       <button
@@ -20,6 +20,6 @@ const BorderedButton = ({ onClick, children, color, isClickedTheme }: Props) => 
       </button>
     </div>
   );
-};
+}
 
 export { BorderedButton };

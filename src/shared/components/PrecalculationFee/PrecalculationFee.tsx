@@ -2,12 +2,13 @@ import { useAppSelector } from '@/shared/hooks';
 
 import type { Props } from './types';
 
-const PrecalculationFee = ({ goal }: Props) => {
+function PrecalculationFee({ goal }: Props) {
   const protocolFeeParam = useAppSelector((state) => state.appInfo.protocol?.protocolFeeParam);
   const minFee = 2;
-  const getExtraFee = (protocolFeeParam: number) => {
+
+  function getExtraFee(protocolFeeParam: number) {
     return Math.max(Math.round(goal * (protocolFeeParam / 100) * Math.pow(10, 6)) / Math.pow(10, 6), minFee);
-  };
+  }
 
   return (
     protocolFeeParam && (
@@ -19,6 +20,6 @@ const PrecalculationFee = ({ goal }: Props) => {
       </div>
     )
   );
-};
+}
 
 export { PrecalculationFee };

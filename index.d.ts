@@ -1,4 +1,5 @@
 import type { FetchedFundraising } from '@/shared/types';
+import type { BackendProject } from '@/shared/types/backend';
 import type { FundraisingData } from '@/shared/types/common';
 
 interface ConnectionParameters {
@@ -41,7 +42,7 @@ declare global {
       flint?: InjectedWallet<'Flint wallet'>;
       eternl?: InjectedWallet<'eternl'>;
     };
-    donatPool: Promise<{
+    donatPool?: Promise<{
       getAppInfo: (
         onSuccess: (appInfo: {
           protocolConfig: {
@@ -67,7 +68,7 @@ declare global {
           };
         }) => void,
       ) => (onError: HandleError) => (protocol: Protocol) => (connectionParameters: ConnectionParameters) => () => void;
-      createFundraising: (onSuccess: (createdFundraising: Fundraising) => void) => (onError: HandleError) => (
+      createFundraising: (onSuccess: (createdFundraising: BackendProject) => void) => (onError: HandleError) => (
         protocol: Protocol,
       ) => (connectionParameters: ConnectionParameters) => (data: {
         title: string;

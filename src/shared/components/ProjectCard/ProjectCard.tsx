@@ -5,12 +5,12 @@ import { formatDate } from '@/shared/helpers';
 
 import type { Props } from './types';
 
-const ProjectCard = ({
+function ProjectCard({
   data: { deadline, title, goal, raisedAmt, threadTokenCurrency },
   linkSection,
   status = 'default',
   paddingSize = 'm',
-}: Props) => {
+}: Props) {
   const statusTitles = {
     active: 'Active',
     completed: 'Completed',
@@ -60,6 +60,6 @@ const ProjectCard = ({
       </div>
     </Link>
   );
-};
+}
 
 export { ProjectCard };

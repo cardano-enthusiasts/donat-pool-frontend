@@ -12,7 +12,7 @@ import type { Fundraising } from '@/shared/types';
 
 import THEME from './constants';
 
-const Page = () => {
+function Page() {
   const params = useParams();
   const router = useRouter();
   const { fundraisings } = useUserFundraisings();
@@ -29,7 +29,9 @@ const Page = () => {
     }
   }, [fundraisings, params.id]);
 
-  const getTheme = (isCompleted: boolean) => (isCompleted ? THEME.completed : THEME.active);
+  function getTheme(isCompleted: boolean) {
+    return isCompleted ? THEME.completed : THEME.active;
+  }
 
   return (
     currentProject && (
@@ -64,6 +66,6 @@ const Page = () => {
       </Common>
     )
   );
-};
+}
 
 export default Page;

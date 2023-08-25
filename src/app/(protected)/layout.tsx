@@ -6,7 +6,7 @@ import { setIsInitialized as setIsCardanoInitialized, setActiveWalletCardanoKey 
 import ConnectWalletModal from '@/shared/components/ConnectWalletModal/ConnectWalletModal';
 import { useAppSelector, useAppDispatch } from '@/shared/hooks';
 
-const Layout = ({ children }: React.PropsWithChildren) => {
+function Layout({ children }: React.PropsWithChildren) {
   const isCardanoInitialized = useAppSelector((state) => state.cardano.isInitialized);
   const isSomeWalletActive = useAppSelector((state) => Boolean(state.cardano.activeWalletCardanoKey));
   const dispatch = useAppDispatch();
@@ -36,6 +36,6 @@ const Layout = ({ children }: React.PropsWithChildren) => {
   if (isCardanoInitialized) {
     return isSomeWalletActive ? children : <ConnectWalletModal />;
   }
-};
+}
 
 export default Layout;

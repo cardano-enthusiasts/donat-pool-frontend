@@ -2,7 +2,7 @@ import Image from 'next/image';
 
 import { DoubleBorderedButton, Waves } from '..';
 
-const NotAvailableError = () => {
+function NotAvailableError() {
   return (
     <form className="mx-auto flex h-[100vh] min-h-[41.875rem] w-full flex-col justify-between bg-red">
       <div className="h-[calc(100% - 6.25rem)] flex items-center justify-center">
@@ -28,6 +28,6 @@ const NotAvailableError = () => {
       <Waves />
     </form>
   );
-};
+}
 
 export { NotAvailableError };

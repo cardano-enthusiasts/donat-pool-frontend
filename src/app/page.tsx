@@ -6,7 +6,7 @@ import { InitialLoading, LandingContent, LandingNav, Waves } from '@/shared/comp
 import { useWindowSize, useWindowScroll } from '@/shared/hooks';
 import type { LandingSection } from '@/shared/types/common';
 
-const Page = () => {
+function Page() {
   const windowScroll = useWindowScroll();
   const { width: windowWidth } = useWindowSize();
   const [currentSection, setCurrentSection] = useState<LandingSection>('home');
@@ -19,13 +19,13 @@ const Page = () => {
     document.title = 'Donat.Pool';
   }, []);
 
-  const handleMobileHeaderClick = () => {
+  function handleMobileHeaderClick() {
     setIsMobileHeaderOpen(!isMobileHeaderOpen);
-  };
+  }
 
-  const handleSectionClick = (clickedSection: LandingSection) => {
+  function handleSectionClick(clickedSection: LandingSection) {
     setCurrentSection(clickedSection);
-  };
+  }
 
   return (
     <div className="flex flex-col">
@@ -54,6 +54,6 @@ const Page = () => {
       />
     </div>
   );
-};
+}
 
 export default Page;

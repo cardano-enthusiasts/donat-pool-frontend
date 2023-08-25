@@ -6,7 +6,7 @@ import { DATA } from './data';
 import styles from './Tutorial.module.css';
 import { DashedButton } from '..';
 
-const Tutorial = () => {
+function Tutorial() {
   const [isOpen, setIsOpen] = useState(true);
 
   return (
@@ -50,6 +50,6 @@ const Tutorial = () => {
       )}
     </div>
   );
-};
+}
 
 export { Tutorial };

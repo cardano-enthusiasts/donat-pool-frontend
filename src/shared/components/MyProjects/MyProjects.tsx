@@ -7,7 +7,7 @@ import type { Fundraising } from '@/shared/types';
 import type { ProjectStatus, Props } from './types';
 import { BorderedButton, ProjectCard, StandardButton } from '../.';
 
-const MyProjects = ({ onCreateAProjectClick }: Props) => {
+function MyProjects({ onCreateAProjectClick }: Props) {
   const [allProjectsWithStatus, setAllProjectsWithStatus] = useState<Fundraising[] | null>(null);
   const [filteredProjects, setFilteredProjects] = useState<Fundraising[] | null>(null);
   const [filter, setFilter] = useState<ProjectStatus | null>(null);
@@ -22,7 +22,7 @@ const MyProjects = ({ onCreateAProjectClick }: Props) => {
     }
   }, [fundraisings]);
 
-  const handleFilterClick = (status: ProjectStatus, projects: Fundraising[]) => {
+  function handleFilterClick(status: ProjectStatus, projects: Fundraising[]) {
     if (filter === status) {
       setFilteredProjects(projects);
       setFilter(null);
@@ -31,7 +31,7 @@ const MyProjects = ({ onCreateAProjectClick }: Props) => {
       setFilteredProjects(projects.filter((item) => item.isCompleted === isCompleted));
       setFilter(status);
     }
-  };
+  }
 
   return (
     <>
@@ -93,6 +93,6 @@ const MyProjects = ({ onCreateAProjectClick }: Props) => {
       </div>
     </>
   );
-};
+}
 
 export { MyProjects };

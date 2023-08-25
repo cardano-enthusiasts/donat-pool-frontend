@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
-const Socials = () => {
+function Socials() {
   return (
     <div className="flex gap-10">
       <Link target="_blank" rel="noreferrer" href="https://github.com/fullstack-development">
@@ -12,6 +12,6 @@ const Socials = () => {
       </Link>
     </div>
   );
-};
+}
 
 export { Socials };

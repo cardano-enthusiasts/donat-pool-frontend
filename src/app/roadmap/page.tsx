@@ -6,17 +6,18 @@ import { useEffect } from 'react';
 import { Service } from '@/layouts';
 import { roadmapText } from '@/shared/data';
 
-const Page = () => {
+function Page() {
   useEffect(() => {
     document.title = 'Roadmap';
   }, []);
-  const getSubLis = (item: any) => {
+
+  function getSubLis(item: any) {
     return item.subItems.map(({ id, title }: any) => (
       <li className="ml-6" key={id}>
         {title}
       </li>
     ));
-  };
+  }
 
   return (
     <Service>
@@ -37,6 +38,6 @@ const Page = () => {
       </div>
     </Service>
   );
-};
+}
 
 export default Page;

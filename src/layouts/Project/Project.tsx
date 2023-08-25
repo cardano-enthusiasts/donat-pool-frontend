@@ -1,6 +1,6 @@
 import type { Props } from './types';
 
-const Project = ({ onPreviousPageClick, previousPageTitle, title, children }: Props) => {
+function Project({ onPreviousPageClick, previousPageTitle, title, children }: Props) {
   return (
     <div className="relative flex justify-center">
       <div className="w-full max-w-[38.75rem]">
@@ -19,6 +19,6 @@ const Project = ({ onPreviousPageClick, previousPageTitle, title, children }: Pr
       </div>
     </div>
   );
-};
+}
 
 export { Project };

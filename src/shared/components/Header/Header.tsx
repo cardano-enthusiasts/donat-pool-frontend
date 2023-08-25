@@ -13,7 +13,7 @@ import { useAppSelector } from '@/shared/hooks';
 
 import { LINKS } from './constants';
 
-const Header = () => {
+function Header() {
   const pathname = usePathname();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const activeWalletCardanoKey = useAppSelector((state) => state.cardano.activeWalletCardanoKey);
@@ -68,6 +68,6 @@ const Header = () => {
       />
     </header>
   );
-};
+}
 
 export default Header;

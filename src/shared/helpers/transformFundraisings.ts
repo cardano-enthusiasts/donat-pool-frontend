@@ -1,6 +1,6 @@
-import { FetchedFundraising, Fundraising } from '@/shared/types';
+import type { FetchedFundraising } from '@/shared/types';
 
-const transformFundraisings = (fundraisings: FetchedFundraising[]): Fundraising[] => {
+function transformFundraisings(fundraisings: FetchedFundraising[]) {
   return fundraisings.map(
     ({ creator, deadline, goal, isCompleted, raisedAmt, threadTokenCurrency, threadTokenName, title }) => ({
       creator,
@@ -13,6 +13,6 @@ const transformFundraisings = (fundraisings: FetchedFundraising[]): Fundraising[
       title,
     }),
   );
-};
+}
 
 export default transformFundraisings;

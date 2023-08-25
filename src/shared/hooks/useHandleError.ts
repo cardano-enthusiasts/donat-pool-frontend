@@ -8,7 +8,7 @@ import {
 } from '@/shared/constants/errors';
 import { useAppDispatch } from '@/shared/hooks';
 
-const useHandleError = () => {
+function useHandleError() {
   const dispatch = useAppDispatch();
 
   return (backendError: string): string => {
@@ -30,6 +30,6 @@ const useHandleError = () => {
         return backendError;
     }
   };
-};
+}
 
 export default useHandleError;

@@ -4,9 +4,10 @@ import { Fragment } from 'react';
 import styles from './ActionDonuts.module.css';
 import type { Props } from './types';
 
-const ActionDonuts = ({ isAnimationActive }: Props) => {
-  const getColumns = () => {
+function ActionDonuts({ isAnimationActive }: Props) {
+  function getColumns() {
     const donuts: React.ReactNode[] = [];
+
     for (let i = 0; i < 6; i++) {
       donuts.push(
         <Fragment key={i}>
@@ -15,8 +16,9 @@ const ActionDonuts = ({ isAnimationActive }: Props) => {
         </Fragment>,
       );
     }
+
     return donuts;
-  };
+  }
 
   return (
     <div
@@ -32,6 +34,6 @@ const ActionDonuts = ({ isAnimationActive }: Props) => {
       <div className={styles.column1} />
     </div>
   );
-};
+}
 
 export { ActionDonuts };

@@ -7,7 +7,7 @@ import { Common } from '@/layouts';
 import { MyProjects } from '@/shared/components';
 import { ROUTES } from '@/shared/constants';
 
-const Page = () => {
+function Page() {
   const router = useRouter();
 
   useEffect(() => {
@@ -23,6 +23,6 @@ const Page = () => {
       />
     </Common>
   );
-};
+}
 
 export default Page;

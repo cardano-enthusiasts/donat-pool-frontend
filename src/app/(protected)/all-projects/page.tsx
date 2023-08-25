@@ -8,7 +8,7 @@ import { ProjectCard, StandardButton } from '@/shared/components';
 import { ROUTES } from '@/shared/constants';
 import { useFundraisings } from '@/shared/hooks';
 
-const Page = () => {
+function Page() {
   const router = useRouter();
   const {
     areBeingFetched: fundraisingsAreBeingFetched,
@@ -53,6 +53,6 @@ const Page = () => {
       {fetchFundraisingsError && <div className="text-error">An error happened while fetching fundraisings</div>}
     </Common>
   );
-};
+}
 
 export default Page;

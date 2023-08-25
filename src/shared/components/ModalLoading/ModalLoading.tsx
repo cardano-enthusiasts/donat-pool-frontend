@@ -4,11 +4,11 @@ import { useEffect, useState } from 'react';
 import type { Props } from './types';
 import { Modal } from '../.';
 
-const ModalLoading = ({
+function ModalLoading({
   isOpen,
   title = 'Please wait...',
   description = 'Please wait a bit. We are preparing your donut',
-}: Props) => {
+}: Props) {
   const [index, setIndex] = useState(0);
   const maxDonutIndex = 4;
 
@@ -37,6 +37,6 @@ const ModalLoading = ({
       </div>
     </Modal>
   );
-};
+}
 
 export { ModalLoading };

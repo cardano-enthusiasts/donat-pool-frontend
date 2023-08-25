@@ -10,7 +10,7 @@ import styles from './PrivateProjectsActions.module.css';
 import type { Props } from './types';
 import { DoubleBorderedButton, ModalError, ModalLoading, ModalSuccess, StandardButton } from '../.';
 
-const PrivateProjectsActions = ({ project }: Props) => {
+function PrivateProjectsActions({ project }: Props) {
   const [isModalSuccessOpen, setIsModalSuccessOpen] = useState(false);
   const [isModalErrorOpen, setIsModalErrorOpen] = useState(false);
   const dispatch = useAppDispatch();
@@ -38,7 +38,7 @@ const PrivateProjectsActions = ({ project }: Props) => {
 
   const link = window.location.href;
 
-  const copyContent = async () => {
+  async function copyContent() {
     try {
       await navigator.clipboard.writeText(link);
       setIsModalSuccessOpen(true);
@@ -46,13 +46,13 @@ const PrivateProjectsActions = ({ project }: Props) => {
     } catch (err) {
       console.error('Failed to copy: ', err);
     }
-  };
+  }
 
-  const handleCopyLinkClick = () => {
+  function handleCopyLinkClick() {
     copyContent().catch((err) => {
       console.error('Failed to copy: ', err);
     });
-  };
+  }
 
   return project.isCompleted ? (
     <>
@@ -109,6 +109,6 @@ const PrivateProjectsActions = ({ project }: Props) => {
       />
     </>
   );
-};
+}
 
 export { PrivateProjectsActions };

@@ -18,7 +18,7 @@ import {
   DoubleBorderedButton,
 } from '..';
 
-const CreationForm = ({ onClose, protocol }: Props) => {
+function CreationForm({ onClose, protocol }: Props) {
   const { minAmountParam, maxAmountParam, minDurationParam, maxDurationParam } = protocol;
   const dispatch = useAppDispatch();
   const router = useRouter();
@@ -65,7 +65,7 @@ const CreationForm = ({ onClose, protocol }: Props) => {
   const isAnyError =
     isTitleEmpty || isGoalLessThanMin || isGoalMoreThanMax || isDurationLessThanMin || isDurationMoreThanMax;
 
-  const setErrorsToForm = () => {
+  function setErrorsToForm() {
     const title = isTitleEmpty ? 'Please fill in the title field' : null;
     const goal = isGoalLessThanMin
       ? 'The amount is less than the minimum value'
@@ -83,13 +83,13 @@ const CreationForm = ({ onClose, protocol }: Props) => {
       goal,
       duration,
     });
-  };
+  }
 
   useEffect(() => {
     setIsLoadingModalOpen(status === 'requesting');
   }, [status]);
 
-  const handleSubmit = (event: any) => {
+  function handleSubmit(event: any) {
     event.preventDefault();
     if (isAnyError) {
       setErrorsToForm();
@@ -105,18 +105,18 @@ const CreationForm = ({ onClose, protocol }: Props) => {
       };
       createFundraising(createFundraisingParams);
     }
-  };
+  }
 
-  const handleChange = (
+  function handleChange(
     event: ChangeEvent,
     type: 'title' | 'goal' | 'durationDays' | 'durationHours' | 'durationMinutes',
-  ) => {
+  ) {
     event.preventDefault();
     setError(initialErrors);
     const { value } = event.target as HTMLInputElement;
     setData({ ...data, [type]: value });
     setError(initialErrors);
-  };
+  }
 
   return (
     <>
@@ -233,6 +233,6 @@ const CreationForm = ({ onClose, protocol }: Props) => {
       />
     </>
   );
-};
+}
 
 export { CreationForm };

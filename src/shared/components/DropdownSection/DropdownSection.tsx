@@ -4,8 +4,9 @@ import { useState } from 'react';
 
 import type { Props } from './types';
 
-const DropdownSection = ({ title = '', children }: Props) => {
+function DropdownSection({ title = '', children }: Props) {
   const [isOpen, setIsOpen] = useState(false);
+
   return (
     <div className="rounded-md p-6 shadow-xl">
       <div
@@ -20,6 +21,6 @@ const DropdownSection = ({ title = '', children }: Props) => {
       {isOpen && <div className="mt-6 flex flex-col gap-6">{children}</div>}
     </div>
   );
-};
+}
 
 export { DropdownSection };

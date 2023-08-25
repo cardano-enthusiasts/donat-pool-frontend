@@ -6,10 +6,10 @@ import styles from './AboutUs.module.css';
 import { PHOTOS } from './constants';
 import { AccentButton, Stack } from '../.';
 
-const AboutUs = () => {
+function AboutUs() {
   const { width: windowWidth } = useWindowSize();
 
-  const getPhotos = (isFirstRow: boolean) => {
+  function getPhotos(isFirstRow: boolean) {
     const filteredPhotos = isFirstRow
       ? PHOTOS.filter(({ isFirstRow }) => isFirstRow)
       : PHOTOS.filter(({ isFirstRow }) => !isFirstRow);
@@ -17,7 +17,7 @@ const AboutUs = () => {
     return filteredPhotos.map(({ title, className, alt, width, height }) => (
       <Image className={className} src={`/img/${title}.png`} alt={alt} width={width} height={height} key={title} />
     ));
-  };
+  }
 
   return (
     <div className="mb-36 max-xl:mb-10 max-md:mb-0">
@@ -40,6 +40,6 @@ const AboutUs = () => {
       </div>
     </div>
   );
-};
+}
 
 export { AboutUs };

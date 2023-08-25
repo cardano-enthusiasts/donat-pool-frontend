@@ -1,7 +1,7 @@
 import Footer from './Footer';
 import Header from './Header';
 
-const Layout = ({ children }: React.PropsWithChildren) => {
+function Layout({ children }: React.PropsWithChildren) {
   return (
     <div className="flex min-h-screen flex-col">
       <Header />
@@ -9,6 +9,6 @@ const Layout = ({ children }: React.PropsWithChildren) => {
       <Footer />
     </div>
   );
-};
+}
 
 export default Layout;

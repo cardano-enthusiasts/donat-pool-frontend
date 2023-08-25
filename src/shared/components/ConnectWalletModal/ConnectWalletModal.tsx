@@ -13,9 +13,8 @@ import type { WalletCardanoKey } from '@/shared/types';
 import { WALLETS } from './constants';
 import goToIcon from '../../../../public/icons/go-to.svg';
 
-const ConnectWalletModal = () => {
+function ConnectWalletModal() {
   const dispatch = useAppDispatch();
-
   const sortedWallets = useMemo(
     () =>
       WALLETS.map(({ cardanoKey, title, websiteUrl }) => ({
@@ -29,7 +28,7 @@ const ConnectWalletModal = () => {
   const [termsOfUseAccepted, setTermsOfUseAccepted] = useState(false);
   const [someWalletIsBeingConnected, setSomeWalletIsBeingConnected] = useState(false);
 
-  const handleConnectWalletButtonClick = async (walletCardanoKey: WalletCardanoKey) => {
+  async function handleConnectWalletButtonClick(walletCardanoKey: WalletCardanoKey) {
     setSomeWalletIsBeingConnected(true);
 
     try {
@@ -46,7 +45,7 @@ const ConnectWalletModal = () => {
     }
 
     setSomeWalletIsBeingConnected(false);
-  };
+  }
 
   return (
     <Modal isOpen panelTheme="dark" title="Connect wallet" titleAs="h1">
@@ -80,7 +79,7 @@ const ConnectWalletModal = () => {
                 <Image
                   className="mx-auto"
                   src={WALLET_CARDANO_KEY_TO_LOGO[cardanoKey]}
-                  alt={`${name}'s logo`}
+                  alt={`${title}'s logo`}
                   role="img"
                 />
               </div>
@@ -99,12 +98,11 @@ const ConnectWalletModal = () => {
           </li>
         ))}
       </ul>
-
       <DoubleBorderedButton primaryColor="blue" backgroundColor="black" isFullWidth href={ROUTES.home}>
         Back to Home page
       </DoubleBorderedButton>
     </Modal>
   );
-};
+}
 
 export default ConnectWalletModal;

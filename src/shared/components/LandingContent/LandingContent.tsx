@@ -39,7 +39,7 @@ const LandingContent = forwardRef(
       }
     }, [windowScroll]);
 
-    const getRefSection = (): LandingSection => {
+    function getRefSection(): LandingSection {
       const areRefsDefined =
         (navRef as MutableRefObject<HTMLElement>)?.current &&
         homeRef.current &&
@@ -74,7 +74,7 @@ const LandingContent = forwardRef(
         return 'contact-us';
       }
       return 'home';
-    };
+    }
 
     useEffect(() => {
       setCurrentSection(getRefSection());

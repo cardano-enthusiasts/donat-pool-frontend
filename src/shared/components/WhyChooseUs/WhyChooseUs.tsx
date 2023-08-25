@@ -3,9 +3,10 @@ import HTMLReactParser from 'html-react-parser';
 import { PRIMARY_SECTIONS, SECONDARY_SECTIONS } from './data';
 import { StandardButton } from '..';
 
-const WhyChooseUs = () => {
+function WhyChooseUs() {
   const titleClasses = 'mb-6 text-5xl font-bold leading-normal max-lg:text-[2rem] max-lg:leading-tight';
   const descriptionClasses = 'text-2xl max-md:text-lg';
+
   return (
     <div className="text-black">
       {PRIMARY_SECTIONS.map(({ title, description }) => (
@@ -50,6 +51,6 @@ const WhyChooseUs = () => {
       </div>
     </div>
   );
-};
+}
 
 export { WhyChooseUs };

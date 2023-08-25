@@ -4,7 +4,7 @@ import { useAppSelector } from '@/shared/hooks';
 
 import type { Props } from './types';
 
-const ProjectCreation = ({ onClose }: Props) => {
+function ProjectCreation({ onClose }: Props) {
   const protocol = useAppSelector((state) => state.appInfo.protocol);
 
   return (
@@ -12,6 +12,6 @@ const ProjectCreation = ({ onClose }: Props) => {
       {protocol && <CreationForm onClose={onClose} protocol={protocol} />}
     </Project>
   );
-};
+}
 
 export { ProjectCreation };

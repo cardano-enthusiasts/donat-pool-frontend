@@ -5,7 +5,7 @@ import styles from './DashedButton.module.css';
 import { Props } from './types';
 import { Arrow } from '..';
 
-const DashedButton = ({
+function DashedButton({
   children,
   primaryColor,
   secondaryColor,
@@ -13,7 +13,7 @@ const DashedButton = ({
   isClickedTheme,
   isFixedWidth = false,
   onClick,
-}: Props) => {
+}: Props) {
   return (
     <div className="transition-all duration-500">
       <button
@@ -36,6 +36,6 @@ const DashedButton = ({
       </button>
     </div>
   );
-};
+}
 
 export { DashedButton };

@@ -9,14 +9,14 @@ import styles from './Roadmap.module.css';
 import type { Props } from './types';
 import { AccentButton } from '../.';
 
-const Roadmap = ({ isActive }: Props) => {
-  const getSubLis = (item: any) => {
+function Roadmap({ isActive }: Props) {
+  function getSubLis(item: any) {
     return item.subItems.map(({ id, title }: any) => (
       <li className="ml-[4.375rem] text-3xl max-xl:ml-[3.125rem] max-xl:text-base max-sm:ml-6" key={id}>
         {title}
       </li>
     ));
-  };
+  }
 
   return (
     <div className="relative">
@@ -50,6 +50,6 @@ const Roadmap = ({ isActive }: Props) => {
       </div>
     </div>
   );
-};
+}
 
 export { Roadmap };

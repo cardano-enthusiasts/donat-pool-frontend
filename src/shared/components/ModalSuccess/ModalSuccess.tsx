@@ -3,8 +3,9 @@ import Image from 'next/image';
 import type { Props } from './types';
 import { DoubleBorderedButton, Modal } from '../.';
 
-const ModalSuccess = ({ description, isOpen, onClose }: Props) => {
+function ModalSuccess({ description, isOpen, onClose }: Props) {
   const containerClasses = 'flex w-full flex-col items-center';
+
   return (
     <Modal isOpen={isOpen}>
       <div className={containerClasses}>
@@ -21,6 +22,6 @@ const ModalSuccess = ({ description, isOpen, onClose }: Props) => {
       </div>
     </Modal>
   );
-};
+}
 
 export { ModalSuccess };

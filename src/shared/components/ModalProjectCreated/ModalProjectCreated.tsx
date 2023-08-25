@@ -5,11 +5,11 @@ import styles from './ModalProjectCreated.module.css';
 import type { Props } from './types';
 import { DoubleBorderedButton, Modal, StandardButton } from '../.';
 
-const ModalProjectCreated = ({ isOpen, onClose, path }: Props) => {
+function ModalProjectCreated({ isOpen, onClose, path }: Props) {
   const link = `${location.origin}/my-projects/${path}`;
   const [isSuccessfullyCopied, setIsSuccessfullyCopied] = useState(false);
 
-  const copyContent = async () => {
+  async function copyContent() {
     try {
       await navigator.clipboard.writeText(link);
       setIsSuccessfullyCopied(true);
@@ -18,13 +18,13 @@ const ModalProjectCreated = ({ isOpen, onClose, path }: Props) => {
       console.error('Failed to copy: ', err);
       setIsSuccessfullyCopied(false);
     }
-  };
+  }
 
-  const handleCopyLinkClick = () => {
+  function handleCopyLinkClick() {
     copyContent().catch(() => {
       setIsSuccessfullyCopied(false);
     });
-  };
+  }
 
   return (
     <Modal isOpen={isOpen}>
@@ -62,6 +62,6 @@ const ModalProjectCreated = ({ isOpen, onClose, path }: Props) => {
       </div>
     </Modal>
   );
-};
+}
 
 export { ModalProjectCreated };

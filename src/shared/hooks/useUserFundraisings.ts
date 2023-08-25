@@ -5,10 +5,10 @@ import { createConnectionParameters, transformFundraisings } from '@/shared/help
 import { useAppSelector, useAppDispatch } from '@/shared/hooks';
 import type { FetchedFundraising } from '@/shared/types';
 
-import useDonatPool from './useDonatPool';
+import useOffchain from './useOffchain';
 
-const useUserFundraisings = () => {
-  const donatPool = useDonatPool();
+function useUserFundraisings() {
+  const offchain = useOffchain();
   const { requestStatus, fundraisings, error } = useAppSelector((state) => state.getUserRelatedFundraisings);
   const activeWalletCardanoKey = useAppSelector((state) => state.cardano.activeWalletCardanoKey);
   const dispatch = useAppDispatch();
@@ -29,13 +29,13 @@ const useUserFundraisings = () => {
   );
 
   const fetchFundraisings = useCallback(() => {
-    if (donatPool && activeWalletCardanoKey) {
+    if (offchain && activeWalletCardanoKey) {
       dispatch(setRequestStatus('requesting'));
-      donatPool.getUserRelatedFundraisings(handleFetchSuccess)(handleFetchFailure)(
+      offchain.getUserRelatedFundraisings(handleFetchSuccess)(handleFetchFailure)(
         JSON.parse(process.env.NEXT_PUBLIC_PROTOCOL),
       )(createConnectionParameters(activeWalletCardanoKey))();
     }
-  }, [donatPool, activeWalletCardanoKey, dispatch, handleFetchSuccess, handleFetchFailure]);
+  }, [offchain, activeWalletCardanoKey, dispatch, handleFetchSuccess, handleFetchFailure]);
 
   useEffect(() => {
     if (requestStatus === 'default') {
@@ -49,6 +49,6 @@ const useUserFundraisings = () => {
     error,
     refetchFundraisings: fetchFundraisings,
   };
-};
+}
 
 export default useUserFundraisings;

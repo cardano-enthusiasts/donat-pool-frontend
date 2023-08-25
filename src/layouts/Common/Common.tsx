@@ -2,11 +2,11 @@ import { useEffect } from 'react';
 
 import { Footer, Header } from '@/shared/components';
 import { useGetAppInfo } from '@/shared/hooks';
-import { useDonatPool } from '@/shared/hooks';
+import { useOffchain } from '@/shared/hooks';
 
-const Common = ({ children }: React.PropsWithChildren) => {
+function Common({ children }: React.PropsWithChildren) {
   const getAppInfo = useGetAppInfo();
-  const offchain = useDonatPool();
+  const offchain = useOffchain();
 
   useEffect(() => {
     if (offchain) {
@@ -23,6 +23,6 @@ const Common = ({ children }: React.PropsWithChildren) => {
       <Footer />
     </div>
   );
-};
+}
 
 export { Common };

@@ -8,7 +8,7 @@ import { Socials, ModalContactUs, StandardButton } from '@/shared/components';
 import { LINKS } from './constants';
 import type { Props } from './types';
 
-const Footer = ({ backgroundColor = 'blue' }: Props) => {
+function Footer({ backgroundColor = 'blue' }: Props) {
   const [isModalContactUsOpen, setIsModalContactUsOpen] = useState(false);
 
   return (
@@ -51,6 +51,6 @@ const Footer = ({ backgroundColor = 'blue' }: Props) => {
       />
     </>
   );
-};
+}
 
 export default Footer;

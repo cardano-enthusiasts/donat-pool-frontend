@@ -37,7 +37,7 @@ const metadata: Metadata = {
   },
 };
 
-const Layout = ({ children }: React.PropsWithChildren) => {
+function Layout({ children }: React.PropsWithChildren) {
   return (
     <html
       className={`${microsoftYaHeiFont.variable} ${rammettoOneFont.variable} bg-white font-microsoft-ya-hei text-[16px]/6 text-black`}
@@ -49,6 +49,6 @@ const Layout = ({ children }: React.PropsWithChildren) => {
       </body>
     </html>
   );
-};
+}
 
 export { Layout as default, metadata };

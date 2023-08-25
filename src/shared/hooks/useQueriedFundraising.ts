@@ -3,7 +3,7 @@ import { useMemo } from 'react';
 
 import useFundraisings from './useFundraisings';
 
-const useQueriedFundraising = () => {
+function useQueriedFundraising() {
   const params = useParams();
   const {
     areBeingFetched: fundraisingsAreBeingFetched,
@@ -20,6 +20,6 @@ const useQueriedFundraising = () => {
     fundraising,
     error: fetchFundraisingsError,
   };
-};
+}
 
 export default useQueriedFundraising;

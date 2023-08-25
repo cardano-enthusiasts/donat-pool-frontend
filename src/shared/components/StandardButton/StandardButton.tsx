@@ -5,7 +5,7 @@ import VARIANTS from './constants';
 import styles from './StandardButton.module.css';
 import { Props } from './types';
 
-const StandardButton = ({
+function StandardButton({
   children,
   primaryColor,
   secondaryColor,
@@ -18,7 +18,7 @@ const StandardButton = ({
   isDisabled = false,
   isAnimation = false,
   onClick,
-}: Props) => {
+}: Props) {
   const classes = cn(
     styles.common,
     VARIANTS.size[size],
@@ -49,6 +49,6 @@ const StandardButton = ({
       )}
     </div>
   );
-};
+}
 
 export { StandardButton };

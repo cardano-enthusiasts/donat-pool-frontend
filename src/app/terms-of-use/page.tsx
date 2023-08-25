@@ -9,7 +9,7 @@ const metadata: Metadata = {
   title: 'Terms of use',
 };
 
-const Page = () => {
+function Page() {
   return (
     <Layout>
       <div className="mx-auto max-w-[52.25rem]">
@@ -21,11 +21,11 @@ const Page = () => {
         </p>
         <ol className={`${styles.list} list-inside space-y-3`}>
           {terms.map(({ term, subTerms }) => (
-            <li key={term} className="text-2xl">
+            <li className="text-2xl" key={term}>
               {term}
               <ol className="mt-1 list-inside space-y-1 pl-5">
                 {subTerms.map((subTerm) => (
-                  <li key={subTerm} className="text-base">
+                  <li className="text-base" key={subTerm}>
                     {subTerm}
                   </li>
                 ))}
@@ -36,6 +36,6 @@ const Page = () => {
       </div>
     </Layout>
   );
-};
+}
 
 export { Page as default, metadata };

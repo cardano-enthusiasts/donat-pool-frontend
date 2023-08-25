@@ -9,7 +9,7 @@ import { formatDate } from '@/shared/helpers';
 import { useAppDispatch, useAppSelector } from '@/shared/hooks';
 import { useQueriedFundraising, useDonate } from '@/shared/hooks';
 
-const Page = () => {
+function Page() {
   const dispatch = useAppDispatch();
   const {
     isBeingFetched: fundraisingIsBeingFetched,
@@ -105,6 +105,6 @@ const Page = () => {
       />
     </>
   );
-};
+}
 
 export default Page;

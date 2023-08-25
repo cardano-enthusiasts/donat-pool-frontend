@@ -5,7 +5,7 @@ import VARIANTS from './constants';
 import styles from './DoubleBorderedButton.module.css';
 import { Props } from './types';
 
-const DoubleBorderedButton = ({
+function DoubleBorderedButton({
   children,
   primaryColor,
   backgroundColor,
@@ -14,7 +14,7 @@ const DoubleBorderedButton = ({
   isFullWidth = false,
   size = 'm',
   onClick,
-}: Props) => {
+}: Props) {
   const classes = cn(
     styles.common,
     VARIANTS.size[size],
@@ -42,6 +42,6 @@ const DoubleBorderedButton = ({
       )}
     </div>
   );
-};
+}
 
 export { DoubleBorderedButton };

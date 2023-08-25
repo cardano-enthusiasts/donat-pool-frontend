@@ -8,7 +8,7 @@ import { ManagementParams, ManagerEditor } from '@/shared/components';
 import { ROUTES } from '@/shared/constants';
 import { useAppSelector } from '@/shared/hooks';
 
-const Page = () => {
+function Page() {
   const {
     appInfo: { userInfo, protocol },
     connectWallet: { requestStatus: status },
@@ -43,5 +43,5 @@ const Page = () => {
       </Common>
     )
   );
-};
+}
 export default Page;

@@ -7,7 +7,7 @@ import styles from './TitleAndDescription.module.css';
 import type { Props } from './types';
 import { AccentButton } from '../.';
 
-const TitleAndDescription = ({ isActive }: Props) => {
+function TitleAndDescription({ isActive }: Props) {
   return (
     <div
       className={cn('flex flex-col font-rammetto-one', isActive && styles.wrapper, !isActive && styles.wrapperInactive)}
@@ -38,6 +38,6 @@ const TitleAndDescription = ({ isActive }: Props) => {
       </div>
     </div>
   );
-};
+}
 
 export { TitleAndDescription };

@@ -1,6 +1,6 @@
 import cn from 'classnames';
 
-const Checkbox = ({
+function Checkbox({
   isChecked,
   textTheme,
   children,
@@ -9,7 +9,7 @@ const Checkbox = ({
   isChecked: boolean;
   textTheme?: 'light';
   onChange: () => void;
-}>) => {
+}>) {
   return (
     <label className="flex cursor-pointer items-center">
       <input
@@ -42,6 +42,6 @@ const Checkbox = ({
       </span>
     </label>
   );
-};
+}
 
 export default Checkbox;

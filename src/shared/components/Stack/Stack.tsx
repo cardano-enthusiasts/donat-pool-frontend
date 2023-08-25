@@ -6,7 +6,7 @@ import { useWindowScroll } from '@/shared/hooks';
 import styles from './Stack.module.css';
 import { DashedButton } from '../.';
 
-const Stack = () => {
+function Stack() {
   const ref = useRef<HTMLDivElement>(null);
   const [isActive, setIsActive] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
@@ -23,7 +23,7 @@ const Stack = () => {
     }
   }, [windowScroll]);
 
-  const getLink = (title: any, href: any) => {
+  function getLink(title: any, href: any) {
     return (
       <>
         {' '}
@@ -32,7 +32,7 @@ const Stack = () => {
         </a>{' '}
       </>
     );
-  };
+  }
 
   return (
     <div className="flex max-w-[50rem] flex-col gap-10">
@@ -74,6 +74,6 @@ const Stack = () => {
       )}
     </div>
   );
-};
+}
 
 export { Stack };

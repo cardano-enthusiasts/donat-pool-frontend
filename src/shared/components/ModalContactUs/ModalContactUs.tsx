@@ -3,24 +3,24 @@ import { useState } from 'react';
 import type { Props } from './types';
 import { DoubleBorderedButton, Input, Modal, StandardButton } from '../.';
 
-const ModalContactUs = ({ isOpen, onClose }: Props) => {
+function ModalContactUs({ isOpen, onClose }: Props) {
   const initialData = { contact: '', name: '', message: '' };
   const [data, setData] = useState(initialData);
 
-  const handleInputChange = (event: any, fieldName: 'contact' | 'name' | 'message') => {
+  function handleInputChange(event: any, fieldName: 'contact' | 'name' | 'message') {
     const { value } = event.target as HTMLInputElement;
     setData({
       ...data,
       [fieldName]: value,
     });
-  };
-  const handleSubmit = (event: any) => {
+  }
+  function handleSubmit(event: any) {
     event.preventDefault();
-  };
-  const handleCancelClick = () => {
+  }
+  function handleCancelClick() {
     onClose();
     setData(initialData);
-  };
+  }
 
   return (
     <Modal isOpen={isOpen}>
@@ -72,6 +72,6 @@ const ModalContactUs = ({ isOpen, onClose }: Props) => {
       </form>
     </Modal>
   );
-};
+}
 
 export { ModalContactUs };

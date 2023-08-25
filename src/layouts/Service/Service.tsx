@@ -2,7 +2,7 @@ import { PropsWithChildren } from 'react';
 
 import { Footer, Header } from '@/shared/components';
 
-const Service = ({ children }: PropsWithChildren) => {
+function Service({ children }: PropsWithChildren) {
   return (
     <>
       <Header />
@@ -12,6 +12,6 @@ const Service = ({ children }: PropsWithChildren) => {
       <Footer />
     </>
   );
-};
+}
 
 export { Service };

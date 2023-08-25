@@ -7,7 +7,7 @@ import { useWindowSize } from '@/shared/hooks';
 import type { Props } from './types';
 import { ActionDonuts, ScrollHelper } from '../.';
 
-const InitialLoading = ({ windowScroll, isAnimationActive }: Props) => {
+function InitialLoading({ windowScroll, isAnimationActive }: Props) {
   const innerCircleRef = useRef<HTMLDivElement>(null);
   const wrapperRef = useRef<HTMLDivElement>(null);
   const { width } = useWindowSize();
@@ -64,6 +64,6 @@ const InitialLoading = ({ windowScroll, isAnimationActive }: Props) => {
       />
     </div>
   );
-};
+}
 
 export { InitialLoading };

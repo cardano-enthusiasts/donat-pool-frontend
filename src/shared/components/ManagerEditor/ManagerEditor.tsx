@@ -8,7 +8,7 @@ import { DEFAULT_PARAMS } from './data';
 import type { Props } from './types';
 import { Input, ModalError, ModalLoading, ModalSuccess, StandardButton } from '..';
 
-const ManagerEditor = ({ config }: Props) => {
+function ManagerEditor({ config }: Props) {
   const [params, setParams] = useState(config);
   const [isModalSuccessOpen, setIsModalSuccessOpen] = useState(false);
   const [isModalErrorOpen, setIsModalErrorOpen] = useState(false);
@@ -18,14 +18,14 @@ const ManagerEditor = ({ config }: Props) => {
   const { error, status } = useAppSelector((state) => state.protocolUpdating);
   const setProtocol = useUpdateProtocol();
 
-  const filterInputValue = (value: string): '' | number => {
+  function filterInputValue(value: string): '' | number {
     if (Number(value) < 0) {
       return Number(-value);
     } else if (Number(value) >= 0) {
       return Number(value);
     }
     return '';
-  };
+  }
 
   useEffect(() => {
     if (status === 'success') {
@@ -44,7 +44,7 @@ const ManagerEditor = ({ config }: Props) => {
     setParams(config);
   }, [config]);
 
-  const handleInputChange: (id: any, event: any) => void = (id, event) => {
+  function handleInputChange(event: any) {
     const { value } = event.target as HTMLInputElement;
     const dataType = String(event.target.getAttribute('data-type'));
 
@@ -52,12 +52,12 @@ const ManagerEditor = ({ config }: Props) => {
       ...params,
       [dataType]: filterInputValue(value),
     });
-  };
+  }
 
-  const handleSubmit = (event: ChangeEvent<HTMLFormElement>) => {
+  function handleSubmit(event: ChangeEvent<HTMLFormElement>) {
     event.preventDefault();
     setProtocol(params);
-  };
+  }
 
   return (
     <>
@@ -65,14 +65,7 @@ const ManagerEditor = ({ config }: Props) => {
         <div className="grid grid-cols-2 gap-5 max-md:grid-cols-1">
           {DEFAULT_PARAMS.map(({ title, id, hint }) => (
             <div className="flex w-full items-center justify-between" key={id}>
-              <Input
-                onChange={(event) => {
-                  handleInputChange(id, event);
-                }}
-                dataAttr={id}
-                value={params[id]}
-                type="number"
-              >
+              <Input onChange={handleInputChange} dataAttr={id} value={params[id]} type="number">
                 {title} / <span className="text-gray">{hint}</span>
               </Input>
             </div>
@@ -104,6 +97,6 @@ const ManagerEditor = ({ config }: Props) => {
       />
     </>
   );
-};
+}
 
 export { ManagerEditor };

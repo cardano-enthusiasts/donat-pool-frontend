@@ -2,7 +2,7 @@ import HTMLReactParser from 'html-react-parser';
 
 import { Props } from './types';
 
-const Ul = ({ texts }: Props) => {
+function Ul({ texts }: Props) {
   return (
     <ul className="list-disc pl-5">
       {texts.map((text, index) => (
@@ -12,6 +12,6 @@ const Ul = ({ texts }: Props) => {
       ))}
     </ul>
   );
-};
+}
 
 export { Ul };

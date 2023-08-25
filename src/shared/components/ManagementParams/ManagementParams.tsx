@@ -2,9 +2,9 @@ import Image from 'next/image';
 
 import type { Props } from './types';
 
-const ManagementParams = ({
+function ManagementParams({
   config: { minAmountParam, maxAmountParam, minDurationParam, maxDurationParam, protocolFeeParam },
-}: Props) => {
+}: Props) {
   const params = [
     {
       title: 'Min amount',
@@ -55,6 +55,6 @@ const ManagementParams = ({
       ))}
     </div>
   );
-};
+}
 
 export { ManagementParams };

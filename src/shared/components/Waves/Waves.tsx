@@ -6,15 +6,15 @@ import VARIANTS from './constants';
 import type { Props } from './types';
 import styles from './Waves.module.css';
 
-const Waves = ({ color = 'blue', backgroundColor = 'transparent', isUpsideDown = false, isMoving = true }: Props) => {
+function Waves({ color = 'blue', backgroundColor = 'transparent', isUpsideDown = false, isMoving = true }: Props) {
   const size = useWindowSize();
 
-  const getWidthForViewBox = () => {
+  function getWidthForViewBox() {
     if (size.width < 1280) {
       return 600;
     }
     return 1000;
-  };
+  }
 
   const colors = {
     transparent: 'bg-transparent',
@@ -51,6 +51,6 @@ const Waves = ({ color = 'blue', backgroundColor = 'transparent', isUpsideDown =
       </svg>
     </div>
   );
-};
+}
 
 export { Waves };

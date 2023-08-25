@@ -2,7 +2,7 @@ import { Dialog } from '@headlessui/react';
 
 import { PANEL_THEME_TO_CLASS_NAME } from './constants';
 
-const Modal = ({
+function Modal({
   isOpen,
   panelTheme = 'light',
   title,
@@ -15,7 +15,7 @@ const Modal = ({
   title?: string;
   titleAs?: React.ElementType;
   onClose?: () => void;
-}>) => {
+}>) {
   return (
     <Dialog className="fixed inset-0 flex items-center justify-center bg-blue/40 p-5" open={isOpen} onClose={onClose}>
       <Dialog.Panel
@@ -40,6 +40,6 @@ const Modal = ({
       </Dialog.Panel>
     </Dialog>
   );
-};
+}
 
 export default Modal;

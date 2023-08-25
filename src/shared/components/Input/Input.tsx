@@ -3,7 +3,7 @@ import cn from 'classnames';
 import styles from './Input.module.css';
 import type { Props } from './types';
 
-const Input = ({
+function Input({
   value,
   onChange,
   dataAttr = '',
@@ -19,7 +19,7 @@ const Input = ({
   fontColor = 'black',
   min = 0,
   step = 1,
-}: Props) => {
+}: Props) {
   const attributes = {
     value,
     onChange,
@@ -28,7 +28,6 @@ const Input = ({
     error,
     disabled: isDisabled,
   };
-
   const isError = error || error === '';
   const inputClasses = cn(styles.input, 'border-2', {
     'border-error text-error': isError,
@@ -36,6 +35,7 @@ const Input = ({
     'border-black text-yellow': !isError && fontColor === 'yellow',
     'border-black text-black': !isError && fontColor === 'black',
   });
+
   return (
     <div className="w-full">
       <div className="mb-2">{children}</div>
@@ -69,5 +69,6 @@ const Input = ({
       </div>
     </div>
   );
-};
+}
+
 export { Input };

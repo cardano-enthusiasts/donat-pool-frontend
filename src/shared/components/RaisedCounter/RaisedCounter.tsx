@@ -5,10 +5,10 @@ import { useWindowSize } from '@/shared/hooks';
 
 import type { Props } from './types';
 
-const RaisedCounter = ({ raised, goal }: Props) => {
+function RaisedCounter({ raised, goal }: Props) {
   const { width } = useWindowSize();
   const [imgTitle, setImgTitle] = useState('donut-0');
-  const getImgIndex = (part: number) => {
+  function getImgIndex(part: number) {
     if (part < 0.2) {
       return 0;
     }
@@ -22,7 +22,7 @@ const RaisedCounter = ({ raised, goal }: Props) => {
       return 3;
     }
     return 4;
-  };
+  }
 
   useEffect(() => {
     const raisedPart = raised / goal;
@@ -43,6 +43,6 @@ const RaisedCounter = ({ raised, goal }: Props) => {
       <div className="text-yellow">{goal}</div>
     </div>
   );
-};
+}
 
 export { RaisedCounter };
