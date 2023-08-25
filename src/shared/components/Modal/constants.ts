@@ -1,6 +1,6 @@
-const PANEL_THEME_TO_CLASSNAME = {
+const PANEL_THEME_TO_CLASS_NAME = {
   light: 'bg-white',
   dark: 'bg-black',
 } as const;
 
-export { PANEL_THEME_TO_CLASSNAME };
+export { PANEL_THEME_TO_CLASS_NAME };
