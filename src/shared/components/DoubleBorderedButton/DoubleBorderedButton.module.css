@@ -1,6 +1,7 @@
 .common {
   position: relative;
   font-weight: bold;
+  text-align: center;
   border-radius: 0.375rem;
   transform-style: preserve-3d;
 }

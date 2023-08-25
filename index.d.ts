@@ -9,7 +9,7 @@ interface InjectedWallet<Name> {
   name: Name;
   apiVersion: string;
   icon: string;
-  enable: () => Promise<Record<string, unknown> | undefined> | never;
+  enable: () => Promise<Record<string, unknown>> | never;
   isEnabled: () => Promise<boolean>;
 }
 interface Protocol {
@@ -31,7 +31,13 @@ declare global {
   interface Window {
     cardano?: {
       nami?: InjectedWallet<'Nami'>;
-      LodeWallet?: InjectedWallet<'LodeWallet'>;
+      LodeWallet?: {
+        name: 'LodeWallet';
+        apiVersion: string;
+        icon: string;
+        enable: () => Promise<Record<string, unknown> | undefined>;
+        isEnabled: () => Promise<boolean>;
+      };
       flint?: InjectedWallet<'Flint wallet'>;
       eternl?: InjectedWallet<'eternl'>;
     };

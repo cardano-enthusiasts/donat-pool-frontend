@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { useMemo, useState } from 'react';
 
 import { setActiveWalletCardanoKey } from '@/redux/slices/cardano';
-import { Modal, Checkbox } from '@/shared/components';
+import { Modal, Checkbox, DoubleBorderedButton } from '@/shared/components';
 import { ROUTES } from '@/shared/constants';
 import { WALLET_CARDANO_KEY_TO_LOGO } from '@/shared/constants';
 import { useAppDispatch } from '@/shared/hooks';
@@ -49,9 +49,10 @@ const ConnectWalletModal = () => {
   };
 
   return (
-    <Modal isOpen title="Connect wallet" titleAs="h1">
+    <Modal isOpen panelTheme="dark" title="Connect wallet" titleAs="h1">
       <Checkbox
         isChecked={termsOfUseAccepted}
+        textTheme="light"
         onChange={() => {
           setTermsOfUseAccepted((t) => !t);
         }}
@@ -98,7 +99,10 @@ const ConnectWalletModal = () => {
           </li>
         ))}
       </ul>
-      <Link href={ROUTES.home}>Back to Home page</Link>
+
+      <DoubleBorderedButton primaryColor="blue" backgroundColor="black" isFullWidth href={ROUTES.home}>
+        Back to Home page
+      </DoubleBorderedButton>
     </Modal>
   );
 };

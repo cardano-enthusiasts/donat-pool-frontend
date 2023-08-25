@@ -41,7 +41,6 @@ module.exports = {
       },
       boxShadow: ({ theme }) => ({
         xl: '0 0.9375rem 0.9375rem 0 rgba(186, 186, 186, 0.4)',
-        modal: `0 0.9375rem 2.5rem ${theme('colors.blue')}`,
         card: '-0.25rem 0.25rem 0',
         gif: `0.25rem 0.25rem 0 0 ${theme('colors.red')}`,
       }),

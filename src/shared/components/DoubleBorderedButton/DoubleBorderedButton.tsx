@@ -20,7 +20,7 @@ const DoubleBorderedButton = ({
     VARIANTS.size[size],
     VARIANTS.primary[primaryColor],
     VARIANTS.background[backgroundColor],
-    { 'w-full': isFullWidth },
+    { 'w-full inline-block': isFullWidth },
     'border-2 before:border-2',
   );
 
@@ -28,10 +28,10 @@ const DoubleBorderedButton = ({
     <div className={cn('transition-all duration-500', { 'w-full': isFullWidth })}>
       {href !== null ? (
         <Link
+          className={classes}
           href={href}
           target={isExternal ? '_blank' : '_self'}
           rel={isExternal ? 'noreferrer' : undefined}
-          className={classes}
         >
           {children}
         </Link>
