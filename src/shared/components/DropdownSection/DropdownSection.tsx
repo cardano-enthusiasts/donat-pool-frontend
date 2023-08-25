@@ -4,7 +4,7 @@ import { useState } from 'react';
 
 import type { Props } from './types';
 
-function DropdownSection({ title = '', children }: Props) {
+function DropdownSection({ title = '', children }: React.PropsWithChildren<Props>) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (

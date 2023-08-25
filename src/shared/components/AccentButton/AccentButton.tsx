@@ -17,7 +17,7 @@ function AccentButton({
   isDisabled = false,
   isAnimation = false,
   onClick,
-}: Props) {
+}: React.PropsWithChildren<Props>) {
   const classes = cn(
     styles.common,
     'font-rammetto-one',

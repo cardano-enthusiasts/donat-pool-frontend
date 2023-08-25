@@ -14,7 +14,7 @@ function DoubleBorderedButton({
   isFullWidth = false,
   size = 'm',
   onClick,
-}: Props) {
+}: React.PropsWithChildren<Props>) {
   const classes = cn(
     styles.common,
     VARIANTS.size[size],

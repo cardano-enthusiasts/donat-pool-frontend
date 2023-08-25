@@ -1,6 +1,4 @@
-import { PropsWithChildren } from 'react';
-
-interface Props extends PropsWithChildren {
+interface Props {
   primaryColor: 'blue';
   backgroundColor: 'white' | 'red' | 'blue' | 'black';
   href?: string | null;
