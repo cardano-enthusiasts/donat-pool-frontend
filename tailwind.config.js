@@ -39,11 +39,9 @@ module.exports = {
       screens: {
         '3xl': '1920px',
       },
-      boxShadow: ({ theme }) => ({
+      boxShadow: {
         xl: '0 0.9375rem 0.9375rem 0 rgba(186, 186, 186, 0.4)',
-        card: '-0.25rem 0.25rem 0',
-        gif: `0.25rem 0.25rem 0 0 ${theme('colors.red')}`,
-      }),
+      },
       keyframes: {
         accentPush: {
           '90%': { 'margin-left': 0, 'margin-top': 0 },
@@ -164,15 +162,6 @@ module.exports = {
         line: 'line 1s forwards linear infinite',
         arrowLeft: 'arrowLeft 1s forwards linear infinite',
         arrowRight: 'arrowRight 1s forwards linear infinite',
-      },
-      backgroundSize: {
-        '100%': '100%',
-      },
-      backgroundPosition: {
-        '0-100%': '0 100%',
-      },
-      transform: {
-        roadmap: 'perspective(50) rotateX(30deg)',
       },
     },
   },
