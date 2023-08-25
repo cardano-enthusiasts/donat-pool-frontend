@@ -1,16 +1,16 @@
 import { useCallback, useEffect } from 'react';
 
-import { useAppSelector, useAppDispatch } from '@/redux/hooks';
 import { setRequestStatus, setFundraisings, setError } from '@/redux/slices/getAllFundraisings';
-import { testnetNami } from '@/shared/constants';
-import { transformFundraisings } from '@/shared/helpers';
+import { createConnectionParameters, transformFundraisings } from '@/shared/helpers';
+import { useAppSelector, useAppDispatch } from '@/shared/hooks';
 import type { FetchedFundraising } from '@/shared/types';
 
 import useDonatPool from './useDonatPool';
 
-export default () => {
+const useFundraisings = () => {
   const donatPool = useDonatPool();
   const { requestStatus, fundraisings, error } = useAppSelector((state) => state.getAllFundraisings);
+  const activeWalletCardanoKey = useAppSelector((state) => state.cardano.activeWalletCardanoKey);
   const dispatch = useAppDispatch();
 
   const handleFetchSuccess = useCallback(
@@ -22,20 +22,19 @@ export default () => {
 
   const handleFetchFailure = useCallback(
     (error: string) => {
-      console.error(`getAllFundraisings: ${error}`);
       dispatch(setError(error));
     },
     [dispatch],
   );
 
   const fetchFundraisings = useCallback(() => {
-    if (donatPool) {
+    if (donatPool && activeWalletCardanoKey) {
       dispatch(setRequestStatus('requesting'));
       donatPool.getAllFundraisings(handleFetchSuccess)(handleFetchFailure)(
         JSON.parse(process.env.NEXT_PUBLIC_PROTOCOL),
-      )(testnetNami)();
+      )(createConnectionParameters(activeWalletCardanoKey))();
     }
-  }, [donatPool, dispatch, handleFetchSuccess, handleFetchFailure]);
+  }, [donatPool, activeWalletCardanoKey, dispatch, handleFetchSuccess, handleFetchFailure]);
 
   useEffect(() => {
     if (requestStatus === 'default') {
@@ -50,3 +49,5 @@ export default () => {
     refetchFundraisings: fetchFundraisings,
   };
 };
+
+export default useFundraisings;

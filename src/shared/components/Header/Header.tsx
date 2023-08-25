@@ -1,25 +1,22 @@
 'use client';
+
 import cn from 'classnames';
 import Image from 'next/image';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { useState } from 'react';
 
-import { useAppSelector } from '@/redux/hooks';
+import { Logo, StandardButton } from '@/shared/components';
 import { ROUTES } from '@/shared/constants';
+import { WALLET_CARDANO_KEY_TO_LOGO } from '@/shared/constants';
+import { useAppSelector } from '@/shared/hooks';
 
-import type { Props } from './types';
-import { Logo, StandardButton, WalletButton } from '..';
+import { LINKS } from './constants';
 
-const Header = ({ currentPage = null }: Props) => {
-  const links = [
-    { title: 'My Donat.Pools', href: ROUTES.userFundraisings },
-    {
-      title: 'All Donat.Pools',
-      href: ROUTES.allFundraisings,
-    },
-  ];
+const Header = () => {
+  const pathname = usePathname();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const connectWalletStatus = useAppSelector((state) => state.connectWallet.requestStatus);
+  const activeWalletCardanoKey = useAppSelector((state) => state.cardano.activeWalletCardanoKey);
 
   return (
     <header
@@ -33,25 +30,23 @@ const Header = ({ currentPage = null }: Props) => {
         })}
       >
         {!isMenuOpen && <Logo />}
-        {connectWalletStatus === 'success' ? (
+        {activeWalletCardanoKey ? (
           <div className={cn('flex max-lg:flex-col max-lg:gap-10', { 'max-lg:hidden': !isMenuOpen })}>
             <div className="mx-10 flex gap-7 text-lg font-bold max-lg:flex-col max-lg:items-center">
-              {links.map(({ title, href }) => (
-                <div className="shrink-0" key={href}>
-                  <Link
-                    href={href}
-                    className={cn({
-                      'text-yellow': href === currentPage,
-                      'text-white': href !== currentPage,
-                    })}
-                  >
+              {LINKS.map(({ title, href }) => (
+                <div className="shrink-0" key={title}>
+                  <Link href={href} className={`${href === pathname ? 'text-yellow' : 'text-white'}`}>
                     {title}
                   </Link>
                 </div>
               ))}
             </div>
             <div className="mr-10 w-0.5 bg-purple max-lg:h-0.5 max-lg:w-full" />
-            <WalletButton />
+            <Image
+              src={WALLET_CARDANO_KEY_TO_LOGO[activeWalletCardanoKey]}
+              alt={`${activeWalletCardanoKey}'s logo`}
+              role="img"
+            />
           </div>
         ) : (
           <div className={cn({ 'max-lg:hidden': !isMenuOpen })}>
@@ -61,7 +56,6 @@ const Header = ({ currentPage = null }: Props) => {
           </div>
         )}
       </div>
-
       <Image
         className="hidden max-lg:absolute max-lg:right-[1.875rem] max-lg:top-8 max-lg:block max-lg:h-10 max-lg:w-10"
         src={`/icons/${isMenuOpen ? 'close' : 'menu'}.svg`}
@@ -76,4 +70,4 @@ const Header = ({ currentPage = null }: Props) => {
   );
 };
 
-export { Header };
+export default Header;

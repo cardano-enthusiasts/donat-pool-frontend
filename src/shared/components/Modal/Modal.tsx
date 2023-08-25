@@ -1,18 +1,45 @@
-import type { FC } from 'react';
+import { Dialog } from '@headlessui/react';
 
-import type { Props } from './types';
+import { PANEL_THEME_TO_CLASS_NAME } from './constants';
 
-const Modal: FC<Props> = ({ isOpen, children }) => {
-  const content = (
-    <div className="fixed left-0 top-0 z-[101] flex h-full w-full items-start justify-center overflow-y-auto bg-[#4757e666]">
-      <div className="fixed z-[100] h-full w-full" />
-      <section className="relative z-[101] my-[6.25rem] h-max w-[37.5rem] rounded-md bg-white px-10 pb-15 pt-10 shadow-modal max-md:my-10 max-md:w-[90%] max-md:p-5">
+const Modal = ({
+  isOpen,
+  panelTheme = 'light',
+  title,
+  titleAs,
+  children,
+  onClose = () => undefined,
+}: React.PropsWithChildren<{
+  isOpen: boolean;
+  panelTheme?: 'light' | 'dark';
+  title?: string;
+  titleAs?: React.ElementType;
+  onClose?: () => void;
+}>) => {
+  return (
+    <Dialog className="fixed inset-0 flex items-center justify-center bg-blue/40 p-5" open={isOpen} onClose={onClose}>
+      <Dialog.Panel
+        className={`${PANEL_THEME_TO_CLASS_NAME[panelTheme]}
+          max-h-full
+          w-[37.5rem]
+          overflow-y-auto
+          rounded-md
+          px-10
+          pb-15
+          pt-10
+          shadow-[0_0.9375rem_2.5rem_theme(colors.blue.DEFAULT)]
+          max-md:w-11/12
+          max-md:p-5`}
+      >
+        {title && (
+          <Dialog.Title className="mb-6 font-rammetto-one text-menu-active text-red" as={titleAs}>
+            {title}
+          </Dialog.Title>
+        )}
         {children}
-      </section>
-    </div>
+      </Dialog.Panel>
+    </Dialog>
   );
-
-  return isOpen && content;
 };
 
-export { Modal };
+export default Modal;

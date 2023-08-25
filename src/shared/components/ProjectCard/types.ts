@@ -4,7 +4,7 @@ import type { Fundraising } from '@/shared/types';
 interface Props {
   data: Omit<Fundraising, 'creator'>;
   status?: 'default' | 'active' | 'completed';
-  linkSection: typeof ROUTES.allFundraisings | typeof ROUTES.userFundraisings;
+  linkSection: typeof ROUTES.fundraisings | typeof ROUTES.userFundraisings;
   paddingSize?: 's' | 'm';
 }
 

@@ -1,7 +1,7 @@
 import { type ChangeEvent, useState, useEffect } from 'react';
 
-import { useAppDispatch, useAppSelector } from '@/redux/hooks';
 import { reset } from '@/redux/slices/protocolUpdating';
+import { useAppDispatch, useAppSelector } from '@/shared/hooks';
 import { useUpdateProtocol } from '@/shared/hooks';
 
 import { DEFAULT_PARAMS } from './data';

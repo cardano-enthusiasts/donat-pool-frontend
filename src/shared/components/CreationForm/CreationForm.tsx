@@ -1,9 +1,9 @@
 import { useRouter } from 'next/navigation';
 import { type ChangeEvent, useState, useEffect } from 'react';
 
-import { useAppDispatch, useAppSelector } from '@/redux/hooks';
 import { reset } from '@/redux/slices/fundraisingCreation';
 import { ROUTES } from '@/shared/constants';
+import { useAppDispatch, useAppSelector } from '@/shared/hooks';
 import { useCreateFundraising } from '@/shared/hooks';
 
 import type { FormError, Props } from './types';

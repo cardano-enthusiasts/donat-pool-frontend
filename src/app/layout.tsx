@@ -4,7 +4,6 @@ import localFont from 'next/font/local';
 import Script from 'next/script';
 
 import StoreProvider from '@/redux/Provider';
-import type { PropsWithChildren } from '@/shared/types';
 
 import './global.css';
 
@@ -29,7 +28,7 @@ const rammettoOneFont = Rammetto_One({
   variable: '--rammetto-one-font',
 });
 
-export const metadata: Metadata = {
+const metadata: Metadata = {
   themeColor: '#ff6b95',
   other: {
     'msapplication-TileColor': '#603cba',
@@ -38,16 +37,18 @@ export const metadata: Metadata = {
   },
 };
 
-export default function Layout({ children }: PropsWithChildren) {
+const Layout = ({ children }: React.PropsWithChildren) => {
   return (
     <html
-      className={`${microsoftYaHeiFont.variable} ${rammettoOneFont.variable} bg-white font-microsoft-ya-hei text-[16px] leading-6 text-black`}
+      className={`${microsoftYaHeiFont.variable} ${rammettoOneFont.variable} bg-white font-microsoft-ya-hei text-[16px]/6 text-black`}
       lang="en"
     >
       <body>
         <StoreProvider>{children}</StoreProvider>
-        <Script src="/offchain/index.js" />
+        <Script src="/offchain/index.js" strategy="beforeInteractive" />
       </body>
     </html>
   );
-}
+};
+
+export { Layout as default, metadata };

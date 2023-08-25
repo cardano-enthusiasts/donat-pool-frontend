@@ -1,6 +1,11 @@
-export const ROUTES = {
+import eternlLogo from '../../public/icons/eternl.png';
+import flintLogo from '../../public/icons/flint.svg';
+import lodeLogo from '../../public/icons/lode.svg';
+import namiLogo from '../../public/icons/nami.svg';
+
+const ROUTES = {
   home: '/',
-  allFundraisings: '/all-projects',
+  fundraisings: '/all-projects',
   userFundraisings: '/my-projects',
   newFundraising: '/new-project',
   roadmap: '/roadmap',
@@ -10,7 +15,11 @@ export const ROUTES = {
   mock: '/mock-address',
 } as const;
 
-export const testnetNami = {
-  wallet: 'Nami',
-  isMainnet: false,
+const WALLET_CARDANO_KEY_TO_LOGO = {
+  nami: namiLogo,
+  LodeWallet: lodeLogo,
+  flint: flintLogo,
+  eternl: eternlLogo,
 } as const;
+
+export { ROUTES, WALLET_CARDANO_KEY_TO_LOGO };

@@ -46,11 +46,7 @@ const Page = () => {
             .filter(({ isCompleted }) => !isCompleted)
             .sort((fundraising1, fundraising2) => Number(fundraising1.deadline) - Number(fundraising2.deadline))
             .map((fundraising) => (
-              <ProjectCard
-                key={fundraising.threadTokenCurrency}
-                data={fundraising}
-                linkSection={ROUTES.allFundraisings}
-              />
+              <ProjectCard key={fundraising.threadTokenCurrency} data={fundraising} linkSection={ROUTES.fundraisings} />
             ))}
         </div>
       )}

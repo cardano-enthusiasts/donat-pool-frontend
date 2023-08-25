@@ -1,10 +1,8 @@
-export interface PropsWithChildren {
-  children: React.ReactNode;
-}
+import store from '@/redux/store';
 
-export type RequestStatus = 'default' | 'requesting' | 'success' | 'error';
+type RequestStatus = 'default' | 'requesting' | 'success' | 'error';
 
-export interface FetchedFundraising {
+interface FetchedFundraising {
   creator: string;
   deadline: { value: bigint };
   goal: { value: bigint };
@@ -15,7 +13,7 @@ export interface FetchedFundraising {
   title: string;
 }
 
-export interface Fundraising {
+interface Fundraising {
   creator: string;
   deadline: string;
   goal: string;
@@ -25,3 +23,8 @@ export interface Fundraising {
   threadTokenName: string;
   title: string;
 }
+
+type RootState = ReturnType<typeof store.getState>;
+type WalletCardanoKey = 'nami' | 'LodeWallet' | 'flint' | 'eternl';
+
+export type { RequestStatus, FetchedFundraising, Fundraising, RootState, WalletCardanoKey };
