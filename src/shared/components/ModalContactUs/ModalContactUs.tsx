@@ -7,15 +7,15 @@ function ModalContactUs({ isOpen, onClose }: Props) {
   const initialData = { contact: '', name: '', message: '' };
   const [data, setData] = useState(initialData);
 
-  function handleInputChange(event: any, fieldName: 'contact' | 'name' | 'message') {
-    const { value } = event.target as HTMLInputElement;
+  function handleInputChange(e: any, fieldName: 'contact' | 'name' | 'message') {
+    const { value } = e.target as HTMLInputElement;
     setData({
       ...data,
       [fieldName]: value,
     });
   }
-  function handleSubmit(event: any) {
-    event.preventDefault();
+  function handleSubmit(e: any) {
+    e.preventDefault();
   }
   function handleCancelClick() {
     onClose();
@@ -32,8 +32,8 @@ function ModalContactUs({ isOpen, onClose }: Props) {
           <div>You can report about an error or write to us how we can help you.</div>
           <Input
             value={data.contact}
-            onChange={(event) => {
-              handleInputChange(event, 'contact');
+            onChange={(e) => {
+              handleInputChange(e, 'contact');
             }}
             placeholder="+0 / mail@mail.com / @nickname"
           >
@@ -41,8 +41,8 @@ function ModalContactUs({ isOpen, onClose }: Props) {
           </Input>
           <Input
             value={data.name}
-            onChange={(event) => {
-              handleInputChange(event, 'name');
+            onChange={(e) => {
+              handleInputChange(e, 'name');
             }}
             placeholder="Elon Mask"
           >
@@ -50,8 +50,8 @@ function ModalContactUs({ isOpen, onClose }: Props) {
           </Input>
           <Input
             value={data.message}
-            onChange={(event) => {
-              handleInputChange(event, 'message');
+            onChange={(e) => {
+              handleInputChange(e, 'message');
             }}
             placeholder="Hello!"
             multiline={true}

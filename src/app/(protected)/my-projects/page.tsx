@@ -14,13 +14,13 @@ function Page() {
     document.title = 'My projects';
   }, []);
 
+  function handleCreatenewProjectButtonClick() {
+    router.push(ROUTES.newFundraising);
+  }
+
   return (
     <Common>
-      <MyProjects
-        onCreateAProjectClick={() => {
-          router.push(ROUTES.newFundraising);
-        }}
-      />
+      <MyProjects onCreateAProjectClick={handleCreatenewProjectButtonClick} />
     </Common>
   );
 }

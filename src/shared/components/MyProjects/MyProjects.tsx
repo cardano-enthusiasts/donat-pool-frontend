@@ -27,8 +27,8 @@ function MyProjects({ onCreateAProjectClick }: Props) {
       setFilteredProjects(projects);
       setFilter(null);
     } else {
-      const isCompleted = status === 'completed';
-      setFilteredProjects(projects.filter((item) => item.isCompleted === isCompleted));
+      const completed = status === 'completed';
+      setFilteredProjects(projects.filter((item) => item.isCompleted === completed));
       setFilter(status);
     }
   }

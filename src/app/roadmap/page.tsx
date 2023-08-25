@@ -29,9 +29,9 @@ function Page() {
           <div className="rounded-md p-6 shadow-xl" key={title}>
             <h2 className="text-2xl font-bold [&_span]:text-red">{HTMLReactParser(title)}</h2>
             <ul className="mt-6 list-disc pl-6">
-              {items.map((item) => {
-                return Object.hasOwn(item, 'title') ? <li key={item.id}>{item.title}</li> : getSubLis(item);
-              })}
+              {items.map((item) =>
+                Object.hasOwn(item, 'title') ? <li key={item.id}>{item.title}</li> : getSubLis(item),
+              )}
             </ul>
           </div>
         ))}

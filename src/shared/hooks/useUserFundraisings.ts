@@ -1,6 +1,6 @@
 import { useCallback, useEffect } from 'react';
 
-import { setRequestStatus, setFundraisings, setError } from '@/redux/slices/getUserRelatedFundraisings';
+import { setStatus, setFundraisings, setError } from '@/redux/slices/getUserRelatedFundraisings';
 import { createConnectionParameters, transformFundraisings } from '@/shared/helpers';
 import { useAppSelector, useAppDispatch } from '@/shared/hooks';
 import type { FetchedFundraising } from '@/shared/types';
@@ -9,7 +9,7 @@ import useOffchain from './useOffchain';
 
 function useUserFundraisings() {
   const offchain = useOffchain();
-  const { requestStatus, fundraisings, error } = useAppSelector((state) => state.getUserRelatedFundraisings);
+  const { status, fundraisings, error } = useAppSelector((state) => state.getUserRelatedFundraisings);
   const activeWalletCardanoKey = useAppSelector((state) => state.cardano.activeWalletCardanoKey);
   const dispatch = useAppDispatch();
 
@@ -22,7 +22,6 @@ function useUserFundraisings() {
 
   const handleFetchFailure = useCallback(
     (error: string) => {
-      console.error(`getUserRelatedFundraisings: ${error}`);
       dispatch(setError(error));
     },
     [dispatch],
@@ -30,7 +29,7 @@ function useUserFundraisings() {
 
   const fetchFundraisings = useCallback(() => {
     if (offchain && activeWalletCardanoKey) {
-      dispatch(setRequestStatus('requesting'));
+      dispatch(setStatus('requesting'));
       offchain.getUserRelatedFundraisings(handleFetchSuccess)(handleFetchFailure)(
         JSON.parse(process.env.NEXT_PUBLIC_PROTOCOL),
       )(createConnectionParameters(activeWalletCardanoKey))();
@@ -38,15 +37,15 @@ function useUserFundraisings() {
   }, [offchain, activeWalletCardanoKey, dispatch, handleFetchSuccess, handleFetchFailure]);
 
   useEffect(() => {
-    if (requestStatus === 'default') {
+    if (status === 'default') {
       fetchFundraisings();
     }
-  }, [requestStatus, fetchFundraisings, dispatch]);
+  }, [status, fetchFundraisings, dispatch]);
 
   return {
-    areBeingFetched: requestStatus === 'requesting',
+    areBeingFetched: status === 'requesting',
     fundraisings,
-    error,
+    fetchError: error,
     refetchFundraisings: fetchFundraisings,
   };
 }

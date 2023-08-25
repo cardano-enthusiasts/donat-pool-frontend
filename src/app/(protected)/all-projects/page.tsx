@@ -13,12 +13,16 @@ function Page() {
   const {
     areBeingFetched: fundraisingsAreBeingFetched,
     fundraisings,
-    error: fetchFundraisingsError,
+    fetchError: fetchFundraisingsError,
   } = useFundraisings();
 
   useEffect(() => {
     document.title = 'All projects';
   }, []);
+
+  function handleNewProjectButtonClick() {
+    router.push(ROUTES.newFundraising);
+  }
 
   return (
     <Common>
@@ -31,9 +35,7 @@ function Page() {
             primaryColor="red"
             secondaryColor="blue"
             fontColor="white"
-            onClick={() => {
-              router.push(ROUTES.newFundraising);
-            }}
+            onClick={handleNewProjectButtonClick}
           >
             Create a new project
           </StandardButton>

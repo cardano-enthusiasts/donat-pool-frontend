@@ -22,10 +22,12 @@ function ModalLoading({
       }
       setIndex(i);
     }, 500);
+
     return () => {
       clearInterval(interval);
     };
   }, []);
+
   return (
     <Modal isOpen={isOpen}>
       <div className="flex flex-col items-center">

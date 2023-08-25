@@ -2,13 +2,13 @@
 
 import { useEffect } from 'react';
 
-import { setIsInitialized as setIsCardanoInitialized, setActiveWalletCardanoKey } from '@/redux/slices/cardano';
+import { setInitialized as setCardanoInitialized, setActiveWalletCardanoKey } from '@/redux/slices/cardano';
 import ConnectWalletModal from '@/shared/components/ConnectWalletModal/ConnectWalletModal';
 import { useAppSelector, useAppDispatch } from '@/shared/hooks';
 
 function Layout({ children }: React.PropsWithChildren) {
-  const isCardanoInitialized = useAppSelector((state) => state.cardano.isInitialized);
-  const isSomeWalletActive = useAppSelector((state) => Boolean(state.cardano.activeWalletCardanoKey));
+  const cardanoIsInitialized = useAppSelector((state) => state.cardano.initialized);
+  const someWalletIsActive = useAppSelector((state) => Boolean(state.cardano.activeWalletCardanoKey));
   const dispatch = useAppDispatch();
 
   useEffect(() => {
@@ -25,16 +25,16 @@ function Layout({ children }: React.PropsWithChildren) {
         }
       }
 
-      dispatch(setIsCardanoInitialized(true));
+      dispatch(setCardanoInitialized(true));
     }
 
-    if (!isCardanoInitialized) {
+    if (!cardanoIsInitialized) {
       initializeCardano();
     }
-  }, [isCardanoInitialized, dispatch]);
+  }, [cardanoIsInitialized, dispatch]);
 
-  if (isCardanoInitialized) {
-    return isSomeWalletActive ? children : <ConnectWalletModal />;
+  if (cardanoIsInitialized) {
+    return someWalletIsActive ? children : <ConnectWalletModal />;
   }
 }
 

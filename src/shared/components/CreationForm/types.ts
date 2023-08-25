@@ -1,8 +1,8 @@
 import type { Config } from '@/shared/types/common';
 
 interface Props {
-  onClose: () => void;
   protocol: Config;
+  onClose: () => void;
 }
 
 interface FormError {

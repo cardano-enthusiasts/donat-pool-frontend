@@ -55,26 +55,25 @@ function CreationForm({ onClose, protocol }: Props) {
   };
   const [error, setError] = useState<FormError>(initialErrors);
 
-  const isTitleEmpty = data.title === '';
-  const isGoalLessThanMin = Number(data.goal) < minAmountParam;
-  const isGoalMoreThanMax = Number(data.goal) > maxAmountParam;
+  const titleEmpty = data.title === '';
+  const goalLessThanMin = Number(data.goal) < minAmountParam;
+  const goalMoreThanMax = Number(data.goal) > maxAmountParam;
   const durationMinutes =
     Number(data.durationDays) * 1440 + Number(data.durationHours) * 60 + Number(data.durationMinutes);
-  const isDurationLessThanMin = durationMinutes < minDurationParam;
-  const isDurationMoreThanMax = durationMinutes > maxDurationParam;
-  const isAnyError =
-    isTitleEmpty || isGoalLessThanMin || isGoalMoreThanMax || isDurationLessThanMin || isDurationMoreThanMax;
+  const durationLessThanMin = durationMinutes < minDurationParam;
+  const durationMoreThanMax = durationMinutes > maxDurationParam;
+  const anyError = titleEmpty || goalLessThanMin || goalMoreThanMax || durationLessThanMin || durationMoreThanMax;
 
   function setErrorsToForm() {
-    const title = isTitleEmpty ? 'Please fill in the title field' : null;
-    const goal = isGoalLessThanMin
+    const title = titleEmpty ? 'Please fill in the title field' : null;
+    const goal = goalLessThanMin
       ? 'The amount is less than the minimum value'
-      : isGoalMoreThanMax
+      : goalMoreThanMax
       ? 'The amount is more than the maximum value'
       : null;
-    const duration = isDurationLessThanMin
+    const duration = durationLessThanMin
       ? 'The duration is less than the minimum value'
-      : isDurationMoreThanMax
+      : durationMoreThanMax
       ? 'The duration is more than the maximum value'
       : null;
 
@@ -91,7 +90,7 @@ function CreationForm({ onClose, protocol }: Props) {
 
   function handleSubmit(event: any) {
     event.preventDefault();
-    if (isAnyError) {
+    if (anyError) {
       setErrorsToForm();
     } else {
       const createFundraisingParams = {
@@ -118,13 +117,28 @@ function CreationForm({ onClose, protocol }: Props) {
     setError(initialErrors);
   }
 
+  function handleCheckboxChange() {
+    setIsChecked(!isChecked);
+  }
+
+  function handleProjectCreatedModalClose() {
+    setIsSuccessModalOpen(false);
+    router.push(ROUTES.userFundraisings);
+    dispatch(reset());
+  }
+
+  function handleErrorModalClose() {
+    setIsErrorModalOpen(false);
+    dispatch(reset());
+  }
+
   return (
     <>
       <form className="grid w-full max-w-[37.5rem] grid-cols-1 gap-y-6" onSubmit={handleSubmit}>
         <Input
           value={data.title}
-          onChange={(event) => {
-            handleChange(event, 'title');
+          onChange={(e) => {
+            handleChange(e, 'title');
           }}
           isDisabled={status === 'requesting'}
           maxLength={29}
@@ -141,8 +155,8 @@ function CreationForm({ onClose, protocol }: Props) {
           <div className="flex gap-2.5 max-sm:flex-col">
             <Input
               value={data.durationDays}
-              onChange={(event) => {
-                handleChange(event, 'durationDays');
+              onChange={(e) => {
+                handleChange(e, 'durationDays');
               }}
               type="number"
               placeholder="dd"
@@ -150,8 +164,8 @@ function CreationForm({ onClose, protocol }: Props) {
             />
             <Input
               value={data.durationHours}
-              onChange={(event) => {
-                handleChange(event, 'durationHours');
+              onChange={(e) => {
+                handleChange(e, 'durationHours');
               }}
               type="number"
               placeholder="hh"
@@ -159,8 +173,8 @@ function CreationForm({ onClose, protocol }: Props) {
             />
             <Input
               value={data.durationMinutes}
-              onChange={(event) => {
-                handleChange(event, 'durationMinutes');
+              onChange={(e) => {
+                handleChange(e, 'durationMinutes');
               }}
               type="number"
               placeholder="mm"
@@ -171,8 +185,8 @@ function CreationForm({ onClose, protocol }: Props) {
         <div className="flex flex-col gap-2">
           <Input
             value={data.goal}
-            onChange={(event) => {
-              handleChange(event, 'goal');
+            onChange={(e) => {
+              handleChange(e, 'goal');
             }}
             type="number"
             placeholder={`${minAmountParam}`}
@@ -185,13 +199,7 @@ function CreationForm({ onClose, protocol }: Props) {
           </Input>
           <PrecalculationFee goal={Number(data.goal)} />
         </div>
-
-        <Checkbox
-          isChecked={isChecked}
-          onChange={() => {
-            setIsChecked(!isChecked);
-          }}
-        >
+        <Checkbox isChecked={isChecked} onChange={handleCheckboxChange}>
           I agree to pay a commission in favor of the service.
           <br />
           The commission will be debited after the end of the donation pool.
@@ -212,24 +220,13 @@ function CreationForm({ onClose, protocol }: Props) {
           </StandardButton>
         </div>
       </form>
-      <ModalProjectCreated
-        path={createdPath}
-        isOpen={isSuccessModalOpen}
-        onClose={() => {
-          setIsSuccessModalOpen(false);
-          router.push(ROUTES.userFundraisings);
-          dispatch(reset());
-        }}
-      />
+      <ModalProjectCreated path={createdPath} isOpen={isSuccessModalOpen} onClose={handleProjectCreatedModalClose} />
       <ModalLoading isOpen={isLoadingModalOpen} />
       <ModalError
         isOpen={isErrorModalOpen}
         title="New project"
         errorText={createError}
-        onClose={() => {
-          setIsErrorModalOpen(false);
-          dispatch(reset());
-        }}
+        onClose={handleErrorModalClose}
       />
     </>
   );

@@ -1,6 +1,6 @@
 import { useCallback, useEffect } from 'react';
 
-import { setRequestStatus, setFundraisings, setError } from '@/redux/slices/getAllFundraisings';
+import { setStatus, setFundraisings, setError } from '@/redux/slices/getAllFundraisings';
 import { createConnectionParameters, transformFundraisings } from '@/shared/helpers';
 import { useAppSelector, useAppDispatch } from '@/shared/hooks';
 import type { FetchedFundraising } from '@/shared/types';
@@ -9,7 +9,7 @@ import useOffchain from './useOffchain';
 
 function useFundraisings() {
   const offchain = useOffchain();
-  const { requestStatus, fundraisings, error } = useAppSelector((state) => state.getAllFundraisings);
+  const { status, fundraisings, error } = useAppSelector((state) => state.getAllFundraisings);
   const activeWalletCardanoKey = useAppSelector((state) => state.cardano.activeWalletCardanoKey);
   const dispatch = useAppDispatch();
 
@@ -29,7 +29,7 @@ function useFundraisings() {
 
   const fetchFundraisings = useCallback(() => {
     if (offchain && activeWalletCardanoKey) {
-      dispatch(setRequestStatus('requesting'));
+      dispatch(setStatus('requesting'));
       offchain.getAllFundraisings(handleFetchSuccess)(handleFetchFailure)(JSON.parse(process.env.NEXT_PUBLIC_PROTOCOL))(
         createConnectionParameters(activeWalletCardanoKey),
       )();
@@ -37,15 +37,15 @@ function useFundraisings() {
   }, [offchain, activeWalletCardanoKey, dispatch, handleFetchSuccess, handleFetchFailure]);
 
   useEffect(() => {
-    if (requestStatus === 'default') {
+    if (status === 'default') {
       fetchFundraisings();
     }
-  }, [requestStatus, fetchFundraisings, dispatch]);
+  }, [status, fetchFundraisings, dispatch]);
 
   return {
-    areBeingFetched: requestStatus === 'requesting',
+    areBeingFetched: status === 'requesting',
     fundraisings,
-    error,
+    fetchError: error,
     refetchFundraisings: fetchFundraisings,
   };
 }

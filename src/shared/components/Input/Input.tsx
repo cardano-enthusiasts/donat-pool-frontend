@@ -19,7 +19,7 @@ function Input({
   fontColor = 'black',
   min = 0,
   step = 1,
-}: Props) {
+}: React.PropsWithChildren<Props>) {
   const attributes = {
     value,
     onChange,
@@ -28,13 +28,17 @@ function Input({
     error,
     disabled: isDisabled,
   };
-  const isError = error || error === '';
+  const isError = error !== null;
   const inputClasses = cn(styles.input, 'border-2', {
     'border-error text-error': isError,
     'border-black text-green': !isError && fontColor === 'green',
     'border-black text-yellow': !isError && fontColor === 'yellow',
     'border-black text-black': !isError && fontColor === 'black',
   });
+
+  function handleWheel(e: React.WheelEvent<HTMLInputElement>) {
+    e.currentTarget.blur();
+  }
 
   return (
     <div className="w-full">
@@ -54,15 +58,13 @@ function Input({
           <textarea {...attributes} {...{ 'data-type': dataAttr }} rows={rows} className={inputClasses} />
         ) : (
           <input
+            className={inputClasses}
             type={type}
             {...attributes}
             {...{ 'data-type': dataAttr }}
-            onWheel={(event) => {
-              event.currentTarget.blur();
-            }}
             min={type === 'number' ? min : undefined}
             step={type === 'number' ? step : undefined}
-            className={inputClasses}
+            onWheel={handleWheel}
           />
         )}
         {error !== '' && error !== null && <div className={`${styles.message} bg-error text-white`}>{error}</div>}

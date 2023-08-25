@@ -18,15 +18,19 @@ function ConnectWalletModal() {
   const sortedWallets = useMemo(
     () =>
       WALLETS.map(({ cardanoKey, title, websiteUrl }) => ({
-        isInstalled: Object.hasOwn(window, 'cardano') && Object.hasOwn(window.cardano as any, cardanoKey),
+        installed: Object.hasOwn(window, 'cardano') && Object.hasOwn(window.cardano as any, cardanoKey),
         cardanoKey,
         title,
         websiteUrl,
-      })).sort((firstWallet, secondWallet) => (firstWallet.isInstalled && !secondWallet.isInstalled ? -1 : 1)),
+      })).sort((firstWallet, secondWallet) => (firstWallet.installed && !secondWallet.installed ? -1 : 1)),
     [],
   );
-  const [termsOfUseAccepted, setTermsOfUseAccepted] = useState(false);
+  const [termsOfUseAreAccepted, setTermsOfUseAreAccepted] = useState(false);
   const [someWalletIsBeingConnected, setSomeWalletIsBeingConnected] = useState(false);
+
+  function handleCheckboxChange() {
+    setTermsOfUseAreAccepted((t) => !t);
+  }
 
   async function handleConnectWalletButtonClick(walletCardanoKey: WalletCardanoKey) {
     setSomeWalletIsBeingConnected(true);
@@ -40,63 +44,59 @@ function ConnectWalletModal() {
       }
 
       dispatch(setActiveWalletCardanoKey(walletCardanoKey));
-    } catch (error) {
-      console.error(error);
-    }
+    } catch {}
 
     setSomeWalletIsBeingConnected(false);
   }
 
   return (
     <Modal isOpen panelTheme="dark" title="Connect wallet" titleAs="h1">
-      <Checkbox
-        isChecked={termsOfUseAccepted}
-        textTheme="light"
-        onChange={() => {
-          setTermsOfUseAccepted((t) => !t);
-        }}
-      >
+      <Checkbox isChecked={termsOfUseAreAccepted} textTheme="light" onChange={handleCheckboxChange}>
         By checking this box and connecting my wallet, I confirm that I have read, understood and agreed the{' '}
         <Link className="font-bold text-blue" href={ROUTES.termsOfUse} target="_blank">
           Terms of use.
         </Link>
       </Checkbox>
       <ul className="mb-10 mt-6 space-y-6">
-        {sortedWallets.map(({ isInstalled, cardanoKey, title, websiteUrl }, index, array) => (
-          <li
-            className={cn('flex items-center justify-between gap-x-3 text-gray-secondary', {
-              'border-b border-b-gray-secondary/40 pb-6': isInstalled && array.at(index + 1)?.isInstalled === false,
-            })}
-            key={cardanoKey}
-          >
-            <button
-              className="flex items-center gap-x-3"
-              type="button"
-              disabled={!isInstalled || !termsOfUseAccepted || someWalletIsBeingConnected}
-              onClick={() => handleConnectWalletButtonClick(cardanoKey)}
+        {sortedWallets.map(({ installed, cardanoKey, title, websiteUrl }, index, array) => {
+          const nextWalletFirstNotInstalled = installed && array.at(index + 1)?.installed === false;
+
+          return (
+            <li
+              className={cn('flex items-center justify-between gap-x-3 text-gray-secondary', {
+                'border-b border-b-gray-secondary/40 pb-6': nextWalletFirstNotInstalled,
+              })}
+              key={cardanoKey}
             >
-              <div className="w-8">
-                <Image
-                  className="mx-auto"
-                  src={WALLET_CARDANO_KEY_TO_LOGO[cardanoKey]}
-                  alt={`${title}'s logo`}
-                  role="img"
-                />
-              </div>
-              <div className="text-xl font-bold">{title}</div>
-            </button>
-            {isInstalled ? (
-              'Installed'
-            ) : (
-              <div className="flex items-center gap-x-3">
-                Not Installed{' '}
-                <a href={websiteUrl} target="_blank" rel="noreferrer">
-                  <Image src={goToIcon} alt={`link to ${title}'s website`} role="img" />
-                </a>
-              </div>
-            )}
-          </li>
-        ))}
+              <button
+                className="flex items-center gap-x-3"
+                type="button"
+                disabled={!installed || !termsOfUseAreAccepted || someWalletIsBeingConnected}
+                onClick={() => handleConnectWalletButtonClick(cardanoKey)}
+              >
+                <div className="w-8">
+                  <Image
+                    className="mx-auto"
+                    src={WALLET_CARDANO_KEY_TO_LOGO[cardanoKey]}
+                    alt={`${title}'s logo`}
+                    role="img"
+                  />
+                </div>
+                <div className="text-xl font-bold">{title}</div>
+              </button>
+              {installed ? (
+                'Installed'
+              ) : (
+                <div className="flex items-center gap-x-3">
+                  Not Installed{' '}
+                  <a href={websiteUrl} target="_blank" rel="noreferrer">
+                    <Image src={goToIcon} alt={`link to ${title}'s website`} role="img" />
+                  </a>
+                </div>
+              )}
+            </li>
+          );
+        })}
       </ul>
       <DoubleBorderedButton primaryColor="blue" backgroundColor="black" isFullWidth href={ROUTES.home}>
         Back to Home page

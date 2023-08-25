@@ -59,6 +59,16 @@ function ManagerEditor({ config }: Props) {
     setProtocol(params);
   }
 
+  function handleErrorModalClose() {
+    setIsModalErrorOpen(false);
+    dispatch(reset());
+  }
+
+  function handleSuccessModalClose() {
+    setIsModalSuccessOpen(false);
+    dispatch(reset());
+  }
+
   return (
     <>
       <form className="w-full max-w-[52.5rem]" onSubmit={handleSubmit}>
@@ -82,19 +92,9 @@ function ManagerEditor({ config }: Props) {
         isOpen={isModalErrorOpen}
         title="Management contract"
         errorText={error}
-        onClose={() => {
-          setIsModalErrorOpen(false);
-          dispatch(reset());
-        }}
+        onClose={handleErrorModalClose}
       />
-      <ModalSuccess
-        isOpen={isModalSuccessOpen}
-        description="All data saved"
-        onClose={() => {
-          setIsModalSuccessOpen(false);
-          dispatch(reset());
-        }}
-      />
+      <ModalSuccess isOpen={isModalSuccessOpen} description="All data saved" onClose={handleSuccessModalClose} />
     </>
   );
 }

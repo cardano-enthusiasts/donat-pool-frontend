@@ -156,26 +156,25 @@ const LandingContent = forwardRef(
         waves: null,
       },
     ];
+
     return (
       <>
-        {content.map(({ element, id, backgroundColor, waves }) => {
-          return (
-            <Fragment key={id}>
-              <div
-                className={cn('w-full', {
-                  'bg-green': backgroundColor === 'green',
-                  'bg-red': backgroundColor === 'red',
-                  'bg-black': backgroundColor === 'black',
-                  'bg-yellow': backgroundColor === 'yellow',
-                  'bg-blue': backgroundColor === 'blue',
-                })}
-              >
-                <div className="mx-auto my-0 w-full max-w-[120rem]">{element}</div>
-              </div>
-              {waves && <Waves color={waves.color} backgroundColor={backgroundColor} />}
-            </Fragment>
-          );
-        })}
+        {content.map(({ element, id, backgroundColor, waves }) => (
+          <Fragment key={id}>
+            <div
+              className={cn('w-full', {
+                'bg-green': backgroundColor === 'green',
+                'bg-red': backgroundColor === 'red',
+                'bg-black': backgroundColor === 'black',
+                'bg-yellow': backgroundColor === 'yellow',
+                'bg-blue': backgroundColor === 'blue',
+              })}
+            >
+              <div className="mx-auto my-0 w-full max-w-[120rem]">{element}</div>
+            </div>
+            {waves && <Waves color={waves.color} backgroundColor={backgroundColor} />}
+          </Fragment>
+        ))}
       </>
     );
   },

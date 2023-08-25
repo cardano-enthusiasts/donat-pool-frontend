@@ -102,7 +102,6 @@ function Page() {
             />
           </>
         </DropdownSection>
-
         {basicSection.map(({ title, description }) => (
           <DropdownSection title={HTMLReactParser(title) as string} key={title}>
             {HTMLReactParser(description)}

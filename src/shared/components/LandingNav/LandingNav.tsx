@@ -23,7 +23,7 @@ const LandingNav = forwardRef(
     ref: ForwardedRef<HTMLDivElement>,
   ) => {
     const mobileResolution = 1280;
-    const isContentShown = windowWidth > mobileResolution ? true : isOpen;
+    const contentShown = windowWidth > mobileResolution ? true : isOpen;
     const section = windowWidth > mobileResolution || currentSection !== 'contact-us' ? currentSection : 'roadmap';
     const wrapperRef = useRef<HTMLDivElement>(null);
 
@@ -64,7 +64,7 @@ const LandingNav = forwardRef(
               </div>
             </>
           )}
-          {isContentShown && (
+          {contentShown && (
             <div className="flex max-w-[15.3125rem] flex-col gap-6 max-xl:max-w-[18.5rem] max-xl:items-center">
               {getSections(currentSection).map(({ title, isActive, id }) => (
                 <a

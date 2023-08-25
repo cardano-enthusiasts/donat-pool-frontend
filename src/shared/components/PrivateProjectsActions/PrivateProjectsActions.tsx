@@ -54,6 +54,23 @@ function PrivateProjectsActions({ project }: Props) {
     });
   }
 
+  function handleCollectMoneyButtonClick() {
+    receiveFunds({
+      frThreadTokenCurrency: project.threadTokenCurrency,
+      frThreadTokenName: project.threadTokenName,
+    });
+  }
+
+  function handleErrorModalClose() {
+    setIsModalErrorOpen(false);
+    dispatch(reset());
+  }
+
+  function handleSuccessModalClose() {
+    setIsModalSuccessOpen(false);
+    dispatch(reset());
+  }
+
   return project.isCompleted ? (
     <>
       <div className="mt-6 flex flex-col items-center gap-4">
@@ -62,12 +79,7 @@ function PrivateProjectsActions({ project }: Props) {
           secondaryColor="blue"
           isFullWidth={true}
           fontColor="white"
-          onClick={() => {
-            receiveFunds({
-              frThreadTokenCurrency: project.threadTokenCurrency,
-              frThreadTokenName: project.threadTokenName,
-            });
-          }}
+          onClick={handleCollectMoneyButtonClick}
         >
           {Number(project.raisedAmt) >= Number(project.goal)
             ? 'You have reached the goal! Take money'
@@ -77,16 +89,12 @@ function PrivateProjectsActions({ project }: Props) {
           <div className="text-red">We remind you that our commission is {protocol.protocolFeeParam}%</div>
         )}
       </div>
-
       <ModalLoading isOpen={status === 'requesting'} />
       <ModalError
         isOpen={isModalErrorOpen}
         title="Withdrawal of funds"
         errorText={error}
-        onClose={() => {
-          setIsModalErrorOpen(false);
-          dispatch(reset());
-        }}
+        onClose={handleErrorModalClose}
       />
     </>
   ) : (
@@ -102,10 +110,7 @@ function PrivateProjectsActions({ project }: Props) {
       <ModalSuccess
         description="Link copied to clipboard."
         isOpen={isModalSuccessOpen}
-        onClose={() => {
-          setIsModalSuccessOpen(false);
-          dispatch(reset());
-        }}
+        onClose={handleSuccessModalClose}
       />
     </>
   );

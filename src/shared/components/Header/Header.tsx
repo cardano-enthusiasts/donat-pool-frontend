@@ -18,6 +18,10 @@ function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const activeWalletCardanoKey = useAppSelector((state) => state.cardano.activeWalletCardanoKey);
 
+  function handleCloseIconClick() {
+    setIsMenuOpen(!isMenuOpen);
+  }
+
   return (
     <header
       className={cn('base-wrapper bg-red max-lg:relative max-lg:w-screen', {
@@ -62,9 +66,7 @@ function Header() {
         alt="close icon"
         width={50}
         height={50}
-        onClick={() => {
-          setIsMenuOpen(!isMenuOpen);
-        }}
+        onClick={handleCloseIconClick}
       />
     </header>
   );

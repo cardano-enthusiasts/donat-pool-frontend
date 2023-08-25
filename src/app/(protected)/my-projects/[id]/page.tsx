@@ -21,6 +21,7 @@ function Page() {
   useEffect(() => {
     if (fundraisings) {
       const project = fundraisings.find(({ threadTokenCurrency }) => threadTokenCurrency === params.id);
+
       if (project) {
         setCurrentProject(project);
       } else {
@@ -33,15 +34,17 @@ function Page() {
     return isCompleted ? THEME.completed : THEME.active;
   }
 
+  function handlePreviousPageClick() {
+    router.push(ROUTES.userFundraisings);
+  }
+
   return (
     currentProject && (
       <Common>
         <Project
           previousPageTitle="My projects"
-          onPreviousPageClick={() => {
-            router.push(ROUTES.userFundraisings);
-          }}
           title={currentProject.title}
+          onPreviousPageClick={handlePreviousPageClick}
         >
           <div className="max-w-[37.5rem]">
             <div className="flex items-center justify-between border-b-2 border-t-2 border-black py-7">

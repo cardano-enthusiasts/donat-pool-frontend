@@ -15,17 +15,13 @@ function ModalDonate({ isOpen, onClose, data: { threadTokenCurrency, threadToken
     setValue('');
   }, [isOpen]);
 
-  function handleClose() {
-    onClose();
-  }
-
-  function handleChange(event: any) {
-    const currentValue = event.target.value === '' ? '' : Number(event.target.value);
+  function handleChange(e: any) {
+    const currentValue = e.target.value === '' ? '' : Number(e.target.value);
     setValue(currentValue);
   }
 
-  function handleSubmit(event: any) {
-    event.preventDefault();
+  function handleSubmit(e: any) {
+    e.preventDefault();
     if (value !== '') {
       donate(fundraisingData, value);
     }
@@ -36,16 +32,10 @@ function ModalDonate({ isOpen, onClose, data: { threadTokenCurrency, threadToken
       <h2 className="mb-10 text-center font-rammetto-one text-4xl text-red">How many ADA would you like to donate?</h2>
       <form onSubmit={handleSubmit}>
         <div className="mb-8">
-          <Input value={value} onChange={handleChange} type="number" />
+          <Input value={value} type="number" onChange={handleChange} />
         </div>
         <div className="flex gap-6">
-          <DoubleBorderedButton
-            backgroundColor="white"
-            primaryColor="blue"
-            onClick={() => {
-              handleClose();
-            }}
-          >
+          <DoubleBorderedButton backgroundColor="white" primaryColor="blue" onClick={onClose}>
             Cancel
           </DoubleBorderedButton>
           <StandardButton primaryColor="red" secondaryColor="blue" isFullWidth={true} type="submit" fontColor="white">

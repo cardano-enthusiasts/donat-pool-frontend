@@ -14,13 +14,13 @@ function Page() {
     document.title = 'New project';
   }, []);
 
+  function handleProjectCreationClose() {
+    router.push(ROUTES.userFundraisings);
+  }
+
   return (
     <Common>
-      <ProjectCreation
-        onClose={() => {
-          router.push(ROUTES.userFundraisings);
-        }}
-      />
+      <ProjectCreation onClose={handleProjectCreationClose} />
     </Common>
   );
 }

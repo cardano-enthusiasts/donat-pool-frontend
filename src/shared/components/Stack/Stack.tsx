@@ -34,12 +34,15 @@ function Stack() {
     );
   }
 
+  function handleReadButtonClick() {
+    setIsOpen((o) => !o);
+  }
+
   return (
     <div className="flex max-w-[50rem] flex-col gap-10">
       <div className="text-2xl font-bold text-gray">Our stack</div>
       <div ref={ref}>
         {stack.map(({ id, src }) => (
-          // eslint-disable-next-line @next/next/no-img-element
           <img className={cn(styles.img, { 'translate-y-full': !isActive })} key={id} src={src} alt={id} />
         ))}
       </div>
@@ -50,9 +53,7 @@ function Stack() {
         backgroundColor="yellow"
         isClickedTheme={isOpen}
         isFixedWidth={true}
-        onClick={() => {
-          setIsOpen(!isOpen);
-        }}
+        onClick={handleReadButtonClick}
       >
         Read {isOpen ? 'less' : 'more'}
       </DashedButton>

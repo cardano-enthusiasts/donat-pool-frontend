@@ -28,9 +28,7 @@ function Roadmap({ isActive }: Props) {
             <Fragment key={title}>
               <div className="font-bold text-red">{HTMLReactParser(title)}</div>
               <ul className="list-disc pl-[3.125rem]">
-                {items.map((item) => {
-                  return item.title ? <li key={item.id}>{item.title}</li> : getSubLis(item);
-                })}
+                {items.map((item) => (item.title ? <li key={item.id}>{item.title}</li> : getSubLis(item)))}
               </ul>
             </Fragment>
           ))}

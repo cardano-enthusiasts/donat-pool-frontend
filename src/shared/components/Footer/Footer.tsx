@@ -11,6 +11,14 @@ import type { Props } from './types';
 function Footer({ backgroundColor = 'blue' }: Props) {
   const [isModalContactUsOpen, setIsModalContactUsOpen] = useState(false);
 
+  function handleContactUsButtonClick() {
+    setIsModalContactUsOpen(true);
+  }
+
+  function handleContactUsModalClose() {
+    setIsModalContactUsOpen(false);
+  }
+
   return (
     <>
       <footer
@@ -35,20 +43,13 @@ function Footer({ backgroundColor = 'blue' }: Props) {
             secondaryColor="green"
             size="s"
             fontColor="white"
-            onClick={() => {
-              setIsModalContactUsOpen(true);
-            }}
+            onClick={handleContactUsButtonClick}
           >
             Contact us
           </StandardButton>
         </div>
       </footer>
-      <ModalContactUs
-        isOpen={isModalContactUsOpen}
-        onClose={() => {
-          setIsModalContactUsOpen(false);
-        }}
-      />
+      <ModalContactUs isOpen={isModalContactUsOpen} onClose={handleContactUsModalClose} />
     </>
   );
 }
