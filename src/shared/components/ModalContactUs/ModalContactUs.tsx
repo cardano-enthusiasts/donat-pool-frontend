@@ -74,4 +74,4 @@ function ModalContactUs({ isOpen, onClose }: Props) {
   );
 }
 
-export { ModalContactUs };
+export default ModalContactUs;

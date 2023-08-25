@@ -52,4 +52,4 @@ function Roadmap({ isActive }: Props) {
   );
 }
 
-export { Roadmap };
+export default Roadmap;

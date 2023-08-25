@@ -36,4 +36,4 @@ function ActionDonuts({ isAnimationActive }: Props) {
   );
 }
 
-export { ActionDonuts };
+export default ActionDonuts;

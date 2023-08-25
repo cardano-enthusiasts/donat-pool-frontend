@@ -99,4 +99,4 @@ function ManagerEditor({ config }: Props) {
   );
 }
 
-export { ManagerEditor };
+export default ManagerEditor;

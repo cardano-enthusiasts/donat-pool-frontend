@@ -40,4 +40,4 @@ function TitleAndDescription({ isActive }: Props) {
   );
 }
 
-export { TitleAndDescription };
+export default TitleAndDescription;

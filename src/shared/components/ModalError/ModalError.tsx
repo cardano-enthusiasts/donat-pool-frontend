@@ -21,4 +21,4 @@ function ModalError({ isOpen, title, errorText = '', onClose }: Props) {
   );
 }
 
-export { ModalError };
+export default ModalError;

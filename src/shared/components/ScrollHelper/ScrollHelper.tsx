@@ -15,4 +15,4 @@ function ScrollHelper() {
   );
 }
 
-export { ScrollHelper };
+export default ScrollHelper;

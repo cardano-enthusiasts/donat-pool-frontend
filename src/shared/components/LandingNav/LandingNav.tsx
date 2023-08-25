@@ -104,4 +104,4 @@ const LandingNav = forwardRef(
   },
 );
 
-export { LandingNav };
+export default LandingNav;

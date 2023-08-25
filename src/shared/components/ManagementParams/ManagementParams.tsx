@@ -57,4 +57,4 @@ function ManagementParams({
   );
 }
 
-export { ManagementParams };
+export default ManagementParams;

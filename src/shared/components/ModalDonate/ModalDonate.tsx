@@ -57,4 +57,4 @@ function ModalDonate({ isOpen, onClose, data: { threadTokenCurrency, threadToken
   );
 }
 
-export { ModalDonate };
+export default ModalDonate;

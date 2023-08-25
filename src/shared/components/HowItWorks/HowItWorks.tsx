@@ -21,4 +21,4 @@ function HowItWorks() {
   );
 }
 
-export { HowItWorks };
+export default HowItWorks;

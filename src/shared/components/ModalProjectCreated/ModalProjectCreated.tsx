@@ -64,4 +64,4 @@ function ModalProjectCreated({ isOpen, onClose, path }: Props) {
   );
 }
 
-export { ModalProjectCreated };
+export default ModalProjectCreated;

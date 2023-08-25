@@ -1,8 +1,6 @@
-import { PropsWithChildren } from 'react';
-
 import { Footer, Header } from '@/shared/components';
 
-function Service({ children }: PropsWithChildren) {
+function Service({ children }: React.PropsWithChildren) {
   return (
     <>
       <Header />
@@ -14,4 +12,4 @@ function Service({ children }: PropsWithChildren) {
   );
 }
 
-export { Service };
+export default Service;

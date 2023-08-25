@@ -21,4 +21,4 @@ function Arrow({ color = 'blue', isUp = false }: Props) {
   );
 }
 
-export { Arrow };
+export default Arrow;

@@ -53,4 +53,4 @@ function WhyChooseUs() {
   );
 }
 
-export { WhyChooseUs };
+export default WhyChooseUs;

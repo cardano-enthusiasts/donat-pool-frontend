@@ -56,4 +56,4 @@ function AccentButton({
   );
 }
 
-export { AccentButton };
+export default AccentButton;

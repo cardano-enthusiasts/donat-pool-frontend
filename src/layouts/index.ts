@@ -1,5 +1,3 @@
-import { Common } from './Common/Common';
-import { Project } from './Project/Project';
-import { Service } from './Service/Service';
-
-export { Common, Project, Service };
+export { default as Common } from './Common/Common';
+export { default as Project } from './Project/Project';
+export { default as Service } from './Service/Service';

@@ -14,4 +14,4 @@ function Ul({ texts }: Props) {
   );
 }
 
-export { Ul };
+export default Ul;

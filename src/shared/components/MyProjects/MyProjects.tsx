@@ -95,4 +95,4 @@ function MyProjects({ onCreateAProjectClick }: Props) {
   );
 }
 
-export { MyProjects };
+export default MyProjects;

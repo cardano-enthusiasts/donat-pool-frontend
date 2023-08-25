@@ -52,4 +52,4 @@ function Tutorial() {
   );
 }
 
-export { Tutorial };
+export default Tutorial;

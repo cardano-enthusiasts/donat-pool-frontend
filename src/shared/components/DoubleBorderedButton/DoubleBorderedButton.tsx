@@ -44,4 +44,4 @@ function DoubleBorderedButton({
   );
 }
 
-export { DoubleBorderedButton };
+export default DoubleBorderedButton;

@@ -30,4 +30,4 @@ function NotAvailableError() {
   );
 }
 
-export { NotAvailableError };
+export default NotAvailableError;

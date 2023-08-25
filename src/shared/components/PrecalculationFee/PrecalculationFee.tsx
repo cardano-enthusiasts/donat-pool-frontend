@@ -22,4 +22,4 @@ function PrecalculationFee({ goal }: Props) {
   );
 }
 
-export { PrecalculationFee };
+export default PrecalculationFee;

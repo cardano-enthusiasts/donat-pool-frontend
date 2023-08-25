@@ -53,4 +53,4 @@ function Waves({ color = 'blue', backgroundColor = 'transparent', isUpsideDown =
   );
 }
 
-export { Waves };
+export default Waves;

@@ -39,4 +39,4 @@ function ModalLoading({
   );
 }
 
-export { ModalLoading };
+export default ModalLoading;

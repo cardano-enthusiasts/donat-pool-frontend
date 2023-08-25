@@ -22,4 +22,4 @@ function BorderedButton({ onClick, children, color, isClickedTheme }: Props) {
   );
 }
 
-export { BorderedButton };
+export default BorderedButton;

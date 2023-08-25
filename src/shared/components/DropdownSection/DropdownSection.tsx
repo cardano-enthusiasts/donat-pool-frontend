@@ -23,4 +23,4 @@ function DropdownSection({ title = '', children }: Props) {
   );
 }
 
-export { DropdownSection };
+export default DropdownSection;

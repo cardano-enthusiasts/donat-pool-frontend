@@ -111,4 +111,4 @@ function PrivateProjectsActions({ project }: Props) {
   );
 }
 
-export { PrivateProjectsActions };
+export default PrivateProjectsActions;

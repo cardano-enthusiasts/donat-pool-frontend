@@ -45,4 +45,4 @@ function RaisedCounter({ raised, goal }: Props) {
   );
 }
 
-export { RaisedCounter };
+export default RaisedCounter;

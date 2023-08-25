@@ -1,6 +1,6 @@
 import type { Props } from './types';
 
-function Project({ onPreviousPageClick, previousPageTitle, title, children }: Props) {
+function Project({ previousPageTitle, title, children, onPreviousPageClick }: React.PropsWithChildren<Props>) {
   return (
     <div className="relative flex justify-center">
       <div className="w-full max-w-[38.75rem]">
@@ -21,4 +21,4 @@ function Project({ onPreviousPageClick, previousPageTitle, title, children }: Pr
   );
 }
 
-export { Project };
+export default Project;

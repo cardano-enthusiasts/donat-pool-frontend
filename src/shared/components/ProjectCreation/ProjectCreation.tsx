@@ -14,4 +14,4 @@ function ProjectCreation({ onClose }: Props) {
   );
 }
 
-export { ProjectCreation };
+export default ProjectCreation;

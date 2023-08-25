@@ -235,4 +235,4 @@ function CreationForm({ onClose, protocol }: Props) {
   );
 }
 
-export { CreationForm };
+export default CreationForm;

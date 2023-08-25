@@ -38,4 +38,4 @@ function DashedButton({
   );
 }
 
-export { DashedButton };
+export default DashedButton;

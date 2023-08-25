@@ -25,4 +25,4 @@ function Common({ children }: React.PropsWithChildren) {
   );
 }
 
-export { Common };
+export default Common;

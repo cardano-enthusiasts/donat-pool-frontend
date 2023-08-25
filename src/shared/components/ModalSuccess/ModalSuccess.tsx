@@ -24,4 +24,4 @@ function ModalSuccess({ description, isOpen, onClose }: Props) {
   );
 }
 
-export { ModalSuccess };
+export default ModalSuccess;

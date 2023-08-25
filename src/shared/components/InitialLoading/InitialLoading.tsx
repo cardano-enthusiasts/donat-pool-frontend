@@ -66,4 +66,4 @@ function InitialLoading({ windowScroll, isAnimationActive }: Props) {
   );
 }
 
-export { InitialLoading };
+export default InitialLoading;

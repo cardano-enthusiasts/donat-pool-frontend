@@ -51,4 +51,4 @@ function StandardButton({
   );
 }
 
-export { StandardButton };
+export default StandardButton;

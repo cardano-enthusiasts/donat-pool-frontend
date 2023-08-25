@@ -181,4 +181,4 @@ const LandingContent = forwardRef(
   },
 );
 
-export { LandingContent };
+export default LandingContent;
