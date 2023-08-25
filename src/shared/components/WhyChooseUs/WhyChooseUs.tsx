@@ -21,8 +21,8 @@ const WhyChooseUs = () => {
             secondaryColor="green"
             fontColor="white"
             href="https://github.com/fullstack-development/donat-pool-onchain"
-            isExternal={true}
-            isAnimation={true}
+            isExternal
+            isAnimation
           >
             On-chain code
           </StandardButton>
@@ -34,8 +34,8 @@ const WhyChooseUs = () => {
             secondaryColor="blue"
             fontColor="black"
             href="https://github.com/fullstack-development/donat-pool-offchain"
-            isExternal={true}
-            isAnimation={true}
+            isExternal
+            isAnimation
           >
             Off-chain code
           </StandardButton>

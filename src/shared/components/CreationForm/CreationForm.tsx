@@ -205,7 +205,7 @@ const CreationForm = ({ onClose, protocol }: Props) => {
             isDisabled={!isChecked}
             primaryColor="red"
             secondaryColor="blue"
-            isFullWidth={true}
+            isFullWidth
             fontColor="white"
           >
             Confirm

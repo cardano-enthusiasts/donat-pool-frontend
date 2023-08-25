@@ -60,7 +60,7 @@ const PrivateProjectsActions = ({ project }: Props) => {
         <StandardButton
           primaryColor="red"
           secondaryColor="blue"
-          isFullWidth={true}
+          isFullWidth
           fontColor="white"
           onClick={() => {
             receiveFunds({

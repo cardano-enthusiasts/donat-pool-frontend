@@ -29,7 +29,7 @@ const TitleAndDescription = ({ isActive }: Props) => {
           secondaryColor="red"
           fontColor="red"
           href={ROUTES.allFundraisings}
-          isAnimation={true}
+          isAnimation
         >
           Start
           <br />

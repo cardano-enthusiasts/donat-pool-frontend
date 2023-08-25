@@ -43,7 +43,7 @@ const ModalProjectCreated = ({ isOpen, onClose, path }: Props) => {
         {isSuccessfullyCopied ? (
           <>
             <div className="mb-8 text-center">Link copied to clipboard.</div>
-            <DoubleBorderedButton backgroundColor="white" primaryColor="blue" isFullWidth={true} onClick={onClose}>
+            <DoubleBorderedButton backgroundColor="white" primaryColor="blue" isFullWidth onClick={onClose}>
               Close the window
             </DoubleBorderedButton>
           </>
@@ -53,7 +53,7 @@ const ModalProjectCreated = ({ isOpen, onClose, path }: Props) => {
             <StandardButton
               primaryColor="red"
               secondaryColor="blue"
-              isFullWidth={true}
+              isFullWidth
               fontColor="white"
               onClick={handleCopyLinkClick}
             >
