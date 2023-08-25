@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react';
 
 import { BorderedButton, ProjectCard, StandardButton } from '@/shared/components';
 import { ROUTES } from '@/shared/constants';
-import { useAppSelector, useUserFundraisings } from '@/shared/hooks';
+import { useUserFundraisings } from '@/shared/hooks';
 import type { Fundraising } from '@/shared/types';
 
 import type ProjectStatus from './types';
@@ -36,12 +36,6 @@ const MyProjects = () => {
       setFilter(status);
     }
   };
-
-  const connectWalletStatus = useAppSelector((state) => state.connectWallet.requestStatus);
-
-  if (connectWalletStatus !== 'success') {
-    return;
-  }
 
   return (
     <>

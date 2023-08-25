@@ -14,12 +14,6 @@ const NewProject = () => {
     router.push(ROUTES.userFundraisings);
   };
 
-  const connectWalletStatus = useAppSelector((state) => state.connectWallet.requestStatus);
-
-  if (connectWalletStatus !== 'success') {
-    return;
-  }
-
   return (
     <Project onPreviousPageClick={handleClose} previousPageTitle="My projects" title="New project">
       {protocol && <CreationForm onClose={handleClose} protocol={protocol} />}
