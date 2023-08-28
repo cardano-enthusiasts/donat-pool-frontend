@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 import { formatDate } from '@/shared/helpers';
 
-import type { Props } from './types';
+import { Props } from './types';
 
 function ProjectCard({
   data: { deadline, title, goal, raisedAmt, threadTokenCurrency },

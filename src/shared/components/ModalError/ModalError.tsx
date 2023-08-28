@@ -1,7 +1,7 @@
 import Image from 'next/image';
 
 import styles from './ModalError.module.css';
-import type { Props } from './types';
+import { Props } from './types';
 import { DoubleBorderedButton, Modal } from '../.';
 
 function ModalError({ open, title, errorText = '', onClose }: Props) {

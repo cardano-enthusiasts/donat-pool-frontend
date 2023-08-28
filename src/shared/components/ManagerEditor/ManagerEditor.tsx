@@ -4,7 +4,7 @@ import { reset } from '@/redux/slices/protocolUpdating';
 import { useAppDispatch, useAppSelector, useUpdateProtocol } from '@/shared/hooks';
 
 import { DEFAULT_PARAMS } from './data';
-import type { Props } from './types';
+import { Props } from './types';
 import { Input, ModalError, ModalLoading, ModalSuccess, StandardButton } from '..';
 
 function ManagerEditor({ config }: Props) {

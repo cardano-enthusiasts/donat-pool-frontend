@@ -1,7 +1,7 @@
 import cn from 'classnames';
 
 import styles from './Input.module.css';
-import type { Props } from './types';
+import { Props } from './types';
 
 function Input({
   value,

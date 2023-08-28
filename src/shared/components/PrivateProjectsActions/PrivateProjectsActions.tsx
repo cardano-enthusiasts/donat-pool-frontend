@@ -6,7 +6,7 @@ import { ROUTES } from '@/shared/constants';
 import { useAppDispatch, useAppSelector, useReceiveFunds } from '@/shared/hooks';
 
 import styles from './PrivateProjectsActions.module.css';
-import type { Props } from './types';
+import { Props } from './types';
 import { DoubleBorderedButton, ModalError, ModalLoading, ModalSuccess, StandardButton } from '../.';
 
 function PrivateProjectsActions({ project }: Props) {

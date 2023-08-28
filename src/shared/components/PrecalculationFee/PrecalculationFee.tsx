@@ -1,6 +1,6 @@
 import { useAppSelector } from '@/shared/hooks';
 
-import type { Props } from './types';
+import { Props } from './types';
 
 function PrecalculationFee({ goal }: Props) {
   const protocolFeeParam = useAppSelector((state) => state.appInfo.protocol?.protocolFeeParam);

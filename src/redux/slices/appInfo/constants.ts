@@ -1,4 +1,4 @@
-import type { State } from './types';
+import { State } from './types';
 
 const initialState: State = {
   status: 'default',

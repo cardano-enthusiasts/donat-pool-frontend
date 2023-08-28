@@ -2,7 +2,7 @@ import cn from 'classnames';
 import { Fragment } from 'react';
 
 import styles from './ActionDonuts.module.css';
-import type { Props } from './types';
+import { Props } from './types';
 
 function ActionDonuts({ animationIsActive }: Props) {
   function getColumns() {

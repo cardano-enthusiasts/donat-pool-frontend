@@ -2,7 +2,7 @@ import { setError, setRequesting, setProtocol, setUserInfo } from '@/redux/slice
 import { setWalletStatus } from '@/redux/slices/connectWallet';
 import { createConnectionParameters, logOffchainError } from '@/shared/helpers';
 import { useAppSelector, useAppDispatch, useOffchain } from '@/shared/hooks';
-import type { UserAndProtocolParams } from '@/shared/types/backend';
+import { UserAndProtocolParams } from '@/shared/types/backend';
 
 import useHandleError from './useHandleError';
 

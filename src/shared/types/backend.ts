@@ -1,4 +1,4 @@
-import type { UserInfo } from './common';
+import { UserInfo } from './common';
 
 interface BackendProject {
   creator: string;

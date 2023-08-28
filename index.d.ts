@@ -1,6 +1,6 @@
-import type { FetchedFundraising } from '@/shared/types';
-import type { BackendProject } from '@/shared/types/backend';
-import type { FundraisingData } from '@/shared/types/common';
+import { FetchedFundraising } from '@/shared/types';
+import { BackendProject } from '@/shared/types/backend';
+import { FundraisingData } from '@/shared/types/common';
 
 interface ConnectionParameters {
   wallet: 'Nami' | 'Lode' | 'Flint' | 'Eternl';

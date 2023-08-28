@@ -6,7 +6,7 @@ import { ROUTES } from '@/shared/constants';
 import { roadmapText } from '@/shared/data';
 
 import styles from './Roadmap.module.css';
-import type { Props } from './types';
+import { Props } from './types';
 import { AccentButton } from '../.';
 
 function Roadmap({ active }: Props) {

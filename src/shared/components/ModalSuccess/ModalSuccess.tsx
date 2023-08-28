@@ -1,6 +1,6 @@
 import Image from 'next/image';
 
-import type { Props } from './types';
+import { Props } from './types';
 import { DoubleBorderedButton, Modal } from '../.';
 
 function ModalSuccess({ open, description, onClose }: Props) {

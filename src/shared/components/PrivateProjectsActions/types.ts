@@ -1,4 +1,4 @@
-import type { Fundraising } from '@/shared/types';
+import { Fundraising } from '@/shared/types';
 
 interface Props {
   project: Fundraising;

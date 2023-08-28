@@ -1,4 +1,4 @@
-import type { WalletCardanoKey } from '@/shared/types';
+import { WalletCardanoKey } from '@/shared/types';
 
 const WALLET_CARDANO_KEY_TO_WALLET = {
   nami: 'Nami',

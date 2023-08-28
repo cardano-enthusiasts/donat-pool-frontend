@@ -5,7 +5,7 @@ import { reset } from '@/redux/slices/fundraisingCreation';
 import { ROUTES } from '@/shared/constants';
 import { useAppDispatch, useAppSelector, useCreateFundraising } from '@/shared/hooks';
 
-import type { FormError, Props } from './types';
+import { FormError, Props } from './types';
 import {
   Checkbox,
   Input,

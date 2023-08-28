@@ -2,7 +2,7 @@ import { setWalletStatus } from '@/redux/slices/connectWallet';
 import { setError, setRequesting, setSuccess } from '@/redux/slices/donating';
 import { createConnectionParameters, logOffchainError } from '@/shared/helpers';
 import { useAppSelector, useAppDispatch, useFundraisings, useOffchain } from '@/shared/hooks';
-import type { FundraisingData } from '@/shared/types/common';
+import { FundraisingData } from '@/shared/types/common';
 
 import useHandleError from './useHandleError';
 

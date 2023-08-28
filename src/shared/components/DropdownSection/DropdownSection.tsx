@@ -2,7 +2,7 @@ import cn from 'classnames';
 import Image from 'next/image';
 import { useState } from 'react';
 
-import type { Props } from './types';
+import { Props } from './types';
 
 function DropdownSection({ title = '', children }: React.PropsWithChildren<Props>) {
   const [open, setOpen] = useState(false);

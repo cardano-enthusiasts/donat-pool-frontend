@@ -6,7 +6,7 @@ import { useState } from 'react';
 import { Socials, ModalContactUs, StandardButton } from '@/shared/components';
 
 import { LINKS } from './constants';
-import type { Props } from './types';
+import { Props } from './types';
 
 function Footer({ backgroundColor = 'blue' }: Props) {
   const [modalContactUsIsOpen, setModalContactUsIsOpen] = useState(false);

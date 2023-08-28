@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 
-import type { Props } from './types';
+import { Props } from './types';
 import { Modal } from '../.';
 
 function ModalLoading({

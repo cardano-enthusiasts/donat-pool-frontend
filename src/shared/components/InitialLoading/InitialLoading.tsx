@@ -4,7 +4,7 @@ import { useEffect, useRef } from 'react';
 
 import { useWindowSize } from '@/shared/hooks';
 
-import type { Props } from './types';
+import { Props } from './types';
 import { ActionDonuts, ScrollHelper } from '../.';
 
 function InitialLoading({ windowScroll, animationIsActive }: Props) {

@@ -1,4 +1,4 @@
-import type { LandingSection } from '@/shared/types/common';
+import { LandingSection } from '@/shared/types/common';
 
 function getSections(currentSection: string): {
   title: string;

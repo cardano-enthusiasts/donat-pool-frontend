@@ -1,10 +1,10 @@
 import cn from 'classnames';
 import { Fragment, forwardRef, useEffect, useRef, useState, type ForwardedRef, type MutableRefObject } from 'react';
 
-import type { LandingSection } from '@/shared/types/common';
+import { LandingSection } from '@/shared/types/common';
 
 import CLASSES from './constants';
-import type { Props, Content } from './types';
+import { Props, Content } from './types';
 import { AboutUs, Footer, HowItWorks, Roadmap, TitleAndDescription, Waves, WhyChooseUs } from '..';
 
 const LandingContent = forwardRef(function LandingContent(

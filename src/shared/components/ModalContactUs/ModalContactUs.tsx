@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import type { Props } from './types';
+import { Props } from './types';
 import { DoubleBorderedButton, Input, Modal, StandardButton } from '../.';
 
 function ModalContactUs({ open, onClose }: Props) {

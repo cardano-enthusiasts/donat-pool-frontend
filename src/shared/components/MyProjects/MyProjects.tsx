@@ -3,9 +3,9 @@ import { useEffect, useState } from 'react';
 
 import { ROUTES } from '@/shared/constants';
 import { useUserFundraisings } from '@/shared/hooks';
-import type { Fundraising } from '@/shared/types';
+import { Fundraising } from '@/shared/types';
 
-import type { ProjectStatus, Props } from './types';
+import { ProjectStatus, Props } from './types';
 import { BorderedButton, ProjectCard, StandardButton } from '../.';
 
 function MyProjects({ onCreateAProjectClick }: Props) {

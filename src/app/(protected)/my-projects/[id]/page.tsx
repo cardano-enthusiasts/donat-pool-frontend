@@ -8,7 +8,7 @@ import { PrivateProjectsActions, RaisedCounter } from '@/shared/components';
 import { ROUTES } from '@/shared/constants';
 import { formatDate } from '@/shared/helpers';
 import { useUserFundraisings } from '@/shared/hooks';
-import type { Fundraising } from '@/shared/types';
+import { Fundraising } from '@/shared/types';
 
 import THEME from './constants';
 

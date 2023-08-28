@@ -3,7 +3,7 @@ import cn from 'classnames';
 import { useWindowSize } from '@/shared/hooks';
 
 import VARIANTS from './constants';
-import type { Props } from './types';
+import { Props } from './types';
 import styles from './Waves.module.css';
 
 function Waves({ color = 'blue', backgroundColor = 'transparent', upsideDown = false, moving = true }: Props) {

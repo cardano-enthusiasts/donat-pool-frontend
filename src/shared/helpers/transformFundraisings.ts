@@ -1,4 +1,4 @@
-import type { FetchedFundraising } from '@/shared/types';
+import { FetchedFundraising } from '@/shared/types';
 
 function transformFundraisings(fundraisings: FetchedFundraising[]) {
   return fundraisings.map(

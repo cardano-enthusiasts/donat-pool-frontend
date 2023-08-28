@@ -1,4 +1,4 @@
-import type { Config } from '@/shared/types/common';
+import { Config } from '@/shared/types/common';
 
 interface Props {
   protocol: Config;

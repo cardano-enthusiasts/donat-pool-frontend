@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-import type { Props } from './types';
+import { Props } from './types';
 import { DoubleBorderedButton, Input, Modal, StandardButton } from '../.';
 
 function ModalDonate({ open, onClose, data: { threadTokenCurrency, threadTokenName }, donate }: Props) {

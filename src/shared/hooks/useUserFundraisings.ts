@@ -3,7 +3,7 @@ import { useCallback, useEffect } from 'react';
 import { setStatus, setFundraisings, setError } from '@/redux/slices/getUserRelatedFundraisings';
 import { createConnectionParameters, transformFundraisings } from '@/shared/helpers';
 import { useAppSelector, useAppDispatch } from '@/shared/hooks';
-import type { FetchedFundraising } from '@/shared/types';
+import { FetchedFundraising } from '@/shared/types';
 
 import useOffchain from './useOffchain';
 

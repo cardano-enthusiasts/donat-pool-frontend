@@ -4,7 +4,7 @@ import Image from 'next/image';
 import { ROUTES } from '@/shared/constants';
 
 import styles from './TitleAndDescription.module.css';
-import type { Props } from './types';
+import { Props } from './types';
 import { AccentButton } from '../.';
 
 function TitleAndDescription({ active }: Props) {

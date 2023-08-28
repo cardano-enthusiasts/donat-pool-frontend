@@ -6,7 +6,7 @@ import { ROUTES } from '@/shared/constants';
 
 import { getSections, linkVariants, wrapperVariants } from './data';
 import styles from './LandingNav.module.css';
-import type { Props } from './types';
+import { Props } from './types';
 import { StandardButton, Waves } from '../.';
 
 const LandingNav = forwardRef(function LandingNav(

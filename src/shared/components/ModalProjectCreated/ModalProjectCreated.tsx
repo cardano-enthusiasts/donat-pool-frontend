@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { ROUTES } from '@/shared/constants';
 
 import styles from './ModalProjectCreated.module.css';
-import type { Props } from './types';
+import { Props } from './types';
 import { DoubleBorderedButton, Modal, StandardButton } from '../.';
 
 const ModalProjectCreated = ({ open, path, onClose }: Props) => {

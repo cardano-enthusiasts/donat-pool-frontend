@@ -1,5 +1,5 @@
 import { ROUTES } from '@/shared/constants';
-import type { Fundraising } from '@/shared/types';
+import { Fundraising } from '@/shared/types';
 
 interface Props {
   data: Omit<Fundraising, 'creator'>;
