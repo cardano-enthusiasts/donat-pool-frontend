@@ -87,8 +87,8 @@ function CreationForm({ onClose, protocol }: Props) {
     setIsLoadingModalOpen(status === 'requesting');
   }, [status]);
 
-  function handleSubmit(event: any) {
-    event.preventDefault();
+  function handleSubmit(e: any) {
+    e.preventDefault();
     if (anyError) {
       setErrorsToForm();
     } else {
@@ -105,13 +105,10 @@ function CreationForm({ onClose, protocol }: Props) {
     }
   }
 
-  function handleChange(
-    event: ChangeEvent,
-    type: 'title' | 'goal' | 'durationDays' | 'durationHours' | 'durationMinutes',
-  ) {
-    event.preventDefault();
+  function handleChange(e: ChangeEvent, type: 'title' | 'goal' | 'durationDays' | 'durationHours' | 'durationMinutes') {
+    e.preventDefault();
     setError(initialErrors);
-    const { value } = event.target as HTMLInputElement;
+    const { value } = e.target as HTMLInputElement;
     setData({ ...data, [type]: value });
     setError(initialErrors);
   }

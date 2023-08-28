@@ -43,9 +43,9 @@ function ManagerEditor({ config }: Props) {
     setParams(config);
   }, [config]);
 
-  function handleInputChange(event: any) {
-    const { value } = event.target as HTMLInputElement;
-    const dataType = String(event.target.getAttribute('data-type'));
+  function handleInputChange(e: any) {
+    const { value } = e.target as HTMLInputElement;
+    const dataType = String(e.target.getAttribute('data-type'));
 
     setParams({
       ...params,
@@ -53,8 +53,8 @@ function ManagerEditor({ config }: Props) {
     });
   }
 
-  function handleSubmit(event: ChangeEvent<HTMLFormElement>) {
-    event.preventDefault();
+  function handleSubmit(e: ChangeEvent<HTMLFormElement>) {
+    e.preventDefault();
     setProtocol(params);
   }
 
