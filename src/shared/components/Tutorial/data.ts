@@ -1,6 +1,6 @@
-import tutorial1 from '@public/gif/nami-wallet-connection-tutorial-1.gif';
-import tutorial2 from '@public/gif/nami-wallet-connection-tutorial-2.gif';
-import tutorial3 from '@public/gif/nami-wallet-connection-tutorial-3.gif';
+import tutorial1 from '@public/gifs/nami-wallet-connection-tutorial-1.gif';
+import tutorial2 from '@public/gifs/nami-wallet-connection-tutorial-2.gif';
+import tutorial3 from '@public/gifs/nami-wallet-connection-tutorial-3.gif';
 
 const DATA = [
   {
