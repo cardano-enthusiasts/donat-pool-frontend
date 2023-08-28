@@ -30,7 +30,7 @@ function AboutUs() {
       </div>
 
       <div className="mb-[8.75rem] flex self-start max-xl:mb-12 max-xl:justify-center">
-        <AccentButton primaryColor="blue" secondaryColor="red" fontColor="red" isAnimation={true}>
+        <AccentButton primaryColor="blue" secondaryColor="red" fontColor="red" isAnimation>
           Donate
           <br /> To Us
         </AccentButton>

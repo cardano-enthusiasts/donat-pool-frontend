@@ -81,7 +81,7 @@ function ManagerEditor({ config }: Props) {
           ))}
         </div>
         <div className="mt-5 flex w-full content-center">
-          <StandardButton type="submit" isFullWidth={true} primaryColor="red" secondaryColor="blue" fontColor="white">
+          <StandardButton type="submit" isFullWidth primaryColor="red" secondaryColor="blue" fontColor="white">
             Save
           </StandardButton>
         </div>

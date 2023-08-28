@@ -1,7 +1,7 @@
-import eternlLogo from '../../public/icons/eternl.png';
-import flintLogo from '../../public/icons/flint.svg';
-import lodeLogo from '../../public/icons/lode.svg';
-import namiLogo from '../../public/icons/nami.svg';
+import eternlLogo from '@public/icons/eternl.png';
+import flintLogo from '@public/icons/flint.svg';
+import lodeLogo from '@public/icons/lode.svg';
+import namiLogo from '@public/icons/nami.svg';
 
 const ROUTES = {
   home: '/',

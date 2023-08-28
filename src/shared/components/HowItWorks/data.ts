@@ -1,24 +1,23 @@
 const ITEMS = [
   {
-    title: 'Easily register with a single click',
-    description: 'Create your account by just connecting your wallet',
-    descriptionMinor: 'Works only with Nami wallet',
+    title: 'One-click registration',
+    description: 'Easily register by just connecting your wallet',
     id: 0,
   },
   {
-    title: 'Create a project',
-    description: 'Create a project and share a link to the project page with your followers/contributors',
+    title: 'Setting up a donation page',
+    description: 'Create an online crowdfunding campaign',
     id: 1,
   },
   {
-    title: 'Flexible donation options',
-    description: 'Transfer funds to your wallet',
+    title: 'Sharing a link',
+    description: 'Share the link to your donation page with your community',
     id: 2,
   },
   {
-    title: 'Receive funds to your wallet',
+    title: 'Receiving funds to your wallet',
     description:
-      'Receive funds with just a single click and pay a small service fee after the project campaign is completed',
+      'Receive funds with just a single click and pay a small service fee after your crowdfunding campaign is completed',
     id: 3,
   },
 ];

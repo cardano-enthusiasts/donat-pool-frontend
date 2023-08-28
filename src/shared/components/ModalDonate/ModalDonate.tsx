@@ -38,7 +38,7 @@ function ModalDonate({ isOpen, onClose, data: { threadTokenCurrency, threadToken
           <DoubleBorderedButton backgroundColor="white" primaryColor="blue" onClick={onClose}>
             Cancel
           </DoubleBorderedButton>
-          <StandardButton primaryColor="red" secondaryColor="blue" isFullWidth={true} type="submit" fontColor="white">
+          <StandardButton primaryColor="red" secondaryColor="blue" isFullWidth type="submit" fontColor="white">
             Donate
           </StandardButton>
         </div>

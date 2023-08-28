@@ -51,7 +51,7 @@ const LandingNav = forwardRef(function LandingNav(
               onClick={handleIconClick}
             />
             <div className="absolute left-0 right-0 top-0 z-[-1]">
-              <Waves isUpsideDown={true} color="red" isMoving={false} />
+              <Waves isUpsideDown color="red" isMoving={false} />
             </div>
           </>
         )}
@@ -82,9 +82,9 @@ const LandingNav = forwardRef(function LandingNav(
                 secondaryColor="blue"
                 fontColor="white"
                 href={ROUTES.newFundraising}
-                isAnimation={true}
+                isAnimation
               >
-                Start a fundraiser
+                Create Donat.Pool
               </StandardButton>
             )}
           </div>

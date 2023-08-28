@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 
+import { ROUTES } from '@/shared/constants';
 import { useUserFundraisings } from '@/shared/hooks';
 import type { Fundraising } from '@/shared/types';
 
@@ -38,7 +39,7 @@ function MyProjects({ onCreateAProjectClick }: Props) {
       <div className="mb-15 flex justify-between max-lg:flex-col max-lg:items-center max-lg:gap-5 max-md:mb-8">
         <div className="flex items-center justify-center gap-10 max-md:items-start max-sm:flex-col max-sm:gap-5">
           <h1 className="font-rammetto-one text-[3.375rem] leading-[104%] text-red max-lg:text-[2.25rem] max-sm:text-[2.25rem]">
-            My projects
+            My Donat.Pools
           </h1>
           {allProjectsWithStatus !== null && (
             <div className="flex gap-6">
@@ -66,7 +67,7 @@ function MyProjects({ onCreateAProjectClick }: Props) {
 
         <div className="max-md:fixed max-md:bottom-15 max-md:right-[1.875rem] max-md:z-10">
           <StandardButton primaryColor="red" secondaryColor="blue" fontColor="white" onClick={onCreateAProjectClick}>
-            Create a new project
+            Create Donat.Pool
           </StandardButton>
         </div>
       </div>
@@ -77,7 +78,7 @@ function MyProjects({ onCreateAProjectClick }: Props) {
             {filteredProjects.map((item) => (
               <ProjectCard
                 data={item}
-                linkSection="my-projects"
+                linkSection={ROUTES.userFundraisings}
                 key={item.threadTokenCurrency}
                 status={item.isCompleted ? 'completed' : 'active'}
                 paddingSize="s"

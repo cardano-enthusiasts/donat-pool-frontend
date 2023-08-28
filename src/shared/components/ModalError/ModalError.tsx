@@ -13,7 +13,7 @@ function ModalError({ isOpen, title, errorText = '', onClose }: Props) {
       <div className="flex flex-col items-center">
         <Image className="mb-10" src="/img/bitten-donut.svg" alt="bitten donut" width={140} height={140} />
         <div className={styles.text}>{errorText}</div>
-        <DoubleBorderedButton primaryColor="blue" isFullWidth={true} backgroundColor="white" onClick={onClose}>
+        <DoubleBorderedButton primaryColor="blue" backgroundColor="white" isFullWidth onClick={onClose}>
           Close button
         </DoubleBorderedButton>
       </div>

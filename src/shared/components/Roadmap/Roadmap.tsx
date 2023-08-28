@@ -40,7 +40,7 @@ function Roadmap({ isActive }: Props) {
           secondaryColor="green"
           size="s"
           href={ROUTES.roadmap}
-          isAnimation={true}
+          isAnimation
           fontColor="green"
         >
           All phases

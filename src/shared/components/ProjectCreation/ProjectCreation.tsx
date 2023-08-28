@@ -8,7 +8,7 @@ function ProjectCreation({ onClose }: Props) {
   const protocol = useAppSelector((state) => state.appInfo.protocol);
 
   return (
-    <Project onPreviousPageClick={onClose} previousPageTitle="My projects" title="New project">
+    <Project onPreviousPageClick={onClose} previousPageTitle="My Donat.Pool" title="New Donat.Pool">
       {protocol && <CreationForm onClose={onClose} protocol={protocol} />}
     </Project>
   );

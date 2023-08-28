@@ -17,7 +17,7 @@ function ProjectCard({
   };
 
   return (
-    <Link href={`/${linkSection}/${threadTokenCurrency}`}>
+    <Link href={`${linkSection}/${threadTokenCurrency}`}>
       <div
         className={cn(
           'flex w-full cursor-pointer flex-col rounded-md border-2 bg-white px-4 pb-6 shadow-[-0.25rem_0.25rem_0] max-lg:p-5 max-sm:p-3',

@@ -8,9 +8,9 @@ import { Modal, Checkbox, DoubleBorderedButton } from '@/shared/components';
 import { ROUTES, WALLET_CARDANO_KEY_TO_LOGO } from '@/shared/constants';
 import { useAppDispatch } from '@/shared/hooks';
 import type { WalletCardanoKey } from '@/shared/types';
+import goToIcon from '@public/icons/go-to.svg';
 
 import { WALLETS } from './constants';
-import goToIcon from '../../../../public/icons/go-to.svg';
 
 function ConnectWalletModal() {
   const dispatch = useAppDispatch();

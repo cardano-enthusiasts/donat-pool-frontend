@@ -52,7 +52,7 @@ function Stack() {
         secondaryColor="blue"
         backgroundColor="yellow"
         isClickedTheme={isOpen}
-        isFixedWidth={true}
+        isFixedWidth
         onClick={handleReadButtonClick}
       >
         Read {isOpen ? 'less' : 'more'}

@@ -35,7 +35,7 @@ function PrivateProjectsActions({ project }: Props) {
     }
   }, [status, dispatch, router]);
 
-  const link = window.location.href;
+  const link = window.location.href.replace(ROUTES.userFundraisings, ROUTES.fundraisings);
 
   async function copyContent() {
     try {
@@ -76,7 +76,7 @@ function PrivateProjectsActions({ project }: Props) {
         <StandardButton
           primaryColor="red"
           secondaryColor="blue"
-          isFullWidth={true}
+          isFullWidth
           fontColor="white"
           onClick={handleCollectMoneyButtonClick}
         >
@@ -102,7 +102,7 @@ function PrivateProjectsActions({ project }: Props) {
         {link}
         <div className="shrink-0">
           <DoubleBorderedButton backgroundColor="white" size="s" primaryColor="blue" onClick={handleCopyLinkClick}>
-            Copy link
+            Copy and share
           </DoubleBorderedButton>
         </div>
       </div>

@@ -60,7 +60,7 @@ function InitialLoading({ windowScroll, isAnimationActive }: Props) {
         alt="cat"
         width={770}
         height={795}
-        priority={true}
+        priority
       />
     </div>
   );

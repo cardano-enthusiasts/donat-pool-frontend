@@ -1,12 +1,14 @@
 import Image from 'next/image';
 import { useState } from 'react';
 
+import { ROUTES } from '@/shared/constants';
+
 import styles from './ModalProjectCreated.module.css';
 import type { Props } from './types';
 import { DoubleBorderedButton, Modal, StandardButton } from '../.';
 
-function ModalProjectCreated({ isOpen, onClose, path }: Props) {
-  const link = `${location.origin}/my-projects/${path}`;
+const ModalProjectCreated = ({ isOpen, path, onClose }: Props) => {
+  const link = `${location.origin}${ROUTES.fundraisings}/${path}`;
   const [isSuccessfullyCopied, setIsSuccessfullyCopied] = useState(false);
 
   async function copyContent() {
@@ -41,7 +43,7 @@ function ModalProjectCreated({ isOpen, onClose, path }: Props) {
         {isSuccessfullyCopied ? (
           <>
             <div className="mb-8 text-center">Link copied to clipboard.</div>
-            <DoubleBorderedButton backgroundColor="white" primaryColor="blue" isFullWidth={true} onClick={onClose}>
+            <DoubleBorderedButton backgroundColor="white" primaryColor="blue" isFullWidth onClick={onClose}>
               Close the window
             </DoubleBorderedButton>
           </>
@@ -51,17 +53,17 @@ function ModalProjectCreated({ isOpen, onClose, path }: Props) {
             <StandardButton
               primaryColor="red"
               secondaryColor="blue"
-              isFullWidth={true}
+              isFullWidth
               fontColor="white"
               onClick={handleCopyLinkClick}
             >
-              Copy link
+              Copy link and share
             </StandardButton>
           </>
         )}
       </div>
     </Modal>
   );
-}
+};
 
 export default ModalProjectCreated;
