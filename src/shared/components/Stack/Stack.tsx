@@ -11,7 +11,7 @@ function Stack() {
   const [isActive, setIsActive] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const windowScroll = useWindowScroll();
-  const stack: Array<{ id: string; src: string }> = [
+  const stack: { id: string; src: string }[] = [
     { id: 'plutarch', src: '/img/plutarch.svg' },
     { id: 'cardano-transaction-lib', src: '/img/cardano-transaction-lib.svg' },
     { id: 'react', src: '/img/react.svg' },

@@ -1,10 +1,10 @@
 import type { LandingSection } from '@/shared/types/common';
 
-function getSections(currentSection: string): Array<{
+function getSections(currentSection: string): {
   title: string;
   isActive: boolean;
   id: LandingSection;
-}> {
+}[] {
   return [
     { title: 'Home', isActive: currentSection === 'home', id: 'home' },
     {

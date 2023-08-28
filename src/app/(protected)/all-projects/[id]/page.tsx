@@ -6,8 +6,7 @@ import { Common } from '@/layouts';
 import { reset } from '@/redux/slices/donating';
 import { ModalDonate, ModalError, ModalLoading, ModalSuccess, AccentButton } from '@/shared/components';
 import { formatDate } from '@/shared/helpers';
-import { useAppDispatch, useAppSelector } from '@/shared/hooks';
-import { useQueriedFundraising, useDonate } from '@/shared/hooks';
+import { useAppDispatch, useAppSelector, useQueriedFundraising, useDonate } from '@/shared/hooks';
 
 function Page() {
   const dispatch = useAppDispatch();

@@ -9,13 +9,13 @@ interface Props {
   setCurrentSection: (landingSecton: LandingSection) => void;
 }
 
-type Content = Array<{
+type Content = {
   element: ReactElement;
   id: string;
   backgroundColor: 'blue' | 'green' | 'red' | 'black' | 'yellow';
   waves: {
     color: 'green' | 'red' | 'black';
   } | null;
-}>;
+}[];
 
 export type { Props, Content };

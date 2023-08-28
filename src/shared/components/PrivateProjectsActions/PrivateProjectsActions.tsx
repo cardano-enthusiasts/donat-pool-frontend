@@ -3,8 +3,7 @@ import { useEffect, useState } from 'react';
 
 import { reset } from '@/redux/slices/fundsReceiving';
 import { ROUTES } from '@/shared/constants';
-import { useAppDispatch, useAppSelector } from '@/shared/hooks';
-import { useReceiveFunds } from '@/shared/hooks';
+import { useAppDispatch, useAppSelector, useReceiveFunds } from '@/shared/hooks';
 
 import styles from './PrivateProjectsActions.module.css';
 import type { Props } from './types';

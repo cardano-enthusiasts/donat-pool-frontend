@@ -1,10 +1,10 @@
 import { ROUTES } from '@/shared/constants';
 
-const LINKS: Array<{
+const LINKS: {
   title: string;
   href: string;
   target?: React.HTMLAttributeAnchorTarget;
-}> = [
+}[] = [
   { title: 'Home', href: ROUTES.home },
   { title: 'About us on MetaLamp', href: ROUTES.mock },
   { title: 'Terms of use', href: ROUTES.termsOfUse },

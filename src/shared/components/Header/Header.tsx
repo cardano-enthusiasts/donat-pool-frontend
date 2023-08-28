@@ -7,8 +7,7 @@ import { usePathname } from 'next/navigation';
 import { useState } from 'react';
 
 import { Logo, StandardButton } from '@/shared/components';
-import { ROUTES } from '@/shared/constants';
-import { WALLET_CARDANO_KEY_TO_LOGO } from '@/shared/constants';
+import { ROUTES, WALLET_CARDANO_KEY_TO_LOGO } from '@/shared/constants';
 import { useAppSelector } from '@/shared/hooks';
 
 import { LINKS } from './constants';

@@ -5,8 +5,7 @@ import { useMemo, useState } from 'react';
 
 import { setActiveWalletCardanoKey } from '@/redux/slices/cardano';
 import { Modal, Checkbox, DoubleBorderedButton } from '@/shared/components';
-import { ROUTES } from '@/shared/constants';
-import { WALLET_CARDANO_KEY_TO_LOGO } from '@/shared/constants';
+import { ROUTES, WALLET_CARDANO_KEY_TO_LOGO } from '@/shared/constants';
 import { useAppDispatch } from '@/shared/hooks';
 import type { WalletCardanoKey } from '@/shared/types';
 
@@ -44,7 +43,9 @@ function ConnectWalletModal() {
       }
 
       dispatch(setActiveWalletCardanoKey(walletCardanoKey));
-    } catch {}
+    } catch {
+      /* empty */
+    }
 
     setSomeWalletIsBeingConnected(false);
   }
@@ -72,7 +73,9 @@ function ConnectWalletModal() {
                 className="flex items-center gap-x-3"
                 type="button"
                 disabled={!installed || !termsOfUseAreAccepted || someWalletIsBeingConnected}
-                onClick={() => handleConnectWalletButtonClick(cardanoKey)}
+                onClick={() => {
+                  void handleConnectWalletButtonClick(cardanoKey);
+                }}
               >
                 <div className="w-8">
                   <Image

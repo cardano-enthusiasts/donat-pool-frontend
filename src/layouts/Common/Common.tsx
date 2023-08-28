@@ -1,8 +1,7 @@
 import { useEffect } from 'react';
 
 import { Footer, Header } from '@/shared/components';
-import { useGetAppInfo } from '@/shared/hooks';
-import { useOffchain } from '@/shared/hooks';
+import { useGetAppInfo, useOffchain } from '@/shared/hooks';
 
 function Common({ children }: React.PropsWithChildren) {
   const getAppInfo = useGetAppInfo();

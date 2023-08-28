@@ -1,8 +1,7 @@
 import { type ChangeEvent, useState, useEffect } from 'react';
 
 import { reset } from '@/redux/slices/protocolUpdating';
-import { useAppDispatch, useAppSelector } from '@/shared/hooks';
-import { useUpdateProtocol } from '@/shared/hooks';
+import { useAppDispatch, useAppSelector, useUpdateProtocol } from '@/shared/hooks';
 
 import { DEFAULT_PARAMS } from './data';
 import type { Props } from './types';

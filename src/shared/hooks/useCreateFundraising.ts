@@ -1,8 +1,7 @@
 import { setWalletStatus } from '@/redux/slices/connectWallet';
 import { setError, setRequesting, setCreatedPath } from '@/redux/slices/fundraisingCreation';
 import { createConnectionParameters, logOffchainError } from '@/shared/helpers';
-import { useAppSelector, useAppDispatch } from '@/shared/hooks';
-import { useOffchain, useFundraisings, useUserFundraisings } from '@/shared/hooks';
+import { useAppSelector, useAppDispatch, useOffchain, useFundraisings, useUserFundraisings } from '@/shared/hooks';
 import type { BackendProject } from '@/shared/types/backend';
 
 import useHandleError from './useHandleError';
