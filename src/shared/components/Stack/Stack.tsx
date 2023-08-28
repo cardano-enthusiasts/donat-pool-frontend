@@ -51,7 +51,7 @@ const Stack = () => {
         secondaryColor="blue"
         backgroundColor="yellow"
         isClickedTheme={isOpen}
-        isFixedWidth={true}
+        isFixedWidth
         onClick={() => {
           setIsOpen(!isOpen);
         }}

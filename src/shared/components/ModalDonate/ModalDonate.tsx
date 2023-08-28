@@ -49,7 +49,7 @@ const ModalDonate = ({ isOpen, onClose, data: { threadTokenCurrency, threadToken
           >
             Cancel
           </DoubleBorderedButton>
-          <StandardButton primaryColor="red" secondaryColor="blue" isFullWidth={true} type="submit" fontColor="white">
+          <StandardButton primaryColor="red" secondaryColor="blue" isFullWidth type="submit" fontColor="white">
             Donate
           </StandardButton>
         </div>

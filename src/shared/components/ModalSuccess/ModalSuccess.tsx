@@ -14,7 +14,7 @@ const ModalSuccess = ({ description, isOpen, onClose }: Props) => {
         <div className={containerClasses}>
           <Image className="mb-10" src="/img/happy-cat.svg" alt="happy cat" width={140} height={140} />
           <div className="mb-6">{description}</div>
-          <DoubleBorderedButton primaryColor="blue" backgroundColor="white" isFullWidth={true} onClick={onClose}>
+          <DoubleBorderedButton primaryColor="blue" backgroundColor="white" isFullWidth onClick={onClose}>
             Close button
           </DoubleBorderedButton>
         </div>

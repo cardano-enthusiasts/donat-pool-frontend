@@ -1,6 +1,7 @@
 'use client';
 
 import { ProjectCard } from '@/shared/components';
+import { ROUTES } from '@/shared/constants';
 import { useFundraisings } from '@/shared/hooks';
 
 const AllProjects = () => {
@@ -19,7 +20,7 @@ const AllProjects = () => {
             .filter(({ isCompleted }) => !isCompleted)
             .sort((fundraising1, fundraising2) => Number(fundraising1.deadline) - Number(fundraising2.deadline))
             .map((fundraising) => (
-              <ProjectCard key={fundraising.threadTokenCurrency} data={fundraising} linkSection="all-projects" />
+              <ProjectCard key={fundraising.threadTokenCurrency} data={fundraising} linkSection={ROUTES.fundraisings} />
             ))}
         </div>
       )}

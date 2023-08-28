@@ -24,13 +24,7 @@ const TitleAndDescription = ({ isActive }: Props) => {
         <div className="self-end">help a lot</div>
       </div>
       <div className="relative z-10 mb-[5.625rem] delay-500 max-lg:mb-12">
-        <AccentButton
-          primaryColor="yellow"
-          secondaryColor="red"
-          fontColor="red"
-          href={ROUTES.fundraisings}
-          isAnimation={true}
-        >
+        <AccentButton primaryColor="yellow" secondaryColor="red" fontColor="red" href={ROUTES.fundraisings} isAnimation>
           Start
           <br />
           using

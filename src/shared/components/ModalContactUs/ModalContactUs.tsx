@@ -56,7 +56,7 @@ const ModalContactUs = ({ isOpen, onClose }: Props) => {
               handleInputChange(event, 'message');
             }}
             placeholder="Hello!"
-            multiline={true}
+            multiline
             rows={6}
           >
             Your Message
@@ -67,7 +67,7 @@ const ModalContactUs = ({ isOpen, onClose }: Props) => {
           <DoubleBorderedButton primaryColor="blue" backgroundColor="white" onClick={handleCancelClick}>
             Cancel
           </DoubleBorderedButton>
-          <StandardButton type="submit" primaryColor="red" secondaryColor="blue" fontColor="white" isFullWidth={true}>
+          <StandardButton type="submit" primaryColor="red" secondaryColor="blue" fontColor="white" isFullWidth>
             Send
           </StandardButton>
         </div>
