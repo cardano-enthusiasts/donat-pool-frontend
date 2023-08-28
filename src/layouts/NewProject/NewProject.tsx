@@ -1,4 +1,5 @@
 'use client';
+
 import { useRouter } from 'next/navigation';
 
 import { Project } from '@/layouts';
@@ -16,7 +17,7 @@ const NewProject = () => {
 
   return (
     <Project onPreviousPageClick={handleClose} previousPageTitle="My projects" title="New project">
-      {protocol && <CreationForm onClose={handleClose} protocol={protocol} />}
+      {protocol && <CreationForm protocol={protocol} onClose={handleClose} />}
     </Project>
   );
 };

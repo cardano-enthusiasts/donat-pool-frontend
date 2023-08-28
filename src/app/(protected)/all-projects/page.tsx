@@ -7,6 +7,7 @@ import { ROUTES } from '@/shared/constants';
 const metadata: Metadata = {
   title: 'All Donat.Pools',
 };
+
 const Page = () => {
   return (
     <Common>

@@ -1,6 +1,6 @@
 'use client';
+
 import Image from 'next/image';
-import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
 import { BorderedButton, ProjectCard, StandardButton } from '@/shared/components';
@@ -8,10 +8,9 @@ import { ROUTES } from '@/shared/constants';
 import { useUserFundraisings } from '@/shared/hooks';
 import type { Fundraising } from '@/shared/types';
 
-import type ProjectStatus from './types';
+import type { ProjectStatus } from './types';
 
 const MyProjects = () => {
-  const router = useRouter();
   const [allProjectsWithStatus, setAllProjectsWithStatus] = useState<Fundraising[] | null>(null);
   const [filteredProjects, setFilteredProjects] = useState<Fundraising[] | null>(null);
   const [filter, setFilter] = useState<ProjectStatus | null>(null);
@@ -69,12 +68,7 @@ const MyProjects = () => {
         </div>
 
         <div className="max-md:fixed max-md:bottom-15 max-md:right-[1.875rem] max-md:z-10">
-          <StandardButton
-            primaryColor="red"
-            secondaryColor="blue"
-            fontColor="white"
-            onClick={() => router.push(ROUTES.newFundraising)}
-          >
+          <StandardButton primaryColor="red" secondaryColor="blue" fontColor="white" href={ROUTES.newFundraising}>
             Create a new project
           </StandardButton>
         </div>

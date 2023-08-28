@@ -1,3 +1,3 @@
 type ProjectStatus = 'active' | 'completed';
 
-export default ProjectStatus;
+export type { ProjectStatus };
