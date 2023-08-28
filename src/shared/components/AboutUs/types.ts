@@ -1,9 +1,9 @@
+import { StaticImageData } from 'next/image';
+
 interface Photo {
-  title: string;
+  src: StaticImageData;
   className: string;
   alt: string;
-  width: number;
-  height: number;
   isFirstRow: boolean;
 }
 

@@ -37,6 +37,7 @@ module.exports = {
         projects: 'repeat(auto-fill, minmax(20.3125rem, 1fr))',
       },
       screens: {
+        '1.5xl': '1430px',
         '3xl': '1920px',
       },
       boxShadow: {
