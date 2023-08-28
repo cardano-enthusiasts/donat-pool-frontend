@@ -14,9 +14,11 @@ function ModalContactUs({ open, onClose }: Props) {
       [fieldName]: value,
     });
   }
+
   function handleSubmit(event: any) {
     event.preventDefault();
   }
+
   function handleCancelClick() {
     onClose();
     setData(initialData);

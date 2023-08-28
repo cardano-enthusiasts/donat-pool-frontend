@@ -9,10 +9,10 @@
     "tsc:check": "tsc --noEmit",
     "prettier:check": "prettier . --check",
     "prettier:fix": "prettier . --write",
-    "eslint:check": "eslint ./src --ext .ts,.tsx",
-    "eslint:fix": "eslint ./src --ext .ts,.tsx --fix",
-    "stylelint:check": "stylelint \"./src/**/*.css\"",
-    "stylelint:fix": "stylelint \"./src/**/*.css\" --fix",
+    "eslint:check": "eslint .",
+    "eslint:fix": "eslint .  --fix",
+    "stylelint:check": "stylelint ./src/**/*.css",
+    "stylelint:fix": "stylelint ./src/**/*.css --fix",
     "prepare": "husky install"
   },
   "dependencies": {
