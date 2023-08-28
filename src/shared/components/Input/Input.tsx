@@ -36,8 +36,8 @@ function Input({
     'border-black text-black': !isError && fontColor === 'black',
   });
 
-  function handleWheel(e: React.WheelEvent<HTMLInputElement>) {
-    e.currentTarget.blur();
+  function handleWheel(event: React.WheelEvent<HTMLInputElement>) {
+    event.currentTarget.blur();
   }
 
   return (

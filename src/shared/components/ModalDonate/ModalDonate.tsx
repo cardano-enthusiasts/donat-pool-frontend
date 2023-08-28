@@ -15,13 +15,13 @@ function ModalDonate({ open, onClose, data: { threadTokenCurrency, threadTokenNa
     setValue('');
   }, [open]);
 
-  function handleChange(e: any) {
-    const currentValue = e.target.value === '' ? '' : Number(e.target.value);
+  function handleChange(event: any) {
+    const currentValue = event.target.value === '' ? '' : Number(event.target.value);
     setValue(currentValue);
   }
 
-  function handleSubmit(e: any) {
-    e.preventDefault();
+  function handleSubmit(event: any) {
+    event.preventDefault();
     if (value !== '') {
       donate(fundraisingData, value);
     }

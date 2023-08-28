@@ -12,7 +12,7 @@ interface Props {
   fontColor?: 'green' | 'yellow' | 'black';
   min?: number;
   step?: number;
-  onChange: (e: React.ChangeEvent) => void;
+  onChange: (event: React.ChangeEvent) => void;
 }
 
 export type { Props };

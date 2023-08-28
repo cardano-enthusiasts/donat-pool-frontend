@@ -87,8 +87,8 @@ function CreationForm({ onClose, protocol }: Props) {
     setLoadingModalIsOpen(status === 'requesting');
   }, [status]);
 
-  function handleSubmit(e: any) {
-    e.preventDefault();
+  function handleSubmit(event: any) {
+    event.preventDefault();
     if (anyError) {
       setErrorsToForm();
     } else {
@@ -105,10 +105,13 @@ function CreationForm({ onClose, protocol }: Props) {
     }
   }
 
-  function handleChange(e: ChangeEvent, type: 'title' | 'goal' | 'durationDays' | 'durationHours' | 'durationMinutes') {
-    e.preventDefault();
+  function handleChange(
+    event: ChangeEvent,
+    type: 'title' | 'goal' | 'durationDays' | 'durationHours' | 'durationMinutes',
+  ) {
+    event.preventDefault();
     setError(initialErrors);
-    const { value } = e.target as HTMLInputElement;
+    const { value } = event.target as HTMLInputElement;
     setData({ ...data, [type]: value });
     setError(initialErrors);
   }
@@ -133,8 +136,8 @@ function CreationForm({ onClose, protocol }: Props) {
       <form className="grid w-full max-w-[37.5rem] grid-cols-1 gap-y-6" onSubmit={handleSubmit}>
         <Input
           value={data.title}
-          onChange={(e) => {
-            handleChange(e, 'title');
+          onChange={(event) => {
+            handleChange(event, 'title');
           }}
           disabled={status === 'requesting'}
           maxLength={29}
@@ -151,8 +154,8 @@ function CreationForm({ onClose, protocol }: Props) {
           <div className="flex gap-2.5 max-sm:flex-col">
             <Input
               value={data.durationDays}
-              onChange={(e) => {
-                handleChange(e, 'durationDays');
+              onChange={(event) => {
+                handleChange(event, 'durationDays');
               }}
               type="number"
               placeholder="dd"
@@ -160,8 +163,8 @@ function CreationForm({ onClose, protocol }: Props) {
             />
             <Input
               value={data.durationHours}
-              onChange={(e) => {
-                handleChange(e, 'durationHours');
+              onChange={(event) => {
+                handleChange(event, 'durationHours');
               }}
               type="number"
               placeholder="hh"
@@ -169,8 +172,8 @@ function CreationForm({ onClose, protocol }: Props) {
             />
             <Input
               value={data.durationMinutes}
-              onChange={(e) => {
-                handleChange(e, 'durationMinutes');
+              onChange={(event) => {
+                handleChange(event, 'durationMinutes');
               }}
               type="number"
               placeholder="mm"
@@ -181,8 +184,8 @@ function CreationForm({ onClose, protocol }: Props) {
         <div className="flex flex-col gap-2">
           <Input
             value={data.goal}
-            onChange={(e) => {
-              handleChange(e, 'goal');
+            onChange={(event) => {
+              handleChange(event, 'goal');
             }}
             type="number"
             placeholder={`${minAmountParam}`}
