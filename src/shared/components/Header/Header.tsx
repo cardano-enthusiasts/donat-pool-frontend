@@ -51,7 +51,7 @@ const Header = () => {
         ) : (
           <div className={cn({ 'max-lg:hidden': !isMenuOpen })}>
             <StandardButton href={ROUTES.newFundraising} primaryColor="yellow" secondaryColor="blue" fontColor="black">
-              Start a fundraiser
+              Create Donat.Pool
             </StandardButton>
           </div>
         )}
