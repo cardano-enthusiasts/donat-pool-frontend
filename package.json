@@ -11,8 +11,8 @@
     "prettier:fix": "prettier . --write",
     "eslint:check": "eslint .",
     "eslint:fix": "eslint .  --fix",
-    "stylelint:check": "stylelint ./src/**/*.css",
-    "stylelint:fix": "stylelint ./src/**/*.css --fix",
+    "stylelint:check": "stylelint **/*.css",
+    "stylelint:fix": "stylelint **/*.css --fix",
     "prepare": "husky install"
   },
   "dependencies": {
