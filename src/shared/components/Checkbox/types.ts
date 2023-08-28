@@ -1,5 +1,5 @@
 interface Props {
-  isChecked: boolean;
+  checked: boolean;
   textTheme?: 'light';
   onChange: () => void;
 }

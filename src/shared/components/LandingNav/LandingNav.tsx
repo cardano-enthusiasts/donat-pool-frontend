@@ -10,11 +10,11 @@ import type { Props } from './types';
 import { StandardButton, Waves } from '../.';
 
 const LandingNav = forwardRef(function LandingNav(
-  { currentSection, windowScroll, windowWidth, isOpen, isAnimationActive, handleIconClick, handleSectionClick }: Props,
+  { currentSection, windowScroll, windowWidth, open, animationIsActive, handleIconClick, handleSectionClick }: Props,
   ref: ForwardedRef<HTMLDivElement>,
 ) {
   const mobileResolution = 1280;
-  const contentShown = windowWidth > mobileResolution ? true : isOpen;
+  const contentShown = windowWidth > mobileResolution ? true : open;
   const section = windowWidth > mobileResolution || currentSection !== 'contact-us' ? currentSection : 'roadmap';
   const wrapperRef = useRef<HTMLDivElement>(null);
 
@@ -33,8 +33,8 @@ const LandingNav = forwardRef(function LandingNav(
         {
           'z-[-1] max-xl:z-[100]': currentSection === 'contact-us',
           'z-[3] max-xl:z-[100]': currentSection !== 'contact-us',
-          hidden: windowScroll < 500 && isAnimationActive,
-          'max-xl:h-[100vh] max-xl:overflow-auto': isOpen,
+          hidden: windowScroll < 500 && animationIsActive,
+          'max-xl:h-[100vh] max-xl:overflow-auto': open,
         },
         wrapperVariants[currentSection],
       )}
@@ -44,28 +44,28 @@ const LandingNav = forwardRef(function LandingNav(
           <>
             <Image
               className="absolute right-5 top-5 h-10 w-10"
-              src={`/icons/${isOpen ? 'close' : 'menu'}.svg`}
+              src={`/icons/${open ? 'close' : 'menu'}.svg`}
               alt="icon"
               width="50"
               height="50"
               onClick={handleIconClick}
             />
             <div className="absolute left-0 right-0 top-0 z-[-1]">
-              <Waves isUpsideDown color="red" isMoving={false} />
+              <Waves upsideDown color="red" moving={false} />
             </div>
           </>
         )}
         {contentShown && (
           <div className="flex max-w-[15.3125rem] flex-col gap-6 max-xl:max-w-[18.5rem] max-xl:items-center">
-            {getSections(currentSection).map(({ title, isActive, id }) => (
+            {getSections(currentSection).map(({ title, active, id }) => (
               <a
                 className={cn(
                   'cursor-pointer font-rammetto-one leading-[104%] max-xl:text-center',
                   {
-                    'text-[3.375rem] max-sm:text-3xl': isActive,
-                    'text-[0.9375rem] text-white max-sm:text-xs': !isActive,
+                    'text-[3.375rem] max-sm:text-3xl': active,
+                    'text-[0.9375rem] text-white max-sm:text-xs': !active,
                   },
-                  isActive && linkVariants[currentSection],
+                  active && linkVariants[currentSection],
                 )}
                 key={title}
                 href={`#${id}`}
@@ -82,7 +82,7 @@ const LandingNav = forwardRef(function LandingNav(
                 secondaryColor="blue"
                 fontColor="white"
                 href={ROUTES.newFundraising}
-                isAnimation
+                animated
               >
                 Create Donat.Pool
               </StandardButton>

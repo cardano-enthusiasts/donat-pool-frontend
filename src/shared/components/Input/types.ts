@@ -3,7 +3,7 @@ interface Props {
   dataAttr?: string;
   type?: 'text' | 'submit' | 'number';
   multiline?: boolean;
-  isDisabled?: boolean;
+  disabled?: boolean;
   hint?: string | null;
   placeholder?: string;
   maxLength?: number | undefined;

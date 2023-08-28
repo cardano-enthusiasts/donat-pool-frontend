@@ -6,7 +6,7 @@ function transformFundraisings(fundraisings: FetchedFundraising[]) {
       creator,
       deadline: String(deadline.value),
       goal: String(goal.value),
-      isCompleted,
+      completed: isCompleted,
       raisedAmt: String(raisedAmt.value),
       threadTokenCurrency,
       threadTokenName,

@@ -4,7 +4,7 @@ import { Fragment } from 'react';
 import styles from './ActionDonuts.module.css';
 import type { Props } from './types';
 
-function ActionDonuts({ isAnimationActive }: Props) {
+function ActionDonuts({ animationIsActive }: Props) {
   function getColumns() {
     const donuts: React.ReactNode[] = [];
 
@@ -25,7 +25,7 @@ function ActionDonuts({ isAnimationActive }: Props) {
       className={cn(
         styles.wrapper,
         {
-          absolute: isAnimationActive === false,
+          absolute: animationIsActive === false,
         },
         'bg-red',
       )}

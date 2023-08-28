@@ -30,8 +30,8 @@ function Page() {
     }
   }, [fundraisings, params.id]);
 
-  function getTheme(isCompleted: boolean) {
-    return isCompleted ? THEME.completed : THEME.active;
+  function getTheme(completed: boolean) {
+    return completed ? THEME.completed : THEME.active;
   }
 
   function handlePreviousPageClick() {
@@ -49,11 +49,11 @@ function Page() {
           <div className="max-w-[37.5rem]">
             <div className="flex items-center justify-between border-b-2 border-t-2 border-black py-7">
               <div
-                className={cn(`font-bold ${getTheme(currentProject.isCompleted).classes} rounded-md border-2 px-3 py-2
+                className={cn(`font-bold ${getTheme(currentProject.completed).classes} rounded-md border-2 px-3 py-2
 
               text-sm`)}
               >
-                {getTheme(currentProject.isCompleted).text}
+                {getTheme(currentProject.completed).text}
               </div>
               <div className="text-xl font-bold">Until {formatDate(Number(currentProject.deadline))}</div>
             </div>

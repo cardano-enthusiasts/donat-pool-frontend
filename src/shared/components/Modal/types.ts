@@ -1,5 +1,5 @@
 interface Props {
-  isOpen: boolean;
+  open: boolean;
   panelTheme?: 'light' | 'dark';
   title?: string;
   titleAs?: React.ElementType;

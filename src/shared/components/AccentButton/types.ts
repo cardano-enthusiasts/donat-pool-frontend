@@ -2,12 +2,12 @@ interface Props {
   primaryColor: 'yellow' | 'blue';
   secondaryColor: 'red' | 'green';
   fontColor: 'red' | 'green';
-  isAnimation?: boolean;
+  animated?: boolean;
   type?: 'submit' | 'button';
   href?: string | null;
-  isExternal?: boolean;
+  external?: boolean;
   size?: 's' | 'm';
-  isDisabled?: boolean;
+  disabled?: boolean;
   onClick?: () => void;
 }
 

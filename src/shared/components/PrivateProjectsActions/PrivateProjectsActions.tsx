@@ -70,7 +70,7 @@ function PrivateProjectsActions({ project }: Props) {
     dispatch(reset());
   }
 
-  return project.isCompleted ? (
+  return project.completed ? (
     <>
       <div className="mt-6 flex flex-col items-center gap-4">
         <StandardButton
@@ -88,9 +88,9 @@ function PrivateProjectsActions({ project }: Props) {
           <div className="text-red">We remind you that our commission is {protocol.protocolFeeParam}%</div>
         )}
       </div>
-      <ModalLoading isOpen={status === 'requesting'} />
+      <ModalLoading open={status === 'requesting'} />
       <ModalError
-        isOpen={isModalErrorOpen}
+        open={isModalErrorOpen}
         title="Withdrawal of funds"
         errorText={error}
         onClose={handleErrorModalClose}
@@ -107,8 +107,8 @@ function PrivateProjectsActions({ project }: Props) {
         </div>
       </div>
       <ModalSuccess
+        open={isModalSuccessOpen}
         description="Link copied to clipboard."
-        isOpen={isModalSuccessOpen}
         onClose={handleSuccessModalClose}
       />
     </>

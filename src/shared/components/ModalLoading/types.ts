@@ -1,5 +1,5 @@
 interface Props {
-  isOpen: boolean;
+  open: boolean;
   title?: string;
   description?: string;
 }

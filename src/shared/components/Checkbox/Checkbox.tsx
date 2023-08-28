@@ -2,7 +2,7 @@ import cn from 'classnames';
 
 import { Props } from './types';
 
-function Checkbox({ isChecked, textTheme, children, onChange }: React.PropsWithChildren<Props>) {
+function Checkbox({ checked, textTheme, children, onChange }: React.PropsWithChildren<Props>) {
   return (
     <label className="flex cursor-pointer items-center">
       <input
@@ -22,7 +22,7 @@ function Checkbox({ isChecked, textTheme, children, onChange }: React.PropsWithC
           checked:before:w-full
           before:checked:bg-blue"
         type="checkbox"
-        checked={isChecked}
+        checked={checked}
         onChange={onChange}
       />
       <span

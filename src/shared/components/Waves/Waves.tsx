@@ -6,7 +6,7 @@ import VARIANTS from './constants';
 import type { Props } from './types';
 import styles from './Waves.module.css';
 
-function Waves({ color = 'blue', backgroundColor = 'transparent', isUpsideDown = false, isMoving = true }: Props) {
+function Waves({ color = 'blue', backgroundColor = 'transparent', upsideDown = false, moving = true }: Props) {
   const size = useWindowSize();
 
   function getWidthForViewBox() {
@@ -29,7 +29,7 @@ function Waves({ color = 'blue', backgroundColor = 'transparent', isUpsideDown =
     <div className={`text-center' relative z-[1] h-[6.25rem] ${colors[backgroundColor]}`}>
       <svg
         className={cn('relative mb-[-0.4375rem] h-[6.25rem] max-w-full', {
-          'rotate-180': isUpsideDown,
+          'rotate-180': upsideDown,
         })}
         viewBox={`200 0 ${getWidthForViewBox()} 100`}
         width="100%"
@@ -45,7 +45,7 @@ function Waves({ color = 'blue', backgroundColor = 'transparent', isUpsideDown =
           />
         </defs>
 
-        <g className={cn(isMoving && styles.g)}>
+        <g className={cn(moving && styles.g)}>
           <use className={VARIANTS[color]} xlinkHref="#gentle-wave" x="48" y="0" />
         </g>
       </svg>

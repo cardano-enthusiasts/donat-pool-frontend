@@ -10,7 +10,7 @@ function Input({
   type = 'text',
   children = null,
   multiline = false,
-  isDisabled = false,
+  disabled = false,
   hint = null,
   placeholder = '',
   maxLength = undefined,
@@ -26,7 +26,7 @@ function Input({
     placeholder,
     maxLength,
     error,
-    disabled: isDisabled,
+    disabled,
   };
   const isError = error !== null;
   const inputClasses = cn(styles.input, 'border-2', {

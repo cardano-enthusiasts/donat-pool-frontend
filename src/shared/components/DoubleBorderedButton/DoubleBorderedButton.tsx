@@ -10,7 +10,7 @@ function DoubleBorderedButton({
   primaryColor,
   backgroundColor,
   href = null,
-  isExternal = false,
+  external = false,
   isFullWidth = false,
   size = 'm',
   onClick,
@@ -30,8 +30,8 @@ function DoubleBorderedButton({
         <Link
           className={classes}
           href={href}
-          target={isExternal ? '_blank' : '_self'}
-          rel={isExternal ? 'noreferrer' : undefined}
+          target={external ? '_blank' : '_self'}
+          rel={external ? 'noreferrer' : undefined}
         >
           {children}
         </Link>

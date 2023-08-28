@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import type { Props } from './types';
 import { DoubleBorderedButton, Input, Modal, StandardButton } from '../.';
 
-function ModalDonate({ isOpen, onClose, data: { threadTokenCurrency, threadTokenName }, donate }: Props) {
+function ModalDonate({ open, onClose, data: { threadTokenCurrency, threadTokenName }, donate }: Props) {
   const [value, setValue] = useState<'' | number>('');
 
   const fundraisingData = {
@@ -13,7 +13,7 @@ function ModalDonate({ isOpen, onClose, data: { threadTokenCurrency, threadToken
 
   useEffect(() => {
     setValue('');
-  }, [isOpen]);
+  }, [open]);
 
   function handleChange(e: any) {
     const currentValue = e.target.value === '' ? '' : Number(e.target.value);
@@ -28,7 +28,7 @@ function ModalDonate({ isOpen, onClose, data: { threadTokenCurrency, threadToken
   }
 
   return (
-    <Modal isOpen={isOpen}>
+    <Modal open={open}>
       <h2 className="mb-10 text-center font-rammetto-one text-4xl text-red">How many ADA would you like to donate?</h2>
       <form onSubmit={handleSubmit}>
         <div className="mb-8">

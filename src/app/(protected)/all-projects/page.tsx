@@ -45,7 +45,7 @@ function Page() {
       {fundraisings && (
         <div className="grid grid-cols-projects gap-10 max-sm:grid-cols-1 max-sm:gap-8">
           {fundraisings
-            .filter(({ isCompleted }) => !isCompleted)
+            .filter(({ completed }) => !completed)
             .sort((fundraising1, fundraising2) => Number(fundraising1.deadline) - Number(fundraising2.deadline))
             .map((fundraising) => (
               <ProjectCard key={fundraising.threadTokenCurrency} data={fundraising} linkSection={ROUTES.fundraisings} />

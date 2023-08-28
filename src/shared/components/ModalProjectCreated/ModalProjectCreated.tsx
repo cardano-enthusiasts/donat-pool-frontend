@@ -7,7 +7,7 @@ import styles from './ModalProjectCreated.module.css';
 import type { Props } from './types';
 import { DoubleBorderedButton, Modal, StandardButton } from '../.';
 
-const ModalProjectCreated = ({ isOpen, path, onClose }: Props) => {
+const ModalProjectCreated = ({ open, path, onClose }: Props) => {
   const link = `${location.origin}${ROUTES.fundraisings}/${path}`;
   const [isSuccessfullyCopied, setIsSuccessfullyCopied] = useState(false);
 
@@ -29,7 +29,7 @@ const ModalProjectCreated = ({ isOpen, path, onClose }: Props) => {
   }
 
   return (
-    <Modal isOpen={isOpen}>
+    <Modal open={open}>
       <div className="flex flex-col items-center">
         <h1 className="mb-6 text-center font-rammetto-one text-[3.375rem] leading-[104%] text-red max-lg:text-[2.25rem] max-sm:text-[2.25rem]">
           Well done!

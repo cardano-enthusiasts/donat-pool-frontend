@@ -13,10 +13,10 @@ function StandardButton({
   isFullWidth = false,
   type = 'button',
   href = null,
-  isExternal = false,
+  external = false,
   size = 'm',
-  isDisabled = false,
-  isAnimation = false,
+  disabled = false,
+  animated = false,
   onClick,
 }: React.PropsWithChildren<Props>) {
   const classes = cn(
@@ -25,7 +25,7 @@ function StandardButton({
     VARIANTS.primary[primaryColor],
     VARIANTS.secondary[secondaryColor],
     VARIANTS.font[fontColor],
-    { 'animate-standardPush before:animate-standardPushBefore': isAnimation },
+    { 'animate-standardPush before:animate-standardPushBefore': animated },
     'disabled:bg-purple',
     'disabled:before:bg-black',
     { 'w-full': isFullWidth },
@@ -36,14 +36,14 @@ function StandardButton({
       {href !== null ? (
         <Link
           href={href}
-          target={isExternal ? '_blank' : '_self'}
-          rel={isExternal ? 'noreferrer' : undefined}
+          target={external ? '_blank' : '_self'}
+          rel={external ? 'noreferrer' : undefined}
           className={classes}
         >
           {children}
         </Link>
       ) : (
-        <button className={classes} disabled={isDisabled} type={type} onClick={onClick}>
+        <button className={classes} disabled={disabled} type={type} onClick={onClick}>
           {children}
         </button>
       )}

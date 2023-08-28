@@ -17,7 +17,7 @@ interface Fundraising {
   creator: string;
   deadline: string;
   goal: string;
-  isCompleted: boolean;
+  completed: boolean;
   raisedAmt: string;
   threadTokenCurrency: string;
   threadTokenName: string;

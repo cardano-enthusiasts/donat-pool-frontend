@@ -10,8 +10,8 @@ function Page() {
   const windowScroll = useWindowScroll();
   const { width: windowWidth } = useWindowSize();
   const [currentSection, setCurrentSection] = useState<LandingSection>('home');
-  const [isMobileHeaderOpen, setIsMobileHeaderOpen] = useState(false);
-  const [isAnimationActive, setIsAnimationActive] = useState(true);
+  const [mobileHeaderIsOpen, setMobileHeaderIsOpen] = useState(false);
+  const [animationIsActive, setAnimationIsActive] = useState(true);
 
   const navRef = useRef<HTMLDivElement>(null);
 
@@ -20,7 +20,7 @@ function Page() {
   }, []);
 
   function handleMobileHeaderClick() {
-    setIsMobileHeaderOpen(!isMobileHeaderOpen);
+    setMobileHeaderIsOpen((m) => !m);
   }
 
   function handleSectionClick(clickedSection: LandingSection) {
@@ -30,7 +30,7 @@ function Page() {
   return (
     <div className="flex flex-col">
       <div className="relative">
-        <InitialLoading windowScroll={windowScroll} isAnimationActive={isAnimationActive} />
+        <InitialLoading windowScroll={windowScroll} animationIsActive={animationIsActive} />
         <div className="absolute bottom-0 w-full">
           <Waves />
         </div>
@@ -39,16 +39,16 @@ function Page() {
         windowScroll={windowScroll}
         currentSection={currentSection}
         setCurrentSection={setCurrentSection}
-        setIsAnimationActive={setIsAnimationActive}
+        setAnimationIsActive={setAnimationIsActive}
         ref={navRef}
       />
       <LandingNav
         currentSection={currentSection}
         windowScroll={windowScroll}
         windowWidth={windowWidth}
-        isOpen={isMobileHeaderOpen}
+        open={mobileHeaderIsOpen}
         ref={navRef}
-        isAnimationActive={isAnimationActive}
+        animationIsActive={animationIsActive}
         handleIconClick={handleMobileHeaderClick}
         handleSectionClick={handleSectionClick}
       />

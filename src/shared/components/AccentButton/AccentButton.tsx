@@ -12,10 +12,10 @@ function AccentButton({
   fontColor,
   type = 'button',
   href = null,
-  isExternal = false,
+  external = false,
   size = 'm',
-  isDisabled = false,
-  isAnimation = false,
+  disabled = false,
+  animated = false,
   onClick,
 }: React.PropsWithChildren<Props>) {
   const classes = cn(
@@ -25,7 +25,7 @@ function AccentButton({
     VARIANTS.primary[primaryColor],
     VARIANTS.secondary[secondaryColor],
     VARIANTS.font[fontColor],
-    { 'animate-accentPush before:animate-accentPushBefore after:animate-accentPushAfter': isAnimation },
+    { 'animate-accentPush before:animate-accentPushBefore after:animate-accentPushAfter': animated },
   );
 
   return (
@@ -41,14 +41,14 @@ function AccentButton({
       {href !== null ? (
         <Link
           href={href}
-          target={isExternal ? '_blank' : '_self'}
-          rel={isExternal ? 'noreferrer' : undefined}
+          target={external ? '_blank' : '_self'}
+          rel={external ? 'noreferrer' : undefined}
           className={classes}
         >
           {children}
         </Link>
       ) : (
-        <button className={classes} disabled={isDisabled} type={type} onClick={onClick}>
+        <button className={classes} disabled={disabled} type={type} onClick={onClick}>
           {children}
         </button>
       )}

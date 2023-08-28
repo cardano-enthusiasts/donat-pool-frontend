@@ -86,14 +86,14 @@ function ManagerEditor({ config }: Props) {
           </StandardButton>
         </div>
       </form>
-      <ModalLoading isOpen={isModalLoadingOpen} title="Data saving" description="Please wait a bit" />
+      <ModalLoading open={isModalLoadingOpen} title="Data saving" description="Please wait a bit" />
       <ModalError
-        isOpen={isModalErrorOpen}
+        open={isModalErrorOpen}
         title="Management contract"
         errorText={error}
         onClose={handleErrorModalClose}
       />
-      <ModalSuccess isOpen={isModalSuccessOpen} description="All data saved" onClose={handleSuccessModalClose} />
+      <ModalSuccess open={isModalSuccessOpen} description="All data saved" onClose={handleSuccessModalClose} />
     </>
   );
 }

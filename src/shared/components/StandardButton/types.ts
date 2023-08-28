@@ -3,12 +3,12 @@ interface Props {
   secondaryColor: 'blue' | 'green';
   fontColor: 'white' | 'black';
   isFullWidth?: boolean;
-  isAnimation?: boolean;
+  animated?: boolean;
   type?: 'submit' | 'button';
   href?: string | null;
-  isExternal?: boolean;
+  external?: boolean;
   size?: 's' | 'm';
-  isDisabled?: boolean;
+  disabled?: boolean;
   onClick?: () => void;
 }
 

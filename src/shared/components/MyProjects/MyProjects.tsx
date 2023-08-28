@@ -29,7 +29,7 @@ function MyProjects({ onCreateAProjectClick }: Props) {
       setFilter(null);
     } else {
       const completed = status === 'completed';
-      setFilteredProjects(projects.filter((item) => item.isCompleted === completed));
+      setFilteredProjects(projects.filter((item) => item.completed === completed));
       setFilter(status);
     }
   }
@@ -80,7 +80,7 @@ function MyProjects({ onCreateAProjectClick }: Props) {
                 data={item}
                 linkSection={ROUTES.userFundraisings}
                 key={item.threadTokenCurrency}
-                status={item.isCompleted ? 'completed' : 'active'}
+                status={item.completed ? 'completed' : 'active'}
                 paddingSize="s"
               />
             ))}

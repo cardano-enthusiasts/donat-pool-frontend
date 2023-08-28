@@ -3,7 +3,7 @@ import { useState } from 'react';
 import type { Props } from './types';
 import { DoubleBorderedButton, Input, Modal, StandardButton } from '../.';
 
-function ModalContactUs({ isOpen, onClose }: Props) {
+function ModalContactUs({ open, onClose }: Props) {
   const initialData = { contact: '', name: '', message: '' };
   const [data, setData] = useState(initialData);
 
@@ -23,7 +23,7 @@ function ModalContactUs({ isOpen, onClose }: Props) {
   }
 
   return (
-    <Modal isOpen={isOpen}>
+    <Modal open={open}>
       <form onSubmit={handleSubmit}>
         <div className="flex flex-col items-center gap-6">
           <h1 className="font-rammetto-one text-[3.375rem] leading-[104%] text-red max-lg:text-[2.25rem] max-sm:text-[2.25rem]">

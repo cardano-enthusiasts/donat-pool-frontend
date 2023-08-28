@@ -15,10 +15,10 @@ function Page() {
     fundraising,
     fetchError: fetchFundraisingError,
   } = useQueriedFundraising();
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [isModalErrorOpen, setIsModalErrorOpen] = useState(false);
-  const [isModalLoadingOpen, setIsModalLoadingOpen] = useState(false);
-  const [isModalSuccessOpen, setIsModalSuccessOpen] = useState(false);
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+  const [modalErrorIsOpen, setModalErrorIsOpen] = useState(false);
+  const [modalLoadingIsOpen, setModalLoadingIsOpen] = useState(false);
+  const [modalSuccessIsOpen, setModalSuccessIsOpen] = useState(false);
   const donate = useDonate();
 
   const donateStatus = useAppSelector((state) => state.donating.status);
@@ -26,36 +26,36 @@ function Page() {
 
   useEffect(() => {
     const requesting = donateStatus === 'requesting';
-    setIsModalLoadingOpen(requesting);
+    setModalLoadingIsOpen(requesting);
 
     const requestSuccessful = donateStatus === 'success';
     const requestWithError = donateStatus === 'error';
     if (requesting || requestSuccessful || requestWithError) {
-      setIsModalOpen(false);
+      setModalIsOpen(false);
     }
     if (requestSuccessful) {
-      setIsModalSuccessOpen(true);
+      setModalSuccessIsOpen(true);
     }
     if (requestWithError) {
-      setIsModalErrorOpen(true);
+      setModalErrorIsOpen(true);
     }
   }, [donateStatus]);
 
   function handleDonateButtonClick() {
-    setIsModalOpen(true);
+    setModalIsOpen(true);
   }
 
   function handleDonateModalClose() {
-    setIsModalOpen(false);
+    setModalIsOpen(false);
   }
 
   function handleErrorModalClose() {
-    setIsModalErrorOpen(false);
+    setModalErrorIsOpen(false);
     dispatch(reset());
   }
 
   function handleSuccessModalClose() {
-    setIsModalSuccessOpen(false);
+    setModalSuccessIsOpen(false);
     dispatch(reset());
   }
 
@@ -88,7 +88,7 @@ function Page() {
       </Common>
       {fundraising && (
         <ModalDonate
-          isOpen={isModalOpen}
+          open={modalIsOpen}
           data={{
             threadTokenCurrency: fundraising.threadTokenCurrency,
             threadTokenName: fundraising.threadTokenName,
@@ -98,14 +98,14 @@ function Page() {
         />
       )}
       <ModalError
-        isOpen={isModalErrorOpen}
+        open={modalErrorIsOpen}
         title="How many ADA would you like to donate?"
         errorText={donateError}
         onClose={handleErrorModalClose}
       />
-      <ModalLoading isOpen={isModalLoadingOpen} title="How many ADA would you like to donate?" />
+      <ModalLoading open={modalLoadingIsOpen} title="How many ADA would you like to donate?" />
       <ModalSuccess
-        isOpen={isModalSuccessOpen}
+        open={modalSuccessIsOpen}
         description="Congratulations! Your donut is ready!"
         onClose={handleSuccessModalClose}
       />

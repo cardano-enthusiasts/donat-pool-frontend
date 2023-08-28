@@ -16,7 +16,7 @@ function NotAvailableError() {
           </div>
           <DoubleBorderedButton
             href="https://namiwallet.io/"
-            isExternal
+            external
             primaryColor="blue"
             backgroundColor="red"
             isFullWidth

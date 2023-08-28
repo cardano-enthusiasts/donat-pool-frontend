@@ -7,11 +7,9 @@ import styles from './TitleAndDescription.module.css';
 import type { Props } from './types';
 import { AccentButton } from '../.';
 
-function TitleAndDescription({ isActive }: Props) {
+function TitleAndDescription({ active }: Props) {
   return (
-    <div
-      className={cn('flex flex-col font-rammetto-one', isActive && styles.wrapper, !isActive && styles.wrapperInactive)}
-    >
+    <div className={cn('flex flex-col font-rammetto-one', active && styles.wrapper, !active && styles.wrapperInactive)}>
       <Image
         className="mb-[1.875rem] w-full max-w-[48.125rem]"
         src="/img/big-logo.svg"
@@ -24,7 +22,7 @@ function TitleAndDescription({ isActive }: Props) {
         <div className="self-end">help a lot</div>
       </div>
       <div className="relative z-10 mb-[5.625rem] delay-500 max-lg:mb-12">
-        <AccentButton primaryColor="yellow" secondaryColor="red" fontColor="red" href={ROUTES.fundraisings} isAnimation>
+        <AccentButton primaryColor="yellow" secondaryColor="red" fontColor="red" href={ROUTES.fundraisings} animated>
           Start
           <br />
           using

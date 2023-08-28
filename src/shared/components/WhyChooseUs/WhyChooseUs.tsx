@@ -22,8 +22,8 @@ function WhyChooseUs() {
             secondaryColor="green"
             fontColor="white"
             href="https://github.com/fullstack-development/donat-pool-onchain"
-            isExternal
-            isAnimation
+            external
+            animated
           >
             On-chain code
           </StandardButton>
@@ -35,8 +35,8 @@ function WhyChooseUs() {
             secondaryColor="blue"
             fontColor="black"
             href="https://github.com/fullstack-development/donat-pool-offchain"
-            isExternal
-            isAnimation
+            external
+            animated
           >
             Off-chain code
           </StandardButton>

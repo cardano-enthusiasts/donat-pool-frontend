@@ -8,7 +8,7 @@ import type { Props, Content } from './types';
 import { AboutUs, Footer, HowItWorks, Roadmap, TitleAndDescription, Waves, WhyChooseUs } from '..';
 
 const LandingContent = forwardRef(function LandingContent(
-  { windowScroll, setIsAnimationActive, currentSection, setCurrentSection }: Props,
+  { windowScroll, setAnimationIsActive, currentSection, setCurrentSection }: Props,
   navRef: ForwardedRef<HTMLElement> | null,
 ) {
   const homeRef = useRef<HTMLDivElement>(null);
@@ -22,7 +22,7 @@ const LandingContent = forwardRef(function LandingContent(
 
   useEffect(() => {
     if (homeRef.current && windowScroll > homeRef.current.getBoundingClientRect().top) {
-      setIsAnimationActive(false);
+      setAnimationIsActive(false);
     }
   }, [windowScroll, homeRef.current]);
 
@@ -39,7 +39,7 @@ const LandingContent = forwardRef(function LandingContent(
   }, [windowScroll]);
 
   function getRefSection(): LandingSection {
-    const areRefsDefined =
+    const refsAreDefined =
       (navRef as MutableRefObject<HTMLElement>)?.current &&
       homeRef.current &&
       howItWorksRef.current &&
@@ -47,7 +47,7 @@ const LandingContent = forwardRef(function LandingContent(
       aboutUsRef.current &&
       contactUsRef.current;
 
-    if (areRefsDefined) {
+    if (refsAreDefined) {
       const navTop = Math.round((navRef as MutableRefObject<HTMLElement>)?.current.getBoundingClientRect().top);
       const navBottom = Math.round((navRef as MutableRefObject<HTMLElement>)?.current.getBoundingClientRect().bottom);
       const navMiddle = (navBottom - navTop) / 2 + navTop;
@@ -83,7 +83,7 @@ const LandingContent = forwardRef(function LandingContent(
     {
       element: (
         <div className={CLASSES} id="home" ref={homeRef}>
-          <TitleAndDescription isActive={isHomeAnimationActive} />
+          <TitleAndDescription active={isHomeAnimationActive} />
         </div>
       ),
       id: 'home',
@@ -136,7 +136,7 @@ const LandingContent = forwardRef(function LandingContent(
     {
       element: (
         <div className={`${CLASSES} select-none overflow-hidden bg-black pt-0`} id="roadmap">
-          <Roadmap isActive={isRoadmapAnimationActive} />
+          <Roadmap active={isRoadmapAnimationActive} />
         </div>
       ),
       id: 'roadmap',

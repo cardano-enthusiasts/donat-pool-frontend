@@ -23,10 +23,10 @@ function CreationForm({ onClose, protocol }: Props) {
   const router = useRouter();
   const [createdPath, setCreatedPath] = useState('');
   const createFundraising = useCreateFundraising();
-  const [isChecked, setIsChecked] = useState(false);
-  const [isSuccessModalOpen, setIsSuccessModalOpen] = useState(false);
-  const [isLoadingModalOpen, setIsLoadingModalOpen] = useState(false);
-  const [isErrorModalOpen, setIsErrorModalOpen] = useState(false);
+  const [checked, setChecked] = useState(false);
+  const [successModalIsOpen, setSuccessModalIsOpen] = useState(false);
+  const [loadingModalIsOpen, setLoadingModalIsOpen] = useState(false);
+  const [errorModalIsOpen, setErrorModalIsOpen] = useState(false);
   const [data, setData] = useState({
     title: '',
     description: '',
@@ -40,10 +40,10 @@ function CreationForm({ onClose, protocol }: Props) {
   useEffect(() => {
     if (status === 'success' && path) {
       setCreatedPath(path);
-      setIsSuccessModalOpen(true);
+      setSuccessModalIsOpen(true);
     }
     if (status === 'error') {
-      setIsErrorModalOpen(true);
+      setErrorModalIsOpen(true);
     }
   }, [status, path]);
 
@@ -84,7 +84,7 @@ function CreationForm({ onClose, protocol }: Props) {
   }
 
   useEffect(() => {
-    setIsLoadingModalOpen(status === 'requesting');
+    setLoadingModalIsOpen(status === 'requesting');
   }, [status]);
 
   function handleSubmit(e: any) {
@@ -114,17 +114,17 @@ function CreationForm({ onClose, protocol }: Props) {
   }
 
   function handleCheckboxChange() {
-    setIsChecked(!isChecked);
+    setChecked((c) => !c);
   }
 
   function handleProjectCreatedModalClose() {
-    setIsSuccessModalOpen(false);
+    setSuccessModalIsOpen(false);
     router.push(ROUTES.userFundraisings);
     dispatch(reset());
   }
 
   function handleErrorModalClose() {
-    setIsErrorModalOpen(false);
+    setErrorModalIsOpen(false);
     dispatch(reset());
   }
 
@@ -136,7 +136,7 @@ function CreationForm({ onClose, protocol }: Props) {
           onChange={(e) => {
             handleChange(e, 'title');
           }}
-          isDisabled={status === 'requesting'}
+          disabled={status === 'requesting'}
           maxLength={29}
           placeholder="My Donat.Pool"
           error={error.title}
@@ -195,7 +195,7 @@ function CreationForm({ onClose, protocol }: Props) {
           </Input>
           <PrecalculationFee goal={Number(data.goal)} />
         </div>
-        <Checkbox isChecked={isChecked} onChange={handleCheckboxChange}>
+        <Checkbox checked={checked} onChange={handleCheckboxChange}>
           I agree to pay a commission in favor of the service.
           <br />
           The commission will be debited after the end of the donation pool.
@@ -206,7 +206,7 @@ function CreationForm({ onClose, protocol }: Props) {
           </DoubleBorderedButton>
           <StandardButton
             type="submit"
-            isDisabled={!isChecked}
+            disabled={!checked}
             primaryColor="red"
             secondaryColor="blue"
             isFullWidth
@@ -216,10 +216,10 @@ function CreationForm({ onClose, protocol }: Props) {
           </StandardButton>
         </div>
       </form>
-      <ModalProjectCreated path={createdPath} isOpen={isSuccessModalOpen} onClose={handleProjectCreatedModalClose} />
-      <ModalLoading isOpen={isLoadingModalOpen} />
+      <ModalProjectCreated path={createdPath} open={successModalIsOpen} onClose={handleProjectCreatedModalClose} />
+      <ModalLoading open={loadingModalIsOpen} />
       <ModalError
-        isOpen={isErrorModalOpen}
+        open={errorModalIsOpen}
         title="New Donat.Pool"
         errorText={createError}
         onClose={handleErrorModalClose}

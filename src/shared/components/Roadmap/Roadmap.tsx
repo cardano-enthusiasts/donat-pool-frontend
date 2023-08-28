@@ -9,7 +9,7 @@ import styles from './Roadmap.module.css';
 import type { Props } from './types';
 import { AccentButton } from '../.';
 
-function Roadmap({ isActive }: Props) {
+function Roadmap({ active }: Props) {
   function getSubLis(item: any) {
     return item.subItems.map(({ id, title }: any) => (
       <li className="ml-[4.375rem] text-3xl max-xl:ml-[3.125rem] max-xl:text-base max-sm:ml-6" key={id}>
@@ -23,7 +23,7 @@ function Roadmap({ isActive }: Props) {
       <div
         className={`${styles.wrapper} leading-1.5 relative h-[43.75rem] w-[90%] rotate-[30deg] overflow-hidden text-4xl font-bold max-lg:left-0 max-lg:ml-0 max-sm:text-xl`}
       >
-        <div className={cn('absolute top-[100%] text-yellow', { 'animate-roadmap': isActive })}>
+        <div className={cn('absolute top-[100%] text-yellow', { 'animate-roadmap': active })}>
           {roadmapText.phases.map(({ title, items }) => (
             <Fragment key={title}>
               <div className="font-bold text-red">{HTMLReactParser(title)}</div>
@@ -40,7 +40,7 @@ function Roadmap({ isActive }: Props) {
           secondaryColor="green"
           size="s"
           href={ROUTES.roadmap}
-          isAnimation
+          animated
           fontColor="green"
         >
           All phases

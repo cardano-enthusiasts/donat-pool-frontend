@@ -3,11 +3,11 @@ import Image from 'next/image';
 import type { Props } from './types';
 import { DoubleBorderedButton, Modal } from '../.';
 
-function ModalSuccess({ description, isOpen, onClose }: Props) {
+function ModalSuccess({ open, description, onClose }: Props) {
   const containerClasses = 'flex w-full flex-col items-center';
 
   return (
-    <Modal isOpen={isOpen}>
+    <Modal open={open}>
       <div className={containerClasses}>
         <h1 className="mb-6 text-center font-rammetto-one text-[3.375rem] leading-[104%] text-red max-lg:text-[2.25rem] max-sm:text-[2.25rem]">
           Well done!
