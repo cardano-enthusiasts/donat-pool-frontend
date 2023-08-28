@@ -54,20 +54,20 @@ function CreationForm({ onClose, protocol }: Props) {
   };
   const [error, setError] = useState<FormError>(initialErrors);
 
-  const titleEmpty = data.title === '';
-  const goalLessThanMin = Number(data.goal) < minAmountParam;
-  const goalMoreThanMax = Number(data.goal) > maxAmountParam;
+  const titleIsEmpty = data.title === '';
+  const goalIsLessThanMin = Number(data.goal) < minAmountParam;
+  const goalIsMoreThanMax = Number(data.goal) > maxAmountParam;
   const durationMinutes =
     Number(data.durationDays) * 1440 + Number(data.durationHours) * 60 + Number(data.durationMinutes);
   const durationLessThanMin = durationMinutes < minDurationParam;
   const durationMoreThanMax = durationMinutes > maxDurationParam;
-  const anyError = titleEmpty || goalLessThanMin || goalMoreThanMax || durationLessThanMin || durationMoreThanMax;
+  const anyError = titleIsEmpty || goalIsLessThanMin || goalIsMoreThanMax || durationLessThanMin || durationMoreThanMax;
 
   function setErrorsToForm() {
-    const title = titleEmpty ? 'Please fill in the title field' : null;
-    const goal = goalLessThanMin
+    const title = titleIsEmpty ? 'Please fill in the title field' : null;
+    const goal = goalIsLessThanMin
       ? 'The amount is less than the minimum value'
-      : goalMoreThanMax
+      : goalIsMoreThanMax
       ? 'The amount is more than the maximum value'
       : null;
     const duration = durationLessThanMin

@@ -28,12 +28,12 @@ function Page() {
     const requesting = donateStatus === 'requesting';
     setModalLoadingIsOpen(requesting);
 
-    const requestSuccessful = donateStatus === 'success';
+    const requestIsSuccessful = donateStatus === 'success';
     const requestWithError = donateStatus === 'error';
-    if (requesting || requestSuccessful || requestWithError) {
+    if (requesting || requestIsSuccessful || requestWithError) {
       setModalIsOpen(false);
     }
-    if (requestSuccessful) {
+    if (requestIsSuccessful) {
       setModalSuccessIsOpen(true);
     }
     if (requestWithError) {
