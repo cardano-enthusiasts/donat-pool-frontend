@@ -16,7 +16,7 @@ const NewProject = () => {
   };
 
   return (
-    <Project onPreviousPageClick={handleClose} previousPageTitle="My Donat.Pools" title="New Donat.Pool">
+    <Project previousPageTitle="My Donat.Pools" title="New Donat.Pool" onPreviousPageClick={handleClose}>
       {protocol && <CreationForm protocol={protocol} onClose={handleClose} />}
     </Project>
   );
