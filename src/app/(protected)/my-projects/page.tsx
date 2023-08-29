@@ -1,28 +1,17 @@
-'use client';
+import { Metadata } from 'next';
 
-import { useRouter } from 'next/navigation';
-import { useEffect } from 'react';
+import { Common, MyProjects } from '@/layouts';
 
-import { Common } from '@/layouts';
-import { MyProjects } from '@/shared/components';
-import { ROUTES } from '@/shared/constants';
+const metadata: Metadata = {
+  title: 'My Donat.Pools',
+};
 
 const Page = () => {
-  const router = useRouter();
-
-  useEffect(() => {
-    document.title = 'My projects';
-  }, []);
-
   return (
     <Common>
-      <MyProjects
-        onCreateAProjectClick={() => {
-          router.push(ROUTES.newFundraising);
-        }}
-      />
+      <MyProjects />
     </Common>
   );
 };
 
-export default Page;
+export { Page as default, metadata };
