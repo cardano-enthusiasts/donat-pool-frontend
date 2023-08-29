@@ -38,6 +38,7 @@ module.exports = {
         },
       },
     ],
+    'import/exports-last': 'error',
 
     //TODO: try to remove these and fix code problems
     '@typescript-eslint/no-explicit-any': 0,
