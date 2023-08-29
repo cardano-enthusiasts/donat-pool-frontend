@@ -50,7 +50,7 @@ function Footer({ backgroundColor = 'blue' }: Props) {
           </StandardButton>
         </div>
       </footer>
-      <ModalContactUs open={modalContactUsIsOpen} onClose={handleContactUsModalClose} />
+      <ModalContactUs opened={modalContactUsIsOpen} onClose={handleContactUsModalClose} />
     </>
   );
 }

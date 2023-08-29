@@ -9,7 +9,7 @@ import { ROUTES } from '@/shared/constants';
 import styles from './styles.module.css';
 import { Props } from './types';
 
-function ModalProjectCreated({ open, path, onClose }: Props) {
+function ModalProjectCreated({ opened, path, onClose }: Props) {
   const link = `${location.origin}${ROUTES.donatPools}/${path}`;
   const [isSuccessfullyCopied, setIsSuccessfullyCopied] = useState(false);
 
@@ -31,7 +31,7 @@ function ModalProjectCreated({ open, path, onClose }: Props) {
   }
 
   return (
-    <Modal open={open}>
+    <Modal opened={opened}>
       <div className="flex flex-col items-center">
         <h1 className="mb-6 text-center font-rammetto-one text-[3.375rem] leading-[104%] text-red max-lg:text-[2.25rem] max-sm:text-[2.25rem]">
           Well done!

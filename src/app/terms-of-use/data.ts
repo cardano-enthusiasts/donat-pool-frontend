@@ -32,7 +32,7 @@ const terms = [
       'The user is obliged to take all necessary measures to protect their credentials and devices from intruders.',
       "The Services will bear no responsibility and will not be able to refund cryptocurrency funds in case the user's credentials come into the hands of intruders.",
       'Users are obliged to take measures in order to ensure access to the current browser wallet during the use of the Services. Users will permanently lose access to their account if they lose access to the browser wallet. The Services are not responsible if users are unable to withdraw funds due to loss of access to their account.',
-      "All donations are at the donor's own risk. When donors make a donation through our Services, it is their responsibility to understand how their money will be used. We do not and cannot verify the information that users or fundraisers supply, nor do we guarantee that the donations will be used in accordance with any donatPool purpose.",
+      "All donations are at the donor's own risk. When donors make a donation through our Services, it is their responsibility to understand how their money will be used. We do not and cannot verify the information that users or fundraisers supply, nor do we guarantee that the donations will be used in accordance with any fundraising purpose.",
     ],
   },
   {

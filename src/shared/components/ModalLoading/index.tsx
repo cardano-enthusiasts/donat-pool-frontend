@@ -8,7 +8,7 @@ import { Modal } from '@/shared/components';
 import { Props } from './types';
 
 function ModalLoading({
-  open,
+  opened,
   title = 'Please wait...',
   description = 'Please wait a bit. We are preparing your donut',
 }: Props) {
@@ -32,7 +32,7 @@ function ModalLoading({
   }, []);
 
   return (
-    <Modal open={open}>
+    <Modal opened={opened}>
       <div className="flex flex-col items-center">
         <h1 className="mb-6 text-center font-rammetto-one text-[2.25rem] leading-[104%] text-red max-sm:text-[2.25rem]">
           {title}

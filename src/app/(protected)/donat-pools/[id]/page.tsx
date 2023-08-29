@@ -84,7 +84,7 @@ function Page() {
       </Common>
       {donatPool && (
         <ModalDonate
-          open={modalIsOpen}
+          opened={modalIsOpen}
           data={{
             threadTokenCurrency: donatPool.threadTokenCurrency,
             threadTokenName: donatPool.threadTokenName,
@@ -94,14 +94,14 @@ function Page() {
         />
       )}
       <ModalError
-        open={modalErrorIsOpen}
+        opened={modalErrorIsOpen}
         title="How many ADA would you like to donate?"
         errorText={donateError}
         onClose={handleErrorModalClose}
       />
-      <ModalLoading open={modalLoadingIsOpen} title="How many ADA would you like to donate?" />
+      <ModalLoading opened={modalLoadingIsOpen} title="How many ADA would you like to donate?" />
       <ModalSuccess
-        open={modalSuccessIsOpen}
+        opened={modalSuccessIsOpen}
         description="Congratulations! Your donut is ready!"
         onClose={handleSuccessModalClose}
       />

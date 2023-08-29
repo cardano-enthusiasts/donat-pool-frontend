@@ -4,7 +4,7 @@ import { ProjectCard } from '@/shared/components';
 import { ROUTES } from '@/shared/constants';
 import { useDonatPools } from '@/shared/hooks';
 
-function AllProjects() {
+function DonatPools() {
   const { areBeingFetched: donatPoolsAreBeingFetched, donatPools, fetchError: fetchDonatPoolsError } = useDonatPools();
 
   return (
@@ -27,4 +27,4 @@ function AllProjects() {
   );
 }
 
-export default AllProjects;
+export default DonatPools;

@@ -6,12 +6,12 @@ import { DoubleBorderedButton, Input, Modal, StandardButton } from '@/shared/com
 
 import { Props } from './types';
 
-function ModalDonate({ open, onClose, data: { threadTokenCurrency, threadTokenName }, donate }: Props) {
+function ModalDonate({ opened, onClose, data: { threadTokenCurrency, threadTokenName }, donate }: Props) {
   const [value, setValue] = useState<'' | number>('');
 
   useEffect(() => {
     setValue('');
-  }, [open]);
+  }, [opened]);
 
   function handleChange(event: any) {
     const currentValue = event.target.value === '' ? '' : Number(event.target.value);
@@ -32,7 +32,7 @@ function ModalDonate({ open, onClose, data: { threadTokenCurrency, threadTokenNa
   }
 
   return (
-    <Modal open={open}>
+    <Modal opened={opened}>
       <h2 className="mb-10 text-center font-rammetto-one text-4xl text-red">How many ADA would you like to donate?</h2>
       <form onSubmit={handleSubmit}>
         <div className="mb-8">

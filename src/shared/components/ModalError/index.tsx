@@ -5,9 +5,9 @@ import { DoubleBorderedButton, Modal } from '@/shared/components';
 import styles from './styles.module.css';
 import { Props } from './types';
 
-function ModalError({ open, title, errorText = '', onClose }: Props) {
+function ModalError({ opened, title, errorText = '', onClose }: Props) {
   return (
-    <Modal open={open}>
+    <Modal opened={opened}>
       <h1 className="mb-6 text-center font-rammetto-one text-4xl leading-[104%] text-red max-lg:text-[2.25rem] max-sm:text-[2.25rem]">
         {title}
       </h1>

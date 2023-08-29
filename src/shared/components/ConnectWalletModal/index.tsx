@@ -51,7 +51,7 @@ function ConnectWalletModal() {
   }
 
   return (
-    <Modal open panelTheme="dark" title="Connect wallet" titleAs="h1">
+    <Modal opened panelTheme="dark" title="Connect wallet" titleAs="h1">
       <Checkbox checked={termsOfUseAreAccepted} textTheme="light" onChange={handleCheckboxChange}>
         By checking this box and connecting my wallet, I confirm that I have read, understood and agreed the{' '}
         <Link className="font-bold text-blue" href={ROUTES.termsOfUse} target="_blank">

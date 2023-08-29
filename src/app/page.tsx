@@ -42,7 +42,7 @@ function Page() {
         currentSection={currentSection}
         windowScroll={windowScroll}
         windowWidth={windowWidth}
-        open={mobileHeaderIsOpen}
+        opened={mobileHeaderIsOpen}
         ref={navRef}
         animationIsActive={animationIsActive}
         handleIconClick={handleMobileHeaderClick}

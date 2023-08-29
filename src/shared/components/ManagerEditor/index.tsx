@@ -76,7 +76,7 @@ function ManagerEditor({ config }: Props) {
         <div className="grid grid-cols-2 gap-5 max-md:grid-cols-1">
           {DEFAULT_PARAMS.map(({ title, id, hint }) => (
             <div className="flex w-full items-center justify-between" key={id}>
-              <Input onChange={handleInputChange} dataAttr={id} value={params[id]} type="number">
+              <Input type="number" value={params[id]} dataAttr={id} onChange={handleInputChange}>
                 {title} / <span className="text-gray">{hint}</span>
               </Input>
             </div>
@@ -88,14 +88,14 @@ function ManagerEditor({ config }: Props) {
           </StandardButton>
         </div>
       </form>
-      <ModalLoading open={isModalLoadingOpen} title="Data saving" description="Please wait a bit" />
+      <ModalLoading opened={isModalLoadingOpen} title="Data saving" description="Please wait a bit" />
       <ModalError
-        open={isModalErrorOpen}
+        opened={isModalErrorOpen}
         title="Management contract"
         errorText={error}
         onClose={handleErrorModalClose}
       />
-      <ModalSuccess open={isModalSuccessOpen} description="All data saved" onClose={handleSuccessModalClose} />
+      <ModalSuccess opened={isModalSuccessOpen} description="All data saved" onClose={handleSuccessModalClose} />
     </>
   );
 }

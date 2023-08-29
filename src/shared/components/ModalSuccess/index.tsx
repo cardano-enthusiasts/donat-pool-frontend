@@ -4,11 +4,11 @@ import { DoubleBorderedButton, Modal } from '@/shared/components';
 
 import { Props } from './types';
 
-function ModalSuccess({ open, description, onClose }: Props) {
+function ModalSuccess({ opened, description, onClose }: Props) {
   const containerClasses = 'flex w-full flex-col items-center';
 
   return (
-    <Modal open={open}>
+    <Modal opened={opened}>
       <div className={containerClasses}>
         <h1 className="mb-6 text-center font-rammetto-one text-[3.375rem] leading-[104%] text-red max-lg:text-[2.25rem] max-sm:text-[2.25rem]">
           Well done!

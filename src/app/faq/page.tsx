@@ -21,8 +21,8 @@ function Page() {
       <div className="grid gap-8">
         <DropdownSection title="What is Donat.Pool?">
           <>
-            Donat.Pool is a donatPool service that allows users:
-            <Ul texts={['to start donatPool projects', 'to donate ADA funds to support projects']} />
+            Donat.Pool is a fundraising service that allows users:
+            <Ul texts={['to start fundraising projects', 'to donate ADA funds to support projects']} />
             The Donat.Pool service is deployed on the Cardano blockchain and uses the Cardano native cryptocurrency -
             ADA.
             <AlertNote>Current Donat.Pool version is available on the Cardano PreProduction testnet only.</AlertNote>
@@ -30,7 +30,7 @@ function Page() {
         </DropdownSection>
         <DropdownSection title="How this service is different from other donation services?">
           <>
-            The main difference of Donat.Pool from other donation services is that it is the first donatPool service
+            The main difference of Donat.Pool from other donation services is that it is the first fundraising service
             based on the Cardano blockchain.
             <div>
               <Subtitle>Low fees and Fast transactions</Subtitle>
@@ -59,7 +59,6 @@ function Page() {
             </div>
           </>
         </DropdownSection>
-
         <DropdownSection title="How to register?">
           <>
             The only thing you need to do is to connect your Nami wallet to Donat.Pool. Connection means that you allow
@@ -76,12 +75,11 @@ function Page() {
             </AlertNote>
           </>
         </DropdownSection>
-
         <DropdownSection title="How to start a new project?">
           <>
             <Ul
               texts={[
-                'To start a project, go to the &#39;My projects&#39; page and press the &#39;Create a new project&#39; button. A donatPool project consists of a title, description, target amount and duration. Choose these parameters and press the confirm button.',
+                'To start a project, go to the &#39;My projects&#39; page and press the &#39;Create a new project&#39; button. A fundraising project consists of a title, description, target amount and duration. Choose these parameters and press the confirm button.',
                 'Donat.Pool will call the Nami wallet extension and it will open with transaction info. Here you can check the transaction amount and transaction fee and sign the transaction using your Nami wallet password.',
               ]}
             />

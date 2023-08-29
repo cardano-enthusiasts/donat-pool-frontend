@@ -61,9 +61,10 @@ function CreationForm({ protocol, onClose }: Props) {
   const goalIsMoreThanMax = Number(data.goal) > maxAmountParam;
   const durationMinutes =
     Number(data.durationDays) * 1440 + Number(data.durationHours) * 60 + Number(data.durationMinutes);
-  const durationLessThanMin = durationMinutes < minDurationParam;
-  const durationMoreThanMax = durationMinutes > maxDurationParam;
-  const anyError = titleIsEmpty || goalIsLessThanMin || goalIsMoreThanMax || durationLessThanMin || durationMoreThanMax;
+  const durationIsLessThanMin = durationMinutes < minDurationParam;
+  const durationIsMoreThanMax = durationMinutes > maxDurationParam;
+  const anyError =
+    titleIsEmpty || goalIsLessThanMin || goalIsMoreThanMax || durationIsLessThanMin || durationIsMoreThanMax;
 
   function setErrorsToForm() {
     const title = titleIsEmpty ? 'Please fill in the title field' : null;
@@ -72,9 +73,9 @@ function CreationForm({ protocol, onClose }: Props) {
       : goalIsMoreThanMax
       ? 'The amount is more than the maximum value'
       : null;
-    const duration = durationLessThanMin
+    const duration = durationIsLessThanMin
       ? 'The duration is less than the minimum value'
-      : durationMoreThanMax
+      : durationIsMoreThanMax
       ? 'The duration is more than the maximum value'
       : null;
 
@@ -221,10 +222,10 @@ function CreationForm({ protocol, onClose }: Props) {
           </StandardButton>
         </div>
       </form>
-      <ModalProjectCreated path={createdPath} open={successModalIsOpen} onClose={handleProjectCreatedModalClose} />
-      <ModalLoading open={loadingModalIsOpen} />
+      <ModalProjectCreated path={createdPath} opened={successModalIsOpen} onClose={handleProjectCreatedModalClose} />
+      <ModalLoading opened={loadingModalIsOpen} />
       <ModalError
-        open={errorModalIsOpen}
+        opened={errorModalIsOpen}
         title="New Donat.Pool"
         errorText={createError}
         onClose={handleErrorModalClose}

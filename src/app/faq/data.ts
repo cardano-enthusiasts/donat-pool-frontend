@@ -7,10 +7,10 @@ const basicSection = [
   {
     title: 'What is a Donat.Pool service fee?',
     description:
-      'A Donat.Pool service fee is a fee that must be paid to the service after completing a donatPool project. The interest rate is established by the service protocol and the project owner has to agree with it while creating a project. The service fee interest rate is an immutable parameter so it cannot be changed after starting a project even if it was changed in the Donat.Pool protocol. The minimum fee is 2 ADA, so the final fee is calculated as a maximum of 2 ADA or the actual percentage of the raised amount. The service fee is paid only once automatically when the project owner receives the raised funds.',
+      'A Donat.Pool service fee is a fee that must be paid to the service after completing a fundraising project. The interest rate is established by the service protocol and the project owner has to agree with it while creating a project. The service fee interest rate is an immutable parameter so it cannot be changed after starting a project even if it was changed in the Donat.Pool protocol. The minimum fee is 2 ADA, so the final fee is calculated as a maximum of 2 ADA or the actual percentage of the raised amount. The service fee is paid only once automatically when the project owner receives the raised funds.',
   },
   {
-    title: 'Is it possible to donate to my own donatPool project?',
+    title: 'Is it possible to donate to my own fundraising project?',
     description: 'Yes, there are no restrictions about it.',
   },
   {
@@ -59,14 +59,14 @@ const basicSection = [
       'Donat.Pool doesn&#39;t require a report, but if you want to build trust with your community and plan to start more donation projects, you can provide reports on your resource (website, youtube channel, etc) which you used to share the donation link.',
   },
   {
-    title: 'What are the minimum and maximum donatPool periods? What maximum amount can I claim?',
+    title: 'What are the minimum and maximum fundraising periods? What maximum amount can I claim?',
     description:
       'Min and max periods, min and max amount, and a Donat.Pool fee are dynamically changing parameters. They are regulated by governance token owners through a decentralized voting process.<br> Changes can affect only new projects. When you create a project you agree with the current parameters (Min and max periods, min and max amount, and a Donat.Pool fee) and they will be fixed for this project and can&#39;t be changed.',
   },
   {
     title: 'What happens to funds if I don&#39;t reach my goal?',
     description:
-      'If your donatPool doesn&#39;t earn the target amount, at the end of the donation period you can receive the raised funds on the same terms - a service fee will be based on the raised amount.',
+      'If your fundraising doesn&#39;t earn the target amount, at the end of the donation period you can receive the raised funds on the same terms - a service fee will be based on the raised amount.',
   },
   {
     title: 'What can I raise funds for?',

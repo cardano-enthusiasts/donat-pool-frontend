@@ -4,7 +4,7 @@ interface Props {
   currentSection: LandingSection;
   windowScroll: number;
   windowWidth: number;
-  open: boolean;
+  opened: boolean;
   animationIsActive: boolean;
   handleIconClick: () => void;
   handleSectionClick: (currentSection: LandingSection) => void;
