@@ -20,8 +20,6 @@ export { default as HowItWorks } from './HowItWorks/HowItWorks';
 export { default as Socials } from './Socials/Socials';
 export { default as Modal } from './Modal';
 export { default as ModalDonate } from './ModalDonate/ModalDonate';
-export { default as ProjectCreation } from './ProjectCreation/ProjectCreation';
-export { default as MyProjects } from './MyProjects/MyProjects';
 export { default as ModalLoading } from './ModalLoading/ModalLoading';
 export { default as ModalError } from './ModalError/ModalError';
 export { default as ModalSuccess } from './ModalSuccess/ModalSuccess';

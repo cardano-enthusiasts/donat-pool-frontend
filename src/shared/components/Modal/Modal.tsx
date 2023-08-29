@@ -1,3 +1,5 @@
+'use client';
+
 import { Dialog } from '@headlessui/react';
 
 import { PANEL_THEME_TO_CLASS_NAME } from './constants';

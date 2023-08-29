@@ -1,3 +1,5 @@
+'use client';
+
 import { type ChangeEvent, useState, useEffect } from 'react';
 
 import { reset } from '@/redux/slices/protocolUpdating';

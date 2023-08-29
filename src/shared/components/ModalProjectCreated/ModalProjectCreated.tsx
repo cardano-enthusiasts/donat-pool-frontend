@@ -1,3 +1,5 @@
+'use client';
+
 import Image from 'next/image';
 import { useState } from 'react';
 
@@ -36,7 +38,7 @@ const ModalProjectCreated = ({ open, path, onClose }: Props) => {
         </h1>
         <Image className="mb-10" src="/img/happy-cat.svg" alt="happy cat" width={140} height={140} />
         <div className="mb-8 text-center">
-          The project has been successfully published.
+          The Donat.Pool has been successfully published.
           <br />
           Copy the link to your project to share it and get donations.
         </div>

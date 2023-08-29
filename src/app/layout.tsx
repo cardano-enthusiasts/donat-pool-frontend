@@ -35,6 +35,7 @@ const metadata: Metadata = {
     'msapplication-navbutton-color': '#ff6b95',
     'apple-mobile-web-app-status-bar-style': '#ff6b95',
   },
+  title: 'Donat.Pool',
 };
 
 function Layout({ children }: React.PropsWithChildren) {

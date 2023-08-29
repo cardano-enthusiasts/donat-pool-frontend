@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 
 import { InitialLoading, LandingContent, LandingNav, Waves } from '@/shared/components';
 import { useWindowSize, useWindowScroll } from '@/shared/hooks';
@@ -14,10 +14,6 @@ function Page() {
   const [animationIsActive, setAnimationIsActive] = useState(true);
 
   const navRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    document.title = 'Donat.Pool';
-  }, []);
 
   function handleMobileHeaderClick() {
     setMobileHeaderIsOpen((m) => !m);

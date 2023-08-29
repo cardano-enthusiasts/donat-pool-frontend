@@ -1,3 +1,5 @@
+'use client';
+
 import { useAppSelector } from '@/shared/hooks';
 
 import { Props } from './types';

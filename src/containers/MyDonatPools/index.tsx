@@ -1,14 +1,16 @@
+'use client';
+
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 
+import { BorderedButton, ProjectCard, StandardButton } from '@/shared/components';
 import { ROUTES } from '@/shared/constants';
 import { useMyDonatPools } from '@/shared/hooks';
 import { DonatPool } from '@/shared/types';
 
-import { ProjectStatus, Props } from './types';
-import { BorderedButton, ProjectCard, StandardButton } from '../.';
+import type { ProjectStatus } from './types';
 
-function MyProjects({ onCreateAProjectClick }: Props) {
+function MyDonatPools() {
   const [allProjectsWithStatus, setAllProjectsWithStatus] = useState<DonatPool[] | null>(null);
   const [filteredProjects, setFilteredProjects] = useState<DonatPool[] | null>(null);
   const [filter, setFilter] = useState<ProjectStatus | null>(null);
@@ -29,6 +31,7 @@ function MyProjects({ onCreateAProjectClick }: Props) {
       setFilter(null);
     } else {
       const completed = status === 'completed';
+
       setFilteredProjects(projects.filter((item) => item.completed === completed));
       setFilter(status);
     }
@@ -64,22 +67,20 @@ function MyProjects({ onCreateAProjectClick }: Props) {
             </div>
           )}
         </div>
-
         <div className="max-md:fixed max-md:bottom-15 max-md:right-[1.875rem] max-md:z-10">
-          <StandardButton primaryColor="red" secondaryColor="blue" fontColor="white" onClick={onCreateAProjectClick}>
+          <StandardButton primaryColor="red" secondaryColor="blue" fontColor="white" href={ROUTES.newDonatPool}>
             Create Donat.Pool
           </StandardButton>
         </div>
       </div>
-
       <div className="mx-auto w-full max-md:max-w-[90vw]">
         {filteredProjects && filteredProjects.length !== 0 ? (
           <div className="grid grid-cols-projects gap-10 max-md:grid-cols-1">
             {filteredProjects.map((item) => (
               <ProjectCard
+                key={item.threadTokenCurrency}
                 data={item}
                 linkSection={ROUTES.myDonatPools}
-                key={item.threadTokenCurrency}
                 status={item.completed ? 'completed' : 'active'}
                 paddingSize="s"
               />
@@ -88,7 +89,7 @@ function MyProjects({ onCreateAProjectClick }: Props) {
         ) : (
           <div className="flex flex-col items-center gap-6">
             You don&apos;t have any projects yet. Create a project to start receiving donations.
-            <Image src="/img/sad-cat.svg" alt="sad cat image" width={140} height={140} className="max-w-full" />
+            <Image className="max-w-full" src="/img/sad-cat.svg" alt="sad cat image" width={140} height={140} />
           </div>
         )}
       </div>
@@ -96,4 +97,4 @@ function MyProjects({ onCreateAProjectClick }: Props) {
   );
 }
 
-export default MyProjects;
+export default MyDonatPools;

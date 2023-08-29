@@ -1,3 +1,5 @@
+'use client';
+
 import cn from 'classnames';
 import { Fragment, forwardRef, useEffect, useRef, useState, type ForwardedRef, type MutableRefObject } from 'react';
 
