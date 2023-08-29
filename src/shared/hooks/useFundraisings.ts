@@ -1,5 +1,3 @@
-'use client';
-
 import { useCallback, useEffect } from 'react';
 
 import { setRequestStatus, setFundraisings, setError } from '@/redux/slices/getAllFundraisings';
