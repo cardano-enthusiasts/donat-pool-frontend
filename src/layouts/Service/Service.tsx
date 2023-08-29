@@ -1,3 +1,5 @@
+'use client';
+
 import { Footer, Header } from '@/shared/components';
 
 function Service({ children }: React.PropsWithChildren) {
