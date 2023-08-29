@@ -1,4 +1,4 @@
-import styles from './AboutUs.module.css';
+import styles from './styles.module.css';
 import { Photo } from './types';
 
 const PHOTOS: Photo[] = [

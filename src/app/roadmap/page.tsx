@@ -8,7 +8,7 @@ const metadata: Metadata = {
   title: 'Roadmap',
 };
 
-const Page = () => {
+function Page() {
   function getSubLis(item: any) {
     return item.subItems.map(({ id, title }: any) => (
       <li className="ml-6" key={id}>
@@ -36,6 +36,6 @@ const Page = () => {
       </div>
     </Service>
   );
-};
+}
 
 export { Page as default, metadata };
