@@ -2,7 +2,7 @@
 
 import { useEffect } from 'react';
 
-import { setInitialized as setCardanoInitialized, setActiveWalletCardanoKey } from '@/redux/slices/cardano';
+import { setInitialized, setActiveWalletCardanoKey } from '@/redux/slices/cardano';
 import ConnectWalletModal from '@/shared/components/ConnectWalletModal';
 import { useAppSelector, useAppDispatch } from '@/shared/hooks';
 
@@ -26,7 +26,7 @@ function Layout({ children }: React.PropsWithChildren) {
         }
       }
 
-      dispatch(setCardanoInitialized(true));
+      dispatch(setInitialized(true));
     }
 
     if (!cardanoIsInitialized) {

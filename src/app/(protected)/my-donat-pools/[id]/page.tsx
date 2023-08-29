@@ -1,6 +1,5 @@
 'use client';
 
-import cn from 'classnames';
 import { useParams, useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
@@ -50,9 +49,9 @@ function Page() {
           <div className="max-w-[37.5rem]">
             <div className="flex items-center justify-between border-b-2 border-t-2 border-black py-7">
               <div
-                className={cn(
-                  `font-bold ${getTheme(currentProject.completed).classes} rounded-md border-2 px-3 py-2 text-sm`,
-                )}
+                className={`font-bold ${
+                  getTheme(currentProject.completed).classes
+                } rounded-md border-2 px-3 py-2 text-sm`}
               >
                 {getTheme(currentProject.completed).text}
               </div>
