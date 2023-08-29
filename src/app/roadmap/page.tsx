@@ -1,15 +1,14 @@
-'use client';
-
 import HTMLReactParser from 'html-react-parser';
-import { useEffect } from 'react';
+import { Metadata } from 'next';
 
 import { Service } from '@/layouts';
 import { roadmapText } from '@/shared/data';
 
+const metadata: Metadata = {
+  title: 'Roadmap',
+};
+
 const Page = () => {
-  useEffect(() => {
-    document.title = 'Roadmap';
-  }, []);
   const getSubLis = (item: any) => {
     return item.subItems.map(({ id, title }: any) => (
       <li className="ml-6" key={id}>
@@ -39,4 +38,4 @@ const Page = () => {
   );
 };
 
-export default Page;
+export { Page as default, metadata };

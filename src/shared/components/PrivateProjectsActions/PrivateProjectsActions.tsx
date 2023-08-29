@@ -1,3 +1,5 @@
+'use client';
+
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
@@ -36,7 +38,7 @@ const PrivateProjectsActions = ({ project }: Props) => {
     }
   }, [status, dispatch, router]);
 
-  const link = window.location.href;
+  const link = window.location.href.replace(ROUTES.userFundraisings, ROUTES.fundraisings);
 
   const copyContent = async () => {
     try {
@@ -60,7 +62,7 @@ const PrivateProjectsActions = ({ project }: Props) => {
         <StandardButton
           primaryColor="red"
           secondaryColor="blue"
-          isFullWidth={true}
+          isFullWidth
           fontColor="white"
           onClick={() => {
             receiveFunds({
@@ -95,7 +97,7 @@ const PrivateProjectsActions = ({ project }: Props) => {
         {link}
         <div className="shrink-0">
           <DoubleBorderedButton backgroundColor="white" size="s" primaryColor="blue" onClick={handleCopyLinkClick}>
-            Copy link
+            Copy and share
           </DoubleBorderedButton>
         </div>
       </div>

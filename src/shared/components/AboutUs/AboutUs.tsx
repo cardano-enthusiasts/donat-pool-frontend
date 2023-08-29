@@ -1,3 +1,5 @@
+'use client';
+
 import Image from 'next/image';
 
 import { PHOTOS } from './constants';
@@ -61,7 +63,6 @@ const AboutUs = () => {
             max-1.5xl:hidden'
         />
       </div>
-
       <div className="mb-10">
         <Stack />
       </div>

@@ -16,9 +16,10 @@ const NotAvailableError = () => {
           </div>
           <DoubleBorderedButton
             href="https://namiwallet.io/"
+            isExternal
             primaryColor="blue"
             backgroundColor="red"
-            isFullWidth={true}
+            isFullWidth
           >
             Download App
           </DoubleBorderedButton>

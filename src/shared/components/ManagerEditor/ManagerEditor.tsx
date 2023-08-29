@@ -1,3 +1,5 @@
+'use client';
+
 import { type ChangeEvent, useState, useEffect } from 'react';
 
 import { reset } from '@/redux/slices/protocolUpdating';
@@ -79,7 +81,7 @@ const ManagerEditor = ({ config }: Props) => {
           ))}
         </div>
         <div className="mt-5 flex w-full content-center">
-          <StandardButton type="submit" isFullWidth={true} primaryColor="red" secondaryColor="blue" fontColor="white">
+          <StandardButton type="submit" isFullWidth primaryColor="red" secondaryColor="blue" fontColor="white">
             Save
           </StandardButton>
         </div>

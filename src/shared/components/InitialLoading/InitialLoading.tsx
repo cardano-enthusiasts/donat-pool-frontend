@@ -1,3 +1,5 @@
+'use client';
+
 import cn from 'classnames';
 import Image from 'next/image';
 import { useEffect, useRef } from 'react';
@@ -60,7 +62,7 @@ const InitialLoading = ({ windowScroll, isAnimationActive }: Props) => {
         alt="cat"
         width={770}
         height={795}
-        priority={true}
+        priority
       />
     </div>
   );

@@ -1,13 +1,16 @@
+'use client';
+
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 
+import { BorderedButton, ProjectCard, StandardButton } from '@/shared/components';
+import { ROUTES } from '@/shared/constants';
 import { useUserFundraisings } from '@/shared/hooks';
 import type { Fundraising } from '@/shared/types';
 
-import type { ProjectStatus, Props } from './types';
-import { BorderedButton, ProjectCard, StandardButton } from '../.';
+import type { ProjectStatus } from './types';
 
-const MyProjects = ({ onCreateAProjectClick }: Props) => {
+const MyProjects = () => {
   const [allProjectsWithStatus, setAllProjectsWithStatus] = useState<Fundraising[] | null>(null);
   const [filteredProjects, setFilteredProjects] = useState<Fundraising[] | null>(null);
   const [filter, setFilter] = useState<ProjectStatus | null>(null);
@@ -38,7 +41,7 @@ const MyProjects = ({ onCreateAProjectClick }: Props) => {
       <div className="mb-15 flex justify-between max-lg:flex-col max-lg:items-center max-lg:gap-5 max-md:mb-8">
         <div className="flex items-center justify-center gap-10 max-md:items-start max-sm:flex-col max-sm:gap-5">
           <h1 className="font-rammetto-one text-[3.375rem] leading-[104%] text-red max-lg:text-[2.25rem] max-sm:text-[2.25rem]">
-            My projects
+            My Donat.Pools
           </h1>
           {allProjectsWithStatus !== null && (
             <div className="flex gap-6">
@@ -65,8 +68,8 @@ const MyProjects = ({ onCreateAProjectClick }: Props) => {
         </div>
 
         <div className="max-md:fixed max-md:bottom-15 max-md:right-[1.875rem] max-md:z-10">
-          <StandardButton primaryColor="red" secondaryColor="blue" fontColor="white" onClick={onCreateAProjectClick}>
-            Create a new project
+          <StandardButton primaryColor="red" secondaryColor="blue" fontColor="white" href={ROUTES.newFundraising}>
+            Create Donat.Pool
           </StandardButton>
         </div>
       </div>
@@ -77,7 +80,7 @@ const MyProjects = ({ onCreateAProjectClick }: Props) => {
             {filteredProjects.map((item) => (
               <ProjectCard
                 data={item}
-                linkSection="my-projects"
+                linkSection={ROUTES.userFundraisings}
                 key={item.threadTokenCurrency}
                 status={item.isCompleted ? 'completed' : 'active'}
                 paddingSize="s"
@@ -95,4 +98,4 @@ const MyProjects = ({ onCreateAProjectClick }: Props) => {
   );
 };
 
-export { MyProjects };
+export default MyProjects;

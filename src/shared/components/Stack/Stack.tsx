@@ -1,3 +1,5 @@
+'use client';
+
 import cn from 'classnames';
 import { useEffect, useRef, useState } from 'react';
 
@@ -49,7 +51,7 @@ const Stack = () => {
         secondaryColor="blue"
         backgroundColor="yellow"
         isClickedTheme={isOpen}
-        isFixedWidth={true}
+        isFixedWidth
         onClick={() => {
           setIsOpen(!isOpen);
         }}
