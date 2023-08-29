@@ -5,3 +5,4 @@ npm run tsc:check
 npm run prettier:check
 npm run eslint:check
 npm run stylelint:check
+npm run build
