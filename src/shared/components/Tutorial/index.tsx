@@ -10,10 +10,10 @@ import { DATA } from './data';
 import styles from './styles.module.css';
 
 function Tutorial() {
-  const [isOpen, setIsOpen] = useState(true);
+  const [shown, setShown] = useState(true);
 
   function handleWatchTutorialButtonClick() {
-    setIsOpen((o) => !o);
+    setShown((s) => !s);
   }
 
   return (
@@ -22,12 +22,12 @@ function Tutorial() {
         primaryColor="blue"
         secondaryColor="red"
         backgroundColor="green"
-        isClickedTheme={isOpen}
+        isClickedTheme={shown}
         onClick={handleWatchTutorialButtonClick}
       >
         Watch the tutorial
       </DashedButton>
-      {isOpen && (
+      {shown && (
         <div className="mt-15">
           {DATA.map(({ order, title, src, description }) => (
             <div className="mb-[5.375rem] max-md:mb-10" key={order}>

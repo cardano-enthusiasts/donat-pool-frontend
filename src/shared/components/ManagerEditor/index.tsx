@@ -11,9 +11,9 @@ import { Props } from './types';
 
 function ManagerEditor({ config }: Props) {
   const [params, setParams] = useState(config);
-  const [isModalSuccessOpen, setIsModalSuccessOpen] = useState(false);
-  const [isModalErrorOpen, setIsModalErrorOpen] = useState(false);
-  const [isModalLoadingOpen, setIsModalLoadingOpen] = useState(false);
+  const [modalSuccessIsShown, setModalSuccessIsShown] = useState(false);
+  const [modalErrorIsShown, setModalErrorIsShown] = useState(false);
+  const [modalLoadingIsShown, setModalLoadingIsShown] = useState(false);
   const dispatch = useAppDispatch();
 
   const { error, status } = useAppSelector((state) => state.protocolUpdating);
@@ -30,15 +30,15 @@ function ManagerEditor({ config }: Props) {
 
   useEffect(() => {
     if (status === 'success') {
-      setIsModalSuccessOpen(true);
+      setModalSuccessIsShown(true);
     }
     if (status === 'error') {
-      setIsModalErrorOpen(true);
+      setModalErrorIsShown(true);
     }
   }, [status]);
 
   useEffect(() => {
-    setIsModalLoadingOpen(status === 'requesting');
+    setModalLoadingIsShown(status === 'requesting');
   }, [status]);
 
   useEffect(() => {
@@ -61,12 +61,12 @@ function ManagerEditor({ config }: Props) {
   }
 
   function handleErrorModalClose() {
-    setIsModalErrorOpen(false);
+    setModalErrorIsShown(false);
     dispatch(reset());
   }
 
   function handleSuccessModalClose() {
-    setIsModalSuccessOpen(false);
+    setModalSuccessIsShown(false);
     dispatch(reset());
   }
 
@@ -88,14 +88,14 @@ function ManagerEditor({ config }: Props) {
           </StandardButton>
         </div>
       </form>
-      <ModalLoading opened={isModalLoadingOpen} title="Data saving" description="Please wait a bit" />
+      <ModalLoading shown={modalLoadingIsShown} title="Data saving" description="Please wait a bit" />
       <ModalError
-        opened={isModalErrorOpen}
+        shown={modalErrorIsShown}
         title="Management contract"
         errorText={error}
         onClose={handleErrorModalClose}
       />
-      <ModalSuccess opened={isModalSuccessOpen} description="All data saved" onClose={handleSuccessModalClose} />
+      <ModalSuccess shown={modalSuccessIsShown} description="All data saved" onClose={handleSuccessModalClose} />
     </>
   );
 }

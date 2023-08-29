@@ -12,8 +12,8 @@ import styles from './styles.module.css';
 import { Props } from './types';
 
 function PrivateProjectsActions({ project }: Props) {
-  const [isModalSuccessOpen, setIsModalSuccessOpen] = useState(false);
-  const [isModalErrorOpen, setIsModalErrorOpen] = useState(false);
+  const [modalSuccessIsShown, setModalSuccessIsShown] = useState(false);
+  const [modalErrorIsShown, setModalErrorIsShown] = useState(false);
   const dispatch = useAppDispatch();
   const router = useRouter();
   const receiveFunds = useReceiveFunds();
@@ -25,13 +25,13 @@ function PrivateProjectsActions({ project }: Props) {
 
   useEffect(() => {
     if (error) {
-      setIsModalErrorOpen(true);
+      setModalErrorIsShown(true);
     }
   }, [error, dispatch]);
 
   useEffect(() => {
     if (status === 'success') {
-      setIsModalErrorOpen(true);
+      setModalErrorIsShown(true);
       router.push(ROUTES.myDonatPools);
       dispatch(reset());
     }
@@ -42,7 +42,7 @@ function PrivateProjectsActions({ project }: Props) {
   async function copyContent() {
     try {
       await navigator.clipboard.writeText(link);
-      setIsModalSuccessOpen(true);
+      setModalSuccessIsShown(true);
       console.log('Content copied to clipboard');
     } catch (err) {
       console.error('Failed to copy: ', err);
@@ -63,12 +63,12 @@ function PrivateProjectsActions({ project }: Props) {
   }
 
   function handleErrorModalClose() {
-    setIsModalErrorOpen(false);
+    setModalErrorIsShown(false);
     dispatch(reset());
   }
 
   function handleSuccessModalClose() {
-    setIsModalSuccessOpen(false);
+    setModalSuccessIsShown(false);
     dispatch(reset());
   }
 
@@ -90,9 +90,9 @@ function PrivateProjectsActions({ project }: Props) {
           <div className="text-red">We remind you that our commission is {protocol.protocolFeeParam}%</div>
         )}
       </div>
-      <ModalLoading opened={status === 'requesting'} />
+      <ModalLoading shown={status === 'requesting'} />
       <ModalError
-        opened={isModalErrorOpen}
+        shown={modalErrorIsShown}
         title="Withdrawal of funds"
         errorText={error}
         onClose={handleErrorModalClose}
@@ -109,7 +109,7 @@ function PrivateProjectsActions({ project }: Props) {
         </div>
       </div>
       <ModalSuccess
-        opened={isModalSuccessOpen}
+        shown={modalSuccessIsShown}
         description="Link copied to clipboard."
         onClose={handleSuccessModalClose}
       />

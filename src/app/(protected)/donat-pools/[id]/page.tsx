@@ -11,10 +11,10 @@ import { useAppDispatch, useAppSelector, useQueriedDonatPool, useDonate } from '
 function Page() {
   const dispatch = useAppDispatch();
   const { isBeingFetched: donatPoolIsBeingFetched, donatPool, fetchError: fetchDonatPoolError } = useQueriedDonatPool();
-  const [modalIsOpen, setModalIsOpen] = useState(false);
-  const [modalErrorIsOpen, setModalErrorIsOpen] = useState(false);
-  const [modalLoadingIsOpen, setModalLoadingIsOpen] = useState(false);
-  const [modalSuccessIsOpen, setModalSuccessIsOpen] = useState(false);
+  const [modalIsShown, setModalIsShown] = useState(false);
+  const [modalErrorIsShown, setModalErrorIsShown] = useState(false);
+  const [modalLoadingIsShown, setModalLoadingIsShown] = useState(false);
+  const [modalSuccessIsShown, setModalSuccessIsShown] = useState(false);
   const donate = useDonate();
 
   const donateStatus = useAppSelector((state) => state.donating.status);
@@ -22,36 +22,36 @@ function Page() {
 
   useEffect(() => {
     const requesting = donateStatus === 'requesting';
-    setModalLoadingIsOpen(requesting);
+    setModalLoadingIsShown(requesting);
 
     const requestIsSuccessful = donateStatus === 'success';
     const requestWithError = donateStatus === 'error';
     if (requesting || requestIsSuccessful || requestWithError) {
-      setModalIsOpen(false);
+      setModalIsShown(false);
     }
     if (requestIsSuccessful) {
-      setModalSuccessIsOpen(true);
+      setModalSuccessIsShown(true);
     }
     if (requestWithError) {
-      setModalErrorIsOpen(true);
+      setModalErrorIsShown(true);
     }
   }, [donateStatus]);
 
   function handleDonateButtonClick() {
-    setModalIsOpen(true);
+    setModalIsShown(true);
   }
 
   function handleDonateModalClose() {
-    setModalIsOpen(false);
+    setModalIsShown(false);
   }
 
   function handleErrorModalClose() {
-    setModalErrorIsOpen(false);
+    setModalErrorIsShown(false);
     dispatch(reset());
   }
 
   function handleSuccessModalClose() {
-    setModalSuccessIsOpen(false);
+    setModalSuccessIsShown(false);
     dispatch(reset());
   }
 
@@ -84,7 +84,7 @@ function Page() {
       </Common>
       {donatPool && (
         <ModalDonate
-          opened={modalIsOpen}
+          shown={modalIsShown}
           data={{
             threadTokenCurrency: donatPool.threadTokenCurrency,
             threadTokenName: donatPool.threadTokenName,
@@ -94,14 +94,14 @@ function Page() {
         />
       )}
       <ModalError
-        opened={modalErrorIsOpen}
+        shown={modalErrorIsShown}
         title="How many ADA would you like to donate?"
         errorText={donateError}
         onClose={handleErrorModalClose}
       />
-      <ModalLoading opened={modalLoadingIsOpen} title="How many ADA would you like to donate?" />
+      <ModalLoading shown={modalLoadingIsShown} title="How many ADA would you like to donate?" />
       <ModalSuccess
-        opened={modalSuccessIsOpen}
+        shown={modalSuccessIsShown}
         description="Congratulations! Your donut is ready!"
         onClose={handleSuccessModalClose}
       />

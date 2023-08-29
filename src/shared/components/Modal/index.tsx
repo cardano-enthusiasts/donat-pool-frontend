@@ -6,7 +6,7 @@ import { PANEL_THEME_TO_CLASS_NAME } from './constants';
 import { Props } from './types';
 
 function Modal({
-  opened,
+  shown,
   panelTheme = 'light',
   title,
   titleAs,
@@ -14,7 +14,7 @@ function Modal({
   onClose = () => undefined,
 }: React.PropsWithChildren<Props>) {
   return (
-    <Dialog className="fixed inset-0 flex items-center justify-center bg-blue/40 p-5" open={opened} onClose={onClose}>
+    <Dialog className="fixed inset-0 flex items-center justify-center bg-blue/40 p-5" open={shown} onClose={onClose}>
       <Dialog.Panel
         className={`${PANEL_THEME_TO_CLASS_NAME[panelTheme]}
           max-h-full

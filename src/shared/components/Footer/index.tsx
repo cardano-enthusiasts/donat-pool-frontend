@@ -10,14 +10,14 @@ import { LINKS } from './constants';
 import { Props } from './types';
 
 function Footer({ backgroundColor = 'blue' }: Props) {
-  const [modalContactUsIsOpen, setModalContactUsIsOpen] = useState(false);
+  const [modalContactUsIsShown, setModalContactUsIsShown] = useState(false);
 
   function handleContactUsButtonClick() {
-    setModalContactUsIsOpen(true);
+    setModalContactUsIsShown(true);
   }
 
   function handleContactUsModalClose() {
-    setModalContactUsIsOpen(false);
+    setModalContactUsIsShown(false);
   }
 
   return (
@@ -50,7 +50,7 @@ function Footer({ backgroundColor = 'blue' }: Props) {
           </StandardButton>
         </div>
       </footer>
-      <ModalContactUs opened={modalContactUsIsOpen} onClose={handleContactUsModalClose} />
+      <ModalContactUs shown={modalContactUsIsShown} onClose={handleContactUsModalClose} />
     </>
   );
 }

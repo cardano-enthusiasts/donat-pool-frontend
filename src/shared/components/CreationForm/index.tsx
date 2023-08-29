@@ -26,9 +26,9 @@ function CreationForm({ protocol, onClose }: Props) {
   const [createdPath, setCreatedPath] = useState('');
   const createDonatPool = useCreateDonatPool();
   const [checked, setChecked] = useState(false);
-  const [successModalIsOpen, setSuccessModalIsOpen] = useState(false);
-  const [loadingModalIsOpen, setLoadingModalIsOpen] = useState(false);
-  const [errorModalIsOpen, setErrorModalIsOpen] = useState(false);
+  const [successModalIsShown, setSuccessModalIsShown] = useState(false);
+  const [loadingModalIsShown, setLoadingModalIsShown] = useState(false);
+  const [errorModalIsShown, setErrorModalIsShown] = useState(false);
   const [data, setData] = useState({
     title: '',
     description: '',
@@ -42,10 +42,10 @@ function CreationForm({ protocol, onClose }: Props) {
   useEffect(() => {
     if (status === 'success' && path) {
       setCreatedPath(path);
-      setSuccessModalIsOpen(true);
+      setSuccessModalIsShown(true);
     }
     if (status === 'error') {
-      setErrorModalIsOpen(true);
+      setErrorModalIsShown(true);
     }
   }, [status, path]);
 
@@ -87,7 +87,7 @@ function CreationForm({ protocol, onClose }: Props) {
   }
 
   useEffect(() => {
-    setLoadingModalIsOpen(status === 'requesting');
+    setLoadingModalIsShown(status === 'requesting');
   }, [status]);
 
   function handleSubmit(event: any) {
@@ -124,13 +124,13 @@ function CreationForm({ protocol, onClose }: Props) {
   }
 
   function handleProjectCreatedModalClose() {
-    setSuccessModalIsOpen(false);
+    setSuccessModalIsShown(false);
     router.push(ROUTES.myDonatPools);
     dispatch(reset());
   }
 
   function handleErrorModalClose() {
-    setErrorModalIsOpen(false);
+    setErrorModalIsShown(false);
     dispatch(reset());
   }
 
@@ -222,10 +222,10 @@ function CreationForm({ protocol, onClose }: Props) {
           </StandardButton>
         </div>
       </form>
-      <ModalProjectCreated path={createdPath} opened={successModalIsOpen} onClose={handleProjectCreatedModalClose} />
-      <ModalLoading opened={loadingModalIsOpen} />
+      <ModalProjectCreated path={createdPath} shown={successModalIsShown} onClose={handleProjectCreatedModalClose} />
+      <ModalLoading shown={loadingModalIsShown} />
       <ModalError
-        opened={errorModalIsOpen}
+        shown={errorModalIsShown}
         title="New Donat.Pool"
         errorText={createError}
         onClose={handleErrorModalClose}

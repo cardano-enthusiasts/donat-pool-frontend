@@ -1,5 +1,5 @@
 interface Props {
-  opened: boolean;
+  shown: boolean;
   path: string;
   onClose: () => void;
 }

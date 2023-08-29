@@ -10,13 +10,13 @@ function Page() {
   const windowScroll = useWindowScroll();
   const { width: windowWidth } = useWindowSize();
   const [currentSection, setCurrentSection] = useState<LandingSection>('home');
-  const [mobileHeaderIsOpen, setMobileHeaderIsOpen] = useState(false);
+  const [mobileHeaderIsShown, setMobileHeaderIsShown] = useState(false);
   const [animationIsActive, setAnimationIsActive] = useState(true);
 
   const navRef = useRef<HTMLDivElement>(null);
 
   function handleMobileHeaderClick() {
-    setMobileHeaderIsOpen((m) => !m);
+    setMobileHeaderIsShown((m) => !m);
   }
 
   function handleSectionClick(clickedSection: LandingSection) {
@@ -42,7 +42,7 @@ function Page() {
         currentSection={currentSection}
         windowScroll={windowScroll}
         windowWidth={windowWidth}
-        opened={mobileHeaderIsOpen}
+        shown={mobileHeaderIsShown}
         ref={navRef}
         animationIsActive={animationIsActive}
         handleIconClick={handleMobileHeaderClick}

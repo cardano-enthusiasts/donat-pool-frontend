@@ -12,11 +12,11 @@ import styles from './styles.module.css';
 import { Props } from './types';
 
 const LandingNav = forwardRef(function LandingNav(
-  { currentSection, windowScroll, windowWidth, opened, animationIsActive, handleIconClick, handleSectionClick }: Props,
+  { currentSection, windowScroll, windowWidth, shown, animationIsActive, handleIconClick, handleSectionClick }: Props,
   ref: ForwardedRef<HTMLDivElement>,
 ) {
   const mobileResolution = 1280;
-  const contentShown = windowWidth > mobileResolution ? true : opened;
+  const contentShown = windowWidth > mobileResolution ? true : shown;
   const section = windowWidth > mobileResolution || currentSection !== 'contact-us' ? currentSection : 'roadmap';
   const wrapperRef = useRef<HTMLDivElement>(null);
 
@@ -36,7 +36,7 @@ const LandingNav = forwardRef(function LandingNav(
           'z-[-1] max-xl:z-[100]': currentSection === 'contact-us',
           'z-[3] max-xl:z-[100]': currentSection !== 'contact-us',
           hidden: windowScroll < 500 && animationIsActive,
-          'max-xl:h-[100vh] max-xl:overflow-auto': opened,
+          'max-xl:h-[100vh] max-xl:overflow-auto': shown,
         },
         wrapperVariants[currentSection],
       )}
@@ -46,7 +46,7 @@ const LandingNav = forwardRef(function LandingNav(
           <>
             <Image
               className="absolute right-5 top-5 h-10 w-10"
-              src={`/icons/${opened ? 'close' : 'menu'}.svg`}
+              src={`/icons/${shown ? 'close' : 'menu'}.svg`}
               alt="icon"
               width="50"
               height="50"

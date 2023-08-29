@@ -11,7 +11,7 @@ import styles from './styles.module.css';
 function Stack() {
   const ref = useRef<HTMLDivElement>(null);
   const [isActive, setIsActive] = useState(false);
-  const [isOpen, setIsOpen] = useState(false);
+  const [shown, setShown] = useState(false);
   const windowScroll = useWindowScroll();
   const stack: { id: string; src: string }[] = [
     { id: 'plutarch', src: '/img/plutarch.svg' },
@@ -37,7 +37,7 @@ function Stack() {
   }
 
   function handleReadButtonClick() {
-    setIsOpen((o) => !o);
+    setShown((s) => !s);
   }
 
   return (
@@ -53,13 +53,13 @@ function Stack() {
         primaryColor="red"
         secondaryColor="blue"
         backgroundColor="yellow"
-        isClickedTheme={isOpen}
+        isClickedTheme={shown}
         isFixedWidth
         onClick={handleReadButtonClick}
       >
-        Read {isOpen ? 'less' : 'more'}
+        Read {shown ? 'less' : 'more'}
       </DashedButton>
-      {isOpen && (
+      {shown && (
         <div className="text-2xl max-md:text-lg">
           <div className="mb-10">
             We use strongly typed Haskell and
