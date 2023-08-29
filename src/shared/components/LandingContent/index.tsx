@@ -1,7 +1,7 @@
 'use client';
 
 import cn from 'classnames';
-import { Fragment, forwardRef, useEffect, useRef, useState, type ForwardedRef, type MutableRefObject } from 'react';
+import { Fragment, forwardRef, useEffect, useRef, useState, ForwardedRef, MutableRefObject } from 'react';
 
 import { AboutUs, Footer, HowItWorks, Roadmap, TitleAndDescription, Waves, WhyChooseUs } from '@/shared/components';
 import { LandingSection } from '@/shared/types/common';

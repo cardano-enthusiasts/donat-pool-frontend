@@ -8,7 +8,7 @@ import { ROUTES } from '@/shared/constants';
 import { useMyDonatPools } from '@/shared/hooks';
 import { DonatPool } from '@/shared/types';
 
-import type { ProjectStatus } from './types';
+import { ProjectStatus } from './types';
 
 function MyDonatPools() {
   const [allProjectsWithStatus, setAllProjectsWithStatus] = useState<DonatPool[] | null>(null);
