@@ -1,8 +1,8 @@
 import { setWalletStatus } from '@/redux/slices/connectWallet';
 import { setError, setSuccess, setRequesting } from '@/redux/slices/fundsReceiving';
 import { createConnectionParameters, logOffchainError } from '@/shared/helpers';
-import { useAppSelector, useAppDispatch, useOffchain, useUserFundraisings } from '@/shared/hooks';
-import { FundraisingData } from '@/shared/types/common';
+import { useAppSelector, useAppDispatch, useOffchain, useMyDonatPools } from '@/shared/hooks';
+import { DonatPoolData } from '@/shared/types/common';
 
 import useHandleError from './useHandleError';
 
@@ -10,13 +10,13 @@ function useReceiveFunds() {
   const offchain = useOffchain();
   const activeWalletCardanoKey = useAppSelector((state) => state.cardano.activeWalletCardanoKey);
   const dispatch = useAppDispatch();
-  const { refetchFundraisings: refetchUserFundraisings } = useUserFundraisings();
+  const { refetchDonatPools } = useMyDonatPools();
   const handleCommonError = useHandleError();
 
   function handleSuccess() {
     dispatch(setSuccess());
     dispatch(setWalletStatus('connected'));
-    refetchUserFundraisings();
+    refetchDonatPools();
   }
 
   function handleError(error: string) {
@@ -26,10 +26,10 @@ function useReceiveFunds() {
   }
 
   if (offchain && activeWalletCardanoKey) {
-    return (fundraisingData: FundraisingData) => {
+    return (donatPoolData: DonatPoolData) => {
       offchain.receiveFunds(handleSuccess)(handleError)(JSON.parse(process.env.NEXT_PUBLIC_PROTOCOL))(
         createConnectionParameters(activeWalletCardanoKey),
-      )(fundraisingData)();
+      )(donatPoolData)();
       dispatch(setRequesting());
     };
   }

@@ -1,10 +1,10 @@
 import { ROUTES } from '@/shared/constants';
-import { Fundraising } from '@/shared/types';
+import { DonatPool } from '@/shared/types';
 
 interface Props {
-  data: Omit<Fundraising, 'creator'>;
+  data: Omit<DonatPool, 'creator'>;
   status?: 'default' | 'active' | 'completed';
-  linkSection: typeof ROUTES.fundraisings | typeof ROUTES.userFundraisings;
+  linkSection: typeof ROUTES.donatPools | typeof ROUTES.myDonatPools;
   paddingSize?: 's' | 'm';
 }
 

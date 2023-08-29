@@ -22,7 +22,7 @@ function Page() {
 
   useEffect(() => {
     if (userInfo && !userInfo.isManager) {
-      router.push(ROUTES.fundraisings);
+      router.push(ROUTES.donatPools);
     }
   }, [userInfo]);
 

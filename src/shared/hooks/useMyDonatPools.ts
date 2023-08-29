@@ -1,21 +1,21 @@
 import { useCallback, useEffect } from 'react';
 
-import { setStatus, setFundraisings, setError } from '@/redux/slices/getUserRelatedFundraisings';
-import { createConnectionParameters, transformFundraisings } from '@/shared/helpers';
+import { setStatus, setDonatPools, setError } from '@/redux/slices/getUserRelatedFundraisings';
+import { createConnectionParameters, transformFetchedDonatPools } from '@/shared/helpers';
 import { useAppSelector, useAppDispatch } from '@/shared/hooks';
-import { FetchedFundraising } from '@/shared/types';
+import { FetchedDonatPool } from '@/shared/types';
 
 import useOffchain from './useOffchain';
 
-function useUserFundraisings() {
+function useMyDonatPools() {
   const offchain = useOffchain();
-  const { status, fundraisings, error } = useAppSelector((state) => state.getUserRelatedFundraisings);
+  const { status, donatPools, error } = useAppSelector((state) => state.getUserRelatedFundraisings);
   const activeWalletCardanoKey = useAppSelector((state) => state.cardano.activeWalletCardanoKey);
   const dispatch = useAppDispatch();
 
   const handleFetchSuccess = useCallback(
-    (fundraisings: FetchedFundraising[]) => {
-      dispatch(setFundraisings(transformFundraisings(fundraisings)));
+    (donatPools: FetchedDonatPool[]) => {
+      dispatch(setDonatPools(transformFetchedDonatPools(donatPools)));
     },
     [dispatch],
   );
@@ -27,7 +27,7 @@ function useUserFundraisings() {
     [dispatch],
   );
 
-  const fetchFundraisings = useCallback(() => {
+  const fetchDonatPools = useCallback(() => {
     if (offchain && activeWalletCardanoKey) {
       dispatch(setStatus('requesting'));
       offchain.getUserRelatedFundraisings(handleFetchSuccess)(handleFetchFailure)(
@@ -38,16 +38,16 @@ function useUserFundraisings() {
 
   useEffect(() => {
     if (status === 'default') {
-      fetchFundraisings();
+      fetchDonatPools();
     }
-  }, [status, fetchFundraisings, dispatch]);
+  }, [status, fetchDonatPools, dispatch]);
 
   return {
     areBeingFetched: status === 'requesting',
-    fundraisings,
+    donatPools,
     fetchError: error,
-    refetchFundraisings: fetchFundraisings,
+    refetchDonatPools: fetchDonatPools,
   };
 }
 
-export default useUserFundraisings;
+export default useMyDonatPools;

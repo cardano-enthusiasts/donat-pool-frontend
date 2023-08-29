@@ -30,12 +30,12 @@ function PrivateProjectsActions({ project }: Props) {
   useEffect(() => {
     if (status === 'success') {
       setIsModalErrorOpen(true);
-      router.push(ROUTES.userFundraisings);
+      router.push(ROUTES.myDonatPools);
       dispatch(reset());
     }
   }, [status, dispatch, router]);
 
-  const link = window.location.href.replace(ROUTES.userFundraisings, ROUTES.fundraisings);
+  const link = window.location.href.replace(ROUTES.myDonatPools, ROUTES.donatPools);
 
   async function copyContent() {
     try {

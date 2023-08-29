@@ -15,7 +15,7 @@ function Page() {
   }, []);
 
   function handleProjectCreationClose() {
-    router.push(ROUTES.userFundraisings);
+    router.push(ROUTES.myDonatPools);
   }
 
   return (

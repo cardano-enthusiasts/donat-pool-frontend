@@ -53,7 +53,7 @@ function Header() {
           </div>
         ) : (
           <div className={cn({ 'max-lg:hidden': !menuIsOpen })}>
-            <StandardButton href={ROUTES.newFundraising} primaryColor="yellow" secondaryColor="blue" fontColor="black">
+            <StandardButton href={ROUTES.newDonatPool} primaryColor="yellow" secondaryColor="blue" fontColor="black">
               Create Donat.Pool
             </StandardButton>
           </div>

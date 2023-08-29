@@ -3,7 +3,7 @@ import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
 import { initialState } from './constants';
 
 const slice = createSlice({
-  name: 'fundraisingCreation',
+  name: 'createFundraising',
   initialState,
   reducers: {
     setCreatedPath: (state, action: PayloadAction<string>) => {

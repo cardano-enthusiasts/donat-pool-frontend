@@ -1,9 +1,9 @@
 import { useRouter } from 'next/navigation';
 import { type ChangeEvent, useState, useEffect } from 'react';
 
-import { reset } from '@/redux/slices/fundraisingCreation';
+import { reset } from '@/redux/slices/createFundraising';
 import { ROUTES } from '@/shared/constants';
-import { useAppDispatch, useAppSelector, useCreateFundraising } from '@/shared/hooks';
+import { useAppDispatch, useAppSelector, useCreateDonatPool } from '@/shared/hooks';
 
 import { FormError, Props } from './types';
 import {
@@ -22,7 +22,7 @@ function CreationForm({ onClose, protocol }: Props) {
   const dispatch = useAppDispatch();
   const router = useRouter();
   const [createdPath, setCreatedPath] = useState('');
-  const createFundraising = useCreateFundraising();
+  const createDonatPool = useCreateDonatPool();
   const [checked, setChecked] = useState(false);
   const [successModalIsOpen, setSuccessModalIsOpen] = useState(false);
   const [loadingModalIsOpen, setLoadingModalIsOpen] = useState(false);
@@ -35,7 +35,7 @@ function CreationForm({ onClose, protocol }: Props) {
     durationHours: '',
     durationMinutes: '',
   });
-  const { error: createError, status, path } = useAppSelector((state) => state.fundraisingCreation);
+  const { error: createError, status, path } = useAppSelector((state) => state.createFundraising);
 
   useEffect(() => {
     if (status === 'success' && path) {
@@ -92,7 +92,7 @@ function CreationForm({ onClose, protocol }: Props) {
     if (anyError) {
       setErrorsToForm();
     } else {
-      const createFundraisingParams = {
+      const createDonatPoolParams = {
         title: data.title,
         amount: Number(data.goal),
         duration: {
@@ -101,7 +101,7 @@ function CreationForm({ onClose, protocol }: Props) {
           minutes: Number(data.durationMinutes),
         },
       };
-      createFundraising(createFundraisingParams);
+      createDonatPool(createDonatPoolParams);
     }
   }
 
@@ -122,7 +122,7 @@ function CreationForm({ onClose, protocol }: Props) {
 
   function handleProjectCreatedModalClose() {
     setSuccessModalIsOpen(false);
-    router.push(ROUTES.userFundraisings);
+    router.push(ROUTES.myDonatPools);
     dispatch(reset());
   }
 

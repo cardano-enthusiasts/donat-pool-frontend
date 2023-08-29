@@ -81,7 +81,7 @@ const LandingNav = forwardRef(function LandingNav(
                 primaryColor="red"
                 secondaryColor="blue"
                 fontColor="white"
-                href={ROUTES.newFundraising}
+                href={ROUTES.newDonatPool}
                 animated
               >
                 Create Donat.Pool

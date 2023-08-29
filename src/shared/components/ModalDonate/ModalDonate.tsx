@@ -6,11 +6,6 @@ import { DoubleBorderedButton, Input, Modal, StandardButton } from '../.';
 function ModalDonate({ open, onClose, data: { threadTokenCurrency, threadTokenName }, donate }: Props) {
   const [value, setValue] = useState<'' | number>('');
 
-  const fundraisingData = {
-    frThreadTokenCurrency: threadTokenCurrency,
-    frThreadTokenName: threadTokenName,
-  };
-
   useEffect(() => {
     setValue('');
   }, [open]);
@@ -23,7 +18,13 @@ function ModalDonate({ open, onClose, data: { threadTokenCurrency, threadTokenNa
   function handleSubmit(event: any) {
     event.preventDefault();
     if (value !== '') {
-      donate(fundraisingData, value);
+      donate(
+        {
+          frThreadTokenCurrency: threadTokenCurrency,
+          frThreadTokenName: threadTokenName,
+        },
+        value,
+      );
     }
   }
 

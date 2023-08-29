@@ -1,10 +1,10 @@
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
 
-import { RequestStatus, Fundraising } from '@/shared/types';
+import { RequestStatus, DonatPool } from '@/shared/types';
 
 const initialState: {
   status: RequestStatus;
-  fundraisings?: Fundraising[];
+  donatPools?: DonatPool[];
   error?: string;
 } = {
   status: 'default',
@@ -17,9 +17,9 @@ const slice = createSlice({
     setStatus: (state, action: PayloadAction<RequestStatus>) => {
       state.status = action.payload;
     },
-    setFundraisings: (state, action: PayloadAction<Fundraising[]>) => {
+    setDonatPools: (state, action: PayloadAction<DonatPool[]>) => {
       state.status = 'success';
-      state.fundraisings = action.payload;
+      state.donatPools = action.payload;
     },
     setError: (state, action: PayloadAction<string>) => {
       state.status = 'error';
@@ -30,4 +30,4 @@ const slice = createSlice({
 
 export default slice;
 export const { reducer } = slice;
-export const { setStatus, setFundraisings, setError } = slice.actions;
+export const { setStatus, setDonatPools, setError } = slice.actions;

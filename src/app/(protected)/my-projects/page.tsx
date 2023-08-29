@@ -15,7 +15,7 @@ function Page() {
   }, []);
 
   function handleCreatenewProjectButtonClick() {
-    router.push(ROUTES.newFundraising);
+    router.push(ROUTES.newDonatPool);
   }
 
   return (

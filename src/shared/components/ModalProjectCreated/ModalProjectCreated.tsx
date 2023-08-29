@@ -8,7 +8,7 @@ import { Props } from './types';
 import { DoubleBorderedButton, Modal, StandardButton } from '../.';
 
 const ModalProjectCreated = ({ open, path, onClose }: Props) => {
-  const link = `${location.origin}${ROUTES.fundraisings}/${path}`;
+  const link = `${location.origin}${ROUTES.donatPools}/${path}`;
   const [isSuccessfullyCopied, setIsSuccessfullyCopied] = useState(false);
 
   async function copyContent() {

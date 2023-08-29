@@ -6,15 +6,11 @@ import { Common } from '@/layouts';
 import { reset } from '@/redux/slices/donating';
 import { ModalDonate, ModalError, ModalLoading, ModalSuccess, AccentButton } from '@/shared/components';
 import { formatDate } from '@/shared/helpers';
-import { useAppDispatch, useAppSelector, useQueriedFundraising, useDonate } from '@/shared/hooks';
+import { useAppDispatch, useAppSelector, useQueriedDonatPool, useDonate } from '@/shared/hooks';
 
 function Page() {
   const dispatch = useAppDispatch();
-  const {
-    isBeingFetched: fundraisingIsBeingFetched,
-    fundraising,
-    fetchError: fetchFundraisingError,
-  } = useQueriedFundraising();
+  const { isBeingFetched: donatPoolIsBeingFetched, donatPool, fetchError: fetchDonatPoolError } = useQueriedDonatPool();
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [modalErrorIsOpen, setModalErrorIsOpen] = useState(false);
   const [modalLoadingIsOpen, setModalLoadingIsOpen] = useState(false);
@@ -62,14 +58,14 @@ function Page() {
   return (
     <>
       <Common>
-        {fundraisingIsBeingFetched && <div>fundraising is being fetched</div>}
-        {fundraising && (
+        {donatPoolIsBeingFetched && <div>donat pool is being fetched</div>}
+        {donatPool && (
           <div className="pb-40 pt-20">
             <h1 className="mb-6 overflow-hidden text-ellipsis whitespace-nowrap text-center font-rammetto-one text-[3.375rem] leading-[104%] text-red max-lg:text-[2.25rem] max-sm:text-[2.25rem]">
-              {fundraising.title}
+              {donatPool.title}
             </h1>
             <div className="border-b-2 border-t-2 border-black py-6 text-center text-xl font-bold">
-              Until {formatDate(Number(fundraising.deadline))}
+              Until {formatDate(Number(donatPool.deadline))}
             </div>
             <div className="mx-0 mb-10 mt-6" />
             <div className="flex justify-center">
@@ -84,14 +80,14 @@ function Page() {
             </div>
           </div>
         )}
-        {fetchFundraisingError && <div className="text-error">An error happened while fetching the fundraising</div>}
+        {fetchDonatPoolError && <div className="text-error">An error happened while fetching the donat pool</div>}
       </Common>
-      {fundraising && (
+      {donatPool && (
         <ModalDonate
           open={modalIsOpen}
           data={{
-            threadTokenCurrency: fundraising.threadTokenCurrency,
-            threadTokenName: fundraising.threadTokenName,
+            threadTokenCurrency: donatPool.threadTokenCurrency,
+            threadTokenName: donatPool.threadTokenName,
           }}
           donate={donate}
           onClose={handleDonateModalClose}

@@ -7,20 +7,20 @@ import { Common, Project } from '@/layouts';
 import { PrivateProjectsActions, RaisedCounter } from '@/shared/components';
 import { ROUTES } from '@/shared/constants';
 import { formatDate } from '@/shared/helpers';
-import { useUserFundraisings } from '@/shared/hooks';
-import { Fundraising } from '@/shared/types';
+import { useMyDonatPools } from '@/shared/hooks';
+import { DonatPool } from '@/shared/types';
 
 import THEME from './constants';
 
 function Page() {
   const params = useParams();
   const router = useRouter();
-  const { fundraisings } = useUserFundraisings();
-  const [currentProject, setCurrentProject] = useState<Fundraising | null>(null);
+  const { donatPools } = useMyDonatPools();
+  const [currentProject, setCurrentProject] = useState<DonatPool | null>(null);
 
   useEffect(() => {
-    if (fundraisings) {
-      const project = fundraisings.find(({ threadTokenCurrency }) => threadTokenCurrency === params.id);
+    if (donatPools) {
+      const project = donatPools.find(({ threadTokenCurrency }) => threadTokenCurrency === params.id);
 
       if (project) {
         setCurrentProject(project);
@@ -28,14 +28,14 @@ function Page() {
         setCurrentProject(null);
       }
     }
-  }, [fundraisings, params.id]);
+  }, [donatPools, params.id]);
 
   function getTheme(completed: boolean) {
     return completed ? THEME.completed : THEME.active;
   }
 
   function handlePreviousPageClick() {
-    router.push(ROUTES.userFundraisings);
+    router.push(ROUTES.myDonatPools);
   }
 
   return (
@@ -49,9 +49,9 @@ function Page() {
           <div className="max-w-[37.5rem]">
             <div className="flex items-center justify-between border-b-2 border-t-2 border-black py-7">
               <div
-                className={cn(`font-bold ${getTheme(currentProject.completed).classes} rounded-md border-2 px-3 py-2
-
-              text-sm`)}
+                className={cn(
+                  `font-bold ${getTheme(currentProject.completed).classes} rounded-md border-2 px-3 py-2 text-sm`,
+                )}
               >
                 {getTheme(currentProject.completed).text}
               </div>

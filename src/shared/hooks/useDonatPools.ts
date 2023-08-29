@@ -1,21 +1,21 @@
 import { useCallback, useEffect } from 'react';
 
-import { setStatus, setFundraisings, setError } from '@/redux/slices/getAllFundraisings';
-import { createConnectionParameters, transformFundraisings } from '@/shared/helpers';
+import { setStatus, setDonatPools, setError } from '@/redux/slices/getAllFundraisings';
+import { createConnectionParameters, transformFetchedDonatPools } from '@/shared/helpers';
 import { useAppSelector, useAppDispatch } from '@/shared/hooks';
-import { FetchedFundraising } from '@/shared/types';
+import { FetchedDonatPool } from '@/shared/types';
 
 import useOffchain from './useOffchain';
 
-function useFundraisings() {
+function useDonatPools() {
   const offchain = useOffchain();
-  const { status, fundraisings, error } = useAppSelector((state) => state.getAllFundraisings);
+  const { status, donatPools, error } = useAppSelector((state) => state.getAllFundraisings);
   const activeWalletCardanoKey = useAppSelector((state) => state.cardano.activeWalletCardanoKey);
   const dispatch = useAppDispatch();
 
   const handleFetchSuccess = useCallback(
-    (fundraisings: FetchedFundraising[]) => {
-      dispatch(setFundraisings(transformFundraisings(fundraisings)));
+    (donatPools: FetchedDonatPool[]) => {
+      dispatch(setDonatPools(transformFetchedDonatPools(donatPools)));
     },
     [dispatch],
   );
@@ -27,7 +27,7 @@ function useFundraisings() {
     [dispatch],
   );
 
-  const fetchFundraisings = useCallback(() => {
+  const fetchDonatPools = useCallback(() => {
     if (offchain && activeWalletCardanoKey) {
       dispatch(setStatus('requesting'));
       offchain.getAllFundraisings(handleFetchSuccess)(handleFetchFailure)(JSON.parse(process.env.NEXT_PUBLIC_PROTOCOL))(
@@ -38,16 +38,16 @@ function useFundraisings() {
 
   useEffect(() => {
     if (status === 'default') {
-      fetchFundraisings();
+      fetchDonatPools();
     }
-  }, [status, fetchFundraisings, dispatch]);
+  }, [status, fetchDonatPools, dispatch]);
 
   return {
     areBeingFetched: status === 'requesting',
-    fundraisings,
+    donatPools,
     fetchError: error,
-    refetchFundraisings: fetchFundraisings,
+    refetchDonatPools: fetchDonatPools,
   };
 }
 
-export default useFundraisings;
+export default useDonatPools;

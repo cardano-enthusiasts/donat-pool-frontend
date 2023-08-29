@@ -2,28 +2,28 @@ import Image from 'next/image';
 import { useEffect, useState } from 'react';
 
 import { ROUTES } from '@/shared/constants';
-import { useUserFundraisings } from '@/shared/hooks';
-import { Fundraising } from '@/shared/types';
+import { useMyDonatPools } from '@/shared/hooks';
+import { DonatPool } from '@/shared/types';
 
 import { ProjectStatus, Props } from './types';
 import { BorderedButton, ProjectCard, StandardButton } from '../.';
 
 function MyProjects({ onCreateAProjectClick }: Props) {
-  const [allProjectsWithStatus, setAllProjectsWithStatus] = useState<Fundraising[] | null>(null);
-  const [filteredProjects, setFilteredProjects] = useState<Fundraising[] | null>(null);
+  const [allProjectsWithStatus, setAllProjectsWithStatus] = useState<DonatPool[] | null>(null);
+  const [filteredProjects, setFilteredProjects] = useState<DonatPool[] | null>(null);
   const [filter, setFilter] = useState<ProjectStatus | null>(null);
-  const { fundraisings } = useUserFundraisings();
+  const { donatPools } = useMyDonatPools();
 
   useEffect(() => {
-    if (fundraisings) {
-      setAllProjectsWithStatus(fundraisings);
-      setFilteredProjects(fundraisings);
+    if (donatPools) {
+      setAllProjectsWithStatus(donatPools);
+      setFilteredProjects(donatPools);
     } else {
       setAllProjectsWithStatus(null);
     }
-  }, [fundraisings]);
+  }, [donatPools]);
 
-  function handleFilterClick(status: ProjectStatus, projects: Fundraising[]) {
+  function handleFilterClick(status: ProjectStatus, projects: DonatPool[]) {
     if (filter === status) {
       setFilteredProjects(projects);
       setFilter(null);
@@ -78,7 +78,7 @@ function MyProjects({ onCreateAProjectClick }: Props) {
             {filteredProjects.map((item) => (
               <ProjectCard
                 data={item}
-                linkSection={ROUTES.userFundraisings}
+                linkSection={ROUTES.myDonatPools}
                 key={item.threadTokenCurrency}
                 status={item.completed ? 'completed' : 'active'}
                 paddingSize="s"
