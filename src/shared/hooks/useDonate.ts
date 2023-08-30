@@ -6,6 +6,7 @@ import { useDonatPools, useOffchain } from '@/shared/hooks';
 import { DonatPoolData } from '@/shared/types/common';
 
 import useHandleError from './useHandleError';
+import { Protocol } from '../types';
 
 function useDonate() {
   const offchain = useOffchain();
@@ -13,6 +14,7 @@ function useDonate() {
   const dispatch = useAppDispatch();
   const { refetchDonatPools } = useDonatPools();
   const handleCommonError = useHandleError();
+  const protocol: Protocol = JSON.parse(process.env.NEXT_PUBLIC_PROTOCOL);
 
   function handleSuccess() {
     dispatch(setWalletStatus('connected'));
@@ -28,9 +30,9 @@ function useDonate() {
 
   if (offchain && activeWalletCardanoKey) {
     return (donatPoolData: DonatPoolData, amount: number) => {
-      offchain.donate(handleSuccess)(handleError)(JSON.parse(process.env.NEXT_PUBLIC_PROTOCOL))(
-        createConnectionParameters(activeWalletCardanoKey),
-      )(donatPoolData)(amount)();
+      offchain.donate(handleSuccess)(handleError)(protocol)(createConnectionParameters(activeWalletCardanoKey))(
+        donatPoolData,
+      )(amount)();
       dispatch(setRequesting());
     };
   }

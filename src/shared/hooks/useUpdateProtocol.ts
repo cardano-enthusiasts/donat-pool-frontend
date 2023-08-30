@@ -7,13 +7,14 @@ import { Config } from '@/shared/types/common';
 
 import useGetAppInfo from './useGetAppInfo';
 import useHandleError from './useHandleError';
+import { Protocol } from '../types';
 
 function useUpdateProtocol() {
   const offchain = useOffchain();
   const dispatch = useAppDispatch();
   const getAppInfo = useGetAppInfo();
   const handleCommonError = useHandleError();
-  const protocol = JSON.parse(process.env.NEXT_PUBLIC_PROTOCOL);
+  const protocol: Protocol = JSON.parse(process.env.NEXT_PUBLIC_PROTOCOL);
 
   function handleSuccess() {
     dispatch(setSuccess());

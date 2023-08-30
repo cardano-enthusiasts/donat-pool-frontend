@@ -3,7 +3,7 @@ import { setWalletStatus } from '@/redux/slices/connectWallet';
 import { setError, setRequesting, setCreatedPath } from '@/redux/slices/createFundraising';
 import { createConnectionParameters, logOffchainError } from '@/shared/helpers';
 import { useOffchain, useDonatPools, useMyDonatPools } from '@/shared/hooks';
-import { FetchedDonatPool, CreateDonatPoolParams } from '@/shared/types';
+import { FetchedDonatPool, CreateDonatPoolParams, Protocol } from '@/shared/types';
 
 import useHandleError from './useHandleError';
 
@@ -14,6 +14,7 @@ function useCreateDonatPool() {
   const { refetchDonatPools } = useDonatPools();
   const { refetchDonatPools: refetchMyDonatPools } = useMyDonatPools();
   const handleCommonError = useHandleError();
+  const protocol: Protocol = JSON.parse(process.env.NEXT_PUBLIC_PROTOCOL);
 
   function handleSuccess(donatPoolData: FetchedDonatPool) {
     dispatch(setCreatedPath(donatPoolData.threadTokenCurrency));
@@ -30,7 +31,7 @@ function useCreateDonatPool() {
 
   if (offchain && activeWalletCardanoKey) {
     return (createDonatPoolParams: CreateDonatPoolParams) => {
-      offchain.createFundraising(handleSuccess)(handleError)(JSON.parse(process.env.NEXT_PUBLIC_PROTOCOL))(
+      offchain.createFundraising(handleSuccess)(handleError)(protocol)(
         createConnectionParameters(activeWalletCardanoKey),
       )(createDonatPoolParams)();
       dispatch(setRequesting());

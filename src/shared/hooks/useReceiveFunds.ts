@@ -6,6 +6,7 @@ import { useOffchain, useMyDonatPools } from '@/shared/hooks';
 import { DonatPoolData } from '@/shared/types/common';
 
 import useHandleError from './useHandleError';
+import { Protocol } from '../types';
 
 function useReceiveFunds() {
   const offchain = useOffchain();
@@ -13,6 +14,7 @@ function useReceiveFunds() {
   const dispatch = useAppDispatch();
   const { refetchDonatPools } = useMyDonatPools();
   const handleCommonError = useHandleError();
+  const protocol: Protocol = JSON.parse(process.env.NEXT_PUBLIC_PROTOCOL);
 
   function handleSuccess() {
     dispatch(setSuccess());
@@ -28,9 +30,9 @@ function useReceiveFunds() {
 
   if (offchain && activeWalletCardanoKey) {
     return (donatPoolData: DonatPoolData) => {
-      offchain.receiveFunds(handleSuccess)(handleError)(JSON.parse(process.env.NEXT_PUBLIC_PROTOCOL))(
-        createConnectionParameters(activeWalletCardanoKey),
-      )(donatPoolData)();
+      offchain.receiveFunds(handleSuccess)(handleError)(protocol)(createConnectionParameters(activeWalletCardanoKey))(
+        donatPoolData,
+      )();
       dispatch(setRequesting());
     };
   }

@@ -47,6 +47,11 @@ interface RoadmapText {
   phases: { title: string; items: (SubItem | Item)[] }[];
 }
 
+interface Protocol {
+  protocolCurrency: string;
+  protocolTokenName: string;
+}
+
 export type {
   RequestStatus,
   WalletCardanoKey,
@@ -56,4 +61,5 @@ export type {
   RoadmapText,
   Item,
   SubItem,
+  Protocol,
 };

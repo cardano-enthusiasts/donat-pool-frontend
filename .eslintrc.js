@@ -45,7 +45,6 @@ module.exports = {
 
     //TODO: try to remove these and fix code problems
     'import/no-cycle': 0,
-    '@typescript-eslint/no-unsafe-argument': 0,
     '@typescript-eslint/no-unsafe-return': 0,
     '@typescript-eslint/no-unsafe-member-access': 0,
     '@typescript-eslint/no-unsafe-call': 0,

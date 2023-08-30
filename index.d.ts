@@ -1,4 +1,4 @@
-import { FetchedDonatPool, Config, DonatPoolData } from '@/shared/types';
+import { FetchedDonatPool, Config, DonatPoolData, Protocol } from '@/shared/types';
 
 interface ConnectionParameters {
   wallet: 'Nami' | 'Lode' | 'Flint' | 'Eternl';
@@ -10,10 +10,6 @@ interface InjectedWallet<Name> {
   icon: string;
   enable: () => Promise<Record<string, unknown>> | never;
   isEnabled: () => Promise<boolean>;
-}
-interface Protocol {
-  protocolCurrency: string;
-  protocolTokenName: string;
 }
 type HandleError = (error: string) => void;
 type FetchDonatPools = (

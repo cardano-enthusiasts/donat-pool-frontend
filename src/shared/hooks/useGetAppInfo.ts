@@ -6,12 +6,14 @@ import { useOffchain } from '@/shared/hooks';
 import { UserAndProtocolParams } from '@/shared/types/backend';
 
 import useHandleError from './useHandleError';
+import { Protocol } from '../types';
 
 function useGetAppInfo() {
   const offchain = useOffchain();
   const activeWalletCardanoKey = useAppSelector((state) => state.cardano.activeWalletCardanoKey);
   const dispatch = useAppDispatch();
   const handleCommonError = useHandleError();
+  const protocol: Protocol = JSON.parse(process.env.NEXT_PUBLIC_PROTOCOL);
 
   function handleSuccess({ protocolConfig, userInfo }: UserAndProtocolParams) {
     dispatch(setWalletStatus('connected'));
@@ -36,9 +38,7 @@ function useGetAppInfo() {
 
   if (offchain && activeWalletCardanoKey) {
     return () => {
-      offchain?.getAppInfo(handleSuccess)(handleError)(JSON.parse(process.env.NEXT_PUBLIC_PROTOCOL))(
-        createConnectionParameters(activeWalletCardanoKey),
-      )();
+      offchain?.getAppInfo(handleSuccess)(handleError)(protocol)(createConnectionParameters(activeWalletCardanoKey))();
       dispatch(setRequesting());
     };
   }
