@@ -12,7 +12,6 @@ function useMyDonatPools() {
   const { status, donatPools, error } = useAppSelector((state) => state.getUserRelatedFundraisings);
   const activeWalletCardanoKey = useAppSelector((state) => state.cardano.activeWalletCardanoKey);
   const dispatch = useAppDispatch();
-  const protocol: Protocol = JSON.parse(process.env.NEXT_PUBLIC_PROTOCOL);
 
   const handleFetchSuccess = useCallback(
     (donatPools: FetchedDonatPool[]) => {
@@ -32,9 +31,9 @@ function useMyDonatPools() {
   const fetchDonatPools = useCallback(() => {
     if (offchain && activeWalletCardanoKey) {
       dispatch(setStatus('requesting'));
-      offchain.getUserRelatedFundraisings(handleFetchSuccess)(handleFetchFailure)(protocol)(
-        createConnectionParameters(activeWalletCardanoKey),
-      )();
+      offchain.getUserRelatedFundraisings(handleFetchSuccess)(handleFetchFailure)(
+        JSON.parse(process.env.NEXT_PUBLIC_PROTOCOL) as Protocol,
+      )(createConnectionParameters(activeWalletCardanoKey))();
     }
   }, [offchain, activeWalletCardanoKey, dispatch, handleFetchSuccess, handleFetchFailure]);
 

@@ -1,3 +1,5 @@
+import { StaticImageData } from 'next/image';
+
 import eternlLogo from '@public/icons/eternl.png';
 import flintLogo from '@public/icons/flint.svg';
 import lodeLogo from '@public/icons/lode.svg';
@@ -16,9 +18,9 @@ const ROUTES = {
 } as const;
 
 const WALLET_CARDANO_KEY_TO_LOGO = {
-  nami: namiLogo,
-  LodeWallet: lodeLogo,
-  flint: flintLogo,
+  nami: namiLogo as StaticImageData,
+  LodeWallet: lodeLogo as StaticImageData,
+  flint: flintLogo as StaticImageData,
   eternl: eternlLogo,
 } as const;
 

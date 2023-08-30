@@ -12,7 +12,7 @@ module.exports = {
   plugins: ['@typescript-eslint'],
   parser: '@typescript-eslint/parser',
   parserOptions: {
-    project: 'tsconfig.json',
+    project: true,
     tsconfigRootDir: __dirname,
   },
   extends: [
@@ -42,12 +42,5 @@ module.exports = {
     'import/group-exports': 'error',
     'import/consistent-type-specifier-style': ['error', 'prefer-top-level'],
     'import/newline-after-import': ['error', { considerComments: true }],
-
-    //TODO: try to remove these and fix code problems
-    'import/no-cycle': 0,
-    '@typescript-eslint/no-unsafe-return': 0,
-    '@typescript-eslint/no-unsafe-member-access': 0,
-    '@typescript-eslint/no-unsafe-call': 0,
-    '@typescript-eslint/no-unsafe-assignment': 0,
   },
 };

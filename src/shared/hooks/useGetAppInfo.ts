@@ -13,7 +13,7 @@ function useGetAppInfo() {
   const activeWalletCardanoKey = useAppSelector((state) => state.cardano.activeWalletCardanoKey);
   const dispatch = useAppDispatch();
   const handleCommonError = useHandleError();
-  const protocol: Protocol = JSON.parse(process.env.NEXT_PUBLIC_PROTOCOL);
+  const protocol = JSON.parse(process.env.NEXT_PUBLIC_PROTOCOL) as Protocol;
 
   function handleSuccess({ protocolConfig, userInfo }: UserAndProtocolParams) {
     dispatch(setWalletStatus('connected'));

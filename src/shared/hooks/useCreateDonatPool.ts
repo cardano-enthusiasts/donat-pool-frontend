@@ -14,7 +14,6 @@ function useCreateDonatPool() {
   const { refetchDonatPools } = useDonatPools();
   const { refetchDonatPools: refetchMyDonatPools } = useMyDonatPools();
   const handleCommonError = useHandleError();
-  const protocol: Protocol = JSON.parse(process.env.NEXT_PUBLIC_PROTOCOL);
 
   function handleSuccess(donatPoolData: FetchedDonatPool) {
     dispatch(setCreatedPath(donatPoolData.threadTokenCurrency));
@@ -31,7 +30,7 @@ function useCreateDonatPool() {
 
   if (offchain && activeWalletCardanoKey) {
     return (createDonatPoolParams: CreateDonatPoolParams) => {
-      offchain.createFundraising(handleSuccess)(handleError)(protocol)(
+      offchain.createFundraising(handleSuccess)(handleError)(JSON.parse(process.env.NEXT_PUBLIC_PROTOCOL) as Protocol)(
         createConnectionParameters(activeWalletCardanoKey),
       )(createDonatPoolParams)();
       dispatch(setRequesting());

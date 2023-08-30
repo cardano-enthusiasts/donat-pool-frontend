@@ -1,5 +1,5 @@
 import cn from 'classnames';
-import Image from 'next/image';
+import Image, { StaticImageData } from 'next/image';
 import Link from 'next/link';
 import { useMemo, useState } from 'react';
 
@@ -93,7 +93,7 @@ function ConnectWalletModal() {
                 <div className="flex items-center gap-x-3">
                   Not Installed{' '}
                   <a href={websiteUrl} target="_blank" rel="noreferrer">
-                    <Image src={goToIcon} alt={`link to ${title}'s website`} role="img" />
+                    <Image src={goToIcon as StaticImageData} alt={`link to ${title}'s website`} role="img" />
                   </a>
                 </div>
               )}

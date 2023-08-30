@@ -14,7 +14,6 @@ function useReceiveFunds() {
   const dispatch = useAppDispatch();
   const { refetchDonatPools } = useMyDonatPools();
   const handleCommonError = useHandleError();
-  const protocol: Protocol = JSON.parse(process.env.NEXT_PUBLIC_PROTOCOL);
 
   function handleSuccess() {
     dispatch(setSuccess());
@@ -30,9 +29,9 @@ function useReceiveFunds() {
 
   if (offchain && activeWalletCardanoKey) {
     return (donatPoolData: DonatPoolData) => {
-      offchain.receiveFunds(handleSuccess)(handleError)(protocol)(createConnectionParameters(activeWalletCardanoKey))(
-        donatPoolData,
-      )();
+      offchain.receiveFunds(handleSuccess)(handleError)(JSON.parse(process.env.NEXT_PUBLIC_PROTOCOL) as Protocol)(
+        createConnectionParameters(activeWalletCardanoKey),
+      )(donatPoolData)();
       dispatch(setRequesting());
     };
   }

@@ -14,7 +14,6 @@ function useUpdateProtocol() {
   const dispatch = useAppDispatch();
   const getAppInfo = useGetAppInfo();
   const handleCommonError = useHandleError();
-  const protocol: Protocol = JSON.parse(process.env.NEXT_PUBLIC_PROTOCOL);
 
   function handleSuccess() {
     dispatch(setSuccess());
@@ -38,7 +37,9 @@ function useUpdateProtocol() {
 
   if (offchain) {
     return (config: Config) => {
-      offchain.setProtocol(handleSuccess)(handleError)(protocol)(editConfig(config))();
+      offchain.setProtocol(handleSuccess)(handleError)(JSON.parse(process.env.NEXT_PUBLIC_PROTOCOL) as Protocol)(
+        editConfig(config),
+      )();
       dispatch(setRequesting());
     };
   }
