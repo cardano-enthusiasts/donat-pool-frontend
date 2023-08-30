@@ -4,29 +4,29 @@ import { useRef, useState } from 'react';
 
 import { InitialLoading, LandingContent, LandingNav, Waves } from '@/shared/components';
 import { useWindowSize, useWindowScroll } from '@/shared/hooks';
-import type { LandingSection } from '@/shared/types/common';
+import { LandingSection } from '@/shared/types/common';
 
-const Page = () => {
+function Page() {
   const windowScroll = useWindowScroll();
   const { width: windowWidth } = useWindowSize();
   const [currentSection, setCurrentSection] = useState<LandingSection>('home');
-  const [isMobileHeaderOpen, setIsMobileHeaderOpen] = useState(false);
-  const [isAnimationActive, setIsAnimationActive] = useState(true);
+  const [mobileHeaderIsShown, setMobileHeaderIsShown] = useState(false);
+  const [animationIsActive, setAnimationIsActive] = useState(true);
 
   const navRef = useRef<HTMLDivElement>(null);
 
-  const handleMobileHeaderClick = () => {
-    setIsMobileHeaderOpen(!isMobileHeaderOpen);
-  };
+  function handleMobileHeaderClick() {
+    setMobileHeaderIsShown((m) => !m);
+  }
 
-  const handleSectionClick = (clickedSection: LandingSection) => {
+  function handleSectionClick(clickedSection: LandingSection) {
     setCurrentSection(clickedSection);
-  };
+  }
 
   return (
     <div className="flex flex-col">
       <div className="relative">
-        <InitialLoading windowScroll={windowScroll} isAnimationActive={isAnimationActive} />
+        <InitialLoading windowScroll={windowScroll} animationIsActive={animationIsActive} />
         <div className="absolute bottom-0 w-full">
           <Waves />
         </div>
@@ -35,21 +35,21 @@ const Page = () => {
         windowScroll={windowScroll}
         currentSection={currentSection}
         setCurrentSection={setCurrentSection}
-        setIsAnimationActive={setIsAnimationActive}
+        setAnimationIsActive={setAnimationIsActive}
         ref={navRef}
       />
       <LandingNav
         currentSection={currentSection}
         windowScroll={windowScroll}
         windowWidth={windowWidth}
-        isOpen={isMobileHeaderOpen}
+        shown={mobileHeaderIsShown}
         ref={navRef}
-        isAnimationActive={isAnimationActive}
+        animationIsActive={animationIsActive}
         handleIconClick={handleMobileHeaderClick}
         handleSectionClick={handleSectionClick}
       />
     </div>
   );
-};
+}
 
 export default Page;

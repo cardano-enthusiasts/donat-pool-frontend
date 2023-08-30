@@ -1,11 +1,11 @@
-import type { LandingSection } from '@/shared/types/common';
+import { LandingSection } from '@/shared/types/common';
 
 interface Props {
   currentSection: LandingSection;
   windowScroll: number;
   windowWidth: number;
-  isOpen: boolean;
-  isAnimationActive: boolean;
+  shown: boolean;
+  animationIsActive: boolean;
   handleIconClick: () => void;
   handleSectionClick: (currentSection: LandingSection) => void;
 }

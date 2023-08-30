@@ -1,9 +1,8 @@
-/** @type {import('next').NextConfig} */
-
 const path = require('node:path');
 
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
+/** @type {import('next').NextConfig} */
 module.exports = {
   webpack: (config) => {
     config.plugins.push(

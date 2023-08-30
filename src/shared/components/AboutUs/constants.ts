@@ -1,8 +1,8 @@
-import kate from 'public/img/kate.png';
-import mariya from 'public/img/mariya.png';
-import oksana from 'public/img/oksana.png';
-import olga from 'public/img/olga.png';
-import svetlana from 'public/img/svetlana.png';
+import kate from '@public/img/kate.png';
+import mariya from '@public/img/mariya.png';
+import oksana from '@public/img/oksana.png';
+import olga from '@public/img/olga.png';
+import svetlana from '@public/img/svetlana.png';
 
 import { Photo } from './types';
 
@@ -17,7 +17,7 @@ const STYLES = {
     'absolute right-[-1.875rem] z-[1] h-auto w-[400px] shrink-0 max-1.5xl:bottom-[3rem] max-1.5xl:right-0 max-xl:bottom-[2.25rem] max-xl:w-[18.75rem] max-md:bottom-[1.5rem] max-md:w-[12.5rem]',
 };
 
-const PHOTOS: Array<Photo> = [
+const PHOTOS: Photo[] = [
   { src: kate, className: STYLES.kate, alt: 'kate photo', isFirstRow: true },
   { src: oksana, className: STYLES.oksana, alt: 'oksana photo', isFirstRow: true },
   { src: olga, className: STYLES.olga, alt: 'olga photo', isFirstRow: true },

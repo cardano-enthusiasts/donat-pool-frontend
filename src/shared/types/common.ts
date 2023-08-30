@@ -6,12 +6,12 @@ interface Config {
   protocolFeeParam: number;
 }
 
-interface FundraisingData {
+interface DonatPoolData {
   frThreadTokenCurrency: string;
   frThreadTokenName: string;
 }
 
-interface CreateFundraisingParams {
+interface createDonatPoolParams {
   title: string;
   amount: number;
   duration: {
@@ -28,4 +28,4 @@ interface UserInfo {
 
 type LandingSection = 'home' | 'how-it-works' | 'why-choose-us' | 'about-us' | 'roadmap' | 'contact-us';
 
-export type { Config, FundraisingData, CreateFundraisingParams, UserInfo, LandingSection };
+export type { Config, DonatPoolData, createDonatPoolParams, UserInfo, LandingSection };

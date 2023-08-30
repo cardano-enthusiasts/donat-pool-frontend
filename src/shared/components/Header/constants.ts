@@ -1,10 +1,10 @@
 import { ROUTES } from '@/shared/constants';
 
 const LINKS = [
-  { title: 'My Donat.Pools', href: ROUTES.userFundraisings },
+  { title: 'My Donat.Pools', href: ROUTES.myDonatPools },
   {
     title: 'All Donat.Pools',
-    href: ROUTES.fundraisings,
+    href: ROUTES.donatPools,
   },
 ];
 

@@ -1,34 +1,34 @@
-import type { LandingSection } from '@/shared/types/common';
+import { LandingSection } from '@/shared/types/common';
 
-const getSections = (
-  currentSection: string,
-): Array<{
+function getSections(currentSection: string): {
   title: string;
-  isActive: boolean;
+  active: boolean;
   id: LandingSection;
-}> => [
-  { title: 'Home', isActive: currentSection === 'home', id: 'home' },
-  {
-    title: 'How it works',
-    isActive: currentSection === 'how-it-works',
-    id: 'how-it-works',
-  },
-  {
-    title: 'Why choose us',
-    isActive: currentSection === 'why-choose-us',
-    id: 'why-choose-us',
-  },
-  {
-    title: 'Meet our team',
-    isActive: currentSection === 'about-us',
-    id: 'about-us',
-  },
-  {
-    title: 'Roadmap',
-    isActive: currentSection === 'roadmap' || currentSection === 'contact-us',
-    id: 'roadmap',
-  },
-];
+}[] {
+  return [
+    { title: 'Home', active: currentSection === 'home', id: 'home' },
+    {
+      title: 'How it works',
+      active: currentSection === 'how-it-works',
+      id: 'how-it-works',
+    },
+    {
+      title: 'Why choose us',
+      active: currentSection === 'why-choose-us',
+      id: 'why-choose-us',
+    },
+    {
+      title: 'Meet our team',
+      active: currentSection === 'about-us',
+      id: 'about-us',
+    },
+    {
+      title: 'Roadmap',
+      active: currentSection === 'roadmap' || currentSection === 'contact-us',
+      id: 'roadmap',
+    },
+  ];
+}
 
 const wrapperVariants: { [key in LandingSection]: string } = {
   home: 'max-xl:bg-blue',

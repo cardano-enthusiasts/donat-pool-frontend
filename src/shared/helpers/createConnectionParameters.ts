@@ -1,4 +1,4 @@
-import type { WalletCardanoKey } from '@/shared/types';
+import { WalletCardanoKey } from '@/shared/types';
 
 const WALLET_CARDANO_KEY_TO_WALLET = {
   nami: 'Nami',
@@ -7,11 +7,11 @@ const WALLET_CARDANO_KEY_TO_WALLET = {
   eternl: 'Eternl',
 } as const;
 
-const createConnectionParameters = (walletCardanoKey: WalletCardanoKey) => {
+function createConnectionParameters(walletCardanoKey: WalletCardanoKey) {
   return {
     wallet: WALLET_CARDANO_KEY_TO_WALLET[walletCardanoKey],
     isMainnet: false,
   } as const;
-};
+}
 
 export default createConnectionParameters;

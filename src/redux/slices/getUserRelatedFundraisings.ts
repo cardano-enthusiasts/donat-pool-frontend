@@ -1,33 +1,35 @@
-import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-import type { RequestStatus, Fundraising } from '@/shared/types';
+import { RequestStatus, DonatPool } from '@/shared/types';
 
 const initialState: {
-  requestStatus: RequestStatus;
-  fundraisings?: Fundraising[];
+  status: RequestStatus;
+  donatPools?: DonatPool[];
   error?: string;
 } = {
-  requestStatus: 'default',
+  status: 'default',
 };
 
 const slice = createSlice({
   name: 'getUserRelatedFundraisings',
   initialState,
   reducers: {
-    setRequestStatus: (state, action: PayloadAction<RequestStatus>) => {
-      state.requestStatus = action.payload;
+    setStatus: (state, action: PayloadAction<RequestStatus>) => {
+      state.status = action.payload;
     },
-    setFundraisings: (state, action: PayloadAction<Fundraising[]>) => {
-      state.requestStatus = 'success';
-      state.fundraisings = action.payload;
+    setDonatPools: (state, action: PayloadAction<DonatPool[]>) => {
+      state.status = 'success';
+      state.donatPools = action.payload;
     },
     setError: (state, action: PayloadAction<string>) => {
-      state.requestStatus = 'error';
+      state.status = 'error';
       state.error = action.payload;
     },
   },
 });
 
 export default slice;
-export const { reducer } = slice;
-export const { setRequestStatus, setFundraisings, setError } = slice.actions;
+export const {
+  reducer,
+  actions: { setStatus, setDonatPools, setError },
+} = slice;

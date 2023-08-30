@@ -1,0 +1,121 @@
+'use client';
+
+import { useRouter } from 'next/navigation';
+import { useEffect, useState } from 'react';
+
+import { useAppSelector, useAppDispatch } from '@/redux/hooks';
+import { reset } from '@/redux/slices/fundsReceiving';
+import { DoubleBorderedButton, ModalError, ModalLoading, ModalSuccess, StandardButton } from '@/shared/components';
+import { ROUTES } from '@/shared/constants';
+import { useReceiveFunds } from '@/shared/hooks';
+
+import styles from './styles.module.css';
+import { Props } from './types';
+
+function PrivateProjectsActions({ project }: Props) {
+  const [modalSuccessIsShown, setModalSuccessIsShown] = useState(false);
+  const [modalErrorIsShown, setModalErrorIsShown] = useState(false);
+  const dispatch = useAppDispatch();
+  const router = useRouter();
+  const receiveFunds = useReceiveFunds();
+
+  const {
+    fundsReceiving: { error, status },
+    appInfo: { protocol },
+  } = useAppSelector((state) => state);
+
+  useEffect(() => {
+    if (error) {
+      setModalErrorIsShown(true);
+    }
+  }, [error, dispatch]);
+
+  useEffect(() => {
+    if (status === 'success') {
+      setModalErrorIsShown(true);
+      router.push(ROUTES.myDonatPools);
+      dispatch(reset());
+    }
+  }, [status, dispatch, router]);
+
+  const link = window.location.href.replace(ROUTES.myDonatPools, ROUTES.donatPools);
+
+  async function copyContent() {
+    try {
+      await navigator.clipboard.writeText(link);
+      setModalSuccessIsShown(true);
+      console.log('Content copied to clipboard');
+    } catch (err) {
+      console.error('Failed to copy: ', err);
+    }
+  }
+
+  function handleCopyLinkClick() {
+    copyContent().catch((err) => {
+      console.error('Failed to copy: ', err);
+    });
+  }
+
+  function handleCollectMoneyButtonClick() {
+    receiveFunds({
+      frThreadTokenCurrency: project.threadTokenCurrency,
+      frThreadTokenName: project.threadTokenName,
+    });
+  }
+
+  function handleErrorModalClose() {
+    setModalErrorIsShown(false);
+    dispatch(reset());
+  }
+
+  function handleSuccessModalClose() {
+    setModalSuccessIsShown(false);
+    dispatch(reset());
+  }
+
+  return project.completed ? (
+    <>
+      <div className="mt-6 flex flex-col items-center gap-4">
+        <StandardButton
+          primaryColor="red"
+          secondaryColor="blue"
+          isFullWidth
+          fontColor="white"
+          onClick={handleCollectMoneyButtonClick}
+        >
+          {Number(project.raisedAmt) >= Number(project.goal)
+            ? 'You have reached the goal! Take money'
+            : 'Project reached its deadline. Collect fund'}
+        </StandardButton>
+        {protocol?.protocolFeeParam && (
+          <div className="text-red">We remind you that our commission is {protocol.protocolFeeParam}%</div>
+        )}
+      </div>
+      <ModalLoading shown={status === 'requesting'} />
+      <ModalError
+        shown={modalErrorIsShown}
+        title="Withdrawal of funds"
+        errorText={error}
+        onClose={handleErrorModalClose}
+      />
+    </>
+  ) : (
+    <>
+      <div className={`${styles.link} text-blue`}>
+        {link}
+        <div className="shrink-0">
+          <DoubleBorderedButton backgroundColor="white" size="s" primaryColor="blue" onClick={handleCopyLinkClick}>
+            Copy and share
+          </DoubleBorderedButton>
+        </div>
+      </div>
+      <ModalSuccess
+        shown={modalSuccessIsShown}
+        description="Link copied to clipboard."
+        onClose={handleSuccessModalClose}
+      />
+    </>
+  );
+}
+
+export default PrivateProjectsActions;

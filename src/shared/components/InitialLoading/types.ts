@@ -1,6 +1,6 @@
 interface Props {
   windowScroll: number;
-  isAnimationActive: boolean;
+  animationIsActive: boolean;
 }
 
 export type { Props };

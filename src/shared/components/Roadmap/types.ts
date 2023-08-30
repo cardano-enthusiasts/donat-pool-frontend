@@ -1,5 +1,5 @@
 interface Props {
-  isActive: boolean;
+  active: boolean;
 }
 
 export type { Props };

@@ -1,6 +1,6 @@
-import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-import type { RequestStatus } from '@/shared/types';
+import { RequestStatus } from '@/shared/types';
 
 const initialState: {
   requestStatus: RequestStatus;
@@ -29,5 +29,7 @@ const slice = createSlice({
 });
 
 export default slice;
-export const { reducer } = slice;
-export const { setRequestStatus, setWalletStatus, setError } = slice.actions;
+export const {
+  reducer,
+  actions: { setRequestStatus, setWalletStatus, setError },
+} = slice;

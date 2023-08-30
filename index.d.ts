@@ -1,5 +1,5 @@
-import type { FetchedFundraising } from '@/shared/types';
-import type { FundraisingData } from '@/shared/types/common';
+import { FetchedDonatPool } from '@/shared/types';
+import { DonatPoolData } from '@/shared/types/common';
 
 interface ConnectionParameters {
   wallet: 'Nami' | 'Lode' | 'Flint' | 'Eternl';
@@ -17,8 +17,8 @@ interface Protocol {
   protocolTokenName: string;
 }
 type HandleError = (error: string) => void;
-type FetchFundraisings = (
-  onSuccess: (fundraisings: FetchedFundraising[]) => void,
+type FetchDonatPools = (
+  onSuccess: (donatPools: FetchedDonatPool[]) => void,
 ) => (onError: HandleError) => (protocol: Protocol) => (connectionParameters: ConnectionParameters) => () => void;
 
 declare global {
@@ -41,7 +41,7 @@ declare global {
       flint?: InjectedWallet<'Flint wallet'>;
       eternl?: InjectedWallet<'eternl'>;
     };
-    donatPool: Promise<{
+    donatPool?: Promise<{
       getAppInfo: (
         onSuccess: (appInfo: {
           protocolConfig: {
@@ -67,7 +67,7 @@ declare global {
           };
         }) => void,
       ) => (onError: HandleError) => (protocol: Protocol) => (connectionParameters: ConnectionParameters) => () => void;
-      createFundraising: (onSuccess: (createdFundraising: Fundraising) => void) => (onError: HandleError) => (
+      createFundraising: (onSuccess: (createdDonatPool: FetchedDonatPool) => void) => (onError: HandleError) => (
         protocol: Protocol,
       ) => (connectionParameters: ConnectionParameters) => (data: {
         title: string;
@@ -78,8 +78,8 @@ declare global {
           minutes: number;
         };
       }) => () => void;
-      getAllFundraisings: FetchFundraisings;
-      getUserRelatedFundraisings: FetchFundraisings;
+      getAllFundraisings: FetchDonatPools;
+      getUserRelatedFundraisings: FetchDonatPools;
       donate: (
         onSuccess: () => void,
       ) => (
@@ -88,7 +88,7 @@ declare global {
         protocol: Protocol,
       ) => (
         connectionParameters: ConnectionParameters,
-      ) => (fundraisingData: FundraisingData) => (amount: number) => () => void;
+      ) => (donatPoolData: DonatPoolData) => (amount: number) => () => void;
       setProtocol: (
         onSuccess: (config: {
           minAmountParam: number;
@@ -104,7 +104,7 @@ declare global {
         onError: HandleError,
       ) => (
         protocol: Protocol,
-      ) => (connectionParameters: ConnectionParameters) => (fundraisingData: FundraisingData) => () => void;
+      ) => (connectionParameters: ConnectionParameters) => (donatPoolData: DonatPoolData) => () => void;
     }>;
   }
 }

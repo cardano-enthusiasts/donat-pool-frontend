@@ -1,6 +1,6 @@
 interface Props {
+  shown: boolean;
   description: string;
-  isOpen: boolean;
   onClose: () => void;
 }
 

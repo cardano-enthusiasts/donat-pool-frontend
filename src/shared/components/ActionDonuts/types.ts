@@ -1,5 +1,5 @@
 interface Props {
-  isAnimationActive: boolean;
+  animationIsActive: boolean;
 }
 
 export type { Props };

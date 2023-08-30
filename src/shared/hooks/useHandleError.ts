@@ -1,3 +1,4 @@
+import { useAppDispatch } from '@/redux/hooks';
 import { setWalletStatus } from '@/redux/slices/connectWallet';
 import {
   errors,
@@ -6,9 +7,8 @@ import {
   walletDisconnect,
   walletIsNotAvailable,
 } from '@/shared/constants/errors';
-import { useAppDispatch } from '@/shared/hooks';
 
-const useHandleError = () => {
+function useHandleError() {
   const dispatch = useAppDispatch();
 
   return (backendError: string): string => {
@@ -30,6 +30,6 @@ const useHandleError = () => {
         return backendError;
     }
   };
-};
+}
 
 export default useHandleError;

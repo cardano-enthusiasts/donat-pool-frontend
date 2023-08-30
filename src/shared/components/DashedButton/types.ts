@@ -1,6 +1,4 @@
-import { PropsWithChildren } from 'react';
-
-interface Props extends PropsWithChildren {
+interface Props {
   primaryColor: 'red' | 'blue';
   secondaryColor: 'red' | 'blue';
   backgroundColor: 'yellow' | 'green';
