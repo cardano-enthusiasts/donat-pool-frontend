@@ -1,7 +1,8 @@
+import { useAppSelector, useAppDispatch } from '@/redux/hooks';
 import { setWalletStatus } from '@/redux/slices/connectWallet';
 import { setError, setRequesting, setCreatedPath } from '@/redux/slices/createFundraising';
 import { createConnectionParameters, logOffchainError } from '@/shared/helpers';
-import { useAppSelector, useAppDispatch, useOffchain, useDonatPools, useMyDonatPools } from '@/shared/hooks';
+import { useOffchain, useDonatPools, useMyDonatPools } from '@/shared/hooks';
 import { FetchedDonatPool } from '@/shared/types';
 
 import useHandleError from './useHandleError';

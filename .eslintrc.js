@@ -39,8 +39,12 @@ module.exports = {
       },
     ],
     'import/exports-last': 'error',
+    'import/group-exports': 'error',
+    'import/consistent-type-specifier-style': ['error', 'prefer-top-level'],
+    'import/newline-after-import': ['error', { considerComments: true }],
 
     //TODO: try to remove these and fix code problems
+    'import/no-cycle': 0,
     '@typescript-eslint/no-explicit-any': 0,
     '@typescript-eslint/no-unsafe-argument': 0,
     '@typescript-eslint/no-unsafe-return': 0,

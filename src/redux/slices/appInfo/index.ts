@@ -32,5 +32,7 @@ const slice = createSlice({
 });
 
 export default slice;
-export const { reducer } = slice;
-export const { setProtocol, setUserInfo, setError, setRequesting } = slice.actions;
+export const {
+  reducer,
+  actions: { setProtocol, setUserInfo, setError, setRequesting },
+} = slice;

@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 
 import { MyDonatPools } from '@/containers';
-import { Common } from '@/layouts';
+import { Common } from '@/shared/components';
 
 const metadata: Metadata = {
   title: 'My Donat.Pools',

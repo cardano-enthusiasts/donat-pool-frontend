@@ -23,5 +23,7 @@ const slice = createSlice({
 });
 
 export default slice;
-export const { reducer } = slice;
-export const { setInitialized, setActiveWalletCardanoKey } = slice.actions;
+export const {
+  reducer,
+  actions: { setInitialized, setActiveWalletCardanoKey },
+} = slice;

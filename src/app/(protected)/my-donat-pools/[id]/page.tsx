@@ -3,8 +3,7 @@
 import { useParams, useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
-import { Common, Project } from '@/layouts';
-import { PrivateProjectsActions, RaisedCounter } from '@/shared/components';
+import { PrivateProjectsActions, RaisedCounter, Common, Project } from '@/shared/components';
 import { ROUTES } from '@/shared/constants';
 import { formatDate } from '@/shared/helpers';
 import { useMyDonatPools } from '@/shared/hooks';

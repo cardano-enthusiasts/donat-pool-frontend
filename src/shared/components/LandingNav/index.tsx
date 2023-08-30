@@ -2,7 +2,7 @@
 
 import cn from 'classnames';
 import Image from 'next/image';
-import { type ForwardedRef, forwardRef, useEffect, useRef } from 'react';
+import { forwardRef, useEffect, useRef, ForwardedRef } from 'react';
 
 import { StandardButton, Waves } from '@/shared/components';
 import { ROUTES } from '@/shared/constants';

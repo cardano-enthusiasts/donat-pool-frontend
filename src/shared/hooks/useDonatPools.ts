@@ -1,8 +1,8 @@
 import { useCallback, useEffect } from 'react';
 
+import { useAppSelector, useAppDispatch } from '@/redux/hooks';
 import { setStatus, setDonatPools, setError } from '@/redux/slices/getAllFundraisings';
 import { createConnectionParameters, transformFetchedDonatPools } from '@/shared/helpers';
-import { useAppSelector, useAppDispatch } from '@/shared/hooks';
 import { FetchedDonatPool } from '@/shared/types';
 
 import useOffchain from './useOffchain';
@@ -22,6 +22,7 @@ function useDonatPools() {
 
   const handleFetchFailure = useCallback(
     (error: string) => {
+      console.error(error);
       dispatch(setError(error));
     },
     [dispatch],

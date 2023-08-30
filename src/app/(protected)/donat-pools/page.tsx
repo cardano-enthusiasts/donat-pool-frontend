@@ -1,8 +1,7 @@
 import { Metadata } from 'next';
 
 import { DonatPools } from '@/containers';
-import { Common } from '@/layouts';
-import { StandardButton } from '@/shared/components';
+import { StandardButton, Common } from '@/shared/components';
 import { ROUTES } from '@/shared/constants';
 
 const metadata: Metadata = {

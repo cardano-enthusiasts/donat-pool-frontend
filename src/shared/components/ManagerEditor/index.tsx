@@ -1,10 +1,11 @@
 'use client';
 
-import { type ChangeEvent, useState, useEffect } from 'react';
+import { useState, useEffect, ChangeEvent } from 'react';
 
+import { useAppSelector, useAppDispatch } from '@/redux/hooks';
 import { reset } from '@/redux/slices/protocolUpdating';
 import { Input, ModalError, ModalLoading, ModalSuccess, StandardButton } from '@/shared/components';
-import { useAppDispatch, useAppSelector, useUpdateProtocol } from '@/shared/hooks';
+import { useUpdateProtocol } from '@/shared/hooks';
 
 import { DEFAULT_PARAMS } from './data';
 import { Props } from './types';

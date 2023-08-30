@@ -2,8 +2,7 @@ import HTMLReactParser from 'html-react-parser';
 import { Metadata } from 'next';
 import Link from 'next/link';
 
-import { Service } from '@/layouts';
-import { AlertNote, DropdownSection, Line, Subtitle, Ul } from '@/shared/components';
+import { AlertNote, DropdownSection, Line, Subtitle, Ul, Service } from '@/shared/components';
 import { ROUTES } from '@/shared/constants';
 
 import { basicSection } from './data';

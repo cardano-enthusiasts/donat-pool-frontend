@@ -1,7 +1,7 @@
 import HTMLReactParser from 'html-react-parser';
 import { Metadata } from 'next';
 
-import { Service } from '@/layouts';
+import { Service } from '@/shared/components';
 import { roadmapText } from '@/shared/data';
 
 const metadata: Metadata = {

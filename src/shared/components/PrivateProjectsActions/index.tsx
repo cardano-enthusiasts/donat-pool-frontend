@@ -3,10 +3,11 @@
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
+import { useAppSelector, useAppDispatch } from '@/redux/hooks';
 import { reset } from '@/redux/slices/fundsReceiving';
 import { DoubleBorderedButton, ModalError, ModalLoading, ModalSuccess, StandardButton } from '@/shared/components';
 import { ROUTES } from '@/shared/constants';
-import { useAppDispatch, useAppSelector, useReceiveFunds } from '@/shared/hooks';
+import { useReceiveFunds } from '@/shared/hooks';
 
 import styles from './styles.module.css';
 import { Props } from './types';

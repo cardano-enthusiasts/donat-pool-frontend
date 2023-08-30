@@ -1,6 +1,6 @@
 'use client';
 
-import { useAppSelector } from '@/shared/hooks';
+import { useAppSelector } from '@/redux/hooks';
 
 import { Props } from './types';
 

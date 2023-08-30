@@ -29,5 +29,7 @@ const slice = createSlice({
 });
 
 export default slice;
-export const { reducer } = slice;
-export const { setStatus, setDonatPools, setError } = slice.actions;
+export const {
+  reducer,
+  actions: { setStatus, setDonatPools, setError },
+} = slice;

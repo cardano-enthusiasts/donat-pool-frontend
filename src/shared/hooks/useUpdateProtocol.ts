@@ -1,7 +1,8 @@
+import { useAppDispatch } from '@/redux/hooks';
 import { setWalletStatus } from '@/redux/slices/connectWallet';
 import { setError, setSuccess, setRequesting } from '@/redux/slices/protocolUpdating';
 import { logOffchainError } from '@/shared/helpers';
-import { useAppDispatch, useOffchain } from '@/shared/hooks';
+import { useOffchain } from '@/shared/hooks';
 import { Config } from '@/shared/types/common';
 
 import useGetAppInfo from './useGetAppInfo';

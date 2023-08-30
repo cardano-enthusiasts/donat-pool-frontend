@@ -29,5 +29,7 @@ const slice = createSlice({
 });
 
 export default slice;
-export const { reducer } = slice;
-export const { setRequestStatus, setWalletStatus, setError } = slice.actions;
+export const {
+  reducer,
+  actions: { setRequestStatus, setWalletStatus, setError },
+} = slice;

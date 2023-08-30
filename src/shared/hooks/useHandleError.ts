@@ -1,3 +1,4 @@
+import { useAppDispatch } from '@/redux/hooks';
 import { setWalletStatus } from '@/redux/slices/connectWallet';
 import {
   errors,
@@ -6,7 +7,6 @@ import {
   walletDisconnect,
   walletIsNotAvailable,
 } from '@/shared/constants/errors';
-import { useAppDispatch } from '@/shared/hooks';
 
 function useHandleError() {
   const dispatch = useAppDispatch();

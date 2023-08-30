@@ -2,11 +2,11 @@
 
 import { useEffect, useState } from 'react';
 
-import { Common } from '@/layouts';
+import { useAppSelector, useAppDispatch } from '@/redux/hooks';
 import { reset } from '@/redux/slices/donating';
-import { ModalDonate, ModalError, ModalLoading, ModalSuccess, AccentButton } from '@/shared/components';
+import { ModalDonate, ModalError, ModalLoading, ModalSuccess, AccentButton, Common } from '@/shared/components';
 import { formatDate } from '@/shared/helpers';
-import { useAppDispatch, useAppSelector, useQueriedDonatPool, useDonate } from '@/shared/hooks';
+import { useQueriedDonatPool, useDonate } from '@/shared/hooks';
 
 function Page() {
   const dispatch = useAppDispatch();

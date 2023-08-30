@@ -1,8 +1,9 @@
 'use client';
 
 import { useRouter } from 'next/navigation';
-import { type ChangeEvent, useState, useEffect } from 'react';
+import { useState, useEffect, ChangeEvent } from 'react';
 
+import { useAppSelector, useAppDispatch } from '@/redux/hooks';
 import { reset } from '@/redux/slices/createFundraising';
 import {
   Checkbox,
@@ -15,7 +16,7 @@ import {
   DoubleBorderedButton,
 } from '@/shared/components';
 import { ROUTES } from '@/shared/constants';
-import { useAppDispatch, useAppSelector, useCreateDonatPool } from '@/shared/hooks';
+import { useCreateDonatPool } from '@/shared/hooks';
 
 import { FormError, Props } from './types';
 

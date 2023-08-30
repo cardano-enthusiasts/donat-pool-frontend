@@ -2,9 +2,9 @@
 
 import { useEffect } from 'react';
 
+import { useAppSelector, useAppDispatch } from '@/redux/hooks';
 import { setInitialized, setActiveWalletCardanoKey } from '@/redux/slices/cardano';
 import ConnectWalletModal from '@/shared/components/ConnectWalletModal';
-import { useAppSelector, useAppDispatch } from '@/shared/hooks';
 
 function Layout({ children }: React.PropsWithChildren) {
   const cardanoIsInitialized = useAppSelector((state) => state.cardano.initialized);

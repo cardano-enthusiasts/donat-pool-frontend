@@ -6,9 +6,9 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useState } from 'react';
 
+import { useAppSelector } from '@/redux/hooks';
 import { Logo, StandardButton } from '@/shared/components';
 import { ROUTES, WALLET_CARDANO_KEY_TO_LOGO } from '@/shared/constants';
-import { useAppSelector } from '@/shared/hooks';
 
 import { LINKS } from './constants';
 

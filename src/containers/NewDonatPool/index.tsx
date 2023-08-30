@@ -2,10 +2,9 @@
 
 import { useRouter } from 'next/navigation';
 
-import { Project } from '@/layouts';
-import { CreationForm } from '@/shared/components';
+import { useAppSelector } from '@/redux/hooks';
+import { CreationForm, Project } from '@/shared/components';
 import { ROUTES } from '@/shared/constants';
-import { useAppSelector } from '@/shared/hooks';
 
 function NewDonatPool() {
   const router = useRouter();

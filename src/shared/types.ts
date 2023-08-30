@@ -1,8 +1,5 @@
-import store from '@/redux/store';
-
 type RequestStatus = 'default' | 'requesting' | 'success' | 'error';
 type WalletCardanoKey = 'nami' | 'LodeWallet' | 'flint' | 'eternl';
-type RootState = ReturnType<typeof store.getState>;
 
 interface FetchedDonatPool {
   title: string;
@@ -26,4 +23,4 @@ interface DonatPool {
   completed: boolean;
 }
 
-export type { RequestStatus, WalletCardanoKey, RootState, FetchedDonatPool, DonatPool };
+export type { RequestStatus, WalletCardanoKey, FetchedDonatPool, DonatPool };
