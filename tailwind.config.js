@@ -23,6 +23,7 @@ module.exports = {
       },
       spacing: {
         15: '3.75rem',
+        30: '7.5rem',
         480: '120rem',
       },
       fontFamily: {
@@ -30,6 +31,7 @@ module.exports = {
         'rammetto-one': 'var(--rammetto-one-font)',
       },
       fontSize: {
+        'menu-default': ['0.9375rem', '1rem'],
         'menu-active': ['3.375rem', '3.5rem'],
       },
       gridTemplateColumns: {

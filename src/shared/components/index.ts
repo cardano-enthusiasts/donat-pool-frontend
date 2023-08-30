@@ -18,7 +18,6 @@ export { default as AboutUs } from './AboutUs';
 export { default as Roadmap } from './Roadmap';
 export { default as HowItWorks } from './HowItWorks';
 export { default as Service } from './Service';
-export { default as Socials } from './Socials';
 export { default as Modal } from './Modal';
 export { default as ModalDonate } from './ModalDonate';
 export { default as ModalLoading } from './ModalLoading';

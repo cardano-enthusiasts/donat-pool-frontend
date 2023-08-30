@@ -7,25 +7,23 @@ import StoreProvider from '@/redux/Provider';
 
 import './global.css';
 
+const rammettoOneFont = Rammetto_One({
+  subsets: ['latin'],
+  weight: '400',
+  variable: '--rammetto-one-font',
+});
 const microsoftYaHeiFont = localFont({
   src: [
     {
       path: '../../public/fonts/microsoft-ya-hei-400.woff2',
       weight: '400',
-      style: 'normal',
     },
     {
       path: '../../public/fonts/microsoft-ya-hei-700.woff2',
       weight: '700',
-      style: 'normal',
     },
   ],
   variable: '--microsoft-ya-hei-font',
-});
-const rammettoOneFont = Rammetto_One({
-  subsets: ['latin'],
-  weight: '400',
-  variable: '--rammetto-one-font',
 });
 
 const metadata: Metadata = {
@@ -41,7 +39,7 @@ const metadata: Metadata = {
 function Layout({ children }: React.PropsWithChildren) {
   return (
     <html
-      className={`${microsoftYaHeiFont.variable} ${rammettoOneFont.variable} bg-white font-microsoft-ya-hei text-[16px]/6 text-black`}
+      className={`${rammettoOneFont.variable} ${microsoftYaHeiFont.variable} bg-white font-microsoft-ya-hei text-[16px]/6 text-black`}
       lang="en"
     >
       <body>

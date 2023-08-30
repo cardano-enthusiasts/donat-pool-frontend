@@ -65,7 +65,6 @@ function ModalContactUs({ shown, onClose }: Props) {
             Your Message
           </Input>
         </div>
-
         <div className="mt-10 flex w-full gap-6">
           <DoubleBorderedButton primaryColor="blue" backgroundColor="white" onClick={handleCancelClick}>
             Cancel

@@ -149,7 +149,7 @@ const LandingContent = forwardRef(function LandingContent(
     {
       element: (
         <div id="contact-us" ref={contactUsRef}>
-          <Footer backgroundColor="black" />
+          <Footer theme="dark" />
         </div>
       ),
       id: 'contact-us',

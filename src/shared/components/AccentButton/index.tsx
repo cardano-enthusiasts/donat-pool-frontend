@@ -31,7 +31,7 @@ function AccentButton({
   return (
     <div
       className={cn(
-        'max-lg:h-30 w-[19.5rem] pb-[1.375rem] pl-[1.375rem] transition-all duration-500 max-lg:w-[13.875rem]',
+        'w-[19.5rem] pb-[1.375rem] pl-[1.375rem] transition-all duration-500 max-lg:h-30 max-lg:w-[13.875rem]',
         {
           'h-[6.0625rem]': size === 's',
           'h-[9.375rem]': size === 'm',

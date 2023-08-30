@@ -67,7 +67,7 @@ function MyDonatPools() {
             </div>
           )}
         </div>
-        <div className="max-md:fixed max-md:bottom-15 max-md:right-[1.875rem] max-md:z-10">
+        <div className="max-md:fixed max-md:bottom-15 max-md:right-[1.875rem]">
           <StandardButton primaryColor="red" secondaryColor="blue" fontColor="white" href={ROUTES.newDonatPool}>
             Create Donat.Pool
           </StandardButton>
