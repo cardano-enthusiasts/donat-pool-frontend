@@ -2,10 +2,11 @@
 
 import Image from 'next/image';
 
-import { COMMON_ROW_STYLES, PHOTOS } from './constants';
-import { Stack } from '../.';
+import { Stack } from '@/shared/components';
 
-const AboutUs = () => {
+import { COMMON_ROW_CLASSES, PHOTOS } from './constants';
+
+function AboutUs() {
   function getPhotos(isFirstRow: boolean) {
     const filteredPhotos = isFirstRow
       ? PHOTOS.filter(({ isFirstRow }) => isFirstRow)
@@ -20,7 +21,7 @@ const AboutUs = () => {
     <div className="mb-36 max-xl:mb-10 max-md:mb-0">
       <div className="relative flex flex-col items-center">
         <div
-          className={`${COMMON_ROW_STYLES}
+          className={`${COMMON_ROW_CLASSES}
             relative
             mb-[8.75rem]
             mt-15
@@ -37,7 +38,7 @@ const AboutUs = () => {
         >
           {getPhotos(true)}
           <div
-            className={`${COMMON_ROW_STYLES}
+            className={`${COMMON_ROW_CLASSES}
               max-1.5xl:relative
               max-1.5xl:mx-auto
               max-1.5xl:my-0
@@ -66,6 +67,6 @@ const AboutUs = () => {
       </div>
     </div>
   );
-};
+}
 
 export default AboutUs;
