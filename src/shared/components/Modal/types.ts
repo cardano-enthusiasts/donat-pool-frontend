@@ -3,6 +3,7 @@ interface Props {
   panelTheme?: 'light' | 'dark';
   title?: string;
   titleAs?: React.ElementType;
+  description?: string;
   onClose?: () => void;
 }
 

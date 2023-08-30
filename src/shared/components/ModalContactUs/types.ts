@@ -1,5 +1,4 @@
 interface Props {
-  shown: boolean;
   onClose: () => void;
 }
 

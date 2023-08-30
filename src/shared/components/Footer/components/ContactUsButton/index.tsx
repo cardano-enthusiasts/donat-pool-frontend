@@ -1,3 +1,5 @@
+'use client';
+
 import { useState } from 'react';
 
 import { StandardButton, ModalContactUs } from '@/shared/components';
@@ -18,7 +20,7 @@ function ContactUsButton() {
       <StandardButton primaryColor="red" secondaryColor="green" size="s" fontColor="white" onClick={handleClick}>
         Contact us
       </StandardButton>
-      <ModalContactUs shown={modalIsShown} onClose={handleModalClose} />
+      {modalIsShown && <ModalContactUs onClose={handleModalClose} />}
     </>
   );
 }

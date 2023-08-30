@@ -6,12 +6,12 @@ import { DoubleBorderedButton, Input, Modal, StandardButton } from '@/shared/com
 
 import { Props } from './types';
 
-function ModalContactUs({ shown, onClose }: Props) {
-  const initialData = { contact: '', name: '', message: '' };
-  const [data, setData] = useState(initialData);
+function ModalContactUs({ onClose }: Props) {
+  const [data, setData] = useState({ contact: '', name: '', message: '' });
 
   function handleInputChange(event: any, fieldName: 'contact' | 'name' | 'message') {
     const { value } = event.target as HTMLInputElement;
+
     setData({
       ...data,
       [fieldName]: value,
@@ -22,19 +22,10 @@ function ModalContactUs({ shown, onClose }: Props) {
     event.preventDefault();
   }
 
-  function handleCancelClick() {
-    onClose();
-    setData(initialData);
-  }
-
   return (
-    <Modal shown={shown}>
+    <Modal shown title="Contact us" description="You can report about an error or write to us how we can help you.">
       <form onSubmit={handleSubmit}>
-        <div className="flex flex-col items-center gap-6">
-          <h1 className="font-rammetto-one text-[3.375rem] leading-[104%] text-red max-lg:text-[2.25rem] max-sm:text-[2.25rem]">
-            Contact us
-          </h1>
-          <div>You can report about an error or write to us how we can help you.</div>
+        <div className="mb-10 space-y-6">
           <Input
             value={data.contact}
             onChange={(event) => {
@@ -65,13 +56,15 @@ function ModalContactUs({ shown, onClose }: Props) {
             Your Message
           </Input>
         </div>
-        <div className="mt-10 flex w-full gap-6">
-          <DoubleBorderedButton primaryColor="blue" backgroundColor="white" onClick={handleCancelClick}>
+        <div className="flex gap-x-6">
+          <DoubleBorderedButton primaryColor="blue" backgroundColor="white" onClick={onClose}>
             Cancel
           </DoubleBorderedButton>
-          <StandardButton type="submit" primaryColor="red" secondaryColor="blue" fontColor="white" isFullWidth>
-            Send
-          </StandardButton>
+          <div className="grow">
+            <StandardButton type="submit" primaryColor="red" secondaryColor="blue" fontColor="white" isFullWidth>
+              Send
+            </StandardButton>
+          </div>
         </div>
       </form>
     </Modal>

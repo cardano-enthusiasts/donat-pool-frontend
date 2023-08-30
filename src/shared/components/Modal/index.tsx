@@ -10,6 +10,7 @@ function Modal({
   panelTheme = 'light',
   title,
   titleAs,
+  description,
   children,
   onClose = () => undefined,
 }: React.PropsWithChildren<Props>) {
@@ -34,10 +35,11 @@ function Modal({
         )}
       >
         {title && (
-          <Dialog.Title className="mb-6 font-rammetto-one text-menu-active text-red" as={titleAs}>
+          <Dialog.Title className="mb-6 text-center font-rammetto-one text-menu-active text-red" as={titleAs}>
             {title}
           </Dialog.Title>
         )}
+        {description && <Dialog.Description className="mb-6 text-center">{description}</Dialog.Description>}
         {children}
       </Dialog.Panel>
     </Dialog>

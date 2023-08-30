@@ -1,5 +1,3 @@
-'use client';
-
 import cn from 'classnames';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -17,8 +15,7 @@ function Footer({ theme = 'light' }: Props) {
       })}
     >
       <div
-        className="
-          mx-auto
+        className="mx-auto
           grid
           max-w-screen-3xl
           grid-cols-[auto_1fr_auto]
@@ -32,14 +29,13 @@ function Footer({ theme = 'light' }: Props) {
           max-md:justify-items-center
           max-md:gap-y-7
           max-sm:px-8
-          max-sm:py-6
-        "
+          max-sm:py-6"
       >
         <ul className="flex gap-x-10">
           {SOCIALS.map(({ logoSrc, logoAlt, href }) => (
             <li className="shrink-0" key={href}>
               <Link href={href} target="_blank" rel="noreferrer">
-                <Image src={logoSrc} alt={logoAlt} />
+                <Image src={logoSrc} alt={logoAlt} role="img" />
               </Link>
             </li>
           ))}
