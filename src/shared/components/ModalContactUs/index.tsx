@@ -28,30 +28,30 @@ function ModalContactUs({ onClose }: Props) {
         <div className="mb-10 space-y-6">
           <Input
             value={data.contact}
+            placeholder="+0 / mail@mail.com / @nickname"
             onChange={(event) => {
               handleInputChange(event, 'contact');
             }}
-            placeholder="+0 / mail@mail.com / @nickname"
           >
             Phone / E-mail / Telegram nickname
           </Input>
           <Input
             value={data.name}
+            placeholder="Elon Musk"
             onChange={(event) => {
               handleInputChange(event, 'name');
             }}
-            placeholder="Elon Mask"
           >
             Your Name
           </Input>
           <Input
             value={data.message}
-            onChange={(event) => {
-              handleInputChange(event, 'message');
-            }}
             placeholder="Hello!"
             multiline
             rows={6}
+            onChange={(event) => {
+              handleInputChange(event, 'message');
+            }}
           >
             Your Message
           </Input>
@@ -61,7 +61,7 @@ function ModalContactUs({ onClose }: Props) {
             Cancel
           </DoubleBorderedButton>
           <div className="grow">
-            <StandardButton type="submit" primaryColor="red" secondaryColor="blue" fontColor="white" isFullWidth>
+            <StandardButton primaryColor="red" secondaryColor="blue" fontColor="white" isFullWidth type="submit">
               Send
             </StandardButton>
           </div>
