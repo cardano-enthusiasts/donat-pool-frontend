@@ -8,6 +8,7 @@ import { Props } from './types';
 
 function ModalContactUs({ onClose }: Props) {
   const [data, setData] = useState({ contact: '', name: '', message: '' });
+  const submittingIsDisabled = !data.contact || !data.name || !data.message;
 
   function handleInputChange(event: any, fieldName: 'contact' | 'name' | 'message') {
     const { value } = event.target as HTMLInputElement;
@@ -20,6 +21,10 @@ function ModalContactUs({ onClose }: Props) {
 
   function handleSubmit(event: any) {
     event.preventDefault();
+
+    if (!submittingIsDisabled) {
+      console.log('submit');
+    }
   }
 
   return (
@@ -61,7 +66,14 @@ function ModalContactUs({ onClose }: Props) {
             Cancel
           </DoubleBorderedButton>
           <div className="grow">
-            <StandardButton primaryColor="red" secondaryColor="blue" fontColor="white" isFullWidth type="submit">
+            <StandardButton
+              primaryColor="red"
+              secondaryColor="blue"
+              fontColor="white"
+              isFullWidth
+              type="submit"
+              disabled={submittingIsDisabled}
+            >
               Send
             </StandardButton>
           </div>

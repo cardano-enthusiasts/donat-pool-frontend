@@ -1,7 +1,4 @@
-'use client';
-
-import Footer from '@/shared/components/Footer';
-import Header from '@/shared/components/Header';
+import { Header, Footer } from '@/shared/components';
 
 function Layout({ children }: React.PropsWithChildren) {
   return (
