@@ -1,7 +1,7 @@
-import styles from './AboutUs.module.css';
+import styles from './styles.module.css';
 import { Photo } from './types';
 
-const PHOTOS: Array<Photo> = [
+const PHOTOS: Photo[] = [
   { title: 'kate', className: styles.kate, alt: 'kate photo', width: 350, height: 391, isFirstRow: true },
   { title: 'oksana', className: styles.oksana, alt: 'oksana photo', width: 420, height: 490, isFirstRow: true },
   { title: 'olga', className: styles.olga, alt: 'olga photo', width: 376, height: 360, isFirstRow: true },

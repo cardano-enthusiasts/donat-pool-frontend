@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+import { Metadata } from 'next';
 import { Rammetto_One } from 'next/font/google';
 import localFont from 'next/font/local';
 import Script from 'next/script';
@@ -38,7 +38,7 @@ const metadata: Metadata = {
   title: 'Donat.Pool',
 };
 
-const Layout = ({ children }: React.PropsWithChildren) => {
+function Layout({ children }: React.PropsWithChildren) {
   return (
     <html
       className={`${microsoftYaHeiFont.variable} ${rammettoOneFont.variable} bg-white font-microsoft-ya-hei text-[16px]/6 text-black`}
@@ -50,6 +50,6 @@ const Layout = ({ children }: React.PropsWithChildren) => {
       </body>
     </html>
   );
-};
+}
 
 export { Layout as default, metadata };

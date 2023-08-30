@@ -2,13 +2,13 @@
 
 import { useEffect } from 'react';
 
-import { setIsInitialized as setIsCardanoInitialized, setActiveWalletCardanoKey } from '@/redux/slices/cardano';
-import ConnectWalletModal from '@/shared/components/ConnectWalletModal/ConnectWalletModal';
-import { useAppSelector, useAppDispatch } from '@/shared/hooks';
+import { useAppSelector, useAppDispatch } from '@/redux/hooks';
+import { setInitialized, setActiveWalletCardanoKey } from '@/redux/slices/cardano';
+import ConnectWalletModal from '@/shared/components/ConnectWalletModal';
 
-const Layout = ({ children }: React.PropsWithChildren) => {
-  const isCardanoInitialized = useAppSelector((state) => state.cardano.isInitialized);
-  const isSomeWalletActive = useAppSelector((state) => Boolean(state.cardano.activeWalletCardanoKey));
+function Layout({ children }: React.PropsWithChildren) {
+  const cardanoIsInitialized = useAppSelector((state) => state.cardano.initialized);
+  const someWalletIsActive = useAppSelector((state) => Boolean(state.cardano.activeWalletCardanoKey));
   const dispatch = useAppDispatch();
 
   useEffect(() => {
@@ -16,8 +16,9 @@ const Layout = ({ children }: React.PropsWithChildren) => {
       if (Object.hasOwn(window, 'cardano')) {
         for (const walletCardanoKey of ['nami', 'LodeWallet', 'flint', 'eternl'] as const) {
           if (
+            // hasOwn on 16th line ensures that "cardano" is present in "window"
             Object.hasOwn(window.cardano as any, walletCardanoKey) &&
-            ((await window.cardano?.[walletCardanoKey]?.isEnabled()) as any)
+            (await window.cardano?.[walletCardanoKey]?.isEnabled())
           ) {
             dispatch(setActiveWalletCardanoKey(walletCardanoKey));
             break;
@@ -25,17 +26,17 @@ const Layout = ({ children }: React.PropsWithChildren) => {
         }
       }
 
-      dispatch(setIsCardanoInitialized(true));
+      dispatch(setInitialized(true));
     }
 
-    if (!isCardanoInitialized) {
-      initializeCardano();
+    if (!cardanoIsInitialized) {
+      void initializeCardano();
     }
-  }, [isCardanoInitialized, dispatch]);
+  }, [cardanoIsInitialized, dispatch]);
 
-  if (isCardanoInitialized) {
-    return isSomeWalletActive ? children : <ConnectWalletModal />;
+  if (cardanoIsInitialized) {
+    return someWalletIsActive ? children : <ConnectWalletModal />;
   }
-};
+}
 
 export default Layout;

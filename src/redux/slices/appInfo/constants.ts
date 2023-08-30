@@ -1,9 +1,9 @@
-import type { State } from './types';
+import { State } from './types';
 
 const initialState: State = {
+  status: 'default',
   protocol: null,
   userInfo: null,
-  status: 'default',
 };
 
 export { initialState };

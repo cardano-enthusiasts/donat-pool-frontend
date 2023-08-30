@@ -1,11 +1,11 @@
-import type { Fundraising } from '@/shared/types';
-import type { FundraisingData } from '@/shared/types/common';
+import { DonatPool } from '@/shared/types';
+import { DonatPoolData } from '@/shared/types/common';
 
 interface Props {
-  donate: (fundraisingData: FundraisingData, amount: number) => void;
-  isOpen: boolean;
+  shown: boolean;
+  donate: (donatPoolData: DonatPoolData, amount: number) => void;
+  data: Pick<DonatPool, 'threadTokenCurrency' | 'threadTokenName'>;
   onClose: () => void;
-  data: Pick<Fundraising, 'threadTokenCurrency' | 'threadTokenName'>;
 }
 
 export type { Props };

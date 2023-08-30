@@ -1,6 +1,6 @@
-import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-import type { UserInfo, Config } from '@/shared/types/common';
+import { UserInfo, Config } from '@/shared/types/common';
 
 import { initialState } from './constants';
 
@@ -32,5 +32,7 @@ const slice = createSlice({
 });
 
 export default slice;
-export const { reducer } = slice;
-export const { setProtocol, setUserInfo, setError, setRequesting } = slice.actions;
+export const {
+  reducer,
+  actions: { setProtocol, setUserInfo, setError, setRequesting },
+} = slice;

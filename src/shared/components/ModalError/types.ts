@@ -1,8 +1,8 @@
 interface Props {
-  isOpen: boolean;
+  shown: boolean;
   title: string;
-  onClose: () => void;
   errorText?: string;
+  onClose: () => void;
 }
 
 export type { Props };

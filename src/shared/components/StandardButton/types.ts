@@ -1,16 +1,14 @@
-import { PropsWithChildren } from 'react';
-
-interface Props extends PropsWithChildren {
+interface Props {
   primaryColor: 'red' | 'blue' | 'green' | 'yellow';
   secondaryColor: 'blue' | 'green';
   fontColor: 'white' | 'black';
   isFullWidth?: boolean;
-  isAnimation?: boolean;
+  animated?: boolean;
   type?: 'submit' | 'button';
   href?: string | null;
-  isExternal?: boolean;
+  external?: boolean;
   size?: 's' | 'm';
-  isDisabled?: boolean;
+  disabled?: boolean;
   onClick?: () => void;
 }
 

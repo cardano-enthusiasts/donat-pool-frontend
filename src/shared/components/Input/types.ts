@@ -1,13 +1,9 @@
-import type { ReactNode, ChangeEvent } from 'react';
-
 interface Props {
   value: string | number;
-  onChange: (event: ChangeEvent) => void;
   dataAttr?: string;
   type?: 'text' | 'submit' | 'number';
-  children?: ReactNode | null;
   multiline?: boolean;
-  isDisabled?: boolean;
+  disabled?: boolean;
   hint?: string | null;
   placeholder?: string;
   maxLength?: number | undefined;
@@ -16,6 +12,7 @@ interface Props {
   fontColor?: 'green' | 'yellow' | 'black';
   min?: number;
   step?: number;
+  onChange: (event: React.ChangeEvent) => void;
 }
 
 export type { Props };

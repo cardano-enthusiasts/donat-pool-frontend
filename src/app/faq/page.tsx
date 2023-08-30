@@ -2,8 +2,7 @@ import HTMLReactParser from 'html-react-parser';
 import { Metadata } from 'next';
 import Link from 'next/link';
 
-import { Service } from '@/layouts';
-import { AlertNote, DropdownSection, Line, Subtitle, Ul } from '@/shared/components';
+import { AlertNote, DropdownSection, Line, Subtitle, Ul, Service } from '@/shared/components';
 import { ROUTES } from '@/shared/constants';
 
 import { basicSection } from './data';
@@ -12,7 +11,7 @@ const metadata: Metadata = {
   title: 'FAQ',
 };
 
-const Page = () => {
+function Page() {
   return (
     <Service>
       <h1 className="mb-8 font-rammetto-one text-[3.375rem] leading-[104%] text-red max-lg:text-[2.25rem] max-sm:text-[2.25rem]">
@@ -59,7 +58,6 @@ const Page = () => {
             </div>
           </>
         </DropdownSection>
-
         <DropdownSection title="How to register?">
           <>
             The only thing you need to do is to connect your Nami wallet to Donat.Pool. Connection means that you allow
@@ -72,11 +70,10 @@ const Page = () => {
             </AlertNote>
             <AlertNote>
               How to enable Nami wallet to work with any smart contract you can find{' '}
-              <Link href={ROUTES.landingTutorial}>here.</Link>
+              <Link href={ROUTES.homeTutorial}>here.</Link>
             </AlertNote>
           </>
         </DropdownSection>
-
         <DropdownSection title="How to start a new project?">
           <>
             <Ul
@@ -100,7 +97,6 @@ const Page = () => {
             />
           </>
         </DropdownSection>
-
         {basicSection.map(({ title, description }) => (
           <DropdownSection title={HTMLReactParser(title) as string} key={title}>
             {HTMLReactParser(description)}
@@ -109,6 +105,6 @@ const Page = () => {
       </div>
     </Service>
   );
-};
+}
 
 export { Page as default, metadata };

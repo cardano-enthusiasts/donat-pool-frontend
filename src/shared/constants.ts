@@ -1,16 +1,16 @@
-import eternlLogo from '../../public/icons/eternl.png';
-import flintLogo from '../../public/icons/flint.svg';
-import lodeLogo from '../../public/icons/lode.svg';
-import namiLogo from '../../public/icons/nami.svg';
+import eternlLogo from '@public/icons/eternl.png';
+import flintLogo from '@public/icons/flint.svg';
+import lodeLogo from '@public/icons/lode.svg';
+import namiLogo from '@public/icons/nami.svg';
 
 const ROUTES = {
   home: '/',
-  fundraisings: '/all-projects',
-  userFundraisings: '/my-projects',
-  newFundraising: '/new-project',
+  homeTutorial: '/#tutorial',
+  donatPools: '/donat-pools',
+  myDonatPools: '/my-donat-pools',
+  newDonatPool: '/new-donat-pool',
   roadmap: '/roadmap',
   faq: '/faq',
-  landingTutorial: '/#tutorial',
   termsOfUse: 'terms-of-use',
   mock: '/mock-address',
 } as const;

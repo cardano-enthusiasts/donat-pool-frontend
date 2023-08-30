@@ -1,4 +1,4 @@
-import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 import { initialState } from './constants';
 
@@ -26,5 +26,7 @@ const slice = createSlice({
 });
 
 export default slice;
-export const { reducer } = slice;
-export const { setError, setSuccess, setRequesting, reset } = slice.actions;
+export const {
+  reducer,
+  actions: { setError, setSuccess, setRequesting, reset },
+} = slice;

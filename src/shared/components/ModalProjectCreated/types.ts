@@ -1,7 +1,7 @@
 interface Props {
-  isOpen: boolean;
-  onClose: () => void;
+  shown: boolean;
   path: string;
+  onClose: () => void;
 }
 
 export type { Props };

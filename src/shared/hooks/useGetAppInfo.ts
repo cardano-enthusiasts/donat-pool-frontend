@@ -1,19 +1,19 @@
+import { useAppSelector, useAppDispatch } from '@/redux/hooks';
 import { setError, setRequesting, setProtocol, setUserInfo } from '@/redux/slices/appInfo';
 import { setWalletStatus } from '@/redux/slices/connectWallet';
 import { createConnectionParameters, logOffchainError } from '@/shared/helpers';
-import { useAppSelector, useAppDispatch } from '@/shared/hooks';
-import { useDonatPool } from '@/shared/hooks';
-import type { UserAndProtocolParams } from '@/shared/types/backend';
+import { useOffchain } from '@/shared/hooks';
+import { UserAndProtocolParams } from '@/shared/types/backend';
 
 import useHandleError from './useHandleError';
 
-const useGetAppInfo = () => {
-  const offchain = useDonatPool();
+function useGetAppInfo() {
+  const offchain = useOffchain();
   const activeWalletCardanoKey = useAppSelector((state) => state.cardano.activeWalletCardanoKey);
   const dispatch = useAppDispatch();
   const handleCommonError = useHandleError();
 
-  const handleSuccess = ({ protocolConfig, userInfo }: UserAndProtocolParams) => {
+  function handleSuccess({ protocolConfig, userInfo }: UserAndProtocolParams) {
     dispatch(setWalletStatus('connected'));
     const { minAmountParam, maxAmountParam, minDurationParam, maxDurationParam, protocolFeeParam } = protocolConfig;
     dispatch(
@@ -26,13 +26,13 @@ const useGetAppInfo = () => {
       }),
     );
     dispatch(setUserInfo(userInfo));
-  };
+  }
 
-  const handleError = (error: string) => {
+  function handleError(error: string) {
     console.error('useGetAppInfo:', error);
     const filteredError = handleCommonError(error);
     dispatch(setError(filteredError));
-  };
+  }
 
   if (offchain && activeWalletCardanoKey) {
     return () => {
@@ -44,6 +44,6 @@ const useGetAppInfo = () => {
   }
 
   return logOffchainError;
-};
+}
 
 export default useGetAppInfo;

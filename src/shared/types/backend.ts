@@ -1,17 +1,4 @@
-import type { UserInfo } from './common';
-
-interface BackendProject {
-  creator: string;
-  deadline: { value: bigint };
-  title: string;
-  goal: { value: bigint };
-  raisedAmt: { value: bigint };
-  threadTokenCurrency: string;
-  threadTokenName: string;
-  isCompleted: boolean;
-}
-
-type BackendProjects = BackendProject[];
+import { UserInfo } from './common';
 
 interface ConfigParam {
   value: number;
@@ -29,4 +16,4 @@ interface UserAndProtocolParams {
   userInfo: UserInfo;
 }
 
-export type { BackendProjects, BackendProject, BackendParams, UserAndProtocolParams };
+export type { BackendParams, UserAndProtocolParams };

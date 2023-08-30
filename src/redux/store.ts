@@ -2,8 +2,8 @@ import { configureStore } from '@reduxjs/toolkit';
 
 import {
   appInfo,
+  createFundraising,
   donating,
-  fundraisingCreation,
   fundsReceiving,
   protocolUpdating,
   cardano,
@@ -19,7 +19,7 @@ const store = configureStore({
     getAllFundraisings: getAllFundraisings.reducer,
     getUserRelatedFundraisings: getUserRelatedFundraisings.reducer,
     donating: donating.reducer,
-    fundraisingCreation: fundraisingCreation.reducer,
+    createFundraising: createFundraising.reducer,
     fundsReceiving: fundsReceiving.reducer,
     protocolUpdating: protocolUpdating.reducer,
     connectWallet: connectWallet.reducer,

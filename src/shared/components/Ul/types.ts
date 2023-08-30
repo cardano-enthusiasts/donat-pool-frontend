@@ -1,5 +1,5 @@
 interface Props {
-  texts: Array<string>;
+  texts: string[];
 }
 
 export type { Props };

@@ -1,7 +1,7 @@
-import type { Fundraising } from '@/shared/types';
+import { DonatPool } from '@/shared/types';
 
 interface Props {
-  project: Fundraising;
+  project: DonatPool;
 }
 
 export type { Props };

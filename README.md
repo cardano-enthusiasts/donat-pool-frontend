@@ -1,6 +1,6 @@
-# donat-pool-frontend
+# Front-end for Donat.Pool
 
-Front-end for Donat.Pool made with React, Typescript and love)
+Powered by [Next.js](https://nextjs.org/). Made with:heart:
 
 ## Prerequisites
 
