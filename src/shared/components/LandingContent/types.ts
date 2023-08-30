@@ -1,4 +1,4 @@
-import { ReactElement } from 'react';
+import { ReactElement, RefObject } from 'react';
 
 import { LandingSection } from '@/shared/types/common';
 
@@ -9,6 +9,10 @@ interface Props {
   setCurrentSection: (landingSecton: LandingSection) => void;
 }
 
+type Section = 'home' | 'how-it-works' | 'why-choose-us' | 'about-us';
+
+type Refs = Record<Section, RefObject<HTMLDivElement>>;
+
 type Content = {
   element: ReactElement;
   id: string;
@@ -18,4 +22,4 @@ type Content = {
   } | null;
 }[];
 
-export type { Props, Content };
+export type { Props, Content, Refs, Section };

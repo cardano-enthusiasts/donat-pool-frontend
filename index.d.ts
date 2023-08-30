@@ -1,5 +1,4 @@
-import { FetchedDonatPool } from '@/shared/types';
-import { DonatPoolData } from '@/shared/types/common';
+import { FetchedDonatPool, Config, DonatPoolData } from '@/shared/types';
 
 interface ConnectionParameters {
   wallet: 'Nami' | 'Lode' | 'Flint' | 'Eternl';
@@ -67,17 +66,13 @@ declare global {
           };
         }) => void,
       ) => (onError: HandleError) => (protocol: Protocol) => (connectionParameters: ConnectionParameters) => () => void;
-      createFundraising: (onSuccess: (createdDonatPool: FetchedDonatPool) => void) => (onError: HandleError) => (
+      createFundraising: (
+        onSuccess: (createdDonatPool: FetchedDonatPool) => void,
+      ) => (
+        onError: HandleError,
+      ) => (
         protocol: Protocol,
-      ) => (connectionParameters: ConnectionParameters) => (data: {
-        title: string;
-        amount: number;
-        duration: {
-          days: number;
-          hours: number;
-          minutes: number;
-        };
-      }) => () => void;
+      ) => (connectionParameters: ConnectionParameters) => (data: CreateDonatPoolParams) => () => void;
       getAllFundraisings: FetchDonatPools;
       getUserRelatedFundraisings: FetchDonatPools;
       donate: (
@@ -97,7 +92,7 @@ declare global {
           maxDurationParam: number;
           protocolFeeParam: number;
         }) => void,
-      ) => (onError: HandleError) => (protocol: Protocol) => (connectionParameters: ConnectionParameters) => () => void;
+      ) => (onError: HandleError) => (protocol: Protocol) => (config: Config) => () => void;
       receiveFunds: (
         onSuccess: () => void,
       ) => (

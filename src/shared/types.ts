@@ -23,4 +23,37 @@ interface DonatPool {
   completed: boolean;
 }
 
-export type { RequestStatus, WalletCardanoKey, FetchedDonatPool, DonatPool };
+interface CreateDonatPoolParams {
+  title: string;
+  amount: number;
+  duration: {
+    days: number;
+    hours: number;
+    minutes: number;
+  };
+}
+
+interface SubItem {
+  id: string;
+  title: string;
+}
+
+interface Item {
+  subItems: SubItem[];
+  id: string;
+}
+
+interface RoadmapText {
+  phases: { title: string; items: (SubItem | Item)[] }[];
+}
+
+export type {
+  RequestStatus,
+  WalletCardanoKey,
+  FetchedDonatPool,
+  DonatPool,
+  CreateDonatPoolParams,
+  RoadmapText,
+  Item,
+  SubItem,
+};

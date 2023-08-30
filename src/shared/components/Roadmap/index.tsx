@@ -5,16 +5,18 @@ import { Fragment } from 'react';
 import { AccentButton } from '@/shared/components';
 import { ROUTES } from '@/shared/constants';
 import { roadmapText } from '@/shared/data';
+import { isSubItem } from '@/shared/helpers';
+import { Item, SubItem } from '@/shared/types';
 
 import styles from './styles.module.css';
 import { Props } from './types';
 
 function Roadmap({ active }: Props) {
-  function getSubLis(item: any) {
-    return item.subItems.map(({ id, title }: any) => (
-      <li className="ml-[4.375rem] text-3xl max-xl:ml-[3.125rem] max-xl:text-base max-sm:ml-6" key={id}>
+  function getSubLis(item: Item) {
+    return item.subItems.map(({ id, title }: SubItem) => (
+      <div className="ml-[4.375rem] text-3xl max-xl:ml-[3.125rem] max-xl:text-base max-sm:ml-6" key={id}>
         {title}
-      </li>
+      </div>
     ));
   }
 
@@ -28,7 +30,7 @@ function Roadmap({ active }: Props) {
             <Fragment key={title}>
               <div className="font-bold text-red">{HTMLReactParser(title)}</div>
               <ul className="list-disc pl-[3.125rem]">
-                {items.map((item) => (item.title ? <li key={item.id}>{item.title}</li> : getSubLis(item)))}
+                {items.map((item) => (isSubItem(item) ? <li key={item.id}>{item.title}</li> : getSubLis(item)))}
               </ul>
             </Fragment>
           ))}

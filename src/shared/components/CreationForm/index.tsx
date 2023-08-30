@@ -91,7 +91,7 @@ function CreationForm({ protocol, onClose }: Props) {
     setLoadingModalIsShown(status === 'requesting');
   }, [status]);
 
-  function handleSubmit(event: any) {
+  function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
     if (anyError) {
       setErrorsToForm();

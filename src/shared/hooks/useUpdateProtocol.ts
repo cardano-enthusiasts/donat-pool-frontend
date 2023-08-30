@@ -27,7 +27,7 @@ function useUpdateProtocol() {
     dispatch(setError(filteredError));
   }
 
-  function editConfig(config: any) {
+  function editConfig(config: Config) {
     return {
       ...config,
       minAmountParam: config.minAmountParam * 1000000,

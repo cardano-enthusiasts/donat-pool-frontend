@@ -5,7 +5,7 @@ function useOffchain() {
 
   useEffect(function f() {
     if (Object.hasOwn(window, 'donatPool')) {
-      (window.donatPool as any).then(setOffchain, console.error);
+      window.donatPool!.then(setOffchain, console.error);
       return;
     }
 

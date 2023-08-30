@@ -10,7 +10,7 @@ function ModalContactUs({ shown, onClose }: Props) {
   const initialData = { contact: '', name: '', message: '' };
   const [data, setData] = useState(initialData);
 
-  function handleInputChange(event: any, fieldName: 'contact' | 'name' | 'message') {
+  function handleInputChange(event: React.ChangeEvent<Element>, fieldName: 'contact' | 'name' | 'message') {
     const { value } = event.target as HTMLInputElement;
     setData({
       ...data,
@@ -18,7 +18,7 @@ function ModalContactUs({ shown, onClose }: Props) {
     });
   }
 
-  function handleSubmit(event: any) {
+  function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
   }
 

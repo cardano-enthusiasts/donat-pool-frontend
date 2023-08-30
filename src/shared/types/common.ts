@@ -11,16 +11,6 @@ interface DonatPoolData {
   frThreadTokenName: string;
 }
 
-interface createDonatPoolParams {
-  title: string;
-  amount: number;
-  duration: {
-    days: number;
-    hours: number;
-    minutes: number;
-  };
-}
-
 interface UserInfo {
   isManager: boolean;
   address: string;
@@ -28,4 +18,4 @@ interface UserInfo {
 
 type LandingSection = 'home' | 'how-it-works' | 'why-choose-us' | 'about-us' | 'roadmap' | 'contact-us';
 
-export type { Config, DonatPoolData, createDonatPoolParams, UserInfo, LandingSection };
+export type { Config, DonatPoolData, UserInfo, LandingSection };

@@ -25,7 +25,7 @@ function Stack() {
     }
   }, [windowScroll]);
 
-  function getLink(title: any, href: any) {
+  function getLink(title: string, href: string) {
     return (
       <>
         {' '}

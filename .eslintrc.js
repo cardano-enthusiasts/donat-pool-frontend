@@ -12,7 +12,7 @@ module.exports = {
   plugins: ['@typescript-eslint'],
   parser: '@typescript-eslint/parser',
   parserOptions: {
-    project: true,
+    project: 'tsconfig.json',
     tsconfigRootDir: __dirname,
   },
   extends: [
@@ -45,7 +45,6 @@ module.exports = {
 
     //TODO: try to remove these and fix code problems
     'import/no-cycle': 0,
-    '@typescript-eslint/no-explicit-any': 0,
     '@typescript-eslint/no-unsafe-argument': 0,
     '@typescript-eslint/no-unsafe-return': 0,
     '@typescript-eslint/no-unsafe-member-access': 0,

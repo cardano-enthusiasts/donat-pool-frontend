@@ -17,7 +17,7 @@ function ConnectWalletModal() {
   const sortedWallets = useMemo(
     () =>
       WALLETS.map(({ cardanoKey, title, websiteUrl }) => ({
-        installed: Object.hasOwn(window, 'cardano') && Object.hasOwn(window.cardano as any, cardanoKey),
+        installed: Object.hasOwn(window, 'cardano') && Object.hasOwn(window.cardano!, cardanoKey),
         cardanoKey,
         title,
         websiteUrl,

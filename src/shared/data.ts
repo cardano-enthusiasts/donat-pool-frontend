@@ -1,4 +1,6 @@
-const roadmapText = {
+import { RoadmapText } from './types';
+
+const roadmapText: RoadmapText = {
   phases: [
     {
       title: 'Phase 1 <span>(finished)</span>',
