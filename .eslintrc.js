@@ -40,7 +40,6 @@ module.exports = {
     ],
     'import/exports-last': 'error',
     'import/group-exports': 'error',
-    'import/consistent-type-specifier-style': ['error', 'prefer-top-level'],
     'import/newline-after-import': ['error', { considerComments: true }],
   },
 };
