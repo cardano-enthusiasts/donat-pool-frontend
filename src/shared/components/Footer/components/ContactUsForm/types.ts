@@ -1,4 +1,5 @@
 interface Props {
+  onSubmit: () => void;
   onCancelButtonClick: () => void;
 }
 

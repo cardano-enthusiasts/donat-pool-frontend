@@ -9,7 +9,7 @@ import { DoubleBorderedButton, StandardButton, NewInput, Textarea } from '@/shar
 
 import { Props, FormValues } from './types';
 
-function Form({ onCancelButtonClick }: Props) {
+function Form({ onSubmit, onCancelButtonClick }: Props) {
   const {
     handleSubmit: createSubmitHandler,
     register,
@@ -20,13 +20,14 @@ function Form({ onCancelButtonClick }: Props) {
   const handleSubmit = createSubmitHandler(async (data) => {
     try {
       await api.post('core/contact-us', data);
+      onSubmit();
     } catch (error) {
-      setRequestError(isAxiosError(error) ? error.message : 'unknown error');
+      setRequestError(isAxiosError(error) ? error.message : 'Unknown error');
     }
   });
 
   return (
-    // It's just the way react-hook-form expects passing submit handler
+    // "React Hook Form" expects passing submit handler this way
     // eslint-disable-next-line @typescript-eslint/no-misused-promises
     <form onSubmit={handleSubmit}>
       <div className="mb-10 space-y-6">
