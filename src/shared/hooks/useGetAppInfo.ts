@@ -2,11 +2,8 @@ import { useAppSelector, useAppDispatch } from '@/redux/hooks';
 import { setError, setRequesting, setProtocol, setUserInfo } from '@/redux/slices/appInfo';
 import { setWalletStatus } from '@/redux/slices/connectWallet';
 import { createConnectionParameters, logOffchainError } from '@/shared/helpers';
-import { useOffchain } from '@/shared/hooks';
-import { UserAndProtocolParams } from '@/shared/types/backend';
-
-import useHandleError from './useHandleError';
-import { Protocol } from '../types';
+import { useOffchain, useHandleError } from '@/shared/hooks';
+import { UserAndProtocolParams, Protocol } from '@/shared/types';
 
 function useGetAppInfo() {
   const offchain = useOffchain();

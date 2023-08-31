@@ -1,5 +1,35 @@
 type RequestStatus = 'default' | 'requesting' | 'success' | 'error';
 type WalletCardanoKey = 'nami' | 'LodeWallet' | 'flint' | 'eternl';
+type LandingSection = 'home' | 'how-it-works' | 'why-choose-us' | 'about-us' | 'roadmap' | 'contact-us';
+
+interface FetchParams {
+  minAmountParam: ConfigParam;
+  maxAmountParam: ConfigParam;
+  minDurationParam: ConfigParam;
+  maxDurationParam: ConfigParam;
+  protocolFeeParam: ConfigParam;
+}
+
+interface Config {
+  minAmountParam: number;
+  maxAmountParam: number;
+  minDurationParam: number;
+  maxDurationParam: number;
+  protocolFeeParam: number;
+}
+
+interface UserInfo {
+  isManager: boolean;
+  address: string;
+}
+interface ConfigParam {
+  value: number;
+}
+
+interface UserAndProtocolParams {
+  protocolConfig: FetchParams;
+  userInfo: UserInfo;
+}
 
 interface FetchedDonatPool {
   title: string;
@@ -52,6 +82,11 @@ interface Protocol {
   protocolTokenName: string;
 }
 
+interface DonatPoolTokenData {
+  frThreadTokenCurrency: string;
+  frThreadTokenName: string;
+}
+
 export type {
   RequestStatus,
   WalletCardanoKey,
@@ -62,4 +97,9 @@ export type {
   Item,
   SubItem,
   Protocol,
+  DonatPoolTokenData,
+  LandingSection,
+  UserAndProtocolParams,
+  Config,
+  UserInfo,
 };

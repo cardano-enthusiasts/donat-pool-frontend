@@ -4,7 +4,7 @@ import cn from 'classnames';
 import { Fragment, forwardRef, useEffect, useRef, useState, ForwardedRef, MutableRefObject } from 'react';
 
 import { AboutUs, Footer, HowItWorks, Roadmap, TitleAndDescription, Waves, WhyChooseUs } from '@/shared/components';
-import { LandingSection } from '@/shared/types/common';
+import { LandingSection } from '@/shared/types';
 
 import CLASSES from './constants';
 import { Props, Content, Section, Refs } from './types';

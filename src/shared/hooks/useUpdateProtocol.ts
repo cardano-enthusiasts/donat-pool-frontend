@@ -2,12 +2,8 @@ import { useAppDispatch } from '@/redux/hooks';
 import { setWalletStatus } from '@/redux/slices/connectWallet';
 import { setError, setSuccess, setRequesting } from '@/redux/slices/protocolUpdating';
 import { logOffchainError } from '@/shared/helpers';
-import { useOffchain } from '@/shared/hooks';
-import { Config } from '@/shared/types/common';
-
-import useGetAppInfo from './useGetAppInfo';
-import useHandleError from './useHandleError';
-import { Protocol } from '../types';
+import { useOffchain, useGetAppInfo, useHandleError } from '@/shared/hooks';
+import { Config, Protocol } from '@/shared/types';
 
 function useUpdateProtocol() {
   const offchain = useOffchain();

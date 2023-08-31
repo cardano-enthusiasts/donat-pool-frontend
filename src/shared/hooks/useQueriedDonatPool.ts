@@ -1,7 +1,7 @@
 import { useParams } from 'next/navigation';
 import { useMemo } from 'react';
 
-import useDonatPools from './useDonatPools';
+import { useDonatPools } from '@/shared/hooks';
 
 function useQueriedDonatPool() {
   const params = useParams();

@@ -3,9 +3,8 @@ import { useCallback, useEffect } from 'react';
 import { useAppSelector, useAppDispatch } from '@/redux/hooks';
 import { setStatus, setDonatPools, setError } from '@/redux/slices/getUserRelatedFundraisings';
 import { createConnectionParameters, transformFetchedDonatPools } from '@/shared/helpers';
+import { useOffchain } from '@/shared/hooks';
 import { FetchedDonatPool, Protocol } from '@/shared/types';
-
-import useOffchain from './useOffchain';
 
 function useMyDonatPools() {
   const offchain = useOffchain();

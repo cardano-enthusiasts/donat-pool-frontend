@@ -1,4 +1,4 @@
-import { FetchedDonatPool, Config, DonatPoolData, Protocol } from '@/shared/types';
+import { FetchedDonatPool, Config, DonatPoolTokenData, Protocol } from '@/shared/types';
 
 interface ConnectionParameters {
   wallet: 'Nami' | 'Lode' | 'Flint' | 'Eternl';
@@ -79,7 +79,7 @@ declare global {
         protocol: Protocol,
       ) => (
         connectionParameters: ConnectionParameters,
-      ) => (donatPoolData: DonatPoolData) => (amount: number) => () => void;
+      ) => (donatPoolData: DonatPoolTokenData) => (amount: number) => () => void;
       setProtocol: (
         onSuccess: (config: {
           minAmountParam: number;
