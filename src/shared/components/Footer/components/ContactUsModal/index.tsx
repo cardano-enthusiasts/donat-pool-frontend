@@ -3,7 +3,7 @@ import { Modal } from '@/shared/components';
 import { Props } from './types';
 import ContactUsForm from '../ContactUsForm';
 
-function ModalContactUs({ shown, onClose }: Props) {
+function ContactUsModal({ shown, onClose }: Props) {
   return (
     <Modal
       shown={shown}
@@ -15,4 +15,4 @@ function ModalContactUs({ shown, onClose }: Props) {
   );
 }
 
-export default ModalContactUs;
+export default ContactUsModal;

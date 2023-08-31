@@ -6,12 +6,12 @@ import ContactUsButton from './components/ContactUsButton';
 import { SOCIALS, LINKS } from './constants';
 import { Props } from './types';
 
-function Footer({ theme = 'light' }: Props) {
+function Footer({ theme = 'blue' }: Props) {
   return (
     <footer
       className={cn({
-        'bg-blue': theme === 'light',
-        'bg-black': theme === 'dark',
+        'bg-blue': theme === 'blue',
+        'bg-black': theme === 'black',
       })}
     >
       <div

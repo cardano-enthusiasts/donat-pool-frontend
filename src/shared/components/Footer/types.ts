@@ -1,5 +1,5 @@
 interface Props {
-  theme?: 'light' | 'dark';
+  theme?: 'blue' | 'black';
 }
 
 export type { Props };
