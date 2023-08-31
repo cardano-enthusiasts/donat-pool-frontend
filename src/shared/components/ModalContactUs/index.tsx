@@ -31,7 +31,14 @@ function ModalContactUs({ shown, onClose }: Props) {
     <Modal shown={shown}>
       <form onSubmit={handleSubmit}>
         <div className="flex flex-col items-center gap-6">
-          <h1 className="font-rammetto-one text-[3.375rem] leading-[104%] text-red max-lg:text-[2.25rem] max-sm:text-[2.25rem]">
+          <h1
+            className="font-rammetto-one
+            text-[3.375rem]
+            leading-[104%]
+            text-red
+            max-lg:text-[2.25rem] 
+            max-sm:text-[2.25rem]"
+          >
             Contact us
           </h1>
           <div>You can report about an error or write to us how we can help you.</div>

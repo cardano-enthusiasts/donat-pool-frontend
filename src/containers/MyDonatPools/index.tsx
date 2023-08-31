@@ -41,7 +41,14 @@ function MyDonatPools() {
     <>
       <div className="mb-15 flex justify-between max-lg:flex-col max-lg:items-center max-lg:gap-5 max-md:mb-8">
         <div className="flex items-center justify-center gap-10 max-md:items-start max-sm:flex-col max-sm:gap-5">
-          <h1 className="font-rammetto-one text-[3.375rem] leading-[104%] text-red max-lg:text-[2.25rem] max-sm:text-[2.25rem]">
+          <h1
+            className="font-rammetto-one
+            text-[3.375rem]
+            leading-[104%]
+            text-red
+            max-lg:text-[2.25rem]
+            max-sm:text-[2.25rem]"
+          >
             My Donat.Pools
           </h1>
           {allProjectsWithStatus !== null && (

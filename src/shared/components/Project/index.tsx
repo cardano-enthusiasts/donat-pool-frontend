@@ -27,7 +27,16 @@ function Project({ previousPageTitle, title, children, onPreviousPageClick }: Re
           >
             <div className="max-xl:hidden">{previousPageTitle}</div>
           </div>
-          <h1 className="overflow-hidden text-ellipsis font-rammetto-one text-[3.375rem] leading-[104%] text-red max-lg:text-[2.25rem] max-sm:text-[2.25rem]">
+          <h1
+            className="overflow-hidden
+              text-ellipsis
+              font-rammetto-one
+              text-[3.375rem]
+              leading-[104%]
+              text-red
+              max-lg:text-[2.25rem]
+              max-sm:text-[2.25rem]"
+          >
             {title}
           </h1>
         </div>

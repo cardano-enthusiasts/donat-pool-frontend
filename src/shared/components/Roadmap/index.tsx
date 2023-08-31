@@ -23,7 +23,19 @@ function Roadmap({ active }: Props) {
   return (
     <div className="relative">
       <div
-        className={`${styles.wrapper} leading-1.5 relative h-[43.75rem] w-[90%] rotate-[30deg] overflow-hidden text-4xl font-bold max-lg:left-0 max-lg:ml-0 max-sm:text-xl`}
+        className={`${styles.wrapper}
+          leading-1.5
+          relative
+          h-[43.75rem]
+          w-[90%]
+          rotate-[30deg]
+          overflow-hidden
+          text-4xl
+          font-bold
+          max-lg:left-0
+          max-lg:ml-0
+          max-sm:text-xl
+        `}
       >
         <div className={cn('absolute top-[100%] text-yellow', { 'animate-roadmap': active })}>
           {roadmapText.phases.map(({ title, items }) => (

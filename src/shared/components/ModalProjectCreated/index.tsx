@@ -33,7 +33,16 @@ function ModalProjectCreated({ shown, path, onClose }: Props) {
   return (
     <Modal shown={shown}>
       <div className="flex flex-col items-center">
-        <h1 className="mb-6 text-center font-rammetto-one text-[3.375rem] leading-[104%] text-red max-lg:text-[2.25rem] max-sm:text-[2.25rem]">
+        <h1
+          className="mb-6
+          text-center
+          font-rammetto-one
+          text-[3.375rem]
+          leading-[104%]
+          text-red
+          max-lg:text-[2.25rem]
+          max-sm:text-[2.25rem]"
+        >
           Well done!
         </h1>
         <Image className="mb-10" src="/img/happy-cat.svg" alt="happy cat" width={140} height={140} />
