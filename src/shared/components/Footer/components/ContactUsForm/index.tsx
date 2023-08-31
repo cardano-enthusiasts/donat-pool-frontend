@@ -49,22 +49,20 @@ function Form({ onSubmit, onCancelButtonClick }: Props) {
         />
         <Textarea label="Your Message" name="message" register={register} placeholder="Hello!" />
       </div>
-      <div className="flex gap-x-6">
+      <div className="grid grid-cols-[auto_1fr] gap-x-6">
         <DoubleBorderedButton primaryColor="blue" backgroundColor="white" onClick={onCancelButtonClick}>
           Cancel
         </DoubleBorderedButton>
-        <div className="grow">
-          <StandardButton
-            primaryColor="red"
-            secondaryColor="blue"
-            fontColor="white"
-            isFullWidth
-            type="submit"
-            disabled={isSubmitting}
-          >
-            Send
-          </StandardButton>
-        </div>
+        <StandardButton
+          primaryColor="red"
+          secondaryColor="blue"
+          fontColor="white"
+          isFullWidth
+          type="submit"
+          disabled={isSubmitting}
+        >
+          Send
+        </StandardButton>
       </div>
       {requestError && <div className="mt-10 text-error">{requestError}</div>}
     </form>

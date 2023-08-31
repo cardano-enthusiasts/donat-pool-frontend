@@ -7,7 +7,7 @@ import { Props } from './types';
 
 function Modal({
   shown,
-  panelTheme = 'light',
+  panelTheme = 'white',
   title,
   titleAs,
   description,
@@ -30,8 +30,8 @@ function Modal({
           max-md:w-11/12
           max-md:p-5`,
           {
-            'bg-white': panelTheme === 'light',
-            'bg-black': panelTheme === 'dark',
+            'bg-white': panelTheme === 'white',
+            'bg-black': panelTheme === 'black',
           },
         )}
       >

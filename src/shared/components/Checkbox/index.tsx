@@ -2,7 +2,7 @@ import cn from 'classnames';
 
 import { Props } from './types';
 
-function Checkbox({ checked, textTheme, children, onChange }: React.PropsWithChildren<Props>) {
+function Checkbox({ checked, textTheme = 'white', children, onChange }: React.PropsWithChildren<Props>) {
   return (
     <label className="flex cursor-pointer items-center">
       <input
@@ -27,8 +27,8 @@ function Checkbox({ checked, textTheme, children, onChange }: React.PropsWithChi
       />
       <span
         className={cn('ml-2.5 w-full min-w-[11.25rem] select-none', {
-          'text-black': textTheme === undefined,
-          'text-white': textTheme === 'light',
+          'text-white': textTheme === 'white',
+          'text-black': textTheme === 'black',
         })}
       >
         {children}

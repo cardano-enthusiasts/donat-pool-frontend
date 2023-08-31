@@ -1,6 +1,6 @@
 interface Props {
   shown: boolean;
-  panelTheme?: 'light' | 'dark';
+  panelTheme?: 'white' | 'black';
   title?: string;
   titleAs?: React.ElementType;
   description?: string;

@@ -202,7 +202,7 @@ function CreationForm({ protocol, onClose }: Props) {
           </Input>
           <PrecalculationFee goal={Number(data.goal)} />
         </div>
-        <Checkbox checked={checked} onChange={handleCheckboxChange}>
+        <Checkbox checked={checked} textTheme="black" onChange={handleCheckboxChange}>
           I agree to pay a commission in favor of the service.
           <br />
           The commission will be debited after the end of the donation pool.
