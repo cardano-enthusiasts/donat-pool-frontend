@@ -1,0 +1,73 @@
+'use client';
+
+import { isAxiosError } from 'axios';
+import { useState } from 'react';
+import { useForm } from 'react-hook-form';
+
+import api from '@/shared/api';
+import { DoubleBorderedButton, StandardButton, NewInput, Textarea } from '@/shared/components';
+
+import { Props, FormValues } from './types';
+
+function Form({ onCancelButtonClick }: Props) {
+  const {
+    handleSubmit: createSubmitHandler,
+    register,
+    formState: { errors, isSubmitting },
+  } = useForm<FormValues>();
+  const [requestError, setRequestError] = useState<string>();
+
+  const handleSubmit = createSubmitHandler(async (data) => {
+    try {
+      await api.post('core/contact-us', data);
+    } catch (error) {
+      setRequestError(isAxiosError(error) ? error.message : 'unknown error');
+    }
+  });
+
+  return (
+    // It's just the way react-hook-form expects passing submit handler
+    // eslint-disable-next-line @typescript-eslint/no-misused-promises
+    <form onSubmit={handleSubmit}>
+      <div className="mb-10 space-y-6">
+        <NewInput
+          label="Phone / E-mail / Telegram nickname"
+          name="contact"
+          placeholder="+0 / mail@mail.com / @nickname"
+          register={register}
+          registerOptions={{ required: 'Contact is required' }}
+          error={errors.contact?.message}
+        />
+        <NewInput
+          label="Your Name"
+          name="name"
+          placeholder="Elon Musk"
+          register={register}
+          registerOptions={{ required: 'Name is required' }}
+          error={errors.name?.message}
+        />
+        <Textarea label="Your Message" name="message" register={register} placeholder="Hello!" />
+      </div>
+      <div className="flex gap-x-6">
+        <DoubleBorderedButton primaryColor="blue" backgroundColor="white" onClick={onCancelButtonClick}>
+          Cancel
+        </DoubleBorderedButton>
+        <div className="grow">
+          <StandardButton
+            primaryColor="red"
+            secondaryColor="blue"
+            fontColor="white"
+            isFullWidth
+            type="submit"
+            disabled={isSubmitting}
+          >
+            Send
+          </StandardButton>
+        </div>
+      </div>
+      {requestError && <div className="mt-10 text-error">{requestError}</div>}
+    </form>
+  );
+}
+
+export default Form;

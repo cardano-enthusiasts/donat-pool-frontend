@@ -21,6 +21,7 @@ function Modal({
           `max-h-full 
           w-[37.5rem]
           overflow-y-auto
+          overscroll-y-none
           rounded-md
           px-10
           pb-15

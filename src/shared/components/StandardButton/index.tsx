@@ -28,6 +28,7 @@ function StandardButton({
     { 'animate-standardPush before:animate-standardPushBefore': animated },
     'disabled:bg-purple',
     'disabled:before:bg-black',
+    'disabled:cursor-not-allowed',
     { 'w-full': isFullWidth },
   );
 

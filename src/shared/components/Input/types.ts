@@ -1,3 +1,5 @@
+import { UseFormRegister, RegisterOptions, Message } from 'react-hook-form';
+
 interface Props {
   value: string | number;
   dataAttr?: string;
@@ -15,4 +17,15 @@ interface Props {
   onChange: (event: React.ChangeEvent) => void;
 }
 
-export type { Props };
+interface NewInputProps {
+  label?: string;
+  type?: 'text' | 'email' | 'password';
+  name: string;
+  placeholder?: string;
+  placeholderTheme?: 'green' | 'yellow';
+  register: UseFormRegister<any>;
+  registerOptions?: RegisterOptions;
+  error?: Message;
+}
+
+export type { Props, NewInputProps };
