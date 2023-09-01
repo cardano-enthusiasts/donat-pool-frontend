@@ -1,6 +1,5 @@
-import Image from 'next/image';
-
 import { DoubleBorderedButton, Waves } from '@/shared/components';
+import CatWithBorderImage from '@public/img/sad-cat-with-purple-border.svg';
 
 function NotAvailableError() {
   return (
@@ -10,7 +9,7 @@ function NotAvailableError() {
           <h1 className="mb-6 text-center font-rammetto-one text-[3.375rem] leading-[104%] text-white max-lg:text-[2.25rem] max-sm:text-[2.25rem]">
             Wallet is not available{' '}
           </h1>
-          <Image src="/img/sad-cat-with-purple-border.svg" alt="sad cat" width="140" height="140" />
+          <CatWithBorderImage alt="sad cat" />
           <div className="mb-8 text-center text-black">
             Please install Nami wallet in a suitable browser (Chrome, Brave)
           </div>

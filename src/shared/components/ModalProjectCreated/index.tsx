@@ -1,10 +1,10 @@
 'use client';
 
-import Image from 'next/image';
 import { useState } from 'react';
 
 import { DoubleBorderedButton, Modal, StandardButton } from '@/shared/components';
 import { ROUTES } from '@/shared/constants';
+import HappyCatImage from '@public/img/happy-cat.svg';
 
 import styles from './styles.module.css';
 import { Props } from './types';
@@ -36,7 +36,7 @@ function ModalProjectCreated({ shown, path, onClose }: Props) {
         <h1 className="mb-6 text-center font-rammetto-one text-[3.375rem] leading-[104%] text-red max-lg:text-[2.25rem] max-sm:text-[2.25rem]">
           Well done!
         </h1>
-        <Image className="mb-10" src="/img/happy-cat.svg" alt="happy cat" width={140} height={140} />
+        <HappyCatImage className="mb-10" alt="happy cat" />
         <div className="mb-8 text-center">
           The Donat.Pool has been successfully published.
           <br />

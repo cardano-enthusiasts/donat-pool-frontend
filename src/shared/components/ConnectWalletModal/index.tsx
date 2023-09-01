@@ -8,7 +8,7 @@ import { setActiveWalletCardanoKey } from '@/redux/slices/cardano';
 import { Modal, Checkbox, DoubleBorderedButton } from '@/shared/components';
 import { ROUTES, WALLET_CARDANO_KEY_TO_LOGO } from '@/shared/constants';
 import { WalletCardanoKey } from '@/shared/types';
-import goToIcon from '@public/icons/go-to.svg';
+import GoToIcon from '@public/icons/go-to.svg';
 
 import { WALLETS } from './constants';
 
@@ -93,7 +93,7 @@ function ConnectWalletModal() {
                 <div className="flex items-center gap-x-3">
                   Not Installed{' '}
                   <a href={websiteUrl} target="_blank" rel="noreferrer">
-                    <Image src={goToIcon} alt={`link to ${title}'s website`} role="img" />
+                    <GoToIcon alt={`link to ${title}'s website`} />
                   </a>
                 </div>
               )}

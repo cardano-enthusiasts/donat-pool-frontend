@@ -9,8 +9,10 @@ import { useState } from 'react';
 import { useAppSelector } from '@/redux/hooks';
 import { Logo, StandardButton } from '@/shared/components';
 import { ROUTES, WALLET_CARDANO_KEY_TO_LOGO } from '@/shared/constants';
+import CloseIcon from '@public/icons/close.svg';
+import MenuIcon from '@public/icons/menu.svg';
 
-import { LINKS } from './constants';
+import { ICON_CLASSES, LINKS } from './constants';
 
 function Header() {
   const pathname = usePathname();
@@ -59,14 +61,11 @@ function Header() {
           </div>
         )}
       </div>
-      <Image
-        className="hidden max-lg:absolute max-lg:right-[1.875rem] max-lg:top-8 max-lg:block max-lg:h-10 max-lg:w-10"
-        src={`/icons/${menuIsShown ? 'close' : 'menu'}.svg`}
-        alt="close icon"
-        width={50}
-        height={50}
-        onClick={handleCloseIconClick}
-      />
+      {menuIsShown ? (
+        <CloseIcon className={ICON_CLASSES} alt="close icon" onClick={handleCloseIconClick} />
+      ) : (
+        <MenuIcon className={ICON_CLASSES} alt="menu icon" onClick={handleCloseIconClick} />
+      )}
     </header>
   );
 }
