@@ -24,12 +24,12 @@ function Roadmap({ active }: Props) {
     <div className="relative">
       <div
         className={`${styles.wrapper}
-          text-4xl/1.5
           relative
           h-[43.75rem]
           w-[90%]
           rotate-[30deg]
           overflow-hidden
+          text-4xl/normal
           font-bold
           max-lg:left-0
           max-lg:ml-0

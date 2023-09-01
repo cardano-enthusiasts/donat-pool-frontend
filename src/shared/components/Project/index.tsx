@@ -30,7 +30,7 @@ function Project({ previousPageTitle, title, children, onPreviousPageClick }: Re
             className="overflow-hidden
               text-ellipsis
               font-rammetto-one
-              text-[3.375rem]/[104%]
+              text-[3.375rem]/[125%]
               text-red
               max-lg:text-[2.25rem]
               max-sm:text-[2.25rem]"
