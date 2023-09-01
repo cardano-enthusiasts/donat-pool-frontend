@@ -19,11 +19,6 @@ function ContactUsForm({ onSubmit, onCancelButtonClick }: Props) {
 
   const handleSubmit = createSubmitHandler(async (data) => {
     try {
-      await new Promise((resolve) => {
-        setTimeout(() => {
-          resolve(1);
-        }, 2000);
-      });
       await api.post('core/contact-us', data);
       onSubmit();
     } catch (error) {
