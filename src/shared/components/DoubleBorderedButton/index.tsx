@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 import VARIANTS from './constants';
 import styles from './styles.module.css';
-import { Props } from './types';
+import { type Props } from './types';
 
 function DoubleBorderedButton({
   children,

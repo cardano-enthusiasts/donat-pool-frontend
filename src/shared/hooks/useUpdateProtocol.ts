@@ -3,7 +3,7 @@ import { setWalletStatus } from '@/redux/slices/connectWallet';
 import { setError, setSuccess, setRequesting } from '@/redux/slices/protocolUpdating';
 import { logOffchainError } from '@/shared/helpers';
 import { useOffchain, useGetAppInfo, useHandleError } from '@/shared/hooks';
-import { Config, Protocol } from '@/shared/types';
+import { type Config, type Protocol } from '@/shared/types';
 
 function useUpdateProtocol() {
   const offchain = useOffchain();

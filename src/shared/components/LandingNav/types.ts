@@ -1,4 +1,4 @@
-import { LandingSection } from '@/shared/types';
+import { type LandingSection } from '@/shared/types';
 
 interface Props {
   currentSection: LandingSection;

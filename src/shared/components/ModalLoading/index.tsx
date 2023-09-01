@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react';
 
 import { Modal } from '@/shared/components';
 
-import { Props } from './types';
+import { type Props } from './types';
 
 function ModalLoading({
   shown,

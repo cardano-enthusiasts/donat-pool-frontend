@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react';
 
 import { useWindowSize } from '@/shared/hooks';
 
-import { Props } from './types';
+import { type Props } from './types';
 
 function RaisedCounter({ raised, goal }: Props) {
   const { width } = useWindowSize();

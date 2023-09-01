@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 
 import { DoubleBorderedButton, Input, Modal, StandardButton } from '@/shared/components';
 
-import { Props } from './types';
+import { type Props } from './types';
 
 function ModalDonate({ shown, onClose, data: { threadTokenCurrency, threadTokenName }, donate }: Props) {
   const [value, setValue] = useState<'' | number>('');

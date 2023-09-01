@@ -4,7 +4,7 @@ import { useRef, useState } from 'react';
 
 import { InitialLoading, LandingContent, LandingNav, Waves } from '@/shared/components';
 import { useWindowSize, useWindowScroll } from '@/shared/hooks';
-import { LandingSection } from '@/shared/types';
+import { type LandingSection } from '@/shared/types';
 
 function Page() {
   const windowScroll = useWindowScroll();

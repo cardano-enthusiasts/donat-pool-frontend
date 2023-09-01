@@ -1,4 +1,4 @@
-import { Metadata } from 'next';
+import { type Metadata } from 'next';
 
 import { DonatPools } from '@/containers';
 import { StandardButton, Common } from '@/shared/components';

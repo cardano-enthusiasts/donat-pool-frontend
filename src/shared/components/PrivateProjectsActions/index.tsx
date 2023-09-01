@@ -10,7 +10,7 @@ import { ROUTES } from '@/shared/constants';
 import { useReceiveFunds } from '@/shared/hooks';
 
 import styles from './styles.module.css';
-import { Props } from './types';
+import { type Props } from './types';
 
 function PrivateProjectsActions({ project }: Props) {
   const [modalSuccessIsShown, setModalSuccessIsShown] = useState(false);

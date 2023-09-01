@@ -1,5 +1,5 @@
-import { ROUTES } from '@/shared/constants';
-import { DonatPool } from '@/shared/types';
+import { type ROUTES } from '@/shared/constants';
+import { type DonatPool } from '@/shared/types';
 
 interface Props {
   data: Omit<DonatPool, 'creator'>;

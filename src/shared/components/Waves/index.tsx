@@ -6,7 +6,7 @@ import { useWindowSize } from '@/shared/hooks';
 
 import VARIANTS from './constants';
 import styles from './styles.module.css';
-import { Props } from './types';
+import { type Props } from './types';
 
 function Waves({ color = 'blue', backgroundColor = 'transparent', upsideDown = false, moving = true }: Props) {
   const size = useWindowSize();

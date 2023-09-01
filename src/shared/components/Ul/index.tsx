@@ -1,6 +1,6 @@
 import HTMLReactParser from 'html-react-parser';
 
-import { Props } from './types';
+import { type Props } from './types';
 
 function Ul({ texts }: Props) {
   return (

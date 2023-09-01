@@ -1,4 +1,4 @@
-import { UseFormRegister, RegisterOptions, Message } from 'react-hook-form';
+import { type UseFormRegister, type RegisterOptions, type Message } from 'react-hook-form';
 
 interface Props {
   label?: string;

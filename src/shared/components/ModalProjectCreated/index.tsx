@@ -7,7 +7,7 @@ import { DoubleBorderedButton, Modal, StandardButton } from '@/shared/components
 import { ROUTES } from '@/shared/constants';
 
 import styles from './styles.module.css';
-import { Props } from './types';
+import { type Props } from './types';
 
 function ModalProjectCreated({ shown, path, onClose }: Props) {
   const link = `${location.origin}${ROUTES.donatPools}/${path}`;

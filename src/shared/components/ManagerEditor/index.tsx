@@ -8,7 +8,7 @@ import { Input, ModalError, ModalLoading, ModalSuccess, StandardButton } from '@
 import { useUpdateProtocol } from '@/shared/hooks';
 
 import { DEFAULT_PARAMS } from './data';
-import { Props } from './types';
+import { type Props } from './types';
 
 function ManagerEditor({ config }: Props) {
   const [params, setParams] = useState(config);

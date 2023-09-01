@@ -1,4 +1,4 @@
-import { Metadata } from 'next';
+import { type Metadata } from 'next';
 import { Rammetto_One } from 'next/font/google';
 import localFont from 'next/font/local';
 import Script from 'next/script';

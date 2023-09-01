@@ -2,14 +2,14 @@
 
 import cn from 'classnames';
 import Image from 'next/image';
-import { forwardRef, useEffect, useRef, ForwardedRef } from 'react';
+import { forwardRef, useEffect, useRef, type ForwardedRef } from 'react';
 
 import { StandardButton, Waves } from '@/shared/components';
 import { ROUTES } from '@/shared/constants';
 
 import { getSections, linkVariants, wrapperVariants } from './data';
 import styles from './styles.module.css';
-import { Props } from './types';
+import { type Props } from './types';
 
 const LandingNav = forwardRef(function LandingNav(
   { currentSection, windowScroll, windowWidth, shown, animationIsActive, handleIconClick, handleSectionClick }: Props,

@@ -3,7 +3,7 @@
 import { Dialog } from '@headlessui/react';
 import cn from 'classnames';
 
-import { Props } from './types';
+import { type Props } from './types';
 
 function Modal({
   shown,

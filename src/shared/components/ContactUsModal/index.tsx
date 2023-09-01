@@ -1,7 +1,7 @@
 import { Modal } from '@/shared/components';
 
 import Form from './components/Form';
-import { Props } from './types';
+import { type Props } from './types';
 
 function ContactUsModal({ shown, onClose }: Props) {
   return (

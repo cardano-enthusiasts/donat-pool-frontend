@@ -14,6 +14,7 @@ module.exports = {
   parserOptions: {
     project: true,
     tsconfigRootDir: __dirname,
+    emitDecoratorMetadata: true,
   },
   extends: [
     'eslint:recommended',
@@ -27,6 +28,9 @@ module.exports = {
     'plugin:@next/next/recommended',
   ],
   rules: {
+    '@typescript-eslint/consistent-type-imports': ['error', { fixStyle: 'inline-type-imports' }],
+    '@typescript-eslint/method-signature-style': 'error',
+
     'import/order': [
       'error',
       {

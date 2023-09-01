@@ -1,6 +1,6 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
 
-import { RequestStatus, DonatPool } from '@/shared/types';
+import { type RequestStatus, type DonatPool } from '@/shared/types';
 
 const initialState: {
   status: RequestStatus;

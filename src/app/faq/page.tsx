@@ -1,5 +1,5 @@
 import HTMLReactParser from 'html-react-parser';
-import { Metadata } from 'next';
+import { type Metadata } from 'next';
 import Link from 'next/link';
 
 import { AlertNote, DropdownSection, Line, Subtitle, Ul, Service } from '@/shared/components';

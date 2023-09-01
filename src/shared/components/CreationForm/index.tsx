@@ -18,7 +18,7 @@ import {
 import { ROUTES } from '@/shared/constants';
 import { useCreateDonatPool } from '@/shared/hooks';
 
-import { FormError, Props } from './types';
+import { type FormError, type Props } from './types';
 
 function CreationForm({ protocol, onClose }: Props) {
   const { minAmountParam, maxAmountParam, minDurationParam, maxDurationParam } = protocol;

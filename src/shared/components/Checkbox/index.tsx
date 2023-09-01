@@ -1,7 +1,7 @@
 import cn from 'classnames';
 import { useId } from 'react';
 
-import { Props } from './types';
+import { type Props } from './types';
 
 function Checkbox({ checked, textTheme = 'white', children, onChange }: React.PropsWithChildren<Props>) {
   const id = useId();
