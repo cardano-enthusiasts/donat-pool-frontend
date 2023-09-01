@@ -46,8 +46,8 @@ function Tutorial() {
                   alt="tutorial step"
                 />
                 <ul className={`${styles.description} m-0 list-disc pl-5`}>
-                  {description.map((item, index) => (
-                    <li className="mb-2.5 text-sm" key={index}>
+                  {description.map((item) => (
+                    <li className="mb-2.5 text-sm" key={item}>
                       {HTMLReactParser(item)}
                     </li>
                   ))}
