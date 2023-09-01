@@ -45,7 +45,15 @@ function ProjectCard({
         </h3>
         <div className="flex w-full justify-between border-t-2 border-t-black pt-4">
           <div className="leading-none">{formatDate(Number(deadline))}</div>
-          <div className="flex font-bold leading-none after:ml-1 after:h-[0.875rem] after:w-[0.875rem] after:content-[url('/icons/ADA.svg')]">
+          <div
+            className="flex
+              font-bold
+              leading-none
+              after:ml-1
+              after:h-[0.875rem]
+              after:w-[0.875rem]
+              after:content-[url('/icons/ADA.svg')]"
+          >
             <div className="flex text-red">
               {status === 'active' && (
                 <>

@@ -39,7 +39,12 @@ const metadata: Metadata = {
 function Layout({ children }: React.PropsWithChildren) {
   return (
     <html
-      className={`${rammettoOneFont.variable} ${microsoftYaHeiFont.variable} bg-white font-microsoft-ya-hei text-[16px] text-black`}
+      className={`${rammettoOneFont.variable}
+        ${microsoftYaHeiFont.variable}
+        bg-white
+        font-microsoft-ya-hei
+        text-[16px]
+        text-black`}
       lang="en"
     >
       <body>

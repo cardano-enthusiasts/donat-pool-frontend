@@ -5,6 +5,8 @@ interface Props {
   name: string;
   placeholder?: string;
   placeholderTheme?: 'green' | 'yellow';
+  // "UseFormRegister" expects interface of form values as a type argument which is unknown because "Textarea" is a generic component
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   register: UseFormRegister<any>;
   registerOptions?: RegisterOptions;
   error?: Message;

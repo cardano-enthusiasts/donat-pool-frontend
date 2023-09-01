@@ -1,5 +1,4 @@
-import { FetchedDonatPool } from '@/shared/types';
-import { DonatPoolData } from '@/shared/types/common';
+import { FetchedDonatPool, Config, DonatPoolTokenData, Protocol } from '@/shared/types';
 
 interface ConnectionParameters {
   wallet: 'Nami' | 'Lode' | 'Flint' | 'Eternl';
@@ -11,10 +10,6 @@ interface InjectedWallet<Name> {
   icon: string;
   enable: () => Promise<Record<string, unknown>> | never;
   isEnabled: () => Promise<boolean>;
-}
-interface Protocol {
-  protocolCurrency: string;
-  protocolTokenName: string;
 }
 type HandleError = (error: string) => void;
 type FetchDonatPools = (
@@ -67,17 +62,13 @@ declare global {
           };
         }) => void,
       ) => (onError: HandleError) => (protocol: Protocol) => (connectionParameters: ConnectionParameters) => () => void;
-      createFundraising: (onSuccess: (createdDonatPool: FetchedDonatPool) => void) => (onError: HandleError) => (
+      createFundraising: (
+        onSuccess: (createdDonatPool: FetchedDonatPool) => void,
+      ) => (
+        onError: HandleError,
+      ) => (
         protocol: Protocol,
-      ) => (connectionParameters: ConnectionParameters) => (data: {
-        title: string;
-        amount: number;
-        duration: {
-          days: number;
-          hours: number;
-          minutes: number;
-        };
-      }) => () => void;
+      ) => (connectionParameters: ConnectionParameters) => (data: CreateDonatPoolParams) => () => void;
       getAllFundraisings: FetchDonatPools;
       getUserRelatedFundraisings: FetchDonatPools;
       donate: (
@@ -88,7 +79,7 @@ declare global {
         protocol: Protocol,
       ) => (
         connectionParameters: ConnectionParameters,
-      ) => (donatPoolData: DonatPoolData) => (amount: number) => () => void;
+      ) => (donatPoolData: DonatPoolTokenData) => (amount: number) => () => void;
       setProtocol: (
         onSuccess: (config: {
           minAmountParam: number;
@@ -97,7 +88,7 @@ declare global {
           maxDurationParam: number;
           protocolFeeParam: number;
         }) => void,
-      ) => (onError: HandleError) => (protocol: Protocol) => (connectionParameters: ConnectionParameters) => () => void;
+      ) => (onError: HandleError) => (protocol: Protocol) => (config: Config) => () => void;
       receiveFunds: (
         onSuccess: () => void,
       ) => (
