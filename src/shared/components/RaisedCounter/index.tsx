@@ -32,7 +32,16 @@ function RaisedCounter({ raised, goal }: Props) {
   }, [raised, goal]);
 
   return (
-    <div className="flex items-center justify-center gap-4 font-rammetto-one text-[3.375rem] font-normal leading-[104%] max-sm:text-4xl">
+    <div
+      className="flex
+        items-center
+        justify-center
+        gap-4
+        font-rammetto-one
+        text-[3.375rem]/[104%]
+        font-normal
+        max-sm:text-4xl"
+    >
       <Image
         src={`/img/${imgTitle}.svg`}
         alt="progress bar"

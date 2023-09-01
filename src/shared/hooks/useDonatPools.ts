@@ -3,9 +3,8 @@ import { useCallback, useEffect } from 'react';
 import { useAppSelector, useAppDispatch } from '@/redux/hooks';
 import { setStatus, setDonatPools, setError } from '@/redux/slices/getAllFundraisings';
 import { createConnectionParameters, transformFetchedDonatPools } from '@/shared/helpers';
-import { FetchedDonatPool } from '@/shared/types';
-
-import useOffchain from './useOffchain';
+import { useOffchain } from '@/shared/hooks';
+import { FetchedDonatPool, Protocol } from '@/shared/types';
 
 function useDonatPools() {
   const offchain = useOffchain();
@@ -31,9 +30,9 @@ function useDonatPools() {
   const fetchDonatPools = useCallback(() => {
     if (offchain && activeWalletCardanoKey) {
       dispatch(setStatus('requesting'));
-      offchain.getAllFundraisings(handleFetchSuccess)(handleFetchFailure)(JSON.parse(process.env.NEXT_PUBLIC_PROTOCOL))(
-        createConnectionParameters(activeWalletCardanoKey),
-      )();
+      offchain.getAllFundraisings(handleFetchSuccess)(handleFetchFailure)(
+        JSON.parse(process.env.NEXT_PUBLIC_PROTOCOL) as Protocol,
+      )(createConnectionParameters(activeWalletCardanoKey))();
     }
   }, [offchain, activeWalletCardanoKey, dispatch, handleFetchSuccess, handleFetchFailure]);
 

@@ -8,7 +8,20 @@ function ScrollHelper() {
       <div className={`${circleStyles} animate-circle2`} />
       <div className={`${circleStyles} animate-circle3`} />
       <div className={`${circleStyles} top-[3.375rem] animate-circle4 opacity-0`} />
-      <div className="absolute left-0 right-0 top-[2.25rem] mx-auto my-0 h-7 w-2.5 animate-line rounded-[0.625rem] bg-yellow opacity-0" />
+      <div
+        className="absolute
+          left-0
+          right-0
+          top-[2.25rem]
+          mx-auto
+          my-0
+          h-7
+          w-2.5
+          animate-line
+          rounded-[0.625rem]
+          bg-yellow
+          opacity-0"
+      />
       <div className={`${arrowStyles} right-4 rotate-[-45deg] animate-arrowLeft`} />
       <div className={`${arrowStyles} left-4 rotate-45 animate-arrowRight`} />
     </div>

@@ -4,10 +4,10 @@ import cn from 'classnames';
 import { Fragment, forwardRef, useEffect, useRef, useState, ForwardedRef, MutableRefObject } from 'react';
 
 import { AboutUs, Footer, HowItWorks, Roadmap, TitleAndDescription, Waves, WhyChooseUs } from '@/shared/components';
-import { LandingSection } from '@/shared/types/common';
+import { LandingSection } from '@/shared/types';
 
 import CLASSES from './constants';
-import { Props, Content } from './types';
+import { Props, Content, Section, Refs } from './types';
 
 const LandingContent = forwardRef(function LandingContent(
   { windowScroll, setAnimationIsActive, currentSection, setCurrentSection }: Props,
@@ -54,16 +54,17 @@ const LandingContent = forwardRef(function LandingContent(
       const navBottom = Math.round((navRef as MutableRefObject<HTMLElement>)?.current.getBoundingClientRect().bottom);
       const navMiddle = (navBottom - navTop) / 2 + navTop;
 
-      const refsWithoutContactUs: any = {
+      const refsWithoutContactUs: Refs = {
         home: homeRef,
         'how-it-works': howItWorksRef,
         'why-choose-us': whyChooseUsRef,
         'about-us': aboutUsRef,
       };
 
-      let prop: any;
+      let prop: Section;
       for (prop in refsWithoutContactUs) {
-        if (refsWithoutContactUs[prop].current.getBoundingClientRect().bottom > navMiddle) {
+        // current exists in refsWithoutContactUs[prop], cause it is ref
+        if (refsWithoutContactUs[prop].current!.getBoundingClientRect().bottom > navMiddle) {
           return prop;
         }
       }
