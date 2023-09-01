@@ -15,7 +15,18 @@ function Textarea({ label, name, placeholder, placeholderTheme = 'green', regist
       )}
       <textarea
         className={cn(
-          'w-full resize-none overscroll-y-none rounded-md border-2 px-4 py-[0.8125rem] text-xl/[1.875rem] outline-none',
+          `w-full
+          resize-none
+          overscroll-y-none
+          rounded-md
+          border-2
+          px-4
+          py-[0.8125rem]
+          text-xl/[1.875rem]
+          outline-none
+          disabled:border-gray-secondary
+          disabled:bg-[#f3f3f3]
+          disabled:text-gray-secondary`,
           error ? 'border-error text-error' : 'border-black',
           {
             'placeholder:text-green': placeholderTheme === 'green',

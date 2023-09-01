@@ -5,6 +5,7 @@ interface Props {
   external?: boolean;
   size?: 's' | 'm';
   isFullWidth?: boolean;
+  disabled?: boolean;
   onClick?: () => void;
 }
 

@@ -19,6 +19,11 @@ function ContactUsForm({ onSubmit, onCancelButtonClick }: Props) {
 
   const handleSubmit = createSubmitHandler(async (data) => {
     try {
+      await new Promise((resolve) => {
+        setTimeout(() => {
+          resolve(1);
+        }, 2000);
+      });
       await api.post('core/contact-us', data);
       onSubmit();
     } catch (error) {
@@ -36,7 +41,7 @@ function ContactUsForm({ onSubmit, onCancelButtonClick }: Props) {
           name="contact"
           placeholder="+0 / mail@mail.com / @nickname"
           register={register}
-          registerOptions={{ required: 'Contact is required' }}
+          registerOptions={{ required: 'Contact is required', disabled: isSubmitting }}
           error={errors.contact?.message}
         />
         <NewInput
@@ -44,13 +49,24 @@ function ContactUsForm({ onSubmit, onCancelButtonClick }: Props) {
           name="name"
           placeholder="Elon Musk"
           register={register}
-          registerOptions={{ required: 'Name is required' }}
+          registerOptions={{ required: 'Name is required', disabled: isSubmitting }}
           error={errors.name?.message}
         />
-        <Textarea label="Your Message" name="message" register={register} placeholder="Hello!" />
+        <Textarea
+          label="Your Message"
+          name="message"
+          placeholder="Hello!"
+          register={register}
+          registerOptions={{ disabled: isSubmitting }}
+        />
       </div>
       <div className="grid grid-cols-[auto_1fr] gap-x-6">
-        <DoubleBorderedButton primaryColor="blue" backgroundColor="white" onClick={onCancelButtonClick}>
+        <DoubleBorderedButton
+          primaryColor="blue"
+          backgroundColor="white"
+          onClick={onCancelButtonClick}
+          disabled={isSubmitting}
+        >
           Cancel
         </DoubleBorderedButton>
         <StandardButton
