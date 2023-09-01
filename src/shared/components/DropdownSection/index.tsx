@@ -10,7 +10,7 @@ function DropdownSection({ title = '', children }: React.PropsWithChildren<Props
   const [shown, setShown] = useState(false);
 
   function handleWrapperClick() {
-    setShown((s) => !s);
+    setShown(!shown);
   }
 
   return (

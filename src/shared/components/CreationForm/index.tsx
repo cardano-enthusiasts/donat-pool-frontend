@@ -121,7 +121,7 @@ function CreationForm({ protocol, onClose }: Props) {
   }
 
   function handleCheckboxChange() {
-    setChecked((c) => !c);
+    setChecked(!checked);
   }
 
   function handleProjectCreatedModalClose() {

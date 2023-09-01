@@ -18,7 +18,7 @@ function Header() {
   const activeWalletCardanoKey = useAppSelector((state) => state.cardano.activeWalletCardanoKey);
 
   function handleCloseIconClick() {
-    setMenuIsShown((m) => !m);
+    setMenuIsShown(!menuIsShown);
   }
 
   return (

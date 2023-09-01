@@ -13,7 +13,7 @@ function Tutorial() {
   const [shown, setShown] = useState(true);
 
   function handleWatchTutorialButtonClick() {
-    setShown((s) => !s);
+    setShown(!shown);
   }
 
   return (

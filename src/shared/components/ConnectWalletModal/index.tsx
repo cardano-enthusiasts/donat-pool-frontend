@@ -31,7 +31,7 @@ function ConnectWalletModal() {
   const [someWalletIsBeingConnected, setSomeWalletIsBeingConnected] = useState(false);
 
   function handleCheckboxChange() {
-    setTermsOfUseAreAccepted((t) => !t);
+    setTermsOfUseAreAccepted(!termsOfUseAreAccepted);
   }
 
   async function handleConnectWalletButtonClick(walletCardanoKey: WalletCardanoKey) {

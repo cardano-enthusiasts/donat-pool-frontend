@@ -16,7 +16,7 @@ function Page() {
   const navRef = useRef<HTMLDivElement>(null);
 
   function handleMobileHeaderClick() {
-    setMobileHeaderIsShown((m) => !m);
+    setMobileHeaderIsShown(!mobileHeaderIsShown);
   }
 
   function handleSectionClick(clickedSection: LandingSection) {
