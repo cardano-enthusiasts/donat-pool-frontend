@@ -5,7 +5,7 @@ function useOffchain() {
 
   useEffect(function f() {
     if (Object.hasOwn(window, 'donatPool')) {
-      // "donatPool" is present in "window"
+      // hasOwn on 7th line ensures that "donatPool" is present in "window"
       window.donatPool!.then(setOffchain, console.error);
       return;
     }

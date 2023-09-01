@@ -1,3 +1,5 @@
+'use client';
+
 import cn from 'classnames';
 import Image, { StaticImageData } from 'next/image';
 import Link from 'next/link';
