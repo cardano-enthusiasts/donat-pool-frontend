@@ -33,8 +33,6 @@ const LandingNav = forwardRef(function LandingNav(
         styles.wrapper,
         'fixed top-[5.625rem] max-fhd:left-[5.625rem] max-xl:fixed max-xl:left-0 max-xl:top-0 max-xl:flex max-xl:w-[100vw] max-xl:items-center max-xl:justify-center',
         {
-          'z-[-1] max-xl:z-[100]': currentSection === 'contact-us',
-          'z-[3] max-xl:z-[100]': currentSection !== 'contact-us',
           hidden: windowScroll < 500 && animationIsActive,
           'max-xl:h-[100vh] max-xl:overflow-auto': shown,
         },

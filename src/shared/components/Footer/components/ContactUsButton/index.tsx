@@ -2,9 +2,7 @@
 
 import { useState } from 'react';
 
-import { StandardButton } from '@/shared/components';
-
-import ContactUsModal from '../ContactUsModal';
+import { StandardButton, ContactUsModal } from '@/shared/components';
 
 function ContactUsButton() {
   const [modalIsShown, setModalIsShown] = useState(false);

@@ -32,6 +32,8 @@ export { default as Stack } from './Stack';
 export { default as ScrollHelper } from './ScrollHelper';
 export { default as Common } from './Common';
 export { default as CommonError } from './CommonError';
+export { default as ConnectWalletModal } from './ConnectWalletModal';
+export { default as ContactUsModal } from './ContactUsModal';
 export { default as Arrow } from './Arrow';
 export { default as Textarea } from './Textarea';
 export { default as TitleAndDescription } from './TitleAndDescription';

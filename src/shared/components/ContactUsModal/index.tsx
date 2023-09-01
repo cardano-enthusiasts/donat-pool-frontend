@@ -1,7 +1,7 @@
 import { Modal } from '@/shared/components';
 
+import Form from './components/Form';
 import { Props } from './types';
-import ContactUsForm from '../ContactUsForm';
 
 function ContactUsModal({ shown, onClose }: Props) {
   return (
@@ -10,7 +10,7 @@ function ContactUsModal({ shown, onClose }: Props) {
       title="Contact us"
       description="You can report about an error or write to us how we can help you."
     >
-      <ContactUsForm onSubmit={onClose} onCancelButtonClick={onClose} />
+      <Form onSubmit={onClose} onCancelButtonClick={onClose} />
     </Modal>
   );
 }

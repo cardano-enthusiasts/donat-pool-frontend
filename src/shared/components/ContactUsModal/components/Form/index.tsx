@@ -9,7 +9,7 @@ import { DoubleBorderedButton, StandardButton, NewInput, Textarea } from '@/shar
 
 import { Props, FormValues } from './types';
 
-function ContactUsForm({ onSubmit, onCancelButtonClick }: Props) {
+function Form({ onSubmit, onCancelButtonClick }: Props) {
   const {
     handleSubmit: createSubmitHandler,
     register,
@@ -80,4 +80,4 @@ function ContactUsForm({ onSubmit, onCancelButtonClick }: Props) {
   );
 }
 
-export default ContactUsForm;
+export default Form;

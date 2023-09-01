@@ -28,7 +28,7 @@ function Waves({ color = 'blue', backgroundColor = 'transparent', upsideDown = f
   };
 
   return (
-    <div className={`text-center' relative z-[1] h-[6.25rem] ${colors[backgroundColor]}`}>
+    <div className={`text-center' relative h-[6.25rem] ${colors[backgroundColor]}`}>
       <svg
         className={cn('relative mb-[-0.4375rem] h-[6.25rem] max-w-full', {
           'rotate-180': upsideDown,
