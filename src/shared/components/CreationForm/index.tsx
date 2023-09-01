@@ -1,7 +1,7 @@
 'use client';
 
 import { useRouter } from 'next/navigation';
-import { useState, useEffect, ChangeEvent } from 'react';
+import { useState, useEffect } from 'react';
 
 import { useAppSelector, useAppDispatch } from '@/redux/hooks';
 import { reset } from '@/redux/slices/createFundraising';
@@ -110,7 +110,7 @@ function CreationForm({ protocol, onClose }: Props) {
   }
 
   function handleChange(
-    event: ChangeEvent,
+    event: React.ChangeEvent,
     type: 'title' | 'goal' | 'durationDays' | 'durationHours' | 'durationMinutes',
   ) {
     event.preventDefault();

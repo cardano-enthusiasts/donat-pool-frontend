@@ -12,8 +12,7 @@ function ModalError({ shown, title, errorText = '', onClose }: Props) {
         className="mb-6
           text-center
           font-rammetto-one
-          text-4xl
-          leading-[104%]
+          text-4xl/[104%]
           text-red
           max-lg:text-[2.25rem]
           max-sm:text-[2.25rem]"

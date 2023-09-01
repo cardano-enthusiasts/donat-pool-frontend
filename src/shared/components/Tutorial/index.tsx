@@ -32,7 +32,7 @@ function Tutorial() {
           {DATA.map(({ order, title, src, description }) => (
             <div className="mb-[5.375rem] max-md:mb-10" key={order}>
               <div className="mb-2 text-xl font-bold text-red">{order}</div>
-              <div className="mb-6 font-rammetto-one text-xl leading-[120%] text-black">{title}</div>
+              <div className="mb-6 font-rammetto-one text-xl/[120%] text-black">{title}</div>
               <div className="flex gap-[1.875rem] max-2xl:flex-col">
                 <Image
                   className="shadow-[0.25rem_0.25rem_0_0_theme(colors.red.DEFAULT)}]

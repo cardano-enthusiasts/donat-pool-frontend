@@ -11,8 +11,7 @@ function NotAvailableError() {
             className="mb-6
               text-center
               font-rammetto-one
-              text-[3.375rem]
-              leading-[104%]
+              text-[3.375rem]/[104%]
               text-white
               max-lg:text-[2.25rem]
               max-sm:text-[2.25rem]"

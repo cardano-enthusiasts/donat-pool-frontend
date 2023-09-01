@@ -63,6 +63,7 @@ const LandingContent = forwardRef(function LandingContent(
 
       let prop: Section;
       for (prop in refsWithoutContactUs) {
+        // current exists in refsWithoutContactUs[prop], cause it is ref
         if (refsWithoutContactUs[prop].current!.getBoundingClientRect().bottom > navMiddle) {
           return prop;
         }

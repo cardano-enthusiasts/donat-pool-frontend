@@ -38,9 +38,8 @@ function RaisedCounter({ raised, goal }: Props) {
         justify-center
         gap-4
         font-rammetto-one
-        text-[3.375rem]
+        text-[3.375rem]/[104%]
         font-normal
-        leading-[104%]
         max-sm:text-4xl"
     >
       <Image

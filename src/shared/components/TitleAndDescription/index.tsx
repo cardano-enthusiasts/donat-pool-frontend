@@ -17,13 +17,12 @@ function TitleAndDescription({ active }: Props) {
         height="341"
       />
       <div
-        className="leading-0
+        className="text-8xl/0
           mb-10
           flex
           w-full
           max-w-[62.5rem]
           flex-col
-          text-8xl
           text-green
           delay-200
           max-xl:w-[70%]

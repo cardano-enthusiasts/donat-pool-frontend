@@ -14,8 +14,7 @@ function ModalSuccess({ shown, description, onClose }: Props) {
           className="mb-6
             text-center
             font-rammetto-one
-            text-[3.375rem]
-            leading-[104%]
+            text-[3.375rem]/[104%]
             text-red
             max-lg:text-[2.25rem]
             max-sm:text-[2.25rem]"

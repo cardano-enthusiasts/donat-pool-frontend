@@ -3,7 +3,7 @@ import { Metadata } from 'next';
 
 import { Service } from '@/shared/components';
 import { roadmapText } from '@/shared/data';
-import { isSubItem } from '@/shared/helpers';
+import { isSubItem } from '@/shared/typeGuards';
 import { Item, SubItem } from '@/shared/types';
 
 const metadata: Metadata = {
@@ -11,7 +11,7 @@ const metadata: Metadata = {
 };
 
 function Page() {
-  function getSubLis(item: Item) {
+  function createSubItems(item: Item) {
     return item.subItems.map(({ id, title }: SubItem) => (
       <li className="ml-6" key={id}>
         {title}
@@ -24,8 +24,7 @@ function Page() {
       <h1
         className="mb-8
           font-rammetto-one
-          text-[3.375rem]
-          leading-[104%]
+          text-[3.375rem]/[104%]
           text-red
           max-lg:text-[2.25rem]
           max-sm:text-[2.25rem]"
@@ -37,7 +36,7 @@ function Page() {
           <div className="rounded-md p-6 shadow-xl" key={title}>
             <h2 className="text-2xl font-bold [&_span]:text-red">{HTMLReactParser(title)}</h2>
             <ul className="mt-6 list-disc pl-6">
-              {items.map((item) => (isSubItem(item) ? <li key={item.id}>{item.title}</li> : getSubLis(item)))}
+              {items.map((item) => (isSubItem(item) ? <li key={item.id}>{item.title}</li> : createSubItems(item)))}
             </ul>
           </div>
         ))}
