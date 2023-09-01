@@ -14,9 +14,9 @@ import { Props } from './types';
 function Roadmap({ active }: Props) {
   function createSubItems(item: Item) {
     return item.subItems.map(({ id, title }: SubItem) => (
-      <div className="ml-[4.375rem] text-3xl max-xl:ml-[3.125rem] max-xl:text-base max-sm:ml-6" key={id}>
+      <li className="ml-[4.375rem] text-3xl max-xl:ml-[3.125rem] max-xl:text-base max-sm:ml-6" key={id}>
         {title}
-      </div>
+      </li>
     ));
   }
 
