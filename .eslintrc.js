@@ -28,7 +28,7 @@ module.exports = {
     'plugin:@next/next/recommended',
   ],
   rules: {
-    '@typescript-eslint/consistent-type-imports': ['error', { fixStyle: 'inline-type-imports' }],
+    '@typescript-eslint/consistent-type-imports': 'error',
     '@typescript-eslint/method-signature-style': 'error',
 
     'import/order': [
@@ -44,7 +44,7 @@ module.exports = {
     ],
     'import/exports-last': 'error',
     'import/group-exports': 'error',
-    'import/newline-after-import': ['error', { considerComments: true }],
+    'import/newline-after-import': 'error',
 
     'react/function-component-definition': 'error',
     'react/hook-use-state': 'error',

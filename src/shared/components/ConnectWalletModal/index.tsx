@@ -1,7 +1,8 @@
 'use client';
 
 import cn from 'classnames';
-import Image, { type StaticImageData } from 'next/image';
+import type { StaticImageData } from 'next/image';
+import Image from 'next/image';
 import Link from 'next/link';
 import { useMemo, useState } from 'react';
 
@@ -9,7 +10,7 @@ import { useAppDispatch } from '@/redux/hooks';
 import { setActiveWalletCardanoKey } from '@/redux/slices/cardano';
 import { Modal, Checkbox, DoubleBorderedButton } from '@/shared/components';
 import { ROUTES, WALLET_CARDANO_KEY_TO_LOGO } from '@/shared/constants';
-import { type WalletCardanoKey } from '@/shared/types';
+import type { WalletCardanoKey } from '@/shared/types';
 import goToIcon from '@public/icons/go-to.svg';
 
 import { WALLETS } from './constants';

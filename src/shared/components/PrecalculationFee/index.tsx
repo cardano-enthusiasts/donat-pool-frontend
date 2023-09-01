@@ -2,7 +2,7 @@
 
 import { useAppSelector } from '@/redux/hooks';
 
-import { type Props } from './types';
+import type { Props } from './types';
 
 function PrecalculationFee({ goal }: Props) {
   const protocolFeeParam = useAppSelector((state) => state.appInfo.protocol?.protocolFeeParam);

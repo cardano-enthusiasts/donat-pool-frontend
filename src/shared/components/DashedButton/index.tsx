@@ -4,7 +4,7 @@ import { Arrow } from '@/shared/components';
 
 import VARIANTS from './constants';
 import styles from './styles.module.css';
-import { type Props } from './types';
+import type { Props } from './types';
 
 function DashedButton({
   children,

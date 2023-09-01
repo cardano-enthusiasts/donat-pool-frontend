@@ -1,4 +1,4 @@
-import { type DonatPool, type DonatPoolTokenData } from '@/shared/types';
+import type { DonatPool, DonatPoolTokenData } from '@/shared/types';
 
 interface Props {
   shown: boolean;

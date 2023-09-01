@@ -4,7 +4,7 @@ import oksanaImage from '@public/img/oksana.png';
 import olgaImage from '@public/img/olga.png';
 import svetlanaImage from '@public/img/svetlana.png';
 
-import { type Photo } from './types';
+import type { Photo } from './types';
 
 const COMMON_ROW_CLASSES = 'max-xxs:h-[56.25rem] max-1.5xl:h-[75rem] max-xl:h-[62.5rem] max-md:h-[43.75rem]';
 

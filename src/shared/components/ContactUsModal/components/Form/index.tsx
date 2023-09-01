@@ -7,7 +7,7 @@ import { useForm } from 'react-hook-form';
 import api from '@/shared/api';
 import { DoubleBorderedButton, StandardButton, NewInput, Textarea } from '@/shared/components';
 
-import { type Props, type FormValues } from './types';
+import type { Props, FormValues } from './types';
 
 function Form({ onSubmit, onCancelButtonClick }: Props) {
   const {

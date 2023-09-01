@@ -1,7 +1,7 @@
 import cn from 'classnames';
 import { useId } from 'react';
 
-import { type Props } from './types';
+import type { Props } from './types';
 
 function Textarea({ label, name, placeholder, placeholderTheme = 'green', register, registerOptions, error }: Props) {
   const id = useId();

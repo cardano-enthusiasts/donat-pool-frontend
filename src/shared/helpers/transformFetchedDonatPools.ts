@@ -1,4 +1,4 @@
-import { type FetchedDonatPool } from '@/shared/types';
+import type { FetchedDonatPool } from '@/shared/types';
 
 function transformFetchedDonatPools(donatPools: FetchedDonatPool[]) {
   return donatPools.map(

@@ -6,9 +6,9 @@ import { useEffect, useState } from 'react';
 import { BorderedButton, ProjectCard, StandardButton } from '@/shared/components';
 import { ROUTES } from '@/shared/constants';
 import { useMyDonatPools } from '@/shared/hooks';
-import { type DonatPool } from '@/shared/types';
+import type { DonatPool } from '@/shared/types';
 
-import { type ProjectStatus } from './types';
+import type { ProjectStatus } from './types';
 
 function MyDonatPools() {
   const [allProjectsWithStatus, setAllProjectsWithStatus] = useState<DonatPool[] | null>(null);

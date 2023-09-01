@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 import ContactUsButton from './components/ContactUsButton';
 import { SOCIALS, LINKS } from './constants';
-import { type Props } from './types';
+import type { Props } from './types';
 
 function Footer({ theme = 'blue' }: Props) {
   return (

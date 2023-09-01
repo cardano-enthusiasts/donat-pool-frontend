@@ -1,13 +1,14 @@
 'use client';
 
 import cn from 'classnames';
-import { Fragment, forwardRef, useEffect, useRef, useState, type ForwardedRef, type MutableRefObject } from 'react';
+import type { ForwardedRef, MutableRefObject } from 'react';
+import { Fragment, forwardRef, useEffect, useRef, useState } from 'react';
 
 import { AboutUs, Footer, HowItWorks, Roadmap, TitleAndDescription, Waves, WhyChooseUs } from '@/shared/components';
-import { type LandingSection } from '@/shared/types';
+import type { LandingSection } from '@/shared/types';
 
 import CLASSES from './constants';
-import { type Props, type Content, type Section, type Refs } from './types';
+import type { Props, Content, Section, Refs } from './types';
 
 const LandingContent = forwardRef(function LandingContent(
   { windowScroll, setAnimationIsActive, currentSection, setCurrentSection }: Props,

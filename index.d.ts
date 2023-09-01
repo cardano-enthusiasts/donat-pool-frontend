@@ -1,4 +1,4 @@
-import { type FetchedDonatPool, type Config, type DonatPoolTokenData, type Protocol } from '@/shared/types';
+import type { FetchedDonatPool, Config, DonatPoolTokenData, Protocol } from '@/shared/types';
 
 interface ConnectionParameters {
   wallet: 'Nami' | 'Lode' | 'Flint' | 'Eternl';

@@ -1,4 +1,4 @@
-import { type Props } from './types';
+import type { Props } from './types';
 
 function Project({ previousPageTitle, title, children, onPreviousPageClick }: React.PropsWithChildren<Props>) {
   return (

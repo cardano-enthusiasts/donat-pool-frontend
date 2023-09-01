@@ -1,4 +1,4 @@
-import { type StaticImageData } from 'next/image';
+import type { StaticImageData } from 'next/image';
 
 import { ROUTES } from '@/shared/constants';
 import githubLogo from '@public/icons/github.svg';

@@ -3,7 +3,7 @@ import Image from 'next/image';
 import { DoubleBorderedButton, Modal } from '@/shared/components';
 
 import styles from './styles.module.css';
-import { type Props } from './types';
+import type { Props } from './types';
 
 function ModalError({ shown, title, errorText = '', onClose }: Props) {
   return (

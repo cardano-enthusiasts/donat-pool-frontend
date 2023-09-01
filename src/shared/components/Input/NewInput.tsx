@@ -1,7 +1,7 @@
 import cn from 'classnames';
 import { useId } from 'react';
 
-import { type NewInputProps } from './types';
+import type { NewInputProps } from './types';
 
 function NewInput({
   label,

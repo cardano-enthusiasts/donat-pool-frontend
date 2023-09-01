@@ -4,7 +4,7 @@ import { AccentButton } from '@/shared/components';
 import { ROUTES } from '@/shared/constants';
 
 import styles from './styles.module.css';
-import { type Props } from './types';
+import type { Props } from './types';
 
 function TitleAndDescription({ active }: Props) {
   return (
