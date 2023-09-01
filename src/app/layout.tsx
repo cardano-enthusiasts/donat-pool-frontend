@@ -49,6 +49,8 @@ function Layout({ children }: React.PropsWithChildren) {
     >
       <body>
         <StoreProvider>{children}</StoreProvider>
+        {/* Rule mentions "page router" of nextjs but we use "app router" */}
+        {/* eslint-disable-next-line @next/next/no-before-interactive-script-outside-document */}
         <Script src="/offchain/index.js" strategy="beforeInteractive" />
       </body>
     </html>
