@@ -41,8 +41,7 @@ function Tutorial() {
                     shrink-0
                     rounded-md
                     border-[0.75rem]
-                    border-yellow
-                  "
+                    border-yellow"
                   src={src}
                   alt="tutorial step"
                 />

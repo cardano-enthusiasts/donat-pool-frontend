@@ -31,8 +31,7 @@ function TitleAndDescription({ active }: Props) {
           max-xl:text-5xl
           max-sm:w-full
           max-sm:max-w-[20rem]
-          max-sm:text-3xl
-        "
+          max-sm:text-3xl"
       >
         <div>Give a little,</div>
         <div className="self-end">help a lot</div>

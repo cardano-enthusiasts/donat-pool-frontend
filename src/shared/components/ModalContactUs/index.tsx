@@ -33,11 +33,11 @@ function ModalContactUs({ shown, onClose }: Props) {
         <div className="flex flex-col items-center gap-6">
           <h1
             className="font-rammetto-one
-            text-[3.375rem]
-            leading-[104%]
-            text-red
-            max-lg:text-[2.25rem] 
-            max-sm:text-[2.25rem]"
+              text-[3.375rem]
+              leading-[104%]
+              text-red
+              max-lg:text-[2.25rem] 
+              max-sm:text-[2.25rem]"
           >
             Contact us
           </h1>

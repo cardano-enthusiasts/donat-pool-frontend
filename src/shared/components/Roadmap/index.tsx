@@ -34,8 +34,7 @@ function Roadmap({ active }: Props) {
           font-bold
           max-lg:left-0
           max-lg:ml-0
-          max-sm:text-xl
-        `}
+          max-sm:text-xl`}
       >
         <div className={cn('absolute top-[100%] text-yellow', { 'animate-roadmap': active })}>
           {roadmapText.phases.map(({ title, items }) => (

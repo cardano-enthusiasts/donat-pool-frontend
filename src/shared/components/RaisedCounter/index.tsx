@@ -41,8 +41,7 @@ function RaisedCounter({ raised, goal }: Props) {
         text-[3.375rem]
         font-normal
         leading-[104%]
-        max-sm:text-4xl
-      "
+        max-sm:text-4xl"
     >
       <Image
         src={`/img/${imgTitle}.svg`}
