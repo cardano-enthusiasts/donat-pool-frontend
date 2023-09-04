@@ -1,9 +1,12 @@
 import cn from 'classnames';
-import { useId } from 'react';
+import { forwardRef, useId } from 'react';
 
 import type { Props } from './types';
 
-function Textarea({ label, name, placeholder, placeholderTheme = 'green', register, registerOptions, error }: Props) {
+const Textarea = forwardRef<HTMLTextAreaElement, Props>(function Textarea(
+  { label, name, placeholder, placeholderTheme = 'green', disabled, error, onChange, onBlur },
+  ref,
+) {
   const id = useId();
 
   return (
@@ -34,13 +37,21 @@ function Textarea({ label, name, placeholder, placeholderTheme = 'green', regist
           },
         )}
         id={id}
+        ref={ref}
+        name={name}
         placeholder={placeholder}
         rows={4}
-        {...register(name, registerOptions)}
+        disabled={disabled}
+        // "React Hook Form" provides this handler
+        // eslint-disable-next-line @typescript-eslint/no-misused-promises
+        onChange={onChange}
+        // "React Hook Form" provides this handler
+        // eslint-disable-next-line @typescript-eslint/no-misused-promises
+        onBlur={onBlur}
       />
       {error && <div className="mt-2 text-error">{error}</div>}
     </div>
   );
-}
+});
 
 export default Textarea;

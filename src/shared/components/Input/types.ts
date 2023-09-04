@@ -1,4 +1,4 @@
-import type { UseFormRegister, RegisterOptions, Message } from 'react-hook-form';
+import type { UseFormRegister, Message } from 'react-hook-form';
 
 interface Props {
   value: string | number;
@@ -17,16 +17,14 @@ interface Props {
   onChange: (event: React.ChangeEvent) => void;
 }
 
-interface NewInputProps {
+// "UseFormRegister" expects interface of form values as a type argument which is unknown because "Input" is a generic component
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+interface NewInputProps extends ReturnType<UseFormRegister<any>> {
   label?: string;
   type?: 'text' | 'email' | 'password';
-  name: string;
   placeholder?: string;
   placeholderTheme?: 'green' | 'yellow';
-  // "UseFormRegister" expects interface of form values as a type argument which is unknown because "Input" is a generic component
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  register: UseFormRegister<any>;
-  registerOptions?: RegisterOptions;
+  disabled?: boolean;
   error?: Message;
 }
 

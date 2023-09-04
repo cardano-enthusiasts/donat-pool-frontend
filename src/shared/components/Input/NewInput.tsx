@@ -1,18 +1,12 @@
 import cn from 'classnames';
-import { useId } from 'react';
+import { forwardRef, useId } from 'react';
 
 import type { NewInputProps } from './types';
 
-function NewInput({
-  label,
-  type = 'text',
-  name,
-  placeholder,
-  placeholderTheme = 'green',
-  register,
-  registerOptions,
-  error,
-}: NewInputProps) {
+const NewInput = forwardRef<HTMLInputElement, NewInputProps>(function NewInput(
+  { label, name, type = 'text', placeholder, placeholderTheme = 'green', disabled, error, onChange, onBlur },
+  ref,
+) {
   const id = useId();
 
   return (
@@ -41,13 +35,21 @@ function NewInput({
           },
         )}
         id={id}
+        ref={ref}
+        name={name}
         type={type}
         placeholder={placeholder}
-        {...register(name, registerOptions)}
+        disabled={disabled}
+        // "React Hook Form" provides this handler
+        // eslint-disable-next-line @typescript-eslint/no-misused-promises
+        onChange={onChange}
+        // "React Hook Form" provides this handler
+        // eslint-disable-next-line @typescript-eslint/no-misused-promises
+        onBlur={onBlur}
       />
       {error && <div className="mt-2 text-error">{error}</div>}
     </div>
   );
-}
+});
 
 export default NewInput;

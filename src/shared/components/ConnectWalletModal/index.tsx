@@ -41,7 +41,7 @@ function ConnectWalletModal() {
     try {
       const walletApi = await window.cardano?.[walletCardanoKey]?.enable();
 
-      // WORKAROUND: catching connection cancelling of Lode wallet. For some reason it does not throw an error in this case
+      // catching connection cancelling of Lode wallet. For some reason it does not throw an error in this case
       if (walletCardanoKey === 'LodeWallet' && walletApi === undefined) {
         throw new Error('LodeWallet: connection cancelling');
       }

@@ -19,7 +19,7 @@ function Form({ onSubmit, onCancelButtonClick }: Props) {
 
   const handleSubmit = createSubmitHandler(async (data) => {
     try {
-      await api.post('core/contact-us', data);
+      await api.post('core/contact-us/', data);
       onSubmit();
     } catch (error) {
       setRequestError(isAxiosError(error) ? error.message : 'Unknown error');
@@ -32,27 +32,25 @@ function Form({ onSubmit, onCancelButtonClick }: Props) {
     <form onSubmit={handleSubmit}>
       <div className="mb-10 space-y-6">
         <NewInput
+          {...register('contact', { required: 'Contact is required' })}
           label="Phone / E-mail / Telegram nickname"
-          name="contact"
           placeholder="+0 / mail@mail.com / @nickname"
-          register={register}
-          registerOptions={{ required: 'Contact is required', disabled: isSubmitting }}
+          disabled={isSubmitting}
           error={errors.contact?.message}
         />
         <NewInput
+          {...register('name', { required: 'Name is required' })}
           label="Your Name"
-          name="name"
           placeholder="Elon Musk"
-          register={register}
-          registerOptions={{ required: 'Name is required', disabled: isSubmitting }}
+          disabled={isSubmitting}
           error={errors.name?.message}
         />
         <Textarea
+          {...register('message', { required: 'Message is required' })}
           label="Your Message"
-          name="message"
           placeholder="Hello!"
-          register={register}
-          registerOptions={{ disabled: isSubmitting }}
+          disabled={isSubmitting}
+          error={errors.message?.message}
         />
       </div>
       <div className="grid grid-cols-[auto_1fr] gap-x-6">
