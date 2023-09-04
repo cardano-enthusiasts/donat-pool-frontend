@@ -13,12 +13,13 @@ function ModalDonate({ shown, onClose, data: { threadTokenCurrency, threadTokenN
     setValue('');
   }, [shown]);
 
-  function handleChange(event: any) {
-    const currentValue = event.target.value === '' ? '' : Number(event.target.value);
+  function handleChange(event: React.ChangeEvent<Element>) {
+    const target = event.target as HTMLInputElement;
+    const currentValue = target.value === '' ? '' : Number(target.value);
     setValue(currentValue);
   }
 
-  function handleSubmit(event: any) {
+  function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
     if (value !== '') {
       donate(

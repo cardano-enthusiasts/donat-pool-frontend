@@ -17,7 +17,7 @@ function Layout({ children }: React.PropsWithChildren) {
         for (const walletCardanoKey of ['nami', 'LodeWallet', 'flint', 'eternl'] as const) {
           if (
             // hasOwn on 16th line ensures that "cardano" is present in "window"
-            Object.hasOwn(window.cardano as any, walletCardanoKey) &&
+            Object.hasOwn(window.cardano!, walletCardanoKey) &&
             (await window.cardano?.[walletCardanoKey]?.isEnabled())
           ) {
             dispatch(setActiveWalletCardanoKey(walletCardanoKey));

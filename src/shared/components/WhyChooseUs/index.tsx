@@ -5,7 +5,7 @@ import { StandardButton } from '@/shared/components';
 import { PRIMARY_SECTIONS, SECONDARY_SECTIONS } from './data';
 
 function WhyChooseUs() {
-  const titleClasses = 'mb-6 text-5xl font-bold leading-normal max-lg:text-[2rem] max-lg:leading-tight';
+  const titleClasses = 'mb-6 text-5xl/normal font-bold max-lg:text-[2rem]/tight';
   const descriptionClasses = 'text-2xl max-md:text-lg';
 
   return (

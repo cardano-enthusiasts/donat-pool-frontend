@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, ChangeEvent } from 'react';
+import { useState, useEffect } from 'react';
 
 import { useAppSelector, useAppDispatch } from '@/redux/hooks';
 import { reset } from '@/redux/slices/protocolUpdating';
@@ -46,7 +46,7 @@ function ManagerEditor({ config }: Props) {
     setParams(config);
   }, [config]);
 
-  function handleInputChange(event: any) {
+  function handleInputChange(event: React.ChangeEvent<Element>) {
     const { value } = event.target as HTMLInputElement;
     const dataType = String(event.target.getAttribute('data-type'));
 
@@ -56,7 +56,7 @@ function ManagerEditor({ config }: Props) {
     });
   }
 
-  function handleSubmit(event: ChangeEvent<HTMLFormElement>) {
+  function handleSubmit(event: React.ChangeEvent<HTMLFormElement>) {
     event.preventDefault();
     setProtocol(params);
   }
