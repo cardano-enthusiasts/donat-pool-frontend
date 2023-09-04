@@ -2,7 +2,7 @@ import HTMLReactParser from 'html-react-parser';
 import { Metadata } from 'next';
 import Link from 'next/link';
 
-import { AlertNote, DropdownSection, Line, Subtitle, Ul, Service } from '@/shared/components';
+import { AlertNote, DropdownSection, Line, Ul, Service } from '@/shared/components';
 import { ROUTES } from '@/shared/constants';
 
 import { basicSection } from './data';
@@ -41,25 +41,25 @@ function Page() {
             The main difference of Donat.Pool from other donation services is that it is the first fundraising service
             based on the Cardano blockchain.
             <div>
-              <Subtitle>Low fees and Fast transactions</Subtitle>
+              <h3 className="mb-3 text-[1.25rem] font-bold text-gray-tertiary">Low fees and Fast transactions</h3>
               The Cardano blockchain suggests low transaction fees and fast transaction speed.
             </div>
             <Line />
             <div>
-              <Subtitle>Secure transactions</Subtitle>
+              <h3 className="mb-3 text-[1.25rem] font-bold text-gray-tertiary">Secure transactions</h3>
               Cardano applications are based on smart contracts that allow to make secure transactions. Every
               transaction should pass the set of validations before it is recognized as legal.
             </div>
             <Line />
             <div>
-              <Subtitle>Transparency and privacy</Subtitle>
+              <h3 className="mb-3 text-[1.25rem] font-bold text-gray-tertiary">Transparency and privacy</h3>
               All transactions are transparent - everybody can trace all transactions with the Cardano blockchain
               explorer. At the same time you provide the service with as little personal information as you want. In
               fact, the minimal information the service requires is your wallet address.
             </div>
             <Line />
             <div>
-              <Subtitle>Open Source</Subtitle>
+              <h3 className="mb-3 text-[1.25rem] font-bold text-gray-tertiary">Open Source</h3>
               Donat.Pool is based on Cardano smart contracts and all validations guarantee secure transactions with
               predictable logic. We made the code of smart contracts publicly available to show algorithms of
               transaction building and validation used in the Donat.Pool. Everyone can see the source code and ensure
