@@ -8,7 +8,9 @@ import { ROUTES } from '@/shared/constants';
 import { basicSection } from './data';
 
 const metadata: Metadata = {
-  title: 'FAQ',
+  title: 'Donat.Pool: FAQ',
+  description:
+    'How to start a new project? What can I raise funds for? What is service fee? How to receive funds? Can I do partial withdrawal?',
 };
 
 function Page() {

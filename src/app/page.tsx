@@ -1,10 +1,17 @@
 'use client';
 
+import type { Metadata } from 'next';
 import { useRef, useState } from 'react';
 
 import { InitialLoading, LandingContent, LandingNav, Waves } from '@/shared/components';
 import { useWindowSize, useWindowScroll } from '@/shared/hooks';
 import { LandingSection } from '@/shared/types';
+
+const metadata: Metadata = {
+  title: 'Donat.Pool: Crowdfunding on Cardano blockchain',
+  description:
+    'Bring your projects to life with community support and help others. Lowest fees and highest reliability.',
+};
 
 function Page() {
   const windowScroll = useWindowScroll();
@@ -52,4 +59,4 @@ function Page() {
   );
 }
 
-export default Page;
+export { Page as default, metadata };
