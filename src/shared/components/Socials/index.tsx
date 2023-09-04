@@ -7,10 +7,10 @@ function Socials() {
   return (
     <div className="flex gap-10">
       <Link target="_blank" rel="noreferrer" href="https://github.com/fullstack-development">
-        <GithubIcon alt="github" />
+        <GithubIcon />
       </Link>
       <Link target="_blank" rel="noreferrer" href="https://twitter.com/DonatPool">
-        <TwitterIcon alt="twitter" />
+        <TwitterIcon />
       </Link>
     </div>
   );

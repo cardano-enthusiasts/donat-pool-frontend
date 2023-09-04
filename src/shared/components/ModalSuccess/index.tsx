@@ -1,5 +1,5 @@
 import { DoubleBorderedButton, Modal } from '@/shared/components';
-import HappyCatImage from '@public/img/happy-cat.svg';
+import HappyCatImg from '@public/img/happy-cat.svg';
 
 import { Props } from './types';
 
@@ -13,7 +13,7 @@ function ModalSuccess({ shown, description, onClose }: Props) {
           Well done!
         </h1>
         <div className={containerClasses}>
-          <HappyCatImage className="mb-10" alt="happy cat" />
+          <HappyCatImg className="mb-10" />
           <div className="mb-6">{description}</div>
           <DoubleBorderedButton primaryColor="blue" backgroundColor="white" isFullWidth onClick={onClose}>
             Close button

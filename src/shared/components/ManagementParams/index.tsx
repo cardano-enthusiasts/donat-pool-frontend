@@ -1,4 +1,4 @@
-import Image from 'next/image';
+import AdaIcon from '@public/icons/ADA-gray.svg';
 
 import { Props } from './types';
 
@@ -46,9 +46,7 @@ function ManagementParams({
         <div className="flex justify-between gap-[1.875rem]" key={id}>
           <div>
             {title}
-            <span className="ml-2 text-gray">
-              {label === 'ADA' ? <Image src="/icons/ADA-gray.svg" alt="ada symbol" /> : label}
-            </span>
+            <span className="ml-2 text-gray">{label === 'ADA' ? <AdaIcon /> : label}</span>
           </div>
           <div className="font-bold">{amount}</div>
         </div>

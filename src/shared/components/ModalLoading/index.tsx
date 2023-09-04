@@ -1,9 +1,13 @@
 'use client';
 
-import Image from 'next/image';
 import { useEffect, useState } from 'react';
 
 import { Modal } from '@/shared/components';
+import Donut0Image from '@public/img/donut-0.svg';
+import Donut1Image from '@public/img/donut-1.svg';
+import Donut2Image from '@public/img/donut-2.svg';
+import Donut3Image from '@public/img/donut-3.svg';
+import Donut4Image from '@public/img/donut-4.svg';
 
 import { Props } from './types';
 
@@ -12,18 +16,24 @@ function ModalLoading({
   title = 'Please wait...',
   description = 'Please wait a bit. We are preparing your donut',
 }: Props) {
-  const [index, setIndex] = useState(0);
-  const maxDonutIndex = 4;
+  const images = [
+    <Donut0Image key="0" />,
+    <Donut1Image key="1" />,
+    <Donut2Image key="2" />,
+    <Donut3Image key="3" />,
+    <Donut4Image key="4" />,
+  ];
+  const [img, setImg] = useState(images[0]);
 
   useEffect(() => {
     let i = 0;
     const interval = setInterval(() => {
-      if (i > maxDonutIndex - 1) {
+      if (i > images.length - 2) {
         i = 0;
       } else {
         i = i + 1;
       }
-      setIndex(i);
+      setImg(images[i]);
     }, 500);
 
     return () => {
@@ -37,7 +47,7 @@ function ModalLoading({
         <h1 className="mb-6 text-center font-rammetto-one text-[2.25rem] leading-[104%] text-red max-sm:text-[2.25rem]">
           {title}
         </h1>
-        <Image src={`/img/donut-${index}.svg`} alt="donut" width={115} height={115} className="mb-10 max-w-[8.75rem]" />
+        <div className="mb-10 max-w-[8.75rem]">{img}</div>
         <div className="text-center">{description}</div>
       </div>
     </Modal>

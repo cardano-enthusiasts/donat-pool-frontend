@@ -1,13 +1,14 @@
 'use client';
 
 import cn from 'classnames';
-import Image from 'next/image';
 import { forwardRef, useEffect, useRef, ForwardedRef } from 'react';
 
 import { StandardButton, Waves } from '@/shared/components';
 import { ROUTES } from '@/shared/constants';
+import CloseIcon from '@public/icons/close.svg';
+import MenuIcon from '@public/icons/menu.svg';
 
-import { getSections, linkVariants, wrapperVariants } from './data';
+import { ICON_CLASSES, getSections, LINK_CLASSES, WRAPPER_CLASSES } from './data';
 import styles from './styles.module.css';
 import { Props } from './types';
 
@@ -38,20 +39,18 @@ const LandingNav = forwardRef(function LandingNav(
           hidden: windowScroll < 500 && animationIsActive,
           'max-xl:h-[100vh] max-xl:overflow-auto': shown,
         },
-        wrapperVariants[currentSection],
+        WRAPPER_CLASSES[currentSection],
       )}
     >
       <nav ref={ref}>
         {windowWidth < mobileResolution && (
           <>
-            <Image
-              className="absolute right-5 top-5 h-10 w-10"
-              src={`/icons/${shown ? 'close' : 'menu'}.svg`}
-              alt="icon"
-              width="50"
-              height="50"
-              onClick={handleIconClick}
-            />
+            {shown ? (
+              <CloseIcon className={ICON_CLASSES} onClick={handleIconClick} />
+            ) : (
+              <MenuIcon className={ICON_CLASSES} onClick={handleIconClick} />
+            )}
+
             <div className="absolute left-0 right-0 top-0 z-[-1]">
               <Waves upsideDown color="red" moving={false} />
             </div>
@@ -67,7 +66,7 @@ const LandingNav = forwardRef(function LandingNav(
                     'text-[3.375rem] max-sm:text-3xl': active,
                     'text-[0.9375rem] text-white max-sm:text-xs': !active,
                   },
-                  active && linkVariants[currentSection],
+                  active && LINK_CLASSES[currentSection],
                 )}
                 key={title}
                 href={`#${id}`}

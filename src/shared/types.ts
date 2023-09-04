@@ -23,4 +23,6 @@ interface DonatPool {
   completed: boolean;
 }
 
-export type { RequestStatus, WalletCardanoKey, FetchedDonatPool, DonatPool };
+type CardanoKey = 'nami' | 'LodeWallet' | 'flint' | 'eternl';
+
+export type { RequestStatus, WalletCardanoKey, FetchedDonatPool, DonatPool, CardanoKey };

@@ -1,14 +1,13 @@
 'use client';
 
 import cn from 'classnames';
-import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useState } from 'react';
 
 import { useAppSelector } from '@/redux/hooks';
-import { Logo, StandardButton } from '@/shared/components';
-import { ROUTES, WALLET_CARDANO_KEY_TO_LOGO } from '@/shared/constants';
+import { Logo, StandardButton, WalletLogos } from '@/shared/components';
+import { ROUTES } from '@/shared/constants';
 import CloseIcon from '@public/icons/close.svg';
 import MenuIcon from '@public/icons/menu.svg';
 
@@ -46,12 +45,8 @@ function Header() {
                 </div>
               ))}
             </div>
-            <div className="mr-10 w-0.5 bg-purple max-lg:h-0.5 max-lg:w-full" />
-            <Image
-              src={WALLET_CARDANO_KEY_TO_LOGO[activeWalletCardanoKey]}
-              alt={`${activeWalletCardanoKey}'s logo`}
-              role="img"
-            />
+            <div className="mr-10 w-0.5 bg-purple max-lg:h-0.5 max-lg:w-full" />{' '}
+            <WalletLogos cardanoKey={activeWalletCardanoKey} />
           </div>
         ) : (
           <div className={cn({ 'max-lg:hidden': !menuIsShown })}>
@@ -62,9 +57,9 @@ function Header() {
         )}
       </div>
       {menuIsShown ? (
-        <CloseIcon className={ICON_CLASSES} alt="close icon" onClick={handleCloseIconClick} />
+        <CloseIcon className={ICON_CLASSES} onClick={handleCloseIconClick} />
       ) : (
-        <MenuIcon className={ICON_CLASSES} alt="menu icon" onClick={handleCloseIconClick} />
+        <MenuIcon className={ICON_CLASSES} onClick={handleCloseIconClick} />
       )}
     </header>
   );
