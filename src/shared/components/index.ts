@@ -9,6 +9,7 @@ export { default as PrecalculationFee } from './PrecalculationFee';
 export { default as InitialLoading } from './InitialLoading';
 export { default as ActionDonuts } from './ActionDonuts';
 export { default as LandingNav } from './LandingNav';
+export { default as Layout } from './Layout';
 export { default as Waves } from './Waves';
 export { default as WhyChooseUs } from './WhyChooseUs';
 export { default as AboutUs } from './AboutUs';
