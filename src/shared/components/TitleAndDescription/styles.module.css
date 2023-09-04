@@ -1,4 +1,4 @@
-.wrapper * {
+.wrapper > * {
   transition: transform 1s ease 0s;
   transform: translateY(0%);
 
@@ -8,7 +8,7 @@
   }
 }
 
-.wrapperInactive * {
+.wrapperInactive > * {
   transition: transform 1s ease 0s;
   transform: translateY(50%);
 

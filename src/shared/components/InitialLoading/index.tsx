@@ -52,7 +52,7 @@ function InitialLoading({ windowScroll, animationIsActive }: Props) {
       <ActionDonuts animationIsActive={animationIsActive} />
       <CatImg
         className={cn(
-          'bottom-0 z-[2] flex shrink-0 max-xl:static max-xl:mx-5 max-xl:mb-5 max-xl:mt-[9.375rem] max-xl:max-w-[90vw]',
+          'bottom-0 z-[2] flex max-w-[770px] shrink-0 max-xl:static max-xl:mx-5 max-xl:mb-5 max-xl:mt-[9.375rem] max-xl:max-w-[90vw]',
           {
             'absolute max-w-[48.125rem]': animationIsActive,
             'mx-5 mb-5 mt-[9.375rem] max-w-[90vw]': !animationIsActive,
