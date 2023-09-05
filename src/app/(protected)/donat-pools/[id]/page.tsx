@@ -93,9 +93,8 @@ function Page() {
         )}
         {fetchDonatPoolError && <div className="text-error">An error happened while fetching the donat pool</div>}
       </Common>
-      {donatPool && (
+      {donatPool && modalIsShown && (
         <ModalDonate
-          shown={modalIsShown}
           data={{
             threadTokenCurrency: donatPool.threadTokenCurrency,
             threadTokenName: donatPool.threadTokenName,
@@ -104,18 +103,17 @@ function Page() {
           onClose={handleDonateModalClose}
         />
       )}
-      <ModalError
-        shown={modalErrorIsShown}
-        title="How many ADA would you like to donate?"
-        errorText={donateError}
-        onClose={handleErrorModalClose}
-      />
-      <ModalLoading shown={modalLoadingIsShown} title="How many ADA would you like to donate?" />
-      <ModalSuccess
-        shown={modalSuccessIsShown}
-        description="Congratulations! Your donut is ready!"
-        onClose={handleSuccessModalClose}
-      />
+      {modalErrorIsShown && (
+        <ModalError
+          title="How many ADA would you like to donate?"
+          errorText={donateError}
+          onClose={handleErrorModalClose}
+        />
+      )}
+      {modalLoadingIsShown && <ModalLoading title="How many ADA would you like to donate?" />}
+      {modalSuccessIsShown && (
+        <ModalSuccess description="Congratulations! Your donut is ready!" onClose={handleSuccessModalClose} />
+      )}
     </>
   );
 }

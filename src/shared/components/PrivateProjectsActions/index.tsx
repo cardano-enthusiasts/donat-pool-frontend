@@ -91,13 +91,10 @@ function PrivateProjectsActions({ project }: Props) {
           <div className="text-red">We remind you that our commission is {protocol.protocolFeeParam}%</div>
         )}
       </div>
-      <ModalLoading shown={status === 'requesting'} />
-      <ModalError
-        shown={modalErrorIsShown}
-        title="Withdrawal of funds"
-        errorText={error}
-        onClose={handleErrorModalClose}
-      />
+      {status === 'requesting' && <ModalLoading />}
+      {modalErrorIsShown && (
+        <ModalError title="Withdrawal of funds" errorText={error} onClose={handleErrorModalClose} />
+      )}
     </>
   ) : (
     <>
@@ -109,11 +106,9 @@ function PrivateProjectsActions({ project }: Props) {
           </DoubleBorderedButton>
         </div>
       </div>
-      <ModalSuccess
-        shown={modalSuccessIsShown}
-        description="Link copied to clipboard."
-        onClose={handleSuccessModalClose}
-      />
+      {modalSuccessIsShown && (
+        <ModalSuccess description="Link copied to clipboard." onClose={handleSuccessModalClose} />
+      )}
     </>
   );
 }

@@ -5,9 +5,9 @@ import { DoubleBorderedButton, Modal } from '@/shared/components';
 import styles from './styles.module.css';
 import type { Props } from './types';
 
-function ModalError({ shown, title, errorText = '', onClose }: Props) {
+function ModalError({ title, errorText = '', onClose }: Props) {
   return (
-    <Modal shown={shown}>
+    <Modal>
       <h1
         className="mb-6
           text-center

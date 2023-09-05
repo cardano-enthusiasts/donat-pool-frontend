@@ -1,5 +1,6 @@
 interface Props {
-  onSubmit: () => void;
+  onSubmitSuccess: () => void;
+  onSubmitFailure: (error: string) => void;
   onCancelButtonClick: () => void;
 }
 

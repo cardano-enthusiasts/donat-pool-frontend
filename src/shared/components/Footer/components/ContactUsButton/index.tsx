@@ -20,7 +20,7 @@ function ContactUsButton() {
       <StandardButton primaryColor="red" secondaryColor="green" size="s" fontColor="white" onClick={handleClick}>
         Contact us
       </StandardButton>
-      <ContactUsModal shown={modalIsShown} onClose={handleModalClose} />
+      {modalIsShown && <ContactUsModal onClose={handleModalClose} />}
     </>
   );
 }

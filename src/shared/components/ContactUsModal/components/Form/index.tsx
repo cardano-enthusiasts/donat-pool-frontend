@@ -1,7 +1,6 @@
 'use client';
 
 import { isAxiosError } from 'axios';
-import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 
 import api from '@/shared/api';
@@ -9,20 +8,19 @@ import { DoubleBorderedButton, StandardButton, NewInput, Textarea } from '@/shar
 
 import type { Props, FormValues } from './types';
 
-function Form({ onSubmit, onCancelButtonClick }: Props) {
+function Form({ onSubmitSuccess, onSubmitFailure, onCancelButtonClick }: Props) {
   const {
     handleSubmit: createSubmitHandler,
     register,
     formState: { errors, isSubmitting },
   } = useForm<FormValues>();
-  const [requestError, setRequestError] = useState<string>();
 
   const handleSubmit = createSubmitHandler(async (data) => {
     try {
-      await api.post('core/contact-us/', data);
-      onSubmit();
+      await api.post('core/contact-us', data);
+      onSubmitSuccess();
     } catch (error) {
-      setRequestError(isAxiosError(error) ? error.message : 'Unknown error');
+      onSubmitFailure(isAxiosError(error) ? error.message : 'Unknown error');
     }
   });
 
@@ -57,8 +55,8 @@ function Form({ onSubmit, onCancelButtonClick }: Props) {
         <DoubleBorderedButton
           primaryColor="blue"
           backgroundColor="white"
-          onClick={onCancelButtonClick}
           disabled={isSubmitting}
+          onClick={onCancelButtonClick}
         >
           Cancel
         </DoubleBorderedButton>
@@ -73,7 +71,6 @@ function Form({ onSubmit, onCancelButtonClick }: Props) {
           Send
         </StandardButton>
       </div>
-      {requestError && <div className="mt-10 text-error">{requestError}</div>}
     </form>
   );
 }

@@ -223,14 +223,11 @@ function CreationForm({ protocol, onClose }: Props) {
           </StandardButton>
         </div>
       </form>
-      <ModalProjectCreated path={createdPath} shown={successModalIsShown} onClose={handleProjectCreatedModalClose} />
-      <ModalLoading shown={loadingModalIsShown} />
-      <ModalError
-        shown={errorModalIsShown}
-        title="New Donat.Pool"
-        errorText={createError}
-        onClose={handleErrorModalClose}
-      />
+      {successModalIsShown && <ModalProjectCreated path={createdPath} onClose={handleProjectCreatedModalClose} />}
+      {loadingModalIsShown && <ModalLoading />}
+      {errorModalIsShown && (
+        <ModalError title="New Donat.Pool" errorText={createError} onClose={handleErrorModalClose} />
+      )}
     </>
   );
 }
