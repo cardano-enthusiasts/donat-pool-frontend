@@ -5,6 +5,7 @@
 @layer base {
   ::-webkit-scrollbar {
     @apply w-[0.3125rem];
+    @apply h-[0.3125rem];
   }
 
   ::-webkit-scrollbar-track {

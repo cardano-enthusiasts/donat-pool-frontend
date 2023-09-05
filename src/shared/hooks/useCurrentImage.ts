@@ -1,4 +1,5 @@
-import { ReactElement, useEffect, useState } from 'react';
+import type { ReactElement } from 'react';
+import { useEffect, useState } from 'react';
 
 function useCurrentImage(images: ReactElement[]) {
   const [image, setImage] = useState(images[0]);

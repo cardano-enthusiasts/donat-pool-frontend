@@ -1,13 +1,14 @@
 'use client';
 
 import cn from 'classnames';
-import { Fragment, forwardRef, useEffect, useRef, useState, ForwardedRef, MutableRefObject } from 'react';
+import type { ForwardedRef, MutableRefObject } from 'react';
+import { Fragment, forwardRef, useEffect, useRef, useState } from 'react';
 
 import { AboutUs, Footer, HowItWorks, Roadmap, TitleAndDescription, Waves, WhyChooseUs } from '@/shared/components';
-import { LandingSection } from '@/shared/types';
+import type { LandingSection } from '@/shared/types';
 
 import CLASSES from './constants';
-import { Props, Content, Section, Refs } from './types';
+import type { Props, Content, Section, Refs } from './types';
 
 const LandingContent = forwardRef(function LandingContent(
   { windowScroll, setAnimationIsActive, currentSection, setCurrentSection }: Props,
@@ -63,7 +64,7 @@ const LandingContent = forwardRef(function LandingContent(
 
       let prop: Section;
       for (prop in refsWithoutContactUs) {
-        // current exists in refsWithoutContactUs[prop], cause it is ref
+        // "current" exists in refsWithoutContactUs[prop], because it is ref
         if (refsWithoutContactUs[prop].current!.getBoundingClientRect().bottom > navMiddle) {
           return prop;
         }
@@ -150,7 +151,7 @@ const LandingContent = forwardRef(function LandingContent(
     {
       element: (
         <div id="contact-us" ref={contactUsRef}>
-          <Footer backgroundColor="black" />
+          <Footer theme="black" />
         </div>
       ),
       id: 'contact-us',

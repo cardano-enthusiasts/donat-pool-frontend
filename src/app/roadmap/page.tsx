@@ -1,10 +1,10 @@
 import HTMLReactParser from 'html-react-parser';
-import { Metadata } from 'next';
+import type { Metadata } from 'next';
 
 import { Service } from '@/shared/components';
 import { roadmapText } from '@/shared/data';
 import { isSubItem } from '@/shared/typeGuards';
-import { Item, SubItem } from '@/shared/types';
+import type { Item, SubItem } from '@/shared/types';
 
 const metadata: Metadata = {
   title: 'Roadmap',

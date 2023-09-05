@@ -8,10 +8,9 @@ import Donut2Image from '@public/img/donut-2.svg';
 import Donut3Image from '@public/img/donut-3.svg';
 import Donut4Image from '@public/img/donut-4.svg';
 
-import { Props } from './types';
+import type { Props } from './types';
 
 function ModalLoading({
-  shown,
   title = 'Please wait...',
   description = 'Please wait a bit. We are preparing your donut',
 }: Props) {
@@ -25,7 +24,7 @@ function ModalLoading({
   const image = useCurrentImage(images);
 
   return (
-    <Modal shown={shown}>
+    <Modal>
       <div className="flex flex-col items-center">
         <h1 className="mb-6 text-center font-rammetto-one text-[2.25rem]/[104%] text-red max-sm:text-[2.25rem]">
           {title}

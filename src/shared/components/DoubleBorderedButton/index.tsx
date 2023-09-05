@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 import VARIANTS from './constants';
 import styles from './styles.module.css';
-import { Props } from './types';
+import type { Props } from './types';
 
 function DoubleBorderedButton({
   children,
@@ -13,6 +13,7 @@ function DoubleBorderedButton({
   external = false,
   isFullWidth = false,
   size = 'm',
+  disabled,
   onClick,
 }: React.PropsWithChildren<Props>) {
   const classes = cn(
@@ -21,6 +22,7 @@ function DoubleBorderedButton({
     VARIANTS.primary[primaryColor],
     VARIANTS.background[backgroundColor],
     { 'w-full inline-block': isFullWidth },
+    'disabled:cursor-not-allowed',
     'border-2 before:border-2',
   );
 
@@ -36,7 +38,7 @@ function DoubleBorderedButton({
           {children}
         </Link>
       ) : (
-        <button className={classes} type="button" onClick={onClick}>
+        <button className={classes} type="button" disabled={disabled} onClick={onClick}>
           {children}
         </button>
       )}

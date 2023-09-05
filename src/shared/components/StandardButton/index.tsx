@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 import VARIANTS from './constants';
 import styles from './styles.module.css';
-import { Props } from './types';
+import type { Props } from './types';
 
 function StandardButton({
   children,
@@ -28,6 +28,7 @@ function StandardButton({
     { 'animate-standardPush before:animate-standardPushBefore': animated },
     'disabled:bg-purple',
     'disabled:before:bg-black',
+    'disabled:cursor-not-allowed',
     { 'w-full': isFullWidth },
   );
 

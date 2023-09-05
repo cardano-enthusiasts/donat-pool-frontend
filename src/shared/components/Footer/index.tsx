@@ -1,57 +1,66 @@
-'use client';
-
 import cn from 'classnames';
 import Link from 'next/link';
-import { useState } from 'react';
 
-import { Socials, ModalContactUs, StandardButton } from '@/shared/components';
+import GithubLogo from '@public/icons/github.svg';
+import TwitterLogo from '@public/icons/twitter.svg';
 
+import ContactUsButton from './components/ContactUsButton';
 import { LINKS } from './constants';
-import { Props } from './types';
+import type { Props } from './types';
 
-function Footer({ backgroundColor = 'blue' }: Props) {
-  const [modalContactUsIsShown, setModalContactUsIsShown] = useState(false);
-
-  function handleContactUsButtonClick() {
-    setModalContactUsIsShown(true);
-  }
-
-  function handleContactUsModalClose() {
-    setModalContactUsIsShown(false);
-  }
+function Footer({ theme = 'blue' }: Props) {
+  const socials = [
+    {
+      logo: <GithubLogo />,
+      href: 'https://github.com/fullstack-development',
+    },
+    {
+      logo: <TwitterLogo />,
+      href: 'https://twitter.com/DonatPool',
+    },
+  ];
 
   return (
-    <>
-      <footer
-        className={cn('base-wrapper', {
-          'bg-blue': backgroundColor === 'blue',
-          'bg-black': backgroundColor === 'black',
-        })}
-      >
-        <div className="max-w-480 flex w-full items-center justify-between pb-20 pt-10 max-lg:flex-col max-lg:gap-10">
-          <div className="flex items-center gap-32 max-lg:flex-col max-lg:gap-10">
-            <Socials />
-            <div className=" flex gap-20 font-rammetto-one text-white max-xl:flex-col max-xl:gap-4 max-lg:items-center">
-              {LINKS.map(({ title, href }) => (
-                <Link className="text-[0.9375rem]/snug" href={href} key={title}>
-                  {title}
-                </Link>
-              ))}
-            </div>
-          </div>
-          <StandardButton
-            primaryColor="red"
-            secondaryColor="green"
-            size="s"
-            fontColor="white"
-            onClick={handleContactUsButtonClick}
-          >
-            Contact us
-          </StandardButton>
-        </div>
-      </footer>
-      <ModalContactUs shown={modalContactUsIsShown} onClose={handleContactUsModalClose} />
-    </>
+    <footer
+      className={cn(
+        `grid
+        grid-cols-[auto_1fr_auto]
+        items-center
+        gap-x-30
+        px-20
+        pb-15
+        pt-10
+        max-md:grid-cols-1
+        max-md:justify-items-center
+        max-md:gap-y-7
+        max-md:px-8
+        max-md:py-6`,
+        {
+          'bg-blue': theme === 'blue',
+          'bg-black': theme === 'black',
+        },
+      )}
+    >
+      <ul className="flex gap-x-10">
+        {socials.map(({ logo, href }) => (
+          <li className="shrink-0" key={href}>
+            <Link href={href} target="_blank" rel="noreferrer">
+              {logo}
+            </Link>
+          </li>
+        ))}
+      </ul>
+      <ul className="flex flex-wrap gap-x-10 max-md:block">
+        {LINKS.map(({ title, href }) => (
+          <li className="max-md:text-center" key={title}>
+            <Link className="font-rammetto-one text-menu-default text-white" href={href}>
+              {title}
+            </Link>
+          </li>
+        ))}
+      </ul>
+      <ContactUsButton />
+    </footer>
   );
 }
 

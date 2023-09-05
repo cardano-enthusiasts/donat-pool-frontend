@@ -1,4 +1,4 @@
-import { Metadata } from 'next';
+import type { Metadata } from 'next';
 
 import Layout from '@/shared/components/Layout';
 
@@ -12,7 +12,7 @@ const metadata: Metadata = {
 function Page() {
   return (
     <Layout>
-      <div className="mx-auto max-w-[52.25rem]">
+      <div className="mx-auto max-w-[52.375rem]">
         <h1 className="mb-8 font-rammetto-one text-menu-active text-red">
           Donat.Pool <span className="text-green">Terms of Use</span>
         </h1>

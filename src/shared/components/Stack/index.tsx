@@ -5,9 +5,9 @@ import { useEffect, useRef, useState } from 'react';
 
 import { DashedButton } from '@/shared/components';
 import { useWindowScroll } from '@/shared/hooks';
-import CardanoLibImg from '@public/img/cardano-transaction-lib.svg';
-import PlutarchImg from '@public/img/plutarch.svg';
-import ReactImg from '@public/img/react.svg';
+import CardanoLibImage from '@public/img/cardano-transaction-lib.svg';
+import PlutarchImage from '@public/img/plutarch.svg';
+import ReactImage from '@public/img/react.svg';
 
 function Stack() {
   const ref = useRef<HTMLDivElement>(null);
@@ -34,18 +34,18 @@ function Stack() {
   }
 
   function handleReadButtonClick() {
-    setShown((s) => !s);
+    setShown(!shown);
   }
 
   return (
     <div className="flex max-w-[50rem] flex-col gap-10">
       <div className="text-2xl font-bold text-gray">Our stack</div>
       <div ref={ref}>
-        <CardanoLibImg className={`${classes} max-w-[900px]`} />
-        <PlutarchImg
+        <CardanoLibImage className={`${classes} max-w-[900px]`} />
+        <PlutarchImage
           className={`${classes} mt-[-1.875rem] max-w-[510px] delay-200 max-lg:mt-[-1.25rem] max-lg:max-w-[65%] max-sm:mt-[-0.625rem]`}
         />
-        <ReactImg
+        <ReactImage
           className={`${classes} mt-[-1.875rem] max-w-[338px] delay-500 max-lg:mt-[-1.25rem] max-lg:max-w-[50%] max-sm:mt-[-0.625rem]`}
         />
       </div>

@@ -1,39 +1,36 @@
 import cn from 'classnames';
+import { useId } from 'react';
 
-import { Props } from './types';
+import type { Props } from './types';
 
-function Checkbox({ checked, textTheme, children, onChange }: React.PropsWithChildren<Props>) {
+function Checkbox({ checked, textTheme = 'white', children, onChange }: React.PropsWithChildren<Props>) {
+  const id = useId();
+
   return (
-    <label className="flex cursor-pointer items-center">
+    <div className="grid grid-cols-[1.5rem_1fr] gap-x-2.5">
       <input
-        className="flex
-          h-6
+        className="h-6
           w-6
-          shrink-0
-          cursor-pointer
           appearance-none
-          justify-center
-          self-start
           rounded-sm
           border-2
           border-blue
-          before:content-['']
-          checked:before:h-full
-          checked:before:w-full
-          before:checked:bg-blue"
+          checked:bg-blue"
+        id={id}
         type="checkbox"
         checked={checked}
         onChange={onChange}
       />
-      <span
-        className={cn('ml-2.5 w-full min-w-[11.25rem] select-none', {
-          'text-black': textTheme === undefined,
-          'text-white': textTheme === 'light',
+      <label
+        className={cn({
+          'text-white': textTheme === 'white',
+          'text-black': textTheme === 'black',
         })}
+        htmlFor={id}
       >
         {children}
-      </span>
-    </label>
+      </label>
+    </div>
   );
 }
 

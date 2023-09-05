@@ -5,10 +5,10 @@ import { useEffect, useState } from 'react';
 import { BorderedButton, ProjectCard, StandardButton } from '@/shared/components';
 import { ROUTES } from '@/shared/constants';
 import { useMyDonatPools } from '@/shared/hooks';
-import { DonatPool } from '@/shared/types';
-import SadCatImg from '@public/img/sad-cat.svg';
+import type { DonatPool } from '@/shared/types';
+import SadCatImage from '@public/img/sad-cat.svg';
 
-import { ProjectStatus } from './types';
+import type { ProjectStatus } from './types';
 
 function MyDonatPools() {
   const [allProjectsWithStatus, setAllProjectsWithStatus] = useState<DonatPool[] | null>(null);
@@ -73,7 +73,7 @@ function MyDonatPools() {
             </div>
           )}
         </div>
-        <div className="max-md:fixed max-md:bottom-15 max-md:right-[1.875rem] max-md:z-10">
+        <div className="max-md:fixed max-md:bottom-15 max-md:right-[1.875rem]">
           <StandardButton primaryColor="red" secondaryColor="blue" fontColor="white" href={ROUTES.newDonatPool}>
             Create Donat.Pool
           </StandardButton>
@@ -95,7 +95,7 @@ function MyDonatPools() {
         ) : (
           <div className="flex flex-col items-center gap-6">
             You don&apos;t have any projects yet. Create a project to start receiving donations.
-            <SadCatImg className="max-w-full" />
+            <SadCatImage className="max-w-full" />
           </div>
         )}
       </div>

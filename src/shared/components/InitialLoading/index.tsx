@@ -5,9 +5,9 @@ import { useEffect, useRef } from 'react';
 
 import { ActionDonuts, ScrollHelper } from '@/shared/components';
 import { useWindowSize } from '@/shared/hooks';
-import CatImg from '@public/img/cat.svg';
+import CatImage from '@public/img/cat.svg';
 
-import { Props } from './types';
+import type { Props } from './types';
 
 function InitialLoading({ windowScroll, animationIsActive }: Props) {
   const innerCircleRef = useRef<HTMLDivElement>(null);
@@ -50,7 +50,7 @@ function InitialLoading({ windowScroll, animationIsActive }: Props) {
         <ScrollHelper />
       </div>
       <ActionDonuts animationIsActive={animationIsActive} />
-      <CatImg
+      <CatImage
         className={cn(
           'bottom-0 z-[2] flex max-w-[48.125rem] shrink-0 max-xl:static max-xl:mx-5 max-xl:mb-5 max-xl:mt-[9.375rem] max-xl:max-w-[90vw]',
           {

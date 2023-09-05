@@ -1,17 +1,13 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 import { DoubleBorderedButton, Input, Modal, StandardButton } from '@/shared/components';
 
-import { Props } from './types';
+import type { Props } from './types';
 
-function ModalDonate({ shown, onClose, data: { threadTokenCurrency, threadTokenName }, donate }: Props) {
+function ModalDonate({ data: { threadTokenCurrency, threadTokenName }, donate, onClose }: Props) {
   const [value, setValue] = useState<'' | number>('');
-
-  useEffect(() => {
-    setValue('');
-  }, [shown]);
 
   function handleChange(event: React.ChangeEvent<Element>) {
     const target = event.target as HTMLInputElement;
@@ -21,6 +17,7 @@ function ModalDonate({ shown, onClose, data: { threadTokenCurrency, threadTokenN
 
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
+
     if (value !== '') {
       donate(
         {
@@ -33,7 +30,7 @@ function ModalDonate({ shown, onClose, data: { threadTokenCurrency, threadTokenN
   }
 
   return (
-    <Modal shown={shown}>
+    <Modal>
       <h2 className="mb-10 text-center font-rammetto-one text-4xl text-red">How many ADA would you like to donate?</h2>
       <form onSubmit={handleSubmit}>
         <div className="mb-8">

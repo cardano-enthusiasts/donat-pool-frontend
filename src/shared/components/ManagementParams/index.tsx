@@ -1,6 +1,6 @@
 import AdaIcon from '@public/icons/ADA-gray.svg';
 
-import { Props } from './types';
+import type { Props } from './types';
 
 function ManagementParams({
   config: { minAmountParam, maxAmountParam, minDurationParam, maxDurationParam, protocolFeeParam },

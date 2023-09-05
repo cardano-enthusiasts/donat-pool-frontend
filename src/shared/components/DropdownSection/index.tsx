@@ -5,13 +5,13 @@ import { useState } from 'react';
 
 import RedArrowIcon from '@public/icons/red-arrow.svg';
 
-import { Props } from './types';
+import type { Props } from './types';
 
 function DropdownSection({ title = '', children }: React.PropsWithChildren<Props>) {
   const [shown, setShown] = useState(false);
 
   function handleWrapperClick() {
-    setShown((s) => !s);
+    setShown(!shown);
   }
 
   return (
