@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 
 import { DonatPools } from '@/containers';
-import { StandardButton, Common } from '@/shared/components';
+import { Layout, StandardButton } from '@/shared/components';
 import { ROUTES } from '@/shared/constants';
 
 const metadata: Metadata = {
@@ -12,7 +12,7 @@ const metadata: Metadata = {
 
 function Page() {
   return (
-    <Common>
+    <Layout>
       <div
         className="mb-14
           flex
@@ -40,7 +40,7 @@ function Page() {
         </div>
       </div>
       <DonatPools />
-    </Common>
+    </Layout>
   );
 }
 

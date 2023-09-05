@@ -1,7 +1,6 @@
 import type { Metadata } from 'next';
 
 import { NewDonatPool } from '@/containers';
-import { Common } from '@/shared/components';
 
 const metadata: Metadata = {
   title: 'Donat.Pool: Start a new project',
@@ -9,11 +8,7 @@ const metadata: Metadata = {
 };
 
 function Page() {
-  return (
-    <Common>
-      <NewDonatPool />
-    </Common>
-  );
+  return <NewDonatPool />;
 }
 
 export { Page as default, metadata };

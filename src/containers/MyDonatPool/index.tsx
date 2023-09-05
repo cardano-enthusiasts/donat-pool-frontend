@@ -3,7 +3,7 @@
 import { useParams, useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
-import { PrivateProjectsActions, RaisedCounter, Common, Project } from '@/shared/components';
+import { PrivateProjectsActions, RaisedCounter, Layout, Project } from '@/shared/components';
 import { ROUTES } from '@/shared/constants';
 import { formatDate } from '@/shared/helpers';
 import { useMyDonatPools } from '@/shared/hooks';
@@ -39,7 +39,7 @@ function MyDonatPool() {
 
   return (
     currentProject && (
-      <Common>
+      <Layout>
         <Project
           previousPageTitle="My projects"
           title={currentProject.title}
@@ -65,7 +65,7 @@ function MyDonatPool() {
             <PrivateProjectsActions project={currentProject} />
           </div>
         </Project>
-      </Common>
+      </Layout>
     )
   );
 }
