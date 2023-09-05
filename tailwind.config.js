@@ -22,7 +22,6 @@ module.exports = {
         error: '#c820f2',
       },
       spacing: {
-        7.5: '1.875rem',
         15: '3.75rem',
         30: '7.5rem',
         480: '120rem',
