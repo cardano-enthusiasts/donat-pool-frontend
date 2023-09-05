@@ -23,7 +23,3 @@
   transition: all 0.5s;
   transform: translateZ(-0.0625rem);
 }
-
-.common:disabled {
-  cursor: default;
-}

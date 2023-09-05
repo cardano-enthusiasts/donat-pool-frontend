@@ -4,13 +4,13 @@ import cn from 'classnames';
 import Image from 'next/image';
 import { useState } from 'react';
 
-import { Props } from './types';
+import type { Props } from './types';
 
 function DropdownSection({ title = '', children }: React.PropsWithChildren<Props>) {
   const [shown, setShown] = useState(false);
 
   function handleWrapperClick() {
-    setShown((s) => !s);
+    setShown(!shown);
   }
 
   return (

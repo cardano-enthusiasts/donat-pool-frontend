@@ -14,6 +14,7 @@ module.exports = {
   parserOptions: {
     project: true,
     tsconfigRootDir: __dirname,
+    emitDecoratorMetadata: true,
   },
   extends: [
     'eslint:recommended',
@@ -27,6 +28,9 @@ module.exports = {
     'plugin:@next/next/recommended',
   ],
   rules: {
+    '@typescript-eslint/consistent-type-imports': 'error',
+    '@typescript-eslint/method-signature-style': 'error',
+
     'import/order': [
       'error',
       {
@@ -40,6 +44,12 @@ module.exports = {
     ],
     'import/exports-last': 'error',
     'import/group-exports': 'error',
-    'import/newline-after-import': ['error', { considerComments: true }],
+    'import/newline-after-import': 'error',
+
+    'react/function-component-definition': 'error',
+    'react/hook-use-state': 'error',
+    'react/jsx-boolean-value': 'error',
+    'react/no-array-index-key': 'error',
+    'react/no-multi-comp': 'error',
   },
 };

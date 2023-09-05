@@ -3,7 +3,7 @@ import { setWalletStatus } from '@/redux/slices/connectWallet';
 import { setError, setSuccess, setRequesting } from '@/redux/slices/fundsReceiving';
 import { createConnectionParameters, logOffchainError } from '@/shared/helpers';
 import { useOffchain, useMyDonatPools, useHandleError } from '@/shared/hooks';
-import { DonatPoolTokenData, Protocol } from '@/shared/types';
+import type { DonatPoolTokenData, Protocol } from '@/shared/types';
 
 function useReceiveFunds() {
   const offchain = useOffchain();

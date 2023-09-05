@@ -1,4 +1,4 @@
-import { Props } from './types';
+import type { Props } from './types';
 
 const DEFAULT_PARAMS: {
   title: string;

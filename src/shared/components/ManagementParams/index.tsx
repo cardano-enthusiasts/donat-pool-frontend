@@ -1,6 +1,6 @@
 import Image from 'next/image';
 
-import { Props } from './types';
+import type { Props } from './types';
 
 function ManagementParams({
   config: { minAmountParam, maxAmountParam, minDurationParam, maxDurationParam, protocolFeeParam },

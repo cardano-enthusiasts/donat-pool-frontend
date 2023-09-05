@@ -6,9 +6,9 @@ import { useEffect, useState } from 'react';
 import { BorderedButton, ProjectCard, StandardButton } from '@/shared/components';
 import { ROUTES } from '@/shared/constants';
 import { useMyDonatPools } from '@/shared/hooks';
-import { DonatPool } from '@/shared/types';
+import type { DonatPool } from '@/shared/types';
 
-import { ProjectStatus } from './types';
+import type { ProjectStatus } from './types';
 
 function MyDonatPools() {
   const [allProjectsWithStatus, setAllProjectsWithStatus] = useState<DonatPool[] | null>(null);
@@ -73,7 +73,7 @@ function MyDonatPools() {
             </div>
           )}
         </div>
-        <div className="max-md:fixed max-md:bottom-15 max-md:right-[1.875rem] max-md:z-10">
+        <div className="max-md:fixed max-md:bottom-15 max-md:right-[1.875rem]">
           <StandardButton primaryColor="red" secondaryColor="blue" fontColor="white" href={ROUTES.newDonatPool}>
             Create Donat.Pool
           </StandardButton>

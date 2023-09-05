@@ -18,7 +18,7 @@ import {
 import { ROUTES } from '@/shared/constants';
 import { useCreateDonatPool } from '@/shared/hooks';
 
-import { FormError, Props } from './types';
+import type { FormError, Props } from './types';
 
 function CreationForm({ protocol, onClose }: Props) {
   const { minAmountParam, maxAmountParam, minDurationParam, maxDurationParam } = protocol;
@@ -121,7 +121,7 @@ function CreationForm({ protocol, onClose }: Props) {
   }
 
   function handleCheckboxChange() {
-    setChecked((c) => !c);
+    setChecked(!checked);
   }
 
   function handleProjectCreatedModalClose() {
@@ -202,7 +202,7 @@ function CreationForm({ protocol, onClose }: Props) {
           </Input>
           <PrecalculationFee goal={Number(data.goal)} />
         </div>
-        <Checkbox checked={checked} onChange={handleCheckboxChange}>
+        <Checkbox checked={checked} textTheme="black" onChange={handleCheckboxChange}>
           I agree to pay a commission in favor of the service.
           <br />
           The commission will be debited after the end of the donation pool.
@@ -223,14 +223,11 @@ function CreationForm({ protocol, onClose }: Props) {
           </StandardButton>
         </div>
       </form>
-      <ModalProjectCreated path={createdPath} shown={successModalIsShown} onClose={handleProjectCreatedModalClose} />
-      <ModalLoading shown={loadingModalIsShown} />
-      <ModalError
-        shown={errorModalIsShown}
-        title="New Donat.Pool"
-        errorText={createError}
-        onClose={handleErrorModalClose}
-      />
+      {successModalIsShown && <ModalProjectCreated path={createdPath} onClose={handleProjectCreatedModalClose} />}
+      {loadingModalIsShown && <ModalLoading />}
+      {errorModalIsShown && (
+        <ModalError title="New Donat.Pool" errorText={createError} onClose={handleErrorModalClose} />
+      )}
     </>
   );
 }

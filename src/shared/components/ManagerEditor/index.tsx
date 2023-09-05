@@ -8,7 +8,7 @@ import { Input, ModalError, ModalLoading, ModalSuccess, StandardButton } from '@
 import { useUpdateProtocol } from '@/shared/hooks';
 
 import { DEFAULT_PARAMS } from './data';
-import { Props } from './types';
+import type { Props } from './types';
 
 function ManagerEditor({ config }: Props) {
   const [params, setParams] = useState(config);
@@ -89,14 +89,11 @@ function ManagerEditor({ config }: Props) {
           </StandardButton>
         </div>
       </form>
-      <ModalLoading shown={modalLoadingIsShown} title="Data saving" description="Please wait a bit" />
-      <ModalError
-        shown={modalErrorIsShown}
-        title="Management contract"
-        errorText={error}
-        onClose={handleErrorModalClose}
-      />
-      <ModalSuccess shown={modalSuccessIsShown} description="All data saved" onClose={handleSuccessModalClose} />
+      {modalLoadingIsShown && <ModalLoading title="Data saving" description="Please wait a bit" />}
+      {modalErrorIsShown && (
+        <ModalError title="Management contract" errorText={error} onClose={handleErrorModalClose} />
+      )}
+      {modalSuccessIsShown && <ModalSuccess description="All data saved" onClose={handleSuccessModalClose} />}
     </>
   );
 }

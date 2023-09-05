@@ -2,13 +2,13 @@ import Image from 'next/image';
 
 import { DoubleBorderedButton, Modal } from '@/shared/components';
 
-import { Props } from './types';
+import type { Props } from './types';
 
-function ModalSuccess({ shown, description, onClose }: Props) {
+function ModalSuccess({ description, onClose }: Props) {
   const containerClasses = 'flex w-full flex-col items-center';
 
   return (
-    <Modal shown={shown}>
+    <Modal>
       <div className={containerClasses}>
         <h1
           className="mb-6

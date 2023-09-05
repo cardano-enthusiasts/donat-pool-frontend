@@ -1,4 +1,4 @@
-import { StaticImageData } from 'next/image';
+import type { StaticImageData } from 'next/image';
 
 import eternlLogo from '@public/icons/eternl.png';
 import flintLogo from '@public/icons/flint.svg';

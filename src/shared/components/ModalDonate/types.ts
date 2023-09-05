@@ -1,7 +1,6 @@
-import { DonatPool, DonatPoolTokenData } from '@/shared/types';
+import type { DonatPool, DonatPoolTokenData } from '@/shared/types';
 
 interface Props {
-  shown: boolean;
   donate: (donatPoolData: DonatPoolTokenData, amount: number) => void;
   data: Pick<DonatPool, 'threadTokenCurrency' | 'threadTokenName'>;
   onClose: () => void;

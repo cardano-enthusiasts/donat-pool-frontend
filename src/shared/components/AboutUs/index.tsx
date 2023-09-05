@@ -23,6 +23,7 @@ function AboutUs() {
         <div
           className={`${COMMON_ROW_CLASSES}
             relative
+            z-0
             mb-[8.75rem]
             mt-15
             flex

@@ -1,6 +1,7 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import type { PayloadAction } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
 
-import { WalletCardanoKey } from '@/shared/types';
+import type { WalletCardanoKey } from '@/shared/types';
 
 const initialState: {
   initialized: boolean;
