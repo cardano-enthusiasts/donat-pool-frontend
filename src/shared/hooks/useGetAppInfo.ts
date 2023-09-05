@@ -1,7 +1,7 @@
 import { useAppSelector, useAppDispatch } from '@/redux/hooks';
 import { setError, setRequesting, setProtocol, setUserInfo } from '@/redux/slices/appInfo';
 import { setWalletStatus } from '@/redux/slices/connectWallet';
-import { createConnectionParameters, logOffchainError } from '@/shared/helpers';
+import { convertLovelaceToADA, createConnectionParameters, logOffchainError } from '@/shared/helpers';
 import { useOffchain, useHandleError } from '@/shared/hooks';
 import { UserAndProtocolParams, Protocol } from '@/shared/types';
 
@@ -16,8 +16,8 @@ function useGetAppInfo() {
     const { minAmountParam, maxAmountParam, minDurationParam, maxDurationParam, protocolFeeParam } = protocolConfig;
     dispatch(
       setProtocol({
-        minAmountParam: Number(minAmountParam.value) / 1000000,
-        maxAmountParam: Number(maxAmountParam.value) / 1000000,
+        minAmountParam: convertLovelaceToADA(minAmountParam.value),
+        maxAmountParam: convertLovelaceToADA(maxAmountParam.value),
         minDurationParam: Number(minDurationParam.value),
         maxDurationParam: Number(maxDurationParam.value),
         protocolFeeParam: Number(protocolFeeParam.value),

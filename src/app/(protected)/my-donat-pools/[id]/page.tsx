@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react';
 
 import { PrivateProjectsActions, RaisedCounter, Common, Project } from '@/shared/components';
 import { ROUTES } from '@/shared/constants';
-import { formatDate } from '@/shared/helpers';
+import { convertLovelaceToADA, formatDate } from '@/shared/helpers';
 import { useMyDonatPools } from '@/shared/hooks';
 import { DonatPool } from '@/shared/types';
 
@@ -58,8 +58,8 @@ function Page() {
             </div>
             <div className="flex border-b-2 border-black py-6">
               <RaisedCounter
-                raised={Number(currentProject.raisedAmt) / 1000000}
-                goal={Number(currentProject.goal) / 1000000}
+                raised={convertLovelaceToADA(currentProject.raisedAmt)}
+                goal={convertLovelaceToADA(currentProject.goal)}
               />
             </div>
             <PrivateProjectsActions project={currentProject} />
