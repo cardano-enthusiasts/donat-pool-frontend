@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 
 import { DonatPool } from '@/containers';
+import { Layout } from '@/shared/components';
 
 const metadata: Metadata = {
   title: 'Donat.Pool: Help the project',
@@ -8,7 +9,11 @@ const metadata: Metadata = {
 };
 
 function Page() {
-  return <DonatPool />;
+  return (
+    <Layout>
+      <DonatPool />
+    </Layout>
+  );
 }
 
 export { Page as default, metadata };

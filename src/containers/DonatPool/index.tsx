@@ -4,15 +4,7 @@ import { useEffect, useState } from 'react';
 
 import { useAppSelector, useAppDispatch } from '@/redux/hooks';
 import { reset } from '@/redux/slices/donating';
-import {
-  Layout,
-  ModalDonate,
-  ModalError,
-  ModalLoading,
-  ModalSuccess,
-  AccentButton,
-  RaisedCounter,
-} from '@/shared/components';
+import { ModalDonate, ModalError, ModalLoading, ModalSuccess, AccentButton, RaisedCounter } from '@/shared/components';
 import { convertLovelaceToADA, formatDate } from '@/shared/helpers';
 import { useQueriedDonatPool, useDonate } from '@/shared/hooks';
 
@@ -65,12 +57,11 @@ function DonatPool() {
 
   return (
     <>
-      <Layout>
-        {donatPoolIsBeingFetched && <div>donat pool is being fetched</div>}
-        {donatPool && (
-          <div className="pb-40 pt-20">
-            <h1
-              className="mb-6
+      {donatPoolIsBeingFetched && <div>donat pool is being fetched</div>}
+      {donatPool && (
+        <div className="pb-40 pt-20">
+          <h1
+            className="mb-6
                 overflow-hidden
                 text-ellipsis
                 whitespace-nowrap
@@ -80,32 +71,26 @@ function DonatPool() {
                 text-red
                 max-lg:text-[2.25rem]
                 max-sm:text-[2.25rem]"
-            >
-              {donatPool.title}
-            </h1>
-            <div className="border-b-2 border-t-2 border-black py-6 text-center text-xl font-bold">
-              Until {formatDate(Number(donatPool.deadline))}
-            </div>
-            <div className="mb-10 mt-6">
-              <RaisedCounter
-                raised={convertLovelaceToADA(donatPool.raisedAmt)}
-                goal={convertLovelaceToADA(donatPool.goal)}
-              />
-            </div>
-            <div className="flex justify-center">
-              <AccentButton
-                primaryColor="yellow"
-                secondaryColor="red"
-                fontColor="red"
-                onClick={handleDonateButtonClick}
-              >
-                Donate
-              </AccentButton>
-            </div>
+          >
+            {donatPool.title}
+          </h1>
+          <div className="border-b-2 border-t-2 border-black py-6 text-center text-xl font-bold">
+            Until {formatDate(Number(donatPool.deadline))}
           </div>
-        )}
-        {fetchDonatPoolError && <div className="text-error">An error happened while fetching the donat pool</div>}
-      </Layout>
+          <div className="mb-10 mt-6">
+            <RaisedCounter
+              raised={convertLovelaceToADA(donatPool.raisedAmt)}
+              goal={convertLovelaceToADA(donatPool.goal)}
+            />
+          </div>
+          <div className="flex justify-center">
+            <AccentButton primaryColor="yellow" secondaryColor="red" fontColor="red" onClick={handleDonateButtonClick}>
+              Donate
+            </AccentButton>
+          </div>
+        </div>
+      )}
+      {fetchDonatPoolError && <div className="text-error">An error happened while fetching the donat pool</div>}
       {donatPool && modalIsShown && (
         <ModalDonate
           data={{

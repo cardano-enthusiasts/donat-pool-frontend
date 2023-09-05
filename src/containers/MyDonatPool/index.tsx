@@ -3,7 +3,7 @@
 import { useParams, useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
-import { PrivateProjectsActions, RaisedCounter, Layout, Project } from '@/shared/components';
+import { PrivateProjectsActions, RaisedCounter, Project } from '@/shared/components';
 import { ROUTES } from '@/shared/constants';
 import { convertLovelaceToADA, formatDate } from '@/shared/helpers';
 import { useMyDonatPools } from '@/shared/hooks';
@@ -39,33 +39,31 @@ function MyDonatPool() {
 
   return (
     currentProject && (
-      <Layout>
-        <Project
-          previousPageTitle="My projects"
-          title={currentProject.title}
-          onPreviousPageClick={handlePreviousPageClick}
-        >
-          <div className="max-w-[37.5rem]">
-            <div className="flex items-center justify-between border-b-2 border-t-2 border-black py-7">
-              <div
-                className={`font-bold ${
-                  getTheme(currentProject.completed).classes
-                } rounded-md border-2 px-3 py-2 text-sm`}
-              >
-                {getTheme(currentProject.completed).text}
-              </div>
-              <div className="text-xl font-bold">Until {formatDate(Number(currentProject.deadline))}</div>
+      <Project
+        previousPageTitle="My projects"
+        title={currentProject.title}
+        onPreviousPageClick={handlePreviousPageClick}
+      >
+        <div className="max-w-[37.5rem]">
+          <div className="flex items-center justify-between border-b-2 border-t-2 border-black py-7">
+            <div
+              className={`font-bold ${
+                getTheme(currentProject.completed).classes
+              } rounded-md border-2 px-3 py-2 text-sm`}
+            >
+              {getTheme(currentProject.completed).text}
             </div>
-            <div className="flex border-b-2 border-black py-6">
-              <RaisedCounter
-                raised={convertLovelaceToADA(currentProject.raisedAmt)}
-                goal={convertLovelaceToADA(currentProject.goal)}
-              />
-            </div>
-            <PrivateProjectsActions project={currentProject} />
+            <div className="text-xl font-bold">Until {formatDate(Number(currentProject.deadline))}</div>
           </div>
-        </Project>
-      </Layout>
+          <div className="flex border-b-2 border-black py-6">
+            <RaisedCounter
+              raised={convertLovelaceToADA(currentProject.raisedAmt)}
+              goal={convertLovelaceToADA(currentProject.goal)}
+            />
+          </div>
+          <PrivateProjectsActions project={currentProject} />
+        </div>
+      </Project>
     )
   );
 }
