@@ -1,7 +1,7 @@
-import type { SubItem, Item } from '@/shared/types';
+import type { Item, SubItem } from '@/shared/types';
 
 function isSubItem(value: Item | SubItem): value is SubItem {
-  return (value as SubItem).title !== undefined;
+  return !Object.hasOwn(value, 'subItems');
 }
 
 export default isSubItem;

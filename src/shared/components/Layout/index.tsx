@@ -1,13 +1,10 @@
-'use client';
-
-import Footer from '@/shared/components/Footer';
-import Header from '@/shared/components/Header';
+import { Header, Footer } from '@/shared/components';
 
 function Layout({ children }: React.PropsWithChildren) {
   return (
-    <div className="flex min-h-screen flex-col">
+    <div className="mx-auto flex min-h-screen min-w-[20rem] max-w-screen-fhd flex-col">
       <Header />
-      <main className="mx-auto w-full max-w-screen-2xl flex-grow px-20 pb-40 pt-20 max-xl:p-10">{children}</main>
+      <main className="w-full flex-grow px-20 pb-40 pt-20 max-md:p-10">{children}</main>
       <Footer />
     </div>
   );

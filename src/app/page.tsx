@@ -5,7 +5,7 @@ import { useRef, useState } from 'react';
 
 import { InitialLoading, LandingContent, LandingNav, Waves } from '@/shared/components';
 import { useWindowSize, useWindowScroll } from '@/shared/hooks';
-import { LandingSection } from '@/shared/types';
+import type { LandingSection } from '@/shared/types';
 
 const metadata: Metadata = {
   title: 'Donat.Pool: Crowdfunding on Cardano blockchain',
@@ -23,7 +23,7 @@ function Page() {
   const navRef = useRef<HTMLDivElement>(null);
 
   function handleMobileHeaderClick() {
-    setMobileHeaderIsShown((m) => !m);
+    setMobileHeaderIsShown(!mobileHeaderIsShown);
   }
 
   function handleSectionClick(clickedSection: LandingSection) {

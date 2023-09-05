@@ -18,13 +18,13 @@ function Header() {
   const activeWalletCardanoKey = useAppSelector((state) => state.cardano.activeWalletCardanoKey);
 
   function handleCloseIconClick() {
-    setMenuIsShown((m) => !m);
+    setMenuIsShown(!menuIsShown);
   }
 
   return (
     <header
       className={cn('base-wrapper bg-red max-lg:relative max-lg:w-screen', {
-        'z-[999] min-h-screen pt-36': menuIsShown,
+        'min-h-screen pt-36': menuIsShown,
       })}
     >
       <div

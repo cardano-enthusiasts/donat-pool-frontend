@@ -69,8 +69,8 @@ interface SubItem {
 }
 
 interface Item {
-  subItems: SubItem[];
   id: string;
+  subItems: SubItem[];
 }
 
 interface RoadmapText {

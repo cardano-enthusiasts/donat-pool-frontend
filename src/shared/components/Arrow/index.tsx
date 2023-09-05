@@ -1,6 +1,6 @@
 import cn from 'classnames';
 
-import { Props } from './types';
+import type { Props } from './types';
 
 function Arrow({ color = 'blue', isUp = false }: Props) {
   return (

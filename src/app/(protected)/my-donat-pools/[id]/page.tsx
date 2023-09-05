@@ -7,7 +7,7 @@ import { PrivateProjectsActions, RaisedCounter, Common, Project } from '@/shared
 import { ROUTES } from '@/shared/constants';
 import { formatDate } from '@/shared/helpers';
 import { useMyDonatPools } from '@/shared/hooks';
-import { DonatPool } from '@/shared/types';
+import type { DonatPool } from '@/shared/types';
 
 import THEME from './constants';
 
