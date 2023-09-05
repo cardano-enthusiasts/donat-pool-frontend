@@ -17,7 +17,7 @@ function Form({ onSubmitSuccess, onSubmitFailure, onCancelButtonClick }: Props) 
 
   const handleSubmit = createSubmitHandler(async (data) => {
     try {
-      await api.post('core/contact-us', data);
+      await api.post('core/contact-us/', data);
       onSubmitSuccess();
     } catch (error) {
       onSubmitFailure(isAxiosError(error) ? error.message : 'Unknown error');
