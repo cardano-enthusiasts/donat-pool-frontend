@@ -1,7 +1,6 @@
-import HTMLReactParser from 'html-react-parser';
 import type { Metadata } from 'next';
 
-import { Service } from '@/shared/components';
+import { Layout } from '@/shared/components';
 import { roadmapText } from '@/shared/data';
 import { isSubItem } from '@/shared/typeGuards';
 import type { Item, SubItem } from '@/shared/types';
@@ -21,28 +20,29 @@ function Page() {
   }
 
   return (
-    <Service>
-      <h1
-        className="mb-8
+    <Layout>
+      <div className="mx-auto max-w-[52.375rem]">
+        <h1
+          className="mb-8
           font-rammetto-one
-          text-[3.375rem]/[104%]
+          text-menu-active
           text-red
-          max-lg:text-[2.25rem]
-          max-sm:text-[2.25rem]"
-      >
-        Donat.Pool <span className="text-green">roadmap</span>
-      </h1>
-      <div className="grid gap-8">
-        {roadmapText.phases.map(({ title, items }) => (
-          <div className="rounded-md p-6 shadow-xl" key={title}>
-            <h2 className="text-2xl font-bold [&_span]:text-red">{HTMLReactParser(title)}</h2>
-            <ul className="mt-6 list-disc pl-6">
-              {items.map((item) => (isSubItem(item) ? <li key={item.id}>{item.title}</li> : createSubItems(item)))}
-            </ul>
-          </div>
-        ))}
+          max-md:text-[2.25rem]/[2.25rem]"
+        >
+          Donat.Pool <span className="text-green">roadmap</span>
+        </h1>
+        <div className="space-y-8">
+          {roadmapText.phases.map(({ title, items }) => (
+            <div className="rounded-md p-6 shadow-xl" key={title}>
+              <h2 className="text-2xl font-bold [&_span]:text-red" dangerouslySetInnerHTML={{ __html: title }} />
+              <ul className="mt-6 list-disc pl-6">
+                {items.map((item) => (isSubItem(item) ? <li key={item.id}>{item.title}</li> : createSubItems(item)))}
+              </ul>
+            </div>
+          ))}
+        </div>
       </div>
-    </Service>
+    </Layout>
   );
 }
 
