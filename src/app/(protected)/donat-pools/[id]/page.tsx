@@ -4,8 +4,16 @@ import { useEffect, useState } from 'react';
 
 import { useAppSelector, useAppDispatch } from '@/redux/hooks';
 import { reset } from '@/redux/slices/donating';
-import { ModalDonate, ModalError, ModalLoading, ModalSuccess, AccentButton, Common } from '@/shared/components';
-import { formatDate } from '@/shared/helpers';
+import {
+  ModalDonate,
+  ModalError,
+  ModalLoading,
+  ModalSuccess,
+  AccentButton,
+  Common,
+  RaisedCounter,
+} from '@/shared/components';
+import { convertLovelaceToADA, formatDate } from '@/shared/helpers';
 import { useQueriedDonatPool, useDonate } from '@/shared/hooks';
 
 function Page() {
@@ -78,7 +86,12 @@ function Page() {
             <div className="border-b-2 border-t-2 border-black py-6 text-center text-xl font-bold">
               Until {formatDate(Number(donatPool.deadline))}
             </div>
-            <div className="mx-0 mb-10 mt-6" />
+            <div className="mb-10 mt-6">
+              <RaisedCounter
+                raised={convertLovelaceToADA(donatPool.raisedAmt)}
+                goal={convertLovelaceToADA(donatPool.goal)}
+              />
+            </div>
             <div className="flex justify-center">
               <AccentButton
                 primaryColor="yellow"

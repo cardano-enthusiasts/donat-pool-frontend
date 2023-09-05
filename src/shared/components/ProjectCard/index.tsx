@@ -1,7 +1,7 @@
 import cn from 'classnames';
 import Link from 'next/link';
 
-import { formatDate } from '@/shared/helpers';
+import { convertLovelaceToADA, formatDate } from '@/shared/helpers';
 
 import type { Props } from './types';
 
@@ -57,12 +57,12 @@ function ProjectCard({
             <div className="flex text-red">
               {status === 'active' && (
                 <>
-                  {Number(raisedAmt) / 1000000}
+                  {convertLovelaceToADA(raisedAmt)}
                   <div className="mx-2 w-0.5 rounded-[0.3125rem] bg-red" />
                 </>
               )}
             </div>
-            {Number(goal) / 1000000}
+            {convertLovelaceToADA(goal)}
           </div>
         </div>
       </div>
