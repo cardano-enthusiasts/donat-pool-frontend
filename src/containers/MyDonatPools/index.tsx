@@ -6,7 +6,7 @@ import { BorderedButton, ProjectCard, StandardButton } from '@/shared/components
 import { ROUTES } from '@/shared/constants';
 import { useMyDonatPools } from '@/shared/hooks';
 import type { DonatPool } from '@/shared/types';
-import SadCatImg from '@public/img/sad-cat.svg';
+import SadCatImage from '@public/img/sad-cat.svg';
 
 import type { ProjectStatus } from './types';
 
@@ -95,7 +95,7 @@ function MyDonatPools() {
         ) : (
           <div className="flex flex-col items-center gap-6">
             You don&apos;t have any projects yet. Create a project to start receiving donations.
-            <SadCatImg className="max-w-full" />
+            <SadCatImage className="max-w-full" />
           </div>
         )}
       </div>

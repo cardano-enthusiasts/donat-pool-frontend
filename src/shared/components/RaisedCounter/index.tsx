@@ -11,7 +11,7 @@ import Donut4Image from '@public/img/donut-4.svg';
 import type { Props } from './types';
 
 function RaisedCounter({ raised, goal }: Props) {
-  const [img, setImg] = useState(<Donut0Image />);
+  const [image, setImage] = useState(<Donut0Image />);
   function getSrc(part: number) {
     if (part < 0.2) {
       return <Donut0Image />;
@@ -30,7 +30,7 @@ function RaisedCounter({ raised, goal }: Props) {
 
   useEffect(() => {
     const raisedPart = raised / goal;
-    setImg(getSrc(raisedPart));
+    setImage(getSrc(raisedPart));
   }, [raised, goal]);
 
   return (
@@ -44,7 +44,7 @@ function RaisedCounter({ raised, goal }: Props) {
     font-normal
     max-sm:text-4xl"
     >
-      <div className="max-sm:hidden">{img}</div>
+      <div className="max-sm:hidden">{image}</div>
       <div className="text-red">{raised}</div>
       <div className="h-12 w-[0.3125rem] rounded-[0.3125rem] bg-red" />
       <div className="text-yellow">{goal}</div>

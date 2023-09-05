@@ -1,6 +1,6 @@
 import { AccentButton } from '@/shared/components';
 import { ROUTES } from '@/shared/constants';
-import BigLogoImg from '@public/img/big-logo.svg';
+import BigLogoImage from '@public/img/big-logo.svg';
 
 import styles from './styles.module.css';
 import type { Props } from './types';
@@ -8,7 +8,7 @@ import type { Props } from './types';
 function TitleAndDescription({ active }: Props) {
   return (
     <div className={`flex flex-col font-rammetto-one ${active ? styles.wrapper : styles.wrapperInactive}`}>
-      <BigLogoImg className="mb-[1.875rem] w-full max-w-[48.125rem]" />
+      <BigLogoImage className="mb-[1.875rem] w-full max-w-[48.125rem]" />
 
       <div
         className="mb-10
