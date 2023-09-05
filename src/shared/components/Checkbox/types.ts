@@ -1,6 +1,6 @@
 interface Props {
   checked: boolean;
-  textTheme?: 'light';
+  textTheme?: 'white' | 'black';
   onChange: () => void;
 }
 

@@ -7,7 +7,7 @@ import { ActionDonuts, ScrollHelper } from '@/shared/components';
 import { useWindowSize } from '@/shared/hooks';
 import CatImg from '@public/img/cat.svg';
 
-import { Props } from './types';
+import type { Props } from './types';
 
 function InitialLoading({ windowScroll, animationIsActive }: Props) {
   const innerCircleRef = useRef<HTMLDivElement>(null);

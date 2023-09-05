@@ -1,7 +1,8 @@
 'use client';
 
 import cn from 'classnames';
-import { forwardRef, useEffect, useRef, ForwardedRef } from 'react';
+import type { ForwardedRef } from 'react';
+import { forwardRef, useEffect, useRef } from 'react';
 
 import { StandardButton, Waves } from '@/shared/components';
 import { ROUTES } from '@/shared/constants';
@@ -10,7 +11,7 @@ import MenuIcon from '@public/icons/menu.svg';
 
 import { ICON_CLASSES, getSections, LINK_CLASSES, WRAPPER_CLASSES } from './data';
 import styles from './styles.module.css';
-import { Props } from './types';
+import type { Props } from './types';
 
 const LandingNav = forwardRef(function LandingNav(
   { currentSection, windowScroll, windowWidth, shown, animationIsActive, handleIconClick, handleSectionClick }: Props,
@@ -32,10 +33,8 @@ const LandingNav = forwardRef(function LandingNav(
       ref={wrapperRef}
       className={cn(
         styles.wrapper,
-        'fixed top-[5.625rem] max-3xl:left-[5.625rem] max-xl:fixed max-xl:left-0 max-xl:top-0 max-xl:flex max-xl:w-[100vw] max-xl:items-center max-xl:justify-center',
+        'fixed top-[5.625rem] max-fhd:left-[5.625rem] max-xl:fixed max-xl:left-0 max-xl:top-0 max-xl:flex max-xl:w-[100vw] max-xl:items-center max-xl:justify-center',
         {
-          'z-[-1] max-xl:z-[100]': currentSection === 'contact-us',
-          'z-[3] max-xl:z-[100]': currentSection !== 'contact-us',
           hidden: windowScroll < 500 && animationIsActive,
           'max-xl:h-[100vh] max-xl:overflow-auto': shown,
         },

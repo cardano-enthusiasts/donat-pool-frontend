@@ -1,6 +1,6 @@
-import { ReactElement, RefObject } from 'react';
+import type { ReactElement, RefObject } from 'react';
 
-import { LandingSection } from '@/shared/types';
+import type { LandingSection } from '@/shared/types';
 
 interface Props {
   windowScroll: number;

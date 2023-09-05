@@ -1,4 +1,4 @@
-import { Metadata } from 'next';
+import type { Metadata } from 'next';
 
 import { DonatPools } from '@/containers';
 import { StandardButton, Common } from '@/shared/components';
@@ -31,7 +31,7 @@ function Page() {
         >
           All Donat.Pools
         </h1>
-        <div className="max-md:fixed max-md:bottom-15 max-md:right-8 max-md:z-10">
+        <div className="max-md:fixed max-md:bottom-15 max-md:right-8">
           <StandardButton primaryColor="red" secondaryColor="blue" fontColor="white" href={ROUTES.newDonatPool}>
             Create Donat.Pool
           </StandardButton>

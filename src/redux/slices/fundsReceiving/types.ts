@@ -1,4 +1,4 @@
-import { RequestStatus } from '@/shared/types';
+import type { RequestStatus } from '@/shared/types';
 
 interface State {
   status: RequestStatus;

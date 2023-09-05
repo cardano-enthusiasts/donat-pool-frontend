@@ -6,10 +6,10 @@ import { AccentButton } from '@/shared/components';
 import { ROUTES } from '@/shared/constants';
 import { roadmapText } from '@/shared/data';
 import { isSubItem } from '@/shared/typeGuards';
-import { Item, SubItem } from '@/shared/types';
+import type { Item, SubItem } from '@/shared/types';
 
 import styles from './styles.module.css';
-import { Props } from './types';
+import type { Props } from './types';
 
 function Roadmap({ active }: Props) {
   function createSubItems(item: Item) {

@@ -3,7 +3,7 @@ import FlintLogo from '@public/icons/flint.svg';
 import LodeLogo from '@public/icons/lode.svg';
 import NamiLogo from '@public/icons/nami.svg';
 
-import { Props } from './types';
+import type { Props } from './types';
 
 function WalletLogos({ cardanoKey }: Props) {
   const logos = {

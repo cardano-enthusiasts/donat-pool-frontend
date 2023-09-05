@@ -3,7 +3,7 @@ import { ROUTES } from '@/shared/constants';
 import BigLogoImg from '@public/img/big-logo.svg';
 
 import styles from './styles.module.css';
-import { Props } from './types';
+import type { Props } from './types';
 
 function TitleAndDescription({ active }: Props) {
   return (

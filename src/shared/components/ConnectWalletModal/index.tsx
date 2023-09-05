@@ -1,3 +1,5 @@
+'use client';
+
 import cn from 'classnames';
 import Link from 'next/link';
 import { useMemo, useState } from 'react';
@@ -6,7 +8,7 @@ import { useAppDispatch } from '@/redux/hooks';
 import { setActiveWalletCardanoKey } from '@/redux/slices/cardano';
 import { Modal, Checkbox, DoubleBorderedButton, WalletLogos } from '@/shared/components';
 import { ROUTES } from '@/shared/constants';
-import { WalletCardanoKey } from '@/shared/types';
+import type { WalletCardanoKey } from '@/shared/types';
 import GoToIcon from '@public/icons/go-to.svg';
 
 import { WALLETS } from './constants';
@@ -28,7 +30,7 @@ function ConnectWalletModal() {
   const [someWalletIsBeingConnected, setSomeWalletIsBeingConnected] = useState(false);
 
   function handleCheckboxChange() {
-    setTermsOfUseAreAccepted((t) => !t);
+    setTermsOfUseAreAccepted(!termsOfUseAreAccepted);
   }
 
   async function handleConnectWalletButtonClick(walletCardanoKey: WalletCardanoKey) {
@@ -37,7 +39,7 @@ function ConnectWalletModal() {
     try {
       const walletApi = await window.cardano?.[walletCardanoKey]?.enable();
 
-      // WORKAROUND: catching connection cancelling of Lode wallet. For some reason it does not throw an error in this case
+      // catching connection cancelling of Lode wallet. For some reason it does not throw an error in this case
       if (walletCardanoKey === 'LodeWallet' && walletApi === undefined) {
         throw new Error('LodeWallet: connection cancelling');
       }
@@ -51,8 +53,8 @@ function ConnectWalletModal() {
   }
 
   return (
-    <Modal shown panelTheme="dark" title="Connect wallet" titleAs="h1">
-      <Checkbox checked={termsOfUseAreAccepted} textTheme="light" onChange={handleCheckboxChange}>
+    <Modal panelTheme="black" title="Connect wallet" titleAs="h1">
+      <Checkbox checked={termsOfUseAreAccepted} onChange={handleCheckboxChange}>
         By checking this box and connecting my wallet, I confirm that I have read, understood and agreed the{' '}
         <Link className="font-bold text-blue" href={ROUTES.termsOfUse} target="_blank">
           Terms of use.

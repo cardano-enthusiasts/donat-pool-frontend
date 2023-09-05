@@ -1,4 +1,4 @@
-import { CardanoKey } from '@/shared/types';
+import type { CardanoKey } from '@/shared/types';
 
 interface Props {
   cardanoKey: CardanoKey;

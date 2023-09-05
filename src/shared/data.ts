@@ -1,4 +1,4 @@
-import { RoadmapText } from './types';
+import type { RoadmapText } from './types';
 
 const roadmapText: RoadmapText = {
   phases: [

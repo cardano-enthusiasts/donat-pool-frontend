@@ -34,7 +34,7 @@ function Stack() {
   }
 
   function handleReadButtonClick() {
-    setShown((s) => !s);
+    setShown(!shown);
   }
 
   return (

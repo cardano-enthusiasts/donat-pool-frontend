@@ -8,7 +8,7 @@ import Donut2Image from '@public/img/donut-2.svg';
 import Donut3Image from '@public/img/donut-3.svg';
 import Donut4Image from '@public/img/donut-4.svg';
 
-import { Props } from './types';
+import type { Props } from './types';
 
 function RaisedCounter({ raised, goal }: Props) {
   const [img, setImg] = useState(<Donut0Image />);
