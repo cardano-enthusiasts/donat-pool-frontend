@@ -1,8 +1,7 @@
 'use client';
 
-import { useEffect, useState } from 'react';
-
 import { Modal } from '@/shared/components';
+import { useCurrentImage } from '@/shared/hooks';
 import Donut0Image from '@public/img/donut-0.svg';
 import Donut1Image from '@public/img/donut-1.svg';
 import Donut2Image from '@public/img/donut-2.svg';
@@ -23,23 +22,7 @@ function ModalLoading({
     <Donut3Image key="3" />,
     <Donut4Image key="4" />,
   ];
-  const [img, setImg] = useState(images[0]);
-
-  useEffect(() => {
-    let i = 0;
-    const interval = setInterval(() => {
-      if (i > images.length - 2) {
-        i = 0;
-      } else {
-        i = i + 1;
-      }
-      setImg(images[i]);
-    }, 500);
-
-    return () => {
-      clearInterval(interval);
-    };
-  }, []);
+  const image = useCurrentImage(images);
 
   return (
     <Modal shown={shown}>
@@ -47,7 +30,7 @@ function ModalLoading({
         <h1 className="mb-6 text-center font-rammetto-one text-[2.25rem]/[104%] text-red max-sm:text-[2.25rem]">
           {title}
         </h1>
-        <div className="mb-10 max-w-[8.75rem]">{img}</div>
+        <div className="mb-10 max-w-[8.75rem]">{image}</div>
         <div className="text-center">{description}</div>
       </div>
     </Modal>

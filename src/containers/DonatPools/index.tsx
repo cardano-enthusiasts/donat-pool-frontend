@@ -1,6 +1,6 @@
 'use client';
 
-import { ProjectCard } from '@/shared/components';
+import { Loading, ProjectCard } from '@/shared/components';
 import { ROUTES } from '@/shared/constants';
 import { useDonatPools } from '@/shared/hooks';
 
@@ -9,7 +9,7 @@ function DonatPools() {
 
   return (
     <>
-      {donatPoolsAreBeingFetched && <div>donat pools are being fetched</div>}
+      {donatPoolsAreBeingFetched && <Loading />}
       {donatPools && (
         <div className="grid grid-cols-projects gap-10 max-sm:grid-cols-1 max-sm:gap-8">
           {donatPools
