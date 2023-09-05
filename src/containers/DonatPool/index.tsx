@@ -62,15 +62,15 @@ function DonatPool() {
         <div className="pb-40 pt-20">
           <h1
             className="mb-6
-                overflow-hidden
-                text-ellipsis
-                whitespace-nowrap
-                text-center
-                font-rammetto-one
-                text-[3.375rem]/[125%]
-                text-red
-                max-lg:text-[2.25rem]
-                max-sm:text-[2.25rem]"
+              overflow-hidden
+              text-ellipsis
+              whitespace-nowrap
+              text-center
+              font-rammetto-one
+              text-[3.375rem]/[125%]
+              text-red
+              max-lg:text-[2.25rem]
+              max-sm:text-[2.25rem]"
           >
             {donatPool.title}
           </h1>
