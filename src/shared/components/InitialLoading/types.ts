@@ -1,5 +1,4 @@
 interface Props {
-  windowScroll: number;
   animationIsActive: boolean;
 }
 

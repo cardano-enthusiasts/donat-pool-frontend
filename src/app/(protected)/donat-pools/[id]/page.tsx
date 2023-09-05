@@ -1,5 +1,6 @@
 'use client';
 
+import type { Metadata } from 'next';
 import { useEffect, useState } from 'react';
 
 import { useAppSelector, useAppDispatch } from '@/redux/hooks';
@@ -7,6 +8,11 @@ import { reset } from '@/redux/slices/donating';
 import { ModalDonate, ModalError, ModalLoading, ModalSuccess, AccentButton, Common } from '@/shared/components';
 import { formatDate } from '@/shared/helpers';
 import { useQueriedDonatPool, useDonate } from '@/shared/hooks';
+
+const metadata: Metadata = {
+  title: 'Donat.Pool: Help the project',
+  description: 'Help bring project to life. Donate and become one of the early adopters!',
+};
 
 function Page() {
   const dispatch = useAppDispatch();
@@ -118,4 +124,4 @@ function Page() {
   );
 }
 
-export default Page;
+export { Page as default, metadata };

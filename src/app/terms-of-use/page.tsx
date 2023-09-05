@@ -6,7 +6,8 @@ import { terms } from './data';
 import styles from './styles.module.css';
 
 const metadata: Metadata = {
-  title: 'Terms of use',
+  title: 'Donat.Pool: Terms of use',
+  description: 'Transparent and simple terms of using our platform.',
 };
 
 function Page() {

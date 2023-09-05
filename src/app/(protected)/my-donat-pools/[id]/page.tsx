@@ -1,5 +1,6 @@
 'use client';
 
+import type { Metadata } from 'next';
 import { useParams, useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
@@ -10,6 +11,11 @@ import { useMyDonatPools } from '@/shared/hooks';
 import type { DonatPool } from '@/shared/types';
 
 import THEME from './constants';
+
+const metadata: Metadata = {
+  title: 'Donat.Pool: Help the project',
+  description: 'Help bring project to life. Donate and become one of the early adopters!',
+};
 
 function Page() {
   const params = useParams();
@@ -70,4 +76,4 @@ function Page() {
   );
 }
 
-export default Page;
+export { Page as default, metadata };
