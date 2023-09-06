@@ -10,11 +10,9 @@ const PRIMARY_SECTIONS = [
       "Our platform is fully decentralized.  It is safe and trustworthy. All donations are locked on a smart-contract, everyone can check the actual code and see that no one except for a donation pool's owner can withdraw funds.",
   },
 ];
-const SECONDARY_SECTIONS = {
-  description1:
-    'Our interface is simple and convenient. You can easily register and create a page for donations, it is free. You need only to pay a small amount of fee when withdrawing funds. The amount of fee is less than on centralized services.',
-  description2:
-    "After creating a project on Donat.Pool you get a link to your personal donation page and can simply share this link with your community on socials, blogs and other websites. It's that easy!",
-};
+const SECONDARY_SECTIONS = [
+  'Our interface is simple and convenient. You can easily register and create a page for donations, it is free. You need only to pay a small amount of fee when withdrawing funds. The amount of fee is less than on centralized services.',
+  "After creating a project on Donat.Pool you get a link to your personal donation page and can simply share this link with your community on socials, blogs and other websites. It's that easy!",
+];
 
 export { PRIMARY_SECTIONS, SECONDARY_SECTIONS };
