@@ -2,15 +2,15 @@
 
 import { useEffect, useState } from 'react';
 
-import { FIRST_IMAGE, getSrc } from './helpers';
+import { firstImage, getImage } from './helpers';
 import type { Props } from './types';
 
 function RaisedCounter({ raised, goal }: Props) {
-  const [image, setImage] = useState(FIRST_IMAGE);
+  const [image, setImage] = useState(firstImage);
 
   useEffect(() => {
     const raisedPart = raised / goal;
-    setImage(getSrc(raisedPart));
+    setImage(getImage(raisedPart));
   }, [raised, goal]);
 
   return (

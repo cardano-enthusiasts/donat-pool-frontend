@@ -4,11 +4,11 @@ import Donut2Image from '@public/img/donut-2.svg';
 import Donut3Image from '@public/img/donut-3.svg';
 import Donut4Image from '@public/img/donut-4.svg';
 
-const FIRST_IMAGE = <Donut0Image />;
+const firstImage = <Donut0Image />;
 
-function getSrc(part: number) {
+function getImage(part: number) {
   if (part < 0.2) {
-    return FIRST_IMAGE;
+    return firstImage;
   }
   if (part >= 0.2 && part < 0.4) {
     return <Donut1Image />;
@@ -22,4 +22,4 @@ function getSrc(part: number) {
   return <Donut4Image />;
 }
 
-export { getSrc, FIRST_IMAGE };
+export { getImage, firstImage };
