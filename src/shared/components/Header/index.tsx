@@ -18,6 +18,9 @@ function Header() {
   const [menuIsShown, setMenuIsShown] = useState(false);
   const activeWalletCardanoKey = useAppSelector((state) => state.cardano.activeWalletCardanoKey);
 
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+  const Icon = menuIsShown ? CloseIcon : MenuIcon;
+
   function handleCloseIconClick() {
     setMenuIsShown(!menuIsShown);
   }
@@ -56,11 +59,7 @@ function Header() {
           </div>
         )}
       </div>
-      {menuIsShown ? (
-        <CloseIcon className={ICON_CLASSES} onClick={handleCloseIconClick} />
-      ) : (
-        <MenuIcon className={ICON_CLASSES} onClick={handleCloseIconClick} />
-      )}
+      <Icon className={ICON_CLASSES} onClick={handleCloseIconClick} />
     </header>
   );
 }

@@ -22,6 +22,9 @@ const LandingNav = forwardRef(function LandingNav(
   const section = windowWidth > mobileResolution || currentSection !== 'contact-us' ? currentSection : 'roadmap';
   const wrapperRef = useRef<HTMLDivElement>(null);
 
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+  const Icon = shown ? CloseIcon : MenuIcon;
+
   useEffect(() => {
     if (wrapperRef?.current && windowWidth > 1920) {
       wrapperRef.current.style.left = `${(windowWidth - 1920) / 2 + 90}px`;
@@ -44,12 +47,7 @@ const LandingNav = forwardRef(function LandingNav(
       <nav ref={ref}>
         {windowWidth < mobileResolution && (
           <>
-            {shown ? (
-              <CloseIcon className={ICON_CLASSES} onClick={handleIconClick} />
-            ) : (
-              <MenuIcon className={ICON_CLASSES} onClick={handleIconClick} />
-            )}
-
+            <Icon className={ICON_CLASSES} onClick={handleIconClick} />
             <div className="absolute left-0 right-0 top-0 z-[-1]">
               <Waves upsideDown color="red" moving={false} />
             </div>
