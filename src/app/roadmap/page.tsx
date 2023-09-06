@@ -3,7 +3,7 @@ import type { Metadata } from 'next';
 
 import { Service } from '@/shared/components';
 import { roadmapText } from '@/shared/data';
-import { isSubItem } from '@/shared/typeGuards';
+import { isSubItem } from '@/shared/type-guards';
 import type { Item, SubItem } from '@/shared/types';
 
 const metadata: Metadata = {

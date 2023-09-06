@@ -1,28 +1,27 @@
 'use client';
 
-import Image from 'next/image';
 import { useEffect, useState } from 'react';
 
 import { Modal } from '@/shared/components';
 
+import { IMAGES } from './constants';
 import type { Props } from './types';
 
 function ModalLoading({
   title = 'Please wait...',
   description = 'Please wait a bit. We are preparing your donut',
 }: Props) {
-  const [index, setIndex] = useState(0);
-  const maxDonutIndex = 4;
+  const [image, setImage] = useState(IMAGES[0]);
 
   useEffect(() => {
     let i = 0;
     const interval = setInterval(() => {
-      if (i > maxDonutIndex - 1) {
+      if (i > IMAGES.length - 2) {
         i = 0;
       } else {
         i = i + 1;
       }
-      setIndex(i);
+      setImage(IMAGES[i]);
     }, 500);
 
     return () => {
@@ -36,7 +35,7 @@ function ModalLoading({
         <h1 className="mb-6 text-center font-rammetto-one text-[2.25rem]/[104%] text-red max-sm:text-[2.25rem]">
           {title}
         </h1>
-        <Image src={`/img/donut-${index}.svg`} alt="donut" width={115} height={115} className="mb-10 max-w-[8.75rem]" />
+        <div className="mb-10 max-w-[8.75rem]">{image}</div>
         <div className="text-center">{description}</div>
       </div>
     </Modal>

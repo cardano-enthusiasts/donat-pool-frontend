@@ -1,12 +1,12 @@
 'use client';
 
-import Image from 'next/image';
 import { useEffect, useState } from 'react';
 
 import { BorderedButton, ProjectCard, StandardButton } from '@/shared/components';
 import { ROUTES } from '@/shared/constants';
 import { useMyDonatPools } from '@/shared/hooks';
 import type { DonatPool } from '@/shared/types';
+import SadCatImage from '@public/img/sad-cat.svg';
 
 import type { ProjectStatus } from './types';
 
@@ -95,7 +95,7 @@ function MyDonatPools() {
         ) : (
           <div className="flex flex-col items-center gap-6">
             You don&apos;t have any projects yet. Create a project to start receiving donations.
-            <Image className="max-w-full" src="/img/sad-cat.svg" alt="sad cat image" width={140} height={140} />
+            <SadCatImage className="max-w-full" />
           </div>
         )}
       </div>
