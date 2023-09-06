@@ -38,7 +38,7 @@ function Header() {
             <div className="mx-10 flex gap-7 text-lg font-bold max-lg:flex-col max-lg:items-center">
               {LINKS.map(({ title, href }) => (
                 <div className="shrink-0" key={title}>
-                  <Link href={href} className={`${href === pathname ? 'text-yellow' : 'text-white'}`}>
+                  <Link className={`${href === pathname ? 'text-yellow' : 'text-white'}`} href={href}>
                     {title}
                   </Link>
                 </div>

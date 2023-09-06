@@ -20,7 +20,6 @@
     "@reduxjs/toolkit": "1.9.5",
     "axios": "1.5.0",
     "classnames": "2.3.2",
-    "html-react-parser": "4.2.1",
     "next": "13.4.19",
     "offchain": "git+ssh://git@github.com:fullstack-development/donat-pool-offchain.git#16c39d832223f783f8ecf3836c628739f4ea9503",
     "react": "18.2.0",

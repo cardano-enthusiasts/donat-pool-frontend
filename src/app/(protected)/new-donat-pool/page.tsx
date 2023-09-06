@@ -1,17 +1,18 @@
 import type { Metadata } from 'next';
 
 import { NewDonatPool } from '@/containers';
-import { Common } from '@/shared/components';
+import { Layout } from '@/shared/components';
 
 const metadata: Metadata = {
-  title: 'New Donat.Pool',
+  title: 'Donat.Pool: Start a new project',
+  description: 'Create a page for your project where your community can support you in Ada.',
 };
 
 function Page() {
   return (
-    <Common>
+    <Layout>
       <NewDonatPool />
-    </Common>
+    </Layout>
   );
 }
 

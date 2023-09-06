@@ -35,7 +35,7 @@ function TitleAndDescription({ active }: Props) {
         <div>Give a little,</div>
         <div className="self-end">help a lot</div>
       </div>
-      <div className="relative z-10 mb-[5.625rem] delay-500 max-lg:mb-12">
+      <div className="relative mb-[5.625rem] delay-500 max-lg:mb-12">
         <AccentButton primaryColor="yellow" secondaryColor="red" fontColor="red" href={ROUTES.donatPools} animated>
           Start
           <br />
