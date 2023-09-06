@@ -5,7 +5,7 @@ import NamiLogo from '@public/icons/nami.svg';
 
 import type { Props } from './types';
 
-function WalletLogos({ cardanoKey }: Props) {
+function WalletLogo({ cardanoKey }: Props) {
   const logos = {
     nami: <NamiLogo />,
     LodeWallet: <LodeLogo />,
@@ -16,4 +16,4 @@ function WalletLogos({ cardanoKey }: Props) {
   return <div className="w-8">{logos[cardanoKey]}</div>;
 }
 
-export default WalletLogos;
+export default WalletLogo;

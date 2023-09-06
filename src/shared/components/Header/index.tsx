@@ -6,7 +6,7 @@ import { usePathname } from 'next/navigation';
 import { useState } from 'react';
 
 import { useAppSelector } from '@/redux/hooks';
-import { Logo, StandardButton, WalletLogos } from '@/shared/components';
+import { Logo, StandardButton, WalletLogo } from '@/shared/components';
 import { ROUTES } from '@/shared/constants';
 import CloseIcon from '@public/icons/close.svg';
 import MenuIcon from '@public/icons/menu.svg';
@@ -46,7 +46,7 @@ function Header() {
               ))}
             </div>
             <div className="mr-10 w-0.5 bg-purple max-lg:h-0.5 max-lg:w-full" />{' '}
-            <WalletLogos cardanoKey={activeWalletCardanoKey} />
+            <WalletLogo cardanoKey={activeWalletCardanoKey} />
           </div>
         ) : (
           <div className={cn({ 'max-lg:hidden': !menuIsShown })}>
