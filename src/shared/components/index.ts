@@ -1,4 +1,5 @@
 export { default as Checkbox } from './Checkbox';
+export { default as CommonError } from './CommonError';
 export { default as Footer } from './Footer';
 export { default as Header } from './Header';
 export { default as Input } from './Input';
@@ -21,6 +22,7 @@ export { default as ModalDonate } from './ModalDonate';
 export { default as ModalLoading } from './ModalLoading';
 export { default as ModalError } from './ModalError';
 export { default as ModalSuccess } from './ModalSuccess';
+export { default as NotAvailableError } from './NotAvailableError';
 export { default as RaisedCounter } from './RaisedCounter';
 export { default as PrivateProjectsActions } from './PrivateProjectsActions';
 export { default as Project } from './Project';
