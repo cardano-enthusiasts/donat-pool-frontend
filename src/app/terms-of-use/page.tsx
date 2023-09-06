@@ -1,19 +1,20 @@
 import type { Metadata } from 'next';
 
-import Layout from '@/shared/components/Layout';
+import { Layout } from '@/shared/components';
 
 import { terms } from './data';
 import styles from './styles.module.css';
 
 const metadata: Metadata = {
-  title: 'Terms of use',
+  title: 'Donat.Pool: Terms of use',
+  description: 'Transparent and simple terms of using our platform.',
 };
 
 function Page() {
   return (
     <Layout>
       <div className="mx-auto max-w-[52.375rem]">
-        <h1 className="mb-8 font-rammetto-one text-menu-active text-red">
+        <h1 className="mb-8 font-rammetto-one text-menu-active text-red max-md:text-[2.25rem]/[2.25rem]">
           Donat.Pool <span className="text-green">Terms of Use</span>
         </h1>
         <p className="mb-8">

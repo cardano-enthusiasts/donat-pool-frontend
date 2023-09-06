@@ -4,14 +4,15 @@ import cn from 'classnames';
 import { useEffect, useRef } from 'react';
 
 import { ActionDonuts, ScrollHelper } from '@/shared/components';
-import { useWindowSize } from '@/shared/hooks';
+import { useWindowScroll, useWindowSize } from '@/shared/hooks';
 import CatImage from '@public/img/cat.svg';
 
 import type { Props } from './types';
 
-function InitialLoading({ windowScroll, animationIsActive }: Props) {
+function InitialLoading({ animationIsActive }: Props) {
   const innerCircleRef = useRef<HTMLDivElement>(null);
   const wrapperRef = useRef<HTMLDivElement>(null);
+  const windowScroll = useWindowScroll();
   const { width } = useWindowSize();
 
   useEffect(() => {
@@ -32,23 +33,9 @@ function InitialLoading({ windowScroll, animationIsActive }: Props) {
 
   return (
     <div
-      className="relative flex h-[93.75rem] w-full items-start justify-center overflow-hidden bg-red max-xl:h-auto"
+      className="relative flex h-[93.75rem] items-start justify-center overflow-hidden bg-red max-xl:h-auto"
       ref={wrapperRef}
     >
-      <div
-        ref={innerCircleRef}
-        className={cn(
-          'absolute z-[4] mt-[45vh] h-[14.375rem] w-[14.375rem] scale-0 rounded-full border-[5.625rem] border-yellow max-xl:hidden',
-          { hidden: !(windowScroll < 500 && animationIsActive) },
-        )}
-      />
-      <div
-        className={cn('absolute z-[3] h-full w-full bg-red max-xl:hidden', {
-          hidden: !(windowScroll < 40 && animationIsActive),
-        })}
-      >
-        <ScrollHelper />
-      </div>
       <ActionDonuts animationIsActive={animationIsActive} />
       <CatImage
         className={cn(
@@ -59,6 +46,20 @@ function InitialLoading({ windowScroll, animationIsActive }: Props) {
           },
         )}
       />
+      <div
+        className={cn(
+          'absolute mt-[45vh] h-[14.375rem] w-[14.375rem] scale-0 rounded-full border-[5.625rem] border-yellow max-xl:hidden',
+          { hidden: !(windowScroll < 500 && animationIsActive) },
+        )}
+        ref={innerCircleRef}
+      />
+      <div
+        className={cn('absolute h-full w-full bg-red max-xl:hidden', {
+          hidden: !(windowScroll < 40 && animationIsActive),
+        })}
+      >
+        <ScrollHelper />
+      </div>
     </div>
   );
 }

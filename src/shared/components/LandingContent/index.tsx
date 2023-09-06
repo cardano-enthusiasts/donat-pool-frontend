@@ -5,15 +5,17 @@ import type { ForwardedRef, MutableRefObject } from 'react';
 import { Fragment, forwardRef, useEffect, useRef, useState } from 'react';
 
 import { AboutUs, Footer, HowItWorks, Roadmap, TitleAndDescription, Waves, WhyChooseUs } from '@/shared/components';
+import { useWindowScroll } from '@/shared/hooks';
 import type { LandingSection } from '@/shared/types';
 
 import CLASSES from './constants';
 import type { Props, Content, Section, Refs } from './types';
 
 const LandingContent = forwardRef(function LandingContent(
-  { windowScroll, setAnimationIsActive, currentSection, setCurrentSection }: Props,
+  { setAnimationIsActive, currentSection, setCurrentSection }: Props,
   navRef: ForwardedRef<HTMLElement> | null,
 ) {
+  const windowScroll = useWindowScroll();
   const homeRef = useRef<HTMLDivElement>(null);
   const howItWorksRef = useRef<HTMLDivElement>(null);
   const whyChooseUsRef = useRef<HTMLDivElement>(null);

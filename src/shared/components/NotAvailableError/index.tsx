@@ -32,7 +32,6 @@ function NotAvailableError() {
           </DoubleBorderedButton>
         </div>
       </div>
-
       <Waves />
     </form>
   );

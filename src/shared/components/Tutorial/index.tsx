@@ -1,6 +1,5 @@
 'use client';
 
-import HTMLReactParser from 'html-react-parser';
 import Image from 'next/image';
 import { useState } from 'react';
 
@@ -47,9 +46,7 @@ function Tutorial() {
                 />
                 <ul className={`${styles.description} m-0 list-disc pl-5`}>
                   {description.map((item) => (
-                    <li className="mb-2.5 text-sm" key={item}>
-                      {HTMLReactParser(item)}
-                    </li>
+                    <li className="mb-2.5 text-sm" key={item} dangerouslySetInnerHTML={{ __html: item }} />
                   ))}
                 </ul>
               </div>
