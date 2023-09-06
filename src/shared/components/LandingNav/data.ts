@@ -30,7 +30,7 @@ function getSections(currentSection: string): {
   ];
 }
 
-const wrapperVariants: { [key in LandingSection]: string } = {
+const WRAPPER_CLASSES: { [key in LandingSection]: string } = {
   home: 'max-xl:bg-blue',
   'how-it-works': 'max-xl:bg-green',
   'why-choose-us': 'max-xl:bg-red',
@@ -39,7 +39,7 @@ const wrapperVariants: { [key in LandingSection]: string } = {
   'contact-us': 'max-xl:bg-black',
 };
 
-const linkVariants: { [key in LandingSection]: string } = {
+const LINK_CLASSES: { [key in LandingSection]: string } = {
   home: 'text-green max-xl:text-white',
   'how-it-works': 'text-red max-xl:text-yellow',
   'why-choose-us': 'text-yellow max-xl:text-blue',
@@ -48,4 +48,4 @@ const linkVariants: { [key in LandingSection]: string } = {
   'contact-us': 'text-blue max-xl:text-green',
 };
 
-export { getSections, wrapperVariants, linkVariants };
+export { getSections, WRAPPER_CLASSES, LINK_CLASSES };

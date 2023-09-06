@@ -2,7 +2,7 @@
   height: 4.125rem;
   cursor: default;
 
-  @media (width <= 45.625rem) {
+  @media (width <= 730px) {
     height: auto;
   }
 }
@@ -10,7 +10,7 @@
 .item:hover > div:last-child {
   transform: rotateX(0) translateZ(0.625rem) translateY(-4.125rem);
 
-  @media (width <= 45.625rem) {
+  @media (width <= 730px) {
     transform: none;
   }
 }
@@ -18,7 +18,7 @@
 .item:hover > div:first-child {
   transform: rotateX(90deg) translateZ(2.0625rem);
 
-  @media (width <= 45.625rem) {
+  @media (width <= 730px) {
     transform: none;
   }
 }
@@ -31,20 +31,20 @@
   transition: transform 0.5s linear;
   transition-delay: 0.1s;
 
-  @media (width <= 85rem) {
+  @media (width <= 1360px) {
     font-size: 2.125rem;
   }
 
-  @media (width <= 45.625rem) {
+  @media (width <= 730px) {
     height: auto;
     transition: none;
   }
 
-  @media (width <= 37.5rem) {
+  @media (width <= 600px) {
     font-size: 2rem;
   }
 
-  @media (width <= 31.25rem) {
+  @media (width <= 500px) {
     font-size: 1.5rem;
   }
 }
@@ -61,11 +61,11 @@
   transition-delay: 0.1s;
   transform: rotateX(-90deg) translateZ(-2.5rem);
 
-  @media (width <= 75rem) {
+  @media (width <= 1200px) {
     padding: 0 1.25rem;
   }
 
-  @media (width <= 45.625rem) {
+  @media (width <= 730px) {
     height: auto;
     padding: 0;
     background-color: transparent;

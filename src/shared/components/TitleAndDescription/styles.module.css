@@ -1,18 +1,18 @@
-.wrapper * {
+.wrapper > * {
   transition: transform 1s ease 0s;
   transform: translateY(0%);
 
-  @media (width <= 64rem) {
+  @media (width <= 1024px) {
     transition: none;
     transform: translateY(0%);
   }
 }
 
-.wrapperInactive * {
+.wrapperInactive > * {
   transition: transform 1s ease 0s;
   transform: translateY(50%);
 
-  @media (width <= 64rem) {
+  @media (width <= 1024px) {
     transition: none;
     transform: translateY(0%);
   }

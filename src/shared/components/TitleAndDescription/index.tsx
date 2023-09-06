@@ -1,7 +1,6 @@
-import Image from 'next/image';
-
 import { AccentButton } from '@/shared/components';
 import { ROUTES } from '@/shared/constants';
+import BigLogoImage from '@public/img/big-logo.svg';
 
 import styles from './styles.module.css';
 import type { Props } from './types';
@@ -9,13 +8,8 @@ import type { Props } from './types';
 function TitleAndDescription({ active }: Props) {
   return (
     <div className={`flex flex-col font-rammetto-one ${active ? styles.wrapper : styles.wrapperInactive}`}>
-      <Image
-        className="mb-[1.875rem] w-full max-w-[48.125rem]"
-        src="/img/big-logo.svg"
-        alt="Donat pool logo"
-        width="771"
-        height="341"
-      />
+      <BigLogoImage className="mb-[1.875rem] max-w-[48.125rem]" />
+
       <div
         className="mb-10
           flex

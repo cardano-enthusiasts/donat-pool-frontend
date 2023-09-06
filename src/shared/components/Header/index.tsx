@@ -1,14 +1,15 @@
 'use client';
 
 import cn from 'classnames';
-import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useState } from 'react';
 
 import { useAppSelector } from '@/redux/hooks';
-import { Logo, StandardButton } from '@/shared/components';
-import { ROUTES, WALLET_CARDANO_KEY_TO_LOGO } from '@/shared/constants';
+import { Logo, StandardButton, WalletLogo } from '@/shared/components';
+import { ROUTES } from '@/shared/constants';
+import CloseIcon from '@public/icons/close.svg';
+import MenuIcon from '@public/icons/menu.svg';
 
 import { LINKS } from './constants';
 
@@ -16,6 +17,10 @@ function Header() {
   const pathname = usePathname();
   const [menuIsShown, setMenuIsShown] = useState(false);
   const activeWalletCardanoKey = useAppSelector((state) => state.cardano.activeWalletCardanoKey);
+
+  // React doesn't like building component from undetermined value
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+  const Icon = menuIsShown ? CloseIcon : MenuIcon;
 
   function handleCloseIconClick() {
     setMenuIsShown(!menuIsShown);
@@ -44,12 +49,8 @@ function Header() {
                 </div>
               ))}
             </div>
-            <div className="mr-10 w-0.5 bg-purple max-lg:h-0.5 max-lg:w-full" />
-            <Image
-              src={WALLET_CARDANO_KEY_TO_LOGO[activeWalletCardanoKey]}
-              alt={`${activeWalletCardanoKey}'s logo`}
-              role="img"
-            />
+            <div className="mr-10 w-0.5 bg-purple max-lg:h-0.5 max-lg:w-full" />{' '}
+            <WalletLogo cardanoKey={activeWalletCardanoKey} />
           </div>
         ) : (
           <div className={cn({ 'max-lg:hidden': !menuIsShown })}>
@@ -59,12 +60,8 @@ function Header() {
           </div>
         )}
       </div>
-      <Image
+      <Icon
         className="hidden max-lg:absolute max-lg:right-[1.875rem] max-lg:top-8 max-lg:block max-lg:h-10 max-lg:w-10"
-        src={`/icons/${menuIsShown ? 'close' : 'menu'}.svg`}
-        alt="close icon"
-        width={50}
-        height={50}
         onClick={handleCloseIconClick}
       />
     </header>

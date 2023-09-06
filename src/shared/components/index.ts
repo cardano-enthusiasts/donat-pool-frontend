@@ -43,3 +43,5 @@ export { default as DoubleBorderedButton } from './DoubleBorderedButton';
 export { default as BorderedButton } from './BorderedButton';
 export { default as Line } from './Line';
 export { default as Ul } from './Ul';
+export { default as WalletLogo } from './WalletLogo';
+export { default as Socials } from './Socials';

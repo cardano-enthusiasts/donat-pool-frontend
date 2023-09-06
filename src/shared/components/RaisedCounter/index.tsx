@@ -1,34 +1,16 @@
 'use client';
 
-import Image from 'next/image';
 import { useEffect, useState } from 'react';
 
-import { useWindowSize } from '@/shared/hooks';
-
+import { firstImage, getImage } from './helpers';
 import type { Props } from './types';
 
 function RaisedCounter({ raised, goal }: Props) {
-  const { width } = useWindowSize();
-  const [imgTitle, setImgTitle] = useState('donut-0');
-  function getImgIndex(part: number) {
-    if (part < 0.2) {
-      return 0;
-    }
-    if (part >= 0.2 && part < 0.4) {
-      return 1;
-    }
-    if (part >= 0.4 && part < 0.6) {
-      return 2;
-    }
-    if (part >= 0.6 && part < 1) {
-      return 3;
-    }
-    return 4;
-  }
+  const [image, setImage] = useState(firstImage);
 
   useEffect(() => {
     const raisedPart = raised / goal;
-    setImgTitle(`donut-${getImgIndex(raisedPart)}`);
+    setImage(getImage(raisedPart));
   }, [raised, goal]);
 
   return (
@@ -42,13 +24,7 @@ function RaisedCounter({ raised, goal }: Props) {
         font-normal
         max-sm:text-4xl"
     >
-      <Image
-        src={`/img/${imgTitle}.svg`}
-        alt="progress bar"
-        width={width > 800 ? 115 : 60}
-        height={width > 800 ? 115 : 60}
-        className="max-sm:hidden"
-      />
+      <div className="max-sm:hidden">{image}</div>
       <div className="text-red">{raised}</div>
       <div className="h-12 w-[0.3125rem] rounded-[0.3125rem] bg-red" />
       <div className="text-yellow">{goal}</div>
