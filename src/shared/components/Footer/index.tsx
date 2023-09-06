@@ -2,7 +2,7 @@ import cn from 'classnames';
 import Image from 'next/image';
 import Link from 'next/link';
 
-import ContactUsButton from './components/ContactUsButton';
+import { ContactUsButton } from './components';
 import { SOCIALS, LINKS } from './constants';
 import type { Props } from './types';
 

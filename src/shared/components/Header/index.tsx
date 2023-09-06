@@ -6,25 +6,24 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 // import { useState } from 'react';
 
-// import { useAppSelector } from '@/redux/hooks';
-// import { Logo, DoubleBorderedButton } from '@/shared/components';
+import { Logo } from '@/shared/components';
 // import { ROUTES, WALLET_CARDANO_KEY_TO_LOGO } from '@/shared/constants';
 
+import { WalletButton } from './components';
 import { LINKS } from './constants';
 
 function Header() {
   const pathname = usePathname();
   // const [menuIsShown, setMenuIsShown] = useState(false);
-  // const activeWalletCardanoKey = useAppSelector((state) => state.cardano.activeWalletCardanoKey);
 
   // function handleCloseIconClick() {
   //   setMenuIsShown(!menuIsShown);
   // }
 
   return (
-    <header className="grid grid-cols-[auto_1fr] items-center gap-x-10 bg-red px-20 py-8">
-      {/* {!menuIsShown && <Logo />} */}
-      <div className="flex items-center gap-x-10 justify-self-end">
+    <header className="grid grid-cols-[auto_1fr] items-center gap-x-10 bg-red px-20 py-8 max-md:px-8 max-md:py-6">
+      <Logo />
+      <div className="flex items-center gap-x-10 justify-self-end max-md:hidden">
         <nav className="border-r-2 border-r-purple pr-10">
           <ul className="flex gap-x-10">
             {LINKS.map(({ title, href }) => (
@@ -34,9 +33,7 @@ function Header() {
             ))}
           </ul>
         </nav>
-        {/* <DoubleBorderedButton primaryColor="blue" backgroundColor="white">
-          Connect wallet
-        </DoubleBorderedButton> */}
+        <WalletButton />
       </div>
       {/* {activeWalletCardanoKey ? (
         <div className={cn('flex max-lg:flex-col max-lg:gap-10', { 'max-lg:hidden': !menuIsShown })}>

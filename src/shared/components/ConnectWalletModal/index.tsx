@@ -6,17 +6,18 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useMemo, useState } from 'react';
 
-import { useAppDispatch } from '@/redux/hooks';
-import { setActiveWalletCardanoKey } from '@/redux/slices/cardano';
 import { Modal, Checkbox, DoubleBorderedButton } from '@/shared/components';
 import { ROUTES, WALLET_CARDANO_KEY_TO_LOGO } from '@/shared/constants';
+import { useConnectedWallet } from '@/shared/hooks';
 import type { WalletCardanoKey } from '@/shared/types';
 import goToIcon from '@public/icons/go-to.svg';
 
 import { WALLETS } from './constants';
+import type { Props } from './types';
 
-function ConnectWalletModal() {
-  const dispatch = useAppDispatch();
+function ConnectWalletModal({ onWalletConnect }: Props) {
+  const { connectWallet } = useConnectedWallet();
+
   const sortedWallets = useMemo(
     () =>
       WALLETS.map(({ cardanoKey, title, websiteUrl }) => ({
@@ -46,7 +47,8 @@ function ConnectWalletModal() {
         throw new Error('LodeWallet: connection cancelling');
       }
 
-      dispatch(setActiveWalletCardanoKey(walletCardanoKey));
+      connectWallet(walletCardanoKey);
+      onWalletConnect?.();
     } catch (error) {
       console.error(error);
     }
@@ -74,7 +76,7 @@ function ConnectWalletModal() {
               key={cardanoKey}
             >
               <button
-                className="flex items-center gap-x-3"
+                className="flex cursor-default items-center gap-x-3 disabled:cursor-not-allowed"
                 type="button"
                 disabled={!installed || !termsOfUseAreAccepted || someWalletIsBeingConnected}
                 onClick={() => {
