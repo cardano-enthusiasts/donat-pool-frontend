@@ -1,6 +1,6 @@
 'use client';
 
-import { Loading, ProjectCard } from '@/shared/components';
+import { Loading, NoDonatPool, ProjectCard } from '@/shared/components';
 import { ROUTES } from '@/shared/constants';
 import { useDonatPools } from '@/shared/hooks';
 
@@ -10,7 +10,7 @@ function DonatPools() {
   return (
     <>
       {donatPoolsAreBeingFetched && <Loading />}
-      {donatPools && (
+      {donatPools && donatPools.length !== 0 && (
         <div className="grid grid-cols-projects gap-10 max-sm:grid-cols-1 max-sm:gap-8">
           {donatPools
             .filter(({ completed }) => !completed)
@@ -22,6 +22,7 @@ function DonatPools() {
             ))}
         </div>
       )}
+      {donatPools?.filter(({ completed }) => !completed)?.length === 0 && <NoDonatPool />}
       {fetchDonatPoolsError && <div className="text-error">An error happened while fetching donat pools</div>}
     </>
   );

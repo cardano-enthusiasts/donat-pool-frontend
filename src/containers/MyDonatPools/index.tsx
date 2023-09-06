@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 
-import { BorderedButton, ProjectCard, StandardButton } from '@/shared/components';
+import { BorderedButton, Loading, ProjectCard, StandardButton } from '@/shared/components';
 import { ROUTES } from '@/shared/constants';
 import { useMyDonatPools } from '@/shared/hooks';
 import type { DonatPool } from '@/shared/types';
@@ -11,17 +11,13 @@ import SadCatImage from '@public/img/sad-cat.svg';
 import type { ProjectStatus } from './types';
 
 function MyDonatPools() {
-  const [allProjectsWithStatus, setAllProjectsWithStatus] = useState<DonatPool[] | null>(null);
-  const [filteredProjects, setFilteredProjects] = useState<DonatPool[] | null>(null);
   const [filter, setFilter] = useState<ProjectStatus | null>(null);
-  const { donatPools } = useMyDonatPools();
+  const { donatPools, areBeingFetched } = useMyDonatPools();
+  const [filteredProjects, setFilteredProjects] = useState<DonatPool[] | null>(null);
 
   useEffect(() => {
     if (donatPools) {
-      setAllProjectsWithStatus(donatPools);
       setFilteredProjects(donatPools);
-    } else {
-      setAllProjectsWithStatus(null);
     }
   }, [donatPools]);
 
@@ -31,7 +27,6 @@ function MyDonatPools() {
       setFilter(null);
     } else {
       const completed = status === 'completed';
-
       setFilteredProjects(projects.filter((item) => item.completed === completed));
       setFilter(status);
     }
@@ -50,28 +45,30 @@ function MyDonatPools() {
           >
             My Donat.Pools
           </h1>
-          {allProjectsWithStatus !== null && (
-            <div className="flex gap-6">
+          <div className="flex gap-6">
+            {donatPools?.some(({ completed }) => !completed) && (
               <BorderedButton
                 color="red"
-                isClickedTheme={filter === 'active'}
+                isClickedTheme={filter === 'active' || donatPools.every(({ completed }) => !completed)}
                 onClick={() => {
-                  handleFilterClick('active', allProjectsWithStatus);
+                  handleFilterClick('active', donatPools);
                 }}
               >
                 Active
               </BorderedButton>
+            )}
+            {donatPools?.some(({ completed }) => completed) && (
               <BorderedButton
                 color="green"
-                isClickedTheme={filter === 'completed'}
+                isClickedTheme={filter === 'completed' || donatPools.every(({ completed }) => completed)}
                 onClick={() => {
-                  handleFilterClick('completed', allProjectsWithStatus);
+                  handleFilterClick('completed', donatPools);
                 }}
               >
                 Completed
               </BorderedButton>
-            </div>
-          )}
+            )}
+          </div>
         </div>
         <div className="max-md:fixed max-md:bottom-15 max-md:right-[1.875rem]">
           <StandardButton primaryColor="red" secondaryColor="blue" fontColor="white" href={ROUTES.newDonatPool}>
@@ -80,7 +77,7 @@ function MyDonatPools() {
         </div>
       </div>
       <div className="mx-auto w-full max-md:max-w-[90vw]">
-        {filteredProjects && filteredProjects.length !== 0 ? (
+        {filteredProjects && filteredProjects.length !== 0 && (
           <div className="grid grid-cols-projects gap-10 max-md:grid-cols-1">
             {filteredProjects.map((item) => (
               <ProjectCard
@@ -92,12 +89,16 @@ function MyDonatPools() {
               />
             ))}
           </div>
-        ) : (
-          <div className="flex flex-col items-center gap-6">
-            You don&apos;t have any projects yet. Create a project to start receiving donations.
-            <SadCatImage className="max-w-full" />
-          </div>
         )}
+
+        {filteredProjects === null ||
+          (filteredProjects.length === 0 && (
+            <div className="flex flex-col items-center gap-6">
+              You don&apos;t have any projects yet. Create a project to start receiving donations.
+              <SadCatImage className="max-w-full" />
+            </div>
+          ))}
+        {areBeingFetched && <Loading />}
       </div>
     </>
   );

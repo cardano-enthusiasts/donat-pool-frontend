@@ -12,6 +12,7 @@ import {
   AccentButton,
   Common,
   RaisedCounter,
+  Loading,
 } from '@/shared/components';
 import { convertLovelaceToADA, formatDate } from '@/shared/helpers';
 import { useQueriedDonatPool, useDonate } from '@/shared/hooks';
@@ -66,7 +67,7 @@ function Page() {
   return (
     <>
       <Common>
-        {donatPoolIsBeingFetched && <div>donat pool is being fetched</div>}
+        {donatPoolIsBeingFetched && !donatPool && <Loading />}
         {donatPool && (
           <div className="pb-40 pt-20">
             <h1
