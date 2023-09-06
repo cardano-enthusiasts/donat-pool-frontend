@@ -1,16 +1,14 @@
 'use client';
 
 import cn from 'classnames';
-import type { StaticImageData } from 'next/image';
-import Image from 'next/image';
 import Link from 'next/link';
 import { useMemo, useState } from 'react';
 
-import { Modal, Checkbox, DoubleBorderedButton } from '@/shared/components';
-import { ROUTES, WALLET_CARDANO_KEY_TO_LOGO } from '@/shared/constants';
+import { Modal, Checkbox, DoubleBorderedButton, WalletLogo } from '@/shared/components';
+import { ROUTES } from '@/shared/constants';
 import { useConnectedWallet } from '@/shared/hooks';
 import type { WalletCardanoKey } from '@/shared/types';
-import goToIcon from '@public/icons/go-to.svg';
+import GoToIcon from '@public/icons/go-to.svg';
 
 import { WALLETS } from './constants';
 import type { Props } from './types';
@@ -83,14 +81,7 @@ function ConnectWalletModal({ onWalletConnect }: Props) {
                   void handleConnectWalletButtonClick(cardanoKey);
                 }}
               >
-                <div className="w-8">
-                  <Image
-                    className="mx-auto"
-                    src={WALLET_CARDANO_KEY_TO_LOGO[cardanoKey]}
-                    alt={`${title}'s logo`}
-                    role="img"
-                  />
-                </div>
+                <WalletLogo cardanoKey={cardanoKey} />
                 <div className="text-xl font-bold">{title}</div>
               </button>
               {installed ? (
@@ -99,7 +90,7 @@ function ConnectWalletModal({ onWalletConnect }: Props) {
                 <div className="flex items-center gap-x-3">
                   Not Installed{' '}
                   <a href={websiteUrl} target="_blank" rel="noreferrer">
-                    <Image src={goToIcon as StaticImageData} alt={`link to ${title}'s website`} role="img" />
+                    <GoToIcon />
                   </a>
                 </div>
               )}

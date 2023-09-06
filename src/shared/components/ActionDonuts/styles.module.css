@@ -6,7 +6,7 @@
   background-repeat: repeat;
   background-size: 7.1875rem;
 
-  @media (width <= 68.75rem) {
+  @media (width <= 1280px) {
     position: absolute;
   }
 }

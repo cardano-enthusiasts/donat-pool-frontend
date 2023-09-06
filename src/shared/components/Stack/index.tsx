@@ -5,19 +5,16 @@ import { useEffect, useRef, useState } from 'react';
 
 import { DashedButton } from '@/shared/components';
 import { useWindowScroll } from '@/shared/hooks';
-
-import styles from './styles.module.css';
+import CardanoLibImage from '@public/img/cardano-transaction-lib.svg';
+import PlutarchImage from '@public/img/plutarch.svg';
+import ReactImage from '@public/img/react.svg';
 
 function Stack() {
   const ref = useRef<HTMLDivElement>(null);
   const [isActive, setIsActive] = useState(false);
   const [shown, setShown] = useState(false);
   const windowScroll = useWindowScroll();
-  const stack: { id: string; src: string }[] = [
-    { id: 'plutarch', src: '/img/plutarch.svg' },
-    { id: 'cardano-transaction-lib', src: '/img/cardano-transaction-lib.svg' },
-    { id: 'react', src: '/img/react.svg' },
-  ];
+  const imageCommonClasses = cn('w-full transition-transform duration-1000 ease', { 'translate-y-full': !isActive });
 
   useEffect(() => {
     if (ref.current) {
@@ -44,9 +41,13 @@ function Stack() {
     <div className="flex max-w-[50rem] flex-col gap-10">
       <div className="text-2xl font-bold text-gray">Our stack</div>
       <div ref={ref}>
-        {stack.map(({ id, src }) => (
-          <img className={cn(styles.img, { 'translate-y-full': !isActive })} key={id} src={src} alt={id} />
-        ))}
+        <CardanoLibImage className={`${imageCommonClasses} max-w-[56.25rem]`} />
+        <PlutarchImage
+          className={`${imageCommonClasses} mt-[-1.875rem] max-w-[31.875rem] delay-200 max-lg:mt-[-1.25rem] max-lg:max-w-[65%] max-sm:mt-[-0.625rem]`}
+        />
+        <ReactImage
+          className={`${imageCommonClasses} max-lg:max-w-1/2 mt-[-1.875rem] max-w-[21.125rem] delay-500 max-lg:mt-[-1.25rem] max-sm:mt-[-0.625rem]`}
+        />
       </div>
 
       <DashedButton

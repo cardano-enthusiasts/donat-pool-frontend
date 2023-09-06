@@ -153,8 +153,16 @@ const QUESTIONS = [
   },
   {
     title: 'What are the minimum and maximum fundraising periods? What maximum amount can I claim?',
-    content:
-      "Min and max periods, min and max amount, and a Donat.Pool fee are dynamically changing parameters. They are regulated by governance token owners through a decentralized voting process.<br> Changes can affect only new projects. When you create a project you agree with the current parameters (Min and max periods, min and max amount, and a Donat.Pool fee) and they will be fixed for this project and can't be changed.",
+    content: (
+      <>
+        Min and max periods, min and max amount, and a Donat.Pool fee are dynamically changing parameters. They are
+        regulated by governance token owners through a decentralized voting process.
+        <br />
+        Changes can affect only new projects. When you create a project you agree with the current parameters (Min and
+        max periods, min and max amount, and a Donat.Pool fee) and they will be fixed for this project and can&#39;t be
+        changed.
+      </>
+    ),
   },
   {
     title: "What happens to funds if I don't reach my goal?",

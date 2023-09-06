@@ -1,18 +1,18 @@
 'use client';
 
 import cn from 'classnames';
-import Image from 'next/image';
 import { useEffect, useRef } from 'react';
 
 import { ActionDonuts, ScrollHelper } from '@/shared/components';
 import { useWindowScroll, useWindowSize } from '@/shared/hooks';
+import CatImage from '@public/img/cat.svg';
 
 import type { Props } from './types';
 
 function InitialLoading({ animationIsActive }: Props) {
-  const windowScroll = useWindowScroll();
   const innerCircleRef = useRef<HTMLDivElement>(null);
   const wrapperRef = useRef<HTMLDivElement>(null);
+  const windowScroll = useWindowScroll();
   const { width } = useWindowSize();
 
   useEffect(() => {
@@ -37,19 +37,14 @@ function InitialLoading({ animationIsActive }: Props) {
       ref={wrapperRef}
     >
       <ActionDonuts animationIsActive={animationIsActive} />
-      <Image
+      <CatImage
         className={cn(
-          'bottom-0 z-0 flex shrink-0 max-xl:static max-xl:max-w-[90vw] max-xl:px-5 max-xl:pb-5 max-xl:pt-[9.375rem]',
+          'bottom-0 z-0 flex max-w-[48.125rem] shrink-0 max-xl:static max-xl:mx-5 max-xl:mb-5 max-xl:mt-[9.375rem] max-xl:max-w-[90vw]',
           {
-            'absolute max-w-[48.125rem]': animationIsActive,
-            'max-w-[90vw] px-5 pb-5 pt-[9.375rem]': !animationIsActive,
+            absolute: animationIsActive,
+            'mx-5 mb-5 mt-[9.375rem]': !animationIsActive,
           },
         )}
-        src="/img/cat.svg"
-        alt="cat"
-        width={770}
-        height={795}
-        priority
       />
       <div
         className={cn(

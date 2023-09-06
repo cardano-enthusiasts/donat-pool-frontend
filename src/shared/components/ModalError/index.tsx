@@ -1,6 +1,5 @@
-import Image from 'next/image';
-
 import { DoubleBorderedButton, Modal } from '@/shared/components';
+import BittenDonutImage from '@public/img/bitten-donut.svg';
 
 import styles from './styles.module.css';
 import type { Props } from './types';
@@ -20,7 +19,7 @@ function ModalError({ title, errorText = '', onClose }: Props) {
         {title}
       </h1>
       <div className="flex flex-col items-center">
-        <Image className="mb-10" src="/img/bitten-donut.svg" alt="bitten donut" width={140} height={140} />
+        <BittenDonutImage className="mb-10" />
         <div className={styles.text}>{errorText}</div>
         <DoubleBorderedButton primaryColor="blue" backgroundColor="white" isFullWidth onClick={onClose}>
           Close button

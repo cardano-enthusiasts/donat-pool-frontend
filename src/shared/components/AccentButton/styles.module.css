@@ -8,7 +8,7 @@
   line-height: 94%;
   transition: all 0.5s;
 
-  @media (width <= 68.75rem) {
+  @media (width <= 1280px) {
     max-width: 12.5rem;
     padding: 1.25rem 3.125rem;
     font-size: 1.375rem;
