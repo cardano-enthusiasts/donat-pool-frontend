@@ -53,8 +53,6 @@ interface DonatPool {
   completed: boolean;
 }
 
-type CardanoKey = 'nami' | 'LodeWallet' | 'flint' | 'eternl';
-
 interface CreateDonatPoolParams {
   title: string;
   amount: number;
@@ -104,5 +102,4 @@ export type {
   UserAndProtocolParams,
   Config,
   UserInfo,
-  CardanoKey,
 };

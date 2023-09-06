@@ -8,7 +8,7 @@ import type { Props } from './types';
 function TitleAndDescription({ active }: Props) {
   return (
     <div className={`flex flex-col font-rammetto-one ${active ? styles.wrapper : styles.wrapperInactive}`}>
-      <BigLogoImage className="mb-[1.875rem] w-full max-w-[48.125rem]" />
+      <BigLogoImage className="mb-[1.875rem] max-w-[48.125rem]" />
 
       <div
         className="mb-10
@@ -29,7 +29,7 @@ function TitleAndDescription({ active }: Props) {
         <div>Give a little,</div>
         <div className="self-end">help a lot</div>
       </div>
-      <div className="relative z-10 mb-[5.625rem] delay-500 max-lg:mb-12">
+      <div className="relative mb-[5.625rem] delay-500 max-lg:mb-12">
         <AccentButton primaryColor="yellow" secondaryColor="red" fontColor="red" href={ROUTES.donatPools} animated>
           Start
           <br />

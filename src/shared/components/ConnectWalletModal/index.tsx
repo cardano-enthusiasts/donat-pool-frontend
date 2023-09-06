@@ -6,7 +6,7 @@ import { useMemo, useState } from 'react';
 
 import { useAppDispatch } from '@/redux/hooks';
 import { setActiveWalletCardanoKey } from '@/redux/slices/cardano';
-import { Modal, Checkbox, DoubleBorderedButton, WalletLogos } from '@/shared/components';
+import { Modal, Checkbox, DoubleBorderedButton, WalletLogo } from '@/shared/components';
 import { ROUTES } from '@/shared/constants';
 import type { WalletCardanoKey } from '@/shared/types';
 import GoToIcon from '@public/icons/go-to.svg';
@@ -79,7 +79,7 @@ function ConnectWalletModal() {
                   void handleConnectWalletButtonClick(cardanoKey);
                 }}
               >
-                <WalletLogos cardanoKey={cardanoKey} />
+                <WalletLogo cardanoKey={cardanoKey} />
                 <div className="text-xl font-bold">{title}</div>
               </button>
               {installed ? (

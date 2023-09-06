@@ -6,17 +6,21 @@ import { usePathname } from 'next/navigation';
 import { useState } from 'react';
 
 import { useAppSelector } from '@/redux/hooks';
-import { Logo, StandardButton, WalletLogos } from '@/shared/components';
+import { Logo, StandardButton, WalletLogo } from '@/shared/components';
 import { ROUTES } from '@/shared/constants';
 import CloseIcon from '@public/icons/close.svg';
 import MenuIcon from '@public/icons/menu.svg';
 
-import { ICON_CLASSES, LINKS } from './constants';
+import { LINKS } from './constants';
 
 function Header() {
   const pathname = usePathname();
   const [menuIsShown, setMenuIsShown] = useState(false);
   const activeWalletCardanoKey = useAppSelector((state) => state.cardano.activeWalletCardanoKey);
+
+  // React doesn't like building component from undetermined value
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+  const Icon = menuIsShown ? CloseIcon : MenuIcon;
 
   function handleCloseIconClick() {
     setMenuIsShown(!menuIsShown);
@@ -46,7 +50,7 @@ function Header() {
               ))}
             </div>
             <div className="mr-10 w-0.5 bg-purple max-lg:h-0.5 max-lg:w-full" />{' '}
-            <WalletLogos cardanoKey={activeWalletCardanoKey} />
+            <WalletLogo cardanoKey={activeWalletCardanoKey} />
           </div>
         ) : (
           <div className={cn({ 'max-lg:hidden': !menuIsShown })}>
@@ -56,11 +60,10 @@ function Header() {
           </div>
         )}
       </div>
-      {menuIsShown ? (
-        <CloseIcon className={ICON_CLASSES} onClick={handleCloseIconClick} />
-      ) : (
-        <MenuIcon className={ICON_CLASSES} onClick={handleCloseIconClick} />
-      )}
+      <Icon
+        className="hidden max-lg:absolute max-lg:right-[1.875rem] max-lg:top-8 max-lg:block max-lg:h-10 max-lg:w-10"
+        onClick={handleCloseIconClick}
+      />
     </header>
   );
 }
