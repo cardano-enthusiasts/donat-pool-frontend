@@ -8,7 +8,7 @@ import type { Props } from './types';
 function TitleAndDescription({ active }: Props) {
   return (
     <div className={`flex flex-col font-rammetto-one ${active ? styles.wrapper : styles.wrapperInactive}`}>
-      <BigLogoImage className="mb-[1.875rem] w-full max-w-[48.125rem]" />
+      <BigLogoImage className="mb-[1.875rem] max-w-[48.125rem]" />
 
       <div
         className="mb-10

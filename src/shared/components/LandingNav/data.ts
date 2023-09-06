@@ -49,4 +49,5 @@ const LINK_CLASSES: { [key in LandingSection]: string } = {
 };
 
 const ICON_CLASSES = 'absolute right-5 top-5 h-10 w-10';
+
 export { getSections, WRAPPER_CLASSES, LINK_CLASSES, ICON_CLASSES };

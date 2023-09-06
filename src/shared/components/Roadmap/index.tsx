@@ -5,7 +5,7 @@ import { Fragment } from 'react';
 import { AccentButton } from '@/shared/components';
 import { ROUTES } from '@/shared/constants';
 import { roadmapText } from '@/shared/data';
-import { isSubItem } from '@/shared/typeGuards';
+import { isSubItem } from '@/shared/type-guards';
 import type { Item, SubItem } from '@/shared/types';
 
 import styles from './styles.module.css';

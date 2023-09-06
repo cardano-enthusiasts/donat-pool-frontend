@@ -14,7 +14,7 @@ function Stack() {
   const [isActive, setIsActive] = useState(false);
   const [shown, setShown] = useState(false);
   const windowScroll = useWindowScroll();
-  const classes = cn('w-full transition-transform duration-1000 ease', { 'translate-y-full': !isActive });
+  const imageCommonClasses = cn('w-full transition-transform duration-1000 ease', { 'translate-y-full': !isActive });
 
   useEffect(() => {
     if (ref.current) {
@@ -41,12 +41,12 @@ function Stack() {
     <div className="flex max-w-[50rem] flex-col gap-10">
       <div className="text-2xl font-bold text-gray">Our stack</div>
       <div ref={ref}>
-        <CardanoLibImage className={`${classes} max-w-[900px]`} />
+        <CardanoLibImage className={`${imageCommonClasses} max-w-[56.25rem]`} />
         <PlutarchImage
-          className={`${classes} mt-[-1.875rem] max-w-[510px] delay-200 max-lg:mt-[-1.25rem] max-lg:max-w-[65%] max-sm:mt-[-0.625rem]`}
+          className={`${imageCommonClasses} mt-[-1.875rem] max-w-[510px] delay-200 max-lg:mt-[-1.25rem] max-lg:max-w-[65%] max-sm:mt-[-0.625rem]`}
         />
         <ReactImage
-          className={`${classes} mt-[-1.875rem] max-w-[338px] delay-500 max-lg:mt-[-1.25rem] max-lg:max-w-[50%] max-sm:mt-[-0.625rem]`}
+          className={`${imageCommonClasses} max-lg:max-w-1/2 mt-[-1.875rem] max-w-[338px] delay-500 max-lg:mt-[-1.25rem] max-sm:mt-[-0.625rem]`}
         />
       </div>
 
