@@ -1,5 +1,4 @@
 import cn from 'classnames';
-import HTMLReactParser from 'html-react-parser';
 import { Fragment } from 'react';
 
 import { AccentButton } from '@/shared/components';
@@ -38,7 +37,7 @@ function Roadmap({ active }: Props) {
         <div className={cn('absolute top-[100%] text-yellow', { 'animate-roadmap': active })}>
           {roadmapText.phases.map(({ title, items }) => (
             <Fragment key={title}>
-              <div className="font-bold text-red">{HTMLReactParser(title)}</div>
+              <div className="font-bold text-red" dangerouslySetInnerHTML={{ __html: title }} />
               <ul className="list-disc pl-[3.125rem]">
                 {items.map((item) => (isSubItem(item) ? <li key={item.id}>{item.title}</li> : createSubItems(item)))}
               </ul>

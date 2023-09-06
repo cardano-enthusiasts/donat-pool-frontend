@@ -8,7 +8,7 @@ import { ConnectWalletModal } from '@/shared/components';
 
 function Layout({ children }: React.PropsWithChildren) {
   const cardanoIsInitialized = useAppSelector((state) => state.cardano.initialized);
-  const someWalletIsActive = useAppSelector((state) => Boolean(state.cardano.activeWalletCardanoKey));
+  const activeWalletCardanoKey = useAppSelector((state) => state.cardano.activeWalletCardanoKey);
   const dispatch = useAppDispatch();
 
   useEffect(() => {
@@ -35,7 +35,7 @@ function Layout({ children }: React.PropsWithChildren) {
   }, [cardanoIsInitialized, dispatch]);
 
   if (cardanoIsInitialized) {
-    return someWalletIsActive ? children : <ConnectWalletModal />;
+    return activeWalletCardanoKey ? children : <ConnectWalletModal />;
   }
 }
 

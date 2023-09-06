@@ -1,5 +1,3 @@
-import HTMLReactParser from 'html-react-parser';
-
 import { StandardButton } from '@/shared/components';
 
 import { PRIMARY_SECTIONS, SECONDARY_SECTIONS } from './data';
@@ -13,7 +11,7 @@ function WhyChooseUs() {
       {PRIMARY_SECTIONS.map(({ title, description }) => (
         <div className="mb-10" key={title}>
           <h3 className={titleClasses}>{title}</h3>
-          <div className={descriptionClasses}>{HTMLReactParser(description)}</div>
+          <div className={descriptionClasses} dangerouslySetInnerHTML={{ __html: description }} />
         </div>
       ))}
       <div className="mb-10 flex items-center gap-6 max-lg:flex-col max-lg:items-start">
@@ -49,8 +47,8 @@ function WhyChooseUs() {
       </div>
       <h3 className={titleClasses}>Donate with ease</h3>
       <div className="flex gap-10 max-sm:flex-col">
-        <div className={descriptionClasses}>{HTMLReactParser(SECONDARY_SECTIONS.description1)}</div>
-        <div className={descriptionClasses}>{HTMLReactParser(SECONDARY_SECTIONS.description2)}</div>
+        <div className={descriptionClasses} dangerouslySetInnerHTML={{ __html: SECONDARY_SECTIONS.description1 }} />
+        <div className={descriptionClasses} dangerouslySetInnerHTML={{ __html: SECONDARY_SECTIONS.description2 }} />
       </div>
     </div>
   );
