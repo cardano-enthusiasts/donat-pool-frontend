@@ -9,7 +9,7 @@ import { ROUTES } from '@/shared/constants';
 import CloseIcon from '@public/icons/close.svg';
 import MenuIcon from '@public/icons/menu.svg';
 
-import { ICON_CLASSES, getSections, LINK_CLASSES, WRAPPER_CLASSES } from './data';
+import { getSections, LINK_CLASSES, WRAPPER_CLASSES } from './data';
 import styles from './styles.module.css';
 import type { Props } from './types';
 
@@ -22,6 +22,7 @@ const LandingNav = forwardRef(function LandingNav(
   const section = windowWidth > mobileResolution || currentSection !== 'contact-us' ? currentSection : 'roadmap';
   const wrapperRef = useRef<HTMLDivElement>(null);
 
+  // React doesn't like building component from undetermined value
   // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
   const Icon = shown ? CloseIcon : MenuIcon;
 
@@ -47,7 +48,7 @@ const LandingNav = forwardRef(function LandingNav(
       <nav ref={ref}>
         {windowWidth < mobileResolution && (
           <>
-            <Icon className={ICON_CLASSES} onClick={handleIconClick} />
+            <Icon className="absolute right-5 top-5 h-10 w-10" onClick={handleIconClick} />
             <div className="absolute left-0 right-0 top-0 z-[-1]">
               <Waves upsideDown color="red" moving={false} />
             </div>

@@ -2,31 +2,11 @@
 
 import { useEffect, useState } from 'react';
 
-import Donut0Image from '@public/img/donut-0.svg';
-import Donut1Image from '@public/img/donut-1.svg';
-import Donut2Image from '@public/img/donut-2.svg';
-import Donut3Image from '@public/img/donut-3.svg';
-import Donut4Image from '@public/img/donut-4.svg';
-
+import { FIRST_IMAGE, getSrc } from './helpers';
 import type { Props } from './types';
 
 function RaisedCounter({ raised, goal }: Props) {
-  const [image, setImage] = useState(<Donut0Image />);
-  function getSrc(part: number) {
-    if (part < 0.2) {
-      return <Donut0Image />;
-    }
-    if (part >= 0.2 && part < 0.4) {
-      return <Donut1Image />;
-    }
-    if (part >= 0.4 && part < 0.6) {
-      return <Donut2Image />;
-    }
-    if (part >= 0.6 && part < 1) {
-      return <Donut3Image />;
-    }
-    return <Donut4Image />;
-  }
+  const [image, setImage] = useState(FIRST_IMAGE);
 
   useEffect(() => {
     const raisedPart = raised / goal;
@@ -36,13 +16,13 @@ function RaisedCounter({ raised, goal }: Props) {
   return (
     <div
       className="flex
-    items-center
-    justify-center
-    gap-4
-    font-rammetto-one
-    text-[3.375rem]/[104%]
-    font-normal
-    max-sm:text-4xl"
+        items-center
+        justify-center
+        gap-4
+        font-rammetto-one
+        text-[3.375rem]/[104%]
+        font-normal
+        max-sm:text-4xl"
     >
       <div className="max-sm:hidden">{image}</div>
       <div className="text-red">{raised}</div>

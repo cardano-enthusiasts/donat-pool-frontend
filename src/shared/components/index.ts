@@ -50,3 +50,4 @@ export { default as Line } from './Line';
 export { default as Subtitle } from './Subtitle';
 export { default as Ul } from './Ul';
 export { default as WalletLogo } from './WalletLogo';
+export { default as Socials } from './Socials';

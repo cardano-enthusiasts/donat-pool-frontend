@@ -11,13 +11,14 @@ import { ROUTES } from '@/shared/constants';
 import CloseIcon from '@public/icons/close.svg';
 import MenuIcon from '@public/icons/menu.svg';
 
-import { ICON_CLASSES, LINKS } from './constants';
+import { LINKS } from './constants';
 
 function Header() {
   const pathname = usePathname();
   const [menuIsShown, setMenuIsShown] = useState(false);
   const activeWalletCardanoKey = useAppSelector((state) => state.cardano.activeWalletCardanoKey);
 
+  // React doesn't like building component from undetermined value
   // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
   const Icon = menuIsShown ? CloseIcon : MenuIcon;
 
@@ -59,7 +60,10 @@ function Header() {
           </div>
         )}
       </div>
-      <Icon className={ICON_CLASSES} onClick={handleCloseIconClick} />
+      <Icon
+        className="hidden max-lg:absolute max-lg:right-[1.875rem] max-lg:top-8 max-lg:block max-lg:h-10 max-lg:w-10"
+        onClick={handleCloseIconClick}
+      />
     </header>
   );
 }

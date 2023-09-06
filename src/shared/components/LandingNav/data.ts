@@ -48,6 +48,4 @@ const LINK_CLASSES: { [key in LandingSection]: string } = {
   'contact-us': 'text-blue max-xl:text-green',
 };
 
-const ICON_CLASSES = 'absolute right-5 top-5 h-10 w-10';
-
-export { getSections, WRAPPER_CLASSES, LINK_CLASSES, ICON_CLASSES };
+export { getSections, WRAPPER_CLASSES, LINK_CLASSES };

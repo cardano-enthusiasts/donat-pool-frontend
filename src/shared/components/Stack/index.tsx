@@ -43,10 +43,10 @@ function Stack() {
       <div ref={ref}>
         <CardanoLibImage className={`${imageCommonClasses} max-w-[56.25rem]`} />
         <PlutarchImage
-          className={`${imageCommonClasses} mt-[-1.875rem] max-w-[510px] delay-200 max-lg:mt-[-1.25rem] max-lg:max-w-[65%] max-sm:mt-[-0.625rem]`}
+          className={`${imageCommonClasses} mt-[-1.875rem] max-w-[31.875rem] delay-200 max-lg:mt-[-1.25rem] max-lg:max-w-[65%] max-sm:mt-[-0.625rem]`}
         />
         <ReactImage
-          className={`${imageCommonClasses} max-lg:max-w-1/2 mt-[-1.875rem] max-w-[338px] delay-500 max-lg:mt-[-1.25rem] max-sm:mt-[-0.625rem]`}
+          className={`${imageCommonClasses} max-lg:max-w-1/2 mt-[-1.875rem] max-w-[21.125rem] delay-500 max-lg:mt-[-1.25rem] max-sm:mt-[-0.625rem]`}
         />
       </div>
 

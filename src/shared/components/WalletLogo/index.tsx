@@ -1,19 +1,8 @@
-import EternlLogo from '@public/icons/eternl.svg';
-import FlintLogo from '@public/icons/flint.svg';
-import LodeLogo from '@public/icons/lode.svg';
-import NamiLogo from '@public/icons/nami.svg';
-
+import { LOGOS } from './constants';
 import type { Props } from './types';
 
 function WalletLogo({ cardanoKey }: Props) {
-  const logos = {
-    nami: <NamiLogo />,
-    LodeWallet: <LodeLogo />,
-    flint: <FlintLogo />,
-    eternl: <EternlLogo />,
-  };
-
-  return <div className="w-8">{logos[cardanoKey]}</div>;
+  return <div className="w-8">{LOGOS[cardanoKey]}</div>;
 }
 
 export default WalletLogo;
