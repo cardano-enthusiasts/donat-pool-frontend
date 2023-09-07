@@ -18,7 +18,7 @@ function StandardButton({
   disabled = false,
   animated = false,
   onClick,
-}: React.PropsWithChildren<Props>) {
+}: Props) {
   const classes = cn(
     styles.common,
     VARIANTS.size[size],

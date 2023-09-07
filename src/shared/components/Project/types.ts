@@ -1,4 +1,4 @@
-interface Props {
+interface Props extends React.PropsWithChildren {
   previousPageTitle: string;
   title: string;
   onPreviousPageClick: () => void;

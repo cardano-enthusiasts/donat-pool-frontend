@@ -2,7 +2,7 @@ import cn from 'classnames';
 
 import type { Props } from './types';
 
-function BorderedButton({ children, color, isClickedTheme, onClick }: React.PropsWithChildren<Props>) {
+function BorderedButton({ children, color, isClickedTheme, onClick }: Props) {
   return (
     <div className="transition-all duration-500">
       <button
