@@ -1,9 +1,11 @@
 'use client';
 
-// import cn from 'classnames';
+import cn from 'classnames';
 // import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { useState } from 'react';
+import { useLockBodyScroll } from 'react-use';
 // import { useState } from 'react';
 
 import { Logo } from '@/shared/components';
@@ -14,11 +16,26 @@ import { LINKS } from './constants';
 
 function Header() {
   const pathname = usePathname();
+  const [menuIsShown, setMenuIsShown] = useState(false);
+  useLockBodyScroll(menuIsShown);
+
+  function handleMenuButtonClick() {
+    setMenuIsShown(!menuIsShown);
+  }
 
   return (
-    <header className="flex items-center justify-between gap-x-10 bg-red px-20 py-8 max-md:px-8 max-md:py-6">
+    <header
+      className={cn('flex flex-wrap items-center justify-between gap-x-10 bg-red px-20 py-8 max-md:px-8 max-md:py-6', {
+        'fixed inset-0 z-[1]': menuIsShown,
+      })}
+    >
       <Logo />
-      <div className="flex flex-wrap items-center gap-x-10 justify-self-end max-md:hidden">
+      <div
+        className={cn('flex flex-wrap items-center gap-x-10 justify-self-end', {
+          'max-md:hidden': !menuIsShown,
+          'order-1 w-full': menuIsShown,
+        })}
+      >
         <nav className="border-r-2 border-r-purple pr-10">
           <ul className="flex flex-wrap gap-x-10">
             {LINKS.map(({ title, href }) => (
@@ -32,7 +49,7 @@ function Header() {
           <WalletButton />
         </div>
       </div>
-      <button className="hidden h-8 w-8 max-md:inline-block" type="button">
+      <button className="hidden h-8 w-8 max-md:inline-block" type="button" onClick={handleMenuButtonClick}>
         <MenuIcon className="[&>path]:fill-green" />
       </button>
       {/* {activeWalletCardanoKey ? (
