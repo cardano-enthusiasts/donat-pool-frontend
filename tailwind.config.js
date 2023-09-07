@@ -10,6 +10,7 @@ module.exports = {
           light: '#97dfff',
         },
         red: '#ff6b95',
+        pink: '#ffb5ca',
         green: '#29dea8',
         yellow: '#fed900',
         white: '#fff',
