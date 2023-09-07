@@ -1,4 +1,4 @@
-import { FakeProjectCard } from '@/shared/components';
+import { FakeDonatPoolCard } from '@/shared/components';
 
 function NoDonatPool() {
   return (
@@ -7,9 +7,9 @@ function NoDonatPool() {
         There are no projects yet. But you can be the first to create a Donat.Pool
       </div>
       <div className="grid grid-cols-projects gap-10 max-sm:grid-cols-1 max-sm:gap-8">
-        <FakeProjectCard />
-        <FakeProjectCard />
-        <FakeProjectCard />
+        <FakeDonatPoolCard />
+        <FakeDonatPoolCard />
+        <FakeDonatPoolCard />
       </div>
     </div>
   );

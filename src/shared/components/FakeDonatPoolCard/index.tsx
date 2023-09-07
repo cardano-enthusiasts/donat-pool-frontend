@@ -1,6 +1,6 @@
 import { ADAIcon } from '@/shared/components';
 
-function FakeProjectCard() {
+function FakeDonatPoolCard() {
   return (
     <div
       className="z-[-1]
@@ -34,4 +34,4 @@ function FakeProjectCard() {
   );
 }
 
-export default FakeProjectCard;
+export default FakeDonatPoolCard;

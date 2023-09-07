@@ -48,6 +48,6 @@ export { default as Ul } from './Ul';
 export { default as Loading } from './Loading';
 export { default as NoDonatPool } from './NoDonatPool';
 export { default as ADAIcon } from './ADAIcon';
-export { default as FakeProjectCard } from './FakeProjectCard';
+export { default as FakeDonatPoolCard } from './FakeDonatPoolCard';
 export { default as WalletLogo } from './WalletLogo';
 export { default as Socials } from './Socials';
