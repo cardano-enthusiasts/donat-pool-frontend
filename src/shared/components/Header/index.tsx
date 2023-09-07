@@ -7,25 +7,20 @@ import { usePathname } from 'next/navigation';
 // import { useState } from 'react';
 
 import { Logo } from '@/shared/components';
-// import { ROUTES, WALLET_CARDANO_KEY_TO_LOGO } from '@/shared/constants';
+import MenuIcon from '@public/icons/menu.svg';
 
 import { WalletButton } from './components';
 import { LINKS } from './constants';
 
 function Header() {
   const pathname = usePathname();
-  // const [menuIsShown, setMenuIsShown] = useState(false);
-
-  // function handleCloseIconClick() {
-  //   setMenuIsShown(!menuIsShown);
-  // }
 
   return (
-    <header className="grid grid-cols-[auto_1fr] items-center gap-x-10 bg-red px-20 py-8 max-md:px-8 max-md:py-6">
+    <header className="flex items-center justify-between gap-x-10 bg-red px-20 py-8 max-md:px-8 max-md:py-6">
       <Logo />
-      <div className="flex items-center gap-x-10 justify-self-end max-md:hidden">
+      <div className="flex flex-wrap items-center gap-x-10 justify-self-end max-md:hidden">
         <nav className="border-r-2 border-r-purple pr-10">
-          <ul className="flex gap-x-10">
+          <ul className="flex flex-wrap gap-x-10">
             {LINKS.map(({ title, href }) => (
               <li className={`text-lg/6 font-bold ${href === pathname ? 'text-yellow' : 'text-white'}`} key={title}>
                 <Link href={href}>{title}</Link>
@@ -33,8 +28,13 @@ function Header() {
             ))}
           </ul>
         </nav>
-        <WalletButton />
+        <div className="shrink-0">
+          <WalletButton />
+        </div>
       </div>
+      <button className="hidden h-8 w-8 max-md:inline-block" type="button">
+        <MenuIcon className="[&>path]:fill-green" />
+      </button>
       {/* {activeWalletCardanoKey ? (
         <div className={cn('flex max-lg:flex-col max-lg:gap-10', { 'max-lg:hidden': !menuIsShown })}>
           <div className="mx-10 flex gap-7 text-lg font-bold max-lg:flex-col max-lg:items-center">

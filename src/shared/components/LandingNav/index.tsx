@@ -56,7 +56,7 @@ const LandingNav = forwardRef(function LandingNav(
       <nav ref={ref}>
         {windowWidth < mobileResolution && (
           <>
-            <Icon className="absolute right-5 top-5 h-10 w-10" onClick={handleIconClick} />
+            <Icon className="absolute right-5 top-5 h-10 w-10 [&>path]:fill-green" onClick={handleIconClick} />
             <div className="absolute left-0 right-0 top-0 z-[-1]">
               <Waves upsideDown color="red" moving={false} />
             </div>

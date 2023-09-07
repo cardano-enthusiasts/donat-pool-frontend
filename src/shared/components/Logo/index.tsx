@@ -6,7 +6,7 @@ import LogoIcon from '@public/icons/logo.svg';
 function Logo() {
   return (
     <Link href={ROUTES.home}>
-      <LogoIcon />
+      <LogoIcon className="w-[17.6875rem] max-md:w-[13.375rem]" />
     </Link>
   );
 }

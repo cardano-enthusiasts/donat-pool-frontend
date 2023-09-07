@@ -17,6 +17,7 @@ function Button({
       className={cn(
         `rounded-md
         border-2
+        text-center
         font-bold
         text-white
         disabled:border-gray-secondary
