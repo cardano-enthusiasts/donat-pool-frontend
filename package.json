@@ -21,7 +21,7 @@
     "axios": "1.5.0",
     "classnames": "2.3.2",
     "next": "13.4.19",
-    "offchain": "git+ssh://git@github.com:fullstack-development/donat-pool-offchain.git#8ee27dea6f7c08a6a1491c49f9c5df7fdaf9f1e4",
+    "offchain": "git+ssh://git@github.com:fullstack-development/donat-pool-offchain.git#16c39d832223f783f8ecf3836c628739f4ea9503",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-hook-form": "7.46.1",
