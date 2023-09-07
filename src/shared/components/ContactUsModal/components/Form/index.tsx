@@ -8,7 +8,7 @@ import { DoubleBorderedButton, StandardButton, NewInput, Textarea } from '@/shar
 
 import type { Props, FormValues } from './types';
 
-function Form({ onSubmitSuccess, onSubmitFailure, onCancelButtonClick }: Props) {
+function Form({ onSubmit, onSubmitFailure, onCancelButtonClick }: Props) {
   const {
     handleSubmit: createSubmitHandler,
     register,
@@ -18,7 +18,7 @@ function Form({ onSubmitSuccess, onSubmitFailure, onCancelButtonClick }: Props) 
   const handleSubmit = createSubmitHandler(async (data) => {
     try {
       await api.post('core/contact-us/', data);
-      onSubmitSuccess();
+      onSubmit();
     } catch (error) {
       onSubmitFailure(isAxiosError(error) ? error.message : 'Unknown error');
     }

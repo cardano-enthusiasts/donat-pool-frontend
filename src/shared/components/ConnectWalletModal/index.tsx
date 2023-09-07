@@ -6,7 +6,7 @@ import { useMemo, useState } from 'react';
 
 import { Modal, Checkbox, DoubleBorderedButton, WalletLogo } from '@/shared/components';
 import { ROUTES } from '@/shared/constants';
-import { useConnectedWallet } from '@/shared/hooks';
+import { useCardano } from '@/shared/hooks';
 import type { WalletCardanoKey } from '@/shared/types';
 import GoToIcon from '@public/icons/go-to.svg';
 
@@ -14,7 +14,7 @@ import { WALLETS } from './constants';
 import type { Props } from './types';
 
 function ConnectWalletModal({ onWalletConnect }: Props) {
-  const { connectWallet } = useConnectedWallet();
+  const { connectWallet } = useCardano();
 
   const sortedWallets = useMemo(
     () =>

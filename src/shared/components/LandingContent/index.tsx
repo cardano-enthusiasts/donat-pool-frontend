@@ -115,7 +115,7 @@ const LandingContent = forwardRef(function LandingContent(
     {
       element: (
         <div
-          className={`${CLASSES} bg-[url("/img/section-cat.svg")] bg-[length:100%] bg-[0_100%] bg-no-repeat pb-40 pt-0`}
+          className={`${CLASSES} bg-[url("/images/section-cat.svg")] bg-[length:100%] bg-[0_100%] bg-no-repeat pb-40 pt-0`}
           id="why-choose-us"
           ref={whyChooseUsRef}
         >

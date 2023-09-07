@@ -1,5 +1,5 @@
 import { DoubleBorderedButton, Waves } from '@/shared/components';
-import CatWithBorderImage from '@public/img/sad-cat-with-purple-border.svg';
+import CatWithBorderImage from '@public/images/sad-cat-with-purple-border.svg';
 
 function NotAvailableError() {
   return (

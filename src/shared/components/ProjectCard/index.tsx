@@ -52,7 +52,7 @@ function ProjectCard({
               after:ml-1
               after:h-[0.875rem]
               after:w-[0.875rem]
-              after:content-[url('/icons/ADA.svg')]"
+              after:content-[url('/icons/ada.svg')]"
           >
             <div className="flex text-red">
               {status === 'active' && (

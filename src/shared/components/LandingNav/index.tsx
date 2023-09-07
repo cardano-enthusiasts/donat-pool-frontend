@@ -26,7 +26,7 @@ const LandingNav = forwardRef(function LandingNav(
   const section = windowWidth > mobileResolution || currentSection !== 'contact-us' ? currentSection : 'roadmap';
   const wrapperRef = useRef<HTMLDivElement>(null);
 
-  // React doesn't like building component from undetermined value
+  // Svgr doesn't provide types for svg components
   // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
   const Icon = mobileHeaderIsShown ? CloseIcon : MenuIcon;
 

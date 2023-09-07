@@ -3,10 +3,11 @@
 import { useState } from 'react';
 
 import { ConnectWalletModal } from '@/shared/components';
-import { useConnectedWallet } from '@/shared/hooks';
+import { useCardano } from '@/shared/hooks';
+import Donut2Image from '@public/images/donut-2.svg';
 
 function WalletButton() {
-  const { cardanoKey, disconnectWallet } = useConnectedWallet();
+  const { initialized, connectedWalletCardanoKey, disconnectWallet } = useCardano();
   const [modalIsShown, setModalIsShown] = useState(false);
 
   function handleConnectWalletButtonClick() {
@@ -17,9 +18,9 @@ function WalletButton() {
     setModalIsShown(false);
   }
 
-  return (
+  return initialized ? (
     <>
-      {cardanoKey ? (
+      {connectedWalletCardanoKey ? (
         <button type="button" onClick={disconnectWallet}>
           Disconnect wallet
         </button>
@@ -30,6 +31,8 @@ function WalletButton() {
       )}
       {modalIsShown && <ConnectWalletModal onWalletConnect={handleWalletConnect} />}
     </>
+  ) : (
+    <Donut2Image className="w-10" />
   );
 }
 

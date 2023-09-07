@@ -1,10 +1,8 @@
 import cn from 'classnames';
 import Link from 'next/link';
 
-import { Socials } from '@/shared/components';
-
 import { ContactUsButton } from './components';
-import { LINKS } from './constants';
+import { SOCIALS, LINKS } from './constants';
 import type { Props } from './types';
 
 function Footer({ theme = 'blue' }: Props) {
@@ -29,7 +27,15 @@ function Footer({ theme = 'blue' }: Props) {
         },
       )}
     >
-      <Socials />
+      <ul className="flex gap-x-10">
+        {SOCIALS.map(({ logo, href }) => (
+          <li className="shrink-0" key={href}>
+            <Link href={href} target="_blank" rel="noreferrer">
+              {logo}
+            </Link>
+          </li>
+        ))}
+      </ul>
       <ul className="flex flex-wrap gap-x-10 max-md:block">
         {LINKS.map(({ title, href }) => (
           <li className="max-md:text-center" key={title}>

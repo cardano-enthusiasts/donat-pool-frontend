@@ -3,13 +3,13 @@ import { useCallback, useEffect } from 'react';
 import { useAppSelector, useAppDispatch } from '@/redux/hooks';
 import { setStatus, setDonatPools, setError } from '@/redux/slices/getUserRelatedFundraisings';
 import { createConnectionParameters, transformFetchedDonatPools } from '@/shared/helpers';
-import { useOffchain } from '@/shared/hooks';
+import { useCardano, useOffchain } from '@/shared/hooks';
 import type { FetchedDonatPool, Protocol } from '@/shared/types';
 
 function useMyDonatPools() {
   const offchain = useOffchain();
   const { status, donatPools, error } = useAppSelector((state) => state.getUserRelatedFundraisings);
-  const activeWalletCardanoKey = useAppSelector((state) => state.cardano.activeWalletCardanoKey);
+  const { connectedWalletCardanoKey } = useCardano();
   const dispatch = useAppDispatch();
 
   const handleFetchSuccess = useCallback(
@@ -28,13 +28,13 @@ function useMyDonatPools() {
   );
 
   const fetchDonatPools = useCallback(() => {
-    if (offchain && activeWalletCardanoKey) {
+    if (offchain && connectedWalletCardanoKey) {
       dispatch(setStatus('requesting'));
       offchain.getUserRelatedFundraisings(handleFetchSuccess)(handleFetchFailure)(
         JSON.parse(process.env.NEXT_PUBLIC_PROTOCOL) as Protocol,
-      )(createConnectionParameters(activeWalletCardanoKey))();
+      )(createConnectionParameters(connectedWalletCardanoKey))();
     }
-  }, [offchain, activeWalletCardanoKey, dispatch, handleFetchSuccess, handleFetchFailure]);
+  }, [offchain, connectedWalletCardanoKey, dispatch, handleFetchSuccess, handleFetchFailure]);
 
   useEffect(() => {
     if (status === 'default') {
