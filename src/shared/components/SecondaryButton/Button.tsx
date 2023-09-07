@@ -6,6 +6,7 @@ function Button({
   size = 'md',
   borderTheme = 'blue',
   shadowTheme = 'blackBlue',
+  withIcon = false,
   type = 'button',
   children,
   disabled,
@@ -21,7 +22,10 @@ function Button({
         disabled:border-gray-secondary
         disabled:text-gray-secondary`,
         {
-          'px-3.5 py-2 text-base/[1.3125rem]': size === 'md',
+          'px-3.5 py-2': size === 'md',
+          'flex items-center gap-x-2.5 text-xs': size === 'md' && withIcon,
+          'text-base/[1.3125rem]': size === 'md' && !withIcon,
+
           'px-4.5 py-2.5 text-xl/[1.625rem]': size === 'lg',
           'border-blue': borderTheme === 'blue',
           'border-purple': borderTheme === 'purple',

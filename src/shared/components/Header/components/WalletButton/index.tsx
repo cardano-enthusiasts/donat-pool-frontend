@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 
-import { ConnectWalletModal, SecondaryButton } from '@/shared/components';
+import { ConnectWalletModal, SecondaryButton, WalletLogo } from '@/shared/components';
 import { useCardano } from '@/shared/hooks';
 import Donut2Image from '@public/images/donut-2.svg';
 
@@ -20,15 +20,23 @@ function WalletButton() {
 
   return initialized ? (
     <>
-      {connectedWalletCardanoKey ? (
-        <button type="button" onClick={disconnectWallet}>
-          Disconnect wallet
-        </button>
-      ) : (
-        <SecondaryButton borderTheme="purple" shadowTheme="redPurple" onClick={handleConnectWalletButtonClick}>
-          Connect wallet
-        </SecondaryButton>
-      )}
+      <SecondaryButton
+        borderTheme="purple"
+        shadowTheme="redPurple"
+        withIcon={Boolean(connectedWalletCardanoKey)}
+        onClick={connectedWalletCardanoKey ? disconnectWallet : handleConnectWalletButtonClick}
+      >
+        {connectedWalletCardanoKey ? (
+          <>
+            <div className="h-6 w-6 rounded-full bg-black p-1">
+              <WalletLogo size="sm" cardanoKey={connectedWalletCardanoKey} />
+            </div>{' '}
+            Disconnect
+          </>
+        ) : (
+          'Connect wallet'
+        )}
+      </SecondaryButton>
       {modalIsShown && <ConnectWalletModal onWalletConnect={handleWalletConnect} />}
     </>
   ) : (
