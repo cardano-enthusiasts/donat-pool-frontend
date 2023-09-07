@@ -13,7 +13,7 @@ import GoToIcon from '@public/icons/go-to.svg';
 import { WALLETS } from './constants';
 import type { Props } from './types';
 
-function ConnectWalletModal({ onWalletConnect }: Props) {
+function ConnectWalletModal({ onWalletConnect, onClose }: Props) {
   const { connectWallet } = useCardano();
 
   const sortedWallets = useMemo(
@@ -55,7 +55,7 @@ function ConnectWalletModal({ onWalletConnect }: Props) {
   }
 
   return (
-    <Modal panelTheme="black" title="Connect wallet" titleAs="h1">
+    <Modal panelTheme="black" title="Connect wallet" titleAs="h1" onClose={onClose}>
       <Checkbox checked={termsOfUseAreAccepted} onChange={handleCheckboxChange}>
         By checking this box and connecting my wallet, I confirm that I have read, understood and agreed the{' '}
         <Link className="font-bold text-blue" href={ROUTES.termsOfUse} target="_blank">

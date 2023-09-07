@@ -18,6 +18,10 @@ function WalletButton() {
     setModalIsShown(false);
   }
 
+  function handleModalClose() {
+    setModalIsShown(false);
+  }
+
   return initialized ? (
     <>
       <SecondaryButton
@@ -37,7 +41,7 @@ function WalletButton() {
           'Connect wallet'
         )}
       </SecondaryButton>
-      {modalIsShown && <ConnectWalletModal onWalletConnect={handleWalletConnect} />}
+      {modalIsShown && <ConnectWalletModal onWalletConnect={handleWalletConnect} onClose={handleModalClose} />}
     </>
   ) : (
     <Donut2Image className="w-10" />
