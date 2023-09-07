@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 
-import { BorderedButton, Loading, ProjectCard, StandardButton } from '@/shared/components';
+import { BorderedButton, Loading, ProjectCard, StandardButton, Layout } from '@/shared/components';
 import { ROUTES } from '@/shared/constants';
 import { useMyDonatPools } from '@/shared/hooks';
 import type { DonatPool } from '@/shared/types';
@@ -12,7 +12,7 @@ import type { ProjectStatus } from './types';
 
 function MyDonatPools() {
   const [filter, setFilter] = useState<ProjectStatus | null>(null);
-  const { donatPools, areBeingFetched } = useMyDonatPools();
+  const { donatPools, areBeingFetched, fetchError } = useMyDonatPools();
   const [filteredProjects, setFilteredProjects] = useState<DonatPool[] | null>(null);
 
   useEffect(() => {
@@ -33,7 +33,7 @@ function MyDonatPools() {
   }
 
   return (
-    <>
+    <Layout error={fetchError}>
       <div className="mb-15 flex justify-between max-lg:flex-col max-lg:items-center max-lg:gap-5 max-md:mb-8">
         <div className="flex items-center justify-center gap-10 max-md:items-start max-sm:flex-col max-sm:gap-5">
           <h1
@@ -100,7 +100,7 @@ function MyDonatPools() {
           ))}
         {areBeingFetched && <Loading />}
       </div>
-    </>
+    </Layout>
   );
 }
 
