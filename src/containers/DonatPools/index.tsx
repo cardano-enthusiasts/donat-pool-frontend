@@ -35,7 +35,7 @@ function DonatPools() {
         </div>
       </div>
 
-      {donatPoolsAreBeingFetched && <Loading />}
+      {donatPoolsAreBeingFetched && !donatPools && <Loading />}
       {donatPools && donatPools.length !== 0 && (
         <div className="grid grid-cols-projects gap-10 max-sm:grid-cols-1 max-sm:gap-8">
           {donatPools

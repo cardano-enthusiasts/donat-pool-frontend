@@ -98,7 +98,7 @@ function MyDonatPools() {
               <SadCatImage className="max-w-full" />
             </div>
           ))}
-        {areBeingFetched && <Loading />}
+        {areBeingFetched && !donatPools && <Loading />}
       </div>
     </Layout>
   );

@@ -1,5 +1,5 @@
 interface Props {
-  color?: 'red' | 'black';
+  color?: 'pink' | 'black';
 }
 
 export type { Props };
