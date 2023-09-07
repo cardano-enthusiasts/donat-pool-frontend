@@ -13,21 +13,21 @@ import type { ProjectStatus } from './types';
 function MyDonatPools() {
   const [filter, setFilter] = useState<ProjectStatus | null>(null);
   const { donatPools, areBeingFetched, fetchError } = useMyDonatPools();
-  const [filteredProjects, setFilteredProjects] = useState<DonatPool[] | null>(null);
+  const [filteredDonatPools, setFilteredDonatPools] = useState<DonatPool[] | null>(null);
 
   useEffect(() => {
     if (donatPools) {
-      setFilteredProjects(donatPools);
+      setFilteredDonatPools(donatPools);
     }
   }, [donatPools]);
 
   function handleFilterClick(status: ProjectStatus, projects: DonatPool[]) {
     if (filter === status) {
-      setFilteredProjects(projects);
+      setFilteredDonatPools(projects);
       setFilter(null);
     } else {
       const completed = status === 'completed';
-      setFilteredProjects(projects.filter((item) => item.completed === completed));
+      setFilteredDonatPools(projects.filter((item) => item.completed === completed));
       setFilter(status);
     }
   }
@@ -77,9 +77,9 @@ function MyDonatPools() {
         </div>
       </div>
       <div className="mx-auto w-full max-md:max-w-[90vw]">
-        {filteredProjects && filteredProjects.length !== 0 && (
+        {filteredDonatPools && filteredDonatPools.length !== 0 && (
           <div className="grid grid-cols-projects gap-10 max-md:grid-cols-1">
-            {filteredProjects.map((item) => (
+            {filteredDonatPools.map((item) => (
               <ProjectCard
                 key={item.threadTokenCurrency}
                 data={item}
@@ -91,13 +91,12 @@ function MyDonatPools() {
           </div>
         )}
 
-        {filteredProjects === null ||
-          (filteredProjects.length === 0 && (
-            <div className="flex flex-col items-center gap-6">
-              You don&apos;t have any projects yet. Create a project to start receiving donations.
-              <SadCatImage className="max-w-full" />
-            </div>
-          ))}
+        {filteredDonatPools?.length === 0 && (
+          <div className="flex flex-col items-center gap-6">
+            You don&apos;t have any projects yet. Create a project to start receiving donations.
+            <SadCatImage className="max-w-full" />
+          </div>
+        )}
         {areBeingFetched && !donatPools && <Loading />}
       </div>
     </Layout>

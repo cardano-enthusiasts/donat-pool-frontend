@@ -15,16 +15,16 @@ function MyDonatPool() {
   const params = useParams();
   const router = useRouter();
   const { donatPools, fetchError } = useMyDonatPools();
-  const [currentProject, setCurrentProject] = useState<DonatPool | null>(null);
+  const [currentDonatPool, setCurrentDonatPool] = useState<DonatPool | null>(null);
 
   useEffect(() => {
     if (donatPools) {
       const project = donatPools.find(({ threadTokenCurrency }) => threadTokenCurrency === params.id);
 
       if (project) {
-        setCurrentProject(project);
+        setCurrentDonatPool(project);
       } else {
-        setCurrentProject(null);
+        setCurrentDonatPool(null);
       }
     }
   }, [donatPools, params.id]);
@@ -39,30 +39,30 @@ function MyDonatPool() {
 
   return (
     <Layout error={fetchError}>
-      {currentProject && (
+      {currentDonatPool && (
         <Project
-          previousPageTitle="My projects"
-          title={currentProject.title}
+          previousPageTitle="My Donat.Pools"
+          title={currentDonatPool.title}
           onPreviousPageClick={handlePreviousPageClick}
         >
           <div className="max-w-[37.5rem]">
             <div className="flex items-center justify-between border-b-2 border-t-2 border-black py-7">
               <div
                 className={`font-bold ${
-                  getTheme(currentProject.completed).classes
+                  getTheme(currentDonatPool.completed).classes
                 } rounded-md border-2 px-3 py-2 text-sm`}
               >
-                {getTheme(currentProject.completed).text}
+                {getTheme(currentDonatPool.completed).text}
               </div>
-              <div className="text-xl font-bold">Until {formatDate(Number(currentProject.deadline))}</div>
+              <div className="text-xl font-bold">Until {formatDate(Number(currentDonatPool.deadline))}</div>
             </div>
             <div className="flex border-b-2 border-black py-6">
               <RaisedCounter
-                raised={convertLovelaceToADA(currentProject.raisedAmt)}
-                goal={convertLovelaceToADA(currentProject.goal)}
+                raised={convertLovelaceToADA(currentDonatPool.raisedAmt)}
+                goal={convertLovelaceToADA(currentDonatPool.goal)}
               />
             </div>
-            <PrivateProjectsActions project={currentProject} />
+            <PrivateProjectsActions project={currentDonatPool} />
           </div>
         </Project>
       )}
