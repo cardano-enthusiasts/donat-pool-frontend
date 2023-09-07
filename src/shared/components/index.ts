@@ -22,7 +22,6 @@ export { default as ModalDonate } from './ModalDonate';
 export { default as ModalLoading } from './ModalLoading';
 export { default as ModalError } from './ModalError';
 export { default as ModalSuccess } from './ModalSuccess';
-export { default as NotAvailableError } from './NotAvailableError';
 export { default as RaisedCounter } from './RaisedCounter';
 export { default as PrivateProjectsActions } from './PrivateProjectsActions';
 export { default as Project } from './Project';
