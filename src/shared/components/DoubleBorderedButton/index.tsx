@@ -22,7 +22,6 @@ function DoubleBorderedButton({
     VARIANTS.primary[primaryColor],
     VARIANTS.background[backgroundColor],
     { 'w-full inline-block': isFullWidth },
-    'disabled:cursor-not-allowed',
     'border-2 before:border-2',
   );
 

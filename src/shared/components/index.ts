@@ -29,6 +29,7 @@ export { default as Project } from './Project';
 export { default as ModalProjectCreated } from './ModalProjectCreated';
 export { default as Stack } from './Stack';
 export { default as ScrollHelper } from './ScrollHelper';
+export { default as SecondaryButton } from './SecondaryButton/Button';
 export { default as ConnectWalletModal } from './ConnectWalletModal';
 export { default as ContactUsModal } from './ContactUsModal';
 export { default as Arrow } from './Arrow';

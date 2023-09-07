@@ -74,7 +74,7 @@ function ConnectWalletModal({ onWalletConnect }: Props) {
               key={cardanoKey}
             >
               <button
-                className="flex cursor-default items-center gap-x-3 disabled:cursor-not-allowed"
+                className="flex items-center gap-x-3"
                 type="button"
                 disabled={!installed || !termsOfUseAreAccepted || someWalletIsBeingConnected}
                 onClick={() => {

@@ -15,4 +15,12 @@
   ::-webkit-scrollbar-thumb {
     @apply bg-red;
   }
+
+  button {
+    @apply cursor-default;
+  }
+
+  button:disabled {
+    @apply cursor-not-allowed;
+  }
 }

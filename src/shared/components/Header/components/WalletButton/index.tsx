@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 
-import { ConnectWalletModal } from '@/shared/components';
+import { ConnectWalletModal, SecondaryButton } from '@/shared/components';
 import { useCardano } from '@/shared/hooks';
 import Donut2Image from '@public/images/donut-2.svg';
 
@@ -25,9 +25,9 @@ function WalletButton() {
           Disconnect wallet
         </button>
       ) : (
-        <button type="button" onClick={handleConnectWalletButtonClick}>
+        <SecondaryButton borderTheme="purple" shadowTheme="redPurple" onClick={handleConnectWalletButtonClick}>
           Connect wallet
-        </button>
+        </SecondaryButton>
       )}
       {modalIsShown && <ConnectWalletModal onWalletConnect={handleWalletConnect} />}
     </>
