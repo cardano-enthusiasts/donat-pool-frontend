@@ -36,12 +36,10 @@ function Footer({ theme = 'blue' }: Props) {
           </li>
         ))}
       </ul>
-      <ul className="flex flex-wrap gap-x-10 max-md:block">
+      <ul className="flex flex-wrap gap-x-10 max-md:flex-col max-md:gap-y-3">
         {LINKS.map(({ title, href }) => (
-          <li className="max-md:text-center" key={title}>
-            <Link className="font-rammetto-one text-menu-default text-white" href={href}>
-              {title}
-            </Link>
+          <li className="font-rammetto-one text-menu-default text-white max-md:text-center" key={title}>
+            <Link href={href}>{title}</Link>
           </li>
         ))}
       </ul>
