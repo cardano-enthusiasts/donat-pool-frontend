@@ -1,7 +1,8 @@
 interface Props extends React.PropsWithChildren {
   size?: 'md' | 'lg';
   borderTheme?: 'blue' | 'purple';
-  shadowTheme?: 'blackBlue' | 'redPurple';
+  textTheme?: 'white' | 'blue';
+  shadowTheme?: 'blackBlue' | 'redPurple' | 'whiteBlue';
   withIcon?: boolean;
   type?: 'button' | 'submit';
   disabled?: boolean;
