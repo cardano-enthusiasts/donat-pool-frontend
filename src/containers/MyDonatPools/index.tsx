@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 
-import { BorderedButton, Loading, ProjectCard, StandardButton, Layout } from '@/shared/components';
+import { BorderedButton, Loader, ProjectCard, StandardButton, Layout } from '@/shared/components';
 import { ROUTES } from '@/shared/constants';
 import { useMyDonatPools } from '@/shared/hooks';
 import type { DonatPool } from '@/shared/types';
@@ -77,6 +77,8 @@ function MyDonatPools() {
         </div>
       </div>
       <div className="mx-auto w-full max-md:max-w-[90vw]">
+        {areBeingFetched && !donatPools && <Loader />}
+
         {filteredDonatPools && filteredDonatPools.length !== 0 && (
           <div className="grid grid-cols-projects gap-10 max-md:grid-cols-1">
             {filteredDonatPools.map((item) => (
@@ -97,7 +99,6 @@ function MyDonatPools() {
             <SadCatImage className="max-w-full" />
           </div>
         )}
-        {areBeingFetched && !donatPools && <Loading />}
       </div>
     </Layout>
   );

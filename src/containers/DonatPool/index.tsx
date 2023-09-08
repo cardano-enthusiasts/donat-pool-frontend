@@ -12,7 +12,7 @@ import {
   AccentButton,
   RaisedCounter,
   Layout,
-  Loading,
+  Loader,
 } from '@/shared/components';
 import { convertLovelaceToADA, formatDate } from '@/shared/helpers';
 import { useQueriedDonatPool, useDonate } from '@/shared/hooks';
@@ -66,7 +66,7 @@ function DonatPool() {
 
   return (
     <Layout error={fetchDonatPoolError}>
-      {donatPoolIsBeingFetched && !donatPool && <Loading />}
+      {donatPoolIsBeingFetched && !donatPool && <Loader />}
       {donatPool && (
         <div className="pb-40 pt-20">
           <h1

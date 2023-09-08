@@ -1,4 +1,4 @@
-import { ADAIcon } from '@/shared/components';
+import ADA from '@public/icons/ADA.svg';
 
 function FakeDonatPoolCard() {
   return (
@@ -25,7 +25,7 @@ function FakeDonatPoolCard() {
         <div className="leading-none">00.00 — 00.00</div>
         <div className="flex">
           <div className="mr-1 flex font-bold leading-none">00</div>
-          <ADAIcon color="pink" />
+          <ADA className="fill-pink" />
         </div>
       </div>
     </div>
