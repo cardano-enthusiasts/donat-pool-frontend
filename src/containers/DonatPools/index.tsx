@@ -1,11 +1,15 @@
 'use client';
 
+import { useMemo } from 'react';
+
 import { Layout, StandardButton, Loader, NoDonatPool, ProjectCard } from '@/shared/components';
 import { ROUTES } from '@/shared/constants';
 import { useDonatPools } from '@/shared/hooks';
 
 function DonatPools() {
   const { areBeingFetched: donatPoolsAreBeingFetched, donatPools, fetchError: fetchDonatPoolsError } = useDonatPools();
+
+  const activeDonatPools = useMemo(() => donatPools?.filter(({ completed }) => !completed), [donatPools]);
 
   return (
     <Layout error={fetchDonatPoolsError}>
@@ -37,10 +41,9 @@ function DonatPools() {
       </div>
 
       {donatPoolsAreBeingFetched && !donatPools && <Loader />}
-      {donatPools && donatPools.length !== 0 && (
+      {activeDonatPools && activeDonatPools.length !== 0 && (
         <div className="grid grid-cols-projects gap-10 max-sm:grid-cols-1 max-sm:gap-8">
-          {donatPools
-            .filter(({ completed }) => !completed)
+          {activeDonatPools
             .sort(
               (firstDonatPool, secondDonatPool) => Number(firstDonatPool.deadline) - Number(secondDonatPool.deadline),
             )
@@ -49,7 +52,7 @@ function DonatPools() {
             ))}
         </div>
       )}
-      {donatPools?.filter(({ completed }) => !completed)?.length === 0 && <NoDonatPool />}
+      {activeDonatPools?.length === 0 && <NoDonatPool />}
     </Layout>
   );
 }
