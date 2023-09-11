@@ -15,8 +15,8 @@ const slice = createSlice({
   name: 'getAllFundraisings',
   initialState,
   reducers: {
-    setStatus: (state, action: PayloadAction<RequestStatus>) => {
-      state.status = action.payload;
+    setStatusRequesting: (state) => {
+      state.status = 'requesting';
     },
     setDonatPools: (state, action: PayloadAction<DonatPool[]>) => {
       state.status = 'success';
@@ -32,5 +32,5 @@ const slice = createSlice({
 export default slice;
 export const {
   reducer,
-  actions: { setStatus, setDonatPools, setError },
+  actions: { setStatusRequesting, setDonatPools, setError },
 } = slice;
