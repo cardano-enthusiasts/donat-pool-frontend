@@ -2,7 +2,7 @@ import { Header, Footer } from '@/shared/components';
 
 import type { Props } from './types';
 
-function Layout({ children, error }: React.PropsWithChildren<Props>) {
+function Layout({ children, error }: Props) {
   return (
     <div className="mx-auto flex min-h-screen min-w-[20rem] max-w-screen-fhd flex-col">
       <Header />
