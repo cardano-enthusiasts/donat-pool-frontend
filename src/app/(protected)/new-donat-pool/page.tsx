@@ -4,7 +4,7 @@ import { NewDonatPool } from '@/containers';
 import { Layout } from '@/shared/components';
 
 const metadata: Metadata = {
-  title: 'Donat.Pool: Start a new project',
+  title: 'Start a new project',
   description: 'Create a page for your project where your community can support you in Ada.',
 };
 

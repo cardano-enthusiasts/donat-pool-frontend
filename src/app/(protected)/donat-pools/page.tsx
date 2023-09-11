@@ -5,7 +5,7 @@ import { Layout, StandardButton } from '@/shared/components';
 import { ROUTES } from '@/shared/constants';
 
 const metadata: Metadata = {
-  title: 'Donat.Pool: list of all projects',
+  title: 'List of all projects',
   description:
     'Help others to bring their projects to life or start your own with community support. Lowest fees and highest reliability.',
 };

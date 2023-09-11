@@ -27,12 +27,13 @@ const microsoftYaHeiFont = localFont({
 });
 
 const metadata: Metadata = {
-  themeColor: '#ff6b95',
-  other: {
-    'msapplication-TileColor': '#603cba',
-    'msapplication-navbutton-color': '#ff6b95',
-    'apple-mobile-web-app-status-bar-style': '#ff6b95',
+  applicationName: 'Donat.Pool',
+  generator: 'Next.js',
+  title: {
+    template: 'Donat.Pool: %s',
+    default: 'Donat.Pool',
   },
+  themeColor: '#ff6b95',
 };
 
 function Layout({ children }: React.PropsWithChildren) {

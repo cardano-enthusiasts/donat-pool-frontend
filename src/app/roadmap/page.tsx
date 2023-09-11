@@ -6,7 +6,7 @@ import { isSubItem } from '@/shared/type-guards';
 import type { Item, SubItem } from '@/shared/types';
 
 const metadata: Metadata = {
-  title: 'Donat.Pool: Roadmap',
+  title: 'Roadmap',
   description: 'Where we are now and where we want to be.',
 };
 

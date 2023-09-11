@@ -5,7 +5,7 @@ import { Layout, DropdownSection } from '@/shared/components';
 import { QUESTIONS } from './data';
 
 const metadata: Metadata = {
-  title: 'Donat.Pool: FAQ',
+  title: 'FAQ',
   description:
     'How to start a new project? What can I raise funds for? What is service fee? How to receive funds? Can I do partial withdrawal?',
 };
