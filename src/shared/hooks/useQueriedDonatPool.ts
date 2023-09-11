@@ -1,18 +1,24 @@
 import { useParams } from 'next/navigation';
-import { useMemo } from 'react';
+import { useEffect, useMemo } from 'react';
 
-import { useDonatPools } from '@/shared/hooks';
+import { useAppDispatch, useAppSelector } from '@/redux/hooks';
+import { requestAllDonatPools } from '@/redux/slices/allDonatPools/thunk';
 
 function useQueriedDonatPool() {
+  const dispatch = useAppDispatch();
   const params = useParams();
-  const { areBeingFetched, donatPools, fetchError } = useDonatPools();
+  const { status, donatPools, error: fetchError } = useAppSelector((state) => state.allDonatPools);
   const donatPool = useMemo(
     () => donatPools?.find(({ threadTokenCurrency }) => threadTokenCurrency === params.id),
     [donatPools, params.id],
   );
 
+  useEffect(() => {
+    dispatch(requestAllDonatPools());
+  }, []);
+
   return {
-    isBeingFetched: areBeingFetched,
+    isBeingFetched: status === 'requesting',
     donatPool,
     fetchError,
   };

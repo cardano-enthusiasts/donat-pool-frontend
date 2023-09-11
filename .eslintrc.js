@@ -51,5 +51,6 @@ module.exports = {
     'react/jsx-boolean-value': 'error',
     'react/no-array-index-key': 'error',
     'react/no-multi-comp': 'error',
+    '@typescript-eslint/no-floating-promises': 'warn',
   },
 };

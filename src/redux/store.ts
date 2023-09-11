@@ -8,7 +8,7 @@ import {
   protocolUpdating,
   cardano,
   connectWallet,
-  getAllFundraisings,
+  allDonatPools,
   getUserRelatedFundraisings,
 } from './slices';
 
@@ -16,7 +16,7 @@ const store = configureStore({
   reducer: {
     cardano: cardano.reducer,
     appInfo: appInfo.reducer,
-    getAllFundraisings: getAllFundraisings.reducer,
+    allDonatPools: allDonatPools.reducer,
     getUserRelatedFundraisings: getUserRelatedFundraisings.reducer,
     donating: donating.reducer,
     createFundraising: createFundraising.reducer,

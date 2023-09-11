@@ -1,13 +1,21 @@
 'use client';
+import { useEffect } from 'react';
+
+import { useAppDispatch, useAppSelector } from '@/redux/hooks';
+import { requestAllDonatPools } from '@/redux/slices/allDonatPools/thunk';
 import { Layout, StandardButton, Loading, NoDonatPool, ProjectCard } from '@/shared/components';
 import { ROUTES } from '@/shared/constants';
-import { useDonatPools } from '@/shared/hooks';
 
 function DonatPools() {
-  const { areBeingFetched: donatPoolsAreBeingFetched, donatPools, fetchError: fetchDonatPoolsError } = useDonatPools();
+  const dispatch = useAppDispatch();
+  const { donatPools, status, error } = useAppSelector((state) => state.allDonatPools);
+
+  useEffect(() => {
+    dispatch(requestAllDonatPools());
+  }, []);
 
   return (
-    <Layout error={fetchDonatPoolsError}>
+    <Layout error={error}>
       <div
         className="mb-14
           flex
@@ -35,7 +43,7 @@ function DonatPools() {
         </div>
       </div>
 
-      {donatPoolsAreBeingFetched && !donatPools && <Loading />}
+      {status === 'requesting' && !donatPools && <Loading />}
       {donatPools && donatPools.length !== 0 && (
         <div className="grid grid-cols-projects gap-10 max-sm:grid-cols-1 max-sm:gap-8">
           {donatPools
