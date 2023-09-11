@@ -2,7 +2,7 @@
 
 import { useMemo } from 'react';
 
-import { Layout, StandardButton, Loader, NoDonatPool, ProjectCard } from '@/shared/components';
+import { Layout, StandardButton, Loader, ProjectCard, FakeDonatPoolCard } from '@/shared/components';
 import { ROUTES } from '@/shared/constants';
 import { useDonatPools } from '@/shared/hooks';
 
@@ -41,18 +41,29 @@ function DonatPools() {
       </div>
 
       {donatPoolsAreBeingFetched && !donatPools && <Loader />}
-      {activeDonatPools && activeDonatPools.length !== 0 && (
-        <div className="grid grid-cols-projects gap-10 max-sm:grid-cols-1 max-sm:gap-8">
-          {activeDonatPools
-            .sort(
-              (firstDonatPool, secondDonatPool) => Number(firstDonatPool.deadline) - Number(secondDonatPool.deadline),
-            )
-            .map((donatPool) => (
-              <ProjectCard key={donatPool.threadTokenCurrency} data={donatPool} linkSection={ROUTES.donatPools} />
-            ))}
-        </div>
-      )}
-      {activeDonatPools?.length === 0 && <NoDonatPool />}
+      {activeDonatPools &&
+        (activeDonatPools.length === 0 ? (
+          <div className="w-full">
+            <div className="mb-15 text-center">
+              There are no projects yet. But you can be the first to create a Donat.Pool
+            </div>
+            <div className="grid grid-cols-projects gap-10 max-sm:grid-cols-1 max-sm:gap-8">
+              <FakeDonatPoolCard />
+              <FakeDonatPoolCard />
+              <FakeDonatPoolCard />
+            </div>
+          </div>
+        ) : (
+          <div className="grid grid-cols-projects gap-10 max-sm:grid-cols-1 max-sm:gap-8">
+            {activeDonatPools
+              .sort(
+                (firstDonatPool, secondDonatPool) => Number(firstDonatPool.deadline) - Number(secondDonatPool.deadline),
+              )
+              .map((donatPool) => (
+                <ProjectCard key={donatPool.threadTokenCurrency} data={donatPool} linkSection={ROUTES.donatPools} />
+              ))}
+          </div>
+        ))}
     </Layout>
   );
 }

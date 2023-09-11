@@ -12,7 +12,7 @@ function useQueriedDonatPool() {
   );
 
   return {
-    isBeingFetched: areBeingFetched,
+    isBeingFetched: areBeingFetched && !donatPool,
     donatPool,
     fetchError,
   };

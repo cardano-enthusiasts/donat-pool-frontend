@@ -45,7 +45,6 @@ export { default as BorderedButton } from './BorderedButton';
 export { default as Line } from './Line';
 export { default as Ul } from './Ul';
 export { default as Loader } from './Loader';
-export { default as NoDonatPool } from './NoDonatPool';
 export { default as FakeDonatPoolCard } from './FakeDonatPoolCard';
 export { default as WalletLogo } from './WalletLogo';
 export { default as Socials } from './Socials';
