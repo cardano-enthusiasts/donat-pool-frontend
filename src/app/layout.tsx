@@ -34,6 +34,9 @@ const metadata: Metadata = {
     default: 'Donat.Pool',
   },
   themeColor: '#ff6b95',
+  openGraph: {
+    type: 'website',
+  },
 };
 
 function Layout({ children }: React.PropsWithChildren) {
@@ -49,9 +52,7 @@ function Layout({ children }: React.PropsWithChildren) {
     >
       <body>
         <StoreProvider>{children}</StoreProvider>
-        {/* Rule mentions "page router" of nextjs but we use "app router" */}
-        {/* eslint-disable-next-line @next/next/no-before-interactive-script-outside-document */}
-        <Script src="/offchain/index.js" strategy="beforeInteractive" />
+        <Script src="/offchain/index.js" />
       </body>
     </html>
   );

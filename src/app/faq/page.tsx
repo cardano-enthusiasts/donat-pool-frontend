@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 
 import { Layout, DropdownSection } from '@/shared/components';
+import { APP_URL, ROUTES } from '@/shared/constants';
 
 import { QUESTIONS } from './data';
 
@@ -8,6 +9,12 @@ const metadata: Metadata = {
   title: 'FAQ',
   description:
     'How to start a new project? What can I raise funds for? What is service fee? How to receive funds? Can I do partial withdrawal?',
+  openGraph: {
+    title: 'Donat.Pool: FAQ',
+    description:
+      'How to start a new project? What can I raise funds for? What is service fee? How to receive funds? Can I do partial withdrawal?',
+    url: `${APP_URL}${ROUTES.faq}`,
+  },
 };
 
 function Page() {

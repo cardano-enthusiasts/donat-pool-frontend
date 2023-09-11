@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 
 import { Layout } from '@/shared/components';
+import { APP_URL, ROUTES } from '@/shared/constants';
 
 import { terms } from './data';
 import styles from './styles.module.css';
@@ -8,6 +9,11 @@ import styles from './styles.module.css';
 const metadata: Metadata = {
   title: 'Terms of use',
   description: 'Transparent and simple terms of using our platform.',
+  openGraph: {
+    title: 'Donat.Pool: Terms of use',
+    description: 'Transparent and simple terms of using our platform.',
+    url: `${APP_URL}${ROUTES.termsOfUse}`,
+  },
 };
 
 function Page() {
