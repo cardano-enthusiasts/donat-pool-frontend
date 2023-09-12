@@ -9,6 +9,22 @@ const metadata: Metadata = {
   title: 'FAQ',
   description:
     'How to start a new project? What can I raise funds for? What is service fee? How to receive funds? Can I do partial withdrawal?',
+  keywords: [
+    'crowdfunding',
+    'donation',
+    'donations',
+    'support',
+    'community',
+    'startup',
+    'startups',
+    'ideas',
+    'funding',
+    'funds',
+    'faq',
+    'questions',
+    'answers',
+    'terms',
+  ],
   openGraph: {
     title: 'Donat.Pool: FAQ',
     description:
