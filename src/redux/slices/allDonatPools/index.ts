@@ -17,7 +17,7 @@ const slice = createSlice({
   name: 'allDonatPools',
   initialState,
   reducers: {
-    setStatus: (state) => {
+    setStatusRequesting: (state) => {
       state.status = 'requesting';
     },
   },
@@ -39,5 +39,5 @@ const slice = createSlice({
 export default slice;
 export const {
   reducer,
-  actions: { setStatus },
+  actions: { setStatusRequesting },
 } = slice;

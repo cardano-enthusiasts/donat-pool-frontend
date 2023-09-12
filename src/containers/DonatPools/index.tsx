@@ -45,7 +45,7 @@ function DonatPools() {
         </div>
       </div>
 
-      {status === 'requesting' && <Loader />}
+      {status === 'requesting' && !donatPools && <Loader />}
       {activeDonatPools &&
         (activeDonatPools.length === 0 ? (
           <div className="w-full">
