@@ -2,6 +2,7 @@ import cn from 'classnames';
 import Link from 'next/link';
 
 import { convertLovelaceToADA, formatDate } from '@/shared/helpers';
+import AdaIcon from '@public/icons/ada.svg';
 
 import type { Props } from './types';
 
@@ -45,24 +46,19 @@ function ProjectCard({
         </h3>
         <div className="flex w-full justify-between border-t-2 border-t-black pt-4">
           <div className="leading-none">{formatDate(Number(deadline))}</div>
-          <div
-            className="flex
-              font-bold
-              leading-none
-              after:ml-1
-              after:h-[0.875rem]
-              after:w-[0.875rem]
-              after:content-[url('/icons/ada.svg')]"
-          >
-            <div className="flex text-red">
-              {status === 'active' && (
-                <>
-                  {convertLovelaceToADA(raisedAmt)}
-                  <div className="mx-2 w-0.5 rounded-[0.3125rem] bg-red" />
-                </>
-              )}
+          <div className="flex">
+            <div className="mr-1 flex font-bold leading-none">
+              <div className="flex text-red">
+                {status === 'active' && (
+                  <>
+                    {convertLovelaceToADA(raisedAmt)}
+                    <div className="mx-2 w-0.5 rounded-[0.3125rem] bg-red" />
+                  </>
+                )}
+              </div>
+              {convertLovelaceToADA(goal)}
             </div>
-            {convertLovelaceToADA(goal)}
+            <AdaIcon className="fill-black" />
           </div>
         </div>
       </div>
