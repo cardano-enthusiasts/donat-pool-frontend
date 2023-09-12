@@ -18,7 +18,7 @@ function ModalLoading({
         <h1 className="mb-6 text-center font-rammetto-one text-[2.25rem]/[104%] text-red max-sm:text-[2.25rem]">
           {title}
         </h1>
-        <div className="mb-10 max-w-[8.75rem]">{image}</div>
+        <div className="mb-10 w-[7.1875rem]">{image}</div>
         <div className="text-center">{description}</div>
       </div>
     </Modal>
