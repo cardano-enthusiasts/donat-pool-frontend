@@ -1,8 +1,8 @@
-import kateImageSrc from '@public/img/kate.png';
-import mariyaImageSrc from '@public/img/mariya.png';
-import oksanaImageSrc from '@public/img/oksana.png';
-import olgaImageSrc from '@public/img/olga.png';
-import svetlanaImageSrc from '@public/img/svetlana.png';
+import kateImageSrc from '@public/images/kate.png';
+import mariyaImageSrc from '@public/images/mariya.png';
+import oksanaImageSrc from '@public/images/oksana.png';
+import olgaImageSrc from '@public/images/olga.png';
+import svetlanaImageSrc from '@public/images/svetlana.png';
 
 import type { Photo } from './types';
 

@@ -4,7 +4,7 @@ import { useState } from 'react';
 
 import { DoubleBorderedButton, Modal, StandardButton } from '@/shared/components';
 import { ROUTES } from '@/shared/constants';
-import HappyCatImage from '@public/img/happy-cat.svg';
+import HappyCatImage from '@public/images/happy-cat.svg';
 
 import styles from './styles.module.css';
 import type { Props } from './types';

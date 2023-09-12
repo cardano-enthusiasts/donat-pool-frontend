@@ -1,41 +1,13 @@
 'use client';
 
-import { useEffect } from 'react';
-
-import { useAppSelector, useAppDispatch } from '@/redux/hooks';
-import { setInitialized, setActiveWalletCardanoKey } from '@/redux/slices/cardano';
 import { ConnectWalletModal } from '@/shared/components';
+import { useCardano } from '@/shared/hooks';
 
 function Layout({ children }: React.PropsWithChildren) {
-  const cardanoIsInitialized = useAppSelector((state) => state.cardano.initialized);
-  const activeWalletCardanoKey = useAppSelector((state) => state.cardano.activeWalletCardanoKey);
-  const dispatch = useAppDispatch();
+  const { initialized, connectedWalletCardanoKey } = useCardano();
 
-  useEffect(() => {
-    async function initializeCardano() {
-      if (Object.hasOwn(window, 'cardano')) {
-        for (const walletCardanoKey of ['nami', 'LodeWallet', 'flint', 'eternl'] as const) {
-          if (
-            // hasOwn on 16th line ensures that "cardano" is present in "window"
-            Object.hasOwn(window.cardano!, walletCardanoKey) &&
-            (await window.cardano?.[walletCardanoKey]?.isEnabled())
-          ) {
-            dispatch(setActiveWalletCardanoKey(walletCardanoKey));
-            break;
-          }
-        }
-      }
-
-      dispatch(setInitialized(true));
-    }
-
-    if (!cardanoIsInitialized) {
-      void initializeCardano();
-    }
-  }, [cardanoIsInitialized, dispatch]);
-
-  if (cardanoIsInitialized) {
-    return activeWalletCardanoKey ? children : <ConnectWalletModal />;
+  if (initialized) {
+    return connectedWalletCardanoKey ? children : <ConnectWalletModal />;
   }
 }
 

@@ -4,11 +4,11 @@ import { isAxiosError } from 'axios';
 import { useForm } from 'react-hook-form';
 
 import api from '@/shared/api';
-import { DoubleBorderedButton, StandardButton, NewInput, Textarea } from '@/shared/components';
+import { NewInput, Textarea, SecondaryButton, StandardButton } from '@/shared/components';
 
 import type { Props, FormValues } from './types';
 
-function Form({ onSubmitSuccess, onSubmitFailure, onCancelButtonClick }: Props) {
+function Form({ onSubmit, onSubmitFailure, onCancelButtonClick }: Props) {
   const {
     handleSubmit: createSubmitHandler,
     register,
@@ -18,7 +18,7 @@ function Form({ onSubmitSuccess, onSubmitFailure, onCancelButtonClick }: Props) 
   const handleSubmit = createSubmitHandler(async (data) => {
     try {
       await api.post('core/contact-us/', data);
-      onSubmitSuccess();
+      onSubmit();
     } catch (error) {
       onSubmitFailure(isAxiosError(error) ? error.message : 'Unknown error');
     }
@@ -52,14 +52,15 @@ function Form({ onSubmitSuccess, onSubmitFailure, onCancelButtonClick }: Props) 
         />
       </div>
       <div className="grid grid-cols-[auto_1fr] gap-x-6">
-        <DoubleBorderedButton
-          primaryColor="blue"
-          backgroundColor="white"
+        <SecondaryButton
+          size="lg"
+          textTheme="blue"
+          shadowTheme="whiteBlue"
           disabled={isSubmitting}
           onClick={onCancelButtonClick}
         >
           Cancel
-        </DoubleBorderedButton>
+        </SecondaryButton>
         <StandardButton
           primaryColor="red"
           secondaryColor="blue"

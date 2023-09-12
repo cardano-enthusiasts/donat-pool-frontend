@@ -1,5 +1,5 @@
 import { DoubleBorderedButton, Modal } from '@/shared/components';
-import BittenDonutImage from '@public/img/bitten-donut.svg';
+import BittenDonutImage from '@public/images/bitten-donut.svg';
 
 import styles from './styles.module.css';
 import type { Props } from './types';

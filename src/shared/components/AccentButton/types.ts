@@ -1,4 +1,4 @@
-interface Props {
+interface Props extends React.PropsWithChildren {
   primaryColor: 'yellow' | 'blue';
   secondaryColor: 'red' | 'green';
   fontColor: 'red' | 'green';

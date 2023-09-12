@@ -4,17 +4,18 @@ import cn from 'classnames';
 import Link from 'next/link';
 import { useMemo, useState } from 'react';
 
-import { useAppDispatch } from '@/redux/hooks';
-import { setActiveWalletCardanoKey } from '@/redux/slices/cardano';
 import { Modal, Checkbox, DoubleBorderedButton, WalletLogo } from '@/shared/components';
 import { ROUTES } from '@/shared/constants';
+import { useCardano } from '@/shared/hooks';
 import type { WalletCardanoKey } from '@/shared/types';
 import GoToIcon from '@public/icons/go-to.svg';
 
 import { WALLETS } from './constants';
+import type { Props } from './types';
 
-function ConnectWalletModal() {
-  const dispatch = useAppDispatch();
+function ConnectWalletModal({ onWalletConnect, onClose }: Props) {
+  const { connectWallet } = useCardano();
+
   const sortedWallets = useMemo(
     () =>
       WALLETS.map(({ cardanoKey, title, websiteUrl }) => ({
@@ -44,7 +45,8 @@ function ConnectWalletModal() {
         throw new Error('LodeWallet: connection cancelling');
       }
 
-      dispatch(setActiveWalletCardanoKey(walletCardanoKey));
+      connectWallet(walletCardanoKey);
+      onWalletConnect?.();
     } catch (error) {
       console.error(error);
     }
@@ -53,7 +55,7 @@ function ConnectWalletModal() {
   }
 
   return (
-    <Modal panelTheme="black" title="Connect wallet" titleAs="h1">
+    <Modal panelTheme="black" title="Connect wallet" titleAs="h1" onClose={onClose}>
       <Checkbox checked={termsOfUseAreAccepted} onChange={handleCheckboxChange}>
         By checking this box and connecting my wallet, I confirm that I have read, understood and agreed the{' '}
         <Link className="font-bold text-blue" href={ROUTES.termsOfUse} target="_blank">

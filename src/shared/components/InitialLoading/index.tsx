@@ -5,7 +5,7 @@ import { useEffect, useRef } from 'react';
 
 import { ActionDonuts, ScrollHelper } from '@/shared/components';
 import { useWindowScroll, useWindowSize } from '@/shared/hooks';
-import CatImage from '@public/img/cat.svg';
+import CatImage from '@public/images/cat.svg';
 
 import type { Props } from './types';
 

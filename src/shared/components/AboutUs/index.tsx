@@ -58,7 +58,7 @@ function AboutUs() {
             right-[-3.125rem]
             h-[31.25rem]
             w-[83.125rem]
-            bg-[url('/img/white-dots.svg')]
+            bg-[url('/images/white-dots.svg')]
             bg-no-repeat
             max-1.5xl:hidden"
         />
