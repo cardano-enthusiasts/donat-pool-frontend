@@ -1,12 +1,21 @@
-interface Props extends React.PropsWithChildren {
+interface CommonProps extends React.PropsWithChildren {
   size?: 'md' | 'lg';
+  withIcon?: boolean;
+  stretchy?: boolean;
   borderTheme?: 'blue' | 'purple';
   textTheme?: 'white' | 'blue';
   shadowTheme?: 'blackBlue' | 'redPurple' | 'whiteBlue';
-  withIcon?: boolean;
+}
+
+interface ButtonProps extends CommonProps {
   type?: 'button' | 'submit';
   disabled?: boolean;
   onClick?: () => void;
 }
 
-export type { Props };
+interface LinkProps extends CommonProps {
+  external?: boolean;
+  href: string;
+}
+
+export type { CommonProps, ButtonProps, LinkProps };

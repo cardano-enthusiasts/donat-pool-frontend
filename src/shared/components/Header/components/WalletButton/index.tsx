@@ -25,15 +25,15 @@ function WalletButton() {
   return initialized ? (
     <>
       <SecondaryButton
+        withIcon={Boolean(connectedWalletCardanoKey)}
         borderTheme="purple"
         shadowTheme="redPurple"
-        withIcon={Boolean(connectedWalletCardanoKey)}
         onClick={connectedWalletCardanoKey ? disconnectWallet : handleConnectWalletButtonClick}
       >
         {connectedWalletCardanoKey ? (
           <>
             <div className="h-6 w-6 rounded-full bg-black p-1">
-              <WalletLogo size="sm" cardanoKey={connectedWalletCardanoKey} />
+              <WalletLogo cardanoKey={connectedWalletCardanoKey} size="sm" />
             </div>{' '}
             Disconnect
           </>
