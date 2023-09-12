@@ -1,5 +1,4 @@
 export { default as Checkbox } from './Checkbox';
-export { default as CommonError } from './CommonError';
 export { default as Footer } from './Footer';
 export { default as Header } from './Header';
 export { default as Input } from './Input';
@@ -45,5 +44,7 @@ export { default as DoubleBorderedButton } from './DoubleBorderedButton';
 export { default as BorderedButton } from './BorderedButton';
 export { default as Line } from './Line';
 export { default as Ul } from './Ul';
+export { default as Loader } from './Loader';
+export { default as FakeDonatPoolCard } from './FakeDonatPoolCard';
 export { default as WalletLogo } from './WalletLogo';
 export { default as Socials } from './Socials';
