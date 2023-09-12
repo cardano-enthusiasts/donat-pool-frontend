@@ -3,9 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
     "build": "next build",
-    "start": "node .next/standalone/server.js",
+    "start:dev": "next dev",
+    "start:prod": "node .next/standalone/server.js",
     "tsc:check": "tsc --noEmit",
     "prettier:check": "prettier . --check",
     "prettier:fix": "prettier . --write",
