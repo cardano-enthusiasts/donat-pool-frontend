@@ -1,4 +1,4 @@
-interface Props {
+interface Props extends React.PropsWithChildren {
   error?: string;
 }
 

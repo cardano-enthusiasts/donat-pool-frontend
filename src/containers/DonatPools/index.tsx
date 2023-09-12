@@ -1,9 +1,9 @@
 'use client';
-import { useEffect } from 'react';
+import { useEffect, useMemo } from 'react';
 
 import { useAppDispatch, useAppSelector } from '@/redux/hooks';
 import { requestAllDonatPools } from '@/redux/slices/allDonatPools/thunk';
-import { Layout, StandardButton, Loading, NoDonatPool, ProjectCard } from '@/shared/components';
+import { Layout, StandardButton, ProjectCard, Loader, FakeDonatPoolCard } from '@/shared/components';
 import { ROUTES } from '@/shared/constants';
 
 function DonatPools() {
@@ -13,6 +13,8 @@ function DonatPools() {
   useEffect(() => {
     dispatch(requestAllDonatPools());
   }, []);
+
+  const activeDonatPools = useMemo(() => donatPools?.filter(({ completed }) => !completed), [donatPools]);
 
   return (
     <Layout error={error}>
@@ -43,20 +45,30 @@ function DonatPools() {
         </div>
       </div>
 
-      {status === 'requesting' && !donatPools && <Loading />}
-      {donatPools && donatPools.length !== 0 && (
-        <div className="grid grid-cols-projects gap-10 max-sm:grid-cols-1 max-sm:gap-8">
-          {donatPools
-            .filter(({ completed }) => !completed)
-            .sort(
-              (firstDonatPool, secondDonatPool) => Number(firstDonatPool.deadline) - Number(secondDonatPool.deadline),
-            )
-            .map((donatPool) => (
-              <ProjectCard key={donatPool.threadTokenCurrency} data={donatPool} linkSection={ROUTES.donatPools} />
-            ))}
-        </div>
-      )}
-      {donatPools?.filter(({ completed }) => !completed)?.length === 0 && <NoDonatPool />}
+      {status === 'requesting' && !donatPools && <Loader />}
+      {activeDonatPools &&
+        (activeDonatPools.length === 0 ? (
+          <div className="w-full">
+            <div className="mb-15 text-center">
+              There are no projects yet. But you can be the first to create a Donat.Pool
+            </div>
+            <div className="grid grid-cols-projects gap-10 max-sm:grid-cols-1 max-sm:gap-8">
+              <FakeDonatPoolCard />
+              <FakeDonatPoolCard />
+              <FakeDonatPoolCard />
+            </div>
+          </div>
+        ) : (
+          <div className="grid grid-cols-projects gap-10 max-sm:grid-cols-1 max-sm:gap-8">
+            {activeDonatPools
+              .sort(
+                (firstDonatPool, secondDonatPool) => Number(firstDonatPool.deadline) - Number(secondDonatPool.deadline),
+              )
+              .map((donatPool) => (
+                <ProjectCard key={donatPool.threadTokenCurrency} data={donatPool} linkSection={ROUTES.donatPools} />
+              ))}
+          </div>
+        ))}
     </Layout>
   );
 }
