@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react';
 
 import { useAppSelector, useAppDispatch } from '@/redux/hooks';
 import { reset } from '@/redux/slices/fundsReceiving';
-import { DoubleBorderedButton, ModalError, ModalLoading, ModalSuccess, StandardButton } from '@/shared/components';
+import { ModalError, ModalLoading, ModalSuccess, SecondaryButton, StandardButton } from '@/shared/components';
 import { ROUTES } from '@/shared/constants';
 import { useReceiveFunds } from '@/shared/hooks';
 
@@ -101,9 +101,9 @@ function PrivateProjectsActions({ project }: Props) {
       <div className={`${styles.link} text-blue`}>
         {link}
         <div className="shrink-0">
-          <DoubleBorderedButton backgroundColor="white" size="s" primaryColor="blue" onClick={handleCopyLinkClick}>
+          <SecondaryButton textTheme="blue" shadowTheme="whiteBlue" onClick={handleCopyLinkClick}>
             Copy and share
-          </DoubleBorderedButton>
+          </SecondaryButton>
         </div>
       </div>
       {modalSuccessIsShown && (

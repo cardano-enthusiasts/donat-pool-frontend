@@ -41,7 +41,6 @@ export { default as AlertNote } from './AlertNote';
 export { default as AccentButton } from './AccentButton';
 export { default as StandardButton } from './StandardButton';
 export { default as DashedButton } from './DashedButton';
-export { default as DoubleBorderedButton } from './DoubleBorderedButton';
 export { default as BorderedButton } from './BorderedButton';
 export { default as Line } from './Line';
 export { default as Ul } from './Ul';

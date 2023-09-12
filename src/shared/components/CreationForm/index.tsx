@@ -13,7 +13,7 @@ import {
   PrecalculationFee,
   ModalProjectCreated,
   StandardButton,
-  DoubleBorderedButton,
+  SecondaryButton,
 } from '@/shared/components';
 import { ROUTES } from '@/shared/constants';
 import { useCreateDonatPool } from '@/shared/hooks';
@@ -208,9 +208,9 @@ function CreationForm({ protocol, onClose }: Props) {
           The commission will be debited after the end of the donation pool.
         </Checkbox>
         <div className="flex gap-6">
-          <DoubleBorderedButton primaryColor="blue" backgroundColor="white" onClick={onClose}>
+          <SecondaryButton size="lg" textTheme="blue" shadowTheme="whiteBlue" onClick={onClose}>
             Cancel
-          </DoubleBorderedButton>
+          </SecondaryButton>
           <StandardButton
             type="submit"
             disabled={!checked}
