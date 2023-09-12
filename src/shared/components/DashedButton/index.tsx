@@ -14,7 +14,7 @@ function DashedButton({
   isClickedTheme,
   isFixedWidth = false,
   onClick,
-}: React.PropsWithChildren<Props>) {
+}: Props) {
   return (
     <div className="transition-all duration-500">
       <button

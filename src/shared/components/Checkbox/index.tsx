@@ -3,7 +3,7 @@ import { useId } from 'react';
 
 import type { Props } from './types';
 
-function Checkbox({ checked, textTheme = 'white', children, onChange }: React.PropsWithChildren<Props>) {
+function Checkbox({ checked, textTheme = 'white', children, onChange }: Props) {
   const id = useId();
 
   return (

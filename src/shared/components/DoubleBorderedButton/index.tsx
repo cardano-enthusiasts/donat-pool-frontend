@@ -15,14 +15,13 @@ function DoubleBorderedButton({
   size = 'm',
   disabled,
   onClick,
-}: React.PropsWithChildren<Props>) {
+}: Props) {
   const classes = cn(
     styles.common,
     VARIANTS.size[size],
     VARIANTS.primary[primaryColor],
     VARIANTS.background[backgroundColor],
     { 'w-full inline-block': isFullWidth },
-    'disabled:cursor-not-allowed',
     'border-2 before:border-2',
   );
 

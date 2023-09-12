@@ -2,7 +2,7 @@ import cn from 'classnames';
 import Link from 'next/link';
 
 import { convertLovelaceToADA, formatDate } from '@/shared/helpers';
-import ADA from '@public/icons/ADA.svg';
+import AdaIcon from '@public/icons/ada.svg';
 
 import type { Props } from './types';
 
@@ -58,8 +58,7 @@ function ProjectCard({
               </div>
               {convertLovelaceToADA(goal)}
             </div>
-
-            <ADA className="fill-black" />
+            <AdaIcon className="fill-black" />
           </div>
         </div>
       </div>

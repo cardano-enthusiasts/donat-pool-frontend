@@ -6,7 +6,7 @@ import { BorderedButton, Loader, ProjectCard, StandardButton, Layout } from '@/s
 import { ROUTES } from '@/shared/constants';
 import { useMyDonatPools } from '@/shared/hooks';
 import type { DonatPool } from '@/shared/types';
-import SadCatImage from '@public/img/sad-cat.svg';
+import SadCatImage from '@public/images/sad-cat.svg';
 
 import type { ProjectStatus } from './types';
 

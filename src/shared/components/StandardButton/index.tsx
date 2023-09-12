@@ -18,7 +18,7 @@ function StandardButton({
   disabled = false,
   animated = false,
   onClick,
-}: React.PropsWithChildren<Props>) {
+}: Props) {
   const classes = cn(
     styles.common,
     VARIANTS.size[size],
@@ -28,7 +28,6 @@ function StandardButton({
     { 'animate-standardPush before:animate-standardPushBefore': animated },
     'disabled:bg-purple',
     'disabled:before:bg-black',
-    'disabled:cursor-not-allowed',
     { 'w-full': isFullWidth },
   );
 

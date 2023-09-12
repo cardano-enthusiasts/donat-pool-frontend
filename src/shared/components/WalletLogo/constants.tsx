@@ -4,10 +4,18 @@ import LodeLogo from '@public/icons/lode.svg';
 import NamiLogo from '@public/icons/nami.svg';
 
 const LOGOS = {
-  nami: <NamiLogo />,
-  LodeWallet: <LodeLogo />,
-  flint: <FlintLogo />,
-  eternl: <EternlLogo />,
-};
+  // Svgr doesn't provide types for svg components
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+  nami: NamiLogo,
+  // Svgr doesn't provide types for svg components
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+  LodeWallet: LodeLogo,
+  // Svgr doesn't provide types for svg components
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+  flint: FlintLogo,
+  // Svgr doesn't provide types for svg components
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+  eternl: EternlLogo,
+} as const;
 
 export { LOGOS };

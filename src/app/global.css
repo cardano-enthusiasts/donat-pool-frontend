@@ -15,24 +15,12 @@
   ::-webkit-scrollbar-thumb {
     @apply bg-red;
   }
-}
 
-@layer components {
-  .base-wrapper {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    padding-right: 5rem;
-    padding-left: 5rem;
+  button {
+    @apply cursor-default;
+  }
 
-    @media (width <= 1250px) {
-      padding-right: 2.8125rem;
-      padding-left: 2.8125rem;
-    }
-
-    @media (width <= 768px) {
-      padding-right: 1.875rem;
-      padding-left: 1.875rem;
-    }
+  button:disabled {
+    @apply cursor-not-allowed;
   }
 }

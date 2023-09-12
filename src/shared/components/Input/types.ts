@@ -1,6 +1,6 @@
 import type { UseFormRegister, Message } from 'react-hook-form';
 
-interface Props {
+interface Props extends React.PropsWithChildren {
   value: string | number;
   dataAttr?: string;
   type?: 'text' | 'submit' | 'number';

@@ -26,7 +26,6 @@ const Textarea = forwardRef<HTMLTextAreaElement, Props>(function Textarea(
           px-4
           py-[0.8125rem]
           text-xl/[1.875rem]
-          outline-none
           disabled:border-gray-secondary
           disabled:bg-[#f3f3f3]
           disabled:text-gray-secondary`,

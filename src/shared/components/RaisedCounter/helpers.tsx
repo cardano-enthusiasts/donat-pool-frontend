@@ -1,8 +1,8 @@
-import Donut0Image from '@public/img/donut-0.svg';
-import Donut1Image from '@public/img/donut-1.svg';
-import Donut2Image from '@public/img/donut-2.svg';
-import Donut3Image from '@public/img/donut-3.svg';
-import Donut4Image from '@public/img/donut-4.svg';
+import Donut0Image from '@public/images/donut-0.svg';
+import Donut1Image from '@public/images/donut-1.svg';
+import Donut2Image from '@public/images/donut-2.svg';
+import Donut3Image from '@public/images/donut-3.svg';
+import Donut4Image from '@public/images/donut-4.svg';
 
 const firstImage = <Donut0Image />;
 
