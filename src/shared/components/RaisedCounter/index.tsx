@@ -24,7 +24,7 @@ function RaisedCounter({ raised, goal }: Props) {
         font-normal
         max-sm:text-4xl"
     >
-      <div className="max-sm:hidden">{image}</div>
+      <div className="w-[7.1875rem] max-sm:hidden">{image}</div>
       <div className="text-red">{raised}</div>
       <div className="h-12 w-[0.3125rem] rounded-[0.3125rem] bg-red" />
       <div className="text-yellow">{goal}</div>

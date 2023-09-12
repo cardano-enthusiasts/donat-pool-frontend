@@ -7,7 +7,7 @@ import RedArrowIcon from '@public/icons/red-arrow.svg';
 
 import type { Props } from './types';
 
-function DropdownSection({ title = '', children }: React.PropsWithChildren<Props>) {
+function DropdownSection({ title = '', children }: Props) {
   const [shown, setShown] = useState(false);
 
   function handleWrapperClick() {

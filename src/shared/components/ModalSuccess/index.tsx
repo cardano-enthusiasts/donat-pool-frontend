@@ -1,5 +1,5 @@
 import { DoubleBorderedButton, Modal } from '@/shared/components';
-import HappyCatImage from '@public/img/happy-cat.svg';
+import HappyCatImage from '@public/images/happy-cat.svg';
 
 import type { Props } from './types';
 

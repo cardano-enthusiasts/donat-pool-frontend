@@ -16,7 +16,7 @@ function ContactUsModal({ onClose }: Props) {
       description="You can report about an error or write to us how we can help you."
       error={submitError}
     >
-      <Form onSubmitSuccess={onClose} onSubmitFailure={setSubmitError} onCancelButtonClick={onClose} />
+      <Form onSubmit={onClose} onSubmitFailure={setSubmitError} onCancelButtonClick={onClose} />
     </Modal>
   );
 }

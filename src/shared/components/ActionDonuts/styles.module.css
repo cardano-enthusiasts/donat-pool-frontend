@@ -17,7 +17,7 @@
   width: 9.375rem;
   height: 100%;
   overflow: hidden;
-  background-image: url('/img/mini-donut.svg');
+  background-image: url('/images/mini-donut.svg');
   background-repeat: repeat-y;
   background-position: 1.25rem 1.25rem;
   animation: marquee1 50s infinite linear;
@@ -39,7 +39,7 @@
   width: 9.375rem;
   height: 100%;
   overflow: hidden;
-  background-image: url('/img/mini-donut.svg');
+  background-image: url('/images/mini-donut.svg');
   background-repeat: repeat-y;
   background-position: 1.25rem 1.25rem;
   animation: marquee2 50s infinite linear;

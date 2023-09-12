@@ -15,7 +15,7 @@ function Modal({
   onClose = () => undefined,
 }: Props) {
   return (
-    <Dialog className="fixed inset-0 flex items-center justify-center bg-blue/40 p-5" open onClose={onClose}>
+    <Dialog className="fixed inset-0 z-[1] flex items-center justify-center bg-blue/40 p-5" open onClose={onClose}>
       <Dialog.Panel
         className={cn(
           `max-h-full 
@@ -24,7 +24,7 @@ function Modal({
           overscroll-y-none
           rounded-md
           shadow-[0_0.9375rem_2.5rem_theme(colors.blue.DEFAULT)]
-          max-md:w-11/12`,
+          max-md:w-full`,
           {
             'bg-white': panelTheme === 'white',
             'bg-black': panelTheme === 'black',
@@ -36,7 +36,10 @@ function Modal({
         )}
         <div className="px-10 pb-15 pt-10 max-md:p-5">
           {title && (
-            <Dialog.Title className="mb-6 text-center font-rammetto-one text-menu-active text-red" as={titleAs}>
+            <Dialog.Title
+              className="mb-6 text-center font-rammetto-one text-menu-active text-red max-md:text-[2.25rem]/[2.25rem]"
+              as={titleAs}
+            >
               {title}
             </Dialog.Title>
           )}

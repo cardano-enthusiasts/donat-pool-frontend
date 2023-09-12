@@ -1,4 +1,4 @@
-interface Props {
+interface Props extends React.PropsWithChildren {
   primaryColor: 'blue';
   backgroundColor: 'white' | 'red' | 'blue' | 'black';
   href?: string | null;

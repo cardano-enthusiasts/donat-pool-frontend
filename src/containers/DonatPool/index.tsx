@@ -4,7 +4,16 @@ import { useEffect, useState } from 'react';
 
 import { useAppSelector, useAppDispatch } from '@/redux/hooks';
 import { reset } from '@/redux/slices/donating';
-import { ModalDonate, ModalError, ModalLoading, ModalSuccess, AccentButton, RaisedCounter } from '@/shared/components';
+import {
+  ModalDonate,
+  ModalError,
+  ModalLoading,
+  ModalSuccess,
+  AccentButton,
+  RaisedCounter,
+  Layout,
+  Loader,
+} from '@/shared/components';
 import { convertLovelaceToADA, formatDate } from '@/shared/helpers';
 import { useQueriedDonatPool, useDonate } from '@/shared/hooks';
 
@@ -56,8 +65,8 @@ function DonatPool() {
   }
 
   return (
-    <>
-      {donatPoolIsBeingFetched && <div>donat pool is being fetched</div>}
+    <Layout error={fetchDonatPoolError}>
+      {donatPoolIsBeingFetched && <Loader />}
       {donatPool && (
         <div className="pb-40 pt-20">
           <h1
@@ -90,7 +99,6 @@ function DonatPool() {
           </div>
         </div>
       )}
-      {fetchDonatPoolError && <div className="text-error">An error happened while fetching the donat pool</div>}
       {donatPool && modalIsShown && (
         <ModalDonate
           data={{
@@ -112,7 +120,7 @@ function DonatPool() {
       {modalSuccessIsShown && (
         <ModalSuccess description="Congratulations! Your donut is ready!" onClose={handleSuccessModalClose} />
       )}
-    </>
+    </Layout>
   );
 }
 

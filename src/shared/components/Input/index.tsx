@@ -19,7 +19,7 @@ function Input({
   fontColor = 'black',
   min = 0,
   step = 1,
-}: React.PropsWithChildren<Props>) {
+}: Props) {
   const attributes = {
     value,
     onChange,

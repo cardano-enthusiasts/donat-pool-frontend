@@ -5,9 +5,9 @@ import { useEffect, useRef, useState } from 'react';
 
 import { DashedButton } from '@/shared/components';
 import { useWindowScroll } from '@/shared/hooks';
-import CardanoLibImage from '@public/img/cardano-transaction-lib.svg';
-import PlutarchImage from '@public/img/plutarch.svg';
-import ReactImage from '@public/img/react.svg';
+import CardanoLibImage from '@public/images/cardano-transaction-lib.svg';
+import PlutarchImage from '@public/images/plutarch.svg';
+import ReactImage from '@public/images/react.svg';
 
 function Stack() {
   const ref = useRef<HTMLDivElement>(null);

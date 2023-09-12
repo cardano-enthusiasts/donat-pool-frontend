@@ -1,6 +1,6 @@
 import { AccentButton } from '@/shared/components';
 import { ROUTES } from '@/shared/constants';
-import BigLogoImage from '@public/img/big-logo.svg';
+import BigLogoImage from '@public/images/big-logo.svg';
 
 import styles from './styles.module.css';
 import type { Props } from './types';

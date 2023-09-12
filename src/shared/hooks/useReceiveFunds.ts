@@ -1,13 +1,13 @@
-import { useAppSelector, useAppDispatch } from '@/redux/hooks';
+import { useAppDispatch } from '@/redux/hooks';
 import { setWalletStatus } from '@/redux/slices/connectWallet';
 import { setError, setSuccess, setRequesting } from '@/redux/slices/fundsReceiving';
 import { createConnectionParameters, logOffchainError } from '@/shared/helpers';
-import { useOffchain, useMyDonatPools, useHandleError } from '@/shared/hooks';
+import { useOffchain, useMyDonatPools, useHandleError, useCardano } from '@/shared/hooks';
 import type { DonatPoolTokenData, Protocol } from '@/shared/types';
 
 function useReceiveFunds() {
   const offchain = useOffchain();
-  const activeWalletCardanoKey = useAppSelector((state) => state.cardano.activeWalletCardanoKey);
+  const { connectedWalletCardanoKey } = useCardano();
   const dispatch = useAppDispatch();
   const { refetchDonatPools } = useMyDonatPools();
   const handleCommonError = useHandleError();
@@ -24,10 +24,10 @@ function useReceiveFunds() {
     dispatch(setError(filteredError));
   }
 
-  if (offchain && activeWalletCardanoKey) {
+  if (offchain && connectedWalletCardanoKey) {
     return (donatPoolData: DonatPoolTokenData) => {
       offchain.receiveFunds(handleSuccess)(handleError)(JSON.parse(process.env.NEXT_PUBLIC_PROTOCOL) as Protocol)(
-        createConnectionParameters(activeWalletCardanoKey),
+        createConnectionParameters(connectedWalletCardanoKey),
       )(donatPoolData)();
       dispatch(setRequesting());
     };
