@@ -1,13 +1,19 @@
 import type { Metadata } from 'next';
 
 import { Layout } from '@/shared/components';
+import { APP_URL, ROUTES } from '@/shared/constants';
 import { roadmapText } from '@/shared/data';
 import { isSubItem } from '@/shared/type-guards';
 import type { Item, SubItem } from '@/shared/types';
 
 const metadata: Metadata = {
-  title: 'Donat.Pool: Roadmap',
+  title: 'Roadmap',
   description: 'Where we are now and where we want to be.',
+  openGraph: {
+    title: 'Donat.Pool: Roadmap',
+    description: 'Where we are now and where we want to be.',
+    url: `${APP_URL}${ROUTES.roadmap}`,
+  },
 };
 
 function Page() {

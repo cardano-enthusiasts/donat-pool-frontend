@@ -10,6 +10,8 @@ const ROUTES = {
   mock: '/mock-address',
 } as const;
 
+const APP_URL = 'https://testnet.donat-pool.io';
+
 const walletDisconnect =
   'enableWallet failed: The request was refused due to lack of access - e.g. wallet disconnects.';
 const userDecline = '{"code":2,"info":"User declined to sign the transaction."}';
@@ -23,4 +25,4 @@ const errors = {
   [missingCollateral]: 'Nami wallet missing collateral. Please add a collateral',
 };
 
-export { ROUTES, walletDisconnect, userDecline, walletIsNotAvailable, missingCollateral, errors };
+export { ROUTES, APP_URL, walletDisconnect, userDecline, walletIsNotAvailable, missingCollateral, errors };
