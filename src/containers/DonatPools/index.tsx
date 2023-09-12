@@ -40,7 +40,7 @@ function DonatPools() {
         </div>
       </div>
 
-      {donatPoolsAreBeingFetched && !donatPools && <Loader />}
+      {donatPoolsAreBeingFetched && <Loader />}
       {activeDonatPools &&
         (activeDonatPools.length === 0 ? (
           <div className="w-full">

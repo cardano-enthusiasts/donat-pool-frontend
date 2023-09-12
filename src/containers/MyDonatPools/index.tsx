@@ -77,28 +77,27 @@ function MyDonatPools() {
         </div>
       </div>
       <div className="mx-auto w-full max-md:max-w-[90vw]">
-        {areBeingFetched && !donatPools && <Loader />}
+        {areBeingFetched && <Loader />}
 
-        {filteredDonatPools && filteredDonatPools.length !== 0 && (
-          <div className="grid grid-cols-projects gap-10 max-md:grid-cols-1">
-            {filteredDonatPools.map((item) => (
-              <ProjectCard
-                key={item.threadTokenCurrency}
-                data={item}
-                linkSection={ROUTES.myDonatPools}
-                status={item.completed ? 'completed' : 'active'}
-                paddingSize="s"
-              />
-            ))}
-          </div>
-        )}
-
-        {filteredDonatPools?.length === 0 && (
-          <div className="flex flex-col items-center gap-6">
-            You don&apos;t have any projects yet. Create a project to start receiving donations.
-            <SadCatImage className="max-w-full" />
-          </div>
-        )}
+        {filteredDonatPools &&
+          (filteredDonatPools.length === 0 ? (
+            <div className="flex flex-col items-center gap-6">
+              You don&apos;t have any projects yet. Create a project to start receiving donations.
+              <SadCatImage className="max-w-full" />
+            </div>
+          ) : (
+            <div className="grid grid-cols-projects gap-10 max-md:grid-cols-1">
+              {filteredDonatPools.map((item) => (
+                <ProjectCard
+                  key={item.threadTokenCurrency}
+                  data={item}
+                  linkSection={ROUTES.myDonatPools}
+                  status={item.completed ? 'completed' : 'active'}
+                  paddingSize="s"
+                />
+              ))}
+            </div>
+          ))}
       </div>
     </Layout>
   );
