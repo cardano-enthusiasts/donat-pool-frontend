@@ -3,15 +3,13 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import api from '@/shared/api';
 import type { DonatPool } from '@/shared/types';
 
-async function getAllDonatPools() {
+const requestAllDonatPools = createAsyncThunk('/allDonatPools', async function (_, { rejectWithValue }) {
   try {
     const response = await api.get<DonatPool[]>('fundraising-api/all-projects/');
     return response.data;
   } catch (error) {
-    return error;
+    return rejectWithValue(error);
   }
-}
-
-const requestAllDonatPools = createAsyncThunk('/allDonatPools', getAllDonatPools);
+});
 
 export { requestAllDonatPools };

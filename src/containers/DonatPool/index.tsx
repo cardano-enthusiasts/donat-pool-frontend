@@ -13,13 +13,15 @@ import {
   RaisedCounter,
   Layout,
   Loader,
+  ConnectWalletModal,
 } from '@/shared/components';
 import { convertLovelaceToADA, formatDate } from '@/shared/helpers';
-import { useQueriedDonatPool, useDonate } from '@/shared/hooks';
+import { useQueriedDonatPool, useDonate, useCardano } from '@/shared/hooks';
 
 function DonatPool() {
   const dispatch = useAppDispatch();
   const { isBeingFetched: donatPoolIsBeingFetched, donatPool, fetchError: fetchDonatPoolError } = useQueriedDonatPool();
+  const { connectedWalletCardanoKey } = useCardano();
   const [modalIsShown, setModalIsShown] = useState(false);
   const [modalErrorIsShown, setModalErrorIsShown] = useState(false);
   const [modalLoadingIsShown, setModalLoadingIsShown] = useState(false);
@@ -62,6 +64,10 @@ function DonatPool() {
   function handleSuccessModalClose() {
     setModalSuccessIsShown(false);
     dispatch(reset());
+  }
+
+  function handleConnectModalClose() {
+    setModalIsShown(false);
   }
 
   return (
@@ -109,6 +115,7 @@ function DonatPool() {
           onClose={handleDonateModalClose}
         />
       )}
+      {!connectedWalletCardanoKey && modalIsShown && <ConnectWalletModal onClose={handleConnectModalClose} />}
       {modalErrorIsShown && (
         <ModalError
           title="How many ADA would you like to donate?"

@@ -98,9 +98,15 @@ function ConnectWalletModal({ onWalletConnect, onClose }: Props) {
           );
         })}
       </ul>
-      <DoubleBorderedButton primaryColor="blue" backgroundColor="black" isFullWidth href={ROUTES.home}>
-        Back to Home page
-      </DoubleBorderedButton>
+      {onClose ? (
+        <DoubleBorderedButton primaryColor="blue" backgroundColor="black" isFullWidth onClick={onClose}>
+          Cancel
+        </DoubleBorderedButton>
+      ) : (
+        <DoubleBorderedButton primaryColor="blue" backgroundColor="black" isFullWidth href={ROUTES.home}>
+          Back to Home page
+        </DoubleBorderedButton>
+      )}
     </Modal>
   );
 }
