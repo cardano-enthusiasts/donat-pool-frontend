@@ -51,19 +51,19 @@ module.exports = {
       },
       keyframes: {
         quaternaryButtonPress: {
-          '80%': { transform: 'translate(1.25rem, -1.25rem)' },
+          '80%': { transform: 'translate(1.375rem, -1.375rem)' },
           '90%': { transform: 'translate(0.3125rem, -0.3125rem)' },
-          '100%': { transform: 'translate(1.25rem, -1.25rem)' },
+          '100%': { transform: 'translate(1.375rem, -1.375rem)' },
         },
         quaternaryButtonPressBefore: {
-          '80%': { width: '1.375rem' },
-          '90%': { width: '0.3438rem' },
-          '100%': { width: '1.375rem' },
+          '80%': { width: '1.5rem' },
+          '90%': { width: '0.375rem' },
+          '100%': { width: '1.5rem' },
         },
         quaternaryButtonPressAfter: {
-          '80%': { height: '1.375rem' },
-          '90%': { height: '0.3438rem' },
-          '100%': { height: '1.375rem' },
+          '80%': { height: '1.5rem' },
+          '90%': { height: '0.375rem' },
+          '100%': { height: '1.5rem' },
         },
         accentPush: {
           '90%': { 'margin-left': 0, 'margin-top': 0 },

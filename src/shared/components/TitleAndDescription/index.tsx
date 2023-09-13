@@ -1,4 +1,4 @@
-import { AccentButton, QuaternaryLink } from '@/shared/components';
+import { QuaternaryLink } from '@/shared/components';
 import { ROUTES } from '@/shared/constants';
 import BigLogoImage from '@public/images/big-logo.svg';
 
@@ -34,13 +34,6 @@ function TitleAndDescription({ active }: Props) {
           <br />
           using
         </QuaternaryLink>
-        <div className="mt-3">
-          <AccentButton primaryColor="yellow" secondaryColor="red" fontColor="red" href={ROUTES.donatPools} animated>
-            Start
-            <br />
-            using
-          </AccentButton>
-        </div>
       </div>
     </div>
   );
