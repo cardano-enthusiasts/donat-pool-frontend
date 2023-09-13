@@ -161,6 +161,22 @@ module.exports = {
             transform: 'translate3d(6.5625rem, 0, 0)',
           },
         },
+        movingDonut1: {
+          '0%': {
+            'background-position': '50% 0%',
+          },
+          '100%': {
+            'background-position': '50% -100%',
+          },
+        },
+        movingDonut2: {
+          '0%': {
+            'background-position': '50% -100%',
+          },
+          '100%': {
+            'background-position': '50% 0%',
+          },
+        },
       },
       animation: {
         accentPush: 'accentPush 3s infinite alternate',
