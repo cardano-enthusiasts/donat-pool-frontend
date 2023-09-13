@@ -25,7 +25,7 @@ function Link({
         borderTheme,
         textTheme,
         shadowTheme,
-      })} inline-block cursor-pointer`}
+      })} cursor-pointer`}
       href={href}
       target={external ? '_blank' : undefined}
       rel={external ? 'noreferrer' : undefined}

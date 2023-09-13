@@ -3,21 +3,25 @@ import cn from 'classnames';
 import type { CommonProps } from './types';
 
 function createCommonClassName({
+  stretchy = false,
   size = 'md',
   withIcon = false,
-  stretchy = false,
   borderTheme = 'blue',
   textTheme = 'white',
   shadowTheme = 'blackBlue',
 }: CommonProps) {
-  return cn('rounded-md border-2 text-center font-bold', {
-    'px-3.5 py-2': size === 'md',
-    'flex items-center gap-x-2.5 text-xs': size === 'md' && withIcon,
-    'text-base/[1.3125rem]': size === 'md' && !withIcon,
+  return cn('rounded-md border-2 font-bold', {
+    'w-full': stretchy,
+    'justify-center': stretchy && withIcon,
+    'text-center': stretchy && !withIcon,
 
+    'px-3.5 py-2': size === 'md',
+    'text-xs': size === 'md' && withIcon,
+    'text-base/[1.3125rem]': size === 'md' && !withIcon,
     'px-4.5 py-2.5 text-xl/[1.625rem]': size === 'lg',
 
-    'w-full': stretchy,
+    'inline-flex items-center gap-x-2.5': withIcon,
+    'inline-block': !withIcon,
 
     'border-blue': borderTheme === 'blue',
     'border-purple': borderTheme === 'purple',

@@ -5,9 +5,9 @@ import type { ButtonProps } from './types';
 
 function Button({
   children,
+  stretchy,
   size,
   withIcon,
-  stretchy,
   borderTheme,
   textTheme,
   shadowTheme,
@@ -18,7 +18,7 @@ function Button({
   return (
     <button
       className={cn(
-        createCommonClassName({ size, withIcon, stretchy, borderTheme, textTheme, shadowTheme }),
+        createCommonClassName({ stretchy, size, withIcon, borderTheme, textTheme, shadowTheme }),
         'disabled:border-gray-secondary disabled:text-gray-secondary',
         {
           'disabled:shadow-[-0.25rem_0.25rem_0_-0.125rem_theme(colors.black),-0.25rem_0.25rem_0_0_theme(colors.gray.secondary)]':

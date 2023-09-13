@@ -1,7 +1,7 @@
 interface CommonProps extends React.PropsWithChildren {
+  stretchy?: boolean;
   size?: 'md' | 'lg';
   withIcon?: boolean;
-  stretchy?: boolean;
   borderTheme?: 'blue' | 'purple';
   textTheme?: 'white' | 'blue';
   shadowTheme?: 'blackBlue' | 'redPurple' | 'whiteBlue';

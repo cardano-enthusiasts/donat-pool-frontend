@@ -98,7 +98,7 @@ function ConnectWalletModal({ onWalletConnect, onClose }: Props) {
           );
         })}
       </ul>
-      <SecondaryLink size="lg" stretchy textTheme="blue" href={ROUTES.home}>
+      <SecondaryLink stretchy size="lg" textTheme="blue" href={ROUTES.home}>
         Back to Home page
       </SecondaryLink>
     </Modal>
