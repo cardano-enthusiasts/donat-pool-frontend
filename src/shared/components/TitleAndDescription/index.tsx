@@ -1,13 +1,22 @@
+import cn from 'classnames';
+
 import { AccentButton } from '@/shared/components';
 import { ROUTES } from '@/shared/constants';
 import BigLogoImage from '@public/images/big-logo.svg';
 
-import styles from './styles.module.css';
 import type { Props } from './types';
 
 function TitleAndDescription({ active }: Props) {
   return (
-    <div className={`flex flex-col font-rammetto-one ${active ? styles.wrapper : styles.wrapperInactive}`}>
+    <div
+      className={cn(
+        'flex flex-col font-rammetto-one [&>*]:transition-transform [&>*]:duration-1000 [&>*]:ease-in max-lg:[&>*]:translate-y-0 max-lg:[&>*]:transition-none',
+        {
+          '[&>*]:translate-y-0': active,
+          '[&>*]:translate-y-1/2': !active,
+        },
+      )}
+    >
       <BigLogoImage className="mb-[1.875rem] max-w-[48.125rem]" />
 
       <div

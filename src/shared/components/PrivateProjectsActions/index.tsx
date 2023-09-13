@@ -9,7 +9,6 @@ import { DoubleBorderedButton, ModalError, ModalLoading, ModalSuccess, StandardB
 import { ROUTES } from '@/shared/constants';
 import { useReceiveFunds } from '@/shared/hooks';
 
-import styles from './styles.module.css';
 import type { Props } from './types';
 
 function PrivateProjectsActions({ project }: Props) {
@@ -98,7 +97,7 @@ function PrivateProjectsActions({ project }: Props) {
     </>
   ) : (
     <>
-      <div className={`${styles.link} text-blue`}>
+      <div className="mt-6 flex items-center justify-center gap-6 text-xl font-bold text-blue [overflow-wrap:anywhere] max-xl:flex-col">
         {link}
         <div className="shrink-0">
           <DoubleBorderedButton backgroundColor="white" size="s" primaryColor="blue" onClick={handleCopyLinkClick}>
