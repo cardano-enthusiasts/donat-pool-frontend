@@ -57,12 +57,12 @@ module.exports = {
         },
         quaternaryButtonPressBefore: {
           '80%': { width: '1.5rem' },
-          '90%': { width: '0.375rem' },
+          '90%': { width: '0.5rem' },
           '100%': { width: '1.5rem' },
         },
         quaternaryButtonPressAfter: {
           '80%': { height: '1.5rem' },
-          '90%': { height: '0.375rem' },
+          '90%': { height: '0.5rem' },
           '100%': { height: '1.5rem' },
         },
         standardPush: {
