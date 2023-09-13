@@ -24,6 +24,8 @@ module.exports = {
       },
       spacing: {
         4.5: '1.125rem',
+        5.5: '1.375rem',
+        8.5: '2.125rem',
         15: '3.75rem',
         30: '7.5rem',
         480: '120rem',
@@ -48,6 +50,21 @@ module.exports = {
         xl: '0 0.9375rem 0.9375rem 0 rgba(186, 186, 186, 0.4)',
       },
       keyframes: {
+        quaternaryButtonPress: {
+          '80%': { transform: 'translate(1.25rem, -1.25rem)' },
+          '90%': { transform: 'translate(0.3125rem, -0.3125rem)' },
+          '100%': { transform: 'translate(1.25rem, -1.25rem)' },
+        },
+        quaternaryButtonPressBefore: {
+          '80%': { width: '1.375rem' },
+          '90%': { width: '0.3438rem' },
+          '100%': { width: '1.375rem' },
+        },
+        quaternaryButtonPressAfter: {
+          '80%': { height: '1.375rem' },
+          '90%': { height: '0.3438rem' },
+          '100%': { height: '1.375rem' },
+        },
         accentPush: {
           '90%': { 'margin-left': 0, 'margin-top': 0 },
           '100%': { 'margin-left': '-1rem', 'margin-top': '1rem' },

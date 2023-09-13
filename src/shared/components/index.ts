@@ -5,6 +5,8 @@ export { default as Input } from './Input';
 export { default as NewInput } from './Input/NewInput';
 export { default as Logo } from './Logo';
 export { default as ProjectCard } from './ProjectCard';
+export { default as QuaternaryButton } from './QuaternaryButton/Button';
+export { default as QuaternaryLink } from './QuaternaryButton/Link';
 export { default as CreationForm } from './CreationForm';
 export { default as PrecalculationFee } from './PrecalculationFee';
 export { default as InitialLoading } from './InitialLoading';

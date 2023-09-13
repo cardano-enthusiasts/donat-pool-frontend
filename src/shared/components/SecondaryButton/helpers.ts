@@ -10,7 +10,7 @@ function createCommonClassName({
   textTheme = 'white',
   shadowTheme = 'blackBlue',
 }: CommonProps) {
-  return cn('rounded-md border-2 font-bold', {
+  return cn(`rounded-md border-2 font-bold ${withIcon ? 'inline-flex items-center gap-x-2.5' : 'inline-block'}`, {
     'w-full': stretchy,
     'justify-center': stretchy && withIcon,
     'text-center': stretchy && !withIcon,
@@ -19,9 +19,6 @@ function createCommonClassName({
     'text-xs': size === 'md' && withIcon,
     'text-base/[1.3125rem]': size === 'md' && !withIcon,
     'px-4.5 py-2.5 text-xl/[1.625rem]': size === 'lg',
-
-    'inline-flex items-center gap-x-2.5': withIcon,
-    'inline-block': !withIcon,
 
     'border-blue': borderTheme === 'blue',
     'border-purple': borderTheme === 'purple',

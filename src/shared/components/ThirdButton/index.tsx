@@ -29,7 +29,22 @@ function Button({
     >
       <button
         className={cn(
-          'inline-flex w-full translate-x-1 translate-y-[-0.25rem] items-center justify-center gap-x-1.5 rounded-md border-2 border-dashed pb-[0.4375rem] pl-3.5 pr-2 pt-1.5 text-base/[1.3125rem] font-bold',
+          `inline-flex
+          w-full
+          translate-x-1
+          translate-y-[-0.25rem]
+          items-center
+          justify-center
+          gap-x-1.5
+          rounded-md
+          border-2
+          border-dashed
+          pb-[0.4375rem]
+          pl-3.5
+          pr-2
+          pt-1.5
+          text-base/[1.3125rem]
+          font-bold`,
           {
             'border-blue': borderTheme === 'blue',
             'border-red': borderTheme === 'red',

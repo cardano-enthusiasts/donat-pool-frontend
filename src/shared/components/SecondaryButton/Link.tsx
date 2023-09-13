@@ -5,9 +5,9 @@ import type { LinkProps } from './types';
 
 function Link({
   children,
+  stretchy,
   size,
   withIcon,
-  stretchy,
   borderTheme,
   textTheme,
   shadowTheme,
