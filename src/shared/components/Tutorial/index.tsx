@@ -6,7 +6,6 @@ import { useState } from 'react';
 import { DashedButton } from '@/shared/components';
 
 import { DATA } from './data';
-import styles from './styles.module.css';
 
 function Tutorial() {
   const [shown, setShown] = useState(true);
@@ -44,9 +43,13 @@ function Tutorial() {
                   src={src}
                   alt="tutorial step"
                 />
-                <ul className={`${styles.description} m-0 list-disc pl-5`}>
+                <ul className="m-0 list-disc pl-5">
                   {description.map((item) => (
-                    <li className="mb-2.5 text-sm" key={item} dangerouslySetInnerHTML={{ __html: item }} />
+                    <li
+                      className="mb-2.5 text-sm [&>a]:text-blue [&>a]:underline"
+                      key={item}
+                      dangerouslySetInnerHTML={{ __html: item }}
+                    />
                   ))}
                 </ul>
               </div>
