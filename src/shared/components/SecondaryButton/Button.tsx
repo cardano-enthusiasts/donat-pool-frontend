@@ -12,7 +12,7 @@ function Button({
   textTheme,
   shadowTheme,
   type = 'button',
-  disabled,
+  disabled = false,
   onClick,
 }: ButtonProps) {
   return (

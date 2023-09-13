@@ -28,7 +28,7 @@ function TitleAndDescription({ active }: Props) {
         <div>Give a little,</div>
         <div className="self-end">help a lot</div>
       </div>
-      <div className="mb-[5.625rem] max-md:mb-12">
+      <div className="mb-[5.625rem] max-lg:mb-12">
         <QuaternaryLink animated href={ROUTES.donatPools}>
           Start
           <br />

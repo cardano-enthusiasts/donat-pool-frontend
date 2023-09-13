@@ -1,17 +1,22 @@
-import { createCommonButtonClassName } from './helpers';
+import {
+  createCommonWrapperClassName,
+  createCommonInnerWrapperClassName,
+  createCommonButtonClassName,
+} from './helpers';
 import type { ButtonProps } from './types';
 
-function Button({ children, stretchy, backgroundTheme, animated, type = 'button', disabled, onClick }: ButtonProps) {
+function Button({ children, stretchy, backgroundTheme, textTheme, animated, type = 'button', onClick }: ButtonProps) {
   return (
-    <div className="">
-      <button
-        className={createCommonButtonClassName({ stretchy, backgroundTheme, animated })}
-        type={type}
-        disabled={disabled}
-        onClick={onClick}
-      >
-        {children}
-      </button>
+    <div className={createCommonWrapperClassName(stretchy)}>
+      <div className={createCommonInnerWrapperClassName(animated)}>
+        <button
+          className={createCommonButtonClassName({ backgroundTheme, textTheme, animated })}
+          type={type}
+          onClick={onClick}
+        >
+          {children}
+        </button>
+      </div>
     </div>
   );
 }

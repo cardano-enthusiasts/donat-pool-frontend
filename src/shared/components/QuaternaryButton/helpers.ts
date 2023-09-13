@@ -42,12 +42,11 @@ function createCommonInnerWrapperClassName(animated = false) {
 
 function createCommonButtonClassName({ backgroundTheme = 'yellow', textTheme = 'red', animated = false }: CommonProps) {
   return cn(
-    `pt-8.5
-    w-full
-    inline-block
+    `block
     rounded-md
-    px-2
+    pt-8.5
     pb-[2.0625rem]
+    px-4
     font-rammetto-one
     translate-x-5.5
     -translate-y-5.5

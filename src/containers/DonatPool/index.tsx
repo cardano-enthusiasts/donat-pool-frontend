@@ -9,10 +9,10 @@ import {
   ModalError,
   ModalLoading,
   ModalSuccess,
-  AccentButton,
   RaisedCounter,
   Layout,
   Loader,
+  QuaternaryButton,
 } from '@/shared/components';
 import { convertLovelaceToADA, formatDate } from '@/shared/helpers';
 import { useQueriedDonatPool, useDonate } from '@/shared/hooks';
@@ -93,9 +93,7 @@ function DonatPool() {
             />
           </div>
           <div className="flex justify-center">
-            <AccentButton primaryColor="yellow" secondaryColor="red" fontColor="red" onClick={handleDonateButtonClick}>
-              Donate
-            </AccentButton>
+            <QuaternaryButton onClick={handleDonateButtonClick}>Donate</QuaternaryButton>
           </div>
         </div>
       )}

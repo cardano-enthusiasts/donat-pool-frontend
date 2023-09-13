@@ -41,7 +41,6 @@ export { default as Tutorial } from './Tutorial';
 export { default as LandingContent } from './LandingContent';
 export { default as DropdownSection } from './DropdownSection';
 export { default as AlertNote } from './AlertNote';
-export { default as AccentButton } from './AccentButton';
 export { default as StandardButton } from './StandardButton';
 export { default as BorderedButton } from './BorderedButton';
 export { default as Line } from './Line';

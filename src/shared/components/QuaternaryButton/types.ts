@@ -7,7 +7,6 @@ interface CommonProps extends React.PropsWithChildren {
 
 interface ButtonProps extends CommonProps {
   type?: 'button' | 'submit';
-  disabled?: boolean;
   onClick?: () => void;
 }
 
