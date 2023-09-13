@@ -7,14 +7,25 @@ import {
 } from './helpers';
 import type { LinkProps } from './types';
 
-function Link({ children, stretchy, backgroundTheme, textTheme, animated, external = false, href }: LinkProps) {
+function Link({
+  children,
+  size,
+  stretchy,
+  platformTheme,
+  backgroundTheme,
+  textTheme,
+  animated,
+  external = false,
+  href,
+}: LinkProps) {
   const Link = external ? 'a' : NextLink;
 
   return (
-    <div className={createCommonWrapperClassName(stretchy)}>
-      <div className={createCommonInnerWrapperClassName(animated)}>
+    <div className={createCommonWrapperClassName({ stretchy })}>
+      <div className={createCommonInnerWrapperClassName({ platformTheme, animated })}>
         <Link
           className={`${createCommonButtonClassName({
+            size,
             backgroundTheme,
             textTheme,
             animated,

@@ -46,7 +46,13 @@ function Roadmap({ active }: Props) {
         </div>
       </div>
       <div className="absolute right-20 top-0 max-md:left-0  max-md:right-0 max-md:mx-auto max-md:w-[13.875rem]">
-        <QuaternaryLink animated href={ROUTES.donatPools}>
+        <QuaternaryLink
+          platformTheme="green"
+          backgroundTheme="blue"
+          textTheme="green"
+          animated
+          href={ROUTES.donatPools}
+        >
           All phases
         </QuaternaryLink>
       </div>

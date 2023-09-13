@@ -2,13 +2,13 @@ import cn from 'classnames';
 
 import type { CommonProps } from './types';
 
-function createCommonWrapperClassName(stretchy = false) {
+function createCommonWrapperClassName({ stretchy = false }: CommonProps) {
   return cn('pr-5.5 pt-5.5', {
     'w-[19.5rem] max-w-full': !stretchy,
   });
 }
 
-function createCommonInnerWrapperClassName(animated = false) {
+function createCommonInnerWrapperClassName({ platformTheme = 'red', animated = false }: CommonProps) {
   return cn(
     `relative
     z-0
@@ -19,7 +19,6 @@ function createCommonInnerWrapperClassName(animated = false) {
     before:w-6
     before:-skew-y-[45deg]
     before:origin-bottom-left
-    before:bg-red
     before:rounded-tl-sm
     before:rounded-bl-lg
     after:absolute
@@ -30,22 +29,28 @@ function createCommonInnerWrapperClassName(animated = false) {
     after:w-full
     after:-skew-x-[45deg]
     after:origin-bottom-left
-    after:bg-red
     after:rounded-br-sm
     after:rounded-bl-lg`,
     {
+      'before:bg-red after:bg-red': platformTheme === 'red',
+      'before:bg-green after:bg-green': platformTheme === 'green',
+
       'before:animate-[quaternaryButtonPressBefore_5s_infinite] after:animate-[quaternaryButtonPressAfter_5s_infinite]':
         animated,
     },
   );
 }
 
-function createCommonButtonClassName({ backgroundTheme = 'yellow', textTheme = 'red', animated = false }: CommonProps) {
+function createCommonButtonClassName({
+  size = 'md',
+  backgroundTheme = 'yellow',
+  textTheme = 'red',
+  animated = false,
+}: CommonProps) {
   return cn(
-    `block
+    `inline-block
+    w-full
     rounded-md
-    pt-8.5
-    pb-[2.0625rem]
     px-4
     font-rammetto-one
     translate-x-5.5
@@ -53,6 +58,9 @@ function createCommonButtonClassName({ backgroundTheme = 'yellow', textTheme = '
     text-[2rem]/[1.875rem]
     text-center`,
     {
+      'pt-8.5 pb-[2.0625rem]': size === 'md',
+      'pt-[3.0625rem] pb-12': size === 'lg',
+
       'bg-yellow': backgroundTheme === 'yellow',
       'bg-blue': backgroundTheme === 'blue',
 

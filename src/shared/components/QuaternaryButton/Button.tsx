@@ -5,12 +5,22 @@ import {
 } from './helpers';
 import type { ButtonProps } from './types';
 
-function Button({ children, stretchy, backgroundTheme, textTheme, animated, type = 'button', onClick }: ButtonProps) {
+function Button({
+  children,
+  size,
+  stretchy,
+  platformTheme,
+  backgroundTheme,
+  textTheme,
+  animated,
+  type = 'button',
+  onClick,
+}: ButtonProps) {
   return (
-    <div className={createCommonWrapperClassName(stretchy)}>
-      <div className={createCommonInnerWrapperClassName(animated)}>
+    <div className={createCommonWrapperClassName({ stretchy })}>
+      <div className={createCommonInnerWrapperClassName({ platformTheme, animated })}>
         <button
-          className={createCommonButtonClassName({ backgroundTheme, textTheme, animated })}
+          className={createCommonButtonClassName({ size, backgroundTheme, textTheme, animated })}
           type={type}
           onClick={onClick}
         >

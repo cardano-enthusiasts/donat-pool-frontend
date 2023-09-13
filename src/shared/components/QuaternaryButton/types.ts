@@ -1,5 +1,7 @@
 interface CommonProps extends React.PropsWithChildren {
+  size?: 'md' | 'lg';
   stretchy?: boolean;
+  platformTheme?: 'red' | 'green';
   backgroundTheme?: 'yellow' | 'blue';
   textTheme?: 'red' | 'green';
   animated?: boolean;
