@@ -153,6 +153,14 @@ module.exports = {
             left: '1.4688rem',
           },
         },
+        moveForever: {
+          '0%': {
+            transform: 'translate3d(-5.625rem, 0, 0)',
+          },
+          '100%': {
+            transform: 'translate3d(6.5625rem, 0, 0)',
+          },
+        },
       },
       animation: {
         accentPush: 'accentPush 3s infinite alternate',

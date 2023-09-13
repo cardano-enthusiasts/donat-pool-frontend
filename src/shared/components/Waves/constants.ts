@@ -5,4 +5,13 @@ const VARIANTS = {
   black: 'fill-black',
 };
 
-export default VARIANTS;
+const COLORS = {
+  transparent: 'bg-transparent',
+  blue: 'bg-blue',
+  green: 'bg-green',
+  red: 'bg-red',
+  black: 'bg-black',
+  yellow: 'bg-yellow',
+};
+
+export { VARIANTS, COLORS };

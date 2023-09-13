@@ -1,39 +1,32 @@
 'use client';
 
 import cn from 'classnames';
+import { useEffect, useState } from 'react';
 
 import { useWindowSize } from '@/shared/hooks';
 
-import VARIANTS from './constants';
-import styles from './styles.module.css';
+import { COLORS, VARIANTS } from './constants';
 import type { Props } from './types';
 
 function Waves({ color = 'blue', backgroundColor = 'transparent', upsideDown = false, moving = true }: Props) {
+  const [viewBoxWidth, setViewBoxWidth] = useState<600 | 1000>(1000);
   const size = useWindowSize();
 
-  function getWidthForViewBox() {
+  useEffect(() => {
     if (size.width < 1280) {
-      return 600;
+      setViewBoxWidth(600);
+    } else {
+      setViewBoxWidth(1000);
     }
-    return 1000;
-  }
-
-  const colors = {
-    transparent: 'bg-transparent',
-    blue: 'bg-blue',
-    green: 'bg-green',
-    red: 'bg-red',
-    black: 'bg-black',
-    yellow: 'bg-yellow',
-  };
+  }, [size.width]);
 
   return (
-    <div className={`text-center' relative h-[6.25rem] ${colors[backgroundColor]}`}>
+    <div className={`text-center' relative h-[6.25rem] ${COLORS[backgroundColor]}`}>
       <svg
         className={cn('relative mb-[-0.4375rem] h-[6.25rem] max-w-full', {
           'rotate-180': upsideDown,
         })}
-        viewBox={`200 0 ${getWidthForViewBox()} 100`}
+        viewBox={`200 0 ${viewBoxWidth} 100`}
         width="100%"
         fill="none"
         xmlnsXlink="http://www.w3.org/2000/xlink"
@@ -47,8 +40,13 @@ function Waves({ color = 'blue', backgroundColor = 'transparent', upsideDown = f
           />
         </defs>
 
-        <g className={cn(moving && styles.g)}>
-          <use className={VARIANTS[color]} xlinkHref="#gentle-wave" x="48" y="0" />
+        <g>
+          <use
+            className={cn(VARIANTS[color], moving && 'animate-[moveForever_7s_ease-in_infinite]')}
+            xlinkHref="#gentle-wave"
+            x="48"
+            y="0"
+          />
         </g>
       </svg>
     </div>
