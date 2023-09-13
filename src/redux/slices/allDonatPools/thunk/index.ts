@@ -12,7 +12,8 @@ const requestAllDonatPools = createAsyncThunk('/allDonatPools', async function (
     if (isAxiosError(error)) {
       return rejectWithValue(error.message);
     }
-    return rejectWithValue(JSON.stringify(error));
+    console.error(`allDonatPools: ${JSON.stringify(error)}`);
+    return rejectWithValue('common error');
   }
 });
 

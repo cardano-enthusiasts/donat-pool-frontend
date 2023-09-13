@@ -16,11 +16,7 @@ const initialState: {
 const slice = createSlice({
   name: 'allDonatPools',
   initialState,
-  reducers: {
-    setStatusRequesting: (state) => {
-      state.status = 'requesting';
-    },
-  },
+  reducers: {},
   extraReducers: (builder) => {
     builder.addCase(requestAllDonatPools.pending.type, (state) => {
       state.status = 'requesting';
@@ -37,7 +33,4 @@ const slice = createSlice({
 });
 
 export default slice;
-export const {
-  reducer,
-  actions: { setStatusRequesting },
-} = slice;
+export const { reducer } = slice;
