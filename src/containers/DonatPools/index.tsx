@@ -8,7 +8,7 @@ import { ROUTES } from '@/shared/constants';
 function DonatPools() {
   const { data: donatPools, error: fetchDonatPoolsError, isLoading } = useGetDonatPoolsQuery();
 
-  const activeDonatPools = useMemo(() => donatPools?.filter(({ completed }) => !completed), [donatPools]);
+  const activeDonatPools = useMemo(() => donatPools?.filter(({ isCompleted }) => !isCompleted), [donatPools]);
 
   return (
     <Layout error={JSON.stringify(fetchDonatPoolsError)}>

@@ -31,16 +31,6 @@ interface UserAndProtocolParams {
   userInfo: UserInfo;
 }
 
-interface FetchedDonatPool {
-  goal: number;
-  raisedAmt: number;
-  deadline: number;
-  title: string;
-  threadTokenCurrency: string;
-  threadTokenName: string;
-  isCompleted: boolean;
-}
-
 interface DonatPool {
   goal: number;
   raisedAmt: number;
@@ -48,7 +38,7 @@ interface DonatPool {
   title: string;
   threadTokenCurrency: string;
   threadTokenName: string;
-  completed: boolean;
+  isCompleted: boolean;
 }
 
 interface CreateDonatPoolParams {
@@ -99,5 +89,4 @@ export type {
   UserAndProtocolParams,
   Config,
   UserInfo,
-  FetchedDonatPool,
 };

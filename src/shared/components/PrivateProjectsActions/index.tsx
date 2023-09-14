@@ -73,7 +73,7 @@ function PrivateProjectsActions({ project }: Props) {
     dispatch(reset());
   }
 
-  return project.completed ? (
+  return project.isCompleted ? (
     <>
       <div className="mt-6 flex flex-col items-center gap-4">
         <StandardButton

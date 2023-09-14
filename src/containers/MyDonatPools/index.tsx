@@ -27,7 +27,7 @@ function MyDonatPools() {
       setFilter(null);
     } else {
       const completed = status === 'completed';
-      setFilteredDonatPools(projects.filter((item) => item.completed === completed));
+      setFilteredDonatPools(projects.filter((item) => item.isCompleted === completed));
       setFilter(status);
     }
   }
@@ -46,10 +46,10 @@ function MyDonatPools() {
             My Donat.Pools
           </h1>
           <div className="flex gap-6">
-            {donatPools?.some(({ completed }) => !completed) && (
+            {donatPools?.some(({ isCompleted }) => !isCompleted) && (
               <BorderedButton
                 color="red"
-                isClickedTheme={filter === 'active' || donatPools.every(({ completed }) => !completed)}
+                isClickedTheme={filter === 'active' || donatPools.every(({ isCompleted }) => !isCompleted)}
                 onClick={() => {
                   handleFilterClick('active', donatPools);
                 }}
@@ -57,10 +57,10 @@ function MyDonatPools() {
                 Active
               </BorderedButton>
             )}
-            {donatPools?.some(({ completed }) => completed) && (
+            {donatPools?.some(({ isCompleted }) => isCompleted) && (
               <BorderedButton
                 color="green"
-                isClickedTheme={filter === 'completed' || donatPools.every(({ completed }) => completed)}
+                isClickedTheme={filter === 'completed' || donatPools.every(({ isCompleted }) => isCompleted)}
                 onClick={() => {
                   handleFilterClick('completed', donatPools);
                 }}
@@ -92,7 +92,7 @@ function MyDonatPools() {
                   key={item.threadTokenCurrency}
                   data={item}
                   linkSection={ROUTES.myDonatPools}
-                  status={item.completed ? 'completed' : 'active'}
+                  status={item.isCompleted ? 'completed' : 'active'}
                   paddingSize="s"
                 />
               ))}
