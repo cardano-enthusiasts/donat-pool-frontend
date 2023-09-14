@@ -1,23 +1,17 @@
 'use client';
-import { useEffect, useMemo } from 'react';
+import { useMemo } from 'react';
 
-import { useAppDispatch, useAppSelector } from '@/redux/hooks';
-import { requestDonatPools } from '@/redux/slices/donatPools/thunk';
+import { useGetDonatPoolsQuery } from '@/services/api';
 import { Layout, StandardButton, ProjectCard, Loader, FakeDonatPoolCard } from '@/shared/components';
 import { ROUTES } from '@/shared/constants';
 
 function DonatPools() {
-  const dispatch = useAppDispatch();
-  const { donatPools, status, error: fetchDonatPoolsError } = useAppSelector((state) => state.donatPools);
-
-  useEffect(() => {
-    dispatch(requestDonatPools());
-  }, []);
+  const { data: donatPools, error: fetchDonatPoolsError, isLoading } = useGetDonatPoolsQuery();
 
   const activeDonatPools = useMemo(() => donatPools?.filter(({ completed }) => !completed), [donatPools]);
 
   return (
-    <Layout error={fetchDonatPoolsError}>
+    <Layout error={JSON.stringify(fetchDonatPoolsError)}>
       <div
         className="mb-14
           flex
@@ -45,7 +39,7 @@ function DonatPools() {
         </div>
       </div>
 
-      {status === 'requesting' && !donatPools && <Loader />}
+      {isLoading && !donatPools && <Loader />}
       {activeDonatPools &&
         (activeDonatPools.length === 0 ? (
           <div className="w-full">

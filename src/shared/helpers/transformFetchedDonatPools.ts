@@ -1,18 +1,15 @@
-import type { FetchedDonatPool } from '@/shared/types';
+import type { DonatPool, FetchedDonatPool } from '@/shared/types';
 
-function transformFetchedDonatPools(donatPools: FetchedDonatPool[]) {
-  return donatPools.map(
-    ({ title, creator, deadline, goal, raisedAmt, threadTokenCurrency, threadTokenName, isCompleted }) => ({
-      title,
-      creator,
-      deadline: String(deadline.value),
-      goal: String(goal.value),
-      raisedAmt: String(raisedAmt.value),
-      threadTokenCurrency,
-      threadTokenName,
-      completed: isCompleted,
-    }),
-  );
+function transformFetchedDonatPools(donatPools: FetchedDonatPool[]): DonatPool[] {
+  return donatPools.map(({ title, deadline, goal, raisedAmt, threadTokenCurrency, threadTokenName, isCompleted }) => ({
+    title,
+    deadline,
+    goal,
+    raisedAmt,
+    threadTokenCurrency,
+    threadTokenName,
+    completed: isCompleted,
+  }));
 }
 
 export default transformFetchedDonatPools;

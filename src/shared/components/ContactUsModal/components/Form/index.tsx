@@ -3,7 +3,7 @@
 import { isAxiosError } from 'axios';
 import { useForm } from 'react-hook-form';
 
-import api from '@/shared/api';
+import axiosApi from '@/services/axiosApi';
 import { NewInput, Textarea, SecondaryButton, StandardButton } from '@/shared/components';
 
 import type { Props, FormValues } from './types';
@@ -17,7 +17,7 @@ function Form({ onSubmit, onSubmitFailure, onCancelButtonClick }: Props) {
 
   const handleSubmit = createSubmitHandler(async (data) => {
     try {
-      await api.post('core/contact-us/', data);
+      await axiosApi.post('core/contact-us/', data);
       onSubmit();
     } catch (error) {
       onSubmitFailure(isAxiosError(error) ? error.message : 'Unknown error');

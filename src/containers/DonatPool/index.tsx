@@ -71,7 +71,7 @@ function DonatPool() {
   }
 
   return (
-    <Layout error={fetchDonatPoolError}>
+    <Layout error={JSON.stringify(fetchDonatPoolError)}>
       {donatPoolIsBeingFetched && !donatPool && <Loader />}
       {donatPool && (
         <div className="pb-40 pt-20">

@@ -5,4 +5,4 @@ export { default as fundsReceiving } from './fundsReceiving';
 export { default as protocolUpdating } from './protocolUpdating';
 export { default as connectWallet } from './connectWallet';
 export { default as getUserRelatedFundraisings } from './getUserRelatedFundraisings';
-export { default as donatPools } from './donatPools';
+export { default as donatPools } from '@/services/api';
