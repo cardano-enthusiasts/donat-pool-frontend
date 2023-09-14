@@ -3,7 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 
 import type { RequestStatus, DonatPool } from '@/shared/types';
 
-import { requestAllDonatPools } from './thunk';
+import { requestDonatPools } from './thunk';
 
 const initialState: {
   status: RequestStatus;
@@ -14,18 +14,18 @@ const initialState: {
 };
 
 const slice = createSlice({
-  name: 'allDonatPools',
+  name: 'donatPools',
   initialState,
   reducers: {},
   extraReducers: (builder) => {
-    builder.addCase(requestAllDonatPools.pending.type, (state) => {
+    builder.addCase(requestDonatPools.pending.type, (state) => {
       state.status = 'requesting';
     });
-    builder.addCase(requestAllDonatPools.fulfilled.type, (state, action: PayloadAction<DonatPool[]>) => {
+    builder.addCase(requestDonatPools.fulfilled.type, (state, action: PayloadAction<DonatPool[]>) => {
       state.status = 'success';
       state.donatPools = action.payload;
     });
-    builder.addCase(requestAllDonatPools.rejected.type, (state, action: PayloadAction<string>) => {
+    builder.addCase(requestDonatPools.rejected.type, (state, action: PayloadAction<string>) => {
       state.status = 'error';
       state.error = action.payload;
     });

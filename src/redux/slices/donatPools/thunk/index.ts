@@ -4,7 +4,7 @@ import { isAxiosError } from 'axios';
 import api from '@/shared/api';
 import type { DonatPool } from '@/shared/types';
 
-const requestAllDonatPools = createAsyncThunk('/allDonatPools', async function (_, { rejectWithValue }) {
+const requestDonatPools = createAsyncThunk('/donatPools', async function (_, { rejectWithValue }) {
   try {
     const response = await api.get<DonatPool[]>('fundraising-api/all-projects/');
     return response.data;
@@ -17,4 +17,4 @@ const requestAllDonatPools = createAsyncThunk('/allDonatPools', async function (
   }
 });
 
-export { requestAllDonatPools };
+export { requestDonatPools };

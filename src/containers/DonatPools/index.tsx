@@ -2,22 +2,22 @@
 import { useEffect, useMemo } from 'react';
 
 import { useAppDispatch, useAppSelector } from '@/redux/hooks';
-import { requestAllDonatPools } from '@/redux/slices/allDonatPools/thunk';
+import { requestDonatPools } from '@/redux/slices/donatPools/thunk';
 import { Layout, StandardButton, ProjectCard, Loader, FakeDonatPoolCard } from '@/shared/components';
 import { ROUTES } from '@/shared/constants';
 
 function DonatPools() {
   const dispatch = useAppDispatch();
-  const { donatPools, status, error } = useAppSelector((state) => state.allDonatPools);
+  const { donatPools, status, error: fetchDonatPoolsError } = useAppSelector((state) => state.donatPools);
 
   useEffect(() => {
-    dispatch(requestAllDonatPools());
+    dispatch(requestDonatPools());
   }, []);
 
   const activeDonatPools = useMemo(() => donatPools?.filter(({ completed }) => !completed), [donatPools]);
 
   return (
-    <Layout error={error}>
+    <Layout error={fetchDonatPoolsError}>
       <div
         className="mb-14
           flex

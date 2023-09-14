@@ -7,14 +7,14 @@ import {
   fundsReceiving,
   protocolUpdating,
   connectWallet,
-  allDonatPools,
+  donatPools,
   getUserRelatedFundraisings,
 } from './slices';
 
 const store = configureStore({
   reducer: {
     appInfo: appInfo.reducer,
-    allDonatPools: allDonatPools.reducer,
+    donatPools: donatPools.reducer,
     getUserRelatedFundraisings: getUserRelatedFundraisings.reducer,
     donating: donating.reducer,
     createFundraising: createFundraising.reducer,
