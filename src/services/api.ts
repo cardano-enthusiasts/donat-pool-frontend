@@ -1,11 +1,11 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
-import { BACKEND_URL } from '@/shared/constants';
+import { BACK_END_URL } from '@/shared/constants';
 import { transformFetchedDonatPools } from '@/shared/helpers';
 import type { DonatPool, FetchedDonatPool } from '@/shared/types';
 
 const api = createApi({
-  baseQuery: fetchBaseQuery({ baseUrl: BACKEND_URL }),
+  baseQuery: fetchBaseQuery({ baseUrl: BACK_END_URL }),
   reducerPath: 'donatPools',
   endpoints: (build) => ({
     getDonatPools: build.query<DonatPool[], void>({

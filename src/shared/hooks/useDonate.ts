@@ -11,12 +11,12 @@ function useDonate() {
   const { connectedWalletCardanoKey } = useCardano();
   const dispatch = useAppDispatch();
   const handleCommonError = useHandleError();
-  const { refetch } = useGetDonatPoolsQuery();
+  const { refetch: refetchDonatPools } = useGetDonatPoolsQuery();
 
   function handleSuccess() {
     dispatch(setWalletStatus('connected'));
     dispatch(setSuccess());
-    refetch();
+    refetchDonatPools();
   }
 
   function handleError(error: string) {
