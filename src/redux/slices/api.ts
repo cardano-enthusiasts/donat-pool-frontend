@@ -7,11 +7,11 @@ const api = createApi({
   baseQuery: fetchBaseQuery({ baseUrl: BACK_END_URL }),
   reducerPath: 'donatPools',
   endpoints: (build) => ({
-    getDonatPools: build.query<DonatPool[], void>({
+    fetchDonatPools: build.query<DonatPool[], void>({
       query: () => 'fundraising-api/all-projects/',
     }),
   }),
 });
 
-export const { useGetDonatPoolsQuery } = api;
+export const { useFetchDonatPoolsQuery } = api;
 export default api;

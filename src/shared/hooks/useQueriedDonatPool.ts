@@ -1,11 +1,11 @@
 import { useParams } from 'next/navigation';
 import { useMemo } from 'react';
 
-import { useGetDonatPoolsQuery } from '@/services/api';
+import { useFetchDonatPoolsQuery } from '@/redux/slices/api';
 
 function useQueriedDonatPool() {
   const params = useParams();
-  const { data: donatPools, error: fetchError, isLoading } = useGetDonatPoolsQuery();
+  const { data: donatPools, error: fetchError, isLoading } = useFetchDonatPoolsQuery();
 
   const donatPool = useMemo(
     () => donatPools?.find(({ threadTokenCurrency }) => threadTokenCurrency === params.id),

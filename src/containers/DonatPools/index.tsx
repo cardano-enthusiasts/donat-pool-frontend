@@ -1,12 +1,12 @@
 'use client';
 import { useMemo } from 'react';
 
-import { useGetDonatPoolsQuery } from '@/services/api';
+import { useFetchDonatPoolsQuery } from '@/redux/slices/api';
 import { Layout, StandardButton, ProjectCard, Loader, FakeDonatPoolCard } from '@/shared/components';
 import { ROUTES } from '@/shared/constants';
 
 function DonatPools() {
-  const { data: donatPools, error: fetchDonatPoolsError, isLoading } = useGetDonatPoolsQuery();
+  const { data: donatPools, error: fetchDonatPoolsError, isLoading } = useFetchDonatPoolsQuery();
 
   const activeDonatPools = useMemo(() => donatPools?.filter(({ isCompleted }) => !isCompleted), [donatPools]);
 

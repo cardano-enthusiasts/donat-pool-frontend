@@ -1,7 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit';
 
-import api from '@/services/api';
-
 import {
   appInfo,
   createFundraising,
@@ -10,6 +8,7 @@ import {
   protocolUpdating,
   connectWallet,
   getUserRelatedFundraisings,
+  api,
 } from './slices';
 
 const store = configureStore({
@@ -23,7 +22,7 @@ const store = configureStore({
     connectWallet: connectWallet.reducer,
     [api.reducerPath]: api.reducer,
   },
-  middleware: (gDM) => gDM().concat(api.middleware),
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(api.middleware),
   devTools: process.env.NODE_ENV === 'development',
 });
 

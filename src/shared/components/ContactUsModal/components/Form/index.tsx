@@ -3,7 +3,7 @@
 import { isAxiosError } from 'axios';
 import { useForm } from 'react-hook-form';
 
-import axiosApi from '@/services/axiosApi';
+import axiosApi from '@/shared/axiosApi';
 import { NewInput, Textarea, SecondaryButton, StandardButton } from '@/shared/components';
 
 import type { Props, FormValues } from './types';
