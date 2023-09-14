@@ -18,7 +18,16 @@ function Button({
   return (
     <div
       className={cn(
-        'relative inline-block before:absolute before:h-full before:w-full before:rounded-md before:border-2 before:border-dashed',
+        `relative
+        inline-block
+        before:absolute
+        before:-bottom-1
+        before:-left-1
+        before:h-full
+        before:w-full
+        before:rounded-md
+        before:border-2
+        before:border-dashed`,
         {
           'w-full': stretchy,
 
@@ -29,10 +38,9 @@ function Button({
     >
       <button
         className={cn(
-          `inline-flex
+          `relative
+          inline-flex
           w-full
-          translate-x-1
-          translate-y-[-0.25rem]
           items-center
           justify-center
           gap-x-1.5
@@ -63,7 +71,7 @@ function Button({
       >
         {children}
         <DownIcon
-          className={cn('w-6', {
+          className={cn('w-6 shrink-0', {
             '[&>path]:stroke-red': arrowTheme === 'red',
             '[&>path]:stroke-blue': arrowTheme === 'blue',
 
