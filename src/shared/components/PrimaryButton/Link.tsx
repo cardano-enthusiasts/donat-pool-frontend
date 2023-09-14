@@ -10,6 +10,7 @@ function Link({
   backgroundTheme,
   textTheme,
   shadowTheme,
+  animated,
   external = false,
   href,
 }: LinkProps) {
@@ -23,6 +24,7 @@ function Link({
         backgroundTheme,
         textTheme,
         shadowTheme,
+        animated,
       })} cursor-pointer`}
       href={href}
       target={external ? '_blank' : undefined}

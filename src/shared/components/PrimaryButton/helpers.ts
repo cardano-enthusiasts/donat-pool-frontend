@@ -8,6 +8,7 @@ function createCommonClassName({
   backgroundTheme = 'red',
   textTheme = 'white',
   shadowTheme = 'blue',
+  animated = false,
 }: CommonProps) {
   return cn('rounded-md inline-block font-bold text-center', {
     'w-full': stretchy,
@@ -24,6 +25,8 @@ function createCommonClassName({
 
     'shadow-[-0.25rem_0.25rem_0_0_theme(colors.blue.DEFAULT)]': shadowTheme === 'blue',
     'shadow-[-0.25rem_0.25rem_0_0_theme(colors.green.dark)]': shadowTheme === 'darkGreen',
+
+    'animate-[primaryButtonPress_5s_infinite]': animated,
   });
 }
 

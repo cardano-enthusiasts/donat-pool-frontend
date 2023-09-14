@@ -68,13 +68,10 @@ module.exports = {
           '90%': { height: '0.5rem' },
           '100%': { height: '1.5rem' },
         },
-        standardPush: {
-          '90%': { left: '0', top: '0' },
-          '100%': { left: '-0.25rem', top: '0.25rem' },
-        },
-        standardPushBefore: {
-          '90%': { left: '-0.25rem', bottom: '-0.25rem' },
-          '100%': { left: '0', bottom: '0' },
+        primaryButtonPress: {
+          '80%': { transform: 'none', boxShadow: 'revert-layer' },
+          '90%': { transform: 'translate(-0.25rem, 0.25rem)', boxShadow: 'none' },
+          '100%': { transform: 'none', boxShadow: 'revert-layer' },
         },
         roadmap: {
           '0%': {
@@ -163,8 +160,6 @@ module.exports = {
         },
       },
       animation: {
-        standardPush: 'standardPush 3s alternate infinite',
-        standardPushBefore: 'standardPushBefore 3s alternate infinite',
         roadmap: 'roadmap 60s linear infinite',
         circle2: 'circle2 1s forwards linear infinite',
         circle3: 'circle3 1s forwards linear infinite',

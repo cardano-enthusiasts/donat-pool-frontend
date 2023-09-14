@@ -8,6 +8,7 @@ function Button({
   backgroundTheme,
   textTheme,
   shadowTheme,
+  animated,
   type = 'button',
   disabled = false,
   onClick,
@@ -20,6 +21,7 @@ function Button({
         backgroundTheme,
         textTheme,
         shadowTheme,
+        animated,
       })} disabled:bg-purple disabled:shadow-[-0.25rem_0.25rem_0_0_#000]`}
       type={type}
       disabled={disabled}
