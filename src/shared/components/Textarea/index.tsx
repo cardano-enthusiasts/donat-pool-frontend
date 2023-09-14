@@ -18,7 +18,8 @@ const Textarea = forwardRef<HTMLTextAreaElement, Props>(function Textarea(
       )}
       <textarea
         className={cn(
-          `w-full
+          `block
+          w-full
           resize-none
           overscroll-y-none
           rounded-md

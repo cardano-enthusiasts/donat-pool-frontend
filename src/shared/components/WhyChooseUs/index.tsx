@@ -1,4 +1,4 @@
-import { StandardButton } from '@/shared/components';
+import { PrimaryLink } from '@/shared/components';
 
 import { PRIMARY_SECTIONS, SECONDARY_SECTIONS } from './data';
 
@@ -16,28 +16,24 @@ function WhyChooseUs() {
       ))}
       <div className="mb-10 flex items-center gap-6 max-lg:flex-col max-lg:items-start">
         <div className="shrink-0">
-          <StandardButton
-            primaryColor="blue"
-            secondaryColor="green"
-            fontColor="white"
-            href="https://github.com/fullstack-development/donat-pool-onchain"
+          <PrimaryLink
+            backgroundTheme="blue"
+            shadowTheme="darkGreen"
             external
-            animated
+            href="https://github.com/fullstack-development/donat-pool-onchain"
           >
             On-chain code
-          </StandardButton>
+          </PrimaryLink>
         </div>
         <div className="shrink-0">
-          <StandardButton
-            primaryColor="green"
-            secondaryColor="blue"
-            fontColor="black"
-            href="https://github.com/fullstack-development/donat-pool-offchain"
+          <PrimaryLink
+            backgroundTheme="green"
+            textTheme="black"
             external
-            animated
+            href="https://github.com/fullstack-development/donat-pool-offchain"
           >
             Off-chain code
-          </StandardButton>
+          </PrimaryLink>
         </div>
         <div>
           We made the code of our smart contracts publicly available so that you can be sure the system is secure.

@@ -7,8 +7,7 @@ function Link({
   children,
   stretchy,
   size,
-  withIcon,
-  borderTheme,
+  backgroundTheme,
   textTheme,
   shadowTheme,
   external = false,
@@ -21,8 +20,7 @@ function Link({
       className={`${createCommonClassName({
         stretchy,
         size,
-        withIcon,
-        borderTheme,
+        backgroundTheme,
         textTheme,
         shadowTheme,
       })} cursor-pointer`}

@@ -11,7 +11,10 @@ module.exports = {
         },
         red: '#ff6b95',
         pink: '#ffb5ca',
-        green: '#29dea8',
+        green: {
+          DEFAULT: '#29dea8',
+          dark: '#28d8B1',
+        },
         yellow: '#fed900',
         white: '#fff',
         black: '#141414',

@@ -4,7 +4,7 @@ import type { Props } from './types';
 
 function Layout({ children, error }: Props) {
   return (
-    <div className="mx-auto flex min-h-screen min-w-[22.5rem] max-w-screen-fhd flex-col">
+    <div className="mx-auto flex min-h-screen max-w-screen-fhd flex-col">
       <Header />
       {error && <div className="base-wrapper bg-error py-5 text-center font-bold text-white">{error}</div>}
       <main

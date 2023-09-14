@@ -4,7 +4,7 @@ import cn from 'classnames';
 import type { ForwardedRef } from 'react';
 import { forwardRef, useEffect, useRef, useState } from 'react';
 
-import { StandardButton, Waves } from '@/shared/components';
+import { PrimaryLink, Waves } from '@/shared/components';
 import { ROUTES } from '@/shared/constants';
 import { useWindowScroll, useWindowSize } from '@/shared/hooks';
 import CloseIcon from '@public/icons/close.svg';
@@ -63,7 +63,7 @@ const LandingNav = forwardRef(function LandingNav(
           </>
         )}
         {contentShown && (
-          <div className="flex max-w-[15.3125rem] flex-col gap-6 max-xl:max-w-[18.5rem] max-xl:items-center">
+          <div className="flex max-w-[15.3125rem] flex-col items-start gap-6 max-xl:max-w-[18.5rem] max-xl:items-center">
             {getSections(currentSection).map(({ title, active, id }) => (
               <a
                 className={cn(
@@ -83,17 +83,7 @@ const LandingNav = forwardRef(function LandingNav(
                 {title}
               </a>
             ))}
-            {section !== 'home' && (
-              <StandardButton
-                primaryColor="red"
-                secondaryColor="blue"
-                fontColor="white"
-                href={ROUTES.newDonatPool}
-                animated
-              >
-                Create Donat.Pool
-              </StandardButton>
-            )}
+            {section !== 'home' && <PrimaryLink href={ROUTES.newDonatPool}>Create Donat.Pool</PrimaryLink>}
           </div>
         )}
       </nav>

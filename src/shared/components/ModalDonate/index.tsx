@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 
-import { Input, Modal, SecondaryButton, StandardButton } from '@/shared/components';
+import { Input, Modal, SecondaryButton, PrimaryButton } from '@/shared/components';
 
 import type { Props } from './types';
 
@@ -40,9 +40,9 @@ function ModalDonate({ data: { threadTokenCurrency, threadTokenName }, donate, o
           <SecondaryButton size="lg" textTheme="blue" shadowTheme="whiteBlue" onClick={onClose}>
             Cancel
           </SecondaryButton>
-          <StandardButton primaryColor="red" secondaryColor="blue" isFullWidth type="submit" fontColor="white">
+          <PrimaryButton stretchy size="lg" type="submit">
             Donate
-          </StandardButton>
+          </PrimaryButton>
         </div>
       </form>
     </Modal>
