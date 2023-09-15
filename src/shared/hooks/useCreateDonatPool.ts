@@ -18,7 +18,7 @@ function useCreateDonatPool() {
     dispatch(setCreatedPath(donatPoolData.threadTokenCurrency));
     dispatch(setWalletStatus('connected'));
     refetchMyDonatPools();
-    refetchDonatPools();
+    void refetchDonatPools();
   }
 
   function handleError(error: string) {

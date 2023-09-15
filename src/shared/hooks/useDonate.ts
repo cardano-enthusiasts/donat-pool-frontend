@@ -16,7 +16,7 @@ function useDonate() {
   function handleSuccess() {
     dispatch(setWalletStatus('connected'));
     dispatch(setSuccess());
-    refetchDonatPools();
+    void refetchDonatPools();
   }
 
   function handleError(error: string) {
