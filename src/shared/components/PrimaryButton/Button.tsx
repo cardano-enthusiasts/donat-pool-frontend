@@ -1,6 +1,6 @@
 import cn from 'classnames';
 
-import { createWrapperCommonClassName, createButtonCommonClassName } from './helpers';
+import { createWrapperClassName, createButtonClassName } from './helpers';
 import type { ButtonProps } from './types';
 
 function Button({
@@ -17,12 +17,12 @@ function Button({
 }: ButtonProps) {
   return (
     <div
-      className={cn(createWrapperCommonClassName({ stretchy, platformBackgroundTheme }), {
+      className={cn(createWrapperClassName({ stretchy, platformBackgroundTheme }), {
         'before:bg-[#000]': disabled,
       })}
     >
       <button
-        className={`${createButtonCommonClassName({
+        className={`${createButtonClassName({
           size,
           backgroundTheme,
           textTheme,

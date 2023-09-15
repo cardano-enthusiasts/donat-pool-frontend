@@ -1,6 +1,6 @@
 import NextLink from 'next/link';
 
-import { createWrapperCommonClassName, createButtonCommonClassName } from './helpers';
+import { createWrapperClassName, createButtonClassName } from './helpers';
 import type { LinkProps } from './types';
 
 function Link({
@@ -18,9 +18,9 @@ function Link({
   const Link = external ? 'a' : NextLink;
 
   return (
-    <div className={createWrapperCommonClassName({ stretchy, platformBorderTheme })}>
+    <div className={createWrapperClassName({ stretchy, platformBorderTheme })}>
       <Link
-        className={createButtonCommonClassName({
+        className={createButtonClassName({
           size,
           withIcon,
           borderTheme,

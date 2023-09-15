@@ -2,7 +2,7 @@ import cn from 'classnames';
 
 import type { CommonProps } from './types';
 
-function createWrapperCommonClassName({ stretchy = false, platformBackgroundTheme = 'blue' }: CommonProps) {
+function createWrapperClassName({ stretchy = false, platformBackgroundTheme = 'blue' }: CommonProps) {
   return cn(
     `relative
     z-0
@@ -23,7 +23,7 @@ function createWrapperCommonClassName({ stretchy = false, platformBackgroundThem
   );
 }
 
-function createButtonCommonClassName({
+function createButtonClassName({
   size = 'md',
   backgroundTheme = 'red',
   textTheme = 'white',
@@ -44,4 +44,4 @@ function createButtonCommonClassName({
   });
 }
 
-export { createWrapperCommonClassName, createButtonCommonClassName };
+export { createWrapperClassName, createButtonClassName };

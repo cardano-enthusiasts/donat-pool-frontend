@@ -2,29 +2,26 @@ import cn from 'classnames';
 
 import type { CommonProps } from './types';
 
-function createWrapperCommonClassName({ stretchy = false }: CommonProps) {
-  return cn('pr-5.5 pt-5.5', {
-    'w-[19.5rem] max-w-full': !stretchy,
-  });
-}
-
-function createInnerWrapperCommonClassName({ platformTheme = 'red', animated = false }: CommonProps) {
+function createWrapperClassName({ stretchy = false, platformTheme = 'red', animated = false }: CommonProps) {
   return cn(
     `relative
     z-0
+    inline-block
+    ${stretchy ? 'w-full' : 'w-[18.125rem] max-w-full'}
     before:absolute
-    before:left-0
-    before:-bottom-1
+    before:-left-5.5
+    before:top-6.5
+    before:-z-[2]
     before:h-full
     before:w-6
-    before:-skew-y-[45deg]
     before:origin-bottom-left
+    before:-skew-y-[45deg]
     before:rounded-tl-sm
     before:rounded-bl-lg
     after:absolute
     after:-z-[1]
-    after:-left-1
-    after:bottom-0
+    after:-left-6.5
+    after:-bottom-5.5
     after:h-6
     after:w-full
     after:-skew-x-[45deg]
@@ -41,22 +38,21 @@ function createInnerWrapperCommonClassName({ platformTheme = 'red', animated = f
   );
 }
 
-function createButtonCommonClassName({
+function createButtonClassName({
   size = 'md',
   backgroundTheme = 'yellow',
   textTheme = 'red',
   animated = false,
 }: CommonProps) {
   return cn(
-    `inline-block
-    w-full
+    `w-full
+    inline-block
     rounded-md
     px-4
     font-rammetto-one
-    translate-x-5.5
-    -translate-y-5.5
     text-[2rem]/[1.875rem]
-    text-center`,
+    text-center
+    capitalize`,
     {
       'pt-8.5 pb-[2.0625rem]': size === 'md',
       'pt-[3.0625rem] pb-12': size === 'lg',
@@ -72,4 +68,4 @@ function createButtonCommonClassName({
   );
 }
 
-export { createWrapperCommonClassName, createInnerWrapperCommonClassName, createButtonCommonClassName };
+export { createWrapperClassName, createButtonClassName };

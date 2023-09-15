@@ -1,8 +1,4 @@
-import {
-  createWrapperCommonClassName,
-  createInnerWrapperCommonClassName,
-  createButtonCommonClassName,
-} from './helpers';
+import { createWrapperClassName, createButtonClassName } from './helpers';
 import type { ButtonProps } from './types';
 
 function Button({
@@ -17,16 +13,14 @@ function Button({
   onClick,
 }: ButtonProps) {
   return (
-    <div className={createWrapperCommonClassName({ stretchy })}>
-      <div className={createInnerWrapperCommonClassName({ platformTheme, animated })}>
-        <button
-          className={createButtonCommonClassName({ size, backgroundTheme, textTheme, animated })}
-          type={type}
-          onClick={onClick}
-        >
-          {children}
-        </button>
-      </div>
+    <div className={createWrapperClassName({ stretchy, platformTheme, animated })}>
+      <button
+        className={createButtonClassName({ size, backgroundTheme, textTheme, animated })}
+        type={type}
+        onClick={onClick}
+      >
+        {children}
+      </button>
     </div>
   );
 }
