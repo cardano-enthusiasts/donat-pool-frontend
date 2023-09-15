@@ -19,10 +19,12 @@ function Button({
     <div
       className={cn(
         `relative
+        z-0
         inline-block
         before:absolute
         before:-bottom-1
         before:-left-1
+        before:-z-[1]
         before:h-full
         before:w-full
         before:rounded-md
@@ -38,8 +40,7 @@ function Button({
     >
       <button
         className={cn(
-          `relative
-          inline-flex
+          `inline-flex
           w-full
           items-center
           justify-center

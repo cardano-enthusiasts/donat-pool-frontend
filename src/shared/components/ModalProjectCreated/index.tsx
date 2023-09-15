@@ -53,7 +53,7 @@ function ModalProjectCreated({ path, onClose }: Props) {
         {isSuccessfullyCopied ? (
           <>
             <div className="mb-8 text-center">Link copied to clipboard.</div>
-            <SecondaryButton size="lg" stretchy textTheme="blue" shadowTheme="whiteBlue" onClick={onClose}>
+            <SecondaryButton stretchy size="lg" backgroundTheme="white" textTheme="blue" onClick={onClose}>
               Close the window
             </SecondaryButton>
           </>

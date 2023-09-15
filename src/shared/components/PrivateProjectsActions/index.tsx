@@ -95,7 +95,7 @@ function PrivateProjectsActions({ project }: Props) {
       <div className={`${styles.link} text-blue`}>
         {link}
         <div className="shrink-0">
-          <SecondaryButton textTheme="blue" shadowTheme="whiteBlue" onClick={handleCopyLinkClick}>
+          <SecondaryButton backgroundTheme="white" textTheme="blue" onClick={handleCopyLinkClick}>
             Copy and share
           </SecondaryButton>
         </div>

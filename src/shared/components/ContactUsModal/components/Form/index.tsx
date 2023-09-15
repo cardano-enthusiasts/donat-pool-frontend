@@ -53,8 +53,8 @@ function Form({ onSubmit, onSubmitFailure, onCancelButtonClick }: Props) {
       </div>
       <SecondaryButton
         size="lg"
+        backgroundTheme="white"
         textTheme="blue"
-        shadowTheme="whiteBlue"
         disabled={isSubmitting}
         onClick={onCancelButtonClick}
       >

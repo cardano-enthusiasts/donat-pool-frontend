@@ -26,8 +26,9 @@ function WalletButton() {
     <>
       <SecondaryButton
         withIcon={Boolean(connectedWalletCardanoKey)}
+        platformBorderTheme="purple"
         borderTheme="purple"
-        shadowTheme="redPurple"
+        backgroundTheme="red"
         onClick={connectedWalletCardanoKey ? disconnectWallet : handleConnectWalletButtonClick}
       >
         {connectedWalletCardanoKey ? (

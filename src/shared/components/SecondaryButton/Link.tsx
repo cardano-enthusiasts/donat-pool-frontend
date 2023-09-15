@@ -1,6 +1,6 @@
 import NextLink from 'next/link';
 
-import { createCommonClassName } from './helpers';
+import { createWrapperCommonClassName, createButtonCommonClassName } from './helpers';
 import type { LinkProps } from './types';
 
 function Link({
@@ -8,30 +8,32 @@ function Link({
   stretchy,
   size,
   withIcon,
+  platformBorderTheme,
   borderTheme,
+  backgroundTheme,
   textTheme,
-  shadowTheme,
   external = false,
   href,
 }: LinkProps) {
   const Link = external ? 'a' : NextLink;
 
   return (
-    <Link
-      className={`${createCommonClassName({
-        stretchy,
-        size,
-        withIcon,
-        borderTheme,
-        textTheme,
-        shadowTheme,
-      })} cursor-pointer`}
-      href={href}
-      target={external ? '_blank' : undefined}
-      rel={external ? 'noreferrer' : undefined}
-    >
-      {children}
-    </Link>
+    <div className={createWrapperCommonClassName({ stretchy, platformBorderTheme })}>
+      <Link
+        className={`${createButtonCommonClassName({
+          size,
+          withIcon,
+          borderTheme,
+          backgroundTheme,
+          textTheme,
+        })} cursor-pointer`}
+        href={href}
+        target={external ? '_blank' : undefined}
+        rel={external ? 'noreferrer' : undefined}
+      >
+        {children}
+      </Link>
+    </div>
   );
 }
 

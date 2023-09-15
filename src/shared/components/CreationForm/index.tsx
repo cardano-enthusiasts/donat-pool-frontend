@@ -208,7 +208,7 @@ function CreationForm({ protocol, onClose }: Props) {
           The commission will be debited after the end of the donation pool.
         </Checkbox>
         <div className="flex gap-6">
-          <SecondaryButton size="lg" textTheme="blue" shadowTheme="whiteBlue" onClick={onClose}>
+          <SecondaryButton size="lg" backgroundTheme="white" textTheme="blue" onClick={onClose}>
             Cancel
           </SecondaryButton>
           <PrimaryButton stretchy size="lg" type="submit" disabled={!checked}>
