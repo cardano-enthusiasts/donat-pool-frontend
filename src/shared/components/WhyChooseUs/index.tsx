@@ -17,8 +17,8 @@ function WhyChooseUs() {
       <div className="mb-10 flex items-center gap-6 max-lg:flex-col max-lg:items-start">
         <div className="shrink-0">
           <PrimaryLink
+            platformBackgroundTheme="darkGreen"
             backgroundTheme="blue"
-            shadowTheme="darkGreen"
             animated
             external
             href="https://github.com/fullstack-development/donat-pool-onchain"

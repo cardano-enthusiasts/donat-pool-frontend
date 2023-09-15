@@ -24,12 +24,12 @@ function Link({
     <div className={createWrapperCommonClassName({ stretchy })}>
       <div className={createInnerWrapperCommonClassName({ platformTheme, animated })}>
         <Link
-          className={`${createButtonCommonClassName({
+          className={createButtonCommonClassName({
             size,
             backgroundTheme,
             textTheme,
             animated,
-          })} cursor-pointer`}
+          })}
           href={href}
           target={external ? '_blank' : undefined}
           rel={external ? 'noreferrer' : undefined}

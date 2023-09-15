@@ -20,13 +20,13 @@ function Link({
   return (
     <div className={createWrapperCommonClassName({ stretchy, platformBorderTheme })}>
       <Link
-        className={`${createButtonCommonClassName({
+        className={createButtonCommonClassName({
           size,
           withIcon,
           borderTheme,
           backgroundTheme,
           textTheme,
-        })} cursor-pointer`}
+        })}
         href={href}
         target={external ? '_blank' : undefined}
         rel={external ? 'noreferrer' : undefined}

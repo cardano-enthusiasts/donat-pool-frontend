@@ -67,7 +67,7 @@ const LandingNav = forwardRef(function LandingNav(
             {getSections(currentSection).map(({ title, active, id }) => (
               <a
                 className={cn(
-                  'cursor-pointer font-rammetto-one leading-[104%] max-xl:text-center',
+                  'font-rammetto-one leading-[104%] max-xl:text-center',
                   {
                     'text-[3.375rem] max-sm:text-3xl': active,
                     'text-[0.9375rem] text-white max-sm:text-xs': !active,

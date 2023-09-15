@@ -69,9 +69,9 @@ module.exports = {
           '100%': { height: '1.5rem' },
         },
         primaryButtonPress: {
-          '80%': { transform: 'none', boxShadow: 'revert-layer' },
-          '90%': { transform: 'translate(-0.25rem, 0.25rem)', boxShadow: 'none' },
-          '100%': { transform: 'none', boxShadow: 'revert-layer' },
+          '80%': { transform: 'none' },
+          '90%': { transform: 'translate(-0.25rem, 0.25rem)' },
+          '100%': { transform: 'none' },
         },
         roadmap: {
           '0%': {

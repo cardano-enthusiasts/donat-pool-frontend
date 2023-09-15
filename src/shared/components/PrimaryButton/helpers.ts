@@ -2,17 +2,34 @@ import cn from 'classnames';
 
 import type { CommonProps } from './types';
 
-function createCommonClassName({
-  stretchy = false,
+function createWrapperCommonClassName({ stretchy = false, platformBackgroundTheme = 'blue' }: CommonProps) {
+  return cn(
+    `relative
+    z-0
+    inline-block
+    before:absolute
+    before:-bottom-1
+    before:-left-1
+    before:-z-[1]
+    before:h-full
+    before:w-full
+    before:rounded-md`,
+    {
+      'w-full': stretchy,
+
+      'before:bg-blue': platformBackgroundTheme === 'blue',
+      'before:bg-green-dark': platformBackgroundTheme === 'darkGreen',
+    },
+  );
+}
+
+function createButtonCommonClassName({
   size = 'md',
   backgroundTheme = 'red',
   textTheme = 'white',
-  shadowTheme = 'blue',
   animated = false,
 }: CommonProps) {
-  return cn('rounded-md inline-block font-bold text-center', {
-    'w-full': stretchy,
-
+  return cn('w-full inline-block rounded-md font-bold text-center', {
     'px-4 py-2.5 text-base/[1.3125rem]': size === 'md',
     'px-5 py-3 text-xl/[1.625rem]': size === 'lg',
 
@@ -23,11 +40,8 @@ function createCommonClassName({
     'text-white': textTheme === 'white',
     'text-black': textTheme === 'black',
 
-    'shadow-[-0.25rem_0.25rem_0_0_theme(colors.blue.DEFAULT)]': shadowTheme === 'blue',
-    'shadow-[-0.25rem_0.25rem_0_0_theme(colors.green.dark)]': shadowTheme === 'darkGreen',
-
     'animate-[primaryButtonPress_5s_infinite]': animated,
   });
 }
 
-export { createCommonClassName };
+export { createWrapperCommonClassName, createButtonCommonClassName };

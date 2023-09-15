@@ -1,15 +1,15 @@
 import NextLink from 'next/link';
 
-import { createCommonClassName } from './helpers';
+import { createWrapperCommonClassName, createButtonCommonClassName } from './helpers';
 import type { LinkProps } from './types';
 
 function Link({
   children,
   stretchy,
   size,
+  platformBackgroundTheme,
   backgroundTheme,
   textTheme,
-  shadowTheme,
   animated,
   external = false,
   href,
@@ -17,21 +17,21 @@ function Link({
   const Link = external ? 'a' : NextLink;
 
   return (
-    <Link
-      className={`${createCommonClassName({
-        stretchy,
-        size,
-        backgroundTheme,
-        textTheme,
-        shadowTheme,
-        animated,
-      })} cursor-pointer`}
-      href={href}
-      target={external ? '_blank' : undefined}
-      rel={external ? 'noreferrer' : undefined}
-    >
-      {children}
-    </Link>
+    <div className={createWrapperCommonClassName({ stretchy, platformBackgroundTheme })}>
+      <Link
+        className={createButtonCommonClassName({
+          size,
+          backgroundTheme,
+          textTheme,
+          animated,
+        })}
+        href={href}
+        target={external ? '_blank' : undefined}
+        rel={external ? 'noreferrer' : undefined}
+      >
+        {children}
+      </Link>
+    </div>
   );
 }
 

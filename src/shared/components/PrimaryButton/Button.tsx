@@ -1,34 +1,40 @@
-import { createCommonClassName } from './helpers';
+import cn from 'classnames';
+
+import { createWrapperCommonClassName, createButtonCommonClassName } from './helpers';
 import type { ButtonProps } from './types';
 
 function Button({
   children,
   stretchy,
   size,
+  platformBackgroundTheme,
   backgroundTheme,
   textTheme,
-  shadowTheme,
   animated,
   type = 'button',
   disabled = false,
   onClick,
 }: ButtonProps) {
   return (
-    <button
-      className={`${createCommonClassName({
-        stretchy,
-        size,
-        backgroundTheme,
-        textTheme,
-        shadowTheme,
-        animated,
-      })} disabled:bg-purple disabled:shadow-[-0.25rem_0.25rem_0_0_#000]`}
-      type={type}
-      disabled={disabled}
-      onClick={onClick}
+    <div
+      className={cn(createWrapperCommonClassName({ stretchy, platformBackgroundTheme }), {
+        'before:bg-[#000]': disabled,
+      })}
     >
-      {children}
-    </button>
+      <button
+        className={`${createButtonCommonClassName({
+          size,
+          backgroundTheme,
+          textTheme,
+          animated,
+        })} disabled:bg-purple`}
+        type={type}
+        disabled={disabled}
+        onClick={onClick}
+      >
+        {children}
+      </button>
+    </div>
   );
 }
 
