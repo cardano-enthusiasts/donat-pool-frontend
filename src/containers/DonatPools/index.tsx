@@ -1,7 +1,7 @@
 'use client';
 import { useMemo } from 'react';
 
-import { useFetchDonatPoolsQuery } from '@/redux/slices/backEndApi';
+import { useFetchDonatPoolsQuery } from '@/redux/slices/backEnd';
 import { Layout, StandardButton, ProjectCard, Loader, FakeDonatPoolCard } from '@/shared/components';
 import { ROUTES } from '@/shared/constants';
 

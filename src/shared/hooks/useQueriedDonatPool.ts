@@ -1,7 +1,7 @@
 import { useParams } from 'next/navigation';
 import { useMemo } from 'react';
 
-import { useFetchDonatPoolsQuery } from '@/redux/slices/backEndApi';
+import { useFetchDonatPoolsQuery } from '@/redux/slices/backEnd';
 
 function useQueriedDonatPool() {
   const params = useParams();

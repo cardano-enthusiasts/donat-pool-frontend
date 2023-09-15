@@ -2,7 +2,7 @@ import { configureStore } from '@reduxjs/toolkit';
 
 import {
   appInfo,
-  backEndApi,
+  backEnd,
   connectWallet,
   createFundraising,
   donating,
@@ -20,9 +20,9 @@ const store = configureStore({
     fundsReceiving: fundsReceiving.reducer,
     protocolUpdating: protocolUpdating.reducer,
     connectWallet: connectWallet.reducer,
-    [backEndApi.reducerPath]: backEndApi.reducer,
+    [backEnd.reducerPath]: backEnd.reducer,
   },
-  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(backEndApi.middleware),
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(backEnd.middleware),
   devTools: process.env.NODE_ENV === 'development',
 });
 

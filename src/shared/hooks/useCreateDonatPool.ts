@@ -1,5 +1,5 @@
 import { useAppDispatch } from '@/redux/hooks';
-import { useFetchDonatPoolsQuery } from '@/redux/slices/backEndApi';
+import { useFetchDonatPoolsQuery } from '@/redux/slices/backEnd';
 import { setWalletStatus } from '@/redux/slices/connectWallet';
 import { setError, setRequesting, setCreatedPath } from '@/redux/slices/createFundraising';
 import { createConnectionParameters, logOffchainError } from '@/shared/helpers';
