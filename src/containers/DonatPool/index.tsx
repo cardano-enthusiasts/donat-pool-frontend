@@ -72,11 +72,13 @@ function DonatPool() {
 
   return (
     <Layout error={JSON.stringify(fetchDonatPoolError)}>
-      {donatPoolIsBeingFetched && !donatPool && <Loader />}
-      {donatPool && (
-        <div className="pb-40 pt-20">
-          <h1
-            className="mb-6
+      {donatPoolIsBeingFetched ? (
+        <Loader />
+      ) : (
+        donatPool && (
+          <div className="pb-40 pt-20">
+            <h1
+              className="mb-6
               overflow-hidden
               text-ellipsis
               whitespace-nowrap
@@ -86,24 +88,30 @@ function DonatPool() {
               text-red
               max-lg:text-[2.25rem]
               max-sm:text-[2.25rem]"
-          >
-            {donatPool.title}
-          </h1>
-          <div className="border-b-2 border-t-2 border-black py-6 text-center text-xl font-bold">
-            Until {formatDate(Number(donatPool.deadline))}
+            >
+              {donatPool.title}
+            </h1>
+            <div className="border-b-2 border-t-2 border-black py-6 text-center text-xl font-bold">
+              Until {formatDate(Number(donatPool.deadline))}
+            </div>
+            <div className="mb-10 mt-6">
+              <RaisedCounter
+                raised={convertLovelaceToADA(donatPool.raisedAmt)}
+                goal={convertLovelaceToADA(donatPool.goal)}
+              />
+            </div>
+            <div className="flex justify-center">
+              <AccentButton
+                primaryColor="yellow"
+                secondaryColor="red"
+                fontColor="red"
+                onClick={handleDonateButtonClick}
+              >
+                Donate
+              </AccentButton>
+            </div>
           </div>
-          <div className="mb-10 mt-6">
-            <RaisedCounter
-              raised={convertLovelaceToADA(donatPool.raisedAmt)}
-              goal={convertLovelaceToADA(donatPool.goal)}
-            />
-          </div>
-          <div className="flex justify-center">
-            <AccentButton primaryColor="yellow" secondaryColor="red" fontColor="red" onClick={handleDonateButtonClick}>
-              Donate
-            </AccentButton>
-          </div>
-        </div>
+        )
       )}
       {donatPool && modalIsShown && (
         <ModalDonate

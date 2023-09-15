@@ -39,8 +39,10 @@ function DonatPools() {
         </div>
       </div>
 
-      {isLoading && !donatPools && <Loader />}
-      {activeDonatPools &&
+      {isLoading ? (
+        <Loader />
+      ) : (
+        activeDonatPools &&
         (activeDonatPools.length === 0 ? (
           <div className="w-full">
             <div className="mb-15 text-center">
@@ -62,7 +64,8 @@ function DonatPools() {
                 <ProjectCard key={donatPool.threadTokenCurrency} data={donatPool} linkSection={ROUTES.donatPools} />
               ))}
           </div>
-        ))}
+        ))
+      )}
     </Layout>
   );
 }
