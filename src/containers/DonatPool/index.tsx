@@ -22,10 +22,11 @@ function DonatPool() {
   const dispatch = useAppDispatch();
   const { isBeingFetched: donatPoolIsBeingFetched, donatPool, fetchError: fetchDonatPoolError } = useQueriedDonatPool();
   const { connectedWalletCardanoKey } = useCardano();
-  const [modalIsShown, setModalIsShown] = useState(false);
+  const [modalDonateIsShown, setModalDonateIsShown] = useState(false);
   const [modalErrorIsShown, setModalErrorIsShown] = useState(false);
   const [modalLoadingIsShown, setModalLoadingIsShown] = useState(false);
   const [modalSuccessIsShown, setModalSuccessIsShown] = useState(false);
+  const [modalConnectIsShown, setModalConnectIsShown] = useState(false);
   const donate = useDonate();
 
   const donateStatus = useAppSelector((state) => state.donating.status);
@@ -38,7 +39,7 @@ function DonatPool() {
     const requestIsSuccessful = donateStatus === 'success';
     const requestWithError = donateStatus === 'error';
     if (requesting || requestIsSuccessful || requestWithError) {
-      setModalIsShown(false);
+      setModalDonateIsShown(false);
     }
     if (requestIsSuccessful) {
       setModalSuccessIsShown(true);
@@ -49,11 +50,15 @@ function DonatPool() {
   }, [donateStatus]);
 
   function handleDonateButtonClick() {
-    setModalIsShown(true);
+    if (connectedWalletCardanoKey) {
+      setModalDonateIsShown(true);
+    } else {
+      setModalConnectIsShown(true);
+    }
   }
 
   function handleDonateModalClose() {
-    setModalIsShown(false);
+    setModalDonateIsShown(false);
   }
 
   function handleErrorModalClose() {
@@ -67,7 +72,12 @@ function DonatPool() {
   }
 
   function handleConnectModalClose() {
-    setModalIsShown(false);
+    setModalConnectIsShown(false);
+  }
+
+  function handleWalletConnect() {
+    setModalDonateIsShown(true);
+    setModalConnectIsShown(false);
   }
 
   return (
@@ -113,7 +123,7 @@ function DonatPool() {
           </div>
         )
       )}
-      {donatPool && modalIsShown && (
+      {donatPool && modalDonateIsShown && (
         <ModalDonate
           data={{
             threadTokenCurrency: donatPool.threadTokenCurrency,
@@ -123,7 +133,9 @@ function DonatPool() {
           onClose={handleDonateModalClose}
         />
       )}
-      {!connectedWalletCardanoKey && modalIsShown && <ConnectWalletModal onClose={handleConnectModalClose} />}
+      {!connectedWalletCardanoKey && modalConnectIsShown && (
+        <ConnectWalletModal onWalletConnect={handleWalletConnect} onClose={handleConnectModalClose} />
+      )}
       {modalErrorIsShown && (
         <ModalError
           title="How many ADA would you like to donate?"
