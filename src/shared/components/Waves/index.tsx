@@ -5,7 +5,6 @@ import { useEffect, useState } from 'react';
 
 import { useWindowSize } from '@/shared/hooks';
 
-import { COLORS, VARIANTS } from './constants';
 import type { Props } from './types';
 
 function Waves({ color = 'blue', backgroundColor = 'transparent', upsideDown = false, moving = true }: Props) {
@@ -21,7 +20,16 @@ function Waves({ color = 'blue', backgroundColor = 'transparent', upsideDown = f
   }, [size.width]);
 
   return (
-    <div className={`text-center' relative h-[6.25rem] ${COLORS[backgroundColor]}`}>
+    <div
+      className={cn('relative h-[6.25rem] text-center', {
+        'bg-transparent': backgroundColor === 'transparent',
+        'bg-blue': backgroundColor === 'blue',
+        'bg-green': backgroundColor === 'green',
+        'bg-red': backgroundColor === 'red',
+        'bg-black': backgroundColor === 'black',
+        'bg-yellow': backgroundColor === 'yellow',
+      })}
+    >
       <svg
         className={cn('relative mb-[-0.4375rem] h-[6.25rem] max-w-full', {
           'rotate-180': upsideDown,
@@ -42,7 +50,12 @@ function Waves({ color = 'blue', backgroundColor = 'transparent', upsideDown = f
 
         <g>
           <use
-            className={cn(VARIANTS[color], moving && 'animate-[moveForever_7s_ease-in_infinite]')}
+            className={cn(moving && 'animate-[moveForever_7s_ease-in_infinite]', {
+              'fill-blue': color === 'blue',
+              'fill-green': color === 'green',
+              'fill-red': color === 'red',
+              'fill-black': color === 'black',
+            })}
             xlinkHref="#gentle-wave"
             x="48"
             y="0"
