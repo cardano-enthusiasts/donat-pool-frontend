@@ -28,8 +28,9 @@ const slice = createSlice({
   },
 });
 
-export default slice;
-export const {
+const {
   reducer,
   actions: { setError, setRequesting, setCreatedPath, reset },
 } = slice;
+
+export { slice as default, reducer, setError, setRequesting, setCreatedPath, reset };

@@ -2,13 +2,13 @@ import { configureStore } from '@reduxjs/toolkit';
 
 import {
   appInfo,
+  backEndApi,
+  connectWallet,
   createFundraising,
   donating,
   fundsReceiving,
-  protocolUpdating,
-  connectWallet,
   getUserRelatedFundraisings,
-  api,
+  protocolUpdating,
 } from './slices';
 
 const store = configureStore({
@@ -20,9 +20,9 @@ const store = configureStore({
     fundsReceiving: fundsReceiving.reducer,
     protocolUpdating: protocolUpdating.reducer,
     connectWallet: connectWallet.reducer,
-    [api.reducerPath]: api.reducer,
+    [backEndApi.reducerPath]: backEndApi.reducer,
   },
-  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(api.middleware),
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(backEndApi.middleware),
   devTools: process.env.NODE_ENV === 'development',
 });
 
