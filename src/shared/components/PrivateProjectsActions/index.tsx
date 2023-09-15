@@ -97,7 +97,18 @@ function PrivateProjectsActions({ project }: Props) {
     </>
   ) : (
     <>
-      <div className="mt-6 flex items-center justify-center gap-6 text-xl font-bold text-blue [overflow-wrap:anywhere] max-xl:flex-col">
+      <div
+        className="mt-6
+          flex
+          items-center
+          justify-center
+          gap-6
+          text-xl
+          font-bold
+          text-blue
+          [overflow-wrap:anywhere]
+          max-xl:flex-col"
+      >
         {link}
         <div className="shrink-0">
           <DoubleBorderedButton backgroundColor="white" size="s" primaryColor="blue" onClick={handleCopyLinkClick}>
