@@ -15,8 +15,18 @@ const slice = createSlice({
   name: 'getUserRelatedFundraisings',
   initialState,
   reducers: {
-    setStatusRequesting: (state) => {
-      state.status = 'requesting';
+    setStatus: (state, action: PayloadAction<RequestStatus>) => {
+      if (action.payload === 'requesting') {
+        if (Object.hasOwn(state, 'donatPools')) {
+          delete state.donatPools;
+        }
+
+        if (Object.hasOwn(state, 'error')) {
+          delete state.error;
+        }
+      }
+
+      state.status = action.payload;
     },
     setDonatPools: (state, action: PayloadAction<DonatPool[]>) => {
       state.status = 'success';
@@ -31,7 +41,7 @@ const slice = createSlice({
 
 const {
   reducer,
-  actions: { setStatusRequesting, setDonatPools, setError },
+  actions: { setStatus, setDonatPools, setError },
 } = slice;
 
 export { slice as default, reducer, setStatusRequesting, setDonatPools, setError };

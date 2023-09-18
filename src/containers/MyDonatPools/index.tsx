@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 
-import { BorderedButton, Loader, ProjectCard, StandardButton, Layout } from '@/shared/components';
+import { BorderedButton, Loader, ProjectCard, Layout, PrimaryLink } from '@/shared/components';
 import { ROUTES } from '@/shared/constants';
 import { useMyDonatPools } from '@/shared/hooks';
 import type { DonatPool } from '@/shared/types';
@@ -71,9 +71,9 @@ function MyDonatPools() {
           </div>
         </div>
         <div className="max-md:fixed max-md:bottom-15 max-md:right-[1.875rem]">
-          <StandardButton primaryColor="red" secondaryColor="blue" fontColor="white" href={ROUTES.newDonatPool}>
+          <PrimaryLink size="lg" href={ROUTES.newDonatPool}>
             Create Donat.Pool
-          </StandardButton>
+          </PrimaryLink>
         </div>
       </div>
       <div className="mx-auto w-full max-md:max-w-[90vw]">

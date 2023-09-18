@@ -16,6 +16,10 @@
     @apply bg-red;
   }
 
+  a {
+    @apply cursor-pointer;
+  }
+
   button {
     @apply cursor-default;
   }

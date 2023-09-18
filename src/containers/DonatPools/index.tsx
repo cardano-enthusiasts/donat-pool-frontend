@@ -2,7 +2,7 @@
 import { useMemo } from 'react';
 
 import { useFetchDonatPoolsQuery } from '@/redux/slices/backEnd';
-import { Layout, StandardButton, ProjectCard, Loader, FakeDonatPoolCard } from '@/shared/components';
+import { Layout, PrimaryLink, ProjectCard, Loader, FakeDonatPoolCard } from '@/shared/components';
 import { ROUTES } from '@/shared/constants';
 
 function DonatPools() {
@@ -33,9 +33,9 @@ function DonatPools() {
           All Donat.Pools
         </h1>
         <div className="max-md:fixed max-md:bottom-15 max-md:right-8">
-          <StandardButton primaryColor="red" secondaryColor="blue" fontColor="white" href={ROUTES.newDonatPool}>
+          <PrimaryLink size="lg" href={ROUTES.newDonatPool}>
             Create Donat.Pool
-          </StandardButton>
+          </PrimaryLink>
         </div>
       </div>
 

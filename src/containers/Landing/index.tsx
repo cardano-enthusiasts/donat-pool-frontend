@@ -15,7 +15,7 @@ function Landing() {
   }
 
   return (
-    <div className="flex flex-col">
+    <div className="mx-auto flex min-h-screen max-w-screen-fhd flex-col">
       <div className="relative">
         <InitialLoading animationIsActive={animationIsActive} />
         <div className="absolute bottom-0 w-full">

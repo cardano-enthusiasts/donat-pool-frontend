@@ -1,16 +1,14 @@
 interface CommonProps extends React.PropsWithChildren {
-  stretchy?: boolean;
   size?: 'md' | 'lg';
-  withIcon?: boolean;
-  platformBorderTheme?: 'blue' | 'purple';
-  borderTheme?: 'blue' | 'purple';
-  backgroundTheme?: 'black' | 'red' | 'white';
-  textTheme?: 'white' | 'blue';
+  stretchy?: boolean;
+  platformTheme?: 'red' | 'green';
+  backgroundTheme?: 'yellow' | 'blue';
+  textTheme?: 'red' | 'green';
+  animation?: 'continuous' | 'onPress';
 }
 
 interface ButtonProps extends CommonProps {
   type?: 'button' | 'submit';
-  disabled?: boolean;
   onClick?: () => void;
 }
 

@@ -3,7 +3,7 @@
 import cn from 'classnames';
 import { useEffect, useRef, useState } from 'react';
 
-import { DashedButton } from '@/shared/components';
+import { ThirdButton } from '@/shared/components';
 import { useWindowScroll } from '@/shared/hooks';
 import CardanoLibImage from '@public/images/cardano-transaction-lib.svg';
 import PlutarchImage from '@public/images/plutarch.svg';
@@ -38,7 +38,7 @@ function Stack() {
   }
 
   return (
-    <div className="flex max-w-[50rem] flex-col gap-10">
+    <div className="max-w-[50rem] space-y-10">
       <div className="text-2xl font-bold text-gray">Our stack</div>
       <div ref={ref}>
         <CardanoLibImage className={`${imageCommonClasses} max-w-[56.25rem]`} />
@@ -49,17 +49,15 @@ function Stack() {
           className={`${imageCommonClasses} max-lg:max-w-1/2 mt-[-1.875rem] max-w-[21.125rem] delay-500 max-lg:mt-[-1.25rem] max-sm:mt-[-0.625rem]`}
         />
       </div>
-
-      <DashedButton
-        primaryColor="red"
-        secondaryColor="blue"
-        backgroundColor="yellow"
-        isClickedTheme={shown}
-        isFixedWidth
+      <ThirdButton
+        borderTheme="red"
+        backgroundTheme="yellow"
+        textTheme="red"
+        arrowIsUp={shown}
         onClick={handleReadButtonClick}
       >
         Read {shown ? 'less' : 'more'}
-      </DashedButton>
+      </ThirdButton>
       {shown && (
         <div className="text-2xl max-md:text-lg">
           <div className="mb-10">

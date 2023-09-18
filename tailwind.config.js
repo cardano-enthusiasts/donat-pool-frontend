@@ -11,7 +11,10 @@ module.exports = {
         },
         red: '#ff6b95',
         pink: '#ffb5ca',
-        green: '#29dea8',
+        green: {
+          DEFAULT: '#29dea8',
+          dark: '#28d8B1',
+        },
         yellow: '#fed900',
         white: '#fff',
         black: '#141414',
@@ -24,6 +27,9 @@ module.exports = {
       },
       spacing: {
         4.5: '1.125rem',
+        5.5: '1.375rem',
+        6.5: '1.625rem',
+        8.5: '2.125rem',
         15: '3.75rem',
         30: '7.5rem',
         480: '120rem',
@@ -48,25 +54,20 @@ module.exports = {
         xl: '0 0.9375rem 0.9375rem 0 rgba(186, 186, 186, 0.4)',
       },
       keyframes: {
-        accentPush: {
-          '90%': { 'margin-left': 0, 'margin-top': 0 },
-          '100%': { 'margin-left': '-1rem', 'margin-top': '1rem' },
+        quaternaryButtonPress: {
+          '80%': { transform: 'none' },
+          '90%': { transform: 'translate(-0.75rem, 0.75rem)' },
+          '100%': { transform: 'none' },
         },
-        accentPushBefore: {
-          '90%': { bottom: '-1.3625rem', height: '1.375rem', left: '-0.7063rem' },
-          '100%': { bottom: '-0.4375rem', height: '0.4375rem', left: '-0.25rem' },
+        quaternaryButtonPressBefore: {
+          '80%': { width: '1.5rem' },
+          '90%': { width: '0.75rem' },
+          '100%': { width: '1.5rem' },
         },
-        accentPushAfter: {
-          '90%': { left: '-1.375rem', width: '1.375rem', bottom: '-0.7063rem' },
-          '100%': { left: '-0.4375rem', width: '0.4375rem', bottom: '-0.25rem' },
-        },
-        standardPush: {
-          '90%': { left: '0', top: '0' },
-          '100%': { left: '-0.25rem', top: '0.25rem' },
-        },
-        standardPushBefore: {
-          '90%': { left: '-0.25rem', bottom: '-0.25rem' },
-          '100%': { left: '0', bottom: '0' },
+        quaternaryButtonPressAfter: {
+          '80%': { height: '1.5rem' },
+          '90%': { height: '0.75rem' },
+          '100%': { height: '1.5rem' },
         },
         roadmap: {
           '0%': {
@@ -155,11 +156,6 @@ module.exports = {
         },
       },
       animation: {
-        accentPush: 'accentPush 3s infinite alternate',
-        accentPushBefore: 'accentPushBefore 3s alternate infinite',
-        accentPushAfter: 'accentPushAfter 3s alternate infinite',
-        standardPush: 'standardPush 3s alternate infinite',
-        standardPushBefore: 'standardPushBefore 3s alternate infinite',
         roadmap: 'roadmap 60s linear infinite',
         circle2: 'circle2 1s forwards linear infinite',
         circle3: 'circle3 1s forwards linear infinite',
