@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react';
 
 import { useAppSelector, useAppDispatch } from '@/redux/hooks';
 import { reset } from '@/redux/slices/fundsReceiving';
-import { DoubleBorderedButton, ModalError, ModalLoading, ModalSuccess, StandardButton } from '@/shared/components';
+import { ModalError, ModalLoading, ModalSuccess, PrimaryButton, SecondaryButton } from '@/shared/components';
 import { ROUTES } from '@/shared/constants';
 import { useReceiveFunds } from '@/shared/hooks';
 
@@ -75,17 +75,11 @@ function PrivateProjectsActions({ project }: Props) {
   return project.completed ? (
     <>
       <div className="mt-6 flex flex-col items-center gap-4">
-        <StandardButton
-          primaryColor="red"
-          secondaryColor="blue"
-          isFullWidth
-          fontColor="white"
-          onClick={handleCollectMoneyButtonClick}
-        >
+        <PrimaryButton stretchy size="lg" onClick={handleCollectMoneyButtonClick}>
           {Number(project.raisedAmt) >= Number(project.goal)
             ? 'You have reached the goal! Take money'
             : 'Project reached its deadline. Collect fund'}
-        </StandardButton>
+        </PrimaryButton>
         {protocol?.protocolFeeParam && (
           <div className="text-red">We remind you that our commission is {protocol.protocolFeeParam}%</div>
         )}
@@ -111,9 +105,9 @@ function PrivateProjectsActions({ project }: Props) {
       >
         {link}
         <div className="shrink-0">
-          <DoubleBorderedButton backgroundColor="white" size="s" primaryColor="blue" onClick={handleCopyLinkClick}>
+          <SecondaryButton backgroundTheme="white" textTheme="blue" onClick={handleCopyLinkClick}>
             Copy and share
-          </DoubleBorderedButton>
+          </SecondaryButton>
         </div>
       </div>
       {modalSuccessIsShown && (

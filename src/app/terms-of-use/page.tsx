@@ -9,6 +9,20 @@ import styles from './styles.module.css';
 const metadata: Metadata = {
   title: 'Terms of use',
   description: 'Transparent and simple terms of using our platform.',
+  keywords: [
+    'crowdfunding',
+    'donation',
+    'donations',
+    'support',
+    'community',
+    'startup',
+    'startups',
+    'ideas',
+    'funding',
+    'funds',
+    'faq',
+    'terms',
+  ],
   openGraph: {
     title: 'Donat.Pool: Terms of use',
     description: 'Transparent and simple terms of using our platform.',

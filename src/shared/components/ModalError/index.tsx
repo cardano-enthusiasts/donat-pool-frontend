@@ -1,4 +1,4 @@
-import { DoubleBorderedButton, Modal } from '@/shared/components';
+import { Modal, SecondaryButton } from '@/shared/components';
 import BittenDonutImage from '@public/images/bitten-donut.svg';
 
 import type { Props } from './types';
@@ -20,9 +20,9 @@ function ModalError({ title, errorText = '', onClose }: Props) {
       <div className="flex flex-col items-center">
         <BittenDonutImage className="mb-10" />
         <div className="mb-6 [overflow-wrap:anywhere]">{errorText}</div>
-        <DoubleBorderedButton primaryColor="blue" backgroundColor="white" isFullWidth onClick={onClose}>
+        <SecondaryButton stretchy size="lg" backgroundTheme="white" textTheme="blue" onClick={onClose}>
           Close button
-        </DoubleBorderedButton>
+        </SecondaryButton>
       </div>
     </Modal>
   );

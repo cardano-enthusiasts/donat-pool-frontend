@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 
-import { DoubleBorderedButton, Input, Modal, StandardButton } from '@/shared/components';
+import { Input, Modal, SecondaryButton, PrimaryButton } from '@/shared/components';
 
 import type { Props } from './types';
 
@@ -37,12 +37,12 @@ function ModalDonate({ data: { threadTokenCurrency, threadTokenName }, donate, o
           <Input value={value} type="number" onChange={handleChange} />
         </div>
         <div className="flex gap-6">
-          <DoubleBorderedButton backgroundColor="white" primaryColor="blue" onClick={onClose}>
+          <SecondaryButton size="lg" backgroundTheme="white" textTheme="blue" onClick={onClose}>
             Cancel
-          </DoubleBorderedButton>
-          <StandardButton primaryColor="red" secondaryColor="blue" isFullWidth type="submit" fontColor="white">
+          </SecondaryButton>
+          <PrimaryButton stretchy size="lg" type="submit">
             Donate
-          </StandardButton>
+          </PrimaryButton>
         </div>
       </form>
     </Modal>

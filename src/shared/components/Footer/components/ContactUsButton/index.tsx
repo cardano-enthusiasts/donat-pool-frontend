@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 
-import { StandardButton, ContactUsModal } from '@/shared/components';
+import { PrimaryButton, ContactUsModal } from '@/shared/components';
 
 function ContactUsButton() {
   const [modalIsShown, setModalIsShown] = useState(false);
@@ -17,9 +17,9 @@ function ContactUsButton() {
 
   return (
     <>
-      <StandardButton primaryColor="red" secondaryColor="green" size="s" fontColor="white" onClick={handleClick}>
+      <PrimaryButton platformBackgroundTheme="darkGreen" onClick={handleClick}>
         Contact us
-      </StandardButton>
+      </PrimaryButton>
       {modalIsShown && <ContactUsModal onClose={handleModalClose} />}
     </>
   );

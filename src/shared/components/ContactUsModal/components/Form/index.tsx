@@ -4,7 +4,7 @@ import { isAxiosError } from 'axios';
 import { useForm } from 'react-hook-form';
 
 import api from '@/shared/api';
-import { NewInput, Textarea, SecondaryButton, StandardButton } from '@/shared/components';
+import { NewInput, Textarea, SecondaryButton, PrimaryButton } from '@/shared/components';
 
 import type { Props, FormValues } from './types';
 
@@ -27,8 +27,8 @@ function Form({ onSubmit, onSubmitFailure, onCancelButtonClick }: Props) {
   return (
     // "React Hook Form" expects passing submit handler this way
     // eslint-disable-next-line @typescript-eslint/no-misused-promises
-    <form onSubmit={handleSubmit}>
-      <div className="mb-10 space-y-6">
+    <form className="grid grid-cols-[6.625rem_1fr] gap-x-6 gap-y-10" onSubmit={handleSubmit}>
+      <div className="col-span-2 space-y-6">
         <NewInput
           {...register('contact', { required: 'Contact is required' })}
           label="Phone / E-mail / Telegram nickname"
@@ -51,27 +51,18 @@ function Form({ onSubmit, onSubmitFailure, onCancelButtonClick }: Props) {
           error={errors.message?.message}
         />
       </div>
-      <div className="grid grid-cols-[auto_1fr] gap-x-6">
-        <SecondaryButton
-          size="lg"
-          textTheme="blue"
-          shadowTheme="whiteBlue"
-          disabled={isSubmitting}
-          onClick={onCancelButtonClick}
-        >
-          Cancel
-        </SecondaryButton>
-        <StandardButton
-          primaryColor="red"
-          secondaryColor="blue"
-          fontColor="white"
-          isFullWidth
-          type="submit"
-          disabled={isSubmitting}
-        >
-          Send
-        </StandardButton>
-      </div>
+      <SecondaryButton
+        size="lg"
+        backgroundTheme="white"
+        textTheme="blue"
+        disabled={isSubmitting}
+        onClick={onCancelButtonClick}
+      >
+        Cancel
+      </SecondaryButton>
+      <PrimaryButton size="lg" type="submit" disabled={isSubmitting}>
+        Send
+      </PrimaryButton>
     </form>
   );
 }

@@ -1,7 +1,7 @@
 import cn from 'classnames';
 import { Fragment } from 'react';
 
-import { AccentButton } from '@/shared/components';
+import { QuaternaryLink } from '@/shared/components';
 import { ROUTES } from '@/shared/constants';
 import { roadmapText } from '@/shared/data';
 import { isSubItem } from '@/shared/type-guards';
@@ -44,16 +44,15 @@ function Roadmap({ active }: Props) {
         </div>
       </div>
       <div className="absolute right-20 top-0 max-md:left-0  max-md:right-0 max-md:mx-auto max-md:w-[13.875rem]">
-        <AccentButton
-          primaryColor="blue"
-          secondaryColor="green"
-          size="s"
-          href={ROUTES.roadmap}
-          animated
-          fontColor="green"
+        <QuaternaryLink
+          platformTheme="green"
+          backgroundTheme="blue"
+          textTheme="green"
+          animation="continuous"
+          href={ROUTES.donatPools}
         >
           All phases
-        </AccentButton>
+        </QuaternaryLink>
       </div>
     </div>
   );

@@ -7,6 +7,18 @@ const metadata: Metadata = {
   title: 'Donat.Pool: Crowdfunding on Cardano blockchain',
   description:
     'Bring your projects to life with community support and help others. Lowest fees and highest reliability.',
+  keywords: [
+    'crowdfunding',
+    'donation',
+    'donations',
+    'support',
+    'community',
+    'startup',
+    'startups',
+    'ideas',
+    'funding',
+    'funds',
+  ],
   openGraph: {
     title: 'Donat.Pool: Crowdfunding on Cardano blockchain',
     description:

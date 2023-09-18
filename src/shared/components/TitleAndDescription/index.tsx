@@ -1,6 +1,4 @@
-import cn from 'classnames';
-
-import { AccentButton } from '@/shared/components';
+import { QuaternaryLink } from '@/shared/components';
 import { ROUTES } from '@/shared/constants';
 import BigLogoImage from '@public/images/big-logo.svg';
 
@@ -18,7 +16,6 @@ function TitleAndDescription({ active }: Props) {
       )}
     >
       <BigLogoImage className="mb-[1.875rem] max-w-[48.125rem]" />
-
       <div
         className="mb-10
           flex
@@ -38,12 +35,12 @@ function TitleAndDescription({ active }: Props) {
         <div>Give a little,</div>
         <div className="self-end">help a lot</div>
       </div>
-      <div className="relative mb-[5.625rem] delay-500 max-lg:mb-12">
-        <AccentButton primaryColor="yellow" secondaryColor="red" fontColor="red" href={ROUTES.donatPools} animated>
+      <div className="mb-[5.625rem] max-lg:mb-12">
+        <QuaternaryLink animation="continuous" href={ROUTES.donatPools}>
           Start
           <br />
           using
-        </AccentButton>
+        </QuaternaryLink>
       </div>
     </div>
   );

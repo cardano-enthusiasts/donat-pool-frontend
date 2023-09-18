@@ -3,7 +3,7 @@
 import Image from 'next/image';
 import { useState } from 'react';
 
-import { DashedButton } from '@/shared/components';
+import { ThirdButton } from '@/shared/components';
 
 import { DATA } from './data';
 
@@ -16,15 +16,16 @@ function Tutorial() {
 
   return (
     <div id="tutorial">
-      <DashedButton
-        primaryColor="blue"
-        secondaryColor="red"
-        backgroundColor="green"
-        isClickedTheme={shown}
+      <ThirdButton
+        platformBorderTheme="red"
+        backgroundTheme="green"
+        textTheme="blue"
+        arrowTheme="blue"
+        arrowIsUp={shown}
         onClick={handleWatchTutorialButtonClick}
       >
         Watch the tutorial
-      </DashedButton>
+      </ThirdButton>
       {shown && (
         <div className="mt-15">
           {DATA.map(({ order, title, src, description }) => (

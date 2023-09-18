@@ -12,8 +12,8 @@ import {
   ModalLoading,
   PrecalculationFee,
   ModalProjectCreated,
-  StandardButton,
-  DoubleBorderedButton,
+  SecondaryButton,
+  PrimaryButton,
 } from '@/shared/components';
 import { ROUTES } from '@/shared/constants';
 import { useCreateDonatPool } from '@/shared/hooks';
@@ -208,19 +208,12 @@ function CreationForm({ protocol, onClose }: Props) {
           The commission will be debited after the end of the donation pool.
         </Checkbox>
         <div className="flex gap-6">
-          <DoubleBorderedButton primaryColor="blue" backgroundColor="white" onClick={onClose}>
+          <SecondaryButton size="lg" backgroundTheme="white" textTheme="blue" onClick={onClose}>
             Cancel
-          </DoubleBorderedButton>
-          <StandardButton
-            type="submit"
-            disabled={!checked}
-            primaryColor="red"
-            secondaryColor="blue"
-            isFullWidth
-            fontColor="white"
-          >
+          </SecondaryButton>
+          <PrimaryButton stretchy size="lg" type="submit" disabled={!checked}>
             Confirm
-          </StandardButton>
+          </PrimaryButton>
         </div>
       </form>
       {successModalIsShown && <ModalProjectCreated path={createdPath} onClose={handleProjectCreatedModalClose} />}
