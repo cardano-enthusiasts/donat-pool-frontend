@@ -1,4 +1,4 @@
-import type { FetchedDonatPool, Config, DonatPoolTokenData, Protocol } from '@/shared/types';
+import type { DonatPool, Config, DonatPoolTokenData, Protocol } from '@/shared/types';
 
 interface ConnectionParameters {
   wallet: 'Nami' | 'Lode' | 'Flint' | 'Eternl';
@@ -13,7 +13,7 @@ interface InjectedWallet<Name> {
 }
 type HandleError = (error: string) => void;
 type FetchDonatPools = (
-  onSuccess: (donatPools: FetchedDonatPool[]) => void,
+  onSuccess: (donatPools: DonatPool[]) => void,
 ) => (onError: HandleError) => (protocol: Protocol) => (connectionParameters: ConnectionParameters) => () => void;
 
 declare global {
@@ -63,7 +63,7 @@ declare global {
         }) => void,
       ) => (onError: HandleError) => (protocol: Protocol) => (connectionParameters: ConnectionParameters) => () => void;
       createFundraising: (
-        onSuccess: (createdDonatPool: FetchedDonatPool) => void,
+        onSuccess: (createdDonatPool: DonatPool) => void,
       ) => (
         onError: HandleError,
       ) => (

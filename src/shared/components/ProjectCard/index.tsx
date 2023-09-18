@@ -45,7 +45,7 @@ function ProjectCard({
           {title}
         </h3>
         <div className="flex w-full justify-between border-t-2 border-t-black pt-4">
-          <div className="leading-none">{formatDate(Number(deadline))}</div>
+          <div className="leading-none">{formatDate(deadline)}</div>
           <div className="flex">
             <div className="mr-1 flex font-bold leading-none">
               <div className="flex text-red">

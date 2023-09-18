@@ -29,8 +29,9 @@ const slice = createSlice({
   },
 });
 
-export default slice;
-export const {
+const {
   reducer,
   actions: { setRequestStatus, setWalletStatus, setError },
 } = slice;
+
+export { slice as default, reducer, setRequestStatus, setWalletStatus, setError };

@@ -12,7 +12,7 @@ const initialState: {
 };
 
 const slice = createSlice({
-  name: 'getAllFundraisings',
+  name: 'getUserRelatedFundraisings',
   initialState,
   reducers: {
     setStatus: (state, action: PayloadAction<RequestStatus>) => {
@@ -39,8 +39,9 @@ const slice = createSlice({
   },
 });
 
-export default slice;
-export const {
+const {
   reducer,
   actions: { setStatus, setDonatPools, setError },
 } = slice;
+
+export { slice as default, reducer, setStatus, setDonatPools, setError };

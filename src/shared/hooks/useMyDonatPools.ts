@@ -2,9 +2,9 @@ import { useCallback, useEffect } from 'react';
 
 import { useAppSelector, useAppDispatch } from '@/redux/hooks';
 import { setStatus, setDonatPools, setError } from '@/redux/slices/getUserRelatedFundraisings';
-import { createConnectionParameters, transformFetchedDonatPools } from '@/shared/helpers';
+import { createConnectionParameters } from '@/shared/helpers';
 import { useCardano, useOffchain } from '@/shared/hooks';
-import type { FetchedDonatPool, Protocol } from '@/shared/types';
+import type { DonatPool, Protocol } from '@/shared/types';
 
 function useMyDonatPools() {
   const offchain = useOffchain();
@@ -13,8 +13,8 @@ function useMyDonatPools() {
   const dispatch = useAppDispatch();
 
   const handleFetchSuccess = useCallback(
-    (donatPools: FetchedDonatPool[]) => {
-      dispatch(setDonatPools(transformFetchedDonatPools(donatPools)));
+    (donatPools: DonatPool[]) => {
+      dispatch(setDonatPools(donatPools));
     },
     [dispatch],
   );

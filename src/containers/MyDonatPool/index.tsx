@@ -49,10 +49,10 @@ function MyDonatPool() {
             <div className="flex items-center justify-between border-b-2 border-t-2 border-black py-7">
               <div
                 className={`font-bold ${
-                  getTheme(currentDonatPool.completed).classes
+                  getTheme(currentDonatPool.isCompleted).classes
                 } rounded-md border-2 px-3 py-2 text-sm`}
               >
-                {getTheme(currentDonatPool.completed).text}
+                {getTheme(currentDonatPool.isCompleted).text}
               </div>
               <div className="text-xl font-bold">Until {formatDate(Number(currentDonatPool.deadline))}</div>
             </div>

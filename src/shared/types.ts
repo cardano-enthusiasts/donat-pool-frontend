@@ -31,26 +31,14 @@ interface UserAndProtocolParams {
   userInfo: UserInfo;
 }
 
-interface FetchedDonatPool {
+interface DonatPool {
+  goal: number;
+  raisedAmt: number;
+  deadline: number;
   title: string;
-  creator: string;
-  deadline: { value: bigint };
-  goal: { value: bigint };
-  raisedAmt: { value: bigint };
   threadTokenCurrency: string;
   threadTokenName: string;
   isCompleted: boolean;
-}
-
-interface DonatPool {
-  title: string;
-  creator: string;
-  deadline: string;
-  goal: string;
-  raisedAmt: string;
-  threadTokenCurrency: string;
-  threadTokenName: string;
-  completed: boolean;
 }
 
 interface CreateDonatPoolParams {
@@ -90,7 +78,6 @@ interface DonatPoolTokenData {
 export type {
   RequestStatus,
   WalletCardanoKey,
-  FetchedDonatPool,
   DonatPool,
   CreateDonatPoolParams,
   RoadmapText,
