@@ -10,6 +10,7 @@ function Link({
   platformTheme,
   backgroundTheme,
   textTheme,
+  textThemeOnHover,
   animation,
   external = false,
   href,
@@ -23,6 +24,7 @@ function Link({
           size,
           backgroundTheme,
           textTheme,
+          textThemeOnHover,
           animation,
         })}
         href={href}

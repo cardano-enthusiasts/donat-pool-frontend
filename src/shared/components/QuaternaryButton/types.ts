@@ -4,6 +4,7 @@ interface CommonProps extends React.PropsWithChildren {
   platformTheme?: 'red' | 'green';
   backgroundTheme?: 'yellow' | 'blue';
   textTheme?: 'red' | 'green';
+  textThemeOnHover?: 'blue' | 'yellow';
   animation?: 'continuous' | 'onPress';
 }
 
