@@ -44,4 +44,4 @@ const {
   actions: { setStatus, setDonatPools, setError },
 } = slice;
 
-export { slice as default, reducer, setStatusRequesting, setDonatPools, setError };
+export { slice as default, reducer, setStatus, setDonatPools, setError };
