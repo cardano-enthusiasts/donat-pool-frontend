@@ -32,9 +32,15 @@ function createButtonClassName({
   textTheme = 'white',
 }: CommonProps) {
   return cn(
-    `w-full rounded-md border-2 font-bold ${
-      withIcon ? 'inline-flex justify-center items-center gap-x-2.5' : 'inline-block text-center'
-    }`,
+    `${withIcon ? 'inline-flex justify-center items-center gap-x-2.5' : 'inline-block text-center'}
+    w-full
+    rounded-md
+    border-2
+    font-bold
+    transition-transform
+    duration-500
+    active:-translate-x-0.5
+    active:translate-y-0.5`,
     {
       'px-3.5 py-2': size === 'md',
       'text-xs': size === 'md' && withIcon,

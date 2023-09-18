@@ -53,7 +53,11 @@ function Button({
           pr-2
           pt-1.5
           text-base/[1.3125rem]
-          font-bold`,
+          font-bold
+          transition-transform
+          duration-500
+          active:-translate-x-0.5
+          active:translate-y-0.5`,
           {
             'border-blue': borderTheme === 'blue',
             'border-red': borderTheme === 'red',
