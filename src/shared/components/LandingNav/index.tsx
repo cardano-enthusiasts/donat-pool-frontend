@@ -2,9 +2,9 @@
 
 import cn from 'classnames';
 import type { ForwardedRef } from 'react';
-import { forwardRef, useEffect, useRef, useState } from 'react';
+import { forwardRef, useState } from 'react';
 
-import { StandardButton, Waves } from '@/shared/components';
+import { PrimaryLink, Waves } from '@/shared/components';
 import { ROUTES } from '@/shared/constants';
 import { useWindowScroll, useWindowSize } from '@/shared/hooks';
 import CloseIcon from '@public/icons/close.svg';
@@ -24,17 +24,10 @@ const LandingNav = forwardRef(function LandingNav(
   const mobileResolution = 1280;
   const contentShown = windowWidth > mobileResolution ? true : mobileHeaderIsShown;
   const section = windowWidth > mobileResolution || currentSection !== 'contact-us' ? currentSection : 'roadmap';
-  const wrapperRef = useRef<HTMLDivElement>(null);
 
   // Svgr doesn't provide types for svg components
   // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
   const Icon = mobileHeaderIsShown ? CloseIcon : MenuIcon;
-
-  useEffect(() => {
-    if (wrapperRef?.current && windowWidth > 1920) {
-      wrapperRef.current.style.left = `${(windowWidth - 1920) / 2 + 90}px`;
-    }
-  }, [windowWidth, wrapperRef]);
 
   function handleIconClick() {
     setMobileHeaderIsShown(!mobileHeaderIsShown);
@@ -44,14 +37,14 @@ const LandingNav = forwardRef(function LandingNav(
     <div
       className={cn(
         styles.wrapper,
-        'fixed top-[5.625rem] max-fhd:left-[5.625rem] max-xl:fixed max-xl:left-0 max-xl:top-0 max-xl:flex max-xl:w-[100vw] max-xl:items-center max-xl:justify-center',
+        'fixed left-20 top-20 max-xl:fixed max-xl:left-0 max-xl:top-0 max-xl:flex max-xl:w-[100vw] max-xl:items-center max-xl:justify-center',
         {
           hidden: windowScroll < 500 && animationIsActive,
           'max-xl:h-[100vh] max-xl:overflow-auto': mobileHeaderIsShown,
         },
         WRAPPER_CLASSES[currentSection],
       )}
-      ref={wrapperRef}
+      style={windowWidth > 1920 ? { left: `${(windowWidth - 1920) / 2 + 80}px` } : undefined}
     >
       <nav ref={ref}>
         {windowWidth < mobileResolution && (
@@ -67,7 +60,7 @@ const LandingNav = forwardRef(function LandingNav(
             {getSections(currentSection).map(({ title, active, id }) => (
               <a
                 className={cn(
-                  'cursor-pointer font-rammetto-one leading-[104%] max-xl:text-center',
+                  'font-rammetto-one leading-[104%] max-xl:text-center',
                   {
                     'text-[3.375rem] max-sm:text-3xl': active,
                     'text-[0.9375rem] text-white max-sm:text-xs': !active,
@@ -84,15 +77,9 @@ const LandingNav = forwardRef(function LandingNav(
               </a>
             ))}
             {section !== 'home' && (
-              <StandardButton
-                primaryColor="red"
-                secondaryColor="blue"
-                fontColor="white"
-                href={ROUTES.newDonatPool}
-                animated
-              >
-                Create Donat.Pool
-              </StandardButton>
+              <div>
+                <PrimaryLink href={ROUTES.newDonatPool}>Create Donat.Pool</PrimaryLink>
+              </div>
             )}
           </div>
         )}

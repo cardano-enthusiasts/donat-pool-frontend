@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 
-import { DoubleBorderedButton, Modal, StandardButton } from '@/shared/components';
+import { Modal, SecondaryButton, PrimaryButton } from '@/shared/components';
 import { ROUTES } from '@/shared/constants';
 import HappyCatImage from '@public/images/happy-cat.svg';
 
@@ -53,22 +53,16 @@ function ModalProjectCreated({ path, onClose }: Props) {
         {isSuccessfullyCopied ? (
           <>
             <div className="mb-8 text-center">Link copied to clipboard.</div>
-            <DoubleBorderedButton backgroundColor="white" primaryColor="blue" isFullWidth onClick={onClose}>
+            <SecondaryButton stretchy size="lg" backgroundTheme="white" textTheme="blue" onClick={onClose}>
               Close the window
-            </DoubleBorderedButton>
+            </SecondaryButton>
           </>
         ) : (
           <>
             <a className={`${styles.link} text-blue`}>{link}</a>
-            <StandardButton
-              primaryColor="red"
-              secondaryColor="blue"
-              isFullWidth
-              fontColor="white"
-              onClick={handleCopyLinkClick}
-            >
+            <PrimaryButton stretchy size="lg" onClick={handleCopyLinkClick}>
               Copy link and share
-            </StandardButton>
+            </PrimaryButton>
           </>
         )}
       </div>

@@ -1,11 +1,9 @@
 interface CommonProps extends React.PropsWithChildren {
   stretchy?: boolean;
   size?: 'md' | 'lg';
-  withIcon?: boolean;
-  platformBorderTheme?: 'blue' | 'purple';
-  borderTheme?: 'blue' | 'purple';
-  backgroundTheme?: 'black' | 'red' | 'white';
-  textTheme?: 'white' | 'blue';
+  platformBackgroundTheme?: 'blue' | 'darkGreen';
+  backgroundTheme?: 'red' | 'blue' | 'green';
+  textTheme?: 'white' | 'black';
 }
 
 interface ButtonProps extends CommonProps {

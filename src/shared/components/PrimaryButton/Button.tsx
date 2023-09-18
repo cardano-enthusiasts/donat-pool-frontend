@@ -7,9 +7,7 @@ function Button({
   children,
   stretchy,
   size,
-  withIcon,
-  platformBorderTheme,
-  borderTheme,
+  platformBackgroundTheme,
   backgroundTheme,
   textTheme,
   type = 'button',
@@ -18,18 +16,16 @@ function Button({
 }: ButtonProps) {
   return (
     <div
-      className={cn(createWrapperClassName({ stretchy, platformBorderTheme }), {
-        'before:border-gray-secondary': disabled,
+      className={cn(createWrapperClassName({ stretchy, platformBackgroundTheme }), {
+        'before:bg-[#000]': disabled,
       })}
     >
       <button
         className={`${createButtonClassName({
           size,
-          withIcon,
-          borderTheme,
           backgroundTheme,
           textTheme,
-        })} disabled:border-gray-secondary disabled:text-gray-secondary`}
+        })} disabled:bg-purple`}
         type={type}
         disabled={disabled}
         onClick={onClick}

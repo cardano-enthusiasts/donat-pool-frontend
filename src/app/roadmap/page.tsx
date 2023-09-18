@@ -9,6 +9,19 @@ import type { Item, SubItem } from '@/shared/types';
 const metadata: Metadata = {
   title: 'Roadmap',
   description: 'Where we are now and where we want to be.',
+  keywords: [
+    'crowdfunding',
+    'donation',
+    'donations',
+    'support',
+    'community',
+    'startup',
+    'startups',
+    'ideas',
+    'funding',
+    'funds',
+    'roadmap',
+  ],
   openGraph: {
     title: 'Donat.Pool: Roadmap',
     description: 'Where we are now and where we want to be.',
