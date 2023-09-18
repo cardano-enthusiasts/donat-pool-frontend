@@ -34,6 +34,8 @@ function createWrapperClassName({ stretchy = false, platformTheme = 'red', anima
 
       'before:animate-[quaternaryButtonPressBefore_5s_infinite] after:animate-[quaternaryButtonPressAfter_5s_infinite]':
         animation === 'continuous',
+      'before:transition-[width] before:duration-500 [&:has(>_*:active)]:before:w-3 after:transition-[height] after:duration-500 [&:has(>_*:active)]:after:h-3':
+        animation === 'onPress',
     },
   );
 }
