@@ -1,18 +1,17 @@
 'use client';
-
 import { useMemo } from 'react';
 
-import { Layout, Loader, ProjectCard, FakeDonatPoolCard, PrimaryLink } from '@/shared/components';
+import { useFetchDonatPoolsQuery } from '@/redux/slices/backEnd';
+import { Layout, PrimaryLink, ProjectCard, Loader, FakeDonatPoolCard } from '@/shared/components';
 import { ROUTES } from '@/shared/constants';
-import { useDonatPools } from '@/shared/hooks';
 
 function DonatPools() {
-  const { areBeingFetched: donatPoolsAreBeingFetched, donatPools, fetchError: fetchDonatPoolsError } = useDonatPools();
+  const { data: donatPools, error: fetchDonatPoolsError, isLoading } = useFetchDonatPoolsQuery();
 
-  const activeDonatPools = useMemo(() => donatPools?.filter(({ completed }) => !completed), [donatPools]);
+  const activeDonatPools = useMemo(() => donatPools?.filter(({ isCompleted }) => !isCompleted), [donatPools]);
 
   return (
-    <Layout error={fetchDonatPoolsError}>
+    <Layout error={JSON.stringify(fetchDonatPoolsError)}>
       <div
         className="mb-14
           flex
@@ -40,8 +39,10 @@ function DonatPools() {
         </div>
       </div>
 
-      {donatPoolsAreBeingFetched && <Loader />}
-      {activeDonatPools &&
+      {isLoading ? (
+        <Loader />
+      ) : (
+        activeDonatPools &&
         (activeDonatPools.length === 0 ? (
           <div className="w-full">
             <div className="mb-15 text-center">
@@ -63,7 +64,8 @@ function DonatPools() {
                 <ProjectCard key={donatPool.threadTokenCurrency} data={donatPool} linkSection={ROUTES.donatPools} />
               ))}
           </div>
-        ))}
+        ))
+      )}
     </Layout>
   );
 }

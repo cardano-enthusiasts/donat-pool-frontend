@@ -1,25 +1,24 @@
 import { useAppDispatch } from '@/redux/hooks';
+import { useFetchDonatPoolsQuery } from '@/redux/slices/backEnd';
 import { setWalletStatus } from '@/redux/slices/connectWallet';
 import { setError, setRequesting, setCreatedPath } from '@/redux/slices/createFundraising';
 import { createConnectionParameters, logOffchainError } from '@/shared/helpers';
-import { useOffchain, useDonatPools, useMyDonatPools, useCardano } from '@/shared/hooks';
-import type { FetchedDonatPool, CreateDonatPoolParams, Protocol } from '@/shared/types';
-
-import useHandleError from './useHandleError';
+import { useOffchain, useMyDonatPools, useCardano, useHandleError } from '@/shared/hooks';
+import type { CreateDonatPoolParams, Protocol, DonatPool } from '@/shared/types';
 
 function useCreateDonatPool() {
   const offchain = useOffchain();
   const { connectedWalletCardanoKey } = useCardano();
   const dispatch = useAppDispatch();
-  const { refetchDonatPools } = useDonatPools();
   const { refetchDonatPools: refetchMyDonatPools } = useMyDonatPools();
+  const { refetch: refetchDonatPools } = useFetchDonatPoolsQuery();
   const handleCommonError = useHandleError();
 
-  function handleSuccess(donatPoolData: FetchedDonatPool) {
+  function handleSuccess(donatPoolData: DonatPool) {
     dispatch(setCreatedPath(donatPoolData.threadTokenCurrency));
     dispatch(setWalletStatus('connected'));
-    refetchDonatPools();
     refetchMyDonatPools();
+    void refetchDonatPools();
   }
 
   function handleError(error: string) {
