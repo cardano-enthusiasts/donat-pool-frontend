@@ -10,20 +10,20 @@ function Link({
   platformTheme,
   backgroundTheme,
   textTheme,
-  animated,
+  animation,
   external = false,
   href,
 }: LinkProps) {
   const Link = external ? 'a' : NextLink;
 
   return (
-    <div className={createWrapperClassName({ stretchy, platformTheme, animated })}>
+    <div className={createWrapperClassName({ stretchy, platformTheme, animation })}>
       <Link
         className={createButtonClassName({
           size,
           backgroundTheme,
           textTheme,
-          animated,
+          animation,
         })}
         href={href}
         target={external ? '_blank' : undefined}

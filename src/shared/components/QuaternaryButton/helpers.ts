@@ -2,7 +2,7 @@ import cn from 'classnames';
 
 import type { CommonProps } from './types';
 
-function createWrapperClassName({ stretchy = false, platformTheme = 'red', animated = false }: CommonProps) {
+function createWrapperClassName({ stretchy = false, platformTheme = 'red', animation = 'onPress' }: CommonProps) {
   return cn(
     `relative
     z-0
@@ -33,7 +33,7 @@ function createWrapperClassName({ stretchy = false, platformTheme = 'red', anima
       'before:bg-green after:bg-green': platformTheme === 'green',
 
       'before:animate-[quaternaryButtonPressBefore_5s_infinite] after:animate-[quaternaryButtonPressAfter_5s_infinite]':
-        animated,
+        animation === 'continuous',
     },
   );
 }
@@ -42,7 +42,7 @@ function createButtonClassName({
   size = 'md',
   backgroundTheme = 'yellow',
   textTheme = 'red',
-  animated = false,
+  animation = 'onPress',
 }: CommonProps) {
   return cn(
     `w-full
@@ -63,7 +63,8 @@ function createButtonClassName({
       'text-red': textTheme === 'red',
       'text-green': textTheme === 'green',
 
-      'animate-[quaternaryButtonPress_5s_infinite]': animated,
+      'animate-[quaternaryButtonPress_5s_infinite]': animation === 'continuous',
+      'transition-transform duration-500 active:-translate-x-3 active:translate-y-3': animation === 'onPress',
     },
   );
 }

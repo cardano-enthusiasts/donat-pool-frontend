@@ -8,14 +8,14 @@ function Button({
   platformTheme,
   backgroundTheme,
   textTheme,
-  animated,
+  animation,
   type = 'button',
   onClick,
 }: ButtonProps) {
   return (
-    <div className={createWrapperClassName({ stretchy, platformTheme, animated })}>
+    <div className={createWrapperClassName({ stretchy, platformTheme, animation })}>
       <button
-        className={createButtonClassName({ size, backgroundTheme, textTheme, animated })}
+        className={createButtonClassName({ size, backgroundTheme, textTheme, animation })}
         type={type}
         onClick={onClick}
       >

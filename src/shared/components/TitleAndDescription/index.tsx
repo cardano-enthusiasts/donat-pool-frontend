@@ -29,7 +29,7 @@ function TitleAndDescription({ active }: Props) {
         <div className="self-end">help a lot</div>
       </div>
       <div className="mb-[5.625rem] max-lg:mb-12">
-        <QuaternaryLink animated href={ROUTES.donatPools}>
+        <QuaternaryLink animation="continuous" href={ROUTES.donatPools}>
           Start
           <br />
           using

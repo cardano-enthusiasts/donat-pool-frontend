@@ -50,7 +50,7 @@ function Roadmap({ active }: Props) {
           platformTheme="green"
           backgroundTheme="blue"
           textTheme="green"
-          animated
+          animation="continuous"
           href={ROUTES.donatPools}
         >
           All phases

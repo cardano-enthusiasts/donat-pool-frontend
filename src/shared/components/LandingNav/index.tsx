@@ -63,7 +63,7 @@ const LandingNav = forwardRef(function LandingNav(
           </>
         )}
         {contentShown && (
-          <div className="flex max-w-[15.3125rem] flex-col items-start gap-6 max-xl:max-w-[18.5rem] max-xl:items-center">
+          <div className="flex max-w-[15.3125rem] flex-col gap-6 max-xl:max-w-[18.5rem] max-xl:items-center">
             {getSections(currentSection).map(({ title, active, id }) => (
               <a
                 className={cn(
@@ -84,9 +84,11 @@ const LandingNav = forwardRef(function LandingNav(
               </a>
             ))}
             {section !== 'home' && (
-              <PrimaryLink animated href={ROUTES.newDonatPool}>
-                Create Donat.Pool
-              </PrimaryLink>
+              <div>
+                <PrimaryLink animation="continuous" href={ROUTES.newDonatPool}>
+                  Create Donat.Pool
+                </PrimaryLink>
+              </div>
             )}
           </div>
         )}
