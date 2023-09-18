@@ -78,9 +78,7 @@ const LandingNav = forwardRef(function LandingNav(
             ))}
             {section !== 'home' && (
               <div>
-                <PrimaryLink animation="continuous" href={ROUTES.newDonatPool}>
-                  Create Donat.Pool
-                </PrimaryLink>
+                <PrimaryLink href={ROUTES.newDonatPool}>Create Donat.Pool</PrimaryLink>
               </div>
             )}
           </div>

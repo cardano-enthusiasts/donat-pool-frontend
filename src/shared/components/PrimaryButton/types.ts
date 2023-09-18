@@ -4,7 +4,6 @@ interface CommonProps extends React.PropsWithChildren {
   platformBackgroundTheme?: 'blue' | 'darkGreen';
   backgroundTheme?: 'red' | 'blue' | 'green';
   textTheme?: 'white' | 'black';
-  animation?: 'continuous' | 'onPress';
 }
 
 interface ButtonProps extends CommonProps {

@@ -69,11 +69,6 @@ module.exports = {
           '90%': { height: '0.75rem' },
           '100%': { height: '1.5rem' },
         },
-        primaryButtonPress: {
-          '80%': { transform: 'none' },
-          '90%': { transform: 'translate(-0.125rem, 0.125rem)' },
-          '100%': { transform: 'none' },
-        },
         roadmap: {
           '0%': {
             top: '100%',

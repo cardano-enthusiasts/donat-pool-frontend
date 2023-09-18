@@ -19,7 +19,6 @@ function WhyChooseUs() {
           <PrimaryLink
             platformBackgroundTheme="darkGreen"
             backgroundTheme="blue"
-            animation="continuous"
             external
             href="https://github.com/fullstack-development/donat-pool-onchain"
           >
@@ -30,7 +29,6 @@ function WhyChooseUs() {
           <PrimaryLink
             backgroundTheme="green"
             textTheme="black"
-            animation="continuous"
             external
             href="https://github.com/fullstack-development/donat-pool-offchain"
           >

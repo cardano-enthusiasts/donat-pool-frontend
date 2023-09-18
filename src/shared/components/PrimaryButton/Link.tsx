@@ -10,7 +10,6 @@ function Link({
   platformBackgroundTheme,
   backgroundTheme,
   textTheme,
-  animation,
   external = false,
   href,
 }: LinkProps) {
@@ -23,7 +22,6 @@ function Link({
           size,
           backgroundTheme,
           textTheme,
-          animation,
         })}
         href={href}
         target={external ? '_blank' : undefined}

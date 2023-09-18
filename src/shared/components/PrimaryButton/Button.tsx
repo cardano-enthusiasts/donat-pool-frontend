@@ -10,7 +10,6 @@ function Button({
   platformBackgroundTheme,
   backgroundTheme,
   textTheme,
-  animation,
   type = 'button',
   disabled = false,
   onClick,
@@ -26,7 +25,6 @@ function Button({
           size,
           backgroundTheme,
           textTheme,
-          animation,
         })} disabled:bg-purple`}
         type={type}
         disabled={disabled}
