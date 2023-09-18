@@ -28,7 +28,7 @@ function Header() {
   return (
     <header
       className={cn('bg-red px-20 py-8 max-md:px-8 max-md:py-6', {
-        'fixed inset-0 z-[1]': menuIsShown,
+        'fixed inset-0 z-10': menuIsShown,
       })}
     >
       <div className="flex flex-wrap items-center justify-between gap-x-10 max-md:gap-y-15">

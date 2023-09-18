@@ -15,7 +15,7 @@ function Modal({
   onClose = () => undefined,
 }: Props) {
   return (
-    <Dialog className="fixed inset-0 z-[1] flex items-center justify-center bg-blue/40 p-5" open onClose={onClose}>
+    <Dialog className="fixed inset-0 z-10 flex items-center justify-center bg-blue/40 p-5" open onClose={onClose}>
       <Dialog.Panel
         className={cn(
           `max-h-full 
