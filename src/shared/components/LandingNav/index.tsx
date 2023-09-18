@@ -35,7 +35,7 @@ const LandingNav = forwardRef(function LandingNav(
   return (
     <div
       className={cn(
-        '[overflow-wrap:break-word] fixed left-20 top-20 max-xl:fixed max-xl:left-0 max-xl:top-0 max-xl:flex max-xl:w-[100vw] max-xl:items-center max-xl:justify-center',
+        'fixed left-20 top-20 [overflow-wrap:break-word] max-xl:fixed max-xl:left-0 max-xl:top-0 max-xl:flex max-xl:w-[100vw] max-xl:items-center max-xl:justify-center',
         {
           hidden: windowScroll < 500 && animationIsActive,
           'max-xl:h-[100vh] max-xl:overflow-auto': mobileHeaderIsShown,

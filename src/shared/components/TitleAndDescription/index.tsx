@@ -1,3 +1,5 @@
+import cn from 'classnames';
+
 import { QuaternaryLink } from '@/shared/components';
 import { ROUTES } from '@/shared/constants';
 import BigLogoImage from '@public/images/big-logo.svg';
