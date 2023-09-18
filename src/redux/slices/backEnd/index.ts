@@ -5,7 +5,7 @@ import type { DonatPool } from '@/shared/types';
 
 const backEnd = createApi({
   baseQuery: fetchBaseQuery({ baseUrl: BACK_END_URL }),
-  reducerPath: 'donatPools',
+  reducerPath: 'backEnd',
   endpoints: (build) => ({
     fetchDonatPools: build.query<DonatPool[], void>({
       query: () => 'fundraising-api/all-projects/',
