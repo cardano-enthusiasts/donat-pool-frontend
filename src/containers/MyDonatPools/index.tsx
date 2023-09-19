@@ -34,14 +34,21 @@ function MyDonatPools() {
 
   return (
     <Layout error={fetchError}>
-      <div className="mb-15 flex justify-between max-lg:flex-col max-lg:items-center max-lg:gap-5 max-md:mb-8">
+      <div
+        className="mb-15
+          max-md:mb-8
+          md:flex
+          md:flex-wrap
+          md:items-center
+          md:justify-between
+          md:gap-x-5"
+      >
         <div className="flex items-center justify-center gap-10 max-md:items-start max-sm:flex-col max-sm:gap-5">
           <h1
             className="font-rammetto-one
-              text-[3.375rem]/[104%]
+              text-menu-active
               text-red
-              max-lg:text-[2.25rem]
-              max-sm:text-[2.25rem]"
+              max-md:text-[2.25rem]/[2.25rem]"
           >
             My Donat.Pools
           </h1>

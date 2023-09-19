@@ -23,7 +23,7 @@ function DonatPools() {
       >
         <h1
           className="font-rammetto-one
-            text-[3.375rem]/[104%]
+            text-menu-active
             text-red
             max-md:text-[2.25rem]/[2.25rem]"
         >
