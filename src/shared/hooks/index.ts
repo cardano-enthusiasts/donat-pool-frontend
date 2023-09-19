@@ -10,4 +10,3 @@ export { default as useReceiveFunds } from './useReceiveFunds';
 export { default as useUpdateProtocol } from './useUpdateProtocol';
 export { default as useWindowScroll } from './useWindowScroll';
 export { default as useWindowSize } from './useWindowSize';
-export { default as useCurrentImage } from './useCurrentImage';

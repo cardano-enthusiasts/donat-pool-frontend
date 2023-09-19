@@ -5,7 +5,11 @@ import { useFetchDonatPoolsQuery } from '@/redux/slices/backEnd';
 
 function useQueriedDonatPool() {
   const params = useParams();
-  const { data: donatPools, error: fetchError, isLoading } = useFetchDonatPoolsQuery();
+  const {
+    isFetching: donatPoolsAreBeingFetched,
+    data: donatPools,
+    error: fetchDonatPoolsError,
+  } = useFetchDonatPoolsQuery();
 
   const donatPool = useMemo(
     () => donatPools?.find(({ threadTokenCurrency }) => threadTokenCurrency === params.id),
@@ -13,9 +17,9 @@ function useQueriedDonatPool() {
   );
 
   return {
-    isBeingFetched: isLoading,
+    isBeingFetched: donatPoolsAreBeingFetched,
     donatPool,
-    fetchError,
+    fetchError: fetchDonatPoolsError,
   };
 }
 

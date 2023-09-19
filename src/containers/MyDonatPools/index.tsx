@@ -12,7 +12,7 @@ import type { ProjectStatus } from './types';
 
 function MyDonatPools() {
   const [filter, setFilter] = useState<ProjectStatus | null>(null);
-  const { donatPools, areBeingFetched, fetchError } = useMyDonatPools();
+  const { areBeingFetched, donatPools, fetchError } = useMyDonatPools();
   const [filteredDonatPools, setFilteredDonatPools] = useState<DonatPool[] | null>(null);
 
   useEffect(() => {
@@ -77,9 +77,10 @@ function MyDonatPools() {
         </div>
       </div>
       <div className="mx-auto w-full max-md:max-w-[90vw]">
-        {areBeingFetched && <Loader />}
-
-        {filteredDonatPools &&
+        {areBeingFetched ? (
+          <Loader />
+        ) : (
+          filteredDonatPools &&
           (filteredDonatPools.length === 0 ? (
             <div className="flex flex-col items-center gap-6">
               You don&apos;t have any projects yet. Create a project to start receiving donations.
@@ -97,7 +98,8 @@ function MyDonatPools() {
                 />
               ))}
             </div>
-          ))}
+          ))
+        )}
       </div>
     </Layout>
   );
