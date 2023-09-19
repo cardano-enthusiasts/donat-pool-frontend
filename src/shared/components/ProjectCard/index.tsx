@@ -20,7 +20,19 @@ function ProjectCard({
   return (
     <Link
       className={cn(
-        'cursor-pointer rounded-md border-2 px-4 pb-6 shadow-[-0.25rem_0.25rem] transition-[transform,box-shadow] duration-500 active:-translate-x-0.5 active:translate-y-0.5 active:shadow-[-0.125rem_0.125rem] max-lg:p-5 max-sm:p-3',
+        `cursor-pointer
+        rounded-md
+        border-2
+        px-4
+        pb-6
+        shadow
+        transition-[transform,box-shadow]
+        duration-500
+        active:-translate-x-0.5
+        active:translate-y-0.5
+        active:shadow-pressed
+        max-lg:p-5
+        max-sm:p-3`,
         {
           'pt-2.5': paddingSize === 's',
           'pt-7': paddingSize === 'm',

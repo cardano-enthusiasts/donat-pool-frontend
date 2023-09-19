@@ -51,6 +51,8 @@ module.exports = {
         fhd: '1920px',
       },
       boxShadow: {
+        DEFAULT: '-0.25rem 0.25rem',
+        pressed: '-0.125rem 0.125rem',
         xl: '0 0.9375rem 0.9375rem 0 rgba(186, 186, 186, 0.4)',
       },
       keyframes: {

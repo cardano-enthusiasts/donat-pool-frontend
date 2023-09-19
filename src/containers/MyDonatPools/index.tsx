@@ -71,7 +71,7 @@ function MyDonatPools() {
           </div>
         </div>
         <div className="max-md:fixed max-md:bottom-15 max-md:right-[1.875rem]">
-          <PrimaryLink size="lg" href={ROUTES.newDonatPool}>
+          <PrimaryLink size="lg" textColor="black" href={ROUTES.newDonatPool}>
             Create Donat.Pool
           </PrimaryLink>
         </div>
