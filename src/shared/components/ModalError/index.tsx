@@ -21,14 +21,7 @@ function ModalError({ title, errorText = '', onClose }: Props) {
       <div className="flex flex-col items-center">
         <BittenDonutImage className="mb-10" />
         <div className={styles.text}>{errorText}</div>
-        <SecondaryButton
-          stretchy
-          size="lg"
-          backgroundColor="white"
-          textColor="blue"
-          shadowColor="whiteBlue"
-          onClick={onClose}
-        >
+        <SecondaryButton stretchy size="lg" textColor="blue" shadowColor="whiteBlue" onClick={onClose}>
           Close button
         </SecondaryButton>
       </div>

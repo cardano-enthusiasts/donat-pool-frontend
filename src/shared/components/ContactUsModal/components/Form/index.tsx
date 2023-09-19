@@ -53,7 +53,6 @@ function Form({ onSubmit, onSubmitFailure, onCancelButtonClick }: Props) {
       </div>
       <SecondaryButton
         size="lg"
-        backgroundColor="white"
         textColor="blue"
         shadowColor="whiteBlue"
         disabled={isSubmitting}

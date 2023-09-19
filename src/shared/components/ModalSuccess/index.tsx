@@ -23,14 +23,7 @@ function ModalSuccess({ description, onClose }: Props) {
         <div className={containerClasses}>
           <HappyCatImage className="mb-10" />
           <div className="mb-6">{description}</div>
-          <SecondaryButton
-            stretchy
-            size="lg"
-            backgroundColor="white"
-            textColor="blue"
-            shadowColor="whiteBlue"
-            onClick={onClose}
-          >
+          <SecondaryButton stretchy size="lg" textColor="blue" shadowColor="whiteBlue" onClick={onClose}>
             Close button
           </SecondaryButton>
         </div>

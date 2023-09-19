@@ -3,7 +3,6 @@ interface CommonProps extends React.PropsWithChildren {
   size?: 'md' | 'lg';
   withIcon?: boolean;
   borderColor?: 'blue' | 'purple';
-  backgroundColor?: 'black' | 'red' | 'white';
   textColor?: 'white' | 'blue';
   shadowColor?: 'blackBlue' | 'redPurple' | 'whiteBlue';
 }

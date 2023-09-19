@@ -9,7 +9,6 @@ function Link({
   size,
   withIcon,
   borderColor,
-  backgroundColor,
   textColor,
   shadowColor,
   external = false,
@@ -24,7 +23,6 @@ function Link({
         size,
         withIcon,
         borderColor,
-        backgroundColor,
         textColor,
         shadowColor,
       })}

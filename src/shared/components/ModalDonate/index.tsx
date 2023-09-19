@@ -37,7 +37,7 @@ function ModalDonate({ data: { threadTokenCurrency, threadTokenName }, donate, o
           <Input value={value} type="number" onChange={handleChange} />
         </div>
         <div className="flex gap-6">
-          <SecondaryButton size="lg" backgroundColor="white" textColor="blue" shadowColor="whiteBlue" onClick={onClose}>
+          <SecondaryButton size="lg" textColor="blue" shadowColor="whiteBlue" onClick={onClose}>
             Cancel
           </SecondaryButton>
           <PrimaryButton stretchy size="lg" type="submit">

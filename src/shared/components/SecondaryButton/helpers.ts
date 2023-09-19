@@ -7,7 +7,6 @@ function createButtonClassName({
   size = 'md',
   withIcon = false,
   borderColor = 'blue',
-  backgroundColor = 'black',
   textColor = 'white',
   shadowColor = 'blackBlue',
 }: CommonProps) {
@@ -30,10 +29,6 @@ function createButtonClassName({
 
       'border-blue': borderColor === 'blue',
       'border-purple': borderColor === 'purple',
-
-      'bg-black': backgroundColor === 'black',
-      'bg-red': backgroundColor === 'red',
-      'bg-white': backgroundColor === 'white',
 
       'text-white': textColor === 'white',
       'text-blue': textColor === 'blue',
