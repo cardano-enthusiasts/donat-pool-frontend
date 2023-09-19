@@ -30,7 +30,7 @@ function DonatPools() {
           All Donat.Pools
         </h1>
         <div className="max-md:fixed max-md:bottom-15 max-md:right-8 max-md:z-[1]">
-          <PrimaryLink size="lg" textColor="black" href={ROUTES.newDonatPool}>
+          <PrimaryLink size="lg" href={ROUTES.newDonatPool}>
             Create Donat.Pool
           </PrimaryLink>
         </div>
