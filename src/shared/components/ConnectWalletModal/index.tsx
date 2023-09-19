@@ -4,7 +4,7 @@ import cn from 'classnames';
 import Link from 'next/link';
 import { useMemo, useState } from 'react';
 
-import { Modal, Checkbox, WalletLogo, SecondaryLink } from '@/shared/components';
+import { Modal, Checkbox, WalletLogo, SecondaryLink, SecondaryButton } from '@/shared/components';
 import { ROUTES } from '@/shared/constants';
 import { useCardano } from '@/shared/hooks';
 import type { WalletCardanoKey } from '@/shared/types';
@@ -98,9 +98,15 @@ function ConnectWalletModal({ onWalletConnect, onClose }: Props) {
           );
         })}
       </ul>
-      <SecondaryLink stretchy size="lg" textTheme="blue" href={ROUTES.home}>
-        Back to Home page
-      </SecondaryLink>
+      {onClose ? (
+        <SecondaryButton backgroundTheme="black" borderTheme="blue" stretchy onClick={onClose}>
+          Cancel
+        </SecondaryButton>
+      ) : (
+        <SecondaryLink stretchy size="lg" textTheme="blue" href={ROUTES.home}>
+          Back to Home page
+        </SecondaryLink>
+      )}
     </Modal>
   );
 }

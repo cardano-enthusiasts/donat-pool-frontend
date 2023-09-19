@@ -12,18 +12,21 @@ import {
   RaisedCounter,
   Layout,
   Loader,
+  ConnectWalletModal,
   QuaternaryButton,
 } from '@/shared/components';
 import { convertLovelaceToADA, formatDate } from '@/shared/helpers';
-import { useQueriedDonatPool, useDonate } from '@/shared/hooks';
+import { useQueriedDonatPool, useDonate, useCardano } from '@/shared/hooks';
 
 function DonatPool() {
   const dispatch = useAppDispatch();
   const { isBeingFetched: donatPoolIsBeingFetched, donatPool, fetchError: fetchDonatPoolError } = useQueriedDonatPool();
-  const [modalIsShown, setModalIsShown] = useState(false);
+  const { connectedWalletCardanoKey } = useCardano();
+  const [modalDonateIsShown, setModalDonateIsShown] = useState(false);
   const [modalErrorIsShown, setModalErrorIsShown] = useState(false);
   const [modalLoadingIsShown, setModalLoadingIsShown] = useState(false);
   const [modalSuccessIsShown, setModalSuccessIsShown] = useState(false);
+  const [modalConnectIsShown, setModalConnectIsShown] = useState(false);
   const donate = useDonate();
 
   const donateStatus = useAppSelector((state) => state.donating.status);
@@ -36,7 +39,7 @@ function DonatPool() {
     const requestIsSuccessful = donateStatus === 'success';
     const requestWithError = donateStatus === 'error';
     if (requesting || requestIsSuccessful || requestWithError) {
-      setModalIsShown(false);
+      setModalDonateIsShown(false);
     }
     if (requestIsSuccessful) {
       setModalSuccessIsShown(true);
@@ -47,11 +50,15 @@ function DonatPool() {
   }, [donateStatus]);
 
   function handleDonateButtonClick() {
-    setModalIsShown(true);
+    if (connectedWalletCardanoKey) {
+      setModalDonateIsShown(true);
+    } else {
+      setModalConnectIsShown(true);
+    }
   }
 
   function handleDonateModalClose() {
-    setModalIsShown(false);
+    setModalDonateIsShown(false);
   }
 
   function handleErrorModalClose() {
@@ -64,13 +71,24 @@ function DonatPool() {
     dispatch(reset());
   }
 
+  function handleConnectModalClose() {
+    setModalConnectIsShown(false);
+  }
+
+  function handleWalletConnect() {
+    setModalDonateIsShown(true);
+    setModalConnectIsShown(false);
+  }
+
   return (
-    <Layout error={fetchDonatPoolError}>
-      {donatPoolIsBeingFetched && <Loader />}
-      {donatPool && (
-        <div className="pb-40 pt-20">
-          <h1
-            className="mb-6
+    <Layout error={JSON.stringify(fetchDonatPoolError)}>
+      {donatPoolIsBeingFetched ? (
+        <Loader />
+      ) : (
+        donatPool && (
+          <div className="pb-40 pt-20">
+            <h1
+              className="mb-6
               overflow-hidden
               text-ellipsis
               whitespace-nowrap
@@ -80,26 +98,27 @@ function DonatPool() {
               text-red
               max-lg:text-[2.25rem]
               max-sm:text-[2.25rem]"
-          >
-            {donatPool.title}
-          </h1>
-          <div className="border-b-2 border-t-2 border-black py-6 text-center text-xl font-bold">
-            Until {formatDate(Number(donatPool.deadline))}
+            >
+              {donatPool.title}
+            </h1>
+            <div className="border-b-2 border-t-2 border-black py-6 text-center text-xl font-bold">
+              Until {formatDate(Number(donatPool.deadline))}
+            </div>
+            <div className="mb-10 mt-6">
+              <RaisedCounter
+                raised={convertLovelaceToADA(donatPool.raisedAmt)}
+                goal={convertLovelaceToADA(donatPool.goal)}
+              />
+            </div>
+            <div className="flex justify-center">
+              <QuaternaryButton size="lg" onClick={handleDonateButtonClick}>
+                Donate
+              </QuaternaryButton>
+            </div>
           </div>
-          <div className="mb-10 mt-6">
-            <RaisedCounter
-              raised={convertLovelaceToADA(donatPool.raisedAmt)}
-              goal={convertLovelaceToADA(donatPool.goal)}
-            />
-          </div>
-          <div className="flex justify-center">
-            <QuaternaryButton size="lg" onClick={handleDonateButtonClick}>
-              Donate
-            </QuaternaryButton>
-          </div>
-        </div>
+        )
       )}
-      {donatPool && modalIsShown && (
+      {donatPool && modalDonateIsShown && (
         <ModalDonate
           data={{
             threadTokenCurrency: donatPool.threadTokenCurrency,
@@ -108,6 +127,9 @@ function DonatPool() {
           donate={donate}
           onClose={handleDonateModalClose}
         />
+      )}
+      {!connectedWalletCardanoKey && modalConnectIsShown && (
+        <ConnectWalletModal onWalletConnect={handleWalletConnect} onClose={handleConnectModalClose} />
       )}
       {modalErrorIsShown && (
         <ModalError
