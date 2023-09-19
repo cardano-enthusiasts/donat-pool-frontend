@@ -2,62 +2,53 @@ import cn from 'classnames';
 
 import type { CommonProps } from './types';
 
-function createWrapperClassName({ stretchy = false, platformBorderTheme = 'blue' }: CommonProps) {
-  return cn(
-    `relative
-    z-0
-    inline-block
-    before:absolute
-    before:-bottom-1
-    before:-left-1
-    before:-z-[1]
-    before:h-full
-    before:w-full
-    before:rounded-md
-    before:border-2`,
-    {
-      'w-full': stretchy,
-
-      'before:border-blue': platformBorderTheme === 'blue',
-      'before:border-purple': platformBorderTheme === 'purple',
-    },
-  );
-}
-
 function createButtonClassName({
+  stretchy = false,
   size = 'md',
   withIcon = false,
-  borderTheme = 'blue',
-  backgroundTheme = 'black',
-  textTheme = 'white',
+  borderColor = 'blue',
+  backgroundColor = 'black',
+  textColor = 'white',
+  shadowColor = 'blackBlue',
 }: CommonProps) {
   return cn(
     `${withIcon ? 'inline-flex justify-center items-center gap-x-2.5' : 'inline-block text-center'}
-    w-full
     rounded-md
     border-2
     font-bold
-    transition-transform
+    transition-[transform,box-shadow]
     duration-500
     active:-translate-x-0.5
     active:translate-y-0.5`,
     {
+      'w-full': stretchy,
+
       'px-3.5 py-2': size === 'md',
       'text-xs': size === 'md' && withIcon,
       'text-base/[1.3125rem]': size === 'md' && !withIcon,
       'px-4.5 py-2.5 text-xl/[1.625rem]': size === 'lg',
 
-      'border-blue': borderTheme === 'blue',
-      'border-purple': borderTheme === 'purple',
+      'border-blue': borderColor === 'blue',
+      'border-purple': borderColor === 'purple',
 
-      'bg-black': backgroundTheme === 'black',
-      'bg-red': backgroundTheme === 'red',
-      'bg-white': backgroundTheme === 'white',
+      'bg-black': backgroundColor === 'black',
+      'bg-red': backgroundColor === 'red',
+      'bg-white': backgroundColor === 'white',
 
-      'text-white': textTheme === 'white',
-      'text-blue': textTheme === 'blue',
+      'text-white': textColor === 'white',
+      'text-blue': textColor === 'blue',
+
+      [`shadow-[-0.25rem_0.25rem_0_-0.125rem_theme(colors.black),-0.25rem_0.25rem_theme(colors.blue.DEFAULT)]
+      active:shadow-[-0.125rem_0.125rem_0_-0.125rem_theme(colors.black),-0.125rem_0.125rem_theme(colors.blue.DEFAULT)]`]:
+        shadowColor === 'blackBlue',
+      [`shadow-[-0.25rem_0.25rem_0_-0.125rem_theme(colors.red),-0.25rem_0.25rem_theme(colors.purple)]
+      active:shadow-[-0.125rem_0.125rem_0_-0.125rem_theme(colors.red),-0.125rem_0.125rem_theme(colors.purple)]`]:
+        shadowColor === 'redPurple',
+      [`shadow-[-0.25rem_0.25rem_0_-0.125rem_theme(colors.white),-0.25rem_0.25rem_theme(colors.blue.DEFAULT)]
+      active:shadow-[-0.125rem_0.125rem_0_-0.125rem_theme(colors.white),-0.125rem_0.125rem_theme(colors.blue.DEFAULT)]`]:
+        shadowColor === 'whiteBlue',
     },
   );
 }
 
-export { createWrapperClassName, createButtonClassName };
+export { createButtonClassName };

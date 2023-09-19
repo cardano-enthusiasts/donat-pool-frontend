@@ -17,7 +17,7 @@ function ContactUsButton() {
 
   return (
     <>
-      <PrimaryButton shadowColor="darkGreen" disabled onClick={handleClick}>
+      <PrimaryButton shadowColor="darkGreen" onClick={handleClick}>
         Contact us
       </PrimaryButton>
       {modalIsShown && <ContactUsModal onClose={handleModalClose} />}
