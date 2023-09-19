@@ -1,4 +1,4 @@
-import { Header, Footer } from '@/shared/components';
+import { Header, ErrorBanner, Footer } from '@/shared/components';
 
 import type { Props } from './types';
 
@@ -6,10 +6,9 @@ function Layout({ children, error }: Props) {
   return (
     <div className="mx-auto flex min-h-screen max-w-screen-fhd flex-col">
       <Header />
-      {error && <div className="base-wrapper bg-error py-5 text-center font-bold text-white">{error}</div>}
+      {error && <ErrorBanner>{error}</ErrorBanner>}
       <main
-        className="w-full
-          flex-grow
+        className="flex-grow
           px-20
           pb-40
           pt-20

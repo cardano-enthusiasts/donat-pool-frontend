@@ -41,6 +41,13 @@ module.exports = {
       fontSize: {
         'menu-default': ['0.9375rem', '1rem'],
         'menu-active': ['3.375rem', '3.5rem'],
+        'body-bold': [
+          '1rem',
+          {
+            lineHeight: '1.3125rem',
+            fontWeight: 700,
+          },
+        ],
       },
       gridTemplateColumns: {
         projects: 'repeat(auto-fill, minmax(20.3125rem, 1fr))',

@@ -3,6 +3,8 @@
 import { Dialog } from '@headlessui/react';
 import cn from 'classnames';
 
+import { ErrorBanner } from '@/shared/components';
+
 import type { Props } from './types';
 
 function Modal({
@@ -31,9 +33,7 @@ function Modal({
           },
         )}
       >
-        {error && (
-          <div className="rounded-t-md bg-error px-20 py-5 text-center font-bold text-white max-md:px-5">{error}</div>
-        )}
+        {error && <ErrorBanner>{error}</ErrorBanner>}
         <div className="px-10 pb-15 pt-10 max-md:p-5">
           {title && (
             <Dialog.Title
