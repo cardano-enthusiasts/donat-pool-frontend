@@ -8,7 +8,7 @@ import { AboutUs, Footer, HowItWorks, Roadmap, TitleAndDescription, Waves, WhyCh
 import { useWindowScroll } from '@/shared/hooks';
 import type { LandingSection } from '@/shared/types';
 
-import CLASSES from './constants';
+import { CLASSES } from './constants';
 import type { Props, Content, Section, Refs } from './types';
 
 const LandingContent = forwardRef(function LandingContent(

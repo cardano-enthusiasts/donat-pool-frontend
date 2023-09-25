@@ -29,7 +29,7 @@ function Input({
     disabled,
   };
   const isError = error !== null;
-  const inputClasses = cn(styles.input, 'border-2', {
+  const inputClasses = cn(styles.input, {
     'border-error text-error': isError,
     'border-black text-green': !isError && fontColor === 'green',
     'border-black text-yellow': !isError && fontColor === 'yellow',
@@ -67,7 +67,29 @@ function Input({
             onWheel={handleWheel}
           />
         )}
-        {error !== '' && error !== null && <div className={`${styles.message} bg-error text-white`}>{error}</div>}
+        {error !== '' && error !== null && (
+          <div
+            className="absolute
+              right-[-15.625rem]
+              top-0
+              ml-[0.375rem]
+              w-[15.25rem]
+              rounded-b-md
+              rounded-t-md
+              rounded-tl-none
+              bg-error
+              p-3
+              text-white
+              after:absolute
+              after:-top-3
+              after:left-[-0.375rem]
+              after:h-[0.375rem]
+              after:w-[0.375rem]
+              after:content-[url('/icons/tooltip.svg')]"
+          >
+            {error}
+          </div>
+        )}
       </div>
     </div>
   );
