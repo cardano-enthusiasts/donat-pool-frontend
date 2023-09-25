@@ -7,7 +7,6 @@ import { roadmapText } from '@/shared/data';
 import { isSubItem } from '@/shared/type-guards';
 import type { Item, SubItem } from '@/shared/types';
 
-import styles from './styles.module.css';
 import type { Props } from './types';
 
 function Roadmap({ active }: Props) {
@@ -22,17 +21,16 @@ function Roadmap({ active }: Props) {
   return (
     <div className="relative">
       <div
-        className={`${styles.wrapper}
-          relative
+        className="relative
           h-[43.75rem]
           w-[90%]
-          rotate-[30deg]
           overflow-hidden
           text-4xl/normal
           font-bold
+          [transform:perspective(50rem)_rotateX(30deg)]
           max-lg:left-0
           max-lg:ml-0
-          max-sm:text-xl`}
+          max-sm:text-xl"
       >
         <div className={cn('absolute top-[100%] text-yellow', { 'animate-roadmap': active })}>
           {roadmapText.phases.map(({ title, items }) => (

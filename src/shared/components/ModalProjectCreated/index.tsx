@@ -6,7 +6,6 @@ import { Modal, SecondaryButton, PrimaryButton } from '@/shared/components';
 import { ROUTES } from '@/shared/constants';
 import HappyCatImage from '@public/images/happy-cat.svg';
 
-import styles from './styles.module.css';
 import type { Props } from './types';
 
 function ModalProjectCreated({ path, onClose }: Props) {
@@ -59,7 +58,7 @@ function ModalProjectCreated({ path, onClose }: Props) {
           </>
         ) : (
           <>
-            <a className={`${styles.link} text-blue`}>{link}</a>
+            <a className="mb-6 text-center text-xl font-bold text-blue [overflow-wrap:anywhere]">{link}</a>
             <PrimaryButton stretchy size="lg" onClick={handleCopyLinkClick}>
               Copy link and share
             </PrimaryButton>

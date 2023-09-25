@@ -1,7 +1,6 @@
 import { Modal, SecondaryButton } from '@/shared/components';
 import BittenDonutImage from '@public/images/bitten-donut.svg';
 
-import styles from './styles.module.css';
 import type { Props } from './types';
 
 function ModalError({ title, errorText = '', onClose }: Props) {
@@ -20,7 +19,7 @@ function ModalError({ title, errorText = '', onClose }: Props) {
       </h1>
       <div className="flex flex-col items-center">
         <BittenDonutImage className="mb-10" />
-        <div className={styles.text}>{errorText}</div>
+        <div className="mb-6 [overflow-wrap:anywhere]">{errorText}</div>
         <SecondaryButton stretchy size="lg" backgroundTheme="white" textTheme="blue" onClick={onClose}>
           Close button
         </SecondaryButton>

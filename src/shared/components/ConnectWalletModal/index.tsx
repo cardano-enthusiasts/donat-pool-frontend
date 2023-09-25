@@ -99,7 +99,14 @@ function ConnectWalletModal({ onWalletConnect, onClose }: Props) {
         })}
       </ul>
       {onClose ? (
-        <SecondaryButton backgroundTheme="black" borderTheme="blue" stretchy onClick={onClose}>
+        <SecondaryButton
+          stretchy
+          size="lg"
+          backgroundTheme="black"
+          borderTheme="blue"
+          textTheme="blue"
+          onClick={onClose}
+        >
           Cancel
         </SecondaryButton>
       ) : (
