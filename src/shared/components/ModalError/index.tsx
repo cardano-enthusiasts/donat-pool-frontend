@@ -21,7 +21,7 @@ function ModalError({ title, errorText = '', onClose }: Props) {
         <BittenDonutImage className="mb-10" />
         <div className="mb-6 [overflow-wrap:anywhere]">{errorText}</div>
         <SecondaryButton stretchy size="lg" textColor="blue" shadowColor="whiteBlue" onClick={onClose}>
-          Close button
+          Close
         </SecondaryButton>
       </div>
     </Modal>
