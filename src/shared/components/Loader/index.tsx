@@ -1,13 +1,11 @@
 'use client';
 
-import { useCurrentImage } from '@/shared/hooks';
+import Image from 'next/image';
 
-import { images } from './constants';
+import ProgressBarImage from '@public/images/progress-bar.gif';
 
 function Loader() {
-  const image = useCurrentImage(images);
-
-  return <div className="flex w-full justify-center">{image}</div>;
+  return <Image className="mx-auto" src={ProgressBarImage} alt="waking up cat" />;
 }
 
 export default Loader;

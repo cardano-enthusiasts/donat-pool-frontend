@@ -1,35 +1,35 @@
 import NextLink from 'next/link';
 
-import { createWrapperClassName, createButtonClassName } from './helpers';
+import { createButtonClassName } from './helpers';
 import type { LinkProps } from './types';
 
 function Link({
   children,
   stretchy,
   size,
-  platformBackgroundTheme,
-  backgroundTheme,
-  textTheme,
+  backgroundColor,
+  textColor,
+  shadowColor,
   external = false,
   href,
 }: LinkProps) {
   const Link = external ? 'a' : NextLink;
 
   return (
-    <div className={createWrapperClassName({ stretchy, platformBackgroundTheme })}>
-      <Link
-        className={createButtonClassName({
-          size,
-          backgroundTheme,
-          textTheme,
-        })}
-        href={href}
-        target={external ? '_blank' : undefined}
-        rel={external ? 'noreferrer' : undefined}
-      >
-        {children}
-      </Link>
-    </div>
+    <Link
+      className={createButtonClassName({
+        stretchy,
+        size,
+        backgroundColor,
+        textColor,
+        shadowColor,
+      })}
+      href={href}
+      target={external ? '_blank' : undefined}
+      rel={external ? 'noreferrer' : undefined}
+    >
+      {children}
+    </Link>
   );
 }
 

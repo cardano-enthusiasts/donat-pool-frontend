@@ -1,7 +1,8 @@
 'use client';
 
+import { useState, useEffect } from 'react';
+
 import { Modal } from '@/shared/components';
-import { useCurrentImage } from '@/shared/hooks';
 
 import { images } from './constants';
 import type { Props } from './types';
@@ -10,7 +11,24 @@ function ModalLoading({
   title = 'Please wait...',
   description = 'Please wait a bit. We are preparing your donut',
 }: Props) {
-  const image = useCurrentImage(images);
+  const [image, setImage] = useState(images[0]);
+
+  useEffect(() => {
+    let i = 0;
+    const intervalId = setInterval(() => {
+      if (i > images.length - 2) {
+        i = 0;
+      } else {
+        i = i + 1;
+      }
+
+      setImage(images[i]);
+    }, 500);
+
+    return () => {
+      clearInterval(intervalId);
+    };
+  }, []);
 
   return (
     <Modal>

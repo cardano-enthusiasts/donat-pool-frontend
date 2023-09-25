@@ -8,6 +8,7 @@ function Button({
   platformTheme,
   backgroundTheme,
   textTheme,
+  textThemeOnHover,
   animation,
   type = 'button',
   onClick,
@@ -15,7 +16,7 @@ function Button({
   return (
     <div className={createWrapperClassName({ stretchy, platformTheme, animation })}>
       <button
-        className={createButtonClassName({ size, backgroundTheme, textTheme, animation })}
+        className={createButtonClassName({ size, backgroundTheme, textTheme, textThemeOnHover, animation })}
         type={type}
         onClick={onClick}
       >

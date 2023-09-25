@@ -2,50 +2,41 @@ import cn from 'classnames';
 
 import type { CommonProps } from './types';
 
-function createWrapperClassName({ stretchy = false, platformBackgroundTheme = 'blue' }: CommonProps) {
+function createButtonClassName({
+  stretchy = false,
+  size = 'md',
+  backgroundColor = 'red',
+  textColor = 'white',
+  shadowColor = 'blue',
+}: CommonProps) {
   return cn(
-    `relative
-    z-0
-    inline-block
-    before:absolute
-    before:-bottom-1
-    before:-left-1
-    before:-z-[1]
-    before:h-full
-    before:w-full
-    before:rounded-md`,
-    {
-      'w-full': stretchy,
-
-      'before:bg-blue': platformBackgroundTheme === 'blue',
-      'before:bg-green-dark': platformBackgroundTheme === 'darkGreen',
-    },
-  );
-}
-
-function createButtonClassName({ size = 'md', backgroundTheme = 'red', textTheme = 'white' }: CommonProps) {
-  return cn(
-    `w-full
-    inline-block
+    `inline-block
     rounded-md
     font-bold
     text-center
-    transition-transform
+    shadow
+    transition-[transform,box-shadow]
     duration-500
     active:-translate-x-0.5
-    active:translate-y-0.5`,
+    active:translate-y-0.5
+    active:shadow-pressed`,
     {
+      'w-full': stretchy,
+
       'px-4 py-2.5 text-base/[1.3125rem]': size === 'md',
       'px-5 py-3 text-xl/[1.625rem]': size === 'lg',
 
-      'bg-red': backgroundTheme === 'red',
-      'bg-blue': backgroundTheme === 'blue',
-      'bg-green': backgroundTheme === 'green',
+      'bg-red': backgroundColor === 'red',
+      'bg-blue': backgroundColor === 'blue',
+      'bg-green': backgroundColor === 'green',
 
-      'text-white': textTheme === 'white',
-      'text-black': textTheme === 'black',
+      'text-white': textColor === 'white',
+      'text-black': textColor === 'black',
+
+      'shadow-blue active:shadow-blue': shadowColor === 'blue',
+      'shadow-green-dark active:shadow-green-dark': shadowColor === 'darkGreen',
     },
   );
 }
 
-export { createWrapperClassName, createButtonClassName };
+export { createButtonClassName };

@@ -99,18 +99,11 @@ function ConnectWalletModal({ onWalletConnect, onClose }: Props) {
         })}
       </ul>
       {onClose ? (
-        <SecondaryButton
-          stretchy
-          size="lg"
-          backgroundTheme="black"
-          borderTheme="blue"
-          textTheme="blue"
-          onClick={onClose}
-        >
+        <SecondaryButton stretchy size="lg" textColor="blue" onClick={onClose}>
           Cancel
         </SecondaryButton>
       ) : (
-        <SecondaryLink stretchy size="lg" textTheme="blue" href={ROUTES.home}>
+        <SecondaryLink stretchy size="lg" textColor="blue" href={ROUTES.home}>
           Back to Home page
         </SecondaryLink>
       )}

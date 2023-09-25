@@ -44,6 +44,7 @@ function createButtonClassName({
   size = 'md',
   backgroundTheme = 'yellow',
   textTheme = 'red',
+  textThemeOnHover = 'blue',
   animation = 'onPress',
 }: CommonProps) {
   return cn(
@@ -64,6 +65,8 @@ function createButtonClassName({
 
       'text-red': textTheme === 'red',
       'text-green': textTheme === 'green',
+      'hover:text-blue': textThemeOnHover === 'blue',
+      'hover:text-yellow': textThemeOnHover === 'yellow',
 
       'animate-[quaternaryButtonPress_5s_infinite]': animation === 'continuous',
       'transition-transform duration-500 active:-translate-x-3 active:translate-y-3': animation === 'onPress',

@@ -43,13 +43,13 @@ interface FetchedDonatPool {
 }
 
 interface DonatPool {
+  title: string;
   creator: string | null;
   goal: number;
   raisedAmt: number;
   deadline: number;
-  title: string;
-  threadTokenCurrency: string;
   threadTokenName: string;
+  threadTokenCurrency: string;
   isCompleted: boolean;
 }
 

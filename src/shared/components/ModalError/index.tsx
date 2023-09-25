@@ -20,8 +20,8 @@ function ModalError({ title, errorText = '', onClose }: Props) {
       <div className="flex flex-col items-center">
         <BittenDonutImage className="mb-10" />
         <div className="mb-6 [overflow-wrap:anywhere]">{errorText}</div>
-        <SecondaryButton stretchy size="lg" backgroundTheme="white" textTheme="blue" onClick={onClose}>
-          Close button
+        <SecondaryButton stretchy size="lg" textColor="blue" shadowColor="whiteBlue" onClick={onClose}>
+          Close
         </SecondaryButton>
       </div>
     </Modal>

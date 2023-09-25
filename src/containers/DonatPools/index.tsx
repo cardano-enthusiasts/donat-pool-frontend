@@ -1,4 +1,5 @@
 'use client';
+
 import { useMemo } from 'react';
 
 import { useFetchDonatPoolsQuery } from '@/redux/slices/backEnd';
@@ -6,40 +7,35 @@ import { Layout, PrimaryLink, ProjectCard, Loader, FakeDonatPoolCard } from '@/s
 import { ROUTES } from '@/shared/constants';
 
 function DonatPools() {
-  const { data: donatPools, error: fetchDonatPoolsError, isLoading } = useFetchDonatPoolsQuery();
-
+  const { isFetching: areBeingFetched, data: donatPools, error: fetchError } = useFetchDonatPoolsQuery();
   const activeDonatPools = useMemo(() => donatPools?.filter(({ isCompleted }) => !isCompleted), [donatPools]);
 
   return (
-    <Layout error={JSON.stringify(fetchDonatPoolsError)}>
+    <Layout error={JSON.stringify(fetchError)}>
       <div
-        className="mb-14
-          flex
-          items-center
-          justify-between
-          gap-14
-          text-center
+        className="mb-15
           max-md:mb-8
-          max-md:flex-col
-          max-md:gap-5"
+          md:flex
+          md:flex-wrap
+          md:items-center
+          md:justify-between
+          md:gap-x-5"
       >
         <h1
           className="font-rammetto-one
-            text-[3.375rem]/[104%]
+            text-menu-active
             text-red
-            max-lg:text-[2.25rem]
-            max-sm:text-[2.25rem]"
+            max-md:text-[2.25rem]/[2.25rem]"
         >
           All Donat.Pools
         </h1>
-        <div className="max-md:fixed max-md:bottom-15 max-md:right-8">
+        <div className="max-md:fixed max-md:bottom-15 max-md:right-8 max-md:z-[1]">
           <PrimaryLink size="lg" href={ROUTES.newDonatPool}>
             Create Donat.Pool
           </PrimaryLink>
         </div>
       </div>
-
-      {isLoading ? (
+      {areBeingFetched ? (
         <Loader />
       ) : (
         activeDonatPools &&

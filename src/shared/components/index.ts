@@ -43,6 +43,7 @@ export { default as TitleAndDescription } from './TitleAndDescription';
 export { default as Tutorial } from './Tutorial';
 export { default as LandingContent } from './LandingContent';
 export { default as DropdownSection } from './DropdownSection';
+export { default as ErrorBanner } from './ErrorBanner';
 export { default as AlertNote } from './AlertNote';
 export { default as Line } from './Line';
 export { default as Ul } from './Ul';
