@@ -1,10 +1,12 @@
 'use client';
 
+import { isAxiosError } from 'axios';
 import { useRouter } from 'next/navigation';
 import { useState, useEffect } from 'react';
 
 import { useAppSelector, useAppDispatch } from '@/redux/hooks';
 import { reset } from '@/redux/slices/createFundraising';
+import backEnd from '@/shared/backEnd';
 import {
   Checkbox,
   Input,
@@ -18,7 +20,7 @@ import {
 import { ROUTES } from '@/shared/constants';
 import { useCreateDonatPool } from '@/shared/hooks';
 
-import type { FormError, Props } from './types';
+import type { FormError, ModerationResponse, Props } from './types';
 
 function CreationForm({ protocol, onClose }: Props) {
   const { minAmountParam, maxAmountParam, minDurationParam, maxDurationParam } = protocol;
@@ -38,6 +40,7 @@ function CreationForm({ protocol, onClose }: Props) {
     durationHours: '',
     durationMinutes: '',
   });
+  const [backEndError, setBackEndError] = useState<string | null>(null);
   const { error: createError, status, path } = useAppSelector((state) => state.createFundraising);
 
   useEffect(() => {
@@ -67,8 +70,17 @@ function CreationForm({ protocol, onClose }: Props) {
   const anyError =
     titleIsEmpty || goalIsLessThanMin || goalIsMoreThanMax || durationIsLessThanMin || durationIsMoreThanMax;
 
-  function setErrorsToForm() {
-    const title = titleIsEmpty ? 'Please fill in the title field' : null;
+  function getTitleError(isAcceptable: boolean) {
+    if (titleIsEmpty) {
+      return 'Please fill in the title field';
+    } else if (!isAcceptable) {
+      return 'Please enter a valid title';
+    }
+    return null;
+  }
+
+  function setErrorsToForm(isAcceptable: boolean) {
+    const title = getTitleError(isAcceptable);
     const goal = goalIsLessThanMin
       ? 'The amount is less than the minimum value'
       : goalIsMoreThanMax
@@ -91,21 +103,31 @@ function CreationForm({ protocol, onClose }: Props) {
     setLoadingModalIsShown(status === 'requesting');
   }, [status]);
 
-  function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+  async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    if (anyError) {
-      setErrorsToForm();
-    } else {
-      const createDonatPoolParams = {
-        title: data.title,
-        amount: Number(data.goal),
-        duration: {
-          days: Number(data.durationDays),
-          hours: Number(data.durationHours),
-          minutes: Number(data.durationMinutes),
-        },
-      };
-      createDonatPool(createDonatPoolParams);
+    try {
+      const response = await backEnd.post<ModerationResponse>('moderation-api/check-text/', {
+        text: data.title,
+      });
+      const isAcceptable = response.data.is_acceptable;
+
+      if (anyError || !isAcceptable) {
+        setErrorsToForm(isAcceptable);
+      } else {
+        const createDonatPoolParams = {
+          title: data.title,
+          amount: Number(data.goal),
+          duration: {
+            days: Number(data.durationDays),
+            hours: Number(data.durationHours),
+            minutes: Number(data.durationMinutes),
+          },
+        };
+        createDonatPool(createDonatPoolParams);
+      }
+    } catch (error) {
+      setErrorModalIsShown(true);
+      setBackEndError(isAxiosError(error) ? String(error.message) : 'Unknown error');
     }
   }
 
@@ -132,12 +154,13 @@ function CreationForm({ protocol, onClose }: Props) {
 
   function handleErrorModalClose() {
     setErrorModalIsShown(false);
+    setBackEndError(null);
     dispatch(reset());
   }
 
   return (
     <>
-      <form className="grid w-full max-w-[37.5rem] grid-cols-1 gap-y-6" onSubmit={handleSubmit}>
+      <form className="grid w-full max-w-[37.5rem] grid-cols-1 gap-y-6" onSubmit={(event) => void handleSubmit(event)}>
         <Input
           value={data.title}
           onChange={(event) => {
@@ -219,7 +242,11 @@ function CreationForm({ protocol, onClose }: Props) {
       {successModalIsShown && <ModalProjectCreated path={createdPath} onClose={handleProjectCreatedModalClose} />}
       {loadingModalIsShown && <ModalLoading />}
       {errorModalIsShown && (
-        <ModalError title="New Donat.Pool" errorText={createError} onClose={handleErrorModalClose} />
+        <ModalError
+          title="New Donat.Pool"
+          errorText={backEndError ? backEndError : createError}
+          onClose={handleErrorModalClose}
+        />
       )}
     </>
   );

@@ -27,4 +27,8 @@
   button:disabled {
     @apply cursor-not-allowed;
   }
+
+  nextjs-portal {
+    display: none;
+  }
 }

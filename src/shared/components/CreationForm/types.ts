@@ -11,4 +11,8 @@ interface FormError {
   goal: string | null;
 }
 
-export type { Props, FormError };
+interface ModerationResponse {
+  is_acceptable: boolean;
+}
+
+export type { Props, FormError, ModerationResponse };
