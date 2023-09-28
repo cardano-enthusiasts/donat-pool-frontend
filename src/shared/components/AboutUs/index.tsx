@@ -23,7 +23,6 @@ function AboutUs() {
         <div
           className={`${COMMON_ROW_CLASSES}
             relative
-            z-0
             mb-[8.75rem]
             mt-15
             flex
@@ -56,6 +55,7 @@ function AboutUs() {
           className="absolute
             bottom-[-25%]
             right-[-3.125rem]
+            z-0
             h-[31.25rem]
             w-[83.125rem]
             bg-[url('/images/white-dots.svg')]

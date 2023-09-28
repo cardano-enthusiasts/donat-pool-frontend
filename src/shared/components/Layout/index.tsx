@@ -4,11 +4,14 @@ import type { Props } from './types';
 
 function Layout({ children, error }: Props) {
   return (
-    <div className="mx-auto flex min-h-screen max-w-screen-fhd flex-col">
+    <div className="mx-auto flex min-h-screen flex-col">
       <Header />
       {error && <ErrorBanner>{error}</ErrorBanner>}
       <main
-        className="flex-grow
+        className="mx-auto
+          w-full
+          max-w-screen-fhd
+          flex-grow
           px-20
           pb-40
           pt-20
