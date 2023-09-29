@@ -44,11 +44,11 @@ function Header() {
           >
             <nav
               className="max-md:border-b-2
-              max-md:border-b-purple
-              max-md:pb-10
-              md:border-r-2
-              md:border-r-purple
-              md:pr-10"
+                max-md:border-b-purple
+                max-md:pb-10
+                md:border-r-2
+                md:border-r-purple
+                md:pr-10"
             >
               <ul className="flex flex-wrap gap-x-10 max-md:flex-col max-md:gap-y-10">
                 {LINKS.map(({ title, href }) => (
