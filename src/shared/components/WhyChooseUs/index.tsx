@@ -20,7 +20,7 @@ function WhyChooseUs() {
             backgroundColor="blue"
             shadowColor="darkGreen"
             external
-            href="https://github.com/fullstack-development/donat-pool-onchain"
+            href="https://github.com/cardano-enthusiasts/donat-pool-onchain"
           >
             On-chain code
           </PrimaryLink>
@@ -30,7 +30,7 @@ function WhyChooseUs() {
             backgroundColor="green"
             textColor="black"
             external
-            href="https://github.com/fullstack-development/donat-pool-offchain"
+            href="https://github.com/cardano-enthusiasts/donat-pool-offchain"
           >
             Off-chain code
           </PrimaryLink>

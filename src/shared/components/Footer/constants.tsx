@@ -5,7 +5,7 @@ import TwitterLogo from '@public/icons/twitter.svg';
 const SOCIALS = [
   {
     logo: <GithubLogo />,
-    href: 'https://github.com/fullstack-development',
+    href: 'https://github.com/cardano-enthusiasts',
   },
   {
     logo: <TwitterLogo />,
