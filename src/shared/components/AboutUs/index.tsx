@@ -18,7 +18,7 @@ function AboutUs() {
   }
 
   return (
-    <div className="mb-36 max-xl:mb-10 max-md:mb-0">
+    <div className="pb-36 max-xl:pb-10 max-md:pb-0">
       <div className="relative flex flex-col items-center">
         <div
           className={`${COMMON_ROW_CLASSES}
@@ -63,7 +63,7 @@ function AboutUs() {
             max-1.5xl:hidden"
         />
       </div>
-      <div className="mb-10">
+      <div className="pb-10">
         <Stack />
       </div>
     </div>

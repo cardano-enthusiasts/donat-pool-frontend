@@ -12,7 +12,7 @@ import { CLASSES } from './constants';
 import type { Props, Content, Section, Refs } from './types';
 
 const LandingContent = forwardRef(function LandingContent(
-  { setAnimationIsActive, currentSection, setCurrentSection }: Props,
+  { currentSection, setCurrentSection }: Props,
   navRef: ForwardedRef<HTMLElement> | null,
 ) {
   const windowScroll = useWindowScroll();
@@ -24,12 +24,6 @@ const LandingContent = forwardRef(function LandingContent(
 
   const [isHomeAnimationActive, setIsHomeAnimationActive] = useState(false);
   const [isRoadmapAnimationActive, setIsRoadmapAnimationActive] = useState(false);
-
-  useEffect(() => {
-    if (homeRef.current && windowScroll > homeRef.current.getBoundingClientRect().top) {
-      setAnimationIsActive(false);
-    }
-  }, [windowScroll, homeRef.current]);
 
   useEffect(() => {
     if (currentSection === 'roadmap') {

@@ -1,24 +1,10 @@
 'use client';
 
 import cn from 'classnames';
-import { useEffect, useState } from 'react';
-
-import { useWindowSize } from '@/shared/hooks';
 
 import type { Props } from './types';
 
 function Waves({ color = 'blue', backgroundColor = 'transparent', upsideDown = false, moving = true }: Props) {
-  const [viewBoxWidth, setViewBoxWidth] = useState<600 | 1000>(1000);
-  const size = useWindowSize();
-
-  useEffect(() => {
-    if (size.width < 1280) {
-      setViewBoxWidth(600);
-    } else {
-      setViewBoxWidth(1000);
-    }
-  }, [size.width]);
-
   return (
     <div
       className={cn('relative h-[6.25rem] text-center', {
@@ -34,7 +20,7 @@ function Waves({ color = 'blue', backgroundColor = 'transparent', upsideDown = f
         className={cn('relative mb-[-0.4375rem] h-[6.25rem] max-w-full', {
           'rotate-180': upsideDown,
         })}
-        viewBox={`200 0 ${viewBoxWidth} 100`}
+        viewBox="200 0 700 100"
         width="100%"
         fill="none"
         xmlnsXlink="http://www.w3.org/2000/xlink"
