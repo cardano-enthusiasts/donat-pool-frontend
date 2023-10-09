@@ -27,7 +27,7 @@ function Roadmap({ active }: Props) {
           overflow-hidden
           text-4xl/normal
           font-bold
-          [transform:perspective(50rem)_rotateX(30deg)]
+          [transform:perspective(50rem)_rotateX(39deg)]
           max-lg:left-0
           max-lg:ml-0
           max-sm:text-xl"

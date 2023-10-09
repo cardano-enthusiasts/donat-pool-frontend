@@ -18,7 +18,7 @@ function HelloSection() {
             max-w-[48.125rem]
             shrink-0
             max-xl:mt-[10vh]
-            max-xl:max-h-[85vh]
+            max-xl:h-[85vh]
             max-xl:max-w-[90vw]"
         />
       </div>
