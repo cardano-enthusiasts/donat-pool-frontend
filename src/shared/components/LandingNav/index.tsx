@@ -6,7 +6,7 @@ import { forwardRef, useState } from 'react';
 
 import { PrimaryLink, Waves } from '@/shared/components';
 import { ROUTES } from '@/shared/constants';
-import { useWindowScroll, useWindowSize } from '@/shared/hooks';
+import { useWindowSize } from '@/shared/hooks';
 import CloseIcon from '@public/icons/close.svg';
 import MenuIcon from '@public/icons/menu.svg';
 
@@ -14,10 +14,9 @@ import { getSections, LINK_CLASSES, WRAPPER_CLASSES } from './data';
 import type { Props } from './types';
 
 const LandingNav = forwardRef(function LandingNav(
-  { currentSection, animationIsActive, handleSectionClick }: Props,
+  { currentSection, handleSectionClick }: Props,
   ref: ForwardedRef<HTMLDivElement>,
 ) {
-  const windowScroll = useWindowScroll();
   const { width: windowWidth } = useWindowSize();
   const [mobileHeaderIsShown, setMobileHeaderIsShown] = useState(false);
   const mobileResolution = 1280;
@@ -35,9 +34,18 @@ const LandingNav = forwardRef(function LandingNav(
   return (
     <div
       className={cn(
-        'fixed left-20 top-20 [overflow-wrap:break-word] max-xl:fixed max-xl:left-0 max-xl:top-0 max-xl:flex max-xl:w-[100vw] max-xl:items-center max-xl:justify-center',
+        `fixed
+        left-20
+        top-20
+        [overflow-wrap:break-word]
+        max-xl:fixed
+        max-xl:left-0
+        max-xl:top-0
+        max-xl:flex
+        max-xl:w-[100vw]
+        max-xl:items-center
+        max-xl:justify-center`,
         {
-          hidden: windowScroll < 500 && animationIsActive,
           'max-xl:h-[100vh] max-xl:overflow-auto': mobileHeaderIsShown,
         },
         WRAPPER_CLASSES[currentSection],
@@ -45,14 +53,13 @@ const LandingNav = forwardRef(function LandingNav(
       style={windowWidth > 1920 ? { left: `${(windowWidth - 1920) / 2 + 80}px` } : undefined}
     >
       <nav ref={ref}>
-        {windowWidth < mobileResolution && (
-          <>
-            <Icon className="absolute right-5 top-5 h-10 w-10 [&>path]:fill-green" onClick={handleIconClick} />
-            <div className="absolute left-0 right-0 top-0 z-[-1]">
-              <Waves upsideDown color="red" moving={false} />
-            </div>
-          </>
-        )}
+        <div className="hidden max-[1280px]:block">
+          <Icon className="absolute right-5 top-5 h-10 w-10 [&>path]:fill-green" onClick={handleIconClick} />
+          <div className="absolute left-0 right-0 top-0 z-[-1]">
+            <Waves upsideDown color="red" moving={false} />
+          </div>
+        </div>
+
         {contentShown && (
           <div className="flex max-w-[15.3125rem] flex-col gap-6 max-xl:max-w-[18.5rem] max-xl:items-center">
             {getSections(currentSection).map(({ title, active, id }) => (

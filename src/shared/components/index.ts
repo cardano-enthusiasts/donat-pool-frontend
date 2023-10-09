@@ -11,7 +11,7 @@ export { default as CreationForm } from './CreationForm';
 export { default as PrecalculationFee } from './PrecalculationFee';
 export { default as PrimaryButton } from './PrimaryButton/Button';
 export { default as PrimaryLink } from './PrimaryButton/Link';
-export { default as InitialLoading } from './InitialLoading';
+export { default as HelloSection } from './HelloSection';
 export { default as ActionDonuts } from './ActionDonuts';
 export { default as LandingNav } from './LandingNav';
 export { default as Layout } from './Layout';

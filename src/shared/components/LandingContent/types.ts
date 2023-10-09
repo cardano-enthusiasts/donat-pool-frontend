@@ -3,7 +3,6 @@ import type { ReactElement, RefObject } from 'react';
 import type { LandingSection } from '@/shared/types';
 
 interface Props {
-  setAnimationIsActive: (animationIsActive: boolean) => void;
   currentSection: LandingSection;
   setCurrentSection: (landingSecton: LandingSection) => void;
 }

@@ -1,10 +1,8 @@
-import cn from 'classnames';
 import { Fragment } from 'react';
 
 import { COLUMN_1_CLASSES, COLUMN_CLASSES } from './constants';
-import type { Props } from './types';
 
-function ActionDonuts({ animationIsActive }: Props) {
+function ActionDonuts() {
   function getColumns() {
     const donuts: React.ReactNode[] = [];
 
@@ -22,12 +20,15 @@ function ActionDonuts({ animationIsActive }: Props) {
 
   return (
     <div
-      className={cn(
-        'max-w-480 flex h-full w-full justify-center bg-red bg-[length:7.1875rem] bg-repeat max-xl:absolute',
-        {
-          absolute: animationIsActive === false,
-        },
-      )}
+      className="max-w-480
+        absolute
+        flex
+        h-full
+        w-full
+        justify-center
+        bg-red
+        bg-[length:7.1875rem]
+        bg-repeat"
     >
       {getColumns()}
       <div className={COLUMN_1_CLASSES} />

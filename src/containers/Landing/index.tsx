@@ -2,13 +2,12 @@
 
 import { useRef, useState } from 'react';
 
-import { InitialLoading, LandingContent, LandingNav, Waves } from '@/shared/components';
+import { HelloSection, LandingContent, LandingNav } from '@/shared/components';
 import type { LandingSection } from '@/shared/types';
 
 function Landing() {
   const navRef = useRef<HTMLDivElement>(null);
   const [currentSection, setCurrentSection] = useState<LandingSection>('home');
-  const [animationIsActive, setAnimationIsActive] = useState(true);
 
   function handleSectionClick(clickedSection: LandingSection) {
     setCurrentSection(clickedSection);
@@ -17,23 +16,15 @@ function Landing() {
   return (
     <div className="mx-auto flex min-h-screen flex-col">
       <div className="relative">
-        <InitialLoading animationIsActive={animationIsActive} />
-        <div className="absolute bottom-0 w-full">
-          <Waves />
+        <div className="relative z-0">
+          <HelloSection />
+        </div>
+
+        <LandingContent currentSection={currentSection} setCurrentSection={setCurrentSection} ref={navRef} />
+        <div className="relative z-10">
+          <LandingNav currentSection={currentSection} ref={navRef} handleSectionClick={handleSectionClick} />
         </div>
       </div>
-      <LandingContent
-        currentSection={currentSection}
-        setCurrentSection={setCurrentSection}
-        setAnimationIsActive={setAnimationIsActive}
-        ref={navRef}
-      />
-      <LandingNav
-        currentSection={currentSection}
-        ref={navRef}
-        animationIsActive={animationIsActive}
-        handleSectionClick={handleSectionClick}
-      />
     </div>
   );
 }
