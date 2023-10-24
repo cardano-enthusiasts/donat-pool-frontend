@@ -44,7 +44,7 @@ function createButtonClassName({
   size = 'md',
   backgroundTheme = 'yellow',
   textTheme = 'red',
-  textThemeOnHover = 'blue',
+  textThemeOnHover,
   animation = 'onPress',
 }: CommonProps) {
   return cn(
