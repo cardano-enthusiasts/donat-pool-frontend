@@ -55,7 +55,9 @@ function createButtonClassName({
     font-rammetto-one
     text-[2rem]/[1.875rem]
     text-center
-    capitalize`,
+    capitalize
+    max-sm:text-2xl
+    max-sm:py-6`,
     {
       'pt-8.5 pb-[2.0625rem]': size === 'md',
       'pt-[3.0625rem] pb-12': size === 'lg',

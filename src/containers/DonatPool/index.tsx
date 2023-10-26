@@ -108,9 +108,11 @@ function DonatPool() {
               />
             </div>
             <div className="flex justify-center">
-              <QuaternaryButton size="lg" onClick={handleDonateButtonClick}>
-                Donate
-              </QuaternaryButton>
+              <div className="max-sm:max-w-[12.5rem]">
+                <QuaternaryButton size="lg" onClick={handleDonateButtonClick}>
+                  Donate
+                </QuaternaryButton>
+              </div>
             </div>
           </div>
         )
