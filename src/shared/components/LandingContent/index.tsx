@@ -22,7 +22,6 @@ const LandingContent = forwardRef(function LandingContent(
   const aboutUsRef = useRef<HTMLDivElement>(null);
   const contactUsRef = useRef<HTMLDivElement>(null);
 
-  const [isHomeAnimationActive, setIsHomeAnimationActive] = useState(false);
   const [isRoadmapAnimationActive, setIsRoadmapAnimationActive] = useState(false);
 
   useEffect(() => {
@@ -30,12 +29,6 @@ const LandingContent = forwardRef(function LandingContent(
       setIsRoadmapAnimationActive(true);
     }
   }, [currentSection]);
-
-  useEffect(() => {
-    if (homeRef.current) {
-      setIsHomeAnimationActive(window.innerHeight - 400 > homeRef.current.getBoundingClientRect().top);
-    }
-  }, [windowScroll]);
 
   function getRefSection(): LandingSection {
     const refsAreDefined =
@@ -83,7 +76,7 @@ const LandingContent = forwardRef(function LandingContent(
     {
       element: (
         <div className={CLASSES} id="home" ref={homeRef}>
-          <TitleAndDescription active={isHomeAnimationActive} />
+          <TitleAndDescription />
         </div>
       ),
       id: 'home',

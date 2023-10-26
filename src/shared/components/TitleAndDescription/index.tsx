@@ -1,22 +1,10 @@
-import cn from 'classnames';
-
 import { QuaternaryLink } from '@/shared/components';
 import { ROUTES } from '@/shared/constants';
 import BigLogoImage from '@public/images/big-logo.svg';
 
-import type { Props } from './types';
-
-function TitleAndDescription({ active }: Props) {
+function TitleAndDescription() {
   return (
-    <div
-      className={cn(
-        'flex flex-col font-rammetto-one [&>*]:transition-transform [&>*]:duration-1000 [&>*]:ease-in max-lg:[&>*]:translate-y-0 max-lg:[&>*]:transition-none',
-        {
-          '[&>*]:translate-y-0': active,
-          '[&>*]:translate-y-1/2': !active,
-        },
-      )}
-    >
+    <div className="flex flex-col pt-15 font-rammetto-one max-lg:pt-10">
       <BigLogoImage className="mb-[1.875rem] max-w-[48.125rem]" />
       <div
         className="mb-10
@@ -26,7 +14,6 @@ function TitleAndDescription({ active }: Props) {
           text-[3.375rem]/tight
           font-bold
           text-green
-          delay-200
           max-md:text-3xl"
       >
         Crowdfunding on Cardano blockchain for everyone

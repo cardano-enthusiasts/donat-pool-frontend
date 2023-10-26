@@ -89,15 +89,12 @@ function DonatPool() {
           <div className="pb-40 pt-20">
             <h1
               className="mb-6
-              overflow-hidden
-              text-ellipsis
-              whitespace-nowrap
-              text-center
-              font-rammetto-one
-              text-[3.375rem]/[125%]
-              text-red
-              max-lg:text-[2.25rem]
-              max-sm:text-[2.25rem]"
+                text-center
+                font-rammetto-one
+                text-[3.375rem]/[125%]
+                text-red
+                max-lg:text-[2.25rem]
+                max-sm:text-[2.25rem]"
             >
               {donatPool.title}
             </h1>
@@ -111,9 +108,11 @@ function DonatPool() {
               />
             </div>
             <div className="flex justify-center">
-              <QuaternaryButton size="lg" onClick={handleDonateButtonClick}>
-                Donate
-              </QuaternaryButton>
+              <div className="max-sm:max-w-[12.5rem]">
+                <QuaternaryButton size="lg" onClick={handleDonateButtonClick}>
+                  Donate
+                </QuaternaryButton>
+              </div>
             </div>
           </div>
         )

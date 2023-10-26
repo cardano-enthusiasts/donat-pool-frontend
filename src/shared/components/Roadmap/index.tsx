@@ -50,7 +50,7 @@ function Roadmap({ active }: Props) {
           textTheme="green"
           textThemeOnHover="yellow"
           animation="continuous"
-          href={ROUTES.donatPools}
+          href={ROUTES.roadmap}
         >
           All phases
         </QuaternaryLink>
